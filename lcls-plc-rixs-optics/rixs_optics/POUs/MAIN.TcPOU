@@ -88,13 +88,11 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[// M1K2
-M1K2.fbRunHOMS(bBenderIncluded:=FALSE,
-               stYup:=M1,
+M1K2.fbRunHOMS(stYup:=M1,
                stYdwn:=M2,
                stXup:=M3,
                stXdwn:=M4,
                stPitch:=M5,
-			   stBender:=M_None,
 	           nYupEncRef:=GVL_M1K2_Constants.nYLEFT_ENC_REF,
                nYdwnEncRef:=GVL_M1K2_Constants.nYRIGHT_ENC_REF,
                nXupEncRef:=GVL_M1K2_Constants.nXUP_ENC_REF,
