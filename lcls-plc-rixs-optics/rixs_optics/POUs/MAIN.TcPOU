@@ -42,7 +42,7 @@ VAR
 	{attribute 'pytmc' := '
 		pv: MR1K2:MMS:PITCH
 	'}
-	M5 : DUT_MotionStage := (fVelocity := 30.0); // M1K2 Pitch Stepper
+	M5 : DUT_MotionStage := (fVelocity := 30.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS); // M1K2 Pitch Stepper
 
 	{attribute 'TcLinkTo' := '.fbRunHOMS.bSTOEnable1:=TIIB[EL1004_M1K2_STO]^Channel 1^Input;
                               .fbRunHOMS.bSTOEnable2:=TIIB[EL1004_M1K2_STO]^Channel 2^Input;
@@ -82,8 +82,9 @@ VAR
 	bM1K2PitchDone : BOOL;
 	bM1K2PitchBusy : BOOL;
 
-	// Bender placeholder - will want to fix FB and remove
-	M_None : DUT_MotionStage;
+	// 3-15-20 Having issues with pitch control on new Axilon systems
+	// Using stepper only for now
+	fbMotionStage_m5 : FB_MotionStage;	
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -129,6 +130,7 @@ fbPitchRMSErrorM1K2(stMotionStage:=M5,
 	                fMaxRMSError=>fMaxPitchRMSErrorM1K2,
 					fMinRMSError=>fMinPitchRMSErrorM1K2);
 
+(*
 // Pitch Control
 fbM1K2PitchControl(Pitch:=GVL_M1K2.M1K2_Pitch,
 				   Stepper:=M5,
@@ -138,7 +140,10 @@ fbM1K2PitchControl(Pitch:=GVL_M1K2.M1K2_Pitch,
 // When STO hit, need to reset SP
 IF NOT M5.bHardwareEnable THEN
 	M5.fPosition := M5.stAxisStatus.fActPosition;
-END_IF]]></ST>
+END_IF
+*)
+// 3-15-20: Having issues with pitch control on new Axilon systems
+fbMotionStage_m5(stMotionStage:=M5);]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
