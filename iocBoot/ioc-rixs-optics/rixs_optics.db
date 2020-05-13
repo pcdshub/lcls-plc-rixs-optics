@@ -1,4 +1,4 @@
-record(bi, "MR1K2:MMS:YLEFT:PLC:bLimitForwardEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bLimitForwardEnable_RBV") {
   field(DESC, "FALSE if forward limit hit")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -9,7 +9,7 @@ record(bi, "MR1K2:MMS:YLEFT:PLC:bLimitForwardEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:YLEFT:PLC:bLimitBackwardEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bLimitBackwardEnable_RBV") {
   field(DESC, "FALSE if reverse limit hit")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -20,7 +20,7 @@ record(bi, "MR1K2:MMS:YLEFT:PLC:bLimitBackwardEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:YLEFT:PLC:bHome_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bHome_RBV") {
   field(DESC, "TRUE if at homing switch")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -31,7 +31,7 @@ record(bi, "MR1K2:MMS:YLEFT:PLC:bHome_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:YLEFT:PLC:bBrakeRelease_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bBrakeRelease_RBV") {
   field(DESC, "TRUE if brake released")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -42,7 +42,7 @@ record(bi, "MR1K2:MMS:YLEFT:PLC:bBrakeRelease_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:YLEFT:PLC:bHardwareEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bHardwareEnable_RBV") {
   field(DESC, "TRUE if STO not hit")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -53,7 +53,7 @@ record(bi, "MR1K2:MMS:YLEFT:PLC:bHardwareEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:YLEFT:PLC:bAllForwardEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bAllForwardEnable_RBV") {
   field(DESC, "Summary of axis permission to move forward")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -64,7 +64,7 @@ record(bi, "MR1K2:MMS:YLEFT:PLC:bAllForwardEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:YLEFT:PLC:bAllBackwardEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bAllBackwardEnable_RBV") {
   field(DESC, "Summary of axis permission to move backward")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -75,7 +75,7 @@ record(bi, "MR1K2:MMS:YLEFT:PLC:bAllBackwardEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:YLEFT:PLC:bAllEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bAllEnable_RBV") {
   field(DESC, "Summary of axis permission to have power")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -86,7 +86,7 @@ record(bi, "MR1K2:MMS:YLEFT:PLC:bAllEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:YLEFT:PLC:bGantryForwardEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bGantryForwardEnable_RBV") {
   field(DESC, "TRUE if gantry ok to move forward")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -97,7 +97,7 @@ record(bi, "MR1K2:MMS:YLEFT:PLC:bGantryForwardEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:YLEFT:PLC:bGantryBackwardEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bGantryBackwardEnable_RBV") {
   field(DESC, "TRUE if gantry ok to move backward")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -108,7 +108,7 @@ record(bi, "MR1K2:MMS:YLEFT:PLC:bGantryBackwardEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:YLEFT:PLC:bPowerSelf_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bPowerSelf_RBV") {
   field(DESC, "FALSE if axis is in PMPS")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -119,7 +119,7 @@ record(bi, "MR1K2:MMS:YLEFT:PLC:bPowerSelf_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(mbbi, "MR1K2:MMS:YLEFT:PLC:nEnableMode_RBV") {
+record(mbbi, "MR1K2:SWITCH:MMS:YLEFT:PLC:nEnableMode_RBV") {
   field(DESC, "Describes when the axis will automatically get power")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -134,7 +134,7 @@ record(mbbi, "MR1K2:MMS:YLEFT:PLC:nEnableMode_RBV") {
   field(TWST, "DURING_MOTION")
 }
 
-record(mbbi, "MR1K2:MMS:YLEFT:PLC:nBrakeMode_RBV") {
+record(mbbi, "MR1K2:SWITCH:MMS:YLEFT:PLC:nBrakeMode_RBV") {
   field(DESC, "Describes when the brake will be released")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -149,7 +149,7 @@ record(mbbi, "MR1K2:MMS:YLEFT:PLC:nBrakeMode_RBV") {
   field(TWST, "NO_BRAKE")
 }
 
-record(mbbi, "MR1K2:MMS:YLEFT:PLC:nHomingMode_RBV") {
+record(mbbi, "MR1K2:SWITCH:MMS:YLEFT:PLC:nHomingMode_RBV") {
   field(DESC, "Describes our homing strategy")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -170,7 +170,7 @@ record(mbbi, "MR1K2:MMS:YLEFT:PLC:nHomingMode_RBV") {
   field(FVST, "ABSOLUTE_SET")
 }
 
-record(bi, "MR1K2:MMS:YLEFT:PLC:bGantryAxis_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bGantryAxis_RBV") {
   field(DESC, "TRUE if gantry EPS active")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -181,7 +181,7 @@ record(bi, "MR1K2:MMS:YLEFT:PLC:bGantryAxis_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:YLEFT:PLC:bEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bEnable_RBV") {
   field(DESC, "Used internally to request enables")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -192,7 +192,7 @@ record(bi, "MR1K2:MMS:YLEFT:PLC:bEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bo, "MR1K2:MMS:YLEFT:PLC:bEnable") {
+record(bo, "MR1K2:SWITCH:MMS:YLEFT:PLC:bEnable") {
   field(DESC, "Used internally to request enables")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M1.bEnable=")
@@ -201,7 +201,7 @@ record(bo, "MR1K2:MMS:YLEFT:PLC:bEnable") {
   info(autosaveFields_pass0, "VAL")
 }
 
-record(bi, "MR1K2:MMS:YLEFT:PLC:bReset_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bReset_RBV") {
   field(DESC, "Used internally to reset errors")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -212,7 +212,7 @@ record(bi, "MR1K2:MMS:YLEFT:PLC:bReset_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bo, "MR1K2:MMS:YLEFT:PLC:bReset") {
+record(bo, "MR1K2:SWITCH:MMS:YLEFT:PLC:bReset") {
   field(DESC, "Used internally to reset errors")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M1.bReset=")
@@ -221,7 +221,7 @@ record(bo, "MR1K2:MMS:YLEFT:PLC:bReset") {
   info(autosaveFields_pass0, "VAL")
 }
 
-record(bi, "MR1K2:MMS:YLEFT:PLC:bExecute_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bExecute_RBV") {
   field(DESC, "Used internally and by the IOC to start or stop")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -232,7 +232,7 @@ record(bi, "MR1K2:MMS:YLEFT:PLC:bExecute_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bo, "MR1K2:MMS:YLEFT:PLC:bExecute") {
+record(bo, "MR1K2:SWITCH:MMS:YLEFT:PLC:bExecute") {
   field(DESC, "Used internally and by the IOC to start or stop")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M1.bExecute=")
@@ -241,7 +241,7 @@ record(bo, "MR1K2:MMS:YLEFT:PLC:bExecute") {
   info(autosaveFields_pass0, "VAL")
 }
 
-record(longin, "MR1K2:MMS:YLEFT:PLC:nCommand_RBV") {
+record(longin, "MR1K2:SWITCH:MMS:YLEFT:PLC:nCommand_RBV") {
   field(DESC, "Used internally and by the IOC to pick move type")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -250,14 +250,14 @@ record(longin, "MR1K2:MMS:YLEFT:PLC:nCommand_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.nCommand?")
 }
 
-record(longout, "MR1K2:MMS:YLEFT:PLC:nCommand") {
+record(longout, "MR1K2:SWITCH:MMS:YLEFT:PLC:nCommand") {
   field(DESC, "Used internally and by the IOC to pick move type")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M1.nCommand=")
   info(autosaveFields_pass0, "VAL")
 }
 
-record(longin, "MR1K2:MMS:YLEFT:PLC:nCmdData_RBV") {
+record(longin, "MR1K2:SWITCH:MMS:YLEFT:PLC:nCmdData_RBV") {
   field(DESC, "Used internally and by the IOC to pass extra args")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -266,14 +266,14 @@ record(longin, "MR1K2:MMS:YLEFT:PLC:nCmdData_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.nCmdData?")
 }
 
-record(longout, "MR1K2:MMS:YLEFT:PLC:nCmdData") {
+record(longout, "MR1K2:SWITCH:MMS:YLEFT:PLC:nCmdData") {
   field(DESC, "Used internally and by the IOC to pass extra args")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M1.nCmdData=")
   info(autosaveFields_pass0, "VAL")
 }
 
-record(ai, "MR1K2:MMS:YLEFT:PLC:fPosition_RBV") {
+record(ai, "MR1K2:SWITCH:MMS:YLEFT:PLC:fPosition_RBV") {
   field(DESC, "Used internally and by the IOC as the set position")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -284,7 +284,7 @@ record(ai, "MR1K2:MMS:YLEFT:PLC:fPosition_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ao, "MR1K2:MMS:YLEFT:PLC:fPosition") {
+record(ao, "MR1K2:SWITCH:MMS:YLEFT:PLC:fPosition") {
   field(DESC, "Used internally and by the IOC as the set position")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M1.fPosition=")
@@ -292,7 +292,7 @@ record(ao, "MR1K2:MMS:YLEFT:PLC:fPosition") {
   info(autosaveFields_pass0, "PREC VAL")
 }
 
-record(ai, "MR1K2:MMS:YLEFT:PLC:fVelocity_RBV") {
+record(ai, "MR1K2:SWITCH:MMS:YLEFT:PLC:fVelocity_RBV") {
   field(DESC, "Used internally and by the IOC to set velocity")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -303,7 +303,7 @@ record(ai, "MR1K2:MMS:YLEFT:PLC:fVelocity_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ao, "MR1K2:MMS:YLEFT:PLC:fVelocity") {
+record(ao, "MR1K2:SWITCH:MMS:YLEFT:PLC:fVelocity") {
   field(DESC, "Used internally and by the IOC to set velocity")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M1.fVelocity=")
@@ -311,7 +311,7 @@ record(ao, "MR1K2:MMS:YLEFT:PLC:fVelocity") {
   info(autosaveFields_pass0, "PREC VAL")
 }
 
-record(ai, "MR1K2:MMS:YLEFT:PLC:fAcceleration_RBV") {
+record(ai, "MR1K2:SWITCH:MMS:YLEFT:PLC:fAcceleration_RBV") {
   field(DESC, "Used internally and by the IOC to set acceleration")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -322,7 +322,7 @@ record(ai, "MR1K2:MMS:YLEFT:PLC:fAcceleration_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ao, "MR1K2:MMS:YLEFT:PLC:fAcceleration") {
+record(ao, "MR1K2:SWITCH:MMS:YLEFT:PLC:fAcceleration") {
   field(DESC, "Used internally and by the IOC to set acceleration")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M1.fAcceleration=")
@@ -330,7 +330,7 @@ record(ao, "MR1K2:MMS:YLEFT:PLC:fAcceleration") {
   info(autosaveFields_pass0, "PREC VAL")
 }
 
-record(ai, "MR1K2:MMS:YLEFT:PLC:fDeceleration_RBV") {
+record(ai, "MR1K2:SWITCH:MMS:YLEFT:PLC:fDeceleration_RBV") {
   field(DESC, "Used internally and by the IOC to set deceleration")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -341,7 +341,7 @@ record(ai, "MR1K2:MMS:YLEFT:PLC:fDeceleration_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ao, "MR1K2:MMS:YLEFT:PLC:fDeceleration") {
+record(ao, "MR1K2:SWITCH:MMS:YLEFT:PLC:fDeceleration") {
   field(DESC, "Used internally and by the IOC to set deceleration")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M1.fDeceleration=")
@@ -349,7 +349,7 @@ record(ao, "MR1K2:MMS:YLEFT:PLC:fDeceleration") {
   info(autosaveFields_pass0, "PREC VAL")
 }
 
-record(ai, "MR1K2:MMS:YLEFT:PLC:fHomePosition_RBV") {
+record(ai, "MR1K2:SWITCH:MMS:YLEFT:PLC:fHomePosition_RBV") {
   field(DESC, "Used internally and by the IOC to pick home position")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -360,7 +360,7 @@ record(ai, "MR1K2:MMS:YLEFT:PLC:fHomePosition_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ao, "MR1K2:MMS:YLEFT:PLC:fHomePosition") {
+record(ao, "MR1K2:SWITCH:MMS:YLEFT:PLC:fHomePosition") {
   field(DESC, "Used internally and by the IOC to pick home position")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M1.fHomePosition=")
@@ -368,7 +368,7 @@ record(ao, "MR1K2:MMS:YLEFT:PLC:fHomePosition") {
   info(autosaveFields_pass0, "PREC VAL")
 }
 
-record(longin, "MR1K2:MMS:YLEFT:PLC:nMotionAxisID_RBV") {
+record(longin, "MR1K2:SWITCH:MMS:YLEFT:PLC:nMotionAxisID_RBV") {
   field(DESC, "Unique ID assigned to each axis in the NC")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -377,7 +377,7 @@ record(longin, "MR1K2:MMS:YLEFT:PLC:nMotionAxisID_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.nMotionAxisID?")
 }
 
-record(bi, "MR1K2:MMS:YLEFT:PLC:bEnableDone_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bEnableDone_RBV") {
   field(DESC, "TRUE if done enabling")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -388,7 +388,7 @@ record(bi, "MR1K2:MMS:YLEFT:PLC:bEnableDone_RBV") {
   field(ONAM, "FALSE")
 }
 
-record(bi, "MR1K2:MMS:YLEFT:PLC:bBusy_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bBusy_RBV") {
   field(DESC, "TRUE if in the middle of a command")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -399,7 +399,7 @@ record(bi, "MR1K2:MMS:YLEFT:PLC:bBusy_RBV") {
   field(ONAM, "FALSE")
 }
 
-record(bi, "MR1K2:MMS:YLEFT:PLC:bDone_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bDone_RBV") {
   field(DESC, "TRUE if command finished successfully")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -410,7 +410,7 @@ record(bi, "MR1K2:MMS:YLEFT:PLC:bDone_RBV") {
   field(ONAM, "FALSE")
 }
 
-record(bi, "MR1K2:MMS:YLEFT:PLC:bError_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bError_RBV") {
   field(DESC, "TRUE if we")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -421,7 +421,7 @@ record(bi, "MR1K2:MMS:YLEFT:PLC:bError_RBV") {
   field(ONAM, "FALSE")
 }
 
-record(longin, "MR1K2:MMS:YLEFT:PLC:nErrorId_RBV") {
+record(longin, "MR1K2:SWITCH:MMS:YLEFT:PLC:nErrorId_RBV") {
   field(DESC, "Error code if nonzero")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -430,7 +430,7 @@ record(longin, "MR1K2:MMS:YLEFT:PLC:nErrorId_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.nErrorId?")
 }
 
-record(waveform, "MR1K2:MMS:YLEFT:PLC:sErrorMessage_RBV") {
+record(waveform, "MR1K2:SWITCH:MMS:YLEFT:PLC:sErrorMessage_RBV") {
   field(DESC, "Message to identify the error state")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -441,7 +441,7 @@ record(waveform, "MR1K2:MMS:YLEFT:PLC:sErrorMessage_RBV") {
   field(NELM, "80")
 }
 
-record(bi, "MR1K2:MMS:YRIGHT:PLC:bLimitForwardEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bLimitForwardEnable_RBV") {
   field(DESC, "FALSE if forward limit hit")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -452,7 +452,7 @@ record(bi, "MR1K2:MMS:YRIGHT:PLC:bLimitForwardEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:YRIGHT:PLC:bLimitBackwardEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bLimitBackwardEnable_RBV") {
   field(DESC, "FALSE if reverse limit hit")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -463,7 +463,7 @@ record(bi, "MR1K2:MMS:YRIGHT:PLC:bLimitBackwardEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:YRIGHT:PLC:bHome_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bHome_RBV") {
   field(DESC, "TRUE if at homing switch")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -474,7 +474,7 @@ record(bi, "MR1K2:MMS:YRIGHT:PLC:bHome_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:YRIGHT:PLC:bBrakeRelease_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bBrakeRelease_RBV") {
   field(DESC, "TRUE if brake released")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -485,7 +485,7 @@ record(bi, "MR1K2:MMS:YRIGHT:PLC:bBrakeRelease_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:YRIGHT:PLC:bHardwareEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bHardwareEnable_RBV") {
   field(DESC, "TRUE if STO not hit")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -496,7 +496,7 @@ record(bi, "MR1K2:MMS:YRIGHT:PLC:bHardwareEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:YRIGHT:PLC:bAllForwardEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bAllForwardEnable_RBV") {
   field(DESC, "Summary of axis permission to move forward")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -507,7 +507,7 @@ record(bi, "MR1K2:MMS:YRIGHT:PLC:bAllForwardEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:YRIGHT:PLC:bAllBackwardEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bAllBackwardEnable_RBV") {
   field(DESC, "Summary of axis permission to move backward")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -518,7 +518,7 @@ record(bi, "MR1K2:MMS:YRIGHT:PLC:bAllBackwardEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:YRIGHT:PLC:bAllEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bAllEnable_RBV") {
   field(DESC, "Summary of axis permission to have power")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -529,7 +529,7 @@ record(bi, "MR1K2:MMS:YRIGHT:PLC:bAllEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:YRIGHT:PLC:bGantryForwardEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bGantryForwardEnable_RBV") {
   field(DESC, "TRUE if gantry ok to move forward")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -540,7 +540,7 @@ record(bi, "MR1K2:MMS:YRIGHT:PLC:bGantryForwardEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:YRIGHT:PLC:bGantryBackwardEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bGantryBackwardEnable_RBV") {
   field(DESC, "TRUE if gantry ok to move backward")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -551,7 +551,7 @@ record(bi, "MR1K2:MMS:YRIGHT:PLC:bGantryBackwardEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:YRIGHT:PLC:bPowerSelf_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bPowerSelf_RBV") {
   field(DESC, "FALSE if axis is in PMPS")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -562,7 +562,7 @@ record(bi, "MR1K2:MMS:YRIGHT:PLC:bPowerSelf_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(mbbi, "MR1K2:MMS:YRIGHT:PLC:nEnableMode_RBV") {
+record(mbbi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:nEnableMode_RBV") {
   field(DESC, "Describes when the axis will automatically get power")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -577,7 +577,7 @@ record(mbbi, "MR1K2:MMS:YRIGHT:PLC:nEnableMode_RBV") {
   field(TWST, "DURING_MOTION")
 }
 
-record(mbbi, "MR1K2:MMS:YRIGHT:PLC:nBrakeMode_RBV") {
+record(mbbi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:nBrakeMode_RBV") {
   field(DESC, "Describes when the brake will be released")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -592,7 +592,7 @@ record(mbbi, "MR1K2:MMS:YRIGHT:PLC:nBrakeMode_RBV") {
   field(TWST, "NO_BRAKE")
 }
 
-record(mbbi, "MR1K2:MMS:YRIGHT:PLC:nHomingMode_RBV") {
+record(mbbi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:nHomingMode_RBV") {
   field(DESC, "Describes our homing strategy")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -613,7 +613,7 @@ record(mbbi, "MR1K2:MMS:YRIGHT:PLC:nHomingMode_RBV") {
   field(FVST, "ABSOLUTE_SET")
 }
 
-record(bi, "MR1K2:MMS:YRIGHT:PLC:bGantryAxis_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bGantryAxis_RBV") {
   field(DESC, "TRUE if gantry EPS active")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -624,7 +624,7 @@ record(bi, "MR1K2:MMS:YRIGHT:PLC:bGantryAxis_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:YRIGHT:PLC:bEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bEnable_RBV") {
   field(DESC, "Used internally to request enables")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -635,7 +635,7 @@ record(bi, "MR1K2:MMS:YRIGHT:PLC:bEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bo, "MR1K2:MMS:YRIGHT:PLC:bEnable") {
+record(bo, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bEnable") {
   field(DESC, "Used internally to request enables")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M2.bEnable=")
@@ -644,7 +644,7 @@ record(bo, "MR1K2:MMS:YRIGHT:PLC:bEnable") {
   info(autosaveFields_pass0, "VAL")
 }
 
-record(bi, "MR1K2:MMS:YRIGHT:PLC:bReset_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bReset_RBV") {
   field(DESC, "Used internally to reset errors")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -655,7 +655,7 @@ record(bi, "MR1K2:MMS:YRIGHT:PLC:bReset_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bo, "MR1K2:MMS:YRIGHT:PLC:bReset") {
+record(bo, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bReset") {
   field(DESC, "Used internally to reset errors")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M2.bReset=")
@@ -664,7 +664,7 @@ record(bo, "MR1K2:MMS:YRIGHT:PLC:bReset") {
   info(autosaveFields_pass0, "VAL")
 }
 
-record(bi, "MR1K2:MMS:YRIGHT:PLC:bExecute_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bExecute_RBV") {
   field(DESC, "Used internally and by the IOC to start or stop")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -675,7 +675,7 @@ record(bi, "MR1K2:MMS:YRIGHT:PLC:bExecute_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bo, "MR1K2:MMS:YRIGHT:PLC:bExecute") {
+record(bo, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bExecute") {
   field(DESC, "Used internally and by the IOC to start or stop")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M2.bExecute=")
@@ -684,7 +684,7 @@ record(bo, "MR1K2:MMS:YRIGHT:PLC:bExecute") {
   info(autosaveFields_pass0, "VAL")
 }
 
-record(longin, "MR1K2:MMS:YRIGHT:PLC:nCommand_RBV") {
+record(longin, "MR1K2:SWITCH:MMS:YRIGHT:PLC:nCommand_RBV") {
   field(DESC, "Used internally and by the IOC to pick move type")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -693,14 +693,14 @@ record(longin, "MR1K2:MMS:YRIGHT:PLC:nCommand_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.nCommand?")
 }
 
-record(longout, "MR1K2:MMS:YRIGHT:PLC:nCommand") {
+record(longout, "MR1K2:SWITCH:MMS:YRIGHT:PLC:nCommand") {
   field(DESC, "Used internally and by the IOC to pick move type")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M2.nCommand=")
   info(autosaveFields_pass0, "VAL")
 }
 
-record(longin, "MR1K2:MMS:YRIGHT:PLC:nCmdData_RBV") {
+record(longin, "MR1K2:SWITCH:MMS:YRIGHT:PLC:nCmdData_RBV") {
   field(DESC, "Used internally and by the IOC to pass extra args")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -709,14 +709,14 @@ record(longin, "MR1K2:MMS:YRIGHT:PLC:nCmdData_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.nCmdData?")
 }
 
-record(longout, "MR1K2:MMS:YRIGHT:PLC:nCmdData") {
+record(longout, "MR1K2:SWITCH:MMS:YRIGHT:PLC:nCmdData") {
   field(DESC, "Used internally and by the IOC to pass extra args")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M2.nCmdData=")
   info(autosaveFields_pass0, "VAL")
 }
 
-record(ai, "MR1K2:MMS:YRIGHT:PLC:fPosition_RBV") {
+record(ai, "MR1K2:SWITCH:MMS:YRIGHT:PLC:fPosition_RBV") {
   field(DESC, "Used internally and by the IOC as the set position")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -727,7 +727,7 @@ record(ai, "MR1K2:MMS:YRIGHT:PLC:fPosition_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ao, "MR1K2:MMS:YRIGHT:PLC:fPosition") {
+record(ao, "MR1K2:SWITCH:MMS:YRIGHT:PLC:fPosition") {
   field(DESC, "Used internally and by the IOC as the set position")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M2.fPosition=")
@@ -735,7 +735,7 @@ record(ao, "MR1K2:MMS:YRIGHT:PLC:fPosition") {
   info(autosaveFields_pass0, "PREC VAL")
 }
 
-record(ai, "MR1K2:MMS:YRIGHT:PLC:fVelocity_RBV") {
+record(ai, "MR1K2:SWITCH:MMS:YRIGHT:PLC:fVelocity_RBV") {
   field(DESC, "Used internally and by the IOC to set velocity")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -746,7 +746,7 @@ record(ai, "MR1K2:MMS:YRIGHT:PLC:fVelocity_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ao, "MR1K2:MMS:YRIGHT:PLC:fVelocity") {
+record(ao, "MR1K2:SWITCH:MMS:YRIGHT:PLC:fVelocity") {
   field(DESC, "Used internally and by the IOC to set velocity")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M2.fVelocity=")
@@ -754,7 +754,7 @@ record(ao, "MR1K2:MMS:YRIGHT:PLC:fVelocity") {
   info(autosaveFields_pass0, "PREC VAL")
 }
 
-record(ai, "MR1K2:MMS:YRIGHT:PLC:fAcceleration_RBV") {
+record(ai, "MR1K2:SWITCH:MMS:YRIGHT:PLC:fAcceleration_RBV") {
   field(DESC, "Used internally and by the IOC to set acceleration")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -765,7 +765,7 @@ record(ai, "MR1K2:MMS:YRIGHT:PLC:fAcceleration_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ao, "MR1K2:MMS:YRIGHT:PLC:fAcceleration") {
+record(ao, "MR1K2:SWITCH:MMS:YRIGHT:PLC:fAcceleration") {
   field(DESC, "Used internally and by the IOC to set acceleration")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M2.fAcceleration=")
@@ -773,7 +773,7 @@ record(ao, "MR1K2:MMS:YRIGHT:PLC:fAcceleration") {
   info(autosaveFields_pass0, "PREC VAL")
 }
 
-record(ai, "MR1K2:MMS:YRIGHT:PLC:fDeceleration_RBV") {
+record(ai, "MR1K2:SWITCH:MMS:YRIGHT:PLC:fDeceleration_RBV") {
   field(DESC, "Used internally and by the IOC to set deceleration")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -784,7 +784,7 @@ record(ai, "MR1K2:MMS:YRIGHT:PLC:fDeceleration_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ao, "MR1K2:MMS:YRIGHT:PLC:fDeceleration") {
+record(ao, "MR1K2:SWITCH:MMS:YRIGHT:PLC:fDeceleration") {
   field(DESC, "Used internally and by the IOC to set deceleration")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M2.fDeceleration=")
@@ -792,7 +792,7 @@ record(ao, "MR1K2:MMS:YRIGHT:PLC:fDeceleration") {
   info(autosaveFields_pass0, "PREC VAL")
 }
 
-record(ai, "MR1K2:MMS:YRIGHT:PLC:fHomePosition_RBV") {
+record(ai, "MR1K2:SWITCH:MMS:YRIGHT:PLC:fHomePosition_RBV") {
   field(DESC, "Used internally and by the IOC to pick home position")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -803,7 +803,7 @@ record(ai, "MR1K2:MMS:YRIGHT:PLC:fHomePosition_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ao, "MR1K2:MMS:YRIGHT:PLC:fHomePosition") {
+record(ao, "MR1K2:SWITCH:MMS:YRIGHT:PLC:fHomePosition") {
   field(DESC, "Used internally and by the IOC to pick home position")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M2.fHomePosition=")
@@ -811,7 +811,7 @@ record(ao, "MR1K2:MMS:YRIGHT:PLC:fHomePosition") {
   info(autosaveFields_pass0, "PREC VAL")
 }
 
-record(longin, "MR1K2:MMS:YRIGHT:PLC:nMotionAxisID_RBV") {
+record(longin, "MR1K2:SWITCH:MMS:YRIGHT:PLC:nMotionAxisID_RBV") {
   field(DESC, "Unique ID assigned to each axis in the NC")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -820,7 +820,7 @@ record(longin, "MR1K2:MMS:YRIGHT:PLC:nMotionAxisID_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.nMotionAxisID?")
 }
 
-record(bi, "MR1K2:MMS:YRIGHT:PLC:bEnableDone_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bEnableDone_RBV") {
   field(DESC, "TRUE if done enabling")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -831,7 +831,7 @@ record(bi, "MR1K2:MMS:YRIGHT:PLC:bEnableDone_RBV") {
   field(ONAM, "FALSE")
 }
 
-record(bi, "MR1K2:MMS:YRIGHT:PLC:bBusy_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bBusy_RBV") {
   field(DESC, "TRUE if in the middle of a command")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -842,7 +842,7 @@ record(bi, "MR1K2:MMS:YRIGHT:PLC:bBusy_RBV") {
   field(ONAM, "FALSE")
 }
 
-record(bi, "MR1K2:MMS:YRIGHT:PLC:bDone_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bDone_RBV") {
   field(DESC, "TRUE if command finished successfully")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -853,7 +853,7 @@ record(bi, "MR1K2:MMS:YRIGHT:PLC:bDone_RBV") {
   field(ONAM, "FALSE")
 }
 
-record(bi, "MR1K2:MMS:YRIGHT:PLC:bError_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bError_RBV") {
   field(DESC, "TRUE if we")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -864,7 +864,7 @@ record(bi, "MR1K2:MMS:YRIGHT:PLC:bError_RBV") {
   field(ONAM, "FALSE")
 }
 
-record(longin, "MR1K2:MMS:YRIGHT:PLC:nErrorId_RBV") {
+record(longin, "MR1K2:SWITCH:MMS:YRIGHT:PLC:nErrorId_RBV") {
   field(DESC, "Error code if nonzero")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -873,7 +873,7 @@ record(longin, "MR1K2:MMS:YRIGHT:PLC:nErrorId_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.nErrorId?")
 }
 
-record(waveform, "MR1K2:MMS:YRIGHT:PLC:sErrorMessage_RBV") {
+record(waveform, "MR1K2:SWITCH:MMS:YRIGHT:PLC:sErrorMessage_RBV") {
   field(DESC, "Message to identify the error state")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -884,7 +884,7 @@ record(waveform, "MR1K2:MMS:YRIGHT:PLC:sErrorMessage_RBV") {
   field(NELM, "80")
 }
 
-record(bi, "MR1K2:MMS:XUP:PLC:bLimitForwardEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bLimitForwardEnable_RBV") {
   field(DESC, "FALSE if forward limit hit")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -895,7 +895,7 @@ record(bi, "MR1K2:MMS:XUP:PLC:bLimitForwardEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:XUP:PLC:bLimitBackwardEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bLimitBackwardEnable_RBV") {
   field(DESC, "FALSE if reverse limit hit")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -906,7 +906,7 @@ record(bi, "MR1K2:MMS:XUP:PLC:bLimitBackwardEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:XUP:PLC:bHome_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bHome_RBV") {
   field(DESC, "TRUE if at homing switch")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -917,7 +917,7 @@ record(bi, "MR1K2:MMS:XUP:PLC:bHome_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:XUP:PLC:bBrakeRelease_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bBrakeRelease_RBV") {
   field(DESC, "TRUE if brake released")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -928,7 +928,7 @@ record(bi, "MR1K2:MMS:XUP:PLC:bBrakeRelease_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:XUP:PLC:bHardwareEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bHardwareEnable_RBV") {
   field(DESC, "TRUE if STO not hit")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -939,7 +939,7 @@ record(bi, "MR1K2:MMS:XUP:PLC:bHardwareEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:XUP:PLC:bAllForwardEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bAllForwardEnable_RBV") {
   field(DESC, "Summary of axis permission to move forward")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -950,7 +950,7 @@ record(bi, "MR1K2:MMS:XUP:PLC:bAllForwardEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:XUP:PLC:bAllBackwardEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bAllBackwardEnable_RBV") {
   field(DESC, "Summary of axis permission to move backward")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -961,7 +961,7 @@ record(bi, "MR1K2:MMS:XUP:PLC:bAllBackwardEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:XUP:PLC:bAllEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bAllEnable_RBV") {
   field(DESC, "Summary of axis permission to have power")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -972,7 +972,7 @@ record(bi, "MR1K2:MMS:XUP:PLC:bAllEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:XUP:PLC:bGantryForwardEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bGantryForwardEnable_RBV") {
   field(DESC, "TRUE if gantry ok to move forward")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -983,7 +983,7 @@ record(bi, "MR1K2:MMS:XUP:PLC:bGantryForwardEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:XUP:PLC:bGantryBackwardEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bGantryBackwardEnable_RBV") {
   field(DESC, "TRUE if gantry ok to move backward")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -994,7 +994,7 @@ record(bi, "MR1K2:MMS:XUP:PLC:bGantryBackwardEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:XUP:PLC:bPowerSelf_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bPowerSelf_RBV") {
   field(DESC, "FALSE if axis is in PMPS")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1005,7 +1005,7 @@ record(bi, "MR1K2:MMS:XUP:PLC:bPowerSelf_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(mbbi, "MR1K2:MMS:XUP:PLC:nEnableMode_RBV") {
+record(mbbi, "MR1K2:SWITCH:MMS:XUP:PLC:nEnableMode_RBV") {
   field(DESC, "Describes when the axis will automatically get power")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1020,7 +1020,7 @@ record(mbbi, "MR1K2:MMS:XUP:PLC:nEnableMode_RBV") {
   field(TWST, "DURING_MOTION")
 }
 
-record(mbbi, "MR1K2:MMS:XUP:PLC:nBrakeMode_RBV") {
+record(mbbi, "MR1K2:SWITCH:MMS:XUP:PLC:nBrakeMode_RBV") {
   field(DESC, "Describes when the brake will be released")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1035,7 +1035,7 @@ record(mbbi, "MR1K2:MMS:XUP:PLC:nBrakeMode_RBV") {
   field(TWST, "NO_BRAKE")
 }
 
-record(mbbi, "MR1K2:MMS:XUP:PLC:nHomingMode_RBV") {
+record(mbbi, "MR1K2:SWITCH:MMS:XUP:PLC:nHomingMode_RBV") {
   field(DESC, "Describes our homing strategy")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1056,7 +1056,7 @@ record(mbbi, "MR1K2:MMS:XUP:PLC:nHomingMode_RBV") {
   field(FVST, "ABSOLUTE_SET")
 }
 
-record(bi, "MR1K2:MMS:XUP:PLC:bGantryAxis_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bGantryAxis_RBV") {
   field(DESC, "TRUE if gantry EPS active")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1067,7 +1067,7 @@ record(bi, "MR1K2:MMS:XUP:PLC:bGantryAxis_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:XUP:PLC:bEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bEnable_RBV") {
   field(DESC, "Used internally to request enables")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1078,7 +1078,7 @@ record(bi, "MR1K2:MMS:XUP:PLC:bEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bo, "MR1K2:MMS:XUP:PLC:bEnable") {
+record(bo, "MR1K2:SWITCH:MMS:XUP:PLC:bEnable") {
   field(DESC, "Used internally to request enables")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M3.bEnable=")
@@ -1087,7 +1087,7 @@ record(bo, "MR1K2:MMS:XUP:PLC:bEnable") {
   info(autosaveFields_pass0, "VAL")
 }
 
-record(bi, "MR1K2:MMS:XUP:PLC:bReset_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bReset_RBV") {
   field(DESC, "Used internally to reset errors")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1098,7 +1098,7 @@ record(bi, "MR1K2:MMS:XUP:PLC:bReset_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bo, "MR1K2:MMS:XUP:PLC:bReset") {
+record(bo, "MR1K2:SWITCH:MMS:XUP:PLC:bReset") {
   field(DESC, "Used internally to reset errors")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M3.bReset=")
@@ -1107,7 +1107,7 @@ record(bo, "MR1K2:MMS:XUP:PLC:bReset") {
   info(autosaveFields_pass0, "VAL")
 }
 
-record(bi, "MR1K2:MMS:XUP:PLC:bExecute_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bExecute_RBV") {
   field(DESC, "Used internally and by the IOC to start or stop")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1118,7 +1118,7 @@ record(bi, "MR1K2:MMS:XUP:PLC:bExecute_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bo, "MR1K2:MMS:XUP:PLC:bExecute") {
+record(bo, "MR1K2:SWITCH:MMS:XUP:PLC:bExecute") {
   field(DESC, "Used internally and by the IOC to start or stop")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M3.bExecute=")
@@ -1127,7 +1127,7 @@ record(bo, "MR1K2:MMS:XUP:PLC:bExecute") {
   info(autosaveFields_pass0, "VAL")
 }
 
-record(longin, "MR1K2:MMS:XUP:PLC:nCommand_RBV") {
+record(longin, "MR1K2:SWITCH:MMS:XUP:PLC:nCommand_RBV") {
   field(DESC, "Used internally and by the IOC to pick move type")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1136,14 +1136,14 @@ record(longin, "MR1K2:MMS:XUP:PLC:nCommand_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.nCommand?")
 }
 
-record(longout, "MR1K2:MMS:XUP:PLC:nCommand") {
+record(longout, "MR1K2:SWITCH:MMS:XUP:PLC:nCommand") {
   field(DESC, "Used internally and by the IOC to pick move type")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M3.nCommand=")
   info(autosaveFields_pass0, "VAL")
 }
 
-record(longin, "MR1K2:MMS:XUP:PLC:nCmdData_RBV") {
+record(longin, "MR1K2:SWITCH:MMS:XUP:PLC:nCmdData_RBV") {
   field(DESC, "Used internally and by the IOC to pass extra args")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1152,14 +1152,14 @@ record(longin, "MR1K2:MMS:XUP:PLC:nCmdData_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.nCmdData?")
 }
 
-record(longout, "MR1K2:MMS:XUP:PLC:nCmdData") {
+record(longout, "MR1K2:SWITCH:MMS:XUP:PLC:nCmdData") {
   field(DESC, "Used internally and by the IOC to pass extra args")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M3.nCmdData=")
   info(autosaveFields_pass0, "VAL")
 }
 
-record(ai, "MR1K2:MMS:XUP:PLC:fPosition_RBV") {
+record(ai, "MR1K2:SWITCH:MMS:XUP:PLC:fPosition_RBV") {
   field(DESC, "Used internally and by the IOC as the set position")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1170,7 +1170,7 @@ record(ai, "MR1K2:MMS:XUP:PLC:fPosition_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ao, "MR1K2:MMS:XUP:PLC:fPosition") {
+record(ao, "MR1K2:SWITCH:MMS:XUP:PLC:fPosition") {
   field(DESC, "Used internally and by the IOC as the set position")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M3.fPosition=")
@@ -1178,7 +1178,7 @@ record(ao, "MR1K2:MMS:XUP:PLC:fPosition") {
   info(autosaveFields_pass0, "PREC VAL")
 }
 
-record(ai, "MR1K2:MMS:XUP:PLC:fVelocity_RBV") {
+record(ai, "MR1K2:SWITCH:MMS:XUP:PLC:fVelocity_RBV") {
   field(DESC, "Used internally and by the IOC to set velocity")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1189,7 +1189,7 @@ record(ai, "MR1K2:MMS:XUP:PLC:fVelocity_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ao, "MR1K2:MMS:XUP:PLC:fVelocity") {
+record(ao, "MR1K2:SWITCH:MMS:XUP:PLC:fVelocity") {
   field(DESC, "Used internally and by the IOC to set velocity")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M3.fVelocity=")
@@ -1197,7 +1197,7 @@ record(ao, "MR1K2:MMS:XUP:PLC:fVelocity") {
   info(autosaveFields_pass0, "PREC VAL")
 }
 
-record(ai, "MR1K2:MMS:XUP:PLC:fAcceleration_RBV") {
+record(ai, "MR1K2:SWITCH:MMS:XUP:PLC:fAcceleration_RBV") {
   field(DESC, "Used internally and by the IOC to set acceleration")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1208,7 +1208,7 @@ record(ai, "MR1K2:MMS:XUP:PLC:fAcceleration_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ao, "MR1K2:MMS:XUP:PLC:fAcceleration") {
+record(ao, "MR1K2:SWITCH:MMS:XUP:PLC:fAcceleration") {
   field(DESC, "Used internally and by the IOC to set acceleration")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M3.fAcceleration=")
@@ -1216,7 +1216,7 @@ record(ao, "MR1K2:MMS:XUP:PLC:fAcceleration") {
   info(autosaveFields_pass0, "PREC VAL")
 }
 
-record(ai, "MR1K2:MMS:XUP:PLC:fDeceleration_RBV") {
+record(ai, "MR1K2:SWITCH:MMS:XUP:PLC:fDeceleration_RBV") {
   field(DESC, "Used internally and by the IOC to set deceleration")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1227,7 +1227,7 @@ record(ai, "MR1K2:MMS:XUP:PLC:fDeceleration_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ao, "MR1K2:MMS:XUP:PLC:fDeceleration") {
+record(ao, "MR1K2:SWITCH:MMS:XUP:PLC:fDeceleration") {
   field(DESC, "Used internally and by the IOC to set deceleration")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M3.fDeceleration=")
@@ -1235,7 +1235,7 @@ record(ao, "MR1K2:MMS:XUP:PLC:fDeceleration") {
   info(autosaveFields_pass0, "PREC VAL")
 }
 
-record(ai, "MR1K2:MMS:XUP:PLC:fHomePosition_RBV") {
+record(ai, "MR1K2:SWITCH:MMS:XUP:PLC:fHomePosition_RBV") {
   field(DESC, "Used internally and by the IOC to pick home position")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1246,7 +1246,7 @@ record(ai, "MR1K2:MMS:XUP:PLC:fHomePosition_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ao, "MR1K2:MMS:XUP:PLC:fHomePosition") {
+record(ao, "MR1K2:SWITCH:MMS:XUP:PLC:fHomePosition") {
   field(DESC, "Used internally and by the IOC to pick home position")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M3.fHomePosition=")
@@ -1254,7 +1254,7 @@ record(ao, "MR1K2:MMS:XUP:PLC:fHomePosition") {
   info(autosaveFields_pass0, "PREC VAL")
 }
 
-record(longin, "MR1K2:MMS:XUP:PLC:nMotionAxisID_RBV") {
+record(longin, "MR1K2:SWITCH:MMS:XUP:PLC:nMotionAxisID_RBV") {
   field(DESC, "Unique ID assigned to each axis in the NC")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1263,7 +1263,7 @@ record(longin, "MR1K2:MMS:XUP:PLC:nMotionAxisID_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.nMotionAxisID?")
 }
 
-record(bi, "MR1K2:MMS:XUP:PLC:bEnableDone_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bEnableDone_RBV") {
   field(DESC, "TRUE if done enabling")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1274,7 +1274,7 @@ record(bi, "MR1K2:MMS:XUP:PLC:bEnableDone_RBV") {
   field(ONAM, "FALSE")
 }
 
-record(bi, "MR1K2:MMS:XUP:PLC:bBusy_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bBusy_RBV") {
   field(DESC, "TRUE if in the middle of a command")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1285,7 +1285,7 @@ record(bi, "MR1K2:MMS:XUP:PLC:bBusy_RBV") {
   field(ONAM, "FALSE")
 }
 
-record(bi, "MR1K2:MMS:XUP:PLC:bDone_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bDone_RBV") {
   field(DESC, "TRUE if command finished successfully")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1296,7 +1296,7 @@ record(bi, "MR1K2:MMS:XUP:PLC:bDone_RBV") {
   field(ONAM, "FALSE")
 }
 
-record(bi, "MR1K2:MMS:XUP:PLC:bError_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bError_RBV") {
   field(DESC, "TRUE if we")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1307,7 +1307,7 @@ record(bi, "MR1K2:MMS:XUP:PLC:bError_RBV") {
   field(ONAM, "FALSE")
 }
 
-record(longin, "MR1K2:MMS:XUP:PLC:nErrorId_RBV") {
+record(longin, "MR1K2:SWITCH:MMS:XUP:PLC:nErrorId_RBV") {
   field(DESC, "Error code if nonzero")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1316,7 +1316,7 @@ record(longin, "MR1K2:MMS:XUP:PLC:nErrorId_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.nErrorId?")
 }
 
-record(waveform, "MR1K2:MMS:XUP:PLC:sErrorMessage_RBV") {
+record(waveform, "MR1K2:SWITCH:MMS:XUP:PLC:sErrorMessage_RBV") {
   field(DESC, "Message to identify the error state")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1327,7 +1327,7 @@ record(waveform, "MR1K2:MMS:XUP:PLC:sErrorMessage_RBV") {
   field(NELM, "80")
 }
 
-record(bi, "MR1K2:MMS:XDWN:PLC:bLimitForwardEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bLimitForwardEnable_RBV") {
   field(DESC, "FALSE if forward limit hit")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1338,7 +1338,7 @@ record(bi, "MR1K2:MMS:XDWN:PLC:bLimitForwardEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:XDWN:PLC:bLimitBackwardEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bLimitBackwardEnable_RBV") {
   field(DESC, "FALSE if reverse limit hit")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1349,7 +1349,7 @@ record(bi, "MR1K2:MMS:XDWN:PLC:bLimitBackwardEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:XDWN:PLC:bHome_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bHome_RBV") {
   field(DESC, "TRUE if at homing switch")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1360,7 +1360,7 @@ record(bi, "MR1K2:MMS:XDWN:PLC:bHome_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:XDWN:PLC:bBrakeRelease_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bBrakeRelease_RBV") {
   field(DESC, "TRUE if brake released")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1371,7 +1371,7 @@ record(bi, "MR1K2:MMS:XDWN:PLC:bBrakeRelease_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:XDWN:PLC:bHardwareEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bHardwareEnable_RBV") {
   field(DESC, "TRUE if STO not hit")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1382,7 +1382,7 @@ record(bi, "MR1K2:MMS:XDWN:PLC:bHardwareEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:XDWN:PLC:bAllForwardEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bAllForwardEnable_RBV") {
   field(DESC, "Summary of axis permission to move forward")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1393,7 +1393,7 @@ record(bi, "MR1K2:MMS:XDWN:PLC:bAllForwardEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:XDWN:PLC:bAllBackwardEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bAllBackwardEnable_RBV") {
   field(DESC, "Summary of axis permission to move backward")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1404,7 +1404,7 @@ record(bi, "MR1K2:MMS:XDWN:PLC:bAllBackwardEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:XDWN:PLC:bAllEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bAllEnable_RBV") {
   field(DESC, "Summary of axis permission to have power")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1415,7 +1415,7 @@ record(bi, "MR1K2:MMS:XDWN:PLC:bAllEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:XDWN:PLC:bGantryForwardEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bGantryForwardEnable_RBV") {
   field(DESC, "TRUE if gantry ok to move forward")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1426,7 +1426,7 @@ record(bi, "MR1K2:MMS:XDWN:PLC:bGantryForwardEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:XDWN:PLC:bGantryBackwardEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bGantryBackwardEnable_RBV") {
   field(DESC, "TRUE if gantry ok to move backward")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1437,7 +1437,7 @@ record(bi, "MR1K2:MMS:XDWN:PLC:bGantryBackwardEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:XDWN:PLC:bPowerSelf_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bPowerSelf_RBV") {
   field(DESC, "FALSE if axis is in PMPS")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1448,7 +1448,7 @@ record(bi, "MR1K2:MMS:XDWN:PLC:bPowerSelf_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(mbbi, "MR1K2:MMS:XDWN:PLC:nEnableMode_RBV") {
+record(mbbi, "MR1K2:SWITCH:MMS:XDWN:PLC:nEnableMode_RBV") {
   field(DESC, "Describes when the axis will automatically get power")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1463,7 +1463,7 @@ record(mbbi, "MR1K2:MMS:XDWN:PLC:nEnableMode_RBV") {
   field(TWST, "DURING_MOTION")
 }
 
-record(mbbi, "MR1K2:MMS:XDWN:PLC:nBrakeMode_RBV") {
+record(mbbi, "MR1K2:SWITCH:MMS:XDWN:PLC:nBrakeMode_RBV") {
   field(DESC, "Describes when the brake will be released")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1478,7 +1478,7 @@ record(mbbi, "MR1K2:MMS:XDWN:PLC:nBrakeMode_RBV") {
   field(TWST, "NO_BRAKE")
 }
 
-record(mbbi, "MR1K2:MMS:XDWN:PLC:nHomingMode_RBV") {
+record(mbbi, "MR1K2:SWITCH:MMS:XDWN:PLC:nHomingMode_RBV") {
   field(DESC, "Describes our homing strategy")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1499,7 +1499,7 @@ record(mbbi, "MR1K2:MMS:XDWN:PLC:nHomingMode_RBV") {
   field(FVST, "ABSOLUTE_SET")
 }
 
-record(bi, "MR1K2:MMS:XDWN:PLC:bGantryAxis_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bGantryAxis_RBV") {
   field(DESC, "TRUE if gantry EPS active")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1510,7 +1510,7 @@ record(bi, "MR1K2:MMS:XDWN:PLC:bGantryAxis_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:XDWN:PLC:bEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bEnable_RBV") {
   field(DESC, "Used internally to request enables")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1521,7 +1521,7 @@ record(bi, "MR1K2:MMS:XDWN:PLC:bEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bo, "MR1K2:MMS:XDWN:PLC:bEnable") {
+record(bo, "MR1K2:SWITCH:MMS:XDWN:PLC:bEnable") {
   field(DESC, "Used internally to request enables")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M4.bEnable=")
@@ -1530,7 +1530,7 @@ record(bo, "MR1K2:MMS:XDWN:PLC:bEnable") {
   info(autosaveFields_pass0, "VAL")
 }
 
-record(bi, "MR1K2:MMS:XDWN:PLC:bReset_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bReset_RBV") {
   field(DESC, "Used internally to reset errors")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1541,7 +1541,7 @@ record(bi, "MR1K2:MMS:XDWN:PLC:bReset_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bo, "MR1K2:MMS:XDWN:PLC:bReset") {
+record(bo, "MR1K2:SWITCH:MMS:XDWN:PLC:bReset") {
   field(DESC, "Used internally to reset errors")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M4.bReset=")
@@ -1550,7 +1550,7 @@ record(bo, "MR1K2:MMS:XDWN:PLC:bReset") {
   info(autosaveFields_pass0, "VAL")
 }
 
-record(bi, "MR1K2:MMS:XDWN:PLC:bExecute_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bExecute_RBV") {
   field(DESC, "Used internally and by the IOC to start or stop")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1561,7 +1561,7 @@ record(bi, "MR1K2:MMS:XDWN:PLC:bExecute_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bo, "MR1K2:MMS:XDWN:PLC:bExecute") {
+record(bo, "MR1K2:SWITCH:MMS:XDWN:PLC:bExecute") {
   field(DESC, "Used internally and by the IOC to start or stop")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M4.bExecute=")
@@ -1570,7 +1570,7 @@ record(bo, "MR1K2:MMS:XDWN:PLC:bExecute") {
   info(autosaveFields_pass0, "VAL")
 }
 
-record(longin, "MR1K2:MMS:XDWN:PLC:nCommand_RBV") {
+record(longin, "MR1K2:SWITCH:MMS:XDWN:PLC:nCommand_RBV") {
   field(DESC, "Used internally and by the IOC to pick move type")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1579,14 +1579,14 @@ record(longin, "MR1K2:MMS:XDWN:PLC:nCommand_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.nCommand?")
 }
 
-record(longout, "MR1K2:MMS:XDWN:PLC:nCommand") {
+record(longout, "MR1K2:SWITCH:MMS:XDWN:PLC:nCommand") {
   field(DESC, "Used internally and by the IOC to pick move type")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M4.nCommand=")
   info(autosaveFields_pass0, "VAL")
 }
 
-record(longin, "MR1K2:MMS:XDWN:PLC:nCmdData_RBV") {
+record(longin, "MR1K2:SWITCH:MMS:XDWN:PLC:nCmdData_RBV") {
   field(DESC, "Used internally and by the IOC to pass extra args")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1595,14 +1595,14 @@ record(longin, "MR1K2:MMS:XDWN:PLC:nCmdData_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.nCmdData?")
 }
 
-record(longout, "MR1K2:MMS:XDWN:PLC:nCmdData") {
+record(longout, "MR1K2:SWITCH:MMS:XDWN:PLC:nCmdData") {
   field(DESC, "Used internally and by the IOC to pass extra args")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M4.nCmdData=")
   info(autosaveFields_pass0, "VAL")
 }
 
-record(ai, "MR1K2:MMS:XDWN:PLC:fPosition_RBV") {
+record(ai, "MR1K2:SWITCH:MMS:XDWN:PLC:fPosition_RBV") {
   field(DESC, "Used internally and by the IOC as the set position")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1613,7 +1613,7 @@ record(ai, "MR1K2:MMS:XDWN:PLC:fPosition_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ao, "MR1K2:MMS:XDWN:PLC:fPosition") {
+record(ao, "MR1K2:SWITCH:MMS:XDWN:PLC:fPosition") {
   field(DESC, "Used internally and by the IOC as the set position")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M4.fPosition=")
@@ -1621,7 +1621,7 @@ record(ao, "MR1K2:MMS:XDWN:PLC:fPosition") {
   info(autosaveFields_pass0, "PREC VAL")
 }
 
-record(ai, "MR1K2:MMS:XDWN:PLC:fVelocity_RBV") {
+record(ai, "MR1K2:SWITCH:MMS:XDWN:PLC:fVelocity_RBV") {
   field(DESC, "Used internally and by the IOC to set velocity")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1632,7 +1632,7 @@ record(ai, "MR1K2:MMS:XDWN:PLC:fVelocity_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ao, "MR1K2:MMS:XDWN:PLC:fVelocity") {
+record(ao, "MR1K2:SWITCH:MMS:XDWN:PLC:fVelocity") {
   field(DESC, "Used internally and by the IOC to set velocity")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M4.fVelocity=")
@@ -1640,7 +1640,7 @@ record(ao, "MR1K2:MMS:XDWN:PLC:fVelocity") {
   info(autosaveFields_pass0, "PREC VAL")
 }
 
-record(ai, "MR1K2:MMS:XDWN:PLC:fAcceleration_RBV") {
+record(ai, "MR1K2:SWITCH:MMS:XDWN:PLC:fAcceleration_RBV") {
   field(DESC, "Used internally and by the IOC to set acceleration")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1651,7 +1651,7 @@ record(ai, "MR1K2:MMS:XDWN:PLC:fAcceleration_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ao, "MR1K2:MMS:XDWN:PLC:fAcceleration") {
+record(ao, "MR1K2:SWITCH:MMS:XDWN:PLC:fAcceleration") {
   field(DESC, "Used internally and by the IOC to set acceleration")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M4.fAcceleration=")
@@ -1659,7 +1659,7 @@ record(ao, "MR1K2:MMS:XDWN:PLC:fAcceleration") {
   info(autosaveFields_pass0, "PREC VAL")
 }
 
-record(ai, "MR1K2:MMS:XDWN:PLC:fDeceleration_RBV") {
+record(ai, "MR1K2:SWITCH:MMS:XDWN:PLC:fDeceleration_RBV") {
   field(DESC, "Used internally and by the IOC to set deceleration")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1670,7 +1670,7 @@ record(ai, "MR1K2:MMS:XDWN:PLC:fDeceleration_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ao, "MR1K2:MMS:XDWN:PLC:fDeceleration") {
+record(ao, "MR1K2:SWITCH:MMS:XDWN:PLC:fDeceleration") {
   field(DESC, "Used internally and by the IOC to set deceleration")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M4.fDeceleration=")
@@ -1678,7 +1678,7 @@ record(ao, "MR1K2:MMS:XDWN:PLC:fDeceleration") {
   info(autosaveFields_pass0, "PREC VAL")
 }
 
-record(ai, "MR1K2:MMS:XDWN:PLC:fHomePosition_RBV") {
+record(ai, "MR1K2:SWITCH:MMS:XDWN:PLC:fHomePosition_RBV") {
   field(DESC, "Used internally and by the IOC to pick home position")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1689,7 +1689,7 @@ record(ai, "MR1K2:MMS:XDWN:PLC:fHomePosition_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ao, "MR1K2:MMS:XDWN:PLC:fHomePosition") {
+record(ao, "MR1K2:SWITCH:MMS:XDWN:PLC:fHomePosition") {
   field(DESC, "Used internally and by the IOC to pick home position")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M4.fHomePosition=")
@@ -1697,7 +1697,7 @@ record(ao, "MR1K2:MMS:XDWN:PLC:fHomePosition") {
   info(autosaveFields_pass0, "PREC VAL")
 }
 
-record(longin, "MR1K2:MMS:XDWN:PLC:nMotionAxisID_RBV") {
+record(longin, "MR1K2:SWITCH:MMS:XDWN:PLC:nMotionAxisID_RBV") {
   field(DESC, "Unique ID assigned to each axis in the NC")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1706,7 +1706,7 @@ record(longin, "MR1K2:MMS:XDWN:PLC:nMotionAxisID_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.nMotionAxisID?")
 }
 
-record(bi, "MR1K2:MMS:XDWN:PLC:bEnableDone_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bEnableDone_RBV") {
   field(DESC, "TRUE if done enabling")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1717,7 +1717,7 @@ record(bi, "MR1K2:MMS:XDWN:PLC:bEnableDone_RBV") {
   field(ONAM, "FALSE")
 }
 
-record(bi, "MR1K2:MMS:XDWN:PLC:bBusy_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bBusy_RBV") {
   field(DESC, "TRUE if in the middle of a command")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1728,7 +1728,7 @@ record(bi, "MR1K2:MMS:XDWN:PLC:bBusy_RBV") {
   field(ONAM, "FALSE")
 }
 
-record(bi, "MR1K2:MMS:XDWN:PLC:bDone_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bDone_RBV") {
   field(DESC, "TRUE if command finished successfully")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1739,7 +1739,7 @@ record(bi, "MR1K2:MMS:XDWN:PLC:bDone_RBV") {
   field(ONAM, "FALSE")
 }
 
-record(bi, "MR1K2:MMS:XDWN:PLC:bError_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bError_RBV") {
   field(DESC, "TRUE if we")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1750,7 +1750,7 @@ record(bi, "MR1K2:MMS:XDWN:PLC:bError_RBV") {
   field(ONAM, "FALSE")
 }
 
-record(longin, "MR1K2:MMS:XDWN:PLC:nErrorId_RBV") {
+record(longin, "MR1K2:SWITCH:MMS:XDWN:PLC:nErrorId_RBV") {
   field(DESC, "Error code if nonzero")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1759,7 +1759,7 @@ record(longin, "MR1K2:MMS:XDWN:PLC:nErrorId_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.nErrorId?")
 }
 
-record(waveform, "MR1K2:MMS:XDWN:PLC:sErrorMessage_RBV") {
+record(waveform, "MR1K2:SWITCH:MMS:XDWN:PLC:sErrorMessage_RBV") {
   field(DESC, "Message to identify the error state")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1770,7 +1770,7 @@ record(waveform, "MR1K2:MMS:XDWN:PLC:sErrorMessage_RBV") {
   field(NELM, "80")
 }
 
-record(bi, "MR1K2:MMS:PITCH:PLC:bLimitForwardEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bLimitForwardEnable_RBV") {
   field(DESC, "FALSE if forward limit hit")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1781,7 +1781,7 @@ record(bi, "MR1K2:MMS:PITCH:PLC:bLimitForwardEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:PITCH:PLC:bLimitBackwardEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bLimitBackwardEnable_RBV") {
   field(DESC, "FALSE if reverse limit hit")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1792,7 +1792,7 @@ record(bi, "MR1K2:MMS:PITCH:PLC:bLimitBackwardEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:PITCH:PLC:bHome_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bHome_RBV") {
   field(DESC, "TRUE if at homing switch")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1803,7 +1803,7 @@ record(bi, "MR1K2:MMS:PITCH:PLC:bHome_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:PITCH:PLC:bBrakeRelease_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bBrakeRelease_RBV") {
   field(DESC, "TRUE if brake released")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1814,7 +1814,7 @@ record(bi, "MR1K2:MMS:PITCH:PLC:bBrakeRelease_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:PITCH:PLC:bHardwareEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bHardwareEnable_RBV") {
   field(DESC, "TRUE if STO not hit")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1825,7 +1825,7 @@ record(bi, "MR1K2:MMS:PITCH:PLC:bHardwareEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:PITCH:PLC:bAllForwardEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bAllForwardEnable_RBV") {
   field(DESC, "Summary of axis permission to move forward")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1836,7 +1836,7 @@ record(bi, "MR1K2:MMS:PITCH:PLC:bAllForwardEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:PITCH:PLC:bAllBackwardEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bAllBackwardEnable_RBV") {
   field(DESC, "Summary of axis permission to move backward")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1847,7 +1847,7 @@ record(bi, "MR1K2:MMS:PITCH:PLC:bAllBackwardEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:PITCH:PLC:bAllEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bAllEnable_RBV") {
   field(DESC, "Summary of axis permission to have power")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1858,7 +1858,7 @@ record(bi, "MR1K2:MMS:PITCH:PLC:bAllEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:PITCH:PLC:bGantryForwardEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bGantryForwardEnable_RBV") {
   field(DESC, "TRUE if gantry ok to move forward")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1869,7 +1869,7 @@ record(bi, "MR1K2:MMS:PITCH:PLC:bGantryForwardEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:PITCH:PLC:bGantryBackwardEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bGantryBackwardEnable_RBV") {
   field(DESC, "TRUE if gantry ok to move backward")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1880,7 +1880,7 @@ record(bi, "MR1K2:MMS:PITCH:PLC:bGantryBackwardEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:PITCH:PLC:bPowerSelf_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bPowerSelf_RBV") {
   field(DESC, "FALSE if axis is in PMPS")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1891,7 +1891,7 @@ record(bi, "MR1K2:MMS:PITCH:PLC:bPowerSelf_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(mbbi, "MR1K2:MMS:PITCH:PLC:nEnableMode_RBV") {
+record(mbbi, "MR1K2:SWITCH:MMS:PITCH:PLC:nEnableMode_RBV") {
   field(DESC, "Describes when the axis will automatically get power")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1906,7 +1906,7 @@ record(mbbi, "MR1K2:MMS:PITCH:PLC:nEnableMode_RBV") {
   field(TWST, "DURING_MOTION")
 }
 
-record(mbbi, "MR1K2:MMS:PITCH:PLC:nBrakeMode_RBV") {
+record(mbbi, "MR1K2:SWITCH:MMS:PITCH:PLC:nBrakeMode_RBV") {
   field(DESC, "Describes when the brake will be released")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1921,7 +1921,7 @@ record(mbbi, "MR1K2:MMS:PITCH:PLC:nBrakeMode_RBV") {
   field(TWST, "NO_BRAKE")
 }
 
-record(mbbi, "MR1K2:MMS:PITCH:PLC:nHomingMode_RBV") {
+record(mbbi, "MR1K2:SWITCH:MMS:PITCH:PLC:nHomingMode_RBV") {
   field(DESC, "Describes our homing strategy")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1942,7 +1942,7 @@ record(mbbi, "MR1K2:MMS:PITCH:PLC:nHomingMode_RBV") {
   field(FVST, "ABSOLUTE_SET")
 }
 
-record(bi, "MR1K2:MMS:PITCH:PLC:bGantryAxis_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bGantryAxis_RBV") {
   field(DESC, "TRUE if gantry EPS active")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1953,7 +1953,7 @@ record(bi, "MR1K2:MMS:PITCH:PLC:bGantryAxis_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bi, "MR1K2:MMS:PITCH:PLC:bEnable_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bEnable_RBV") {
   field(DESC, "Used internally to request enables")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1964,7 +1964,7 @@ record(bi, "MR1K2:MMS:PITCH:PLC:bEnable_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bo, "MR1K2:MMS:PITCH:PLC:bEnable") {
+record(bo, "MR1K2:SWITCH:MMS:PITCH:PLC:bEnable") {
   field(DESC, "Used internally to request enables")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M5.bEnable=")
@@ -1973,7 +1973,7 @@ record(bo, "MR1K2:MMS:PITCH:PLC:bEnable") {
   info(autosaveFields_pass0, "VAL")
 }
 
-record(bi, "MR1K2:MMS:PITCH:PLC:bReset_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bReset_RBV") {
   field(DESC, "Used internally to reset errors")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1984,7 +1984,7 @@ record(bi, "MR1K2:MMS:PITCH:PLC:bReset_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bo, "MR1K2:MMS:PITCH:PLC:bReset") {
+record(bo, "MR1K2:SWITCH:MMS:PITCH:PLC:bReset") {
   field(DESC, "Used internally to reset errors")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M5.bReset=")
@@ -1993,7 +1993,7 @@ record(bo, "MR1K2:MMS:PITCH:PLC:bReset") {
   info(autosaveFields_pass0, "VAL")
 }
 
-record(bi, "MR1K2:MMS:PITCH:PLC:bExecute_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bExecute_RBV") {
   field(DESC, "Used internally and by the IOC to start or stop")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2004,7 +2004,7 @@ record(bi, "MR1K2:MMS:PITCH:PLC:bExecute_RBV") {
   field(ONAM, "TRUE")
 }
 
-record(bo, "MR1K2:MMS:PITCH:PLC:bExecute") {
+record(bo, "MR1K2:SWITCH:MMS:PITCH:PLC:bExecute") {
   field(DESC, "Used internally and by the IOC to start or stop")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M5.bExecute=")
@@ -2013,7 +2013,7 @@ record(bo, "MR1K2:MMS:PITCH:PLC:bExecute") {
   info(autosaveFields_pass0, "VAL")
 }
 
-record(longin, "MR1K2:MMS:PITCH:PLC:nCommand_RBV") {
+record(longin, "MR1K2:SWITCH:MMS:PITCH:PLC:nCommand_RBV") {
   field(DESC, "Used internally and by the IOC to pick move type")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2022,14 +2022,14 @@ record(longin, "MR1K2:MMS:PITCH:PLC:nCommand_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.nCommand?")
 }
 
-record(longout, "MR1K2:MMS:PITCH:PLC:nCommand") {
+record(longout, "MR1K2:SWITCH:MMS:PITCH:PLC:nCommand") {
   field(DESC, "Used internally and by the IOC to pick move type")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M5.nCommand=")
   info(autosaveFields_pass0, "VAL")
 }
 
-record(longin, "MR1K2:MMS:PITCH:PLC:nCmdData_RBV") {
+record(longin, "MR1K2:SWITCH:MMS:PITCH:PLC:nCmdData_RBV") {
   field(DESC, "Used internally and by the IOC to pass extra args")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2038,14 +2038,14 @@ record(longin, "MR1K2:MMS:PITCH:PLC:nCmdData_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.nCmdData?")
 }
 
-record(longout, "MR1K2:MMS:PITCH:PLC:nCmdData") {
+record(longout, "MR1K2:SWITCH:MMS:PITCH:PLC:nCmdData") {
   field(DESC, "Used internally and by the IOC to pass extra args")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M5.nCmdData=")
   info(autosaveFields_pass0, "VAL")
 }
 
-record(ai, "MR1K2:MMS:PITCH:PLC:fPosition_RBV") {
+record(ai, "MR1K2:SWITCH:MMS:PITCH:PLC:fPosition_RBV") {
   field(DESC, "Used internally and by the IOC as the set position")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2056,7 +2056,7 @@ record(ai, "MR1K2:MMS:PITCH:PLC:fPosition_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ao, "MR1K2:MMS:PITCH:PLC:fPosition") {
+record(ao, "MR1K2:SWITCH:MMS:PITCH:PLC:fPosition") {
   field(DESC, "Used internally and by the IOC as the set position")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M5.fPosition=")
@@ -2064,7 +2064,7 @@ record(ao, "MR1K2:MMS:PITCH:PLC:fPosition") {
   info(autosaveFields_pass0, "PREC VAL")
 }
 
-record(ai, "MR1K2:MMS:PITCH:PLC:fVelocity_RBV") {
+record(ai, "MR1K2:SWITCH:MMS:PITCH:PLC:fVelocity_RBV") {
   field(DESC, "Used internally and by the IOC to set velocity")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2075,7 +2075,7 @@ record(ai, "MR1K2:MMS:PITCH:PLC:fVelocity_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ao, "MR1K2:MMS:PITCH:PLC:fVelocity") {
+record(ao, "MR1K2:SWITCH:MMS:PITCH:PLC:fVelocity") {
   field(DESC, "Used internally and by the IOC to set velocity")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M5.fVelocity=")
@@ -2083,7 +2083,7 @@ record(ao, "MR1K2:MMS:PITCH:PLC:fVelocity") {
   info(autosaveFields_pass0, "PREC VAL")
 }
 
-record(ai, "MR1K2:MMS:PITCH:PLC:fAcceleration_RBV") {
+record(ai, "MR1K2:SWITCH:MMS:PITCH:PLC:fAcceleration_RBV") {
   field(DESC, "Used internally and by the IOC to set acceleration")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2094,7 +2094,7 @@ record(ai, "MR1K2:MMS:PITCH:PLC:fAcceleration_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ao, "MR1K2:MMS:PITCH:PLC:fAcceleration") {
+record(ao, "MR1K2:SWITCH:MMS:PITCH:PLC:fAcceleration") {
   field(DESC, "Used internally and by the IOC to set acceleration")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M5.fAcceleration=")
@@ -2102,7 +2102,7 @@ record(ao, "MR1K2:MMS:PITCH:PLC:fAcceleration") {
   info(autosaveFields_pass0, "PREC VAL")
 }
 
-record(ai, "MR1K2:MMS:PITCH:PLC:fDeceleration_RBV") {
+record(ai, "MR1K2:SWITCH:MMS:PITCH:PLC:fDeceleration_RBV") {
   field(DESC, "Used internally and by the IOC to set deceleration")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2113,7 +2113,7 @@ record(ai, "MR1K2:MMS:PITCH:PLC:fDeceleration_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ao, "MR1K2:MMS:PITCH:PLC:fDeceleration") {
+record(ao, "MR1K2:SWITCH:MMS:PITCH:PLC:fDeceleration") {
   field(DESC, "Used internally and by the IOC to set deceleration")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M5.fDeceleration=")
@@ -2121,7 +2121,7 @@ record(ao, "MR1K2:MMS:PITCH:PLC:fDeceleration") {
   info(autosaveFields_pass0, "PREC VAL")
 }
 
-record(ai, "MR1K2:MMS:PITCH:PLC:fHomePosition_RBV") {
+record(ai, "MR1K2:SWITCH:MMS:PITCH:PLC:fHomePosition_RBV") {
   field(DESC, "Used internally and by the IOC to pick home position")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2132,7 +2132,7 @@ record(ai, "MR1K2:MMS:PITCH:PLC:fHomePosition_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ao, "MR1K2:MMS:PITCH:PLC:fHomePosition") {
+record(ao, "MR1K2:SWITCH:MMS:PITCH:PLC:fHomePosition") {
   field(DESC, "Used internally and by the IOC to pick home position")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M5.fHomePosition=")
@@ -2140,7 +2140,7 @@ record(ao, "MR1K2:MMS:PITCH:PLC:fHomePosition") {
   info(autosaveFields_pass0, "PREC VAL")
 }
 
-record(longin, "MR1K2:MMS:PITCH:PLC:nMotionAxisID_RBV") {
+record(longin, "MR1K2:SWITCH:MMS:PITCH:PLC:nMotionAxisID_RBV") {
   field(DESC, "Unique ID assigned to each axis in the NC")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2149,7 +2149,7 @@ record(longin, "MR1K2:MMS:PITCH:PLC:nMotionAxisID_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.nMotionAxisID?")
 }
 
-record(bi, "MR1K2:MMS:PITCH:PLC:bEnableDone_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bEnableDone_RBV") {
   field(DESC, "TRUE if done enabling")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2160,7 +2160,7 @@ record(bi, "MR1K2:MMS:PITCH:PLC:bEnableDone_RBV") {
   field(ONAM, "FALSE")
 }
 
-record(bi, "MR1K2:MMS:PITCH:PLC:bBusy_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bBusy_RBV") {
   field(DESC, "TRUE if in the middle of a command")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2171,7 +2171,7 @@ record(bi, "MR1K2:MMS:PITCH:PLC:bBusy_RBV") {
   field(ONAM, "FALSE")
 }
 
-record(bi, "MR1K2:MMS:PITCH:PLC:bDone_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bDone_RBV") {
   field(DESC, "TRUE if command finished successfully")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2182,7 +2182,7 @@ record(bi, "MR1K2:MMS:PITCH:PLC:bDone_RBV") {
   field(ONAM, "FALSE")
 }
 
-record(bi, "MR1K2:MMS:PITCH:PLC:bError_RBV") {
+record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bError_RBV") {
   field(DESC, "TRUE if we")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2193,7 +2193,7 @@ record(bi, "MR1K2:MMS:PITCH:PLC:bError_RBV") {
   field(ONAM, "FALSE")
 }
 
-record(longin, "MR1K2:MMS:PITCH:PLC:nErrorId_RBV") {
+record(longin, "MR1K2:SWITCH:MMS:PITCH:PLC:nErrorId_RBV") {
   field(DESC, "Error code if nonzero")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2202,7 +2202,7 @@ record(longin, "MR1K2:MMS:PITCH:PLC:nErrorId_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.nErrorId?")
 }
 
-record(waveform, "MR1K2:MMS:PITCH:PLC:sErrorMessage_RBV") {
+record(waveform, "MR1K2:SWITCH:MMS:PITCH:PLC:sErrorMessage_RBV") {
   field(DESC, "Message to identify the error state")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2213,7 +2213,7 @@ record(waveform, "MR1K2:MMS:PITCH:PLC:sErrorMessage_RBV") {
   field(NELM, "80")
 }
 
-record(bi, "MR1K2:COUPLE_Y_RBV") {
+record(bi, "MR1K2:SWITCH:COUPLE_Y_RBV") {
   field(DESC, "ads:MAIN.M1K2.bExecuteCoupleY")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2224,7 +2224,7 @@ record(bi, "MR1K2:COUPLE_Y_RBV") {
   field(ONAM, "One")
 }
 
-record(bo, "MR1K2:COUPLE_Y") {
+record(bo, "MR1K2:SWITCH:COUPLE_Y") {
   field(DESC, "ads:MAIN.M1K2.bExecuteCoupleY")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M1K2.bExecuteCoupleY=")
@@ -2233,7 +2233,7 @@ record(bo, "MR1K2:COUPLE_Y") {
   info(autosaveFields_pass0, "VAL")
 }
 
-record(bi, "MR1K2:DECOUPLE_Y_RBV") {
+record(bi, "MR1K2:SWITCH:DECOUPLE_Y_RBV") {
   field(DESC, "ads:MAIN.M1K2.bExecuteDecoupleY")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2244,7 +2244,7 @@ record(bi, "MR1K2:DECOUPLE_Y_RBV") {
   field(ONAM, "One")
 }
 
-record(bo, "MR1K2:DECOUPLE_Y") {
+record(bo, "MR1K2:SWITCH:DECOUPLE_Y") {
   field(DESC, "ads:MAIN.M1K2.bExecuteDecoupleY")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M1K2.bExecuteDecoupleY=")
@@ -2253,7 +2253,7 @@ record(bo, "MR1K2:DECOUPLE_Y") {
   info(autosaveFields_pass0, "VAL")
 }
 
-record(bi, "MR1K2:COUPLE_X_RBV") {
+record(bi, "MR1K2:SWITCH:COUPLE_X_RBV") {
   field(DESC, "ads:MAIN.M1K2.bExecuteCoupleX")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2264,7 +2264,7 @@ record(bi, "MR1K2:COUPLE_X_RBV") {
   field(ONAM, "One")
 }
 
-record(bo, "MR1K2:COUPLE_X") {
+record(bo, "MR1K2:SWITCH:COUPLE_X") {
   field(DESC, "ads:MAIN.M1K2.bExecuteCoupleX")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M1K2.bExecuteCoupleX=")
@@ -2273,7 +2273,7 @@ record(bo, "MR1K2:COUPLE_X") {
   info(autosaveFields_pass0, "VAL")
 }
 
-record(bi, "MR1K2:DECOUPLE_X_RBV") {
+record(bi, "MR1K2:SWITCH:DECOUPLE_X_RBV") {
   field(DESC, "ads:MAIN.M1K2.bExecuteDecoupleX")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2284,7 +2284,7 @@ record(bi, "MR1K2:DECOUPLE_X_RBV") {
   field(ONAM, "One")
 }
 
-record(bo, "MR1K2:DECOUPLE_X") {
+record(bo, "MR1K2:SWITCH:DECOUPLE_X") {
   field(DESC, "ads:MAIN.M1K2.bExecuteDecoupleX")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M1K2.bExecuteDecoupleX=")
@@ -2293,7 +2293,7 @@ record(bo, "MR1K2:DECOUPLE_X") {
   info(autosaveFields_pass0, "VAL")
 }
 
-record(bi, "MR1K2:ALREADY_COUPLED_Y_RBV") {
+record(bi, "MR1K2:SWITCH:ALREADY_COUPLED_Y_RBV") {
   field(DESC, "ads:MAIN.M1K2.bGantryAlreadyCoupledY")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2304,7 +2304,7 @@ record(bi, "MR1K2:ALREADY_COUPLED_Y_RBV") {
   field(ONAM, "One")
 }
 
-record(bi, "MR1K2:ALREADY_COUPLED_X_RBV") {
+record(bi, "MR1K2:SWITCH:ALREADY_COUPLED_X_RBV") {
   field(DESC, "ads:MAIN.M1K2.bGantryAlreadyCoupledX")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2315,7 +2315,7 @@ record(bi, "MR1K2:ALREADY_COUPLED_X_RBV") {
   field(ONAM, "One")
 }
 
-record(ai, "MR1K2:GANTRY_Y_RBV") {
+record(ai, "MR1K2:SWITCH:GANTRY_Y_RBV") {
   field(DESC, "ads:MAIN.M1K2.fCurrGantryY_um")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2327,7 +2327,7 @@ record(ai, "MR1K2:GANTRY_Y_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ai, "MR1K2:GANTRY_X_RBV") {
+record(ai, "MR1K2:SWITCH:GANTRY_X_RBV") {
   field(DESC, "ads:MAIN.M1K2.fCurrGantryX_um")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2339,7 +2339,7 @@ record(ai, "MR1K2:GANTRY_X_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ai, "MR1K2:ENC:Y:MEAN_RBV") {
+record(ai, "MR1K2:SWITCH:ENC:Y:MEAN_RBV") {
   field(DESC, "ads:MAIN.fbYRMSErrorM1K2.fEncMean")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2350,7 +2350,7 @@ record(ai, "MR1K2:ENC:Y:MEAN_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ai, "MR1K2:ENC:Y:STDEV_RBV") {
+record(ai, "MR1K2:SWITCH:ENC:Y:STDEV_RBV") {
   field(DESC, "ads:MAIN.fbYRMSErrorM1K2.fEncStDev")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2361,7 +2361,7 @@ record(ai, "MR1K2:ENC:Y:STDEV_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ai, "MR1K2:ENC:Y:RMS_RBV") {
+record(ai, "MR1K2:SWITCH:ENC:Y:RMS_RBV") {
   field(DESC, "ads:MAIN.fbYRMSErrorM1K2.fCurrRMSError")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2372,7 +2372,7 @@ record(ai, "MR1K2:ENC:Y:RMS_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(waveform, "MR1K2:ENC:Y:ACTPOSARRAY_RBV") {
+record(waveform, "MR1K2:SWITCH:ENC:Y:ACTPOSARRAY_RBV") {
   field(DESC, "ads:MAIN.fbYRMSErrorM1K2.aEncActPos")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2383,7 +2383,7 @@ record(waveform, "MR1K2:ENC:Y:ACTPOSARRAY_RBV") {
   field(NELM, "1000")
 }
 
-record(waveform, "MR1K2:ENC:Y:SETPOSARRAY_RBV") {
+record(waveform, "MR1K2:SWITCH:ENC:Y:SETPOSARRAY_RBV") {
   field(DESC, "ads:MAIN.fbYRMSErrorM1K2.aEncSetPos")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2394,7 +2394,7 @@ record(waveform, "MR1K2:ENC:Y:SETPOSARRAY_RBV") {
   field(NELM, "1000")
 }
 
-record(ai, "MR1K2:ENC:X:MEAN_RBV") {
+record(ai, "MR1K2:SWITCH:ENC:X:MEAN_RBV") {
   field(DESC, "ads:MAIN.fbXRMSErrorM1K2.fEncMean")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2405,7 +2405,7 @@ record(ai, "MR1K2:ENC:X:MEAN_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ai, "MR1K2:ENC:X:STDEV_RBV") {
+record(ai, "MR1K2:SWITCH:ENC:X:STDEV_RBV") {
   field(DESC, "ads:MAIN.fbXRMSErrorM1K2.fEncStDev")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2416,7 +2416,7 @@ record(ai, "MR1K2:ENC:X:STDEV_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ai, "MR1K2:ENC:X:RMS_RBV") {
+record(ai, "MR1K2:SWITCH:ENC:X:RMS_RBV") {
   field(DESC, "ads:MAIN.fbXRMSErrorM1K2.fCurrRMSError")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2427,7 +2427,7 @@ record(ai, "MR1K2:ENC:X:RMS_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(waveform, "MR1K2:ENC:X:ACTPOSARRAY_RBV") {
+record(waveform, "MR1K2:SWITCH:ENC:X:ACTPOSARRAY_RBV") {
   field(DESC, "ads:MAIN.fbXRMSErrorM1K2.aEncActPos")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2438,7 +2438,7 @@ record(waveform, "MR1K2:ENC:X:ACTPOSARRAY_RBV") {
   field(NELM, "1000")
 }
 
-record(waveform, "MR1K2:ENC:X:SETPOSARRAY_RBV") {
+record(waveform, "MR1K2:SWITCH:ENC:X:SETPOSARRAY_RBV") {
   field(DESC, "ads:MAIN.fbXRMSErrorM1K2.aEncSetPos")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2449,7 +2449,7 @@ record(waveform, "MR1K2:ENC:X:SETPOSARRAY_RBV") {
   field(NELM, "1000")
 }
 
-record(ai, "MR1K2:ENC:PITCH:MEAN_RBV") {
+record(ai, "MR1K2:SWITCH:ENC:PITCH:MEAN_RBV") {
   field(DESC, "ads:MAIN.fbPitchRMSErrorM1K2.fEncMean")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2460,7 +2460,7 @@ record(ai, "MR1K2:ENC:PITCH:MEAN_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ai, "MR1K2:ENC:PITCH:STDEV_RBV") {
+record(ai, "MR1K2:SWITCH:ENC:PITCH:STDEV_RBV") {
   field(DESC, "ads:MAIN.fbPitchRMSErrorM1K2.fEncStDev")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2471,7 +2471,7 @@ record(ai, "MR1K2:ENC:PITCH:STDEV_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(ai, "MR1K2:ENC:PITCH:RMS_RBV") {
+record(ai, "MR1K2:SWITCH:ENC:PITCH:RMS_RBV") {
   field(DESC, "ads:MAIN.fbPitchRMSE...1K2.fCurrRMSError")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2482,7 +2482,7 @@ record(ai, "MR1K2:ENC:PITCH:RMS_RBV") {
   info(autosaveFields_pass0, "PREC")
 }
 
-record(waveform, "MR1K2:ENC:PITCH:ACTPOSARRAY_RBV") {
+record(waveform, "MR1K2:SWITCH:ENC:PITCH:ACTPOSARRAY_RBV") {
   field(DESC, "ads:MAIN.fbPitchRMSErrorM1K2.aEncActPos")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -2493,7 +2493,7 @@ record(waveform, "MR1K2:ENC:PITCH:ACTPOSARRAY_RBV") {
   field(NELM, "1000")
 }
 
-record(waveform, "MR1K2:ENC:PITCH:SETPOSARRAY_RBV") {
+record(waveform, "MR1K2:SWITCH:ENC:PITCH:SETPOSARRAY_RBV") {
   field(DESC, "ads:MAIN.fbPitchRMSErrorM1K2.aEncSetPos")
   field(SCAN, "I/O Intr")
   field(PINI, "1")

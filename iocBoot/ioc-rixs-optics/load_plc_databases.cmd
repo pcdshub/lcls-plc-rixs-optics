@@ -1,1 +1,1 @@
-dbLoadRecords("rixs_optics.db", "PORT=ASYN_PLC,PREFIX=PLC:RIXS:OPTICS:,IOCNAME=$(IOCNAME)")
+dbLoadRecords("rixs_optics.db", "PORT=ASYN_PLC,PREFIX=PREFIX:,IOCNAME=$(IOCNAME)")
