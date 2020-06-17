@@ -7,6 +7,7 @@ record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bLimitForwardEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.bLimitForwardEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bLimitBackwardEnable_RBV") {
@@ -18,6 +19,7 @@ record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bLimitBackwardEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.bLimitBackwardEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bHome_RBV") {
@@ -29,6 +31,7 @@ record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bHome_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.bHome?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bBrakeRelease_RBV") {
@@ -40,6 +43,7 @@ record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bBrakeRelease_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.bBrakeRelease?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bHardwareEnable_RBV") {
@@ -51,6 +55,7 @@ record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bHardwareEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.bHardwareEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bAllForwardEnable_RBV") {
@@ -62,6 +67,7 @@ record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bAllForwardEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.bAllForwardEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bAllBackwardEnable_RBV") {
@@ -73,6 +79,7 @@ record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bAllBackwardEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.bAllBackwardEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bAllEnable_RBV") {
@@ -84,6 +91,7 @@ record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bAllEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.bAllEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bGantryForwardEnable_RBV") {
@@ -95,6 +103,7 @@ record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bGantryForwardEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.bGantryForwardEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bGantryBackwardEnable_RBV") {
@@ -106,6 +115,7 @@ record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bGantryBackwardEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.bGantryBackwardEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bPowerSelf_RBV") {
@@ -117,6 +127,7 @@ record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bPowerSelf_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.bPowerSelf?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(mbbi, "MR1K2:SWITCH:MMS:YLEFT:PLC:nEnableMode_RBV") {
@@ -132,6 +143,7 @@ record(mbbi, "MR1K2:SWITCH:MMS:YLEFT:PLC:nEnableMode_RBV") {
   field(ZRST, "ALWAYS")
   field(ONST, "NEVER")
   field(TWST, "DURING_MOTION")
+  info(archive, "VAL")
 }
 
 record(mbbi, "MR1K2:SWITCH:MMS:YLEFT:PLC:nBrakeMode_RBV") {
@@ -147,6 +159,7 @@ record(mbbi, "MR1K2:SWITCH:MMS:YLEFT:PLC:nBrakeMode_RBV") {
   field(ZRST, "IF_ENABLED")
   field(ONST, "IF_MOVING")
   field(TWST, "NO_BRAKE")
+  info(archive, "VAL")
 }
 
 record(mbbi, "MR1K2:SWITCH:MMS:YLEFT:PLC:nHomingMode_RBV") {
@@ -168,6 +181,7 @@ record(mbbi, "MR1K2:SWITCH:MMS:YLEFT:PLC:nHomingMode_RBV") {
   field(THST, "HOME_VIA_LOW")
   field(FRST, "HOME_VIA_HIGH")
   field(FVST, "ABSOLUTE_SET")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bGantryAxis_RBV") {
@@ -179,6 +193,7 @@ record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bGantryAxis_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.bGantryAxis?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bEnable_RBV") {
@@ -190,6 +205,7 @@ record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.bEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bo, "MR1K2:SWITCH:MMS:YLEFT:PLC:bEnable") {
@@ -199,6 +215,7 @@ record(bo, "MR1K2:SWITCH:MMS:YLEFT:PLC:bEnable") {
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
   info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bReset_RBV") {
@@ -210,6 +227,7 @@ record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bReset_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.bReset?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bo, "MR1K2:SWITCH:MMS:YLEFT:PLC:bReset") {
@@ -219,6 +237,7 @@ record(bo, "MR1K2:SWITCH:MMS:YLEFT:PLC:bReset") {
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
   info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bExecute_RBV") {
@@ -230,6 +249,7 @@ record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bExecute_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.bExecute?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bo, "MR1K2:SWITCH:MMS:YLEFT:PLC:bExecute") {
@@ -239,6 +259,7 @@ record(bo, "MR1K2:SWITCH:MMS:YLEFT:PLC:bExecute") {
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
   info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
 }
 
 record(longin, "MR1K2:SWITCH:MMS:YLEFT:PLC:nCommand_RBV") {
@@ -248,6 +269,7 @@ record(longin, "MR1K2:SWITCH:MMS:YLEFT:PLC:nCommand_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.nCommand?")
+  info(archive, "VAL")
 }
 
 record(longout, "MR1K2:SWITCH:MMS:YLEFT:PLC:nCommand") {
@@ -255,6 +277,7 @@ record(longout, "MR1K2:SWITCH:MMS:YLEFT:PLC:nCommand") {
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M1.nCommand=")
   info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
 }
 
 record(longin, "MR1K2:SWITCH:MMS:YLEFT:PLC:nCmdData_RBV") {
@@ -264,6 +287,7 @@ record(longin, "MR1K2:SWITCH:MMS:YLEFT:PLC:nCmdData_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.nCmdData?")
+  info(archive, "VAL")
 }
 
 record(longout, "MR1K2:SWITCH:MMS:YLEFT:PLC:nCmdData") {
@@ -271,6 +295,7 @@ record(longout, "MR1K2:SWITCH:MMS:YLEFT:PLC:nCmdData") {
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M1.nCmdData=")
   info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:MMS:YLEFT:PLC:fPosition_RBV") {
@@ -282,6 +307,7 @@ record(ai, "MR1K2:SWITCH:MMS:YLEFT:PLC:fPosition_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.fPosition?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ao, "MR1K2:SWITCH:MMS:YLEFT:PLC:fPosition") {
@@ -290,6 +316,7 @@ record(ao, "MR1K2:SWITCH:MMS:YLEFT:PLC:fPosition") {
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M1.fPosition=")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC VAL")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:MMS:YLEFT:PLC:fVelocity_RBV") {
@@ -301,6 +328,7 @@ record(ai, "MR1K2:SWITCH:MMS:YLEFT:PLC:fVelocity_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.fVelocity?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ao, "MR1K2:SWITCH:MMS:YLEFT:PLC:fVelocity") {
@@ -309,6 +337,7 @@ record(ao, "MR1K2:SWITCH:MMS:YLEFT:PLC:fVelocity") {
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M1.fVelocity=")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC VAL")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:MMS:YLEFT:PLC:fAcceleration_RBV") {
@@ -320,6 +349,7 @@ record(ai, "MR1K2:SWITCH:MMS:YLEFT:PLC:fAcceleration_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.fAcceleration?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ao, "MR1K2:SWITCH:MMS:YLEFT:PLC:fAcceleration") {
@@ -328,6 +358,7 @@ record(ao, "MR1K2:SWITCH:MMS:YLEFT:PLC:fAcceleration") {
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M1.fAcceleration=")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC VAL")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:MMS:YLEFT:PLC:fDeceleration_RBV") {
@@ -339,6 +370,7 @@ record(ai, "MR1K2:SWITCH:MMS:YLEFT:PLC:fDeceleration_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.fDeceleration?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ao, "MR1K2:SWITCH:MMS:YLEFT:PLC:fDeceleration") {
@@ -347,6 +379,7 @@ record(ao, "MR1K2:SWITCH:MMS:YLEFT:PLC:fDeceleration") {
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M1.fDeceleration=")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC VAL")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:MMS:YLEFT:PLC:fHomePosition_RBV") {
@@ -358,6 +391,7 @@ record(ai, "MR1K2:SWITCH:MMS:YLEFT:PLC:fHomePosition_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.fHomePosition?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ao, "MR1K2:SWITCH:MMS:YLEFT:PLC:fHomePosition") {
@@ -366,6 +400,7 @@ record(ao, "MR1K2:SWITCH:MMS:YLEFT:PLC:fHomePosition") {
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M1.fHomePosition=")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC VAL")
+  info(archive, "VAL")
 }
 
 record(longin, "MR1K2:SWITCH:MMS:YLEFT:PLC:nMotionAxisID_RBV") {
@@ -375,6 +410,7 @@ record(longin, "MR1K2:SWITCH:MMS:YLEFT:PLC:nMotionAxisID_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.nMotionAxisID?")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bEnableDone_RBV") {
@@ -386,6 +422,7 @@ record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bEnableDone_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.bEnableDone?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bBusy_RBV") {
@@ -397,6 +434,7 @@ record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bBusy_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.bBusy?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bDone_RBV") {
@@ -408,6 +446,7 @@ record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bDone_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.bDone?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bError_RBV") {
@@ -419,6 +458,7 @@ record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bError_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.bError?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
 }
 
 record(longin, "MR1K2:SWITCH:MMS:YLEFT:PLC:nErrorId_RBV") {
@@ -428,6 +468,7 @@ record(longin, "MR1K2:SWITCH:MMS:YLEFT:PLC:nErrorId_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.nErrorId?")
+  info(archive, "VAL")
 }
 
 record(waveform, "MR1K2:SWITCH:MMS:YLEFT:PLC:sErrorMessage_RBV") {
@@ -439,6 +480,7 @@ record(waveform, "MR1K2:SWITCH:MMS:YLEFT:PLC:sErrorMessage_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1.sErrorMessage?")
   field(FTVL, "CHAR")
   field(NELM, "80")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bLimitForwardEnable_RBV") {
@@ -450,6 +492,7 @@ record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bLimitForwardEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.bLimitForwardEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bLimitBackwardEnable_RBV") {
@@ -461,6 +504,7 @@ record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bLimitBackwardEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.bLimitBackwardEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bHome_RBV") {
@@ -472,6 +516,7 @@ record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bHome_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.bHome?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bBrakeRelease_RBV") {
@@ -483,6 +528,7 @@ record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bBrakeRelease_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.bBrakeRelease?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bHardwareEnable_RBV") {
@@ -494,6 +540,7 @@ record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bHardwareEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.bHardwareEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bAllForwardEnable_RBV") {
@@ -505,6 +552,7 @@ record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bAllForwardEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.bAllForwardEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bAllBackwardEnable_RBV") {
@@ -516,6 +564,7 @@ record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bAllBackwardEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.bAllBackwardEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bAllEnable_RBV") {
@@ -527,6 +576,7 @@ record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bAllEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.bAllEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bGantryForwardEnable_RBV") {
@@ -538,6 +588,7 @@ record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bGantryForwardEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.bGantryForwardEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bGantryBackwardEnable_RBV") {
@@ -549,6 +600,7 @@ record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bGantryBackwardEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.bGantryBackwardEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bPowerSelf_RBV") {
@@ -560,6 +612,7 @@ record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bPowerSelf_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.bPowerSelf?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(mbbi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:nEnableMode_RBV") {
@@ -575,6 +628,7 @@ record(mbbi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:nEnableMode_RBV") {
   field(ZRST, "ALWAYS")
   field(ONST, "NEVER")
   field(TWST, "DURING_MOTION")
+  info(archive, "VAL")
 }
 
 record(mbbi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:nBrakeMode_RBV") {
@@ -590,6 +644,7 @@ record(mbbi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:nBrakeMode_RBV") {
   field(ZRST, "IF_ENABLED")
   field(ONST, "IF_MOVING")
   field(TWST, "NO_BRAKE")
+  info(archive, "VAL")
 }
 
 record(mbbi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:nHomingMode_RBV") {
@@ -611,6 +666,7 @@ record(mbbi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:nHomingMode_RBV") {
   field(THST, "HOME_VIA_LOW")
   field(FRST, "HOME_VIA_HIGH")
   field(FVST, "ABSOLUTE_SET")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bGantryAxis_RBV") {
@@ -622,6 +678,7 @@ record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bGantryAxis_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.bGantryAxis?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bEnable_RBV") {
@@ -633,6 +690,7 @@ record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.bEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bo, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bEnable") {
@@ -642,6 +700,7 @@ record(bo, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bEnable") {
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
   info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bReset_RBV") {
@@ -653,6 +712,7 @@ record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bReset_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.bReset?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bo, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bReset") {
@@ -662,6 +722,7 @@ record(bo, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bReset") {
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
   info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bExecute_RBV") {
@@ -673,6 +734,7 @@ record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bExecute_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.bExecute?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bo, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bExecute") {
@@ -682,6 +744,7 @@ record(bo, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bExecute") {
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
   info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
 }
 
 record(longin, "MR1K2:SWITCH:MMS:YRIGHT:PLC:nCommand_RBV") {
@@ -691,6 +754,7 @@ record(longin, "MR1K2:SWITCH:MMS:YRIGHT:PLC:nCommand_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.nCommand?")
+  info(archive, "VAL")
 }
 
 record(longout, "MR1K2:SWITCH:MMS:YRIGHT:PLC:nCommand") {
@@ -698,6 +762,7 @@ record(longout, "MR1K2:SWITCH:MMS:YRIGHT:PLC:nCommand") {
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M2.nCommand=")
   info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
 }
 
 record(longin, "MR1K2:SWITCH:MMS:YRIGHT:PLC:nCmdData_RBV") {
@@ -707,6 +772,7 @@ record(longin, "MR1K2:SWITCH:MMS:YRIGHT:PLC:nCmdData_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.nCmdData?")
+  info(archive, "VAL")
 }
 
 record(longout, "MR1K2:SWITCH:MMS:YRIGHT:PLC:nCmdData") {
@@ -714,6 +780,7 @@ record(longout, "MR1K2:SWITCH:MMS:YRIGHT:PLC:nCmdData") {
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M2.nCmdData=")
   info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:MMS:YRIGHT:PLC:fPosition_RBV") {
@@ -725,6 +792,7 @@ record(ai, "MR1K2:SWITCH:MMS:YRIGHT:PLC:fPosition_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.fPosition?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ao, "MR1K2:SWITCH:MMS:YRIGHT:PLC:fPosition") {
@@ -733,6 +801,7 @@ record(ao, "MR1K2:SWITCH:MMS:YRIGHT:PLC:fPosition") {
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M2.fPosition=")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC VAL")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:MMS:YRIGHT:PLC:fVelocity_RBV") {
@@ -744,6 +813,7 @@ record(ai, "MR1K2:SWITCH:MMS:YRIGHT:PLC:fVelocity_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.fVelocity?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ao, "MR1K2:SWITCH:MMS:YRIGHT:PLC:fVelocity") {
@@ -752,6 +822,7 @@ record(ao, "MR1K2:SWITCH:MMS:YRIGHT:PLC:fVelocity") {
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M2.fVelocity=")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC VAL")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:MMS:YRIGHT:PLC:fAcceleration_RBV") {
@@ -763,6 +834,7 @@ record(ai, "MR1K2:SWITCH:MMS:YRIGHT:PLC:fAcceleration_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.fAcceleration?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ao, "MR1K2:SWITCH:MMS:YRIGHT:PLC:fAcceleration") {
@@ -771,6 +843,7 @@ record(ao, "MR1K2:SWITCH:MMS:YRIGHT:PLC:fAcceleration") {
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M2.fAcceleration=")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC VAL")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:MMS:YRIGHT:PLC:fDeceleration_RBV") {
@@ -782,6 +855,7 @@ record(ai, "MR1K2:SWITCH:MMS:YRIGHT:PLC:fDeceleration_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.fDeceleration?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ao, "MR1K2:SWITCH:MMS:YRIGHT:PLC:fDeceleration") {
@@ -790,6 +864,7 @@ record(ao, "MR1K2:SWITCH:MMS:YRIGHT:PLC:fDeceleration") {
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M2.fDeceleration=")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC VAL")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:MMS:YRIGHT:PLC:fHomePosition_RBV") {
@@ -801,6 +876,7 @@ record(ai, "MR1K2:SWITCH:MMS:YRIGHT:PLC:fHomePosition_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.fHomePosition?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ao, "MR1K2:SWITCH:MMS:YRIGHT:PLC:fHomePosition") {
@@ -809,6 +885,7 @@ record(ao, "MR1K2:SWITCH:MMS:YRIGHT:PLC:fHomePosition") {
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M2.fHomePosition=")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC VAL")
+  info(archive, "VAL")
 }
 
 record(longin, "MR1K2:SWITCH:MMS:YRIGHT:PLC:nMotionAxisID_RBV") {
@@ -818,6 +895,7 @@ record(longin, "MR1K2:SWITCH:MMS:YRIGHT:PLC:nMotionAxisID_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.nMotionAxisID?")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bEnableDone_RBV") {
@@ -829,6 +907,7 @@ record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bEnableDone_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.bEnableDone?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bBusy_RBV") {
@@ -840,6 +919,7 @@ record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bBusy_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.bBusy?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bDone_RBV") {
@@ -851,6 +931,7 @@ record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bDone_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.bDone?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bError_RBV") {
@@ -862,6 +943,7 @@ record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bError_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.bError?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
 }
 
 record(longin, "MR1K2:SWITCH:MMS:YRIGHT:PLC:nErrorId_RBV") {
@@ -871,6 +953,7 @@ record(longin, "MR1K2:SWITCH:MMS:YRIGHT:PLC:nErrorId_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.nErrorId?")
+  info(archive, "VAL")
 }
 
 record(waveform, "MR1K2:SWITCH:MMS:YRIGHT:PLC:sErrorMessage_RBV") {
@@ -882,6 +965,7 @@ record(waveform, "MR1K2:SWITCH:MMS:YRIGHT:PLC:sErrorMessage_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M2.sErrorMessage?")
   field(FTVL, "CHAR")
   field(NELM, "80")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bLimitForwardEnable_RBV") {
@@ -893,6 +977,7 @@ record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bLimitForwardEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.bLimitForwardEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bLimitBackwardEnable_RBV") {
@@ -904,6 +989,7 @@ record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bLimitBackwardEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.bLimitBackwardEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bHome_RBV") {
@@ -915,6 +1001,7 @@ record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bHome_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.bHome?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bBrakeRelease_RBV") {
@@ -926,6 +1013,7 @@ record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bBrakeRelease_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.bBrakeRelease?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bHardwareEnable_RBV") {
@@ -937,6 +1025,7 @@ record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bHardwareEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.bHardwareEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bAllForwardEnable_RBV") {
@@ -948,6 +1037,7 @@ record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bAllForwardEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.bAllForwardEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bAllBackwardEnable_RBV") {
@@ -959,6 +1049,7 @@ record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bAllBackwardEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.bAllBackwardEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bAllEnable_RBV") {
@@ -970,6 +1061,7 @@ record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bAllEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.bAllEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bGantryForwardEnable_RBV") {
@@ -981,6 +1073,7 @@ record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bGantryForwardEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.bGantryForwardEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bGantryBackwardEnable_RBV") {
@@ -992,6 +1085,7 @@ record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bGantryBackwardEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.bGantryBackwardEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bPowerSelf_RBV") {
@@ -1003,6 +1097,7 @@ record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bPowerSelf_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.bPowerSelf?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(mbbi, "MR1K2:SWITCH:MMS:XUP:PLC:nEnableMode_RBV") {
@@ -1018,6 +1113,7 @@ record(mbbi, "MR1K2:SWITCH:MMS:XUP:PLC:nEnableMode_RBV") {
   field(ZRST, "ALWAYS")
   field(ONST, "NEVER")
   field(TWST, "DURING_MOTION")
+  info(archive, "VAL")
 }
 
 record(mbbi, "MR1K2:SWITCH:MMS:XUP:PLC:nBrakeMode_RBV") {
@@ -1033,6 +1129,7 @@ record(mbbi, "MR1K2:SWITCH:MMS:XUP:PLC:nBrakeMode_RBV") {
   field(ZRST, "IF_ENABLED")
   field(ONST, "IF_MOVING")
   field(TWST, "NO_BRAKE")
+  info(archive, "VAL")
 }
 
 record(mbbi, "MR1K2:SWITCH:MMS:XUP:PLC:nHomingMode_RBV") {
@@ -1054,6 +1151,7 @@ record(mbbi, "MR1K2:SWITCH:MMS:XUP:PLC:nHomingMode_RBV") {
   field(THST, "HOME_VIA_LOW")
   field(FRST, "HOME_VIA_HIGH")
   field(FVST, "ABSOLUTE_SET")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bGantryAxis_RBV") {
@@ -1065,6 +1163,7 @@ record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bGantryAxis_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.bGantryAxis?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bEnable_RBV") {
@@ -1076,6 +1175,7 @@ record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.bEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bo, "MR1K2:SWITCH:MMS:XUP:PLC:bEnable") {
@@ -1085,6 +1185,7 @@ record(bo, "MR1K2:SWITCH:MMS:XUP:PLC:bEnable") {
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
   info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bReset_RBV") {
@@ -1096,6 +1197,7 @@ record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bReset_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.bReset?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bo, "MR1K2:SWITCH:MMS:XUP:PLC:bReset") {
@@ -1105,6 +1207,7 @@ record(bo, "MR1K2:SWITCH:MMS:XUP:PLC:bReset") {
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
   info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bExecute_RBV") {
@@ -1116,6 +1219,7 @@ record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bExecute_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.bExecute?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bo, "MR1K2:SWITCH:MMS:XUP:PLC:bExecute") {
@@ -1125,6 +1229,7 @@ record(bo, "MR1K2:SWITCH:MMS:XUP:PLC:bExecute") {
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
   info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
 }
 
 record(longin, "MR1K2:SWITCH:MMS:XUP:PLC:nCommand_RBV") {
@@ -1134,6 +1239,7 @@ record(longin, "MR1K2:SWITCH:MMS:XUP:PLC:nCommand_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.nCommand?")
+  info(archive, "VAL")
 }
 
 record(longout, "MR1K2:SWITCH:MMS:XUP:PLC:nCommand") {
@@ -1141,6 +1247,7 @@ record(longout, "MR1K2:SWITCH:MMS:XUP:PLC:nCommand") {
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M3.nCommand=")
   info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
 }
 
 record(longin, "MR1K2:SWITCH:MMS:XUP:PLC:nCmdData_RBV") {
@@ -1150,6 +1257,7 @@ record(longin, "MR1K2:SWITCH:MMS:XUP:PLC:nCmdData_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.nCmdData?")
+  info(archive, "VAL")
 }
 
 record(longout, "MR1K2:SWITCH:MMS:XUP:PLC:nCmdData") {
@@ -1157,6 +1265,7 @@ record(longout, "MR1K2:SWITCH:MMS:XUP:PLC:nCmdData") {
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M3.nCmdData=")
   info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:MMS:XUP:PLC:fPosition_RBV") {
@@ -1168,6 +1277,7 @@ record(ai, "MR1K2:SWITCH:MMS:XUP:PLC:fPosition_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.fPosition?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ao, "MR1K2:SWITCH:MMS:XUP:PLC:fPosition") {
@@ -1176,6 +1286,7 @@ record(ao, "MR1K2:SWITCH:MMS:XUP:PLC:fPosition") {
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M3.fPosition=")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC VAL")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:MMS:XUP:PLC:fVelocity_RBV") {
@@ -1187,6 +1298,7 @@ record(ai, "MR1K2:SWITCH:MMS:XUP:PLC:fVelocity_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.fVelocity?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ao, "MR1K2:SWITCH:MMS:XUP:PLC:fVelocity") {
@@ -1195,6 +1307,7 @@ record(ao, "MR1K2:SWITCH:MMS:XUP:PLC:fVelocity") {
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M3.fVelocity=")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC VAL")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:MMS:XUP:PLC:fAcceleration_RBV") {
@@ -1206,6 +1319,7 @@ record(ai, "MR1K2:SWITCH:MMS:XUP:PLC:fAcceleration_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.fAcceleration?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ao, "MR1K2:SWITCH:MMS:XUP:PLC:fAcceleration") {
@@ -1214,6 +1328,7 @@ record(ao, "MR1K2:SWITCH:MMS:XUP:PLC:fAcceleration") {
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M3.fAcceleration=")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC VAL")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:MMS:XUP:PLC:fDeceleration_RBV") {
@@ -1225,6 +1340,7 @@ record(ai, "MR1K2:SWITCH:MMS:XUP:PLC:fDeceleration_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.fDeceleration?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ao, "MR1K2:SWITCH:MMS:XUP:PLC:fDeceleration") {
@@ -1233,6 +1349,7 @@ record(ao, "MR1K2:SWITCH:MMS:XUP:PLC:fDeceleration") {
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M3.fDeceleration=")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC VAL")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:MMS:XUP:PLC:fHomePosition_RBV") {
@@ -1244,6 +1361,7 @@ record(ai, "MR1K2:SWITCH:MMS:XUP:PLC:fHomePosition_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.fHomePosition?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ao, "MR1K2:SWITCH:MMS:XUP:PLC:fHomePosition") {
@@ -1252,6 +1370,7 @@ record(ao, "MR1K2:SWITCH:MMS:XUP:PLC:fHomePosition") {
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M3.fHomePosition=")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC VAL")
+  info(archive, "VAL")
 }
 
 record(longin, "MR1K2:SWITCH:MMS:XUP:PLC:nMotionAxisID_RBV") {
@@ -1261,6 +1380,7 @@ record(longin, "MR1K2:SWITCH:MMS:XUP:PLC:nMotionAxisID_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.nMotionAxisID?")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bEnableDone_RBV") {
@@ -1272,6 +1392,7 @@ record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bEnableDone_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.bEnableDone?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bBusy_RBV") {
@@ -1283,6 +1404,7 @@ record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bBusy_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.bBusy?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bDone_RBV") {
@@ -1294,6 +1416,7 @@ record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bDone_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.bDone?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bError_RBV") {
@@ -1305,6 +1428,7 @@ record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bError_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.bError?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
 }
 
 record(longin, "MR1K2:SWITCH:MMS:XUP:PLC:nErrorId_RBV") {
@@ -1314,6 +1438,7 @@ record(longin, "MR1K2:SWITCH:MMS:XUP:PLC:nErrorId_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.nErrorId?")
+  info(archive, "VAL")
 }
 
 record(waveform, "MR1K2:SWITCH:MMS:XUP:PLC:sErrorMessage_RBV") {
@@ -1325,6 +1450,7 @@ record(waveform, "MR1K2:SWITCH:MMS:XUP:PLC:sErrorMessage_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M3.sErrorMessage?")
   field(FTVL, "CHAR")
   field(NELM, "80")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bLimitForwardEnable_RBV") {
@@ -1336,6 +1462,7 @@ record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bLimitForwardEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.bLimitForwardEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bLimitBackwardEnable_RBV") {
@@ -1347,6 +1474,7 @@ record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bLimitBackwardEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.bLimitBackwardEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bHome_RBV") {
@@ -1358,6 +1486,7 @@ record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bHome_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.bHome?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bBrakeRelease_RBV") {
@@ -1369,6 +1498,7 @@ record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bBrakeRelease_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.bBrakeRelease?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bHardwareEnable_RBV") {
@@ -1380,6 +1510,7 @@ record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bHardwareEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.bHardwareEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bAllForwardEnable_RBV") {
@@ -1391,6 +1522,7 @@ record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bAllForwardEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.bAllForwardEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bAllBackwardEnable_RBV") {
@@ -1402,6 +1534,7 @@ record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bAllBackwardEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.bAllBackwardEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bAllEnable_RBV") {
@@ -1413,6 +1546,7 @@ record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bAllEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.bAllEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bGantryForwardEnable_RBV") {
@@ -1424,6 +1558,7 @@ record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bGantryForwardEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.bGantryForwardEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bGantryBackwardEnable_RBV") {
@@ -1435,6 +1570,7 @@ record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bGantryBackwardEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.bGantryBackwardEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bPowerSelf_RBV") {
@@ -1446,6 +1582,7 @@ record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bPowerSelf_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.bPowerSelf?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(mbbi, "MR1K2:SWITCH:MMS:XDWN:PLC:nEnableMode_RBV") {
@@ -1461,6 +1598,7 @@ record(mbbi, "MR1K2:SWITCH:MMS:XDWN:PLC:nEnableMode_RBV") {
   field(ZRST, "ALWAYS")
   field(ONST, "NEVER")
   field(TWST, "DURING_MOTION")
+  info(archive, "VAL")
 }
 
 record(mbbi, "MR1K2:SWITCH:MMS:XDWN:PLC:nBrakeMode_RBV") {
@@ -1476,6 +1614,7 @@ record(mbbi, "MR1K2:SWITCH:MMS:XDWN:PLC:nBrakeMode_RBV") {
   field(ZRST, "IF_ENABLED")
   field(ONST, "IF_MOVING")
   field(TWST, "NO_BRAKE")
+  info(archive, "VAL")
 }
 
 record(mbbi, "MR1K2:SWITCH:MMS:XDWN:PLC:nHomingMode_RBV") {
@@ -1497,6 +1636,7 @@ record(mbbi, "MR1K2:SWITCH:MMS:XDWN:PLC:nHomingMode_RBV") {
   field(THST, "HOME_VIA_LOW")
   field(FRST, "HOME_VIA_HIGH")
   field(FVST, "ABSOLUTE_SET")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bGantryAxis_RBV") {
@@ -1508,6 +1648,7 @@ record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bGantryAxis_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.bGantryAxis?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bEnable_RBV") {
@@ -1519,6 +1660,7 @@ record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.bEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bo, "MR1K2:SWITCH:MMS:XDWN:PLC:bEnable") {
@@ -1528,6 +1670,7 @@ record(bo, "MR1K2:SWITCH:MMS:XDWN:PLC:bEnable") {
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
   info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bReset_RBV") {
@@ -1539,6 +1682,7 @@ record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bReset_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.bReset?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bo, "MR1K2:SWITCH:MMS:XDWN:PLC:bReset") {
@@ -1548,6 +1692,7 @@ record(bo, "MR1K2:SWITCH:MMS:XDWN:PLC:bReset") {
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
   info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bExecute_RBV") {
@@ -1559,6 +1704,7 @@ record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bExecute_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.bExecute?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bo, "MR1K2:SWITCH:MMS:XDWN:PLC:bExecute") {
@@ -1568,6 +1714,7 @@ record(bo, "MR1K2:SWITCH:MMS:XDWN:PLC:bExecute") {
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
   info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
 }
 
 record(longin, "MR1K2:SWITCH:MMS:XDWN:PLC:nCommand_RBV") {
@@ -1577,6 +1724,7 @@ record(longin, "MR1K2:SWITCH:MMS:XDWN:PLC:nCommand_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.nCommand?")
+  info(archive, "VAL")
 }
 
 record(longout, "MR1K2:SWITCH:MMS:XDWN:PLC:nCommand") {
@@ -1584,6 +1732,7 @@ record(longout, "MR1K2:SWITCH:MMS:XDWN:PLC:nCommand") {
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M4.nCommand=")
   info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
 }
 
 record(longin, "MR1K2:SWITCH:MMS:XDWN:PLC:nCmdData_RBV") {
@@ -1593,6 +1742,7 @@ record(longin, "MR1K2:SWITCH:MMS:XDWN:PLC:nCmdData_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.nCmdData?")
+  info(archive, "VAL")
 }
 
 record(longout, "MR1K2:SWITCH:MMS:XDWN:PLC:nCmdData") {
@@ -1600,6 +1750,7 @@ record(longout, "MR1K2:SWITCH:MMS:XDWN:PLC:nCmdData") {
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M4.nCmdData=")
   info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:MMS:XDWN:PLC:fPosition_RBV") {
@@ -1611,6 +1762,7 @@ record(ai, "MR1K2:SWITCH:MMS:XDWN:PLC:fPosition_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.fPosition?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ao, "MR1K2:SWITCH:MMS:XDWN:PLC:fPosition") {
@@ -1619,6 +1771,7 @@ record(ao, "MR1K2:SWITCH:MMS:XDWN:PLC:fPosition") {
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M4.fPosition=")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC VAL")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:MMS:XDWN:PLC:fVelocity_RBV") {
@@ -1630,6 +1783,7 @@ record(ai, "MR1K2:SWITCH:MMS:XDWN:PLC:fVelocity_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.fVelocity?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ao, "MR1K2:SWITCH:MMS:XDWN:PLC:fVelocity") {
@@ -1638,6 +1792,7 @@ record(ao, "MR1K2:SWITCH:MMS:XDWN:PLC:fVelocity") {
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M4.fVelocity=")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC VAL")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:MMS:XDWN:PLC:fAcceleration_RBV") {
@@ -1649,6 +1804,7 @@ record(ai, "MR1K2:SWITCH:MMS:XDWN:PLC:fAcceleration_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.fAcceleration?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ao, "MR1K2:SWITCH:MMS:XDWN:PLC:fAcceleration") {
@@ -1657,6 +1813,7 @@ record(ao, "MR1K2:SWITCH:MMS:XDWN:PLC:fAcceleration") {
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M4.fAcceleration=")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC VAL")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:MMS:XDWN:PLC:fDeceleration_RBV") {
@@ -1668,6 +1825,7 @@ record(ai, "MR1K2:SWITCH:MMS:XDWN:PLC:fDeceleration_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.fDeceleration?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ao, "MR1K2:SWITCH:MMS:XDWN:PLC:fDeceleration") {
@@ -1676,6 +1834,7 @@ record(ao, "MR1K2:SWITCH:MMS:XDWN:PLC:fDeceleration") {
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M4.fDeceleration=")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC VAL")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:MMS:XDWN:PLC:fHomePosition_RBV") {
@@ -1687,6 +1846,7 @@ record(ai, "MR1K2:SWITCH:MMS:XDWN:PLC:fHomePosition_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.fHomePosition?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ao, "MR1K2:SWITCH:MMS:XDWN:PLC:fHomePosition") {
@@ -1695,6 +1855,7 @@ record(ao, "MR1K2:SWITCH:MMS:XDWN:PLC:fHomePosition") {
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M4.fHomePosition=")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC VAL")
+  info(archive, "VAL")
 }
 
 record(longin, "MR1K2:SWITCH:MMS:XDWN:PLC:nMotionAxisID_RBV") {
@@ -1704,6 +1865,7 @@ record(longin, "MR1K2:SWITCH:MMS:XDWN:PLC:nMotionAxisID_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.nMotionAxisID?")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bEnableDone_RBV") {
@@ -1715,6 +1877,7 @@ record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bEnableDone_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.bEnableDone?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bBusy_RBV") {
@@ -1726,6 +1889,7 @@ record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bBusy_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.bBusy?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bDone_RBV") {
@@ -1737,6 +1901,7 @@ record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bDone_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.bDone?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bError_RBV") {
@@ -1748,6 +1913,7 @@ record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bError_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.bError?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
 }
 
 record(longin, "MR1K2:SWITCH:MMS:XDWN:PLC:nErrorId_RBV") {
@@ -1757,6 +1923,7 @@ record(longin, "MR1K2:SWITCH:MMS:XDWN:PLC:nErrorId_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.nErrorId?")
+  info(archive, "VAL")
 }
 
 record(waveform, "MR1K2:SWITCH:MMS:XDWN:PLC:sErrorMessage_RBV") {
@@ -1768,6 +1935,7 @@ record(waveform, "MR1K2:SWITCH:MMS:XDWN:PLC:sErrorMessage_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M4.sErrorMessage?")
   field(FTVL, "CHAR")
   field(NELM, "80")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bLimitForwardEnable_RBV") {
@@ -1779,6 +1947,7 @@ record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bLimitForwardEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.bLimitForwardEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bLimitBackwardEnable_RBV") {
@@ -1790,6 +1959,7 @@ record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bLimitBackwardEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.bLimitBackwardEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bHome_RBV") {
@@ -1801,6 +1971,7 @@ record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bHome_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.bHome?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bBrakeRelease_RBV") {
@@ -1812,6 +1983,7 @@ record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bBrakeRelease_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.bBrakeRelease?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bHardwareEnable_RBV") {
@@ -1823,6 +1995,7 @@ record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bHardwareEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.bHardwareEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bAllForwardEnable_RBV") {
@@ -1834,6 +2007,7 @@ record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bAllForwardEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.bAllForwardEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bAllBackwardEnable_RBV") {
@@ -1845,6 +2019,7 @@ record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bAllBackwardEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.bAllBackwardEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bAllEnable_RBV") {
@@ -1856,6 +2031,7 @@ record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bAllEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.bAllEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bGantryForwardEnable_RBV") {
@@ -1867,6 +2043,7 @@ record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bGantryForwardEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.bGantryForwardEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bGantryBackwardEnable_RBV") {
@@ -1878,6 +2055,7 @@ record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bGantryBackwardEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.bGantryBackwardEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bPowerSelf_RBV") {
@@ -1889,6 +2067,7 @@ record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bPowerSelf_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.bPowerSelf?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(mbbi, "MR1K2:SWITCH:MMS:PITCH:PLC:nEnableMode_RBV") {
@@ -1904,6 +2083,7 @@ record(mbbi, "MR1K2:SWITCH:MMS:PITCH:PLC:nEnableMode_RBV") {
   field(ZRST, "ALWAYS")
   field(ONST, "NEVER")
   field(TWST, "DURING_MOTION")
+  info(archive, "VAL")
 }
 
 record(mbbi, "MR1K2:SWITCH:MMS:PITCH:PLC:nBrakeMode_RBV") {
@@ -1919,6 +2099,7 @@ record(mbbi, "MR1K2:SWITCH:MMS:PITCH:PLC:nBrakeMode_RBV") {
   field(ZRST, "IF_ENABLED")
   field(ONST, "IF_MOVING")
   field(TWST, "NO_BRAKE")
+  info(archive, "VAL")
 }
 
 record(mbbi, "MR1K2:SWITCH:MMS:PITCH:PLC:nHomingMode_RBV") {
@@ -1940,6 +2121,7 @@ record(mbbi, "MR1K2:SWITCH:MMS:PITCH:PLC:nHomingMode_RBV") {
   field(THST, "HOME_VIA_LOW")
   field(FRST, "HOME_VIA_HIGH")
   field(FVST, "ABSOLUTE_SET")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bGantryAxis_RBV") {
@@ -1951,6 +2133,7 @@ record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bGantryAxis_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.bGantryAxis?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bEnable_RBV") {
@@ -1962,6 +2145,7 @@ record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bEnable_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.bEnable?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bo, "MR1K2:SWITCH:MMS:PITCH:PLC:bEnable") {
@@ -1971,6 +2155,7 @@ record(bo, "MR1K2:SWITCH:MMS:PITCH:PLC:bEnable") {
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
   info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bReset_RBV") {
@@ -1982,6 +2167,7 @@ record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bReset_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.bReset?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bo, "MR1K2:SWITCH:MMS:PITCH:PLC:bReset") {
@@ -1991,6 +2177,7 @@ record(bo, "MR1K2:SWITCH:MMS:PITCH:PLC:bReset") {
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
   info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bExecute_RBV") {
@@ -2002,6 +2189,7 @@ record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bExecute_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.bExecute?")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bo, "MR1K2:SWITCH:MMS:PITCH:PLC:bExecute") {
@@ -2011,6 +2199,7 @@ record(bo, "MR1K2:SWITCH:MMS:PITCH:PLC:bExecute") {
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
   info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
 }
 
 record(longin, "MR1K2:SWITCH:MMS:PITCH:PLC:nCommand_RBV") {
@@ -2020,6 +2209,7 @@ record(longin, "MR1K2:SWITCH:MMS:PITCH:PLC:nCommand_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.nCommand?")
+  info(archive, "VAL")
 }
 
 record(longout, "MR1K2:SWITCH:MMS:PITCH:PLC:nCommand") {
@@ -2027,6 +2217,7 @@ record(longout, "MR1K2:SWITCH:MMS:PITCH:PLC:nCommand") {
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M5.nCommand=")
   info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
 }
 
 record(longin, "MR1K2:SWITCH:MMS:PITCH:PLC:nCmdData_RBV") {
@@ -2036,6 +2227,7 @@ record(longin, "MR1K2:SWITCH:MMS:PITCH:PLC:nCmdData_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.nCmdData?")
+  info(archive, "VAL")
 }
 
 record(longout, "MR1K2:SWITCH:MMS:PITCH:PLC:nCmdData") {
@@ -2043,6 +2235,7 @@ record(longout, "MR1K2:SWITCH:MMS:PITCH:PLC:nCmdData") {
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M5.nCmdData=")
   info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:MMS:PITCH:PLC:fPosition_RBV") {
@@ -2054,6 +2247,7 @@ record(ai, "MR1K2:SWITCH:MMS:PITCH:PLC:fPosition_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.fPosition?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ao, "MR1K2:SWITCH:MMS:PITCH:PLC:fPosition") {
@@ -2062,6 +2256,7 @@ record(ao, "MR1K2:SWITCH:MMS:PITCH:PLC:fPosition") {
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M5.fPosition=")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC VAL")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:MMS:PITCH:PLC:fVelocity_RBV") {
@@ -2073,6 +2268,7 @@ record(ai, "MR1K2:SWITCH:MMS:PITCH:PLC:fVelocity_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.fVelocity?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ao, "MR1K2:SWITCH:MMS:PITCH:PLC:fVelocity") {
@@ -2081,6 +2277,7 @@ record(ao, "MR1K2:SWITCH:MMS:PITCH:PLC:fVelocity") {
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M5.fVelocity=")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC VAL")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:MMS:PITCH:PLC:fAcceleration_RBV") {
@@ -2092,6 +2289,7 @@ record(ai, "MR1K2:SWITCH:MMS:PITCH:PLC:fAcceleration_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.fAcceleration?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ao, "MR1K2:SWITCH:MMS:PITCH:PLC:fAcceleration") {
@@ -2100,6 +2298,7 @@ record(ao, "MR1K2:SWITCH:MMS:PITCH:PLC:fAcceleration") {
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M5.fAcceleration=")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC VAL")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:MMS:PITCH:PLC:fDeceleration_RBV") {
@@ -2111,6 +2310,7 @@ record(ai, "MR1K2:SWITCH:MMS:PITCH:PLC:fDeceleration_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.fDeceleration?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ao, "MR1K2:SWITCH:MMS:PITCH:PLC:fDeceleration") {
@@ -2119,6 +2319,7 @@ record(ao, "MR1K2:SWITCH:MMS:PITCH:PLC:fDeceleration") {
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M5.fDeceleration=")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC VAL")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:MMS:PITCH:PLC:fHomePosition_RBV") {
@@ -2130,6 +2331,7 @@ record(ai, "MR1K2:SWITCH:MMS:PITCH:PLC:fHomePosition_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.fHomePosition?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ao, "MR1K2:SWITCH:MMS:PITCH:PLC:fHomePosition") {
@@ -2138,6 +2340,7 @@ record(ao, "MR1K2:SWITCH:MMS:PITCH:PLC:fHomePosition") {
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M5.fHomePosition=")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC VAL")
+  info(archive, "VAL")
 }
 
 record(longin, "MR1K2:SWITCH:MMS:PITCH:PLC:nMotionAxisID_RBV") {
@@ -2147,6 +2350,7 @@ record(longin, "MR1K2:SWITCH:MMS:PITCH:PLC:nMotionAxisID_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.nMotionAxisID?")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bEnableDone_RBV") {
@@ -2158,6 +2362,7 @@ record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bEnableDone_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.bEnableDone?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bBusy_RBV") {
@@ -2169,6 +2374,7 @@ record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bBusy_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.bBusy?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bDone_RBV") {
@@ -2180,6 +2386,7 @@ record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bDone_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.bDone?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bError_RBV") {
@@ -2191,6 +2398,7 @@ record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bError_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.bError?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
 }
 
 record(longin, "MR1K2:SWITCH:MMS:PITCH:PLC:nErrorId_RBV") {
@@ -2200,6 +2408,7 @@ record(longin, "MR1K2:SWITCH:MMS:PITCH:PLC:nErrorId_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.nErrorId?")
+  info(archive, "VAL")
 }
 
 record(waveform, "MR1K2:SWITCH:MMS:PITCH:PLC:sErrorMessage_RBV") {
@@ -2211,6 +2420,7 @@ record(waveform, "MR1K2:SWITCH:MMS:PITCH:PLC:sErrorMessage_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M5.sErrorMessage?")
   field(FTVL, "CHAR")
   field(NELM, "80")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:COUPLE_Y_RBV") {
@@ -2220,17 +2430,19 @@ record(bi, "MR1K2:SWITCH:COUPLE_Y_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1K2.bExecuteCoupleY?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bo, "MR1K2:SWITCH:COUPLE_Y") {
   field(DESC, "ads:MAIN.M1K2.bExecuteCoupleY")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M1K2.bExecuteCoupleY=")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
   info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:DECOUPLE_Y_RBV") {
@@ -2240,17 +2452,19 @@ record(bi, "MR1K2:SWITCH:DECOUPLE_Y_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1K2.bExecuteDecoupleY?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bo, "MR1K2:SWITCH:DECOUPLE_Y") {
   field(DESC, "ads:MAIN.M1K2.bExecuteDecoupleY")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M1K2.bExecuteDecoupleY=")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
   info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:COUPLE_X_RBV") {
@@ -2260,17 +2474,19 @@ record(bi, "MR1K2:SWITCH:COUPLE_X_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1K2.bExecuteCoupleX?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bo, "MR1K2:SWITCH:COUPLE_X") {
   field(DESC, "ads:MAIN.M1K2.bExecuteCoupleX")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M1K2.bExecuteCoupleX=")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
   info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:DECOUPLE_X_RBV") {
@@ -2280,17 +2496,19 @@ record(bi, "MR1K2:SWITCH:DECOUPLE_X_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1K2.bExecuteDecoupleX?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bo, "MR1K2:SWITCH:DECOUPLE_X") {
   field(DESC, "ads:MAIN.M1K2.bExecuteDecoupleX")
   field(DTYP, "asynInt32")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.M1K2.bExecuteDecoupleX=")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
   info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:ALREADY_COUPLED_Y_RBV") {
@@ -2300,8 +2518,9 @@ record(bi, "MR1K2:SWITCH:ALREADY_COUPLED_Y_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1K2.bGantryAlreadyCoupledY?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(bi, "MR1K2:SWITCH:ALREADY_COUPLED_X_RBV") {
@@ -2311,8 +2530,9 @@ record(bi, "MR1K2:SWITCH:ALREADY_COUPLED_X_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.M1K2.bGantryAlreadyCoupledX?")
-  field(ZNAM, "Zero")
-  field(ONAM, "One")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:GANTRY_Y_RBV") {
@@ -2325,6 +2545,7 @@ record(ai, "MR1K2:SWITCH:GANTRY_Y_RBV") {
   field(PREC, "3")
   field(EGU, "um")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:GANTRY_X_RBV") {
@@ -2337,6 +2558,7 @@ record(ai, "MR1K2:SWITCH:GANTRY_X_RBV") {
   field(PREC, "3")
   field(EGU, "um")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:ENC:Y:MEAN_RBV") {
@@ -2348,6 +2570,7 @@ record(ai, "MR1K2:SWITCH:ENC:Y:MEAN_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbYRMSErrorM1K2.fEncMean?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:ENC:Y:STDEV_RBV") {
@@ -2359,6 +2582,7 @@ record(ai, "MR1K2:SWITCH:ENC:Y:STDEV_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbYRMSErrorM1K2.fEncStDev?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:ENC:Y:RMS_RBV") {
@@ -2370,6 +2594,7 @@ record(ai, "MR1K2:SWITCH:ENC:Y:RMS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbYRMSErrorM1K2.fCurrRMSError?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(waveform, "MR1K2:SWITCH:ENC:Y:ACTPOSARRAY_RBV") {
@@ -2381,6 +2606,7 @@ record(waveform, "MR1K2:SWITCH:ENC:Y:ACTPOSARRAY_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbYRMSErrorM1K2.aEncActPos?")
   field(FTVL, "DOUBLE")
   field(NELM, "1000")
+  info(archive, "VAL")
 }
 
 record(waveform, "MR1K2:SWITCH:ENC:Y:SETPOSARRAY_RBV") {
@@ -2392,6 +2618,7 @@ record(waveform, "MR1K2:SWITCH:ENC:Y:SETPOSARRAY_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbYRMSErrorM1K2.aEncSetPos?")
   field(FTVL, "DOUBLE")
   field(NELM, "1000")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:ENC:X:MEAN_RBV") {
@@ -2403,6 +2630,7 @@ record(ai, "MR1K2:SWITCH:ENC:X:MEAN_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbXRMSErrorM1K2.fEncMean?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:ENC:X:STDEV_RBV") {
@@ -2414,6 +2642,7 @@ record(ai, "MR1K2:SWITCH:ENC:X:STDEV_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbXRMSErrorM1K2.fEncStDev?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:ENC:X:RMS_RBV") {
@@ -2425,6 +2654,7 @@ record(ai, "MR1K2:SWITCH:ENC:X:RMS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbXRMSErrorM1K2.fCurrRMSError?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(waveform, "MR1K2:SWITCH:ENC:X:ACTPOSARRAY_RBV") {
@@ -2436,6 +2666,7 @@ record(waveform, "MR1K2:SWITCH:ENC:X:ACTPOSARRAY_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbXRMSErrorM1K2.aEncActPos?")
   field(FTVL, "DOUBLE")
   field(NELM, "1000")
+  info(archive, "VAL")
 }
 
 record(waveform, "MR1K2:SWITCH:ENC:X:SETPOSARRAY_RBV") {
@@ -2447,6 +2678,7 @@ record(waveform, "MR1K2:SWITCH:ENC:X:SETPOSARRAY_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbXRMSErrorM1K2.aEncSetPos?")
   field(FTVL, "DOUBLE")
   field(NELM, "1000")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:ENC:PITCH:MEAN_RBV") {
@@ -2458,6 +2690,7 @@ record(ai, "MR1K2:SWITCH:ENC:PITCH:MEAN_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbPitchRMSErrorM1K2.fEncMean?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:ENC:PITCH:STDEV_RBV") {
@@ -2469,6 +2702,7 @@ record(ai, "MR1K2:SWITCH:ENC:PITCH:STDEV_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbPitchRMSErrorM1K2.fEncStDev?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(ai, "MR1K2:SWITCH:ENC:PITCH:RMS_RBV") {
@@ -2480,6 +2714,7 @@ record(ai, "MR1K2:SWITCH:ENC:PITCH:RMS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbPitchRMSErrorM1K2.fCurrRMSError?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
 }
 
 record(waveform, "MR1K2:SWITCH:ENC:PITCH:ACTPOSARRAY_RBV") {
@@ -2491,6 +2726,7 @@ record(waveform, "MR1K2:SWITCH:ENC:PITCH:ACTPOSARRAY_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbPitchRMSErrorM1K2.aEncActPos?")
   field(FTVL, "DOUBLE")
   field(NELM, "1000")
+  info(archive, "VAL")
 }
 
 record(waveform, "MR1K2:SWITCH:ENC:PITCH:SETPOSARRAY_RBV") {
@@ -2502,4 +2738,5 @@ record(waveform, "MR1K2:SWITCH:ENC:PITCH:SETPOSARRAY_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbPitchRMSErrorM1K2.aEncSetPos?")
   field(FTVL, "DOUBLE")
   field(NELM, "1000")
+  info(archive, "VAL")
 }
