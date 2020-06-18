@@ -5,10 +5,10 @@
 VAR_GLOBAL
 	// Pitch Mechanism:
 	{attribute 'TcLinkTo' := '.diEncCnt:=TIIB[EL5042_M1K2_Pitch]^FB Inputs Channel 1^Position'}
-	M1K2_Pitch : HOMS_PitchMechanism := (ReqPosLimHi := 25824,
-		                                 ReqPosLimLo := 25680,
-		                                 diEncPosLimHi := 10097184,
-		                                 diEncPosLimLo := 10040880); // Set to 50 urad before hard limits tripped during SAT
+	M1K2_Pitch : HOMS_PitchMechanism := (ReqPosLimHi := 200,
+		                                 ReqPosLimLo := -30,
+		                                 diEncPosLimHi := 10121210,
+		                                 diEncPosLimLo := 10004610); // Set to 50 urad before hard limits tripped during SAT
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

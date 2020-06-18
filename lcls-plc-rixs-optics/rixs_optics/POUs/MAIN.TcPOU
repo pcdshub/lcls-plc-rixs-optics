@@ -84,7 +84,15 @@ VAR
 
 	// 3-15-20 Having issues with pitch control on new Axilon systems
 	// Using stepper only for now
-	fbMotionStage_m5 : FB_MotionStage;	
+	fbMotionStage_m5 : FB_MotionStage;
+	
+	// Roll (Rotation about Z axis) induced from Ygantry:
+
+	{attribute 'pytmc' := '
+		pv: MR1K2:SWITCH:ENC:ROLL
+		io: i
+	'}
+	fYRoll_urad : LREAL; // Roll about Z axis in urad
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -110,6 +118,8 @@ M1K2.fbRunHOMS(stYup:=M1,
 // Convert nCurrGantry to um (smaller number) to read out in epics
 M1K2.fCurrGantryY_um := LINT_TO_REAL(M1K2.nCurrGantryY) / 1000.0;
 M1K2.fCurrGantryX_um := LINT_TO_REAL(M1K2.nCurrGantryX) / 1000.0;
+
+fYRoll_urad := (REAL_TO_LREAL(ATAN(M1K2.fCurrGantryY_um / GVL_M1K2_Constants.fRollLeverArm_um))) * EXPT(10, 6);
 
 // FB_MotionStage's for non-piezo axes
 fbMotionStage_m1(stMotionStage:=M1);
