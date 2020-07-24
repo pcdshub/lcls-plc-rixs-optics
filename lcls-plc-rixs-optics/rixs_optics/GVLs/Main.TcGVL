@@ -11,7 +11,7 @@
     This should be refactored once the IOC
     supports arbitrary ads paths for motors
 *)
-	// M1K2
+	(*MR1K2*)
 	// Motors
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K2_Yleft]^STM Status^Status^Digital input 1;
                               .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Yleft]^STM Status^Status^Digital input 2'}
@@ -51,6 +51,50 @@
 		pv: MR1K2:SWITCH:MMS:PITCH
 	'}
 	M5 : DUT_MotionStage := (fVelocity := 30.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS); // M1K2 Pitch Stepper
+
+	
+	(*SP1K-Mono*)
+	{attribute 'pytmc' := '
+		pv: SP1K1:MONO:MMS:M_PI
+	'}
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[m_pi_m]^STM Status^Status^Digital input 1;
+                              .bLimitBackwardEnable:=TIIB[m_pi_m]^STM Status^Status^Digital input 2'}
+	//{attribute 'TcLinkTo' := '.bLimFwd:=TIIB[m_pi_m]^STM Status^Status^Digital input 1;  .bLimBwd:=TIIB[m_pi_m]^STM Status^Status^Digital input 2'}    
+	M6: DUT_MotionStage:=(nEnableMode:=0, bGantryAxis:=FALSE );
+	{attribute 'pytmc' := '
+		pv: SP1K1:MONO:MMS:G_PI
+	'}
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[g_pi_m]^STM Status^Status^Digital input 1;
+                              .bLimitBackwardEnable:=TIIB[g_pi_m]^STM Status^Status^Digital input 2'}
+	//{attribute 'TcLinkTo' := '.bLimFwd:=TIIB[g_pi_m]^STM Status^Status^Digital input 1;  .bLimBwd:=TIIB[g_pi_m]^STM Status^Status^Digital input 2'}    
+	M7: DUT_MotionStage:=(nEnableMode:=0, bGantryAxis:=FALSE );
+	{attribute 'pytmc' := '
+		pv: SP1K1:MONO:MMS:M_H
+	'}
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[m_h_m]^STM Status^Status^Digital input 1;
+                              .bLimitBackwardEnable:=TIIB[m_h_m]^STM Status^Status^Digital input 2'}
+	//{attribute 'TcLinkTo' := '.bLimFwd:=TIIB[m_h_m]^STM Status^Status^Digital input 1;  .bLimBwd:=TIIB[m_h_m]^STM Status^Status^Digital input 2'}    
+	M8: DUT_MotionStage:=(nEnableMode:=0, bGantryAxis:=FALSE );
+	{attribute 'pytmc' := '
+		pv: SP1K1:MONO:MMS:G_H
+	'}
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[g_h_m]^STM Status^Status^Digital input 1;
+                              .bLimitBackwardEnable:=TIIB[g_h_m]^STM Status^Status^Digital input 2'}
+	//{attribute 'TcLinkTo' := '.bLimFwd:=TIIB[g_h_m]^STM Status^Status^Digital input 1;  .bLimBwd:=TIIB[g_h_m]^STM Status^Status^Digital input 2'}    
+	M9: DUT_MotionStage:=(nEnableMode:=0, bGantryAxis:=FALSE);
+	{attribute 'pytmc' := '
+		pv: SP1K1:MONO:MMS:SD_V
+	'}
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[s_io_m]^STM Status^Status^Digital input 1;
+                              .bLimitBackwardEnable:=TIIB[s_io_m]^STM Status^Status^Digital input 2'}
+	//{attribute 'TcLinkTo' := '.bLimFwd:=TIIB[s_io_m]^STM Status^Status^Digital input 1;  .bLimBwd:=TIIB[s_io_m]^STM Status^Status^Digital input 2'}    
+	M10: DUT_MotionStage:=(nEnableMode:=0, bGantryAxis:=FALSE );
+	{attribute 'pytmc' := '
+		pv: SP1K1:MONO:MMS:SD_ROT
+	'}
+	//no limits on this motion
+//	{attribute 'TcLinkTo' := '.bLimFwd:=TIIB[s_r]^STM Status^Status^Digital input 1;  .bLimBwd:=TIIB[s_r]^STM Status^Status^Digital input 2'}    
+	M11: DUT_MotionStage:=(nEnableMode:=0, bGantryAxis:=FALSE );
 
 	
 
