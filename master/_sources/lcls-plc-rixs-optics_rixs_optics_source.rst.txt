@@ -1,0 +1,281 @@
+
+
+DUTs
+----
+
+
+GVLs
+----
+
+
+GVL_COM_Buffers
+^^^^^^^^^^^^^^^
+
+::
+
+    VAR_GLOBAL
+    	// M1K2
+    	Serial_RXBuffer_M1K2 : ComBuffer;
+    	Serial_TXBuffer_M1K2 : ComBuffer;
+    END_VAR
+
+
+GVL_M1K2
+^^^^^^^^
+
+::
+
+    {attribute 'qualified_only'}
+    VAR_GLOBAL
+    	// Pitch Mechanism:
+    	{attribute 'TcLinkTo' := '.diEncCnt:=TIIB[EL5042_M1K2_Pitch]^FB Inputs Channel 1^Position'}
+    	M1K2_Pitch : HOMS_PitchMechanism := (ReqPosLimHi := 200,
+    		                                 ReqPosLimLo := -30,
+    		                                 diEncPosLimHi := 10121210,
+    		                                 diEncPosLimLo := 10004610); // Set to 50 urad before hard limits tripped during SAT
+    END_VAR
+
+
+GVL_M1K2_Constants
+^^^^^^^^^^^^^^^^^^
+
+::
+
+    {attribute 'qualified_only'}
+    VAR_GLOBAL CONSTANT
+    	// Encoder reference values in counts = nm
+    	// Enc reference values after alignment 3-13-20
+    	nYLEFT_ENC_REF : ULINT := 96270560;
+    	nYRIGHT_ENC_REF : ULINT := 98728200;
+    	nXUP_ENC_REF : ULINT := 19847200;
+    	nXDWN_ENC_REF : ULINT := 21007520;
+    	
+    	// Lever arm for Yright/Yleft -> Roll about Z-axis
+    	fRollLeverArm_um : REAL := 717000; // lever arm for Yright/Yleft axes in um
+    END_VAR
+
+
+GVL_SerialIO
+^^^^^^^^^^^^
+
+::
+
+    VAR_GLOBAL
+    	//Better have your inputs and outputs!
+    	// M1K2
+    	Serial_stComIn_M1K2   AT %I*	:	EL6inData22B (*KL6inData22B*);
+    	Serial_stComOut_M1K2  AT %Q*	:	EL6outData22B (*KL6outData22B*);
+    END_VAR
+
+
+POUs
+----
+
+
+MAIN
+^^^^
+
+::
+
+    PROGRAM MAIN
+    VAR
+    	// M1K2
+    	// Motors
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K2_Yleft]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Yleft]^STM Status^Status^Digital input 2'}
+    	{attribute 'pytmc' := '
+    		pv: MR1K2:SWITCH:MMS:YLEFT
+    	'}
+    	M1 : DUT_MotionStage := (fVelocity:=100.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS); // M1K2 Yup
+    	fbMotionStage_m1 : FB_MotionStage;
+
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K2_Yright]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Yright]^STM Status^Status^Digital input 2'}
+    	{attribute 'pytmc' := '
+    		pv: MR1K2:SWITCH:MMS:YRIGHT
+    	'}
+    	M2 : DUT_MotionStage := (fVelocity:=100.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS); // M1K2 Ydwn
+    	fbMotionStage_m2 : FB_MotionStage;
+
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K2_Xup]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Xup]^STM Status^Status^Digital input 2'}
+    	{attribute 'pytmc' := '
+    		pv: MR1K2:SWITCH:MMS:XUP
+    	'}
+    	M3 : DUT_MotionStage := (fVelocity:=150.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS); // M1K2 Xup
+    	fbMotionStage_m3 : FB_MotionStage;
+
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K2_Xdwn]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Xdwn]^STM Status^Status^Digital input 2'}
+    	{attribute 'pytmc' := '
+    		pv: MR1K2:SWITCH:MMS:XDWN
+    	'}
+    	M4 : DUT_MotionStage := (fVelocity:=150.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS); // M1K2 Xdwn
+    	fbMotionStage_m4 : FB_MotionStage;
+
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K2_PitchCoarse]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7047_M1K2_PitchCoarse]^STM Status^Status^Digital input 2'}
+    	{attribute 'pytmc' := '
+    		pv: MR1K2:SWITCH:MMS:PITCH
+    	'}
+    	M5 : DUT_MotionStage := (fVelocity := 30.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS); // M1K2 Pitch Stepper
+
+    	{attribute 'TcLinkTo' := '.fbRunHOMS.bSTOEnable1:=TIIB[EL1004_M1K2_STO]^Channel 1^Input;
+                                  .fbRunHOMS.bSTOEnable2:=TIIB[EL1004_M1K2_STO]^Channel 2^Input;
+    	                          .fbRunHOMS.stYupEnc.Count:=TIIB[EL5042_M1K2_Yleftright]^FB Inputs Channel 1^Position;
+    	                          .fbRunHOMS.stYdwnEnc.Count:=TIIB[EL5042_M1K2_Yleftright]^FB Inputs Channel 2^Position;
+    	                          .fbRunHOMS.stXupEnc.Count:=TIIB[EL5042_M1K2_Xupdwn]^FB Inputs Channel 1^Position;
+    	                          .fbRunHOMS.stXdwnEnc.Count:=TIIB[EL5042_M1K2_Xupdwn]^FB Inputs Channel 2^Position'}
+    	{attribute 'pytmc' := '
+    		pv: MR1K2:SWITCH
+    	'}
+    	M1K2 : DUT_HOMS;
+
+    	// Encoder Arrays/RMS Watch:
+    	{attribute 'pytmc' := '
+    		pv: MR1K2:SWITCH:ENC:Y
+    	'}
+    	fbYRMSErrorM1K2 : FB_RMSWatch;
+    	fMaxYRMSErrorM1K2 : LREAL;
+    	fMinYRMSErrorM1K2 : LREAL;
+
+    	{attribute 'pytmc' := '
+    		pv: MR1K2:SWITCH:ENC:X
+    	'}
+    	fbXRMSErrorM1K2 : FB_RMSWatch;
+    	fMaxXRMSErrorM1K2 : LREAL;
+    	fMinXRMSErrorM1K2 : LREAL;
+
+    	{attribute 'pytmc' := '
+    		pv: MR1K2:SWITCH:ENC:PITCH
+    	'}
+    	fbPitchRMSErrorM1K2 : FB_RMSWatch;
+    	fMaxPitchRMSErrorM1K2 : LREAL;
+    	fMinPitchRMSErrorM1K2 : LREAL;
+
+    	// Pitch Control
+    	fbM1K2PitchControl : FB_PitchControl;
+    	bM1K2PitchDone : BOOL;
+    	bM1K2PitchBusy : BOOL;
+
+    	// 3-15-20 Having issues with pitch control on new Axilon systems
+    	// Using stepper only for now
+    	fbMotionStage_m5 : FB_MotionStage;
+    	
+    	// Roll (Rotation about Z axis) induced from Ygantry:
+
+    	{attribute 'pytmc' := '
+    		pv: MR1K2:SWITCH:ENC:ROLL
+    		field: EGU urad
+    		io: i
+    	'}
+    	fYRoll_urad : LREAL; // Roll about Z axis in urad
+    END_VAR
+    // M1K2
+    M1K2.fbRunHOMS(stYup:=M1,
+                   stYdwn:=M2,
+                   stXup:=M3,
+                   stXdwn:=M4,
+                   stPitch:=M5,
+    	           nYupEncRef:=GVL_M1K2_Constants.nYLEFT_ENC_REF,
+                   nYdwnEncRef:=GVL_M1K2_Constants.nYRIGHT_ENC_REF,
+                   nXupEncRef:=GVL_M1K2_Constants.nXUP_ENC_REF,
+                   nXdwnEncRef:=GVL_M1K2_Constants.nXDWN_ENC_REF,
+    			   bExecuteCoupleY:=M1K2.bExecuteCoupleY,
+                   bExecuteCoupleX:=M1K2.bExecuteCoupleX,
+    			   bExecuteDecoupleY:=M1K2.bExecuteDecoupleY,
+                   bExecuteDecoupleX:=M1K2.bExecuteDecoupleX,
+                   bGantryAlreadyCoupledY=>M1K2.bGantryAlreadyCoupledY,
+                   bGantryAlreadyCoupledX=>M1K2.bGantryAlreadyCoupledX,
+                   nCurrGantryY=>M1K2.nCurrGantryY,
+                   nCurrGantryX=>M1K2.nCurrGantryX);
+
+    // Convert nCurrGantry to um (smaller number) to read out in epics
+    M1K2.fCurrGantryY_um := LINT_TO_REAL(M1K2.nCurrGantryY) / 1000.0;
+    M1K2.fCurrGantryX_um := LINT_TO_REAL(M1K2.nCurrGantryX) / 1000.0;
+
+    fYRoll_urad := (REAL_TO_LREAL(ATAN(M1K2.fCurrGantryY_um / GVL_M1K2_Constants.fRollLeverArm_um))) * EXPT(10, 6);
+
+    // FB_MotionStage's for non-piezo axes
+    fbMotionStage_m1(stMotionStage:=M1);
+    fbMotionStage_m2(stMotionStage:=M2);
+    fbMotionStage_m3(stMotionStage:=M3);
+    fbMotionStage_m4(stMotionStage:=M4);
+
+    // Calculate Pitch RMS Error:
+    fbYRMSErrorM1K2(stMotionStage:=M1,
+    	            fMaxRMSError=>fMaxYRMSErrorM1K2,
+    				fMinRMSError=>fMinYRMSErrorM1K2);
+
+    fbXRMSErrorM1K2(stMotionStage:=M3,
+    	            fMaxRMSError=>fMaxXRMSErrorM1K2,
+    				fMinRMSError=>fMinXRMSErrorM1K2);
+
+    fbPitchRMSErrorM1K2(stMotionStage:=M5,
+    	                fMaxRMSError=>fMaxPitchRMSErrorM1K2,
+    					fMinRMSError=>fMinPitchRMSErrorM1K2);
+
+    (*
+    // Pitch Control
+    fbM1K2PitchControl(Pitch:=GVL_M1K2.M1K2_Pitch,
+    				   Stepper:=M5,
+    				   lrCurrentSetpoint:=M5.fPosition,
+                       q_bDone=>bM1K2PitchDone,
+                       q_bBusy=>bM1K2PitchBusy);
+    // When STO hit, need to reset SP
+    IF NOT M5.bHardwareEnable THEN
+    	M5.fPosition := M5.stAxisStatus.fActPosition;
+    END_IF
+    *)
+    // 3-15-20: Having issues with pitch control on new Axilon systems
+    fbMotionStage_m5(stMotionStage:=M5);
+
+    END_PROGRAM
+
+
+P_Serial_Com
+^^^^^^^^^^^^
+
+::
+
+    PROGRAM P_Serial_Com
+    VAR
+    	fbSerialLineControl_EL6001_M1K2: SerialLineControl;
+    END_VAR
+    //These are the global IOs...don't forget to copy your data into them
+
+    (* EL6001 Serial port 0 com function *)
+    fbSerialLineControl_EL6001_M1K2(Mode:= SERIALLINEMODE_EL6_22B (*SERIALLINEMODE_KL6_22B_STANDARD*),
+    						        pComIn:= ADR(Serial_stComIn_M1K2),
+    						   	    pComOut:=ADR(Serial_stComOut_M1K2),
+    						        SizeComIn:= SIZEOF(Serial_stComIn_M1K2),
+    						        TxBuffer:= Serial_TXBuffer_M1K2,
+    						        RxBuffer:= Serial_RXBuffer_M1K2,
+    						        Error=> ,
+    						        ErrorID=> );
+
+    END_PROGRAM
+
+
+PiezoSerial
+^^^^^^^^^^^
+
+::
+
+    PROGRAM PiezoSerial
+    VAR
+    	//PI Serial
+    	fbE621SerialDriver_M1K2 : FB_PI_E621_SerialDriver;
+    	rtInitParams_M1K2	:	R_TRIG;
+    	tonTimeoutRst_M1K2	: TON := (PT:=T#2S); //For timeout reset
+    END_VAR
+    //Piezo E-621
+    ///////////////////////
+    fbE621SerialDriver_M1K2.i_xExecute := TRUE;
+    fbE621SerialDriver_M1K2.i_xExecute R= fbE621SerialDriver_M1K2.q_xDone;
+    fbE621SerialDriver_M1K2(iq_stPiezoAxis:= GVL_M1K2.M1K2_Pitch.Piezo,
+    		                iq_stSerialRXBuffer:= Serial_RXBuffer_M1K2,
+    		                iq_stSerialTXBuffer:= Serial_TXBuffer_M1K2);
+
+    END_PROGRAM
+
