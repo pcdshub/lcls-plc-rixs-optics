@@ -3,7 +3,103 @@ Data Types
 ----------
 
 
-     
+    
+LCLS_General.FB_BasicStats
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. list-table::
+    :header-rows: 1
+    :align: center
+
+    * - Record
+      - Type
+      - Description
+      - Pragma
+    * - $(PREFIX):STATS:ALWAYS_CALC
+      - bo
+      - $(SYMBOL).bAlwaysCalc
+      - | io: output
+
+
+    * - $(PREFIX):STATS:ALWAYS_CALC_RBV
+      - bi
+      - $(SYMBOL).bAlwaysCalc
+      - | io: output
+
+
+    * - $(PREFIX):STATS:DATA_RBV
+      - ai
+      - $(SYMBOL).aSignal
+      - | io: input
+
+
+    * - $(PREFIX):STATS:EXECUTE
+      - bo
+      - $(SYMBOL).bExecute
+      - | io: output
+
+
+    * - $(PREFIX):STATS:EXECUTE_RBV
+      - bi
+      - $(SYMBOL).bExecute
+      - | io: output
+
+
+    * - $(PREFIX):STATS:MAX_RBV
+      - ai
+      - $(SYMBOL).fMax
+      - | io: input
+
+
+    * - $(PREFIX):STATS:MEAN_RBV
+      - ai
+      - $(SYMBOL).fMean
+      - | io: input
+
+
+    * - $(PREFIX):STATS:MIN_RBV
+      - ai
+      - $(SYMBOL).fMin
+      - | io: input
+
+
+    * - $(PREFIX):STATS:NELM_RBV
+      - longin
+      - $(SYMBOL).nElems
+      - | io: input
+
+
+    * - $(PREFIX):STATS:RANGE_RBV
+      - ai
+      - $(SYMBOL).fRange
+      - | io: input
+
+
+    * - $(PREFIX):STATS:RESET
+      - bo
+      - $(SYMBOL).bReset
+      - | io: output
+
+
+    * - $(PREFIX):STATS:RESET_RBV
+      - bi
+      - $(SYMBOL).bReset
+      - | io: output
+
+
+    * - $(PREFIX):STATS:STDEV_RBV
+      - ai
+      - $(SYMBOL).fStDev
+      - | io: input
+
+
+    * - $(PREFIX):STATS:VALID_RBV
+      - bi
+      - $(SYMBOL).bValid
+      - | io: input
+
+
+        
 lcls_twincat_motion.DUT_MotionStage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -311,7 +407,7 @@ lcls_twincat_motion.DUT_MotionStage
       - | io: input
 
 
-                                                                     
+                      
 lcls_twincat_optics.DUT_HOMS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -439,103 +535,7 @@ lcls_twincat_optics.FB_RMSWatch
       - | io: input
 
 
-   
-lcls_twincat_optics.LCLS_General.FB_BasicStats
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. list-table::
-    :header-rows: 1
-    :align: center
-
-    * - Record
-      - Type
-      - Description
-      - Pragma
-    * - $(PREFIX):STATS:ALWAYS_CALC
-      - bo
-      - $(SYMBOL).bAlwaysCalc
-      - | io: output
-
-
-    * - $(PREFIX):STATS:ALWAYS_CALC_RBV
-      - bi
-      - $(SYMBOL).bAlwaysCalc
-      - | io: output
-
-
-    * - $(PREFIX):STATS:DATA_RBV
-      - ai
-      - $(SYMBOL).aSignal
-      - | io: input
-
-
-    * - $(PREFIX):STATS:EXECUTE
-      - bo
-      - $(SYMBOL).bExecute
-      - | io: output
-
-
-    * - $(PREFIX):STATS:EXECUTE_RBV
-      - bi
-      - $(SYMBOL).bExecute
-      - | io: output
-
-
-    * - $(PREFIX):STATS:MAX_RBV
-      - ai
-      - $(SYMBOL).fMax
-      - | io: input
-
-
-    * - $(PREFIX):STATS:MEAN_RBV
-      - ai
-      - $(SYMBOL).fMean
-      - | io: input
-
-
-    * - $(PREFIX):STATS:MIN_RBV
-      - ai
-      - $(SYMBOL).fMin
-      - | io: input
-
-
-    * - $(PREFIX):STATS:NELM_RBV
-      - longin
-      - $(SYMBOL).nElems
-      - | io: input
-
-
-    * - $(PREFIX):STATS:RANGE_RBV
-      - ai
-      - $(SYMBOL).fRange
-      - | io: input
-
-
-    * - $(PREFIX):STATS:RESET
-      - bo
-      - $(SYMBOL).bReset
-      - | io: output
-
-
-    * - $(PREFIX):STATS:RESET_RBV
-      - bi
-      - $(SYMBOL).bReset
-      - | io: output
-
-
-    * - $(PREFIX):STATS:STDEV_RBV
-      - ai
-      - $(SYMBOL).fStDev
-      - | io: input
-
-
-    * - $(PREFIX):STATS:VALID_RBV
-      - bi
-      - $(SYMBOL).bValid
-      - | io: input
-
-
-                                                                                           
+                                                                                                                                      
 Database Records
 ----------------
 
@@ -573,171 +573,171 @@ Database Records
 
     * - MR1K2:SWITCH:ALREADY_COUPLED_X_RBV
       - bi
-      - MAIN.M1K2.bGantryAlreadyCoupledX
+      - PRG_MR1K2.M1K2.bGantryAlreadyCoupledX
       - | io: input
 
 
     * - MR1K2:SWITCH:ALREADY_COUPLED_Y_RBV
       - bi
-      - MAIN.M1K2.bGantryAlreadyCoupledY
+      - PRG_MR1K2.M1K2.bGantryAlreadyCoupledY
       - | io: input
 
 
     * - MR1K2:SWITCH:COUPLE_X
       - bo
-      - MAIN.M1K2.bExecuteCoupleX
+      - PRG_MR1K2.M1K2.bExecuteCoupleX
       - | io: output
 
 
     * - MR1K2:SWITCH:COUPLE_X_RBV
       - bi
-      - MAIN.M1K2.bExecuteCoupleX
+      - PRG_MR1K2.M1K2.bExecuteCoupleX
       - | io: output
 
 
     * - MR1K2:SWITCH:COUPLE_Y
       - bo
-      - MAIN.M1K2.bExecuteCoupleY
+      - PRG_MR1K2.M1K2.bExecuteCoupleY
       - | io: output
 
 
     * - MR1K2:SWITCH:COUPLE_Y_RBV
       - bi
-      - MAIN.M1K2.bExecuteCoupleY
+      - PRG_MR1K2.M1K2.bExecuteCoupleY
       - | io: output
 
 
     * - MR1K2:SWITCH:DECOUPLE_X
       - bo
-      - MAIN.M1K2.bExecuteDecoupleX
+      - PRG_MR1K2.M1K2.bExecuteDecoupleX
       - | io: output
 
 
     * - MR1K2:SWITCH:DECOUPLE_X_RBV
       - bi
-      - MAIN.M1K2.bExecuteDecoupleX
+      - PRG_MR1K2.M1K2.bExecuteDecoupleX
       - | io: output
 
 
     * - MR1K2:SWITCH:DECOUPLE_Y
       - bo
-      - MAIN.M1K2.bExecuteDecoupleY
+      - PRG_MR1K2.M1K2.bExecuteDecoupleY
       - | io: output
 
 
     * - MR1K2:SWITCH:DECOUPLE_Y_RBV
       - bi
-      - MAIN.M1K2.bExecuteDecoupleY
+      - PRG_MR1K2.M1K2.bExecuteDecoupleY
       - | io: output
 
 
     * - MR1K2:SWITCH:ENC:PITCH:ACTPOSARRAY_RBV
       - waveform
-      - MAIN.fbPitchRMSErrorM1K2.aEncActPos
+      - PRG_MR1K2.fbPitchRMSErrorM1K2.aEncActPos
       - | io: input
 
 
     * - MR1K2:SWITCH:ENC:PITCH:MEAN_RBV
       - ai
-      - MAIN.fbPitchRMSErrorM1K2.fEncMean
+      - PRG_MR1K2.fbPitchRMSErrorM1K2.fEncMean
       - | io: input
 
 
     * - MR1K2:SWITCH:ENC:PITCH:RMS_RBV
       - ai
-      - MAIN.fbPitchRMSErrorM1K2.fCurrRMSError
+      - PRG_MR1K2.fbPitchRMSErrorM1K2.fCurrRMSError
       - | io: input
 
 
     * - MR1K2:SWITCH:ENC:PITCH:SETPOSARRAY_RBV
       - waveform
-      - MAIN.fbPitchRMSErrorM1K2.aEncSetPos
+      - PRG_MR1K2.fbPitchRMSErrorM1K2.aEncSetPos
       - | io: input
 
 
     * - MR1K2:SWITCH:ENC:PITCH:STDEV_RBV
       - ai
-      - MAIN.fbPitchRMSErrorM1K2.fEncStDev
+      - PRG_MR1K2.fbPitchRMSErrorM1K2.fEncStDev
       - | io: input
 
 
     * - MR1K2:SWITCH:ENC:ROLL_RBV
       - ai
-      - MAIN.fYRoll_urad
+      - PRG_MR1K2.fYRoll_urad
       - | field: EGU urad
         | io: input
 
 
     * - MR1K2:SWITCH:ENC:X:ACTPOSARRAY_RBV
       - waveform
-      - MAIN.fbXRMSErrorM1K2.aEncActPos
+      - PRG_MR1K2.fbXRMSErrorM1K2.aEncActPos
       - | io: input
 
 
     * - MR1K2:SWITCH:ENC:X:MEAN_RBV
       - ai
-      - MAIN.fbXRMSErrorM1K2.fEncMean
+      - PRG_MR1K2.fbXRMSErrorM1K2.fEncMean
       - | io: input
 
 
     * - MR1K2:SWITCH:ENC:X:RMS_RBV
       - ai
-      - MAIN.fbXRMSErrorM1K2.fCurrRMSError
+      - PRG_MR1K2.fbXRMSErrorM1K2.fCurrRMSError
       - | io: input
 
 
     * - MR1K2:SWITCH:ENC:X:SETPOSARRAY_RBV
       - waveform
-      - MAIN.fbXRMSErrorM1K2.aEncSetPos
+      - PRG_MR1K2.fbXRMSErrorM1K2.aEncSetPos
       - | io: input
 
 
     * - MR1K2:SWITCH:ENC:X:STDEV_RBV
       - ai
-      - MAIN.fbXRMSErrorM1K2.fEncStDev
+      - PRG_MR1K2.fbXRMSErrorM1K2.fEncStDev
       - | io: input
 
 
     * - MR1K2:SWITCH:ENC:Y:ACTPOSARRAY_RBV
       - waveform
-      - MAIN.fbYRMSErrorM1K2.aEncActPos
+      - PRG_MR1K2.fbYRMSErrorM1K2.aEncActPos
       - | io: input
 
 
     * - MR1K2:SWITCH:ENC:Y:MEAN_RBV
       - ai
-      - MAIN.fbYRMSErrorM1K2.fEncMean
+      - PRG_MR1K2.fbYRMSErrorM1K2.fEncMean
       - | io: input
 
 
     * - MR1K2:SWITCH:ENC:Y:RMS_RBV
       - ai
-      - MAIN.fbYRMSErrorM1K2.fCurrRMSError
+      - PRG_MR1K2.fbYRMSErrorM1K2.fCurrRMSError
       - | io: input
 
 
     * - MR1K2:SWITCH:ENC:Y:SETPOSARRAY_RBV
       - waveform
-      - MAIN.fbYRMSErrorM1K2.aEncSetPos
+      - PRG_MR1K2.fbYRMSErrorM1K2.aEncSetPos
       - | io: input
 
 
     * - MR1K2:SWITCH:ENC:Y:STDEV_RBV
       - ai
-      - MAIN.fbYRMSErrorM1K2.fEncStDev
+      - PRG_MR1K2.fbYRMSErrorM1K2.fEncStDev
       - | io: input
 
 
     * - MR1K2:SWITCH:GANTRY_X_RBV
       - ai
-      - MAIN.M1K2.fCurrGantryX_um
+      - PRG_MR1K2.M1K2.fCurrGantryX_um
       - | field: EGU um
         | io: input
 
 
     * - MR1K2:SWITCH:GANTRY_Y_RBV
       - ai
-      - MAIN.M1K2.fCurrGantryY_um
+      - PRG_MR1K2.M1K2.fCurrGantryY_um
       - | field: EGU um
         | io: input
 
@@ -2217,6 +2217,1782 @@ Database Records
 
 
     * - MR1K2:SWITCH:MMS:YRIGHT:PLC:sErrorMessage_RBV
+      - waveform
+      - Message to identify the error state
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:bAllBackwardEnable_RBV
+      - bi
+      - Summary of axis permission to move backward
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:bAllEnable_RBV
+      - bi
+      - Summary of axis permission to have power
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:bAllForwardEnable_RBV
+      - bi
+      - Summary of axis permission to move forward
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:bBrakeRelease_RBV
+      - bi
+      - TRUE if brake released
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:bBusy_RBV
+      - bi
+      - TRUE if in the middle of a command
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:bDone_RBV
+      - bi
+      - TRUE if command finished successfully
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:bEnable
+      - bo
+      - Used internally to request enables
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:bEnable_RBV
+      - bi
+      - Used internally to request enables
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:bEnableDone_RBV
+      - bi
+      - TRUE if done enabling
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:bError_RBV
+      - bi
+      - TRUE if we
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:bExecute
+      - bo
+      - Used internally and by the IOC to start or stop
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:bExecute_RBV
+      - bi
+      - Used internally and by the IOC to start or stop
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:bGantryAxis_RBV
+      - bi
+      - TRUE if gantry EPS active
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:bGantryBackwardEnable_RBV
+      - bi
+      - TRUE if gantry ok to move backward
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:bGantryForwardEnable_RBV
+      - bi
+      - TRUE if gantry ok to move forward
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:bHardwareEnable_RBV
+      - bi
+      - TRUE if STO not hit
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:bHome_RBV
+      - bi
+      - TRUE if at homing switch
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:bLimitBackwardEnable_RBV
+      - bi
+      - FALSE if reverse limit hit
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:bLimitForwardEnable_RBV
+      - bi
+      - FALSE if forward limit hit
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:bPowerSelf_RBV
+      - bi
+      - FALSE if axis is in PMPS
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:bReset
+      - bo
+      - Used internally to reset errors
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:bReset_RBV
+      - bi
+      - Used internally to reset errors
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:fAcceleration
+      - ao
+      - Used internally and by the IOC to set acceleration
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:fAcceleration_RBV
+      - ai
+      - Used internally and by the IOC to set acceleration
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:fDeceleration
+      - ao
+      - Used internally and by the IOC to set deceleration
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:fDeceleration_RBV
+      - ai
+      - Used internally and by the IOC to set deceleration
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:fHomePosition
+      - ao
+      - Used internally and by the IOC to pick home position
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:fHomePosition_RBV
+      - ai
+      - Used internally and by the IOC to pick home position
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:fPosition
+      - ao
+      - Used internally and by the IOC as the set position
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:fPosition_RBV
+      - ai
+      - Used internally and by the IOC as the set position
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:fVelocity
+      - ao
+      - Used internally and by the IOC to set velocity
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:fVelocity_RBV
+      - ai
+      - Used internally and by the IOC to set velocity
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:nBrakeMode_RBV
+      - mbbi
+      - Describes when the brake will be released
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:nCmdData
+      - longout
+      - Used internally and by the IOC to pass extra args
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:nCmdData_RBV
+      - longin
+      - Used internally and by the IOC to pass extra args
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:nCommand
+      - longout
+      - Used internally and by the IOC to pick move type
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:nCommand_RBV
+      - longin
+      - Used internally and by the IOC to pick move type
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:nEnableMode_RBV
+      - mbbi
+      - Describes when the axis will automatically get power
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:nErrorId_RBV
+      - longin
+      - Error code if nonzero
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:nHomingMode_RBV
+      - mbbi
+      - Describes our homing strategy
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:nMotionAxisID_RBV
+      - longin
+      - Unique ID assigned to each axis in the NC
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:sErrorMessage_RBV
+      - waveform
+      - Message to identify the error state
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:bAllBackwardEnable_RBV
+      - bi
+      - Summary of axis permission to move backward
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:bAllEnable_RBV
+      - bi
+      - Summary of axis permission to have power
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:bAllForwardEnable_RBV
+      - bi
+      - Summary of axis permission to move forward
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:bBrakeRelease_RBV
+      - bi
+      - TRUE if brake released
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:bBusy_RBV
+      - bi
+      - TRUE if in the middle of a command
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:bDone_RBV
+      - bi
+      - TRUE if command finished successfully
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:bEnable
+      - bo
+      - Used internally to request enables
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:bEnable_RBV
+      - bi
+      - Used internally to request enables
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:bEnableDone_RBV
+      - bi
+      - TRUE if done enabling
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:bError_RBV
+      - bi
+      - TRUE if we
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:bExecute
+      - bo
+      - Used internally and by the IOC to start or stop
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:bExecute_RBV
+      - bi
+      - Used internally and by the IOC to start or stop
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:bGantryAxis_RBV
+      - bi
+      - TRUE if gantry EPS active
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:bGantryBackwardEnable_RBV
+      - bi
+      - TRUE if gantry ok to move backward
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:bGantryForwardEnable_RBV
+      - bi
+      - TRUE if gantry ok to move forward
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:bHardwareEnable_RBV
+      - bi
+      - TRUE if STO not hit
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:bHome_RBV
+      - bi
+      - TRUE if at homing switch
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:bLimitBackwardEnable_RBV
+      - bi
+      - FALSE if reverse limit hit
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:bLimitForwardEnable_RBV
+      - bi
+      - FALSE if forward limit hit
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:bPowerSelf_RBV
+      - bi
+      - FALSE if axis is in PMPS
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:bReset
+      - bo
+      - Used internally to reset errors
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:bReset_RBV
+      - bi
+      - Used internally to reset errors
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:fAcceleration
+      - ao
+      - Used internally and by the IOC to set acceleration
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:fAcceleration_RBV
+      - ai
+      - Used internally and by the IOC to set acceleration
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:fDeceleration
+      - ao
+      - Used internally and by the IOC to set deceleration
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:fDeceleration_RBV
+      - ai
+      - Used internally and by the IOC to set deceleration
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:fHomePosition
+      - ao
+      - Used internally and by the IOC to pick home position
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:fHomePosition_RBV
+      - ai
+      - Used internally and by the IOC to pick home position
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:fPosition
+      - ao
+      - Used internally and by the IOC as the set position
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:fPosition_RBV
+      - ai
+      - Used internally and by the IOC as the set position
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:fVelocity
+      - ao
+      - Used internally and by the IOC to set velocity
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:fVelocity_RBV
+      - ai
+      - Used internally and by the IOC to set velocity
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:nBrakeMode_RBV
+      - mbbi
+      - Describes when the brake will be released
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:nCmdData
+      - longout
+      - Used internally and by the IOC to pass extra args
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:nCmdData_RBV
+      - longin
+      - Used internally and by the IOC to pass extra args
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:nCommand
+      - longout
+      - Used internally and by the IOC to pick move type
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:nCommand_RBV
+      - longin
+      - Used internally and by the IOC to pick move type
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:nEnableMode_RBV
+      - mbbi
+      - Describes when the axis will automatically get power
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:nErrorId_RBV
+      - longin
+      - Error code if nonzero
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:nHomingMode_RBV
+      - mbbi
+      - Describes our homing strategy
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:nMotionAxisID_RBV
+      - longin
+      - Unique ID assigned to each axis in the NC
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:sErrorMessage_RBV
+      - waveform
+      - Message to identify the error state
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:bAllBackwardEnable_RBV
+      - bi
+      - Summary of axis permission to move backward
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:bAllEnable_RBV
+      - bi
+      - Summary of axis permission to have power
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:bAllForwardEnable_RBV
+      - bi
+      - Summary of axis permission to move forward
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:bBrakeRelease_RBV
+      - bi
+      - TRUE if brake released
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:bBusy_RBV
+      - bi
+      - TRUE if in the middle of a command
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:bDone_RBV
+      - bi
+      - TRUE if command finished successfully
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:bEnable
+      - bo
+      - Used internally to request enables
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:bEnable_RBV
+      - bi
+      - Used internally to request enables
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:bEnableDone_RBV
+      - bi
+      - TRUE if done enabling
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:bError_RBV
+      - bi
+      - TRUE if we
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:bExecute
+      - bo
+      - Used internally and by the IOC to start or stop
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:bExecute_RBV
+      - bi
+      - Used internally and by the IOC to start or stop
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:bGantryAxis_RBV
+      - bi
+      - TRUE if gantry EPS active
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:bGantryBackwardEnable_RBV
+      - bi
+      - TRUE if gantry ok to move backward
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:bGantryForwardEnable_RBV
+      - bi
+      - TRUE if gantry ok to move forward
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:bHardwareEnable_RBV
+      - bi
+      - TRUE if STO not hit
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:bHome_RBV
+      - bi
+      - TRUE if at homing switch
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:bLimitBackwardEnable_RBV
+      - bi
+      - FALSE if reverse limit hit
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:bLimitForwardEnable_RBV
+      - bi
+      - FALSE if forward limit hit
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:bPowerSelf_RBV
+      - bi
+      - FALSE if axis is in PMPS
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:bReset
+      - bo
+      - Used internally to reset errors
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:bReset_RBV
+      - bi
+      - Used internally to reset errors
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:fAcceleration
+      - ao
+      - Used internally and by the IOC to set acceleration
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:fAcceleration_RBV
+      - ai
+      - Used internally and by the IOC to set acceleration
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:fDeceleration
+      - ao
+      - Used internally and by the IOC to set deceleration
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:fDeceleration_RBV
+      - ai
+      - Used internally and by the IOC to set deceleration
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:fHomePosition
+      - ao
+      - Used internally and by the IOC to pick home position
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:fHomePosition_RBV
+      - ai
+      - Used internally and by the IOC to pick home position
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:fPosition
+      - ao
+      - Used internally and by the IOC as the set position
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:fPosition_RBV
+      - ai
+      - Used internally and by the IOC as the set position
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:fVelocity
+      - ao
+      - Used internally and by the IOC to set velocity
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:fVelocity_RBV
+      - ai
+      - Used internally and by the IOC to set velocity
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:nBrakeMode_RBV
+      - mbbi
+      - Describes when the brake will be released
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:nCmdData
+      - longout
+      - Used internally and by the IOC to pass extra args
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:nCmdData_RBV
+      - longin
+      - Used internally and by the IOC to pass extra args
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:nCommand
+      - longout
+      - Used internally and by the IOC to pick move type
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:nCommand_RBV
+      - longin
+      - Used internally and by the IOC to pick move type
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:nEnableMode_RBV
+      - mbbi
+      - Describes when the axis will automatically get power
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:nErrorId_RBV
+      - longin
+      - Error code if nonzero
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:nHomingMode_RBV
+      - mbbi
+      - Describes our homing strategy
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:nMotionAxisID_RBV
+      - longin
+      - Unique ID assigned to each axis in the NC
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:sErrorMessage_RBV
+      - waveform
+      - Message to identify the error state
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:bAllBackwardEnable_RBV
+      - bi
+      - Summary of axis permission to move backward
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:bAllEnable_RBV
+      - bi
+      - Summary of axis permission to have power
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:bAllForwardEnable_RBV
+      - bi
+      - Summary of axis permission to move forward
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:bBrakeRelease_RBV
+      - bi
+      - TRUE if brake released
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:bBusy_RBV
+      - bi
+      - TRUE if in the middle of a command
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:bDone_RBV
+      - bi
+      - TRUE if command finished successfully
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:bEnable
+      - bo
+      - Used internally to request enables
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:bEnable_RBV
+      - bi
+      - Used internally to request enables
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:bEnableDone_RBV
+      - bi
+      - TRUE if done enabling
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:bError_RBV
+      - bi
+      - TRUE if we
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:bExecute
+      - bo
+      - Used internally and by the IOC to start or stop
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:bExecute_RBV
+      - bi
+      - Used internally and by the IOC to start or stop
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:bGantryAxis_RBV
+      - bi
+      - TRUE if gantry EPS active
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:bGantryBackwardEnable_RBV
+      - bi
+      - TRUE if gantry ok to move backward
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:bGantryForwardEnable_RBV
+      - bi
+      - TRUE if gantry ok to move forward
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:bHardwareEnable_RBV
+      - bi
+      - TRUE if STO not hit
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:bHome_RBV
+      - bi
+      - TRUE if at homing switch
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:bLimitBackwardEnable_RBV
+      - bi
+      - FALSE if reverse limit hit
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:bLimitForwardEnable_RBV
+      - bi
+      - FALSE if forward limit hit
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:bPowerSelf_RBV
+      - bi
+      - FALSE if axis is in PMPS
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:bReset
+      - bo
+      - Used internally to reset errors
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:bReset_RBV
+      - bi
+      - Used internally to reset errors
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:fAcceleration
+      - ao
+      - Used internally and by the IOC to set acceleration
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:fAcceleration_RBV
+      - ai
+      - Used internally and by the IOC to set acceleration
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:fDeceleration
+      - ao
+      - Used internally and by the IOC to set deceleration
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:fDeceleration_RBV
+      - ai
+      - Used internally and by the IOC to set deceleration
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:fHomePosition
+      - ao
+      - Used internally and by the IOC to pick home position
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:fHomePosition_RBV
+      - ai
+      - Used internally and by the IOC to pick home position
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:fPosition
+      - ao
+      - Used internally and by the IOC as the set position
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:fPosition_RBV
+      - ai
+      - Used internally and by the IOC as the set position
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:fVelocity
+      - ao
+      - Used internally and by the IOC to set velocity
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:fVelocity_RBV
+      - ai
+      - Used internally and by the IOC to set velocity
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:nBrakeMode_RBV
+      - mbbi
+      - Describes when the brake will be released
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:nCmdData
+      - longout
+      - Used internally and by the IOC to pass extra args
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:nCmdData_RBV
+      - longin
+      - Used internally and by the IOC to pass extra args
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:nCommand
+      - longout
+      - Used internally and by the IOC to pick move type
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:nCommand_RBV
+      - longin
+      - Used internally and by the IOC to pick move type
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:nEnableMode_RBV
+      - mbbi
+      - Describes when the axis will automatically get power
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:nErrorId_RBV
+      - longin
+      - Error code if nonzero
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:nHomingMode_RBV
+      - mbbi
+      - Describes our homing strategy
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:nMotionAxisID_RBV
+      - longin
+      - Unique ID assigned to each axis in the NC
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:sErrorMessage_RBV
+      - waveform
+      - Message to identify the error state
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:bAllBackwardEnable_RBV
+      - bi
+      - Summary of axis permission to move backward
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:bAllEnable_RBV
+      - bi
+      - Summary of axis permission to have power
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:bAllForwardEnable_RBV
+      - bi
+      - Summary of axis permission to move forward
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:bBrakeRelease_RBV
+      - bi
+      - TRUE if brake released
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:bBusy_RBV
+      - bi
+      - TRUE if in the middle of a command
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:bDone_RBV
+      - bi
+      - TRUE if command finished successfully
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:bEnable
+      - bo
+      - Used internally to request enables
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:bEnable_RBV
+      - bi
+      - Used internally to request enables
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:bEnableDone_RBV
+      - bi
+      - TRUE if done enabling
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:bError_RBV
+      - bi
+      - TRUE if we
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:bExecute
+      - bo
+      - Used internally and by the IOC to start or stop
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:bExecute_RBV
+      - bi
+      - Used internally and by the IOC to start or stop
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:bGantryAxis_RBV
+      - bi
+      - TRUE if gantry EPS active
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:bGantryBackwardEnable_RBV
+      - bi
+      - TRUE if gantry ok to move backward
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:bGantryForwardEnable_RBV
+      - bi
+      - TRUE if gantry ok to move forward
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:bHardwareEnable_RBV
+      - bi
+      - TRUE if STO not hit
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:bHome_RBV
+      - bi
+      - TRUE if at homing switch
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:bLimitBackwardEnable_RBV
+      - bi
+      - FALSE if reverse limit hit
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:bLimitForwardEnable_RBV
+      - bi
+      - FALSE if forward limit hit
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:bPowerSelf_RBV
+      - bi
+      - FALSE if axis is in PMPS
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:bReset
+      - bo
+      - Used internally to reset errors
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:bReset_RBV
+      - bi
+      - Used internally to reset errors
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:fAcceleration
+      - ao
+      - Used internally and by the IOC to set acceleration
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:fAcceleration_RBV
+      - ai
+      - Used internally and by the IOC to set acceleration
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:fDeceleration
+      - ao
+      - Used internally and by the IOC to set deceleration
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:fDeceleration_RBV
+      - ai
+      - Used internally and by the IOC to set deceleration
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:fHomePosition
+      - ao
+      - Used internally and by the IOC to pick home position
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:fHomePosition_RBV
+      - ai
+      - Used internally and by the IOC to pick home position
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:fPosition
+      - ao
+      - Used internally and by the IOC as the set position
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:fPosition_RBV
+      - ai
+      - Used internally and by the IOC as the set position
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:fVelocity
+      - ao
+      - Used internally and by the IOC to set velocity
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:fVelocity_RBV
+      - ai
+      - Used internally and by the IOC to set velocity
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:nBrakeMode_RBV
+      - mbbi
+      - Describes when the brake will be released
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:nCmdData
+      - longout
+      - Used internally and by the IOC to pass extra args
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:nCmdData_RBV
+      - longin
+      - Used internally and by the IOC to pass extra args
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:nCommand
+      - longout
+      - Used internally and by the IOC to pick move type
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:nCommand_RBV
+      - longin
+      - Used internally and by the IOC to pick move type
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:nEnableMode_RBV
+      - mbbi
+      - Describes when the axis will automatically get power
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:nErrorId_RBV
+      - longin
+      - Error code if nonzero
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:nHomingMode_RBV
+      - mbbi
+      - Describes our homing strategy
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:nMotionAxisID_RBV
+      - longin
+      - Unique ID assigned to each axis in the NC
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:sErrorMessage_RBV
+      - waveform
+      - Message to identify the error state
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:bAllBackwardEnable_RBV
+      - bi
+      - Summary of axis permission to move backward
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:bAllEnable_RBV
+      - bi
+      - Summary of axis permission to have power
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:bAllForwardEnable_RBV
+      - bi
+      - Summary of axis permission to move forward
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:bBrakeRelease_RBV
+      - bi
+      - TRUE if brake released
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:bBusy_RBV
+      - bi
+      - TRUE if in the middle of a command
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:bDone_RBV
+      - bi
+      - TRUE if command finished successfully
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:bEnable
+      - bo
+      - Used internally to request enables
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:bEnable_RBV
+      - bi
+      - Used internally to request enables
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:bEnableDone_RBV
+      - bi
+      - TRUE if done enabling
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:bError_RBV
+      - bi
+      - TRUE if we
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:bExecute
+      - bo
+      - Used internally and by the IOC to start or stop
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:bExecute_RBV
+      - bi
+      - Used internally and by the IOC to start or stop
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:bGantryAxis_RBV
+      - bi
+      - TRUE if gantry EPS active
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:bGantryBackwardEnable_RBV
+      - bi
+      - TRUE if gantry ok to move backward
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:bGantryForwardEnable_RBV
+      - bi
+      - TRUE if gantry ok to move forward
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:bHardwareEnable_RBV
+      - bi
+      - TRUE if STO not hit
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:bHome_RBV
+      - bi
+      - TRUE if at homing switch
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:bLimitBackwardEnable_RBV
+      - bi
+      - FALSE if reverse limit hit
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:bLimitForwardEnable_RBV
+      - bi
+      - FALSE if forward limit hit
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:bPowerSelf_RBV
+      - bi
+      - FALSE if axis is in PMPS
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:bReset
+      - bo
+      - Used internally to reset errors
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:bReset_RBV
+      - bi
+      - Used internally to reset errors
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:fAcceleration
+      - ao
+      - Used internally and by the IOC to set acceleration
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:fAcceleration_RBV
+      - ai
+      - Used internally and by the IOC to set acceleration
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:fDeceleration
+      - ao
+      - Used internally and by the IOC to set deceleration
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:fDeceleration_RBV
+      - ai
+      - Used internally and by the IOC to set deceleration
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:fHomePosition
+      - ao
+      - Used internally and by the IOC to pick home position
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:fHomePosition_RBV
+      - ai
+      - Used internally and by the IOC to pick home position
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:fPosition
+      - ao
+      - Used internally and by the IOC as the set position
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:fPosition_RBV
+      - ai
+      - Used internally and by the IOC as the set position
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:fVelocity
+      - ao
+      - Used internally and by the IOC to set velocity
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:fVelocity_RBV
+      - ai
+      - Used internally and by the IOC to set velocity
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:nBrakeMode_RBV
+      - mbbi
+      - Describes when the brake will be released
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:nCmdData
+      - longout
+      - Used internally and by the IOC to pass extra args
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:nCmdData_RBV
+      - longin
+      - Used internally and by the IOC to pass extra args
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:nCommand
+      - longout
+      - Used internally and by the IOC to pick move type
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:nCommand_RBV
+      - longin
+      - Used internally and by the IOC to pick move type
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:nEnableMode_RBV
+      - mbbi
+      - Describes when the axis will automatically get power
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:nErrorId_RBV
+      - longin
+      - Error code if nonzero
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:nHomingMode_RBV
+      - mbbi
+      - Describes our homing strategy
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:nMotionAxisID_RBV
+      - longin
+      - Unique ID assigned to each axis in the NC
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:sErrorMessage_RBV
       - waveform
       - Message to identify the error state
       - | io: input
