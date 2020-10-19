@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="PRG_SP1K1_MONO" Id="{397aec28-b6d3-4c1c-afed-2cc3b34939d3}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_SP1K1_MONO
+VAR
+	
+	// Where is the STO
+	{attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 4 (EK1200)^di^Channel 1^Input'}		
+	sto AT %I*: BOOL;
+	
+	
+	fbMotionStage_m_pi  :FB_MotionStage;
+	fbMotionStage_g_pi  :FB_MotionStage;
+	fbMotionStage_m_h   :FB_MotionStage;
+	fbMotionStage_g_h   :FB_MotionStage;
+	fbMotionStage_s_r   :FB_MotionStage;
+	fbMotionStage_s_io  :FB_MotionStage;
+	
+	
+
+	
+	
+	gpi_enable :BOOL;
+	mpi_enable :BOOL;
+	gh_enable :BOOL;
+	mh_enable :BOOL;
+	sio_enable :BOOL;
+	sr_enable :BOOL;
+	
+	
+	{attribute 'TcLinkTo' := '.Count:=TIIB[m_pi_up_dwn_e]^FB Inputs Channel 1^Position'}	
+	mpi_upe  AT %I*:  ST_RenishawAbsEnc:=(ref:=0);
+	{attribute 'TcLinkTo' := '.Count:=TIIB[g_pi_up_dwn_e]^FB Inputs Channel 1^Position'}
+	gpi_upe  AT %I*:  ST_RenishawAbsEnc:=(ref:=0);
+
+	{attribute 'pytmc' := '
+		pv: SP1K1:MONO:ENC:M_PI:02
+		io: o
+	'}
+	mpi_upeurad: LREAL;
+	{attribute 'pytmc' := '
+		pv:SP1K1:MONO:ENC:G_PI:02
+		io: o
+	'}
+	gpi_upeurad: LREAL;
+	
+	
+	(*Flow Switches*)
+	{attribute 'TcLinkTo' := 'TIID^Device 4 (EtherCAT)^GM^Term 16 (EL3054)^AI Standard Channel 1^Value'}	
+	flow_1 AT %I*: INT;
+	{attribute 'TcLinkTo' := 'TIID^Device 4 (EtherCAT)^GM^Term 16 (EL3054)^AI Standard Channel 2^Value'}	
+	flow_2 AT %I*: INT;
+	{attribute 'TcLinkTo' := 'TIID^Device 4 (EtherCAT)^GM^Term 16 (EL3054)^AI Standard Channel 3^Value'}		
+	pres_1 AT %I*: INT;
+		
+	{attribute 'pytmc' := '
+		pv:  SP1K1:MONO:FSW:01
+		io: o
+	'}
+	FLOW1 : LREAL := 0.00;
+	
+	{attribute 'pytmc' := '
+		pv:  SP1K1:MONO:FSW:02
+		io: o
+	'}
+	FLOW2 : LREAL := 0.00;
+	
+	{attribute 'pytmc' := '
+		pv:  SP1K1:MONO:P1
+		io: o
+	'}
+	PRES1 : LREAL := 0.00;
+
+
+	(*RTDs*)
+	{attribute 'pytmc' := '
+		pv: SP1K1:MONO:RTD:01
+		io: o
+	'}
+	 {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 1^Value;
+                              .bError := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 1^Status^Error;
+                              .bUnderrange := TIIBSP1K1-EL3202-E13]^RTD Inputs Channel 1^Status^Underrange;
+                              .bOverrange := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 1^Status^Overrange'}
+	RTD1 : FB_TempSensor;
+	
+	{attribute 'pytmc' := '
+		pv: SP1K1:MONO:RTD:02
+		io: o
+	'}
+	{attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 2^Value;
+                              .bError := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 2^Status^Error;
+                              .bUnderrange := TIIBSP1K1-EL3202-E13]^RTD Inputs Channel 2^Status^Underrange;
+                              .bOverrange := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 2^Status^Overrange'}
+	RTD2 : FB_TempSensor;
+	
+	{attribute 'pytmc' := '
+		pv: SP1K1:MONO:RTD:03
+		io: o
+	'}
+	 {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 1^Value;
+                              .bError := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 1^Status^Error;
+                              .bUnderrange := TIIBSP1K1-EL3202-E14]^RTD Inputs Channel 1^Status^Underrange;
+                              .bOverrange := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 1^Status^Overrange'}
+	RTD3 :FB_TempSensor;
+	
+	{attribute 'pytmc' := '
+		pv: SP1K1:MONO:RTD:04
+		io: o
+	'}
+	{attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 2^Value;
+                              .bError := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 2^Status^Error;
+                              .bUnderrange := TIIBSP1K1-EL3202-E14]^RTD Inputs Channel 2^Status^Underrange;
+                              .bOverrange := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 2^Status^Overrange'}
+	RTD4 : FB_TempSensor;
+	
+		{attribute 'pytmc' := '
+		pv: SP1K1:MONO:RTD:05
+		io: o
+	'}
+	{attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E15]^RTD Inputs Channel 1^Value;
+                              .bError := TIIB[SP1K1-EL3202-E15]^RTD Inputs Channel 1^Status^Error;
+                              .bUnderrange := TIIBSP1K1-EL3202-E15]^RTD Inputs Channel 1^Status^Underrange;
+                              .bOverrange := TIIB[SP1K1-EL3202-E15]^RTD Inputs Channel 1^Status^Overrange'}
+	RTD5 : FB_TempSensor;
+	
+	{attribute 'pytmc' := '
+		pv: SP1K1:MONO:RTD:06
+		io: o
+	'}
+	{attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E15]^RTD Inputs Channel 2^Value;
+                              .bError := TIIB[SP1K1-EL3202-E15]^RTD Inputs Channel 2^Status^Error;
+                              .bUnderrange := TIIBSP1K1-EL3202-E15]^RTD Inputs Channel 2^Status^Underrange;
+                              .bOverrange := TIIB[SP1K1-EL3202-E15]^RTD Inputs Channel 2^Status^Overrange'}
+	RTD6 : FB_TempSensor;
+	
+	{attribute 'pytmc' := '
+		pv: SP1K1:MONO:RTD:07
+		io: o
+	'}
+	{attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E16]^RTD Inputs Channel 1^Value;
+                              .bError := TIIB[SP1K1-EL3202-E16]^RTD Inputs Channel 1^Status^Error;
+                              .bUnderrange := TIIBSP1K1-EL3202-E16]^RTD Inputs Channel 1^Status^Underrange;
+                              .bOverrange := TIIB[SP1K1-EL3202-E16]^RTD Inputs Channel 1^Status^Overrange'}
+	RTD7 : FB_TempSensor;
+	
+	{attribute 'pytmc' := '
+		pv: SP1K1:MONO:RTD:08
+		io: o
+	'}
+	{attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E16]^RTD Inputs Channel 2^Value;
+                              .bError := TIIB[SP1K1-EL3202-E16]^RTD Inputs Channel 2^Status^Error;
+                              .bUnderrange := TIIBSP1K1-EL3202-E16]^RTD Inputs Channel 2^Status^Underrange;
+                              .bOverrange := TIIB[SP1K1-EL3202-E16]^RTD Inputs Channel 2^Status^Overrange'}
+	RTD8 :FB_TempSensor;
+	
+	
+	
+	
+	
+	//////////TODO
+	
+	{attribute 'pytmc' := '
+		pv: GM:PITCH:fipi_read
+		io: i
+	'}	
+	fipi_read: LREAL;
+	
+	{attribute 'pytmc' := '
+		pv: GM:PITCH:fipi_set
+		io: o
+	'}
+	fipi_set:  LREAL;
+	
+	
+	dx: LREAL;
+	dy: LREAL;	
+
+	{attribute 'pytmc' := '
+   	pv: GM:m:pi:EnableMode
+   	io: io
+	'}
+	bmpiEpicsEnable : BOOL;
+	
+	{attribute 'pytmc' := '
+   	pv: GM:g:pi:EnableMode
+   	io: io
+	'}
+	bgpiEpicsEnable : BOOL;
+	
+	
+	{attribute 'pytmc' := '
+   	pv: GM:m:h:EnableMode
+   	io: io
+	'}
+	bmhEpicsEnable : BOOL;
+	
+	{attribute 'pytmc' := '
+   	pv: GM:g:h:EnableMode
+   	io: io
+	'}
+	bghEpicsEnable : BOOL;
+	
+	{attribute 'pytmc' := '
+   	pv: GM:s:io:EnableMode
+   	io: io
+	'}
+	bsioEpicsEnable : BOOL;
+	
+	{attribute 'pytmc' := '
+   	pv: GM:s:r:EnableMode
+   	io: io
+	'}
+	bsrEpicsEnable : BOOL;
+	
+	//
+	bTest: BOOL := FALSE;
+	mv_mpi: MC_MoveAbsolute;	
+	mv_gpi: MC_MoveAbsolute;
+	mv_mh: MC_MoveAbsolute;	
+	mv_gh: MC_MoveAbsolute;	
+	mv_sio: MC_MoveAbsolute;	
+	mv_sr: MC_MoveAbsolute;	
+		gpi_start: BOOL;
+	gpi_position: LREAL;
+	gpi_velocity: LREAL := 200;
+
+	
+	mpi_start: BOOL;
+	mpi_position: LREAL;
+	mpi_velocity: LREAL := 200;
+
+
+	gh_start: BOOL;
+	gh_position: LREAL;
+	gh_velocity: LREAL := 1000;
+	
+	mh_start: BOOL;
+	mh_position: LREAL;
+	mh_velocity: LREAL := 500;
+	
+	sio_start: BOOL;
+	sio_position: LREAL;
+	sio_velocity: LREAL := 500;
+	
+	sr_start: BOOL;
+	sr_position: LREAL;
+	sr_velocity: LREAL := 500;
+	//
+
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+M6.bHardwareEnable := sto AND mpi_enable;
+M7.bHardwareEnable := sto AND gpi_enable;
+M8.bHardwareEnable := sto AND mh_enable; 
+M9.bHardwareEnable := sto AND gh_enable;
+M10.bHardwareEnable := sto AND sio_enable;
+M11.bHardwareEnable := sto AND sr_enable;
+
+(*
+M6.bPowerSelf :=TRUE;
+M7.bPowerSelf :=TRUE;
+M8.bPowerSelf :=TRUE;
+M9.bPowerSelf :=TRUE;
+M10.bPowerSelf :=TRUE;
+M11.bPowerSelf :=TRUE;
+*)
+
+
+// Let bM1EpicsEnable control axis enable/disable
+mpi_enable := bmpiEpicsEnable;
+gpi_enable := bgpiEpicsEnable;
+mh_enable  := bmhEpicsEnable;
+gh_enable  := bghEpicsEnable;
+sio_enable  := bsioEpicsEnable;
+sr_enable  := bsrEpicsEnable;
+
+fbMotionStage_m_pi  (stMotionStage:=M6);
+fbMotionStage_g_pi  (stMotionStage:=M7);
+fbMotionStage_m_h  (stMotionStage:=M8);
+fbMotionStage_g_h  (stMotionStage:=M9);
+fbMotionStage_s_io  (stMotionStage:=M10);
+fbMotionStage_s_r  (stMotionStage:=M11);
+//S_R with no hardware limit switched
+M11.bAllBackwardEnable := TRUE;
+M11.bLimitForwardEnable := TRUE;
+
+mpi_upeurad := ULINT_TO_LREAL(mpi_upe.Count)*0.004505;
+gpi_upeurad := ULINT_TO_LREAL(gpi_upe.Count)*0.0066667;
+
+
+
+(*Flow Switches and RTDs*)
+FLOW1 := INT_TO_LREAL(flow_1)/32767*4;
+FLOW2 := INT_TO_LREAL(flow_2)/32767*4;
+PRES1 := INT_TO_LREAL(pres_1)/32767*2;
+RTD1();
+RTD2();
+RTD3();
+RTD4();
+RTD5();
+RTD6();
+RTD7();
+RTD8();
+
+
+IF (bTest) THEN
+	mv_mpi(axis:=M6.Axis, execute:=mpi_start, position:=mpi_position, velocity:=mpi_velocity);
+	mv_gpi(axis:=M7.Axis, execute:=gpi_start, position:=gpi_position, velocity:=gpi_velocity);
+	mv_mh(axis:=M8.Axis, execute:=mh_start, position:=mh_position, velocity:=mh_velocity);
+	mv_gh(axis:=M9.Axis, execute:=gh_start, position:=gh_position, velocity:=gh_velocity);
+	mv_sio(axis:=M10.Axis, execute:=sio_start, position:=sio_position, velocity:=sio_velocity);
+	mv_sr(axis:=M11.Axis, execute:=sr_start, position:=sr_position, velocity:=sr_velocity);	
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="PRG_SP1K1_MONO">
+      <LineId Id="6" Count="6" />
+      <LineId Id="491" Count="0" />
+      <LineId Id="487" Count="3" />
+      <LineId Id="486" Count="0" />
+      <LineId Id="493" Count="1" />
+      <LineId Id="492" Count="0" />
+      <LineId Id="13" Count="10" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="38" Count="0" />
+      <LineId Id="351" Count="1" />
+      <LineId Id="39" Count="3" />
+      <LineId Id="261" Count="1" />
+      <LineId Id="485" Count="0" />
+      <LineId Id="45" Count="0" />
+      <LineId Id="47" Count="9" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="341" Count="1" />
+      <LineId Id="339" Count="0" />
+      <LineId Id="343" Count="0" />
+      <LineId Id="345" Count="2" />
+      <LineId Id="349" Count="1" />
+      <LineId Id="344" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

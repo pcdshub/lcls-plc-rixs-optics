@@ -1,49 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
-  <POU Name="MAIN" Id="{21f3a158-4837-47ff-8ec7-29454a44967d}" SpecialFunc="None">
-    <Declaration><![CDATA[PROGRAM MAIN
+  <POU Name="PRG_MR1K2" Id="{5d1ad344-c9c3-47ff-86fa-37de6eb5129e}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_MR1K2
 VAR
-	// M1K2
-	// Motors
-	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K2_Yleft]^STM Status^Status^Digital input 1;
-                              .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Yleft]^STM Status^Status^Digital input 2'}
-	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:MMS:YLEFT
-	'}
-	M1 : DUT_MotionStage := (fVelocity:=100.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS); // M1K2 Yup
-	fbMotionStage_m1 : FB_MotionStage;
-
-	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K2_Yright]^STM Status^Status^Digital input 1;
-                              .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Yright]^STM Status^Status^Digital input 2'}
-	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:MMS:YRIGHT
-	'}
-	M2 : DUT_MotionStage := (fVelocity:=100.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS); // M1K2 Ydwn
-	fbMotionStage_m2 : FB_MotionStage;
-
-	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K2_Xup]^STM Status^Status^Digital input 1;
-                              .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Xup]^STM Status^Status^Digital input 2'}
-	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:MMS:XUP
-	'}
-	M3 : DUT_MotionStage := (fVelocity:=150.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS); // M1K2 Xup
-	fbMotionStage_m3 : FB_MotionStage;
-
-	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K2_Xdwn]^STM Status^Status^Digital input 1;
-                              .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Xdwn]^STM Status^Status^Digital input 2'}
-	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:MMS:XDWN
-	'}
-	M4 : DUT_MotionStage := (fVelocity:=150.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS); // M1K2 Xdwn
-	fbMotionStage_m4 : FB_MotionStage;
-
-	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K2_PitchCoarse]^STM Status^Status^Digital input 1;
-                              .bLimitBackwardEnable:=TIIB[EL7047_M1K2_PitchCoarse]^STM Status^Status^Digital input 2'}
-	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:MMS:PITCH
-	'}
-	M5 : DUT_MotionStage := (fVelocity := 30.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS); // M1K2 Pitch Stepper
-
 	{attribute 'TcLinkTo' := '.fbRunHOMS.bSTOEnable1:=TIIB[EL1004_M1K2_STO]^Channel 1^Input;
                               .fbRunHOMS.bSTOEnable2:=TIIB[EL1004_M1K2_STO]^Channel 2^Input;
 	                          .fbRunHOMS.stYupEnc.Count:=TIIB[EL5042_M1K2_Yleftright]^FB Inputs Channel 1^Position;
@@ -156,5 +115,9 @@ END_IF
 // 3-15-20: Having issues with pitch control on new Axilon systems
 fbMotionStage_m5(stMotionStage:=M5);]]></ST>
     </Implementation>
+    <LineIds Name="PRG_MR1K2">
+      <LineId Id="6" Count="56" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>
