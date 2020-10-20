@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmItem" TcSmVersion="1.0" TcVersion="3.1.4022.30" ClassName="CNcSafTaskDef" SubType="0">
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmItem" TcSmVersion="1.0" TcVersion="3.1.4022.32" ClassName="CNcSafTaskDef" SubType="0">
 	<DataTypes>
 		<DataType>
 			<Name GUID="{18071995-0000-0000-0000-000000000035}" TcBaseType="true" HideType="true">UINTARR2</Name>
@@ -622,7 +622,7 @@ Drive Status 4 (manually linked):
 			</Relations>
 		</DataType>
 		<DataType>
-			<Name GUID="{4C3FC5AC-D5AA-44C6-AC5A-159774BA0F6D}" Namespace="MC" TcBaseType="true" HideType="true" IecDeclaration="DWORD;">NCTOPLC_AXIS_REF_STATE</Name>
+			<Name GUID="{4C3FC5AC-D5AA-44C6-AC5A-159774BA0F6D}" Namespace="MC" TcBaseType="true" HideType="true" IecDeclaration="DWORD;">NCTOPLC_AXIS_REF_STATE_OLD</Name>
 			<BitSize>32</BitSize>
 			<SubItem>
 				<Name>Operational</Name>
@@ -1014,11 +1014,11 @@ Drive Status 4 (manually linked):
 			</ArrayInfo>
 		</DataType>
 		<DataType>
-			<Name GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC" TcBaseType="true">NCTOPLC_AXIS_REF</Name>
+			<Name GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC" TcBaseType="true">NCTOPLC_AXIS_REF_OLD4</Name>
 			<BitSize>2048</BitSize>
 			<SubItem>
 				<Name>StateDWord</Name>
-				<Type GUID="{4C3FC5AC-D5AA-44C6-AC5A-159774BA0F6D}" Namespace="MC">NCTOPLC_AXIS_REF_STATE</Type>
+				<Type GUID="{4C3FC5AC-D5AA-44C6-AC5A-159774BA0F6D}" Namespace="MC">NCTOPLC_AXIS_REF_STATE_OLD</Type>
 				<BitSize>32</BitSize>
 				<BitOffs>0</BitOffs>
 			</SubItem>
@@ -1549,6 +1549,7 @@ External Setpoint Generation:
 		</SvbTask>
 		<AxisFolder Name="M1K2"/>
 		<AxisFolder Name="SP1K1"/>
+		<AxisFolder Name="M1K1"/>
 		<Axis File="M1K2-Yleft.xti" Id="1"/>
 		<Axis File="M1K2-Yright.xti" Id="2"/>
 		<Axis File="M1K2-Xup.xti" Id="3"/>
@@ -1743,7 +1744,7 @@ Drive Status 4 (manually linked):
 				<Name>Outputs</Name>
 				<Var>
 					<Name>ToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
 					<BitOffs>27072</BitOffs>
 					<SubVar>
 						<Name>AxisState</Name>
@@ -1948,7 +1949,7 @@ Drive Status 4 (manually linked):
 				<Name>Outputs</Name>
 				<Var>
 					<Name>ToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
 					<BitOffs>35456</BitOffs>
 					<SubVar>
 						<Name>AxisState</Name>
@@ -2151,7 +2152,7 @@ Drive Status 4 (manually linked):
 				<Name>Outputs</Name>
 				<Var>
 					<Name>ToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF_OLD4</Type>
 					<BitOffs>38464</BitOffs>
 					<SubVar>
 						<Name>AxisState</Name>
@@ -2203,6 +2204,11 @@ External Setpoint Generation:
 		</Axis>
 		<Axis File="s_io_rbv.xti" Id="10"/>
 		<Axis File="s_io_test.xti" Id="11"/>
+		<Axis File="M1K1-Yup.xti" Id="17"/>
+		<Axis File="M1K1-Ydwn.xti" Id="18"/>
+		<Axis File="M1K1-Xup.xti" Id="19"/>
+		<Axis File="M1K1-Xdwn.xti" Id="20"/>
+		<Axis File="M1K1-Pitch.xti" Id="21"/>
 	</NC>
 	<Mappings>
 		<OwnerA Name="Axes^enc_gpi_up">

@@ -18,6 +18,14 @@
     <Compile Include="GVLs\GVL_COM_Buffers.TcGVL">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="GVLs\GVL_M1K1.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\GVL_M1K1_Constants.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
     <Compile Include="GVLs\GVL_M1K2.TcGVL">
       <SubType>Code</SubType>
     </Compile>
@@ -40,7 +48,10 @@
     <Compile Include="POUs\PRG_1_PlcTask.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\PRG_MR1K2.TcPOU">
+    <Compile Include="POUs\PRG_MR1K1_BEND.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\PRG_MR1K2_SWITCH.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\PRG_SP1K1_MONO.TcPOU">

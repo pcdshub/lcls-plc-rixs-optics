@@ -158,51 +158,10 @@ VAR
 		io: o
 	'}
 	fipi_set:  LREAL;
-	
-	
-	dx: LREAL;
-	dy: LREAL;	
-	
-	//
-	bTest: BOOL := FALSE;
-	mv_mpi: MC_MoveAbsolute;	
-	mv_gpi: MC_MoveAbsolute;
-	mv_mh: MC_MoveAbsolute;	
-	mv_gh: MC_MoveAbsolute;	
-	mv_sio: MC_MoveAbsolute;	
-	mv_sr: MC_MoveAbsolute;	
-		gpi_start: BOOL;
-	gpi_position: LREAL;
-	gpi_velocity: LREAL := 200;
-
-	
-	mpi_start: BOOL;
-	mpi_position: LREAL;
-	mpi_velocity: LREAL := 200;
-
-
-	gh_start: BOOL;
-	gh_position: LREAL;
-	gh_velocity: LREAL := 1000;
-	
-	mh_start: BOOL;
-	mh_position: LREAL;
-	mh_velocity: LREAL := 500;
-	
-	sio_start: BOOL;
-	sio_position: LREAL;
-	sio_velocity: LREAL := 500;
-	
-	sr_start: BOOL;
-	sr_position: LREAL;
-	sr_velocity: LREAL := 500;
-	//
-
-	
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[
+      <ST><![CDATA[// SP1K1-MONO
 M6.bHardwareEnable := sto;
 M7.bHardwareEnable := sto;
 M8.bHardwareEnable := sto; 
@@ -216,14 +175,13 @@ fbMotionStage_m_h  (stMotionStage:=M8);
 fbMotionStage_g_h  (stMotionStage:=M9);
 fbMotionStage_s_io  (stMotionStage:=M10);
 fbMotionStage_s_r  (stMotionStage:=M11);
+
 //S_R with no hardware limit switched
 M11.bAllBackwardEnable := TRUE;
 M11.bLimitForwardEnable := TRUE;
 
 mpi_upeurad := ULINT_TO_LREAL(mpi_upe.Count)*0.004505;
 gpi_upeurad := ULINT_TO_LREAL(gpi_upe.Count)*0.0066667;
-
-
 
 (*Flow Switches and RTDs*)
 FLOW1 := INT_TO_LREAL(flow_1)/32767*4;
@@ -236,17 +194,7 @@ RTD4();
 RTD5();
 RTD6();
 RTD7();
-RTD8();
-
-
-IF (bTest) THEN
-	mv_mpi(axis:=M6.Axis, execute:=mpi_start, position:=mpi_position, velocity:=mpi_velocity);
-	mv_gpi(axis:=M7.Axis, execute:=gpi_start, position:=gpi_position, velocity:=gpi_velocity);
-	mv_mh(axis:=M8.Axis, execute:=mh_start, position:=mh_position, velocity:=mh_velocity);
-	mv_gh(axis:=M9.Axis, execute:=gh_start, position:=gh_position, velocity:=gh_velocity);
-	mv_sio(axis:=M10.Axis, execute:=sio_start, position:=sio_position, velocity:=sio_velocity);
-	mv_sr(axis:=M11.Axis, execute:=sr_start, position:=sr_position, velocity:=sr_velocity);	
-END_IF]]></ST>
+RTD8();]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

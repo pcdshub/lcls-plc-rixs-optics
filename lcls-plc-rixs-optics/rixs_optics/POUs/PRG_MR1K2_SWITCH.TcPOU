@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
-  <POU Name="PRG_MR1K2" Id="{5d1ad344-c9c3-47ff-86fa-37de6eb5129e}" SpecialFunc="None">
-    <Declaration><![CDATA[PROGRAM PRG_MR1K2
+  <POU Name="PRG_MR1K2_SWITCH" Id="{5d1ad344-c9c3-47ff-86fa-37de6eb5129e}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_MR1K2_SWITCH
 VAR
 	{attribute 'TcLinkTo' := '.fbRunHOMS.bSTOEnable1:=TIIB[EL1004_M1K2_STO]^Channel 1^Input;
                               .fbRunHOMS.bSTOEnable2:=TIIB[EL1004_M1K2_STO]^Channel 2^Input;
@@ -46,13 +46,81 @@ VAR
 	fbMotionStage_m5 : FB_MotionStage;
 	
 	// Roll (Rotation about Z axis) induced from Ygantry:
-
 	{attribute 'pytmc' := '
 		pv: MR1K2:SWITCH:ENC:ROLL
 		field: EGU urad
 		io: i
 	'}
 	fYRoll_urad : LREAL; // Roll about Z axis in urad
+
+	// Raw Encoder Counts
+	{attribute 'pytmc' := '
+		pv: MR1K2:SWITCH:ENC:YLEFT:CNT
+		field: EGU cnt
+		io: i
+	'}
+	nEncCntYleftM1K2 : UDINT;
+	{attribute 'pytmc' := '
+		pv: MR1K2:SWITCH:ENC:YRIGHT:CNT
+		field: EGU cnt
+		io: i
+	'}
+	nEncCntYrightM1K2 : UDINT;
+	{attribute 'pytmc' := '
+		pv: MR1K2:SWITCH:ENC:XUP:CNT
+		field: EGU cnt
+		io: i
+	'}
+	nEncCntXupM1K2 : UDINT;
+	{attribute 'pytmc' := '
+		pv: MR1K2:SWITCH:ENC:XDWN:CNT
+		field: EGU cnt
+		io: i
+	'}
+	nEncCntXdwnM1K2 : UDINT;
+	{attribute 'pytmc' := '
+		pv: MR1K2:SWITCH:ENC:PITCH:CNT
+		field: EGU cnt
+		io: i
+	'}
+	nEncCntPitchM1K2 : UDINT;
+
+	// Encoder Reference Values
+	{attribute 'pytmc' := '
+		pv: MR1K2:SWITCH:ENC:YLEFT:REF
+		field: EGU cnt
+		io: i
+	'}
+	nEncRefYleftM1K2 : UDINT;
+	{attribute 'pytmc' := '
+		pv: MR1K2:SWITCH:ENC:YRIGHT:REF
+		field: EGU cnt
+		io: i
+	'}
+	nEncRefYrightM1K2 : UDINT;
+	{attribute 'pytmc' := '
+		pv: MR1K2:SWITCH:ENC:XUP:REF
+		field: EGU cnt
+		io: i
+	'}
+	nEncRefXupM1K2 : UDINT;
+	{attribute 'pytmc' := '
+		pv: MR1K2:SWITCH:ENC:XDWN:REF
+		field: EGU cnt
+		io: i
+	'}
+	nEncRefXdwnM1K2 : UDINT;
+	{attribute 'pytmc' := '
+		pv: MR1K2:SWITCH:ENC:PITCH:REF
+		field: EGU cnt
+		io: i
+	'}
+	nEncRefPitchM1K2 : UDINT;
+	mcReadParameterPitchM1K2 : MC_ReadParameter;
+	fEncRefPitchM1K2_urad : LREAL; // Current Pitch encoder offset in urad
+
+	// Common
+	fEncLeverArm_mm : LREAL := 391.0;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -74,6 +142,10 @@ M1K2.fbRunHOMS(stYup:=M1,
                bGantryAlreadyCoupledX=>M1K2.bGantryAlreadyCoupledX,
                nCurrGantryY=>M1K2.nCurrGantryY,
                nCurrGantryX=>M1K2.nCurrGantryX);
+
+// No slave motion through Epics
+M2.bExecute := FALSE; // M1K2-Yright
+M4.bExecute := FALSE; // M1K2-Xdwn
 
 // Convert nCurrGantry to um (smaller number) to read out in epics
 M1K2.fCurrGantryY_um := LINT_TO_REAL(M1K2.nCurrGantryY) / 1000.0;
@@ -113,11 +185,27 @@ IF NOT M5.bHardwareEnable THEN
 END_IF
 *)
 // 3-15-20: Having issues with pitch control on new Axilon systems
-fbMotionStage_m5(stMotionStage:=M5);]]></ST>
+fbMotionStage_m5(stMotionStage:=M5);
+
+// Raw Encoder Counts For Epics
+nEncCntYleftM1K2 := ULINT_TO_UDINT(M1K2.fbRunHOMS.stYupEnc.Count);
+nEncCntYrightM1K2 := ULINT_TO_UDINT(M1K2.fbRunHOMS.stYdwnEnc.Count);
+nEncCntXupM1K2 := ULINT_TO_UDINT(M1K2.fbRunHOMS.stXupEnc.Count);
+nEncCntXdwnM1K2 := ULINT_TO_UDINT(M1K2.fbRunHOMS.stXdwnEnc.Count);
+nEncCntPitchM1K2 := LINT_TO_UDINT(GVL_M1K2.M1K2_Pitch.diEncCnt);
+
+// Encoder Reference Values For Epics
+nEncRefYleftM1K2 := ULINT_TO_UDINT(GVL_M1K2_Constants.nYLEFT_ENC_REF);
+nEncRefYrightM1K2 := ULINT_TO_UDINT(GVL_M1K2_Constants.nYRIGHT_ENC_REF);
+nEncRefXupM1K2 := ULINT_TO_UDINT(GVL_M1K2_Constants.nXUP_ENC_REF);
+nEncRefXdwnM1K2 := ULINT_TO_UDINT(GVL_M1K2_Constants.nXDWN_ENC_REF);
+mcReadParameterPitchM1K2(Axis:=M5.Axis,
+	                     Enable:=TRUE,
+				         ParameterNumber:=MC_AxisParameter.AxisEncoderOffset,
+				         ReadMode:=READMODE_CYCLIC,
+				         Value=>fEncRefPitchM1K2_urad);
+
+nEncRefPitchM1K2 := LREAL_TO_UDINT(ABS(fEncRefPitchM1K2_urad) * fEncLeverArm_mm);]]></ST>
     </Implementation>
-    <LineIds Name="PRG_MR1K2">
-      <LineId Id="6" Count="56" />
-      <LineId Id="5" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>
