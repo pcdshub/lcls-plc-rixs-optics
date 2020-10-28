@@ -18,6 +18,14 @@
     <Compile Include="GVLs\GVL_COM_Buffers.TcGVL">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="GVLs\GVL_M1K1.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\GVL_M1K1_Constants.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
     <Compile Include="GVLs\GVL_M1K2.TcGVL">
       <SubType>Code</SubType>
     </Compile>
@@ -40,7 +48,10 @@
     <Compile Include="POUs\PRG_1_PlcTask.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\PRG_MR1K2.TcPOU">
+    <Compile Include="POUs\PRG_MR1K1_BEND.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\PRG_MR1K2_SWITCH.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\PRG_SP1K1_MONO.TcPOU">
@@ -64,10 +75,6 @@
     <Folder Include="POUs" />
   </ItemGroup>
   <ItemGroup>
-    <PlaceholderReference Include="LCLS General">
-      <DefaultResolution>LCLS General, * (SLAC)</DefaultResolution>
-      <Namespace>LCLS_General</Namespace>
-    </PlaceholderReference>
     <PlaceholderReference Include="Tc2_MC2">
       <DefaultResolution>Tc2_MC2, * (Beckhoff Automation GmbH)</DefaultResolution>
       <Namespace>Tc2_MC2</Namespace>
@@ -94,10 +101,13 @@
     </PlaceholderReference>
   </ItemGroup>
   <ItemGroup>
-    <LibraryReference Include="lcls-twincat-motion,1.1.0,SLAC">
+    <LibraryReference Include="LCLS General,2.4.2,SLAC">
+      <Namespace>LCLS_General</Namespace>
+    </LibraryReference>
+    <LibraryReference Include="lcls-twincat-motion,1.3.5,SLAC">
       <Namespace>lcls_twincat_motion</Namespace>
     </LibraryReference>
-    <LibraryReference Include="lcls-twincat-optics,0.0.0,SLAC">
+    <LibraryReference Include="lcls-twincat-optics,0.0.2,SLAC">
       <Namespace>lcls_twincat_optics</Namespace>
     </LibraryReference>
   </ItemGroup>

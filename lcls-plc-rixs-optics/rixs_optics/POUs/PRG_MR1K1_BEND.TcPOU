@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="PRG_MR1K1_BEND" Id="{f3f12a20-b8bd-4f8a-96c6-66ebb9fb57e3}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_MR1K1_BEND
+VAR
+	{attribute 'TcLinkTo' := '.fbRunHOMS.bSTOEnable1:=TIIB[EL1004_M1K1_STO]^Channel 1^Input;
+                              .fbRunHOMS.bSTOEnable2:=TIIB[EL1004_M1K1_STO]^Channel 2^Input;
+	                          .fbRunHOMS.stYupEnc.Count:=TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 1^Position;
+	                          .fbRunHOMS.stYdwnEnc.Count:=TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 2^Position;
+	                          .fbRunHOMS.stXupEnc.Count:=TIIB[EL5042_M1K1_Xupdwn]^FB Inputs Channel 1^Position;
+	                          .fbRunHOMS.stXdwnEnc.Count:=TIIB[EL5042_M1K1_Xupdwn]^FB Inputs Channel 2^Position'}
+	{attribute 'pytmc' := '
+		pv: MR1K1:BEND
+	'}
+	M1K1 : DUT_HOMS;
+
+	// Encoder Arrays/RMS Watch:
+	{attribute 'pytmc' := '
+		pv: MR1K1:BEND:ENC:Y
+	'}
+	fbYRMSErrorM1K1 : FB_RMSWatch;
+	fMaxYRMSErrorM1K1 : LREAL;
+	fMinYRMSErrorM1K1 : LREAL;
+
+	{attribute 'pytmc' := '
+		pv: MR1K1:BEND:ENC:X
+	'}
+	fbXRMSErrorM1K1 : FB_RMSWatch;
+	fMaxXRMSErrorM1K1 : LREAL;
+	fMinXRMSErrorM1K1 : LREAL;
+
+	{attribute 'pytmc' := '
+		pv: MR1K1:BEND:ENC:PITCH
+	'}
+	fbPitchRMSErrorM1K1 : FB_RMSWatch;
+	fMaxPitchRMSErrorM1K1 : LREAL;
+	fMinPitchRMSErrorM1K1 : LREAL;
+
+	// Pitch Control
+	fbM1K1PitchControl : FB_PitchControl;
+	bM1K1PitchDone : BOOL;
+	bM1K1PitchBusy : BOOL;
+
+	// 3-15-20 Having issues with pitch control on new Axilon systems (M1K2)
+	// Should test on this one to see if common to all new systems
+	// Using stepper only for now
+	fbMotionStage_m16 : FB_MotionStage;
+
+	// Raw Encoder Counts
+	{attribute 'pytmc' := '
+		pv: MR1K1:BEND:ENC:YUP:CNT
+		field: EGU cnt
+		io: i
+	'}
+	nEncCntYupM1K1 : UDINT;
+	{attribute 'pytmc' := '
+		pv: MR1K1:BEND:ENC:YDWN:CNT
+		field: EGU cnt
+		io: i
+	'}
+	nEncCntYdwnM1K1 : UDINT;
+	{attribute 'pytmc' := '
+		pv: MR1K1:BEND:ENC:XUP:CNT
+		field: EGU cnt
+		io: i
+	'}
+	nEncCntXupM1K1 : UDINT;
+	{attribute 'pytmc' := '
+		pv: MR1K1:BEND:ENC:XDWN:CNT
+		field: EGU cnt
+		io: i
+	'}
+	nEncCntXdwnM1K1 : UDINT;
+	{attribute 'pytmc' := '
+		pv: MR1K1:BEND:ENC:PITCH:CNT
+		field: EGU cnt
+		io: i
+	'}
+	nEncCntPitchM1K1 : UDINT;
+
+	// Encoder Reference Values
+	{attribute 'pytmc' := '
+		pv: MR1K1:BEND:ENC:YUP:REF
+		field: EGU cnt
+		io: i
+	'}
+	nEncRefYupM1K1 : UDINT;
+	{attribute 'pytmc' := '
+		pv: MR1K1:BEND:ENC:YDWN:REF
+		field: EGU cnt
+		io: i
+	'}
+	nEncRefYdwnM1K1 : UDINT;
+	{attribute 'pytmc' := '
+		pv: MR1K1:BEND:ENC:XUP:REF
+		field: EGU cnt
+		io: i
+	'}
+	nEncRefXupM1K1 : UDINT;
+	{attribute 'pytmc' := '
+		pv: MR1K1:BEND:ENC:XDWN:REF
+		field: EGU cnt
+		io: i
+	'}
+	nEncRefXdwnM1K1 : UDINT;
+	{attribute 'pytmc' := '
+		pv: MR1K1:BEND:ENC:PITCH:REF
+		field: EGU cnt
+		io: i
+	'}
+	nEncRefPitchM1K1 : UDINT;
+	mcReadParameterPitchM1K1 : MC_ReadParameter;
+	fEncRefPitchM1K1_urad : LREAL; // Current Pitch encoder offset in urad
+
+	// Common
+	fEncLeverArm_mm : LREAL := 410.0;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// M1K1
+M1K1.fbRunHOMS(stYup:=M12,
+               stYdwn:=M13,
+               stXup:=M14,
+               stXdwn:=M15,
+               stPitch:=M16,
+	           nYupEncRef:=GVL_M1K1_Constants.nYUP_ENC_REF,
+               nYdwnEncRef:=GVL_M1K1_Constants.nYDWN_ENC_REF,
+               nXupEncRef:=GVL_M1K1_Constants.nXUP_ENC_REF,
+               nXdwnEncRef:=GVL_M1K1_Constants.nXDWN_ENC_REF,
+			   bExecuteCoupleY:=M1K1.bExecuteCoupleY,
+               bExecuteCoupleX:=M1K1.bExecuteCoupleX,
+			   bExecuteDecoupleY:=M1K1.bExecuteDecoupleY,
+               bExecuteDecoupleX:=M1K1.bExecuteDecoupleX,
+               bGantryAlreadyCoupledY=>M1K1.bGantryAlreadyCoupledY,
+               bGantryAlreadyCoupledX=>M1K1.bGantryAlreadyCoupledX,
+               nCurrGantryY=>M1K1.nCurrGantryY,
+               nCurrGantryX=>M1K1.nCurrGantryX);
+
+// No slave motion through Epics
+M13.bExecute := FALSE; // M1K1-Ydwn
+M15.bExecute := FALSE; // M1K1-Xdwn
+
+// Convert nCurrGantry to um (smaller number) to read out in epics
+M1K1.fCurrGantryY_um := LINT_TO_REAL(M1K1.nCurrGantryY) / 1000.0;
+M1K1.fCurrGantryX_um := LINT_TO_REAL(M1K1.nCurrGantryX) / 1000.0;
+
+// FB_MotionStage's for non-piezo axes
+fbMotionStage_m12(stMotionStage:=M12);
+fbMotionStage_m13(stMotionStage:=M13);
+fbMotionStage_m14(stMotionStage:=M14);
+fbMotionStage_m15(stMotionStage:=M15);
+
+// Calculate Pitch RMS Error:
+fbYRMSErrorM1K1(stMotionStage:=M12,
+	            fMaxRMSError=>fMaxYRMSErrorM1K1,
+				fMinRMSError=>fMinYRMSErrorM1K1);
+
+fbXRMSErrorM1K1(stMotionStage:=M14,
+	            fMaxRMSError=>fMaxXRMSErrorM1K1,
+				fMinRMSError=>fMinXRMSErrorM1K1);
+
+fbPitchRMSErrorM1K1(stMotionStage:=M16,
+	                fMaxRMSError=>fMaxPitchRMSErrorM1K1,
+					fMinRMSError=>fMinPitchRMSErrorM1K1);
+
+(*
+// Pitch Control
+fbM1K1PitchControl(Pitch:=GVL_M1K1.M1K1_Pitch,
+				   Stepper:=M16,
+				   lrCurrentSetpoint:=M16.fPosition,
+                   q_bDone=>bM1K1PitchDone,
+                   q_bBusy=>bM1K1PitchBusy);
+// When STO hit, need to reset SP
+IF NOT M16.bHardwareEnable THEN
+	M16.fPosition := M16.stAxisStatus.fActPosition;
+END_IF
+*)
+// 3-15-20: Having issues with pitch control on new Axilon systems, should test here
+fbMotionStage_m16(stMotionStage:=M16);
+
+// Raw Encoder Counts For Epics
+nEncCntYupM1K1 := ULINT_TO_UDINT(M1K1.fbRunHOMS.stYupEnc.Count);
+nEncCntYdwnM1K1 := ULINT_TO_UDINT(M1K1.fbRunHOMS.stYdwnEnc.Count);
+nEncCntXupM1K1 := ULINT_TO_UDINT(M1K1.fbRunHOMS.stXupEnc.Count);
+nEncCntXdwnM1K1 := ULINT_TO_UDINT(M1K1.fbRunHOMS.stXdwnEnc.Count);
+nEncCntPitchM1K1 := LINT_TO_UDINT(GVL_M1K1.M1K1_Pitch.diEncCnt);
+
+// Encoder Reference Values For Epics
+nEncRefYupM1K1 := ULINT_TO_UDINT(GVL_M1K1_Constants.nYUP_ENC_REF);
+nEncRefYdwnM1K1 := ULINT_TO_UDINT(GVL_M1K1_Constants.nYDWN_ENC_REF);
+nEncRefXupM1K1 := ULINT_TO_UDINT(GVL_M1K1_Constants.nXUP_ENC_REF);
+nEncRefXdwnM1K1 := ULINT_TO_UDINT(GVL_M1K1_Constants.nXDWN_ENC_REF);
+mcReadParameterPitchM1K1(Axis:=M16.Axis,
+	                     Enable:=TRUE,
+				         ParameterNumber:=MC_AxisParameter.AxisEncoderOffset,
+				         ReadMode:=READMODE_CYCLIC,
+				         Value=>fEncRefPitchM1K1_urad);
+
+nEncRefPitchM1K1 := LREAL_TO_UDINT(ABS(fEncRefPitchM1K1_urad) * fEncLeverArm_mm);]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

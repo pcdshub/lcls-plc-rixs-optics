@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <GVL Name="GVL_M1K1" Id="{a03a1b97-5449-44be-a224-7f589ea526c4}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	// Pitch Mechanism:\
+	// Currently unused
+	{attribute 'TcLinkTo' := '.diEncCnt:=TIIB[EL5042_M1K2_Pitch]^FB Inputs Channel 1^Position'}
+	M1K1_Pitch : HOMS_PitchMechanism := (ReqPosLimHi := 24681,
+		                                 ReqPosLimLo := 24321,
+		                                 diEncPosLimHi := 10139808,
+		                                 diEncPosLimLo := 9950984); // Set to 50 urad before hard limits tripped during SAT
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>
