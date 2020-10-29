@@ -37,6 +37,45 @@ GVL_M1K1
     END_VAR
 
 
+GVL_M1K1_BENDER_Constants
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    {attribute 'qualified_only'}
+    VAR_GLOBAL CONSTANT
+    	// Encoder reference values in counts = nm
+    	nM1K1bendUS_ENC_REF : ULINT := 13376858;
+    	nM1K1bendDS_ENC_REF : ULINT := 14336722;
+    END_VAR
+
+
+GVL_M1K1_BENDER_RTD
+^^^^^^^^^^^^^^^^^^^
+
+::
+
+    {attribute 'qualified_only'}
+    VAR_GLOBAL
+    	// M1K1 US RTDs
+    	{attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M1K1US1_M1K1US2]^RTD Inputs Channel 1^Value'}
+    	nM1K1US_RTD_1 AT %I* : INT;
+    	{attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M1K1US1_M1K1US2]^RTD Inputs Channel 2^Value'}
+    	nM1K1US_RTD_2 AT %I* : INT;
+    	{attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M1K1US3_M1K1DS1]^RTD Inputs Channel 1^Value'}
+    	nM1K1US_RTD_3 AT %I* : INT;
+
+    	// M1K1 DS RTDs
+    	{attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M1K1US3_M1K1DS1]^RTD Inputs Channel 2^Value'}
+    	nM1K1DS_RTD_1 AT %I* : INT;
+    	{attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M1K1DS2_M1K1DS3]^RTD Inputs Channel 1^Value'}
+    	nM1K1DS_RTD_2 AT %I* : INT;
+    	{attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M1K1DS2_M1K1DS3]^RTD Inputs Channel 2^Value'}
+    	nM1K1DS_RTD_3 AT %I* : INT;
+    	
+    END_VAR
+
+
 GVL_M1K1_Constants
 ^^^^^^^^^^^^^^^^^^
 
@@ -239,6 +278,24 @@ Main
     		pv: MR1K1:BEND:MMS:PITCH
     	'}
     	M16 : DUT_MotionStage := (fVelocity:=30.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=True); // M1K1 Pitch Stepper
+    		
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable :=TIIB[EL7041_M1K1_BEND_US]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7041_M1K1_BEND_US]^STM Status^Status^Digital input 2;
+    							  .nRawEncoderULINT    := TIIB[EL5042_M1K1_BEND_USDS]^FB Inputs Channel 1^Position'}
+    	{attribute 'pytmc' := '
+    	pv: MR1K1:BEND:MMS:US
+    	'}
+    	M17 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE); //MR1K1 US BEND
+    	fbMotionStage_m17 : FB_MotionStage;
+    	
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable :=TIIB[EL7041_M1K1_BEND_DS]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7041_M1K1_BEND_DS]^STM Status^Status^Digital input 2;
+    							  .nRawEncoderULINT    := TIIB[EL5042_M1K1_BEND_USDS]^FB Inputs Channel 2^Position'}
+    	{attribute 'pytmc' := '
+    	pv: MR1K1:BEND:MMS:DS
+    	'}
+    	M18 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE); //MR1K1 DS BEND
+    	fbMotionStage_m18 : FB_MotionStage;
     END_VAR
 
 
@@ -303,6 +360,7 @@ PRG_1_PlcTask
 
     END_VAR
     PRG_MR1K1_BEND();
+    PRG_MR1K1_BEND_BENDER();
     PRG_MR1K2_SWITCH();
     PRG_SP1K1_MONO();
 
@@ -508,6 +566,157 @@ PRG_MR1K1_BEND
     				         Value=>fEncRefPitchM1K1_urad);
 
     nEncRefPitchM1K1 := LREAL_TO_UDINT(ABS(fEncRefPitchM1K1_urad) * fEncLeverArm_mm);
+
+    END_PROGRAM
+
+
+PRG_MR1K1_BEND_BENDER
+^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    PROGRAM PRG_MR1K1_BEND_BENDER
+    VAR
+    	// Encoder Arrays/RMS Watch:
+    	//MR1K1 US BENDER ENC RMS
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:ENC:US
+    	'}
+    	fbBendUSRMSErrorM1K1 : FB_RMSWatch;
+    	fMaxBendUSRMSErrorM1K1 : LREAL;
+    	fMinBendUSRMSErrorM1K1 : LREAL;	
+    	//MR1K1 DS BENDER ENC RMS
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:ENC:DS
+    	'}
+    	fbBendDSRMSErrorM1K1 : FB_RMSWatch;
+    	fMaxBendDSRMSErrorM1K1 : LREAL;
+    	fMinBendDSRMSErrorM1K1 : LREAL;
+
+    	// Encoder Reference Values
+    	//MR1K1 BEND US ENC REF
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:ENC:US:REF
+    		field: EGU cnt
+    		io: i
+    	'}
+    	nEncRefBendUSM1K1 : UDINT;
+    	//MR1K1 BEND DS ENC REF
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:ENC:DS:REF
+    		field: EGU cnt
+    		io: i
+    	'}
+    	nEncRefBendDSM1K1 : UDINT;
+    	
+    	//Emergency Stop for MR1K1
+    	M1K1BENDbSTOEnable1 AT %I* : BOOL;
+    	M1K1BENDbSTOEnable2 AT %I* : BOOL;
+
+    	// MR1K1 Bender RTDs
+    	// MR1K1 US RTDs
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:RTD:US:1
+    		field: ASLO 0.01
+    		field: EGU C
+    		io: i
+    	'}
+    	fM1K1US_RTD_1 : REAL;
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:RTD:US:2
+    		field: ASLO 0.01
+    		field: EGU C
+    		io: i
+    	'}
+    	fM1K1US_RTD_2 : REAL;
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:RTD:US:3
+    		field: ASLO 0.01
+    		field: EGU C
+    		io: i
+    	'}
+    	fM1K1US_RTD_3 : REAL;
+
+    	// M1K1 DS RTDs
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:RTD:DS:1
+    		field: ASLO 0.01
+    		field: EGU C
+    		io: i
+    	'}
+    	fM1K1DS_RTD_1 : REAL;
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:RTD:DS:2
+    		field: ASLO 0.01
+    		field: EGU C
+    		io: i
+    	'}
+    	fM1K1DS_RTD_2 : REAL;
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:RTD:DS:3
+    		field: ASLO 0.01
+    		field: EGU C
+    		io: i
+    	'}
+    	fM1K1DS_RTD_3 : REAL;
+    	
+    	// RTD error bit
+    	bM1K1US_RTD_1_Err AT %I*: BOOL;
+    	bM1K1US_RTD_2_Err AT %I*: BOOL;
+    	bM1K1US_RTD_3_Err AT %I*: BOOL;
+    	bM1K1DS_RTD_1_Err AT %I*: BOOL;
+    	bM1K1DS_RTD_2_Err AT %I*: BOOL;
+    	bM1K1DS_RTD_3_Err AT %I*: BOOL;
+
+    	// Logging
+    	fbLogHandler : FB_LogHandler;
+    	fbBendUSRMSErrorMR1K1: INT;
+    END_VAR
+    //FB_Motion stages for MR1K1 Benders
+    //MR1K1 BEND
+    fbMotionStage_m17(stMotionStage:=M17);
+    fbMotionStage_m18(stMotionStage:=M18);
+
+    // Calculate Pitch RMS Error for MR1K1 Benders:
+    //MR1K1 US BENDER ENC RMS
+    fbBendUSRMSErrorM1K1(stMotionStage:=M17,
+    					 fMaxRMSError=>fMaxBendUSRMSErrorM1K1,
+    					 fMinRMSError=>fMinBendUSRMSErrorM1K1);
+    //MR1K1 DS BENDER ENC RMS
+    fbBendDSRMSErrorM1K1(stMotionStage:=M18,
+    					 fMaxRMSError=>fMaxBendDSRMSErrorM1K1,
+    					 fMinRMSError=>fMinBendDSRMSErrorM1K1);
+    					 
+    					 
+    //STO for MR1K1 Benders
+    M17.bHardwareEnable := M1K1BENDbSTOEnable1 AND M1K1BENDbSTOEnable2;
+    M18.bHardwareEnable := M1K1BENDbSTOEnable1 AND M1K1BENDbSTOEnable2;
+
+    //Encoder reference positions for MR1K1
+    nEncRefBendUSM1K1  := ULINT_TO_UDINT(GVL_M1K1_BENDER_Constants.nM1K1bendUS_ENC_REF);
+    nEncRefBendDSM1K1  := ULINT_TO_UDINT(GVL_M1K1_BENDER_Constants.nM1K1bendDS_ENC_REF);
+
+    // MR1K1 Bender RTDs
+    fM1K1US_RTD_1 := INT_TO_REAL(GVL_M1K1_BENDER_RTD.nM1K1US_RTD_1);
+    fM1K1US_RTD_2 := INT_TO_REAL(GVL_M1K1_BENDER_RTD.nM1K1US_RTD_2);
+    fM1K1US_RTD_3 := INT_TO_REAL(GVL_M1K1_BENDER_RTD.nM1K1US_RTD_3);
+
+    fM1K1DS_RTD_1 := INT_TO_REAL(GVL_M1K1_BENDER_RTD.nM1K1DS_RTD_1);
+    fM1K1DS_RTD_2 := INT_TO_REAL(GVL_M1K1_BENDER_RTD.nM1K1DS_RTD_2);
+    fM1K1DS_RTD_3 := INT_TO_REAL(GVL_M1K1_BENDER_RTD.nM1K1DS_RTD_3);
+
+    // RTD not connected if T=0
+    bM1K1US_RTD_1_Err := fM1K1US_RTD_1 = 0;
+    bM1K1US_RTD_2_Err := fM1K1DS_RTD_2 = 0;
+    bM1K1US_RTD_3_Err := fM1K1US_RTD_3 = 0;
+    bM1K1DS_RTD_1_Err := fM1K1DS_RTD_1 = 0;
+    bM1K1DS_RTD_2_Err := fM1K1DS_RTD_2 = 0;
+    bM1K1DS_RTD_3_Err := fM1K1DS_RTD_3 = 0;
+
+
+    // M1K1 Bender RTD interlocks
+    M17.bHardwareEnable R= fM1K1US_RTD_1 > 10000 OR bM1K1US_RTD_1_Err;
+    M18.bHardwareEnable R= fM1K1DS_RTD_1 > 10000 OR bM1K1DS_RTD_1_Err;
 
     END_PROGRAM
 

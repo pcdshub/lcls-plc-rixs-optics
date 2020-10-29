@@ -100,6 +100,814 @@ LCLS_General.FB_BasicStats
 
 
    
+LCLS_General.FB_Listener
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. list-table::
+    :header-rows: 1
+    :align: center
+
+    * - Record
+      - Type
+      - Description
+      - Pragma
+    * - $(PREFIX):AlarmsCleared_RBV
+      - longin
+      - $(SYMBOL).nCntAlarmsCleared
+      - | io: input
+
+
+    * - $(PREFIX):AlarmsConfirmed_RBV
+      - longin
+      - $(SYMBOL).nCntAlarmsConfirmed
+      - | io: input
+
+
+    * - $(PREFIX):AlarmsRaised_RBV
+      - longin
+      - $(SYMBOL).nCntAlarmsRaised
+      - | io: input
+
+
+    * - $(PREFIX):Log:EventClass_RBV
+      - waveform
+      - TwinCAT Event class
+      - | io: input
+
+
+    * - $(PREFIX):Log:EventType_RBV
+      - mbbi
+      - The event type
+      - | io: input
+
+
+    * - $(PREFIX):Log:Hostname_RBV
+      - waveform
+      - PLC Hostname
+      - | io: input
+
+
+    * - $(PREFIX):Log:Message_RBV
+      - waveform
+      - $(SYMBOL).stEventInfo.msg
+      - | io: input
+
+
+    * - $(PREFIX):Log:MessageID_RBV
+      - longin
+      - TwinCAT Message ID
+      - | io: input
+
+
+    * - $(PREFIX):Log:MessageJSON_RBV
+      - waveform
+      - Metadata with the message
+      - | io: input
+
+
+    * - $(PREFIX):Log:Schema_RBV
+      - waveform
+      - Schema string
+      - | io: input
+
+
+    * - $(PREFIX):Log:Severity_RBV
+      - mbbi
+      - TcEventSeverity
+      - | field: ONST Info
+        | field: THST Error
+        | field: TWST Warning
+        | field: ZRST Verbose
+        | io: input
+
+
+    * - $(PREFIX):Log:Source_RBV
+      - waveform
+      - $(SYMBOL).stEventInfo.source
+      - | io: input
+
+
+    * - $(PREFIX):Log:Timestamp_RBV
+      - ai
+      - Unix timestamp
+      - | io: input
+
+
+    * - $(PREFIX):LogToVisualStudio
+      - bo
+      - $(SYMBOL).bLogToVisualStudio
+      - | io: output
+
+
+    * - $(PREFIX):LogToVisualStudio_RBV
+      - bi
+      - $(SYMBOL).bLogToVisualStudio
+      - | io: output
+
+
+    * - $(PREFIX):MessagesSent_RBV
+      - longin
+      - $(SYMBOL).nCntMessagesSent
+      - | io: input
+
+
+    * - $(PREFIX):MinSeverity
+      - mbbo
+      - $(SYMBOL).eMinSeverity
+      - | io: output
+
+
+    * - $(PREFIX):MinSeverity_RBV
+      - mbbi
+      - $(SYMBOL).eMinSeverity
+      - | io: output
+
+
+ 
+LCLS_General.FB_LogHandler
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. list-table::
+    :header-rows: 1
+    :align: center
+
+    * - Record
+      - Type
+      - Description
+      - Pragma
+    * - $(PREFIX):ADS:AlarmsCleared_RBV
+      - longin
+      - $(SYMBOL).fbTcAdsListener.nCntAlarmsCleared
+      - | io: input
+
+
+    * - $(PREFIX):ADS:AlarmsConfirmed_RBV
+      - longin
+      - $(SYMBOL).fbTcAdsListener.nCntAlarmsConfirmed
+      - | io: input
+
+
+    * - $(PREFIX):ADS:AlarmsRaised_RBV
+      - longin
+      - $(SYMBOL).fbTcAdsListener.nCntAlarmsRaised
+      - | io: input
+
+
+    * - $(PREFIX):ADS:Log:EventClass_RBV
+      - waveform
+      - TwinCAT Event class
+      - | io: input
+
+
+    * - $(PREFIX):ADS:Log:EventType_RBV
+      - mbbi
+      - The event type
+      - | io: input
+
+
+    * - $(PREFIX):ADS:Log:Hostname_RBV
+      - waveform
+      - PLC Hostname
+      - | io: input
+
+
+    * - $(PREFIX):ADS:Log:Message_RBV
+      - waveform
+      - $(SYMBOL).fbTcAdsListener.stEventInfo.msg
+      - | io: input
+
+
+    * - $(PREFIX):ADS:Log:MessageID_RBV
+      - longin
+      - TwinCAT Message ID
+      - | io: input
+
+
+    * - $(PREFIX):ADS:Log:MessageJSON_RBV
+      - waveform
+      - Metadata with the message
+      - | io: input
+
+
+    * - $(PREFIX):ADS:Log:Schema_RBV
+      - waveform
+      - Schema string
+      - | io: input
+
+
+    * - $(PREFIX):ADS:Log:Severity_RBV
+      - mbbi
+      - TcEventSeverity
+      - | field: ONST Info
+        | field: THST Error
+        | field: TWST Warning
+        | field: ZRST Verbose
+        | io: input
+
+
+    * - $(PREFIX):ADS:Log:Source_RBV
+      - waveform
+      - $(SYMBOL).fbTcAdsListener.stEventInfo.source
+      - | io: input
+
+
+    * - $(PREFIX):ADS:Log:Timestamp_RBV
+      - ai
+      - Unix timestamp
+      - | io: input
+
+
+    * - $(PREFIX):ADS:LogToVisualStudio
+      - bo
+      - $(SYMBOL).fbTcAdsListener.bLogToVisualStudio
+      - | io: output
+
+
+    * - $(PREFIX):ADS:LogToVisualStudio_RBV
+      - bi
+      - $(SYMBOL).fbTcAdsListener.bLogToVisualStudio
+      - | io: output
+
+
+    * - $(PREFIX):ADS:MessagesSent_RBV
+      - longin
+      - $(SYMBOL).fbTcAdsListener.nCntMessagesSent
+      - | io: input
+
+
+    * - $(PREFIX):ADS:MinSeverity
+      - mbbo
+      - $(SYMBOL).fbTcAdsListener.eMinSeverity
+      - | io: output
+
+
+    * - $(PREFIX):ADS:MinSeverity_RBV
+      - mbbi
+      - $(SYMBOL).fbTcAdsListener.eMinSeverity
+      - | io: output
+
+
+    * - $(PREFIX):LCLS:AlarmsCleared_RBV
+      - longin
+      - $(SYMBOL).fbLCLSListener.nCntAlarmsCleared
+      - | io: input
+
+
+    * - $(PREFIX):LCLS:AlarmsConfirmed_RBV
+      - longin
+      - $(SYMBOL).fbLCLSListener.nCntAlarmsConfirmed
+      - | io: input
+
+
+    * - $(PREFIX):LCLS:AlarmsRaised_RBV
+      - longin
+      - $(SYMBOL).fbLCLSListener.nCntAlarmsRaised
+      - | io: input
+
+
+    * - $(PREFIX):LCLS:Log:EventClass_RBV
+      - waveform
+      - TwinCAT Event class
+      - | io: input
+
+
+    * - $(PREFIX):LCLS:Log:EventType_RBV
+      - mbbi
+      - The event type
+      - | io: input
+
+
+    * - $(PREFIX):LCLS:Log:Hostname_RBV
+      - waveform
+      - PLC Hostname
+      - | io: input
+
+
+    * - $(PREFIX):LCLS:Log:Message_RBV
+      - waveform
+      - $(SYMBOL).fbLCLSListener.stEventInfo.msg
+      - | io: input
+
+
+    * - $(PREFIX):LCLS:Log:MessageID_RBV
+      - longin
+      - TwinCAT Message ID
+      - | io: input
+
+
+    * - $(PREFIX):LCLS:Log:MessageJSON_RBV
+      - waveform
+      - Metadata with the message
+      - | io: input
+
+
+    * - $(PREFIX):LCLS:Log:Schema_RBV
+      - waveform
+      - Schema string
+      - | io: input
+
+
+    * - $(PREFIX):LCLS:Log:Severity_RBV
+      - mbbi
+      - TcEventSeverity
+      - | field: ONST Info
+        | field: THST Error
+        | field: TWST Warning
+        | field: ZRST Verbose
+        | io: input
+
+
+    * - $(PREFIX):LCLS:Log:Source_RBV
+      - waveform
+      - $(SYMBOL).fbLCLSListener.stEventInfo.source
+      - | io: input
+
+
+    * - $(PREFIX):LCLS:Log:Timestamp_RBV
+      - ai
+      - Unix timestamp
+      - | io: input
+
+
+    * - $(PREFIX):LCLS:LogToVisualStudio
+      - bo
+      - $(SYMBOL).fbLCLSListener.bLogToVisualStudio
+      - | io: output
+
+
+    * - $(PREFIX):LCLS:LogToVisualStudio_RBV
+      - bi
+      - $(SYMBOL).fbLCLSListener.bLogToVisualStudio
+      - | io: output
+
+
+    * - $(PREFIX):LCLS:MessagesSent_RBV
+      - longin
+      - $(SYMBOL).fbLCLSListener.nCntMessagesSent
+      - | io: input
+
+
+    * - $(PREFIX):LCLS:MinSeverity
+      - mbbo
+      - $(SYMBOL).fbLCLSListener.eMinSeverity
+      - | io: output
+
+
+    * - $(PREFIX):LCLS:MinSeverity_RBV
+      - mbbi
+      - $(SYMBOL).fbLCLSListener.eMinSeverity
+      - | io: output
+
+
+    * - $(PREFIX):Router:AlarmsCleared_RBV
+      - longin
+      - $(SYMBOL).fbTcRouterListener.nCntAlarmsCleared
+      - | io: input
+
+
+    * - $(PREFIX):Router:AlarmsConfirmed_RBV
+      - longin
+      - $(SYMBOL).fbTcRouterListener.nCntAlarmsConfirmed
+      - | io: input
+
+
+    * - $(PREFIX):Router:AlarmsRaised_RBV
+      - longin
+      - $(SYMBOL).fbTcRouterListener.nCntAlarmsRaised
+      - | io: input
+
+
+    * - $(PREFIX):Router:Log:EventClass_RBV
+      - waveform
+      - TwinCAT Event class
+      - | io: input
+
+
+    * - $(PREFIX):Router:Log:EventType_RBV
+      - mbbi
+      - The event type
+      - | io: input
+
+
+    * - $(PREFIX):Router:Log:Hostname_RBV
+      - waveform
+      - PLC Hostname
+      - | io: input
+
+
+    * - $(PREFIX):Router:Log:Message_RBV
+      - waveform
+      - $(SYMBOL).fbTcRouterListener.stEventInfo.msg
+      - | io: input
+
+
+    * - $(PREFIX):Router:Log:MessageID_RBV
+      - longin
+      - TwinCAT Message ID
+      - | io: input
+
+
+    * - $(PREFIX):Router:Log:MessageJSON_RBV
+      - waveform
+      - Metadata with the message
+      - | io: input
+
+
+    * - $(PREFIX):Router:Log:Schema_RBV
+      - waveform
+      - Schema string
+      - | io: input
+
+
+    * - $(PREFIX):Router:Log:Severity_RBV
+      - mbbi
+      - TcEventSeverity
+      - | field: ONST Info
+        | field: THST Error
+        | field: TWST Warning
+        | field: ZRST Verbose
+        | io: input
+
+
+    * - $(PREFIX):Router:Log:Source_RBV
+      - waveform
+      - $(SYMBOL).fbTcRouterListener.stEventInfo.source
+      - | io: input
+
+
+    * - $(PREFIX):Router:Log:Timestamp_RBV
+      - ai
+      - Unix timestamp
+      - | io: input
+
+
+    * - $(PREFIX):Router:LogToVisualStudio
+      - bo
+      - $(SYMBOL).fbTcRouterListener.bLogToVisualStudio
+      - | io: output
+
+
+    * - $(PREFIX):Router:LogToVisualStudio_RBV
+      - bi
+      - $(SYMBOL).fbTcRouterListener.bLogToVisualStudio
+      - | io: output
+
+
+    * - $(PREFIX):Router:MessagesSent_RBV
+      - longin
+      - $(SYMBOL).fbTcRouterListener.nCntMessagesSent
+      - | io: input
+
+
+    * - $(PREFIX):Router:MinSeverity
+      - mbbo
+      - $(SYMBOL).fbTcRouterListener.eMinSeverity
+      - | io: output
+
+
+    * - $(PREFIX):Router:MinSeverity_RBV
+      - mbbi
+      - $(SYMBOL).fbTcRouterListener.eMinSeverity
+      - | io: output
+
+
+    * - $(PREFIX):RTime:AlarmsCleared_RBV
+      - longin
+      - $(SYMBOL).fbTcRTimeListener.nCntAlarmsCleared
+      - | io: input
+
+
+    * - $(PREFIX):RTime:AlarmsConfirmed_RBV
+      - longin
+      - $(SYMBOL).fbTcRTimeListener.nCntAlarmsConfirmed
+      - | io: input
+
+
+    * - $(PREFIX):RTime:AlarmsRaised_RBV
+      - longin
+      - $(SYMBOL).fbTcRTimeListener.nCntAlarmsRaised
+      - | io: input
+
+
+    * - $(PREFIX):RTime:Log:EventClass_RBV
+      - waveform
+      - TwinCAT Event class
+      - | io: input
+
+
+    * - $(PREFIX):RTime:Log:EventType_RBV
+      - mbbi
+      - The event type
+      - | io: input
+
+
+    * - $(PREFIX):RTime:Log:Hostname_RBV
+      - waveform
+      - PLC Hostname
+      - | io: input
+
+
+    * - $(PREFIX):RTime:Log:Message_RBV
+      - waveform
+      - $(SYMBOL).fbTcRTimeListener.stEventInfo.msg
+      - | io: input
+
+
+    * - $(PREFIX):RTime:Log:MessageID_RBV
+      - longin
+      - TwinCAT Message ID
+      - | io: input
+
+
+    * - $(PREFIX):RTime:Log:MessageJSON_RBV
+      - waveform
+      - Metadata with the message
+      - | io: input
+
+
+    * - $(PREFIX):RTime:Log:Schema_RBV
+      - waveform
+      - Schema string
+      - | io: input
+
+
+    * - $(PREFIX):RTime:Log:Severity_RBV
+      - mbbi
+      - TcEventSeverity
+      - | field: ONST Info
+        | field: THST Error
+        | field: TWST Warning
+        | field: ZRST Verbose
+        | io: input
+
+
+    * - $(PREFIX):RTime:Log:Source_RBV
+      - waveform
+      - $(SYMBOL).fbTcRTimeListener.stEventInfo.source
+      - | io: input
+
+
+    * - $(PREFIX):RTime:Log:Timestamp_RBV
+      - ai
+      - Unix timestamp
+      - | io: input
+
+
+    * - $(PREFIX):RTime:LogToVisualStudio
+      - bo
+      - $(SYMBOL).fbTcRTimeListener.bLogToVisualStudio
+      - | io: output
+
+
+    * - $(PREFIX):RTime:LogToVisualStudio_RBV
+      - bi
+      - $(SYMBOL).fbTcRTimeListener.bLogToVisualStudio
+      - | io: output
+
+
+    * - $(PREFIX):RTime:MessagesSent_RBV
+      - longin
+      - $(SYMBOL).fbTcRTimeListener.nCntMessagesSent
+      - | io: input
+
+
+    * - $(PREFIX):RTime:MinSeverity
+      - mbbo
+      - $(SYMBOL).fbTcRTimeListener.eMinSeverity
+      - | io: output
+
+
+    * - $(PREFIX):RTime:MinSeverity_RBV
+      - mbbi
+      - $(SYMBOL).fbTcRTimeListener.eMinSeverity
+      - | io: output
+
+
+    * - $(PREFIX):System:AlarmsCleared_RBV
+      - longin
+      - $(SYMBOL).fbTcSystemListener.nCntAlarmsCleared
+      - | io: input
+
+
+    * - $(PREFIX):System:AlarmsConfirmed_RBV
+      - longin
+      - $(SYMBOL).fbTcSystemListener.nCntAlarmsConfirmed
+      - | io: input
+
+
+    * - $(PREFIX):System:AlarmsRaised_RBV
+      - longin
+      - $(SYMBOL).fbTcSystemListener.nCntAlarmsRaised
+      - | io: input
+
+
+    * - $(PREFIX):System:Log:EventClass_RBV
+      - waveform
+      - TwinCAT Event class
+      - | io: input
+
+
+    * - $(PREFIX):System:Log:EventType_RBV
+      - mbbi
+      - The event type
+      - | io: input
+
+
+    * - $(PREFIX):System:Log:Hostname_RBV
+      - waveform
+      - PLC Hostname
+      - | io: input
+
+
+    * - $(PREFIX):System:Log:Message_RBV
+      - waveform
+      - $(SYMBOL).fbTcSystemListener.stEventInfo.msg
+      - | io: input
+
+
+    * - $(PREFIX):System:Log:MessageID_RBV
+      - longin
+      - TwinCAT Message ID
+      - | io: input
+
+
+    * - $(PREFIX):System:Log:MessageJSON_RBV
+      - waveform
+      - Metadata with the message
+      - | io: input
+
+
+    * - $(PREFIX):System:Log:Schema_RBV
+      - waveform
+      - Schema string
+      - | io: input
+
+
+    * - $(PREFIX):System:Log:Severity_RBV
+      - mbbi
+      - TcEventSeverity
+      - | field: ONST Info
+        | field: THST Error
+        | field: TWST Warning
+        | field: ZRST Verbose
+        | io: input
+
+
+    * - $(PREFIX):System:Log:Source_RBV
+      - waveform
+      - $(SYMBOL).fbTcSystemListener.stEventInfo.source
+      - | io: input
+
+
+    * - $(PREFIX):System:Log:Timestamp_RBV
+      - ai
+      - Unix timestamp
+      - | io: input
+
+
+    * - $(PREFIX):System:LogToVisualStudio
+      - bo
+      - $(SYMBOL).fbTcSystemListener.bLogToVisualStudio
+      - | io: output
+
+
+    * - $(PREFIX):System:LogToVisualStudio_RBV
+      - bi
+      - $(SYMBOL).fbTcSystemListener.bLogToVisualStudio
+      - | io: output
+
+
+    * - $(PREFIX):System:MessagesSent_RBV
+      - longin
+      - $(SYMBOL).fbTcSystemListener.nCntMessagesSent
+      - | io: input
+
+
+    * - $(PREFIX):System:MinSeverity
+      - mbbo
+      - $(SYMBOL).fbTcSystemListener.eMinSeverity
+      - | io: output
+
+
+    * - $(PREFIX):System:MinSeverity_RBV
+      - mbbi
+      - $(SYMBOL).fbTcSystemListener.eMinSeverity
+      - | io: output
+
+
+    * - $(PREFIX):Windows:AlarmsCleared_RBV
+      - longin
+      - $(SYMBOL).fbWindowsListener.nCntAlarmsCleared
+      - | io: input
+
+
+    * - $(PREFIX):Windows:AlarmsConfirmed_RBV
+      - longin
+      - $(SYMBOL).fbWindowsListener.nCntAlarmsConfirmed
+      - | io: input
+
+
+    * - $(PREFIX):Windows:AlarmsRaised_RBV
+      - longin
+      - $(SYMBOL).fbWindowsListener.nCntAlarmsRaised
+      - | io: input
+
+
+    * - $(PREFIX):Windows:Log:EventClass_RBV
+      - waveform
+      - TwinCAT Event class
+      - | io: input
+
+
+    * - $(PREFIX):Windows:Log:EventType_RBV
+      - mbbi
+      - The event type
+      - | io: input
+
+
+    * - $(PREFIX):Windows:Log:Hostname_RBV
+      - waveform
+      - PLC Hostname
+      - | io: input
+
+
+    * - $(PREFIX):Windows:Log:Message_RBV
+      - waveform
+      - $(SYMBOL).fbWindowsListener.stEventInfo.msg
+      - | io: input
+
+
+    * - $(PREFIX):Windows:Log:MessageID_RBV
+      - longin
+      - TwinCAT Message ID
+      - | io: input
+
+
+    * - $(PREFIX):Windows:Log:MessageJSON_RBV
+      - waveform
+      - Metadata with the message
+      - | io: input
+
+
+    * - $(PREFIX):Windows:Log:Schema_RBV
+      - waveform
+      - Schema string
+      - | io: input
+
+
+    * - $(PREFIX):Windows:Log:Severity_RBV
+      - mbbi
+      - TcEventSeverity
+      - | field: ONST Info
+        | field: THST Error
+        | field: TWST Warning
+        | field: ZRST Verbose
+        | io: input
+
+
+    * - $(PREFIX):Windows:Log:Source_RBV
+      - waveform
+      - $(SYMBOL).fbWindowsListener.stEventInfo.source
+      - | io: input
+
+
+    * - $(PREFIX):Windows:Log:Timestamp_RBV
+      - ai
+      - Unix timestamp
+      - | io: input
+
+
+    * - $(PREFIX):Windows:LogToVisualStudio
+      - bo
+      - $(SYMBOL).fbWindowsListener.bLogToVisualStudio
+      - | io: output
+
+
+    * - $(PREFIX):Windows:LogToVisualStudio_RBV
+      - bi
+      - $(SYMBOL).fbWindowsListener.bLogToVisualStudio
+      - | io: output
+
+
+    * - $(PREFIX):Windows:MessagesSent_RBV
+      - longin
+      - $(SYMBOL).fbWindowsListener.nCntMessagesSent
+      - | io: input
+
+
+    * - $(PREFIX):Windows:MinSeverity
+      - mbbo
+      - $(SYMBOL).fbWindowsListener.eMinSeverity
+      - | io: output
+
+
+    * - $(PREFIX):Windows:MinSeverity_RBV
+      - mbbi
+      - $(SYMBOL).fbWindowsListener.eMinSeverity
+      - | io: output
+
+
+ 
 LCLS_General.FB_LogMessage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -165,7 +973,83 @@ LCLS_General.FB_TempSensor
         | io: input
 
 
-                                
+  
+LCLS_General.ST_PendingEvent
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. list-table::
+    :header-rows: 1
+    :align: center
+
+    * - Record
+      - Type
+      - Description
+      - Pragma
+    * - $(PREFIX):EventClass_RBV
+      - waveform
+      - TwinCAT Event class
+      - | io: input
+
+
+    * - $(PREFIX):EventType_RBV
+      - mbbi
+      - The event type
+      - | io: input
+
+
+    * - $(PREFIX):Hostname_RBV
+      - waveform
+      - PLC Hostname
+      - | io: input
+
+
+    * - $(PREFIX):Message_RBV
+      - waveform
+      - $(SYMBOL).stEventInfo.msg
+      - | io: input
+
+
+    * - $(PREFIX):MessageID_RBV
+      - longin
+      - TwinCAT Message ID
+      - | io: input
+
+
+    * - $(PREFIX):MessageJSON_RBV
+      - waveform
+      - Metadata with the message
+      - | io: input
+
+
+    * - $(PREFIX):Schema_RBV
+      - waveform
+      - Schema string
+      - | io: input
+
+
+    * - $(PREFIX):Severity_RBV
+      - mbbi
+      - TcEventSeverity
+      - | field: ONST Info
+        | field: THST Error
+        | field: TWST Warning
+        | field: ZRST Verbose
+        | io: input
+
+
+    * - $(PREFIX):Source_RBV
+      - waveform
+      - $(SYMBOL).stEventInfo.source
+      - | io: input
+
+
+    * - $(PREFIX):Timestamp_RBV
+      - ai
+      - Unix timestamp
+      - | io: input
+
+
+                                        
 lcls_twincat_motion.DUT_MotionStage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -822,6 +1706,82 @@ lcls_twincat_optics.FB_RMSWatch
 
 
                         
+ST_LoggingEventInfo
+^^^^^^^^^^^^^^^^^^^
+
+.. list-table::
+    :header-rows: 1
+    :align: center
+
+    * - Record
+      - Type
+      - Description
+      - Pragma
+    * - $(PREFIX):EventClass_RBV
+      - waveform
+      - TwinCAT Event class
+      - | io: input
+
+
+    * - $(PREFIX):EventType_RBV
+      - mbbi
+      - The event type
+      - | io: input
+
+
+    * - $(PREFIX):Hostname_RBV
+      - waveform
+      - PLC Hostname
+      - | io: input
+
+
+    * - $(PREFIX):Message_RBV
+      - waveform
+      - $(SYMBOL).msg
+      - | io: input
+
+
+    * - $(PREFIX):MessageID_RBV
+      - longin
+      - TwinCAT Message ID
+      - | io: input
+
+
+    * - $(PREFIX):MessageJSON_RBV
+      - waveform
+      - Metadata with the message
+      - | io: input
+
+
+    * - $(PREFIX):Schema_RBV
+      - waveform
+      - Schema string
+      - | io: input
+
+
+    * - $(PREFIX):Severity_RBV
+      - mbbi
+      - TcEventSeverity
+      - | field: ONST Info
+        | field: THST Error
+        | field: TWST Warning
+        | field: ZRST Verbose
+        | io: input
+
+
+    * - $(PREFIX):Source_RBV
+      - waveform
+      - $(SYMBOL).source
+      - | io: input
+
+
+    * - $(PREFIX):Timestamp_RBV
+      - ai
+      - Unix timestamp
+      - | io: input
+
+
+ 
 ST_PMPS_Aperture_IO
 ^^^^^^^^^^^^^^^^^^^
 
@@ -853,7 +1813,7 @@ ST_PMPS_Aperture_IO
         | io: input
 
 
-                                                                                          
+                                                                                                        
 Database Records
 ----------------
 
@@ -1288,6 +2248,43 @@ Database Records
       - | io: output
 
 
+    * - MR1K1:BEND:ENC:DS:ACTPOSARRAY_RBV
+      - waveform
+      - PRG_MR1K1_BEND_BENDER.fbBendDSRMSErrorM1K1.aEncActPos
+      - | io: input
+
+
+    * - MR1K1:BEND:ENC:DS:MEAN_RBV
+      - ai
+      - PRG_MR1K1_BEND_BENDER.fbBendDSRMSErrorM1K1.fEncMean
+      - | io: input
+
+
+    * - MR1K1:BEND:ENC:DS:REF_RBV
+      - longin
+      - PRG_MR1K1_BEND_BENDER.nEncRefBendDSM1K1
+      - | field: EGU cnt
+        | io: input
+
+
+    * - MR1K1:BEND:ENC:DS:RMS_RBV
+      - ai
+      - PRG_MR1K1_BEND_BENDER.fbBendDSRMSErrorM1K1.fCurrRMSError
+      - | io: input
+
+
+    * - MR1K1:BEND:ENC:DS:SETPOSARRAY_RBV
+      - waveform
+      - PRG_MR1K1_BEND_BENDER.fbBendDSRMSErrorM1K1.aEncSetPos
+      - | io: input
+
+
+    * - MR1K1:BEND:ENC:DS:STDEV_RBV
+      - ai
+      - PRG_MR1K1_BEND_BENDER.fbBendDSRMSErrorM1K1.fEncStDev
+      - | io: input
+
+
     * - MR1K1:BEND:ENC:PITCH:ACTPOSARRAY_RBV
       - waveform
       - PRG_MR1K1_BEND.fbPitchRMSErrorM1K1.aEncActPos
@@ -1329,6 +2326,43 @@ Database Records
     * - MR1K1:BEND:ENC:PITCH:STDEV_RBV
       - ai
       - PRG_MR1K1_BEND.fbPitchRMSErrorM1K1.fEncStDev
+      - | io: input
+
+
+    * - MR1K1:BEND:ENC:US:ACTPOSARRAY_RBV
+      - waveform
+      - PRG_MR1K1_BEND_BENDER.fbBendUSRMSErrorM1K1.aEncActPos
+      - | io: input
+
+
+    * - MR1K1:BEND:ENC:US:MEAN_RBV
+      - ai
+      - PRG_MR1K1_BEND_BENDER.fbBendUSRMSErrorM1K1.fEncMean
+      - | io: input
+
+
+    * - MR1K1:BEND:ENC:US:REF_RBV
+      - longin
+      - PRG_MR1K1_BEND_BENDER.nEncRefBendUSM1K1
+      - | field: EGU cnt
+        | io: input
+
+
+    * - MR1K1:BEND:ENC:US:RMS_RBV
+      - ai
+      - PRG_MR1K1_BEND_BENDER.fbBendUSRMSErrorM1K1.fCurrRMSError
+      - | io: input
+
+
+    * - MR1K1:BEND:ENC:US:SETPOSARRAY_RBV
+      - waveform
+      - PRG_MR1K1_BEND_BENDER.fbBendUSRMSErrorM1K1.aEncSetPos
+      - | io: input
+
+
+    * - MR1K1:BEND:ENC:US:STDEV_RBV
+      - ai
+      - PRG_MR1K1_BEND_BENDER.fbBendUSRMSErrorM1K1.fEncStDev
       - | io: input
 
 
@@ -1460,6 +2494,322 @@ Database Records
       - PRG_MR1K1_BEND.M1K1.fCurrGantryY_um
       - | field: EGU um
         | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:bAllBackwardEnable_RBV
+      - bi
+      - Summary of axis permission to move backward
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:bAllEnable_RBV
+      - bi
+      - Summary of axis permission to have power
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:bAllForwardEnable_RBV
+      - bi
+      - Summary of axis permission to move forward
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:bBrakeRelease_RBV
+      - bi
+      - TRUE if brake released
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:bBusy_RBV
+      - bi
+      - TRUE if in the middle of a command
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:bDone_RBV
+      - bi
+      - TRUE if command finished successfully
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:bEnable
+      - bo
+      - Used internally to request enables
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:bEnable_RBV
+      - bi
+      - Used internally to request enables
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:bEnableDone_RBV
+      - bi
+      - TRUE if done enabling
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:bError_RBV
+      - bi
+      - TRUE if we
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:bExecute
+      - bo
+      - Used internally and by the IOC to start or stop
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:bExecute_RBV
+      - bi
+      - Used internally and by the IOC to start or stop
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:bGantryAxis_RBV
+      - bi
+      - TRUE if gantry EPS active
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:bGantryBackwardEnable_RBV
+      - bi
+      - TRUE if gantry ok to move backward
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:bGantryForwardEnable_RBV
+      - bi
+      - TRUE if gantry ok to move forward
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:bHardwareEnable_RBV
+      - bi
+      - TRUE if STO not hit
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:bHome_RBV
+      - bi
+      - TRUE if at homing switch
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:bLimitBackwardEnable_RBV
+      - bi
+      - FALSE if reverse limit hit
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:bLimitForwardEnable_RBV
+      - bi
+      - FALSE if forward limit hit
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:bPowerSelf_RBV
+      - bi
+      - FALSE if axis is in PMPS
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:bReset
+      - bo
+      - Used internally to reset errors
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:bReset_RBV
+      - bi
+      - Used internally to reset errors
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:bSafetyReady_RBV
+      - bi
+      - TRUE if safe to start a move
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:fAcceleration
+      - ao
+      - Used internally and by the IOC to set acceleration
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:fAcceleration_RBV
+      - ai
+      - Used internally and by the IOC to set acceleration
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:fDeceleration
+      - ao
+      - Used internally and by the IOC to set deceleration
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:fDeceleration_RBV
+      - ai
+      - Used internally and by the IOC to set deceleration
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:fHomePosition
+      - ao
+      - Used internally and by the IOC to pick home position
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:fHomePosition_RBV
+      - ai
+      - Used internally and by the IOC to pick home position
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:fPosition
+      - ao
+      - Used internally and by the IOC as the set position
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:fPosition_RBV
+      - ai
+      - Used internally and by the IOC as the set position
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:fVelocity
+      - ao
+      - Used internally and by the IOC to set velocity
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:fVelocity_RBV
+      - ai
+      - Used internally and by the IOC to set velocity
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:nBrakeMode_RBV
+      - mbbi
+      - Describes when the brake will be released
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:nCmdData
+      - longout
+      - Used internally and by the IOC to pass extra args
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:nCmdData_RBV
+      - longin
+      - Used internally and by the IOC to pass extra args
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:nCommand
+      - longout
+      - Used internally and by the IOC to pick move type
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:nCommand_RBV
+      - longin
+      - Used internally and by the IOC to pick move type
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:nEnableMode_RBV
+      - mbbi
+      - Describes when the axis will automatically get power
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:nEncoderCount_RBV
+      - longin
+      - Count from encoder hardware
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:nErrorId_RBV
+      - longin
+      - Error code if nonzero
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:nHomingMode_RBV
+      - mbbi
+      - Describes our homing strategy
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:nMotionAxisID_RBV
+      - longin
+      - Unique ID assigned to each axis in the NC
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:sErrorMessage_RBV
+      - waveform
+      - Message to identify the error state
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:sName_RBV
+      - waveform
+      - PLC program name
+      - | io: input
 
 
     * - MR1K1:BEND:MMS:PITCH:PLC:bAllBackwardEnable_RBV
@@ -1773,6 +3123,322 @@ Database Records
 
 
     * - MR1K1:BEND:MMS:PITCH:PLC:sName_RBV
+      - waveform
+      - PLC program name
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:bAllBackwardEnable_RBV
+      - bi
+      - Summary of axis permission to move backward
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:bAllEnable_RBV
+      - bi
+      - Summary of axis permission to have power
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:bAllForwardEnable_RBV
+      - bi
+      - Summary of axis permission to move forward
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:bBrakeRelease_RBV
+      - bi
+      - TRUE if brake released
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:bBusy_RBV
+      - bi
+      - TRUE if in the middle of a command
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:bDone_RBV
+      - bi
+      - TRUE if command finished successfully
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:bEnable
+      - bo
+      - Used internally to request enables
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - MR1K1:BEND:MMS:US:PLC:bEnable_RBV
+      - bi
+      - Used internally to request enables
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - MR1K1:BEND:MMS:US:PLC:bEnableDone_RBV
+      - bi
+      - TRUE if done enabling
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:bError_RBV
+      - bi
+      - TRUE if we
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:bExecute
+      - bo
+      - Used internally and by the IOC to start or stop
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - MR1K1:BEND:MMS:US:PLC:bExecute_RBV
+      - bi
+      - Used internally and by the IOC to start or stop
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - MR1K1:BEND:MMS:US:PLC:bGantryAxis_RBV
+      - bi
+      - TRUE if gantry EPS active
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:bGantryBackwardEnable_RBV
+      - bi
+      - TRUE if gantry ok to move backward
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:bGantryForwardEnable_RBV
+      - bi
+      - TRUE if gantry ok to move forward
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:bHardwareEnable_RBV
+      - bi
+      - TRUE if STO not hit
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:bHome_RBV
+      - bi
+      - TRUE if at homing switch
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:bLimitBackwardEnable_RBV
+      - bi
+      - FALSE if reverse limit hit
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:bLimitForwardEnable_RBV
+      - bi
+      - FALSE if forward limit hit
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:bPowerSelf_RBV
+      - bi
+      - FALSE if axis is in PMPS
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:bReset
+      - bo
+      - Used internally to reset errors
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - MR1K1:BEND:MMS:US:PLC:bReset_RBV
+      - bi
+      - Used internally to reset errors
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - MR1K1:BEND:MMS:US:PLC:bSafetyReady_RBV
+      - bi
+      - TRUE if safe to start a move
+      - | field: ONAM FALSE
+        | field: ZNAM TRUE
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:fAcceleration
+      - ao
+      - Used internally and by the IOC to set acceleration
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:US:PLC:fAcceleration_RBV
+      - ai
+      - Used internally and by the IOC to set acceleration
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:US:PLC:fDeceleration
+      - ao
+      - Used internally and by the IOC to set deceleration
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:US:PLC:fDeceleration_RBV
+      - ai
+      - Used internally and by the IOC to set deceleration
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:US:PLC:fHomePosition
+      - ao
+      - Used internally and by the IOC to pick home position
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:US:PLC:fHomePosition_RBV
+      - ai
+      - Used internally and by the IOC to pick home position
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:US:PLC:fPosition
+      - ao
+      - Used internally and by the IOC as the set position
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:US:PLC:fPosition_RBV
+      - ai
+      - Used internally and by the IOC as the set position
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:US:PLC:fVelocity
+      - ao
+      - Used internally and by the IOC to set velocity
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:US:PLC:fVelocity_RBV
+      - ai
+      - Used internally and by the IOC to set velocity
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:US:PLC:nBrakeMode_RBV
+      - mbbi
+      - Describes when the brake will be released
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:nCmdData
+      - longout
+      - Used internally and by the IOC to pass extra args
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:US:PLC:nCmdData_RBV
+      - longin
+      - Used internally and by the IOC to pass extra args
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:US:PLC:nCommand
+      - longout
+      - Used internally and by the IOC to pick move type
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:US:PLC:nCommand_RBV
+      - longin
+      - Used internally and by the IOC to pick move type
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:US:PLC:nEnableMode_RBV
+      - mbbi
+      - Describes when the axis will automatically get power
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:nEncoderCount_RBV
+      - longin
+      - Count from encoder hardware
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:nErrorId_RBV
+      - longin
+      - Error code if nonzero
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:nHomingMode_RBV
+      - mbbi
+      - Describes our homing strategy
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:nMotionAxisID_RBV
+      - longin
+      - Unique ID assigned to each axis in the NC
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:sErrorMessage_RBV
+      - waveform
+      - Message to identify the error state
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:sName_RBV
       - waveform
       - PLC program name
       - | io: input
@@ -3040,6 +4706,54 @@ Database Records
       - waveform
       - PLC program name
       - | io: input
+
+
+    * - MR1K1:BEND:RTD:DS:1_RBV
+      - ai
+      - PRG_MR1K1_BEND_BENDER.fM1K1DS_RTD_1
+      - | field: ASLO 0.01
+        | field: EGU C
+        | io: input
+
+
+    * - MR1K1:BEND:RTD:DS:2_RBV
+      - ai
+      - PRG_MR1K1_BEND_BENDER.fM1K1DS_RTD_2
+      - | field: ASLO 0.01
+        | field: EGU C
+        | io: input
+
+
+    * - MR1K1:BEND:RTD:DS:3_RBV
+      - ai
+      - PRG_MR1K1_BEND_BENDER.fM1K1DS_RTD_3
+      - | field: ASLO 0.01
+        | field: EGU C
+        | io: input
+
+
+    * - MR1K1:BEND:RTD:US:1_RBV
+      - ai
+      - PRG_MR1K1_BEND_BENDER.fM1K1US_RTD_1
+      - | field: ASLO 0.01
+        | field: EGU C
+        | io: input
+
+
+    * - MR1K1:BEND:RTD:US:2_RBV
+      - ai
+      - PRG_MR1K1_BEND_BENDER.fM1K1US_RTD_2
+      - | field: ASLO 0.01
+        | field: EGU C
+        | io: input
+
+
+    * - MR1K1:BEND:RTD:US:3_RBV
+      - ai
+      - PRG_MR1K1_BEND_BENDER.fM1K1US_RTD_3
+      - | field: ASLO 0.01
+        | field: EGU C
+        | io: input
 
 
     * - MR1K2:SWITCH:ALREADY_COUPLED_X_RBV

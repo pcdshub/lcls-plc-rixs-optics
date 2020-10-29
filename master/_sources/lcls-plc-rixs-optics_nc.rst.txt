@@ -22,6 +22,8 @@ NC Settings
         14, M1K1-Xup
         15, M1K1-Xdwn
         16, M1K1-Pitch
+        17, M1K1-BEND-US
+        18, M1K1-BEND-DS
         200, enc_mpi_up
         201, enc_gpi_up
         202, g_h_enc-axis
@@ -507,6 +509,66 @@ Axis 16: M1K1-Pitch
     Id, 16
     OtherSettings:AllowMotionCmdToSlave, true
     Velo:Maximum, 400
+
+
+
+Axis 17: M1K1-BEND-US
+^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 17
+    Name, M1K1-BEND-US
+    AxisFolder, M1K1
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:Acceleration, 0.6
+    Dynamic:AccelerationMaximum, 0.6
+    Dynamic:Deceleration, 0.6
+    Dynamic:DecelerationMaximum, 0.6
+    Dynamic:DelayTime, 0.008
+    Dynamic:Jerk, 1.2
+    Enc:EncType, 29
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #xffffffff
+    Enc:ScaleFactorNumerator, 1e-06
+    Enc:SoftEndMinControl:Enable, true
+    Enc:SoftEndMinControl:Range, 6
+    Id, 17
+    OtherSettings:AllowMotionCmdToSlave, true
+    Velo:Maximum, 0.1
+
+
+
+Axis 18: M1K1-BEND-DS
+^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 18
+    Name, M1K1-BEND-DS
+    AxisFolder, M1K1
+    AxisType, 1
+    CreateSymbols, true
+    Dynamic:Acceleration, 0.6
+    Dynamic:AccelerationMaximum, 0.6
+    Dynamic:Deceleration, 0.6
+    Dynamic:DecelerationMaximum, 0.6
+    Dynamic:DelayTime, 0.008
+    Dynamic:Jerk, 1.2
+    Enc:EncType, 29
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #xffffffff
+    Enc:ScaleFactorNumerator, 1e-06
+    Enc:SoftEndMinControl:Enable, true
+    Enc:SoftEndMinControl:Range, 6
+    Id, 18
+    OtherSettings:AllowMotionCmdToSlave, true
+    Velo:Maximum, 0.1
 
 
 
