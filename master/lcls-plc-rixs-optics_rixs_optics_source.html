@@ -220,8 +220,8 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;qualified_only&#39;</span><span class="p">}</span>
 <span class="n">VAR_GLOBAL</span> <span class="n">CONSTANT</span>
     <span class="o">//</span> <span class="n">Encoder</span> <span class="n">reference</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">counts</span> <span class="o">=</span> <span class="n">nm</span>
-    <span class="n">nM1K1bendUS_ENC_REF</span> <span class="p">:</span> <span class="n">ULINT</span> <span class="o">:=</span> <span class="mi">13376858</span><span class="p">;</span>
-    <span class="n">nM1K1bendDS_ENC_REF</span> <span class="p">:</span> <span class="n">ULINT</span> <span class="o">:=</span> <span class="mi">14336722</span><span class="p">;</span>
+    <span class="n">nM1K1bendUS_ENC_REF</span> <span class="p">:</span> <span class="n">ULINT</span> <span class="o">:=</span> <span class="mi">21458400</span><span class="p">;</span>
+    <span class="n">nM1K1bendDS_ENC_REF</span> <span class="p">:</span> <span class="n">ULINT</span> <span class="o">:=</span> <span class="mi">21225900</span><span class="p">;</span>
 <span class="n">END_VAR</span>
 </pre></div>
 </div>
@@ -762,7 +762,9 @@ END_VAR
     <span class="n">nEncRefBendDSM1K1</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
 
     <span class="o">//</span><span class="n">Emergency</span> <span class="n">Stop</span> <span class="k">for</span> <span class="n">MR1K1</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">EL1004_M1K1_BENDER_STO</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
     <span class="n">M1K1BENDbSTOEnable1</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span> <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">EL1004_M1K1_BENDER_STO</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
     <span class="n">M1K1BENDbSTOEnable2</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span> <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
 
     <span class="o">//</span> <span class="n">MR1K1</span> <span class="n">Bender</span> <span class="n">RTDs</span>
