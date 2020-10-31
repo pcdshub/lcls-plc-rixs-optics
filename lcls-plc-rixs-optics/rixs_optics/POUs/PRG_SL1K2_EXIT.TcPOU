@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="PRG_SL1K2_EXIT" Id="{a6ea7919-5ace-4786-88b3-ec4d11838f8d}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_SL1K2_EXIT
+VAR
+	
+	fbPitch: FB_MotionStage;
+    fbRoll: FB_MotionStage;
+    fbVertical: FB_MotionStage;
+    fbGap: FB_MotionStage;
+	fbYag: FB_MotionStage;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// Instantiate Function block for all the motion
+fbPitch(stMotionStage:=Main.M19);
+fbRoll(stMotionStage:=Main.M20);
+fbVertical(stMotionStage:=Main.M21);
+fbGap(stMotionStage:=Main.M22);
+fbYag(stMotionStage:=Main.M23);]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -151,6 +151,43 @@
 	'}
 	M18 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE); //MR1K1 DS BEND
 	fbMotionStage_m18 : FB_MotionStage;
+	
+	(*SL1K2*)
+	// Motors
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_PITCH]^STM Status^Status^Digital input 2;
+                              .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_PITCH]^STM Status^Status^Digital input 1'}
+	{attribute 'pytmc' := '
+		pv: SL1K2:SCATTER:MMS:PITCH
+	'}
+	M19 : DUT_MotionStage := (sName:= 'SL1K2:SCATTER:MMS:PITCH'); // Air Pitch
+
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_VERT]^STM Status^Status^Digital input 1;
+                              .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_VERT]^STM Status^Status^Digital input 2'}
+	{attribute 'pytmc' := '
+		pv:SL1K2:SCATTER:MMS:VERT
+	'}
+	M20 : DUT_MotionStage := (sName:= 'SL1K2:SCATTER:MMS:VERT'); // Air Vertical
+
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_VERT]^STM Status^Status^Digital input 2;
+                              .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_VERT]^STM Status^Status^Digital input 1'}
+	{attribute 'pytmc' := '
+		pv: SL1K2:SCATTER:MMS:ROLL
+	'}
+	M21 : DUT_MotionStage := (sName:= 'SL1K2:SCATTER:MMS:ROLL'); // Air Roll
+
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_GAP]^STM Status^Status^Digital input 2;
+                              .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_GAP]^STM Status^Status^Digital input 1'}
+	{attribute 'pytmc' := '
+		pv: SL1K2:SCATTER:MMS:GAP
+	'}
+	M22 : DUT_MotionStage := (sName:= 'SL1K2:SCATTER:MMS:GAP'); // GAP
+
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_YAG]^STM Status^Status^Digital input 1;
+                              .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_YAG]^STM Status^Status^Digital input 2'}
+	{attribute 'pytmc' := '
+		pv: SL1K2:SCATTER:MMS:YAG
+	'}
+	M23 : DUT_MotionStage := (sName:= 'SL1K2:SCATTER:MMS:YAG'); // YAG
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
