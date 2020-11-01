@@ -15,6 +15,12 @@
     <LibraryReferences>{a268f2e5-6568-4b9e-95d3-625fe109bef1}</LibraryReferences>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DUTs\ENUM_XS_YAG_States.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Function Blocks\FB_XS_YAG_States.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="GVLs\GVL_COM_Buffers.TcGVL">
       <SubType>Code</SubType>
     </Compile>
@@ -89,6 +95,7 @@
   <ItemGroup>
     <Folder Include="DUTs" />
     <Folder Include="GVLs" />
+    <Folder Include="Function Blocks" />
     <Folder Include="POUs\Serial Comm" />
     <Folder Include="VISUs" />
     <Folder Include="POUs" />

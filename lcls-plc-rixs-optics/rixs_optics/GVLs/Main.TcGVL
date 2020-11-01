@@ -159,35 +159,35 @@
 	{attribute 'pytmc' := '
 		pv: SL1K2:SCATTER:MMS:PITCH
 	'}
-	M19 : DUT_MotionStage := (sName:= 'SL1K2:SCATTER:MMS:PITCH'); // Air Pitch
+	M19 : DUT_MotionStage := (sName:= 'SL1K2:SCATTER:MMS:PITCH',fVelocity :=0.12,sName := 'Pitch');// Air Pitch
 
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_VERT]^STM Status^Status^Digital input 1;
                               .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_VERT]^STM Status^Status^Digital input 2'}
 	{attribute 'pytmc' := '
 		pv:SL1K2:SCATTER:MMS:VERT
 	'}
-	M20 : DUT_MotionStage := (sName:= 'SL1K2:SCATTER:MMS:VERT'); // Air Vertical
+	M20 : DUT_MotionStage := (sName:= 'SL1K2:SCATTER:MMS:VERT',fVelocity :=0.3,sName := 'Vertical'); // Air Vertical
 
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_VERT]^STM Status^Status^Digital input 2;
                               .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_VERT]^STM Status^Status^Digital input 1'}
 	{attribute 'pytmc' := '
 		pv: SL1K2:SCATTER:MMS:ROLL
 	'}
-	M21 : DUT_MotionStage := (sName:= 'SL1K2:SCATTER:MMS:ROLL'); // Air Roll
+	M21 : DUT_MotionStage := (sName:= 'SL1K2:SCATTER:MMS:ROLL',fVelocity :=0.24,sName := 'Roll'); // Air Roll
 
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_GAP]^STM Status^Status^Digital input 2;
                               .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_GAP]^STM Status^Status^Digital input 1'}
 	{attribute 'pytmc' := '
 		pv: SL1K2:SCATTER:MMS:GAP
 	'}
-	M22 : DUT_MotionStage := (sName:= 'SL1K2:SCATTER:MMS:GAP'); // GAP
+	M22 : DUT_MotionStage := (sName:= 'SL1K2:SCATTER:MMS:GAP',fVelocity :=0.1,sName := 'Gap'); // GAP
 
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_YAG]^STM Status^Status^Digital input 1;
                               .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_YAG]^STM Status^Status^Digital input 2'}
 	{attribute 'pytmc' := '
 		pv: SL1K2:SCATTER:MMS:YAG
 	'}
-	M23 : DUT_MotionStage := (sName:= 'SL1K2:SCATTER:MMS:YAG'); // YAG
+	M23 : DUT_MotionStage := (sName:= 'SL1K2:SCATTER:MMS:YAG',fVelocity :=0.5,sName := 'Yag'); // YAG
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
