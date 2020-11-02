@@ -5,7 +5,7 @@
 VAR
 	FFO    :    FB_FastFault :=(
         i_DevName := 'Slits',
-        i_Desc := 'Fault occurs when gaps and/or centers are not within safe margins, or PMPS mode is switched OFF',
+        i_Desc := 'Fault occurs device is in an usafe state',
         i_TypeCode := 16#E50);
 	fbPitch: FB_MotionStage;
     fbRoll: FB_MotionStage;
@@ -14,11 +14,59 @@ VAR
 	fbYag: FB_MotionStage;
 	
 	 {attribute 'pytmc' := '
-        pv: YAG:STATE
+        pv: SL1K2:EXIT:YAG:STATE
         io: i
     '}
     fbStates: FB_XS_YAG_States;
 	
+	{attribute 'pytmc' := '
+        pv: SL1K2:EXIT:RTD:CRYSTAL_TOP
+    '}
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[SL1K2-EL3201-E9]^RTD^Value;
+                              .bError := TIIB[SL1K2-EL3201-E9]^RTD1^Status^Error;
+                              .bUnderrange := TIIB[SL1K2-EL3201-E9]^RTD^Status^Underrange;
+                              .bOverrange := TIIB[SL1K2-EL3201-E9]^RTD^Status^Overrange'}
+    RTD_Crystal_TOP: FB_TempSensor;     
+	{attribute 'pytmc' := '
+        pv: SL1K2:EXIT:RTD:CRYSTAL_BOTTOM
+    '}
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[SL1K2-EL3201-E10]^RTD^Value;
+                              .bError := TIIB[SL1K2-EL3201-E10]^RTD1^Status^Error;
+                              .bUnderrange := TIIB[SL1K2-EL3201-E10]^RTD^Status^Underrange;
+                              .bOverrange := TIIB[SL1K2-EL3201-E10]^RTD^Status^Overrange'}
+    RTD_Crystal_BOTTOM: FB_TempSensor;   
+
+	{attribute 'pytmc' := '
+        pv: SL1K2:EXIT:RTD:YAG
+    '}
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[SL1K2-EL3201-E11]^RTD^Value;
+                              .bError := TIIB[SL1K2-EL3201-E11]^RTD1^Status^Error;
+                              .bUnderrange := TIIB[SL1K2-EL3201-E11]^RTD^Status^Underrange;
+                              .bOverrange := TIIB[SL1K2-EL3201-E11]^RTD^Status^Overrange'}
+    RTD_YAG: FB_TempSensor;    
+
+	{attribute 'pytmc' := '
+        pv: SL1K2:EXIT:RTD:HeatSync
+    '}
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[SL1K2-EL3201-E12]^RTD^Value;
+                              .bError := TIIB[SL1K2-EL3201-E12]^RTD1^Status^Error;
+                              .bUnderrange := TIIB[SL1K2-EL3201-E12]^RTD^Status^Underrange;
+                              .bOverrange := TIIB[SL1K2-EL3201-E12]^RTD^Status^Overrange'}
+    RTD_HeatSync: FB_TempSensor;      
+
+	{attribute 'pytmc' := '
+        pv: SL1K2:EXIT:CAM:ON
+		field: ZNAM OFF ;
+		field: ONAM ON ;
+    '}
+	bCameraOn:BOOL;    
+
+	{attribute 'pytmc' := '
+        pv: SL1K2:EXIT:FAN:ON
+		field: ZNAM OFF ;
+		field: ONAM ON ;
+    '}
+	bFanOn:BOOL;                        
 	
 	bInit : BOOL:=TRUE;
 	
@@ -107,7 +155,12 @@ fbStates(
     stYag1:=,
     stYag2:=);
 
-]]></ST>
+	
+//RTDs
+RTD_Crystal_TOP();
+RTD_Crystal_BOTTOM();
+RTD_YAG();
+RTD_HeatSync();]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
