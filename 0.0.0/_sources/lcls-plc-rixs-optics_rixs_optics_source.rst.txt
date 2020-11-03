@@ -1,0 +1,1137 @@
+
+
+DUTs
+----
+
+
+GVLs
+----
+
+
+GVL_COM_Buffers
+^^^^^^^^^^^^^^^
+
+::
+
+    VAR_GLOBAL
+    	// M1K2
+    	Serial_RXBuffer_M1K2 : ComBuffer;
+    	Serial_TXBuffer_M1K2 : ComBuffer;
+    END_VAR
+
+
+GVL_M1K1
+^^^^^^^^
+
+::
+
+    {attribute 'qualified_only'}
+    VAR_GLOBAL
+    	// Pitch Mechanism:\
+    	// Currently unused
+    	{attribute 'TcLinkTo' := '.diEncCnt:=TIIB[EL5042_M1K2_Pitch]^FB Inputs Channel 1^Position'}
+    	M1K1_Pitch : HOMS_PitchMechanism := (ReqPosLimHi := 24681,
+    		                                 ReqPosLimLo := 24321,
+    		                                 diEncPosLimHi := 10139808,
+    		                                 diEncPosLimLo := 9950984); // Set to 50 urad before hard limits tripped during SAT
+    END_VAR
+
+
+GVL_M1K1_BENDER_Constants
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    {attribute 'qualified_only'}
+    VAR_GLOBAL CONSTANT
+    	// Encoder reference values in counts = nm
+    	nM1K1bendUS_ENC_REF : ULINT := 21458400;
+    	nM1K1bendDS_ENC_REF : ULINT := 21225900;
+    END_VAR
+
+
+GVL_M1K1_BENDER_RTD
+^^^^^^^^^^^^^^^^^^^
+
+::
+
+    {attribute 'qualified_only'}
+    VAR_GLOBAL
+    	// M1K1 US RTDs
+    	{attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M1K1US1_M1K1US2]^RTD Inputs Channel 1^Value'}
+    	nM1K1US_RTD_1 AT %I* : INT;
+    	{attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M1K1US1_M1K1US2]^RTD Inputs Channel 2^Value'}
+    	nM1K1US_RTD_2 AT %I* : INT;
+    	{attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M1K1US3_M1K1DS1]^RTD Inputs Channel 1^Value'}
+    	nM1K1US_RTD_3 AT %I* : INT;
+
+    	// M1K1 DS RTDs
+    	{attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M1K1US3_M1K1DS1]^RTD Inputs Channel 2^Value'}
+    	nM1K1DS_RTD_1 AT %I* : INT;
+    	{attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M1K1DS2_M1K1DS3]^RTD Inputs Channel 1^Value'}
+    	nM1K1DS_RTD_2 AT %I* : INT;
+    	{attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M1K1DS2_M1K1DS3]^RTD Inputs Channel 2^Value'}
+    	nM1K1DS_RTD_3 AT %I* : INT;
+    	
+    END_VAR
+
+
+GVL_M1K1_Constants
+^^^^^^^^^^^^^^^^^^
+
+::
+
+    {attribute 'qualified_only'}
+    VAR_GLOBAL CONSTANT
+    	// Encoder reference values in counts = nm
+    	// Enc reference values from Axilon FAT
+    	nYUP_ENC_REF : ULINT := 13008545;
+    	nYDWN_ENC_REF : ULINT := 11158257;
+    	nXUP_ENC_REF : ULINT := 19649910;
+    	nXDWN_ENC_REF : ULINT := 19609100;
+    END_VAR
+
+
+GVL_M1K2
+^^^^^^^^
+
+::
+
+    {attribute 'qualified_only'}
+    VAR_GLOBAL
+    	// Pitch Mechanism:
+    	// Currently Unused
+    	{attribute 'TcLinkTo' := '.diEncCnt:=TIIB[EL5042_M1K2_Pitch]^FB Inputs Channel 1^Position'}
+    	M1K2_Pitch : HOMS_PitchMechanism := (ReqPosLimHi := 200,
+    		                                 ReqPosLimLo := -30,
+    		                                 diEncPosLimHi := 10121210,
+    		                                 diEncPosLimLo := 10004610); // Set to 50 urad before hard limits tripped during SAT
+    END_VAR
+
+
+GVL_M1K2_Constants
+^^^^^^^^^^^^^^^^^^
+
+::
+
+    {attribute 'qualified_only'}
+    VAR_GLOBAL CONSTANT
+    	// Encoder reference values in counts = nm
+    	// Enc reference values after alignment 3-13-20
+    	nYLEFT_ENC_REF : ULINT := 96270560;
+    	nYRIGHT_ENC_REF : ULINT := 98728200;
+    	nXUP_ENC_REF : ULINT := 19847200;
+    	nXDWN_ENC_REF : ULINT := 21007520;
+    	
+    	// Lever arm for Yright/Yleft -> Roll about Z-axis
+    	fRollLeverArm_um : REAL := 717000; // lever arm for Yright/Yleft axes in um
+    END_VAR
+
+
+GVL_SerialIO
+^^^^^^^^^^^^
+
+::
+
+    VAR_GLOBAL
+    	//Better have your inputs and outputs!
+    	// M1K2
+    	Serial_stComIn_M1K2   AT %I*	:	EL6inData22B (*KL6inData22B*);
+    	Serial_stComOut_M1K2  AT %Q*	:	EL6outData22B (*KL6outData22B*);
+    END_VAR
+
+
+Main
+^^^^
+
+::
+
+    VAR_GLOBAL
+    (*
+        Only includes motor definitions for the IOC
+        These are hard-coded to be Main.M#,
+        but are very convenient to store in a GVL,
+        hence the confusing namespace here
+
+        This should be refactored once the IOC
+        supports arbitrary ads paths for motors
+    *)
+    	(*MR1K2*)
+    	// Motors
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K2_Yleft]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Yleft]^STM Status^Status^Digital input 2'}
+    	{attribute 'pytmc' := '
+    		pv: MR1K2:SWITCH:MMS:YLEFT
+    	'}
+    	M1 : DUT_MotionStage := (fVelocity:=100.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=True); // M1K2 Yleft
+    	fbMotionStage_m1 : FB_MotionStage;
+
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K2_Yright]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Yright]^STM Status^Status^Digital input 2'}
+    	{attribute 'pytmc' := '
+    		pv: MR1K2:SWITCH:MMS:YRIGHT
+    	'}
+    	M2 : DUT_MotionStage := (fVelocity:=100.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=True); // M1K2 Yright
+    	fbMotionStage_m2 : FB_MotionStage;
+
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K2_Xup]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Xup]^STM Status^Status^Digital input 2'}
+    	{attribute 'pytmc' := '
+    		pv: MR1K2:SWITCH:MMS:XUP
+    	'}
+    	M3 : DUT_MotionStage := (fVelocity:=150.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=True); // M1K2 Xup
+    	fbMotionStage_m3 : FB_MotionStage;
+
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K2_Xdwn]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Xdwn]^STM Status^Status^Digital input 2'}
+    	{attribute 'pytmc' := '
+    		pv: MR1K2:SWITCH:MMS:XDWN
+    	'}
+    	M4 : DUT_MotionStage := (fVelocity:=150.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=True); // M1K2 Xdwn
+    	fbMotionStage_m4 : FB_MotionStage;
+
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K2_PitchCoarse]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7047_M1K2_PitchCoarse]^STM Status^Status^Digital input 2'}
+    	{attribute 'pytmc' := '
+    		pv: MR1K2:SWITCH:MMS:PITCH
+    	'}
+    	M5 : DUT_MotionStage := (fVelocity:=30.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=True); // M1K2 Pitch Stepper
+
+    	
+    	(*SP1K1-Mono*)
+    	{attribute 'pytmc' := '
+    		pv: SP1K1:MONO:MMS:M_PI
+    	'}
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[m_pi_m]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[m_pi_m]^STM Status^Status^Digital input 2'}
+    	M6: DUT_MotionStage:=(nEnableMode:=ENUM_StageEnableMode.ALWAYS, fVelocity:=200.0, bPowerSelf:=True); // M_PI, urad
+    	{attribute 'pytmc' := '
+    		pv: SP1K1:MONO:MMS:G_PI
+    	'}
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[g_pi_m]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[g_pi_m]^STM Status^Status^Digital input 2'}
+    	M7: DUT_MotionStage:=(nEnableMode:=ENUM_StageEnableMode.ALWAYS, fVelocity:=200.0, bPowerSelf:=True); // G_PI, urad
+    	{attribute 'pytmc' := '
+    		pv: SP1K1:MONO:MMS:M_H
+    	'}
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[m_h_m]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[m_h_m]^STM Status^Status^Digital input 2'}
+    	M8: DUT_MotionStage:=(nEnableMode:=ENUM_StageEnableMode.ALWAYS, fVelocity:=500.0, bPowerSelf:=True); // M_H, um
+    	{attribute 'pytmc' := '
+    		pv: SP1K1:MONO:MMS:G_H
+    	'}
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[g_h_m]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[g_h_m]^STM Status^Status^Digital input 2'}
+    	M9: DUT_MotionStage:=(nEnableMode:=ENUM_StageEnableMode.ALWAYS, fVelocity:=1000.0, bPowerSelf:=True); // G_H, um
+    	{attribute 'pytmc' := '
+    		pv: SP1K1:MONO:MMS:SD_V
+    	'}
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[s_io_m]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[s_io_m]^STM Status^Status^Digital input 2'}
+    	M10: DUT_MotionStage:=(nEnableMode:=ENUM_StageEnableMode.ALWAYS, fVelocity:=500.0, bPowerSelf:=True); // SD_V, um
+    	{attribute 'pytmc' := '
+    		pv: SP1K1:MONO:MMS:SD_ROT
+    	'}
+    	// no limits on this motion
+    	M11: DUT_MotionStage:=(nEnableMode:=ENUM_StageEnableMode.ALWAYS, fVelocity:=500.0, bPowerSelf:=True); // SD_R, urad
+
+    	(*MR1K1*)
+    	// Should move before MR1K2 and re-number each motor, lots of work
+        // need to fix Axis IDs for IOC to work
+    	// For now just want functional PLC project
+    	// Motors
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K1_Yup]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7047_M1K1_Ydwn]^STM Status^Status^Digital input 2'}
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:MMS:YUP
+    	'}
+    	M12 : DUT_MotionStage := (fVelocity:=100.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=True); // M1K1 Yup
+    	fbMotionStage_m12 : FB_MotionStage;
+
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K1_Ydwn]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7047_M1K1_Ydwn]^STM Status^Status^Digital input 2'}
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:MMS:YDWN
+    	'}
+    	M13 : DUT_MotionStage := (fVelocity:=100.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=True); // M1K1 Ydwn
+    	fbMotionStage_m13 : FB_MotionStage;
+
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K1_Xup]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7047_M1K1_Xup]^STM Status^Status^Digital input 2'}
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:MMS:XUP
+    	'}
+    	M14 : DUT_MotionStage := (fVelocity:=150.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=True); // M1K1 Xup
+    	fbMotionStage_m14 : FB_MotionStage;
+
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K1_Xdwn]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7047_M1K1_Xdwn]^STM Status^Status^Digital input 2'}
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:MMS:XDWN
+    	'}
+    	M15 : DUT_MotionStage := (fVelocity:=150.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=True); // M1K1 Xdwn
+    	fbMotionStage_m15 : FB_MotionStage;
+
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K1_PitchCoarse]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7047_M1K1_PitchCoarse]^STM Status^Status^Digital input 2'}
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:MMS:PITCH
+    	'}
+    	M16 : DUT_MotionStage := (fVelocity:=30.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=True); // M1K1 Pitch Stepper
+    		
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable :=TIIB[EL7041_M1K1_BEND_US]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7041_M1K1_BEND_US]^STM Status^Status^Digital input 2;
+    							  .nRawEncoderULINT    := TIIB[EL5042_M1K1_BEND_USDS]^FB Inputs Channel 1^Position'}
+    	{attribute 'pytmc' := '
+    	pv: MR1K1:BEND:MMS:US
+    	'}
+    	M17 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE); //MR1K1 US BEND
+    	fbMotionStage_m17 : FB_MotionStage;
+    	
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable :=TIIB[EL7041_M1K1_BEND_DS]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7041_M1K1_BEND_DS]^STM Status^Status^Digital input 2;
+    							  .nRawEncoderULINT    := TIIB[EL5042_M1K1_BEND_USDS]^FB Inputs Channel 2^Position'}
+    	{attribute 'pytmc' := '
+    	pv: MR1K1:BEND:MMS:DS
+    	'}
+    	M18 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE); //MR1K1 DS BEND
+    	fbMotionStage_m18 : FB_MotionStage;
+    END_VAR
+
+
+POUs
+----
+
+
+P_Serial_Com
+^^^^^^^^^^^^
+
+::
+
+    PROGRAM P_Serial_Com
+    VAR
+    	fbSerialLineControl_EL6001_M1K2: SerialLineControl;
+    END_VAR
+    //These are the global IOs...don't forget to copy your data into them
+
+    (* EL6001 Serial port 0 com function *)
+    fbSerialLineControl_EL6001_M1K2(Mode:= SERIALLINEMODE_EL6_22B (*SERIALLINEMODE_KL6_22B_STANDARD*),
+    						        pComIn:= ADR(Serial_stComIn_M1K2),
+    						   	    pComOut:=ADR(Serial_stComOut_M1K2),
+    						        SizeComIn:= SIZEOF(Serial_stComIn_M1K2),
+    						        TxBuffer:= Serial_TXBuffer_M1K2,
+    						        RxBuffer:= Serial_RXBuffer_M1K2,
+    						        Error=> ,
+    						        ErrorID=> );
+
+    END_PROGRAM
+
+
+PiezoSerial
+^^^^^^^^^^^
+
+::
+
+    PROGRAM PiezoSerial
+    VAR
+    	//PI Serial
+    	fbE621SerialDriver_M1K2 : FB_PI_E621_SerialDriver;
+    	rtInitParams_M1K2	:	R_TRIG;
+    	tonTimeoutRst_M1K2	: TON := (PT:=T#2S); //For timeout reset
+    END_VAR
+    //Piezo E-621
+    ///////////////////////
+    fbE621SerialDriver_M1K2.i_xExecute := TRUE;
+    fbE621SerialDriver_M1K2.i_xExecute R= fbE621SerialDriver_M1K2.q_xDone;
+    fbE621SerialDriver_M1K2(iq_stPiezoAxis:= GVL_M1K2.M1K2_Pitch.Piezo,
+    		                iq_stSerialRXBuffer:= Serial_RXBuffer_M1K2,
+    		                iq_stSerialTXBuffer:= Serial_TXBuffer_M1K2);
+
+    END_PROGRAM
+
+
+PRG_1_PlcTask
+^^^^^^^^^^^^^
+
+::
+
+    PROGRAM PRG_1_PlcTask
+    VAR
+
+    END_VAR
+    PRG_MR1K1_BEND();
+    PRG_MR1K1_BEND_BENDER();
+    PRG_MR1K2_SWITCH();
+    PRG_SP1K1_MONO();
+
+    END_PROGRAM
+
+
+PRG_MR1K1_BEND
+^^^^^^^^^^^^^^
+
+::
+
+    PROGRAM PRG_MR1K1_BEND
+    VAR
+    	{attribute 'TcLinkTo' := '.fbRunHOMS.bSTOEnable1:=TIIB[EL1004_M1K1_STO]^Channel 1^Input;
+                                  .fbRunHOMS.bSTOEnable2:=TIIB[EL1004_M1K1_STO]^Channel 2^Input;
+    	                          .fbRunHOMS.stYupEnc.Count:=TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 1^Position;
+    	                          .fbRunHOMS.stYdwnEnc.Count:=TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 2^Position;
+    	                          .fbRunHOMS.stXupEnc.Count:=TIIB[EL5042_M1K1_Xupdwn]^FB Inputs Channel 1^Position;
+    	                          .fbRunHOMS.stXdwnEnc.Count:=TIIB[EL5042_M1K1_Xupdwn]^FB Inputs Channel 2^Position'}
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND
+    	'}
+    	M1K1 : DUT_HOMS;
+
+    	// Encoder Arrays/RMS Watch:
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:ENC:Y
+    	'}
+    	fbYRMSErrorM1K1 : FB_RMSWatch;
+    	fMaxYRMSErrorM1K1 : LREAL;
+    	fMinYRMSErrorM1K1 : LREAL;
+
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:ENC:X
+    	'}
+    	fbXRMSErrorM1K1 : FB_RMSWatch;
+    	fMaxXRMSErrorM1K1 : LREAL;
+    	fMinXRMSErrorM1K1 : LREAL;
+
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:ENC:PITCH
+    	'}
+    	fbPitchRMSErrorM1K1 : FB_RMSWatch;
+    	fMaxPitchRMSErrorM1K1 : LREAL;
+    	fMinPitchRMSErrorM1K1 : LREAL;
+
+    	// Pitch Control
+    	fbM1K1PitchControl : FB_PitchControl;
+    	bM1K1PitchDone : BOOL;
+    	bM1K1PitchBusy : BOOL;
+
+    	// 3-15-20 Having issues with pitch control on new Axilon systems (M1K2)
+    	// Should test on this one to see if common to all new systems
+    	// Using stepper only for now
+    	fbMotionStage_m16 : FB_MotionStage;
+
+    	// Raw Encoder Counts
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:ENC:YUP:CNT
+    		field: EGU cnt
+    		io: i
+    	'}
+    	nEncCntYupM1K1 : UDINT;
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:ENC:YDWN:CNT
+    		field: EGU cnt
+    		io: i
+    	'}
+    	nEncCntYdwnM1K1 : UDINT;
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:ENC:XUP:CNT
+    		field: EGU cnt
+    		io: i
+    	'}
+    	nEncCntXupM1K1 : UDINT;
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:ENC:XDWN:CNT
+    		field: EGU cnt
+    		io: i
+    	'}
+    	nEncCntXdwnM1K1 : UDINT;
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:ENC:PITCH:CNT
+    		field: EGU cnt
+    		io: i
+    	'}
+    	nEncCntPitchM1K1 : UDINT;
+
+    	// Encoder Reference Values
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:ENC:YUP:REF
+    		field: EGU cnt
+    		io: i
+    	'}
+    	nEncRefYupM1K1 : UDINT;
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:ENC:YDWN:REF
+    		field: EGU cnt
+    		io: i
+    	'}
+    	nEncRefYdwnM1K1 : UDINT;
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:ENC:XUP:REF
+    		field: EGU cnt
+    		io: i
+    	'}
+    	nEncRefXupM1K1 : UDINT;
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:ENC:XDWN:REF
+    		field: EGU cnt
+    		io: i
+    	'}
+    	nEncRefXdwnM1K1 : UDINT;
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:ENC:PITCH:REF
+    		field: EGU cnt
+    		io: i
+    	'}
+    	nEncRefPitchM1K1 : UDINT;
+    	mcReadParameterPitchM1K1 : MC_ReadParameter;
+    	fEncRefPitchM1K1_urad : LREAL; // Current Pitch encoder offset in urad
+
+    	// Common
+    	fEncLeverArm_mm : LREAL := 410.0;
+    END_VAR
+    // M1K1
+    M1K1.fbRunHOMS(stYup:=M12,
+                   stYdwn:=M13,
+                   stXup:=M14,
+                   stXdwn:=M15,
+                   stPitch:=M16,
+    	           nYupEncRef:=GVL_M1K1_Constants.nYUP_ENC_REF,
+                   nYdwnEncRef:=GVL_M1K1_Constants.nYDWN_ENC_REF,
+                   nXupEncRef:=GVL_M1K1_Constants.nXUP_ENC_REF,
+                   nXdwnEncRef:=GVL_M1K1_Constants.nXDWN_ENC_REF,
+    			   bExecuteCoupleY:=M1K1.bExecuteCoupleY,
+                   bExecuteCoupleX:=M1K1.bExecuteCoupleX,
+    			   bExecuteDecoupleY:=M1K1.bExecuteDecoupleY,
+                   bExecuteDecoupleX:=M1K1.bExecuteDecoupleX,
+                   bGantryAlreadyCoupledY=>M1K1.bGantryAlreadyCoupledY,
+                   bGantryAlreadyCoupledX=>M1K1.bGantryAlreadyCoupledX,
+                   nCurrGantryY=>M1K1.nCurrGantryY,
+                   nCurrGantryX=>M1K1.nCurrGantryX);
+
+    // No slave motion through Epics
+    M13.bExecute := FALSE; // M1K1-Ydwn
+    M15.bExecute := FALSE; // M1K1-Xdwn
+
+    // Convert nCurrGantry to um (smaller number) to read out in epics
+    M1K1.fCurrGantryY_um := LINT_TO_REAL(M1K1.nCurrGantryY) / 1000.0;
+    M1K1.fCurrGantryX_um := LINT_TO_REAL(M1K1.nCurrGantryX) / 1000.0;
+
+    // FB_MotionStage's for non-piezo axes
+    fbMotionStage_m12(stMotionStage:=M12);
+    fbMotionStage_m13(stMotionStage:=M13);
+    fbMotionStage_m14(stMotionStage:=M14);
+    fbMotionStage_m15(stMotionStage:=M15);
+
+    // Calculate Pitch RMS Error:
+    fbYRMSErrorM1K1(stMotionStage:=M12,
+    	            fMaxRMSError=>fMaxYRMSErrorM1K1,
+    				fMinRMSError=>fMinYRMSErrorM1K1);
+
+    fbXRMSErrorM1K1(stMotionStage:=M14,
+    	            fMaxRMSError=>fMaxXRMSErrorM1K1,
+    				fMinRMSError=>fMinXRMSErrorM1K1);
+
+    fbPitchRMSErrorM1K1(stMotionStage:=M16,
+    	                fMaxRMSError=>fMaxPitchRMSErrorM1K1,
+    					fMinRMSError=>fMinPitchRMSErrorM1K1);
+
+    (*
+    // Pitch Control
+    fbM1K1PitchControl(Pitch:=GVL_M1K1.M1K1_Pitch,
+    				   Stepper:=M16,
+    				   lrCurrentSetpoint:=M16.fPosition,
+                       q_bDone=>bM1K1PitchDone,
+                       q_bBusy=>bM1K1PitchBusy);
+    // When STO hit, need to reset SP
+    IF NOT M16.bHardwareEnable THEN
+    	M16.fPosition := M16.stAxisStatus.fActPosition;
+    END_IF
+    *)
+    // 3-15-20: Having issues with pitch control on new Axilon systems, should test here
+    fbMotionStage_m16(stMotionStage:=M16);
+
+    // Raw Encoder Counts For Epics
+    nEncCntYupM1K1 := ULINT_TO_UDINT(M1K1.fbRunHOMS.stYupEnc.Count);
+    nEncCntYdwnM1K1 := ULINT_TO_UDINT(M1K1.fbRunHOMS.stYdwnEnc.Count);
+    nEncCntXupM1K1 := ULINT_TO_UDINT(M1K1.fbRunHOMS.stXupEnc.Count);
+    nEncCntXdwnM1K1 := ULINT_TO_UDINT(M1K1.fbRunHOMS.stXdwnEnc.Count);
+    nEncCntPitchM1K1 := LINT_TO_UDINT(GVL_M1K1.M1K1_Pitch.diEncCnt);
+
+    // Encoder Reference Values For Epics
+    nEncRefYupM1K1 := ULINT_TO_UDINT(GVL_M1K1_Constants.nYUP_ENC_REF);
+    nEncRefYdwnM1K1 := ULINT_TO_UDINT(GVL_M1K1_Constants.nYDWN_ENC_REF);
+    nEncRefXupM1K1 := ULINT_TO_UDINT(GVL_M1K1_Constants.nXUP_ENC_REF);
+    nEncRefXdwnM1K1 := ULINT_TO_UDINT(GVL_M1K1_Constants.nXDWN_ENC_REF);
+    mcReadParameterPitchM1K1(Axis:=M16.Axis,
+    	                     Enable:=TRUE,
+    				         ParameterNumber:=MC_AxisParameter.AxisEncoderOffset,
+    				         ReadMode:=READMODE_CYCLIC,
+    				         Value=>fEncRefPitchM1K1_urad);
+
+    nEncRefPitchM1K1 := LREAL_TO_UDINT(ABS(fEncRefPitchM1K1_urad) * fEncLeverArm_mm);
+
+    END_PROGRAM
+
+
+PRG_MR1K1_BEND_BENDER
+^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    PROGRAM PRG_MR1K1_BEND_BENDER
+    VAR
+    	// Encoder Arrays/RMS Watch:
+    	//MR1K1 US BENDER ENC RMS
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:ENC:US
+    	'}
+    	fbBendUSRMSErrorM1K1 : FB_RMSWatch;
+    	fMaxBendUSRMSErrorM1K1 : LREAL;
+    	fMinBendUSRMSErrorM1K1 : LREAL;	
+    	//MR1K1 DS BENDER ENC RMS
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:ENC:DS
+    	'}
+    	fbBendDSRMSErrorM1K1 : FB_RMSWatch;
+    	fMaxBendDSRMSErrorM1K1 : LREAL;
+    	fMinBendDSRMSErrorM1K1 : LREAL;
+
+    	// Encoder Reference Values
+    	//MR1K1 BEND US ENC REF
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:ENC:US:REF
+    		field: EGU cnt
+    		io: i
+    	'}
+    	nEncRefBendUSM1K1 : UDINT;
+    	//MR1K1 BEND DS ENC REF
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:ENC:DS:REF
+    		field: EGU cnt
+    		io: i
+    	'}
+    	nEncRefBendDSM1K1 : UDINT;
+    	
+    	//Emergency Stop for MR1K1
+    	{attribute 'TcLinkTo' := TIIB[EL1004_M1K1_BENDER_STO]^Channel 1^Input'}
+    	M1K1BENDbSTOEnable1 AT %I* : BOOL;
+    	{attribute 'TcLinkTo' := TIIB[EL1004_M1K1_BENDER_STO]^Channel 2^Input'}
+    	M1K1BENDbSTOEnable2 AT %I* : BOOL;
+
+    	// MR1K1 Bender RTDs
+    	// MR1K1 US RTDs
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:RTD:US:1
+    		field: ASLO 0.01
+    		field: EGU C
+    		io: i
+    	'}
+    	fM1K1US_RTD_1 : REAL;
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:RTD:US:2
+    		field: ASLO 0.01
+    		field: EGU C
+    		io: i
+    	'}
+    	fM1K1US_RTD_2 : REAL;
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:RTD:US:3
+    		field: ASLO 0.01
+    		field: EGU C
+    		io: i
+    	'}
+    	fM1K1US_RTD_3 : REAL;
+
+    	// M1K1 DS RTDs
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:RTD:DS:1
+    		field: ASLO 0.01
+    		field: EGU C
+    		io: i
+    	'}
+    	fM1K1DS_RTD_1 : REAL;
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:RTD:DS:2
+    		field: ASLO 0.01
+    		field: EGU C
+    		io: i
+    	'}
+    	fM1K1DS_RTD_2 : REAL;
+    	{attribute 'pytmc' := '
+    		pv: MR1K1:BEND:RTD:DS:3
+    		field: ASLO 0.01
+    		field: EGU C
+    		io: i
+    	'}
+    	fM1K1DS_RTD_3 : REAL;
+    	
+    	// RTD error bit
+    	bM1K1US_RTD_1_Err AT %I*: BOOL;
+    	bM1K1US_RTD_2_Err AT %I*: BOOL;
+    	bM1K1US_RTD_3_Err AT %I*: BOOL;
+    	bM1K1DS_RTD_1_Err AT %I*: BOOL;
+    	bM1K1DS_RTD_2_Err AT %I*: BOOL;
+    	bM1K1DS_RTD_3_Err AT %I*: BOOL;
+
+    	// Logging
+    	fbLogHandler : FB_LogHandler;
+    	fbBendUSRMSErrorMR1K1: INT;
+    END_VAR
+    //FB_Motion stages for MR1K1 Benders
+    //MR1K1 BEND
+    fbMotionStage_m17(stMotionStage:=M17);
+    fbMotionStage_m18(stMotionStage:=M18);
+
+    // Calculate Pitch RMS Error for MR1K1 Benders:
+    //MR1K1 US BENDER ENC RMS
+    fbBendUSRMSErrorM1K1(stMotionStage:=M17,
+    					 fMaxRMSError=>fMaxBendUSRMSErrorM1K1,
+    					 fMinRMSError=>fMinBendUSRMSErrorM1K1);
+    //MR1K1 DS BENDER ENC RMS
+    fbBendDSRMSErrorM1K1(stMotionStage:=M18,
+    					 fMaxRMSError=>fMaxBendDSRMSErrorM1K1,
+    					 fMinRMSError=>fMinBendDSRMSErrorM1K1);
+    					 
+    					 
+    //STO for MR1K1 Benders
+    M17.bHardwareEnable := M1K1BENDbSTOEnable1 AND M1K1BENDbSTOEnable2;
+    M18.bHardwareEnable := M1K1BENDbSTOEnable1 AND M1K1BENDbSTOEnable2;
+
+    //Encoder reference positions for MR1K1
+    nEncRefBendUSM1K1  := ULINT_TO_UDINT(GVL_M1K1_BENDER_Constants.nM1K1bendUS_ENC_REF);
+    nEncRefBendDSM1K1  := ULINT_TO_UDINT(GVL_M1K1_BENDER_Constants.nM1K1bendDS_ENC_REF);
+
+    // MR1K1 Bender RTDs
+    fM1K1US_RTD_1 := INT_TO_REAL(GVL_M1K1_BENDER_RTD.nM1K1US_RTD_1);
+    fM1K1US_RTD_2 := INT_TO_REAL(GVL_M1K1_BENDER_RTD.nM1K1US_RTD_2);
+    fM1K1US_RTD_3 := INT_TO_REAL(GVL_M1K1_BENDER_RTD.nM1K1US_RTD_3);
+
+    fM1K1DS_RTD_1 := INT_TO_REAL(GVL_M1K1_BENDER_RTD.nM1K1DS_RTD_1);
+    fM1K1DS_RTD_2 := INT_TO_REAL(GVL_M1K1_BENDER_RTD.nM1K1DS_RTD_2);
+    fM1K1DS_RTD_3 := INT_TO_REAL(GVL_M1K1_BENDER_RTD.nM1K1DS_RTD_3);
+
+    // RTD not connected if T=0
+    bM1K1US_RTD_1_Err := fM1K1US_RTD_1 = 0;
+    bM1K1US_RTD_2_Err := fM1K1DS_RTD_2 = 0;
+    bM1K1US_RTD_3_Err := fM1K1US_RTD_3 = 0;
+    bM1K1DS_RTD_1_Err := fM1K1DS_RTD_1 = 0;
+    bM1K1DS_RTD_2_Err := fM1K1DS_RTD_2 = 0;
+    bM1K1DS_RTD_3_Err := fM1K1DS_RTD_3 = 0;
+
+
+    // M1K1 Bender RTD interlocks
+    M17.bHardwareEnable R= fM1K1US_RTD_1 > 10000 OR bM1K1US_RTD_1_Err;
+    M18.bHardwareEnable R= fM1K1DS_RTD_1 > 10000 OR bM1K1DS_RTD_1_Err;
+
+    END_PROGRAM
+
+
+PRG_MR1K2_SWITCH
+^^^^^^^^^^^^^^^^
+
+::
+
+    PROGRAM PRG_MR1K2_SWITCH
+    VAR
+    	{attribute 'TcLinkTo' := '.fbRunHOMS.bSTOEnable1:=TIIB[EL1004_M1K2_STO]^Channel 1^Input;
+                                  .fbRunHOMS.bSTOEnable2:=TIIB[EL1004_M1K2_STO]^Channel 2^Input;
+    	                          .fbRunHOMS.stYupEnc.Count:=TIIB[EL5042_M1K2_Yleftright]^FB Inputs Channel 1^Position;
+    	                          .fbRunHOMS.stYdwnEnc.Count:=TIIB[EL5042_M1K2_Yleftright]^FB Inputs Channel 2^Position;
+    	                          .fbRunHOMS.stXupEnc.Count:=TIIB[EL5042_M1K2_Xupdwn]^FB Inputs Channel 1^Position;
+    	                          .fbRunHOMS.stXdwnEnc.Count:=TIIB[EL5042_M1K2_Xupdwn]^FB Inputs Channel 2^Position'}
+    	{attribute 'pytmc' := '
+    		pv: MR1K2:SWITCH
+    	'}
+    	M1K2 : DUT_HOMS;
+
+    	// Encoder Arrays/RMS Watch:
+    	{attribute 'pytmc' := '
+    		pv: MR1K2:SWITCH:ENC:Y
+    	'}
+    	fbYRMSErrorM1K2 : FB_RMSWatch;
+    	fMaxYRMSErrorM1K2 : LREAL;
+    	fMinYRMSErrorM1K2 : LREAL;
+
+    	{attribute 'pytmc' := '
+    		pv: MR1K2:SWITCH:ENC:X
+    	'}
+    	fbXRMSErrorM1K2 : FB_RMSWatch;
+    	fMaxXRMSErrorM1K2 : LREAL;
+    	fMinXRMSErrorM1K2 : LREAL;
+
+    	{attribute 'pytmc' := '
+    		pv: MR1K2:SWITCH:ENC:PITCH
+    	'}
+    	fbPitchRMSErrorM1K2 : FB_RMSWatch;
+    	fMaxPitchRMSErrorM1K2 : LREAL;
+    	fMinPitchRMSErrorM1K2 : LREAL;
+
+    	// Pitch Control
+    	fbM1K2PitchControl : FB_PitchControl;
+    	bM1K2PitchDone : BOOL;
+    	bM1K2PitchBusy : BOOL;
+
+    	// 3-15-20 Having issues with pitch control on new Axilon systems
+    	// Using stepper only for now
+    	fbMotionStage_m5 : FB_MotionStage;
+    	
+    	// Roll (Rotation about Z axis) induced from Ygantry:
+    	{attribute 'pytmc' := '
+    		pv: MR1K2:SWITCH:ENC:ROLL
+    		field: EGU urad
+    		io: i
+    	'}
+    	fYRoll_urad : LREAL; // Roll about Z axis in urad
+
+    	// Raw Encoder Counts
+    	{attribute 'pytmc' := '
+    		pv: MR1K2:SWITCH:ENC:YLEFT:CNT
+    		field: EGU cnt
+    		io: i
+    	'}
+    	nEncCntYleftM1K2 : UDINT;
+    	{attribute 'pytmc' := '
+    		pv: MR1K2:SWITCH:ENC:YRIGHT:CNT
+    		field: EGU cnt
+    		io: i
+    	'}
+    	nEncCntYrightM1K2 : UDINT;
+    	{attribute 'pytmc' := '
+    		pv: MR1K2:SWITCH:ENC:XUP:CNT
+    		field: EGU cnt
+    		io: i
+    	'}
+    	nEncCntXupM1K2 : UDINT;
+    	{attribute 'pytmc' := '
+    		pv: MR1K2:SWITCH:ENC:XDWN:CNT
+    		field: EGU cnt
+    		io: i
+    	'}
+    	nEncCntXdwnM1K2 : UDINT;
+    	{attribute 'pytmc' := '
+    		pv: MR1K2:SWITCH:ENC:PITCH:CNT
+    		field: EGU cnt
+    		io: i
+    	'}
+    	nEncCntPitchM1K2 : UDINT;
+
+    	// Encoder Reference Values
+    	{attribute 'pytmc' := '
+    		pv: MR1K2:SWITCH:ENC:YLEFT:REF
+    		field: EGU cnt
+    		io: i
+    	'}
+    	nEncRefYleftM1K2 : UDINT;
+    	{attribute 'pytmc' := '
+    		pv: MR1K2:SWITCH:ENC:YRIGHT:REF
+    		field: EGU cnt
+    		io: i
+    	'}
+    	nEncRefYrightM1K2 : UDINT;
+    	{attribute 'pytmc' := '
+    		pv: MR1K2:SWITCH:ENC:XUP:REF
+    		field: EGU cnt
+    		io: i
+    	'}
+    	nEncRefXupM1K2 : UDINT;
+    	{attribute 'pytmc' := '
+    		pv: MR1K2:SWITCH:ENC:XDWN:REF
+    		field: EGU cnt
+    		io: i
+    	'}
+    	nEncRefXdwnM1K2 : UDINT;
+    	{attribute 'pytmc' := '
+    		pv: MR1K2:SWITCH:ENC:PITCH:REF
+    		field: EGU cnt
+    		io: i
+    	'}
+    	nEncRefPitchM1K2 : UDINT;
+    	mcReadParameterPitchM1K2 : MC_ReadParameter;
+    	fEncRefPitchM1K2_urad : LREAL; // Current Pitch encoder offset in urad
+
+    	// Common
+    	fEncLeverArm_mm : LREAL := 391.0;
+    END_VAR
+    // M1K2
+    M1K2.fbRunHOMS(stYup:=M1,
+                   stYdwn:=M2,
+                   stXup:=M3,
+                   stXdwn:=M4,
+                   stPitch:=M5,
+    	           nYupEncRef:=GVL_M1K2_Constants.nYLEFT_ENC_REF,
+                   nYdwnEncRef:=GVL_M1K2_Constants.nYRIGHT_ENC_REF,
+                   nXupEncRef:=GVL_M1K2_Constants.nXUP_ENC_REF,
+                   nXdwnEncRef:=GVL_M1K2_Constants.nXDWN_ENC_REF,
+    			   bExecuteCoupleY:=M1K2.bExecuteCoupleY,
+                   bExecuteCoupleX:=M1K2.bExecuteCoupleX,
+    			   bExecuteDecoupleY:=M1K2.bExecuteDecoupleY,
+                   bExecuteDecoupleX:=M1K2.bExecuteDecoupleX,
+                   bGantryAlreadyCoupledY=>M1K2.bGantryAlreadyCoupledY,
+                   bGantryAlreadyCoupledX=>M1K2.bGantryAlreadyCoupledX,
+                   nCurrGantryY=>M1K2.nCurrGantryY,
+                   nCurrGantryX=>M1K2.nCurrGantryX);
+
+    // No slave motion through Epics
+    M2.bExecute := FALSE; // M1K2-Yright
+    M4.bExecute := FALSE; // M1K2-Xdwn
+
+    // Convert nCurrGantry to um (smaller number) to read out in epics
+    M1K2.fCurrGantryY_um := LINT_TO_REAL(M1K2.nCurrGantryY) / 1000.0;
+    M1K2.fCurrGantryX_um := LINT_TO_REAL(M1K2.nCurrGantryX) / 1000.0;
+
+    fYRoll_urad := (REAL_TO_LREAL(ATAN(M1K2.fCurrGantryY_um / GVL_M1K2_Constants.fRollLeverArm_um))) * EXPT(10, 6);
+
+    // FB_MotionStage's for non-piezo axes
+    fbMotionStage_m1(stMotionStage:=M1);
+    fbMotionStage_m2(stMotionStage:=M2);
+    fbMotionStage_m3(stMotionStage:=M3);
+    fbMotionStage_m4(stMotionStage:=M4);
+
+    // Calculate Pitch RMS Error:
+    fbYRMSErrorM1K2(stMotionStage:=M1,
+    	            fMaxRMSError=>fMaxYRMSErrorM1K2,
+    				fMinRMSError=>fMinYRMSErrorM1K2);
+
+    fbXRMSErrorM1K2(stMotionStage:=M3,
+    	            fMaxRMSError=>fMaxXRMSErrorM1K2,
+    				fMinRMSError=>fMinXRMSErrorM1K2);
+
+    fbPitchRMSErrorM1K2(stMotionStage:=M5,
+    	                fMaxRMSError=>fMaxPitchRMSErrorM1K2,
+    					fMinRMSError=>fMinPitchRMSErrorM1K2);
+
+    (*
+    // Pitch Control
+    fbM1K2PitchControl(Pitch:=GVL_M1K2.M1K2_Pitch,
+    				   Stepper:=M5,
+    				   lrCurrentSetpoint:=M5.fPosition,
+                       q_bDone=>bM1K2PitchDone,
+                       q_bBusy=>bM1K2PitchBusy);
+    // When STO hit, need to reset SP
+    IF NOT M5.bHardwareEnable THEN
+    	M5.fPosition := M5.stAxisStatus.fActPosition;
+    END_IF
+    *)
+    // 3-15-20: Having issues with pitch control on new Axilon systems
+    fbMotionStage_m5(stMotionStage:=M5);
+
+    // Raw Encoder Counts For Epics
+    nEncCntYleftM1K2 := ULINT_TO_UDINT(M1K2.fbRunHOMS.stYupEnc.Count);
+    nEncCntYrightM1K2 := ULINT_TO_UDINT(M1K2.fbRunHOMS.stYdwnEnc.Count);
+    nEncCntXupM1K2 := ULINT_TO_UDINT(M1K2.fbRunHOMS.stXupEnc.Count);
+    nEncCntXdwnM1K2 := ULINT_TO_UDINT(M1K2.fbRunHOMS.stXdwnEnc.Count);
+    nEncCntPitchM1K2 := LINT_TO_UDINT(GVL_M1K2.M1K2_Pitch.diEncCnt);
+
+    // Encoder Reference Values For Epics
+    nEncRefYleftM1K2 := ULINT_TO_UDINT(GVL_M1K2_Constants.nYLEFT_ENC_REF);
+    nEncRefYrightM1K2 := ULINT_TO_UDINT(GVL_M1K2_Constants.nYRIGHT_ENC_REF);
+    nEncRefXupM1K2 := ULINT_TO_UDINT(GVL_M1K2_Constants.nXUP_ENC_REF);
+    nEncRefXdwnM1K2 := ULINT_TO_UDINT(GVL_M1K2_Constants.nXDWN_ENC_REF);
+    mcReadParameterPitchM1K2(Axis:=M5.Axis,
+    	                     Enable:=TRUE,
+    				         ParameterNumber:=MC_AxisParameter.AxisEncoderOffset,
+    				         ReadMode:=READMODE_CYCLIC,
+    				         Value=>fEncRefPitchM1K2_urad);
+
+    nEncRefPitchM1K2 := LREAL_TO_UDINT(ABS(fEncRefPitchM1K2_urad) * fEncLeverArm_mm);
+
+    END_PROGRAM
+
+
+PRG_SP1K1_MONO
+^^^^^^^^^^^^^^
+
+::
+
+    PROGRAM PRG_SP1K1_MONO
+    VAR
+    	
+    	// Where is the STO
+    	{attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 4 (EK1200)^di^Channel 1^Input'}		
+    	sto AT %I*: BOOL;
+    	
+    	
+    	fbMotionStage_m_pi  :FB_MotionStage;
+    	fbMotionStage_g_pi  :FB_MotionStage;
+    	fbMotionStage_m_h   :FB_MotionStage;
+    	fbMotionStage_g_h   :FB_MotionStage;
+    	fbMotionStage_s_r   :FB_MotionStage;
+    	fbMotionStage_s_io  :FB_MotionStage;
+    	
+    	{attribute 'TcLinkTo' := '.Count:=TIIB[m_pi_up_dwn_e]^FB Inputs Channel 1^Position'}	
+    	mpi_upe  AT %I*:  ST_RenishawAbsEnc:=(ref:=0);
+    	{attribute 'TcLinkTo' := '.Count:=TIIB[g_pi_up_dwn_e]^FB Inputs Channel 1^Position'}
+    	gpi_upe  AT %I*:  ST_RenishawAbsEnc:=(ref:=0);
+
+    	{attribute 'pytmc' := '
+    		pv: SP1K1:MONO:ENC:M_PI:02
+    		io: o
+    	'}
+    	mpi_upeurad: LREAL;
+    	{attribute 'pytmc' := '
+    		pv:SP1K1:MONO:ENC:G_PI:02
+    		io: o
+    	'}
+    	gpi_upeurad: LREAL;
+    	
+    	
+    	(*Flow Switches*)
+    	{attribute 'TcLinkTo' := 'TIID^Device 4 (EtherCAT)^GM^Term 16 (EL3054)^AI Standard Channel 1^Value'}	
+    	flow_1 AT %I*: INT;
+    	{attribute 'TcLinkTo' := 'TIID^Device 4 (EtherCAT)^GM^Term 16 (EL3054)^AI Standard Channel 2^Value'}	
+    	flow_2 AT %I*: INT;
+    	{attribute 'TcLinkTo' := 'TIID^Device 4 (EtherCAT)^GM^Term 16 (EL3054)^AI Standard Channel 3^Value'}		
+    	pres_1 AT %I*: INT;
+    		
+    	{attribute 'pytmc' := '
+    		pv:  SP1K1:MONO:FSW:01
+    		io: o
+    	'}
+    	FLOW1 : LREAL := 0.00;
+    	
+    	{attribute 'pytmc' := '
+    		pv:  SP1K1:MONO:FSW:02
+    		io: o
+    	'}
+    	FLOW2 : LREAL := 0.00;
+    	
+    	{attribute 'pytmc' := '
+    		pv:  SP1K1:MONO:P1
+    		io: o
+    	'}
+    	PRES1 : LREAL := 0.00;
+
+
+    	(*RTDs*)
+    	{attribute 'pytmc' := '
+    		pv: SP1K1:MONO:RTD:01
+    		io: o
+    	'}
+    	 {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 1^Value;
+                                  .bError := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 1^Status^Error;
+                                  .bUnderrange := TIIBSP1K1-EL3202-E13]^RTD Inputs Channel 1^Status^Underrange;
+                                  .bOverrange := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 1^Status^Overrange'}
+    	RTD1 : FB_TempSensor;
+    	
+    	{attribute 'pytmc' := '
+    		pv: SP1K1:MONO:RTD:02
+    		io: o
+    	'}
+    	{attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 2^Value;
+                                  .bError := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 2^Status^Error;
+                                  .bUnderrange := TIIBSP1K1-EL3202-E13]^RTD Inputs Channel 2^Status^Underrange;
+                                  .bOverrange := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 2^Status^Overrange'}
+    	RTD2 : FB_TempSensor;
+    	
+    	{attribute 'pytmc' := '
+    		pv: SP1K1:MONO:RTD:03
+    		io: o
+    	'}
+    	 {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 1^Value;
+                                  .bError := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 1^Status^Error;
+                                  .bUnderrange := TIIBSP1K1-EL3202-E14]^RTD Inputs Channel 1^Status^Underrange;
+                                  .bOverrange := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 1^Status^Overrange'}
+    	RTD3 :FB_TempSensor;
+    	
+    	{attribute 'pytmc' := '
+    		pv: SP1K1:MONO:RTD:04
+    		io: o
+    	'}
+    	{attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 2^Value;
+                                  .bError := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 2^Status^Error;
+                                  .bUnderrange := TIIBSP1K1-EL3202-E14]^RTD Inputs Channel 2^Status^Underrange;
+                                  .bOverrange := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 2^Status^Overrange'}
+    	RTD4 : FB_TempSensor;
+    	
+    		{attribute 'pytmc' := '
+    		pv: SP1K1:MONO:RTD:05
+    		io: o
+    	'}
+    	{attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E15]^RTD Inputs Channel 1^Value;
+                                  .bError := TIIB[SP1K1-EL3202-E15]^RTD Inputs Channel 1^Status^Error;
+                                  .bUnderrange := TIIBSP1K1-EL3202-E15]^RTD Inputs Channel 1^Status^Underrange;
+                                  .bOverrange := TIIB[SP1K1-EL3202-E15]^RTD Inputs Channel 1^Status^Overrange'}
+    	RTD5 : FB_TempSensor;
+    	
+    	{attribute 'pytmc' := '
+    		pv: SP1K1:MONO:RTD:06
+    		io: o
+    	'}
+    	{attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E15]^RTD Inputs Channel 2^Value;
+                                  .bError := TIIB[SP1K1-EL3202-E15]^RTD Inputs Channel 2^Status^Error;
+                                  .bUnderrange := TIIBSP1K1-EL3202-E15]^RTD Inputs Channel 2^Status^Underrange;
+                                  .bOverrange := TIIB[SP1K1-EL3202-E15]^RTD Inputs Channel 2^Status^Overrange'}
+    	RTD6 : FB_TempSensor;
+    	
+    	{attribute 'pytmc' := '
+    		pv: SP1K1:MONO:RTD:07
+    		io: o
+    	'}
+    	{attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E16]^RTD Inputs Channel 1^Value;
+                                  .bError := TIIB[SP1K1-EL3202-E16]^RTD Inputs Channel 1^Status^Error;
+                                  .bUnderrange := TIIBSP1K1-EL3202-E16]^RTD Inputs Channel 1^Status^Underrange;
+                                  .bOverrange := TIIB[SP1K1-EL3202-E16]^RTD Inputs Channel 1^Status^Overrange'}
+    	RTD7 : FB_TempSensor;
+    	
+    	{attribute 'pytmc' := '
+    		pv: SP1K1:MONO:RTD:08
+    		io: o
+    	'}
+    	{attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E16]^RTD Inputs Channel 2^Value;
+                                  .bError := TIIB[SP1K1-EL3202-E16]^RTD Inputs Channel 2^Status^Error;
+                                  .bUnderrange := TIIBSP1K1-EL3202-E16]^RTD Inputs Channel 2^Status^Underrange;
+                                  .bOverrange := TIIB[SP1K1-EL3202-E16]^RTD Inputs Channel 2^Status^Overrange'}
+    	RTD8 :FB_TempSensor;
+    	
+    	
+    	
+    	
+    	
+    	//////////TODO
+    	
+    	{attribute 'pytmc' := '
+    		pv: GM:PITCH:fipi_read
+    		io: i
+    	'}	
+    	fipi_read: LREAL;
+    	
+    	{attribute 'pytmc' := '
+    		pv: GM:PITCH:fipi_set
+    		io: o
+    	'}
+    	fipi_set:  LREAL;
+    END_VAR
+    // SP1K1-MONO
+    M6.bHardwareEnable := sto;
+    M7.bHardwareEnable := sto;
+    M8.bHardwareEnable := sto; 
+    M9.bHardwareEnable := sto;
+    M10.bHardwareEnable := sto;
+    M11.bHardwareEnable := sto;
+
+    fbMotionStage_m_pi  (stMotionStage:=M6);
+    fbMotionStage_g_pi  (stMotionStage:=M7);
+    fbMotionStage_m_h  (stMotionStage:=M8);
+    fbMotionStage_g_h  (stMotionStage:=M9);
+    fbMotionStage_s_io  (stMotionStage:=M10);
+    fbMotionStage_s_r  (stMotionStage:=M11);
+
+    //S_R with no hardware limit switched
+    M11.bAllBackwardEnable := TRUE;
+    M11.bLimitForwardEnable := TRUE;
+
+    mpi_upeurad := ULINT_TO_LREAL(mpi_upe.Count)*0.004505;
+    gpi_upeurad := ULINT_TO_LREAL(gpi_upe.Count)*0.0066667;
+
+    (*Flow Switches and RTDs*)
+    FLOW1 := INT_TO_LREAL(flow_1)/32767*4;
+    FLOW2 := INT_TO_LREAL(flow_2)/32767*4;
+    PRES1 := INT_TO_LREAL(pres_1)/32767*2;
+    RTD1();
+    RTD2();
+    RTD3();
+    RTD4();
+    RTD5();
+    RTD6();
+    RTD7();
+    RTD8();
+
+    END_PROGRAM
+
