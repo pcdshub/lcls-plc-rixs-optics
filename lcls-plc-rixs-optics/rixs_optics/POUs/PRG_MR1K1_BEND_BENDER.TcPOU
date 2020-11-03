@@ -36,9 +36,10 @@ VAR
 	nEncRefBendDSM1K1 : UDINT;
 	
 	//Emergency Stop for MR1K1
-	{attribute 'TcLinkTo' := TIIB[EL1004_M1K1_BENDER_STO]^Channel 1^Input'}
+	//Emergency Stop for MR1K1
+	{attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL1004_M1K1_BENDER_STO^Channel 1^Input'}
 	M1K1BENDbSTOEnable1 AT %I* : BOOL;
-	{attribute 'TcLinkTo' := TIIB[EL1004_M1K1_BENDER_STO]^Channel 2^Input'}
+	{attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL1004_M1K1_BENDER_STO^Channel 2^Input'}
 	M1K1BENDbSTOEnable2 AT %I* : BOOL;
 
 	// MR1K1 Bender RTDs
