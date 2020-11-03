@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <DUT Name="ENUM_XS_YAG_States" Id="{ce9d8830-e555-4fc5-a856-57c042c04f5c}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+TYPE ENUM_XS_YAG_States :
+(
+	Unknown := 0,
+    OUT := 1,
+    YAG1 := 2,
+    YAG2 := 3
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>
