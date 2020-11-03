@@ -632,14 +632,14 @@ Links
         rixs_optics Instance, PlcTask Inputs^Main.M9.Axis.NcToPlc, TINC^NC-Task 1 SAF^Axes^g_h, Outputs^ToPlc
         rixs_optics Instance, PlcTask Inputs^Main.M9.bLimitBackwardEnable, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_h_m, STM Status^Status^Digital input 2
         rixs_optics Instance, PlcTask Inputs^Main.M9.bLimitForwardEnable, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_h_m, STM Status^Status^Digital input 1
+        rixs_optics Instance, PlcTask Inputs^PRG_2_PMPS_POST.fbArbiterIO.xTxPDO_state, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_PRE, SYNC Inputs^TxPDO state
+        rixs_optics Instance, PlcTask Inputs^PRG_2_PMPS_POST.fbArbiterIO.xTxPDO_toggle, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_PRE, SYNC Inputs^TxPDO toggle
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fbRunHOMS.bSTOEnable1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL1004_M1K1_STO, Channel 1^Input
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fbRunHOMS.bSTOEnable2, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL1004_M1K1_STO, Channel 2^Input
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fbRunHOMS.stXdwnEnc^Count, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL5042_M1K1_Xupdwn, FB Inputs Channel 2^Position
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fbRunHOMS.stXupEnc^Count, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL5042_M1K1_Xupdwn, FB Inputs Channel 1^Position
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fbRunHOMS.stYdwnEnc^Count, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL5042_M1K1_Yupdwn, FB Inputs Channel 2^Position
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fbRunHOMS.stYupEnc^Count, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL5042_M1K1_Yupdwn, FB Inputs Channel 1^Position
-        rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND_BENDER.M1K1BENDbSTOEnable1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL1004_M1K1_BENDER_STO, Channel 1^Input
-        rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND_BENDER.M1K1BENDbSTOEnable2, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL1004_M1K1_BENDER_STO, Channel 2^Input
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.bSTOEnable1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL1004_M1K2_STO, Channel 1^Input
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.bSTOEnable2, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL1004_M1K2_STO, Channel 2^Input
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stXdwnEnc^Count, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL5042_M1K2_Xupdwn, FB Inputs Channel 2^Position
@@ -648,18 +648,45 @@ Links
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stYupEnc^Count, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL5042_M1K2_Yleftright, FB Inputs Channel 1^Position
         rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD1.bError, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3202-E13, RTD Inputs Channel 1^Status^Error
         rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD1.bOverrange, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3202-E13, RTD Inputs Channel 1^Status^Overrange
+        rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD1.bUnderrange, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3202-E13, RTD Inputs Channel 1^Status^Underrange
         rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD1.iRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3202-E13, RTD Inputs Channel 1^Value
         rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD2.bError, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3202-E13, RTD Inputs Channel 2^Status^Error
         rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD2.bOverrange, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3202-E13, RTD Inputs Channel 2^Status^Overrange
+        rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD2.bUnderrange, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3202-E13, RTD Inputs Channel 2^Status^Underrange
         rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD2.iRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3202-E13, RTD Inputs Channel 2^Value
         rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD3.bError, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3202-E14, RTD Inputs Channel 1^Status^Error
         rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD3.bOverrange, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3202-E14, RTD Inputs Channel 1^Status^Overrange
+        rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD3.bUnderrange, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3202-E14, RTD Inputs Channel 1^Status^Underrange
         rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD3.iRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3202-E14, RTD Inputs Channel 1^Value
         rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD4.bError, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3202-E14, RTD Inputs Channel 2^Status^Error
         rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD4.bOverrange, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3202-E14, RTD Inputs Channel 2^Status^Overrange
+        rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD4.bUnderrange, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3202-E14, RTD Inputs Channel 2^Status^Underrange
         rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD4.iRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3202-E14, RTD Inputs Channel 2^Value
+        rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD5.bError, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3204-E15, RTD Inputs Channel 1^Status^Error
+        rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD5.bOverrange, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3204-E15, RTD Inputs Channel 1^Status^Overrange
+        rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD5.bUnderrange, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3204-E15, RTD Inputs Channel 1^Status^Underrange
+        rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD5.iRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3204-E15, RTD Inputs Channel 1^Value
+        rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD6.bError, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3204-E15, RTD Inputs Channel 2^Status^Error
+        rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD6.bOverrange, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3204-E15, RTD Inputs Channel 2^Status^Overrange
+        rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD6.bUnderrange, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3204-E15, RTD Inputs Channel 2^Status^Underrange
+        rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD6.iRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3204-E15, RTD Inputs Channel 2^Value
+        rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD7.bError, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3204-E16, RTD Inputs Channel 1^Status^Error
+        rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD7.bOverrange, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3204-E16, RTD Inputs Channel 1^Status^Overrange
+        rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD7.bUnderrange, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3204-E16, RTD Inputs Channel 1^Status^Underrange
+        rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD7.iRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3204-E16, RTD Inputs Channel 1^Value
+        rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD8.bError, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3204-E16, RTD Inputs Channel 2^Status^Error
+        rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD8.bOverrange, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3204-E16, RTD Inputs Channel 2^Status^Overrange
+        rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD8.bUnderrange, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3204-E16, RTD Inputs Channel 2^Status^Underrange
+        rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD8.iRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3204-E16, RTD Inputs Channel 2^Value
+        rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.bSTOEnable1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL1004-E17, Channel 1^Input
+        rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.bSTOEnable2, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL1004-E17, Channel 2^Input
+        rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.flow_1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3054-E12, AI Standard Channel 1^Value
+        rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.flow_2, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3054-E12, AI Standard Channel 2^Value
         rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.gpi_upe^Count, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_up_dwn_e, FB Inputs Channel 1^Position
         rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.mpi_upe^Count, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^m_pi_up_dwn_e, FB Inputs Channel 1^Position
+        rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.pres_1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3054-E12, AI Standard Channel 3^Value
+        rixs_optics Instance, PlcTask Outputs^GVL_PMPS.fbFastFaultOutput1.q_xFastFaultOut, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_FFO, Channel 1^Output
+        rixs_optics Instance, PlcTask Outputs^GVL_PMPS.fbFastFaultOutput2.q_xFastFaultOut, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_FFO, Channel 2^Output
         rixs_optics Instance, PlcTask Outputs^Main.M1.Axis.PlcToNc, TINC^NC-Task 1 SAF^Axes^M1K2-Yleft, Inputs^FromPlc
         rixs_optics Instance, PlcTask Outputs^Main.M10.Axis.PlcToNc, TINC^NC-Task 1 SAF^Axes^s_io, Inputs^FromPlc
         rixs_optics Instance, PlcTask Outputs^Main.M11.Axis.PlcToNc, TINC^NC-Task 1 SAF^Axes^s_r, Inputs^FromPlc

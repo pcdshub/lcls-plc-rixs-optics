@@ -4,6 +4,22 @@ DUTs
 ----
 
 
+ENUM_XS_YAG_States
+^^^^^^^^^^^^^^^^^^
+
+::
+
+    {attribute 'qualified_only'}
+    TYPE ENUM_XS_YAG_States :
+    (
+    	Unknown := 0,
+        OUT := 1,
+        YAG1 := 2,
+        YAG2 := 3
+    );
+    END_TYPE
+
+
 GVLs
 ----
 
@@ -125,6 +141,24 @@ GVL_M1K2_Constants
     	
     	// Lever arm for Yright/Yleft -> Roll about Z-axis
     	fRollLeverArm_um : REAL := 717000; // lever arm for Yright/Yleft axes in um
+    END_VAR
+
+
+GVL_PMPS
+^^^^^^^^
+
+::
+
+    {attribute 'qualified_only'}
+    VAR_GLOBAL
+    	{attribute 'pytmc' := 'pv: PLC:RIX:OPTICS:ARB'}
+        fbArbiter: FB_Arbiter(1);
+        {attribute 'pytmc' := 'pv: PLC:RIX:OPTICS:FFO:01'}
+        {attribute 'TcLinkTo' := '.q_xFastFaultOut:=TIIB[PMPS_FFO]^Channel 1^Output'}
+        fbFastFaultOutput1: FB_HardwareFFOutput := (bAutoReset := TRUE);
+        {attribute 'pytmc' := 'pv: PLCRIX:OPTICS:FFO:02'}
+        {attribute 'TcLinkTo' := '.q_xFastFaultOut:=TIIB[PMPS_FFO]^Channel 2^Output'}
+        fbFastFaultOutput2: FB_HardwareFFOutput := (bAutoReset := TRUE);
     END_VAR
 
 
@@ -296,11 +330,127 @@ Main
     	'}
     	M18 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE); //MR1K1 DS BEND
     	fbMotionStage_m18 : FB_MotionStage;
+    	
+    	(*SL1K2*)
+    	// Motors
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_PITCH]^STM Status^Status^Digital input 2;
+                                  .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_PITCH]^STM Status^Status^Digital input 1;
+    		 					  .nRawEncoderUINT      := TIIB[EL5042_PITCH_VERT]^FB Inputs Channel 1^Position'}
+    	{attribute 'pytmc' := '
+    		pv: SL1K2:EXIT:MMS:PITCH
+    	'}
+    	M19 : DUT_MotionStage := (sName:= 'SL1K2:EXIT:MMS:PITCH',fVelocity :=0.12,sName := 'Pitch');// Air Pitch
+
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_VERT]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_VERT]^STM Status^Status^Digital input 2;
+    		 					  .nRawEncoderUINT      := TIIB[EL5042_PITCH_VERT]^FB Inputs Channel 2^Position'}
+    	{attribute 'pytmc' := '
+    		pv:SL1K2:EXIT:MMS:VERT
+    	'}
+    	M20 : DUT_MotionStage := (sName:= 'SL1K2:EXIT:MMS:VERT',fVelocity :=0.3,sName := 'Vertical'); // Air Vertical
+
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_ROLL]^STM Status^Status^Digital input 2;
+                                  .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_ROLL]^STM Status^Status^Digital input 1;
+    							  .nRawEncoderUINT      := TIIB[EL5042_ROLL_GAP]^FB Inputs Channel 1^Position'}
+    	{attribute 'pytmc' := '
+    		pv: SL1K2:EXIT:MMS:ROLL
+    	'}
+    	M21 : DUT_MotionStage := (sName:= 'SL1K2:EXIT:MMS:ROLL',fVelocity :=0.24,sName := 'Roll'); // Air Roll
+
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_GAP]^STM Status^Status^Digital input 2;
+                                  .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_GAP]^STM Status^Status^Digital input 1;
+    							  .nRawEncoderUINT      := TIIB[EL5042_ROLL_GAP]^FB Inputs Channel 2^Position'}
+    	{attribute 'pytmc' := '
+    		pv: SL1K2:EXIT:MMS:GAP
+    	'}
+    	M22 : DUT_MotionStage := (sName:= 'SL1K2:EXIT:MMS:GAP',fVelocity :=0.1,sName := 'Gap'); // GAP
+
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_YAG]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_YAG]^STM Status^Status^Digital input 2;
+    							  .nRawEncoderUINT      := TIIB[EL5042_YAG]^FB Inputs Channel 1^Position'}
+    	{attribute 'pytmc' := '
+    		pv: SL1K2:EXIT:MMS:YAG
+    	'}
+    	M23 : DUT_MotionStage := (sName:= 'SL1K2:EXIT:MMS:YAG',fVelocity :=0.5,sName := 'Yag'); // YAG
     END_VAR
 
 
 POUs
 ----
+
+
+FB_XS_YAG_States
+^^^^^^^^^^^^^^^^
+
+::
+
+    FUNCTION_BLOCK FB_XS_YAG_States EXTENDS FB_PositionStateBase_WithPMPS
+    VAR_INPUT
+    	    {attribute 'pytmc' := '
+            pv: SET
+            io: io
+        '}
+        enumSet: ENUM_XS_YAG_States;
+
+        stOut: DUT_PositionState;
+        stYag1: DUT_PositionState;
+        stYag2: DUT_PositionState;
+
+        bStatesLock: BOOL;
+    END_VAR
+    VAR_OUTPUT
+    	 {attribute 'pytmc' := '
+            pv: GET
+            io: i
+        '}
+        enumGet: ENUM_XS_YAG_States;
+    END_VAR
+    VAR
+    	 bInit: BOOL :=TRUE;
+    END_VAR
+    VAR CONSTANT
+        fInDelta: LREAL := 2;
+        fOutDelta: LREAL := 2;
+        fInVelocity: LREAL := 0.5;
+        fOutVelocity: LREAL := 0.5;
+        fAccel: LREAL := 100;
+        fOutDecel: LREAL := 25;
+    END_VAR
+    IF bInit THEN
+        bInit := FALSE;
+
+        stOut.sName := 'OUT';
+        stOut.fVelocity := fOutVelocity;
+        stOut.fDelta := fOutDelta;
+        stOut.fAccel := fAccel;
+        stOut.fDecel := fOutDecel;
+        stOut.bMoveOk := TRUE;
+
+        stYag1.sName := 'YAG1';
+        stYag1.fVelocity := fInVelocity;
+        stYag1.fDelta := fInDelta;
+        stYag1.fAccel := fAccel;
+        stYag1.fDecel := fAccel;
+        stYag1.bMoveOk := TRUE;
+
+        stYag2.sName := 'YAG2';
+        stYag2.fVelocity := fInVelocity;
+        stYag2.fDelta := fInDelta;
+        stYag2.fAccel := fAccel;
+        stYag2.fDecel := fAccel;
+        stYag2.bMoveOk := TRUE;
+
+        arrStates[1] := stOut;
+        arrStates[2] := stYag1;
+        arrStates[3] := stYag2;
+    END_IF
+
+    setState := enumSet;
+    Exec();
+    enumGet := getState;
+    enumSet := setState;
+
+    END_FUNCTION_BLOCK
 
 
 P_Serial_Com
@@ -363,6 +513,27 @@ PRG_1_PlcTask
     PRG_MR1K1_BEND_BENDER();
     PRG_MR1K2_SWITCH();
     PRG_SP1K1_MONO();
+
+    PRG_2_PMPS_POST();
+
+    END_PROGRAM
+
+
+PRG_2_PMPS_POST
+^^^^^^^^^^^^^^^
+
+::
+
+    PROGRAM PRG_2_PMPS_POST
+    VAR
+        fbArbiterIO: FB_SubSysToArbiter_IO;
+    END_VAR
+    GVL_PMPS.fbFastFaultOutput1.Execute();
+    GVL_PMPS.fbFastFaultOutput2.Execute();
+
+    fbArbiterIO(
+        Arbiter:=GVL_PMPS.fbArbiter,
+        fbFFHWO:=GVL_PMPS.fbFastFaultOutput1);
 
     END_PROGRAM
 
@@ -610,9 +781,10 @@ PRG_MR1K1_BEND_BENDER
     	nEncRefBendDSM1K1 : UDINT;
     	
     	//Emergency Stop for MR1K1
-    	{attribute 'TcLinkTo' := TIIB[EL1004_M1K1_BENDER_STO]^Channel 1^Input'}
+    	//Emergency Stop for MR1K1
+    	{attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL1004_M1K1_BENDER_STO^Channel 1^Input'}
     	M1K1BENDbSTOEnable1 AT %I* : BOOL;
-    	{attribute 'TcLinkTo' := TIIB[EL1004_M1K1_BENDER_STO]^Channel 2^Input'}
+    	{attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL1004_M1K1_BENDER_STO^Channel 2^Input'}
     	M1K1BENDbSTOEnable2 AT %I* : BOOL;
 
     	// MR1K1 Bender RTDs
@@ -935,6 +1107,173 @@ PRG_MR1K2_SWITCH
     END_PROGRAM
 
 
+PRG_SL1K2_EXIT
+^^^^^^^^^^^^^^
+
+::
+
+    PROGRAM PRG_SL1K2_EXIT
+    VAR
+    	FFO    :    FB_FastFault :=(
+            i_DevName := 'Slits',
+            i_Desc := 'Fault occurs when device is in an usafe state',
+            i_TypeCode := 16#E50);
+    	fbPitch: FB_MotionStage;
+        fbRoll: FB_MotionStage;
+        fbVertical: FB_MotionStage;
+        fbGap: FB_MotionStage;
+    	fbYag: FB_MotionStage;
+    	
+    	 {attribute 'pytmc' := '
+            pv: SL1K2:EXIT:YAG:STATE
+            io: i
+        '}
+        fbStates: FB_XS_YAG_States;
+    	
+    	{attribute 'pytmc' := '
+            pv: SL1K2:EXIT:RTD:CRYSTAL_TOP
+        '}
+        {attribute 'TcLinkTo' := '.iRaw := TIIB[SL1K2-EL3201-E9]^RTD^Value;
+                                  .bError := TIIB[SL1K2-EL3201-E9]^RTD1^Status^Error;
+                                  .bUnderrange := TIIB[SL1K2-EL3201-E9]^RTD^Status^Underrange;
+                                  .bOverrange := TIIB[SL1K2-EL3201-E9]^RTD^Status^Overrange'}
+        RTD_Crystal_TOP: FB_TempSensor;     
+    	{attribute 'pytmc' := '
+            pv: SL1K2:EXIT:RTD:CRYSTAL_BOTTOM
+        '}
+        {attribute 'TcLinkTo' := '.iRaw := TIIB[SL1K2-EL3201-E10]^RTD^Value;
+                                  .bError := TIIB[SL1K2-EL3201-E10]^RTD1^Status^Error;
+                                  .bUnderrange := TIIB[SL1K2-EL3201-E10]^RTD^Status^Underrange;
+                                  .bOverrange := TIIB[SL1K2-EL3201-E10]^RTD^Status^Overrange'}
+        RTD_Crystal_BOTTOM: FB_TempSensor;   
+
+    	{attribute 'pytmc' := '
+            pv: SL1K2:EXIT:RTD:YAG
+        '}
+        {attribute 'TcLinkTo' := '.iRaw := TIIB[SL1K2-EL3201-E11]^RTD^Value;
+                                  .bError := TIIB[SL1K2-EL3201-E11]^RTD1^Status^Error;
+                                  .bUnderrange := TIIB[SL1K2-EL3201-E11]^RTD^Status^Underrange;
+                                  .bOverrange := TIIB[SL1K2-EL3201-E11]^RTD^Status^Overrange'}
+        RTD_YAG: FB_TempSensor;    
+
+    	{attribute 'pytmc' := '
+            pv: SL1K2:EXIT:RTD:HeatSync
+        '}
+        {attribute 'TcLinkTo' := '.iRaw := TIIB[SL1K2-EL3201-E12]^RTD^Value;
+                                  .bError := TIIB[SL1K2-EL3201-E12]^RTD1^Status^Error;
+                                  .bUnderrange := TIIB[SL1K2-EL3201-E12]^RTD^Status^Underrange;
+                                  .bOverrange := TIIB[SL1K2-EL3201-E12]^RTD^Status^Overrange'}
+        RTD_HeatSync: FB_TempSensor;      
+
+    	{attribute 'pytmc' := '
+            pv: SL1K2:EXIT:CAM:ON
+    		field: ZNAM OFF ;
+    		field: ONAM ON ;
+        '}
+    	bCameraOn:BOOL;    
+
+    	{attribute 'pytmc' := '
+            pv: SL1K2:EXIT:FAN:ON
+    		field: ZNAM OFF ;
+    		field: ONAM ON ;
+        '}
+    	bFanOn:BOOL;                        
+    	
+    	bInit : BOOL:=TRUE;
+    	
+    	 (*Motion Parameters*)
+        fSmallDelta: LREAL := 0.01;
+        fBigDelta: LREAL := 10;
+        fMaxVelocity: LREAL := 0.2;
+        fHighAccel: LREAL := 0.8;
+        fLowAccel: LREAL := 0.1;
+    	
+    END_VAR
+    //  init the motion stages parameters
+    IF ( bInit) THEN
+    	bInit := FALSE;
+    	FFO.i_DevName := 'SL1K2-SCATTER';
+        Main.M19.bHardwareEnable := TRUE;
+        Main.M19.bPowerSelf :=TRUE;
+        Main.M19.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
+    	Main.M19.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+       
+    	Main.M20.bHardwareEnable := TRUE;
+        Main.M20.bPowerSelf :=TRUE;
+        Main.M20.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
+    	Main.M20.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+    	
+    	Main.M21.bHardwareEnable := TRUE;
+        Main.M21.bPowerSelf :=TRUE;
+        Main.M21.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
+    	Main.M21.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+    	
+    	Main.M22.bHardwareEnable := TRUE;
+        Main.M22.bPowerSelf :=TRUE;
+        Main.M22.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
+    	Main.M22.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+    	
+    	Main.M23.bHardwareEnable := TRUE;
+        Main.M23.bPowerSelf :=TRUE;
+        Main.M23.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
+    	Main.M23.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+    	
+    	// YAG STATES Parameters
+    	fbStates.nTransitionAssertionID := 16#E510;
+    	fbStates.nUnknownAssertionID := 16#E500;
+    	
+    	fbStates.stOut.fPosition := 0;
+    	fbStates.stOut.bUseRawCounts := FALSE;
+    	fbStates.stOut.nRequestAssertionID := 16#E513;
+    	fbStates.stOut.stBeamParams := PMPS_GVL.cstFullBeam;
+    	fbStates.stOut.bValid := TRUE;
+    	
+    	fbStates.stYag1.fPosition := 21;
+    	fbStates.stYag1.bUseRawCounts := FALSE;
+    	fbStates.stYag1.nRequestAssertionID := 16#E511;
+    	fbStates.stYag1.stBeamParams := PMPS_GVL.cstFullBeam;
+    	fbStates.stYag1.bValid := TRUE;
+    	
+    	fbStates.stYag2.fPosition := 40;
+    	fbStates.stYag2.bUseRawCounts := FALSE;
+    	fbStates.stYag2.nRequestAssertionID := 16#E512;
+    	fbStates.stYag2.stBeamParams := PMPS_GVL.cstFullBeam;
+    	fbStates.stYag2.bValid := TRUE;
+    	
+    END_IF
+
+
+
+    // Instantiate Function block for all the motion
+    fbPitch(stMotionStage:=Main.M19);//in Air
+    fbRoll(stMotionStage:=Main.M20);//in Air
+    fbVertical(stMotionStage:=Main.M21);//in Air
+    fbGap(stMotionStage:=Main.M22);//in vacuum
+    fbYag(stMotionStage:=Main.M23);//in vacuum
+
+
+    //States with PMPS
+    fbStates(
+        fbArbiter:=GVL_PMPS.fbArbiter,
+        fbFFHWO:=GVL_PMPS.fbFastFaultOutput2,
+        nTransitionAssertionID:=,
+        nUnknownAssertionID:=,
+        stMotionStage:=Main.M23,
+        bEnable:=TRUE,
+        stOut:=,
+        stYag1:=,
+        stYag2:=);
+
+    	
+    //RTDs
+    RTD_Crystal_TOP();
+    RTD_Crystal_BOTTOM();
+    RTD_YAG();
+    RTD_HeatSync();
+
+    END_PROGRAM
+
+
 PRG_SP1K1_MONO
 ^^^^^^^^^^^^^^
 
@@ -944,8 +1283,10 @@ PRG_SP1K1_MONO
     VAR
     	
     	// Where is the STO
-    	{attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 4 (EK1200)^di^Channel 1^Input'}		
-    	sto AT %I*: BOOL;
+    	{attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL1004-E17^Channel 1^Input'}
+    	bSTOEnable1 AT %I*: BOOL;
+    	{attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL1004-E17^Channel 2^Input'}
+    	bSTOEnable2 AT %I*: BOOL;
     	
     	
     	fbMotionStage_m_pi  :FB_MotionStage;
@@ -954,7 +1295,7 @@ PRG_SP1K1_MONO
     	fbMotionStage_g_h   :FB_MotionStage;
     	fbMotionStage_s_r   :FB_MotionStage;
     	fbMotionStage_s_io  :FB_MotionStage;
-    	
+
     	{attribute 'TcLinkTo' := '.Count:=TIIB[m_pi_up_dwn_e]^FB Inputs Channel 1^Position'}	
     	mpi_upe  AT %I*:  ST_RenishawAbsEnc:=(ref:=0);
     	{attribute 'TcLinkTo' := '.Count:=TIIB[g_pi_up_dwn_e]^FB Inputs Channel 1^Position'}
@@ -973,11 +1314,11 @@ PRG_SP1K1_MONO
     	
     	
     	(*Flow Switches*)
-    	{attribute 'TcLinkTo' := 'TIID^Device 4 (EtherCAT)^GM^Term 16 (EL3054)^AI Standard Channel 1^Value'}	
+    	{attribute 'TcLinkTo' := 'TIIB[SP1K1-EL3054-E12]^AI Standard Channel 1^Value'}
     	flow_1 AT %I*: INT;
-    	{attribute 'TcLinkTo' := 'TIID^Device 4 (EtherCAT)^GM^Term 16 (EL3054)^AI Standard Channel 2^Value'}	
+    	{attribute 'TcLinkTo' := 'TIIB[SP1K1-EL3054-E12]^AI Standard Channel 2^Value'}	
     	flow_2 AT %I*: INT;
-    	{attribute 'TcLinkTo' := 'TIID^Device 4 (EtherCAT)^GM^Term 16 (EL3054)^AI Standard Channel 3^Value'}		
+    	{attribute 'TcLinkTo' := 'TIIB[SP1K1-EL3054-E12]^AI Standard Channel 3^Value'}		
     	pres_1 AT %I*: INT;
     		
     	{attribute 'pytmc' := '
@@ -1006,7 +1347,7 @@ PRG_SP1K1_MONO
     	'}
     	 {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 1^Value;
                                   .bError := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 1^Status^Error;
-                                  .bUnderrange := TIIBSP1K1-EL3202-E13]^RTD Inputs Channel 1^Status^Underrange;
+                                  .bUnderrange := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 1^Status^Underrange;
                                   .bOverrange := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 1^Status^Overrange'}
     	RTD1 : FB_TempSensor;
     	
@@ -1016,7 +1357,7 @@ PRG_SP1K1_MONO
     	'}
     	{attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 2^Value;
                                   .bError := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 2^Status^Error;
-                                  .bUnderrange := TIIBSP1K1-EL3202-E13]^RTD Inputs Channel 2^Status^Underrange;
+                                  .bUnderrange := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 2^Status^Underrange;
                                   .bOverrange := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 2^Status^Overrange'}
     	RTD2 : FB_TempSensor;
     	
@@ -1026,7 +1367,7 @@ PRG_SP1K1_MONO
     	'}
     	 {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 1^Value;
                                   .bError := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 1^Status^Error;
-                                  .bUnderrange := TIIBSP1K1-EL3202-E14]^RTD Inputs Channel 1^Status^Underrange;
+                                  .bUnderrange := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 1^Status^Underrange;
                                   .bOverrange := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 1^Status^Overrange'}
     	RTD3 :FB_TempSensor;
     	
@@ -1036,7 +1377,7 @@ PRG_SP1K1_MONO
     	'}
     	{attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 2^Value;
                                   .bError := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 2^Status^Error;
-                                  .bUnderrange := TIIBSP1K1-EL3202-E14]^RTD Inputs Channel 2^Status^Underrange;
+                                  .bUnderrange := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 2^Status^Underrange;
                                   .bOverrange := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 2^Status^Overrange'}
     	RTD4 : FB_TempSensor;
     	
@@ -1044,40 +1385,40 @@ PRG_SP1K1_MONO
     		pv: SP1K1:MONO:RTD:05
     		io: o
     	'}
-    	{attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E15]^RTD Inputs Channel 1^Value;
-                                  .bError := TIIB[SP1K1-EL3202-E15]^RTD Inputs Channel 1^Status^Error;
-                                  .bUnderrange := TIIBSP1K1-EL3202-E15]^RTD Inputs Channel 1^Status^Underrange;
-                                  .bOverrange := TIIB[SP1K1-EL3202-E15]^RTD Inputs Channel 1^Status^Overrange'}
+    	{attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 1^Value;
+                                  .bError := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 1^Status^Error;
+                                  .bUnderrange := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 1^Status^Underrange;
+                                  .bOverrange := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 1^Status^Overrange'}
     	RTD5 : FB_TempSensor;
     	
     	{attribute 'pytmc' := '
     		pv: SP1K1:MONO:RTD:06
     		io: o
     	'}
-    	{attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E15]^RTD Inputs Channel 2^Value;
-                                  .bError := TIIB[SP1K1-EL3202-E15]^RTD Inputs Channel 2^Status^Error;
-                                  .bUnderrange := TIIBSP1K1-EL3202-E15]^RTD Inputs Channel 2^Status^Underrange;
-                                  .bOverrange := TIIB[SP1K1-EL3202-E15]^RTD Inputs Channel 2^Status^Overrange'}
+    	{attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 2^Value;
+                                  .bError := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 2^Status^Error;
+                                  .bUnderrange := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 2^Status^Underrange;
+                                  .bOverrange := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 2^Status^Overrange'}
     	RTD6 : FB_TempSensor;
     	
     	{attribute 'pytmc' := '
     		pv: SP1K1:MONO:RTD:07
     		io: o
     	'}
-    	{attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E16]^RTD Inputs Channel 1^Value;
-                                  .bError := TIIB[SP1K1-EL3202-E16]^RTD Inputs Channel 1^Status^Error;
-                                  .bUnderrange := TIIBSP1K1-EL3202-E16]^RTD Inputs Channel 1^Status^Underrange;
-                                  .bOverrange := TIIB[SP1K1-EL3202-E16]^RTD Inputs Channel 1^Status^Overrange'}
+    	{attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 1^Value;
+                                  .bError := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 1^Status^Error;
+                                  .bUnderrange := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 1^Status^Underrange;
+                                  .bOverrange := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 1^Status^Overrange'}
     	RTD7 : FB_TempSensor;
     	
     	{attribute 'pytmc' := '
     		pv: SP1K1:MONO:RTD:08
     		io: o
     	'}
-    	{attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E16]^RTD Inputs Channel 2^Value;
-                                  .bError := TIIB[SP1K1-EL3202-E16]^RTD Inputs Channel 2^Status^Error;
-                                  .bUnderrange := TIIBSP1K1-EL3202-E16]^RTD Inputs Channel 2^Status^Underrange;
-                                  .bOverrange := TIIB[SP1K1-EL3202-E16]^RTD Inputs Channel 2^Status^Overrange'}
+    	{attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 2^Value;
+                                  .bError := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 2^Status^Error;
+                                  .bUnderrange := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 2^Status^Underrange;
+                                  .bOverrange := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 2^Status^Overrange'}
     	RTD8 :FB_TempSensor;
     	
     	
@@ -1099,12 +1440,12 @@ PRG_SP1K1_MONO
     	fipi_set:  LREAL;
     END_VAR
     // SP1K1-MONO
-    M6.bHardwareEnable := sto;
-    M7.bHardwareEnable := sto;
-    M8.bHardwareEnable := sto; 
-    M9.bHardwareEnable := sto;
-    M10.bHardwareEnable := sto;
-    M11.bHardwareEnable := sto;
+    M6.bHardwareEnable := bSTOEnable1 AND bSTOEnable2;
+    M7.bHardwareEnable := bSTOEnable1 AND bSTOEnable2;
+    M8.bHardwareEnable := bSTOEnable1 AND bSTOEnable2; 
+    M9.bHardwareEnable := bSTOEnable1 AND bSTOEnable2;
+    M10.bHardwareEnable := bSTOEnable1 AND bSTOEnable2;
+    M11.bHardwareEnable := bSTOEnable1 AND bSTOEnable2;
 
     fbMotionStage_m_pi  (stMotionStage:=M6);
     fbMotionStage_g_pi  (stMotionStage:=M7);

@@ -97,7 +97,10 @@
 <li class="toctree-l1"><a class="reference internal" href="lcls-plc-rixs-optics_rixs_optics_summary.html#symbols">Symbols</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lcls-plc-rixs-optics_rixs_optics_epics.html">Data Types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lcls-plc-rixs-optics_rixs_optics_epics.html#database-records">Database Records</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">DUTs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">DUTs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#enum-xs-yag-states">ENUM_XS_YAG_States</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="#gvls">GVLs</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#gvl-com-buffers">GVL_COM_Buffers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gvl-m1k1">GVL_M1K1</a></li>
@@ -106,17 +109,21 @@
 <li class="toctree-l2"><a class="reference internal" href="#gvl-m1k1-constants">GVL_M1K1_Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gvl-m1k2">GVL_M1K2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gvl-m1k2-constants">GVL_M1K2_Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gvl-pmps">GVL_PMPS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gvl-serialio">GVL_SerialIO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#main">Main</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#pous">POUs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#fb-xs-yag-states">FB_XS_YAG_States</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#p-serial-com">P_Serial_Com</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#piezoserial">PiezoSerial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prg-1-plctask">PRG_1_PlcTask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prg-2-pmps-post">PRG_2_PMPS_POST</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prg-mr1k1-bend">PRG_MR1K1_BEND</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prg-mr1k1-bend-bender">PRG_MR1K1_BEND_BENDER</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prg-mr1k2-switch">PRG_MR1K2_SWITCH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prg-sl1k2-exit">PRG_SL1K2_EXIT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prg-sp1k1-mono">PRG_SP1K1_MONO</a></li>
 </ul>
 </li>
@@ -187,6 +194,20 @@
             
   <div class="section" id="duts">
 <h1>DUTs<a class="headerlink" href="#duts" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="enum-xs-yag-states">
+<h2>ENUM_XS_YAG_States<a class="headerlink" href="#enum-xs-yag-states" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;qualified_only&#39;</span><span class="p">}</span>
+<span class="n">TYPE</span> <span class="n">ENUM_XS_YAG_States</span> <span class="p">:</span>
+<span class="p">(</span>
+    <span class="n">Unknown</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">OUT</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">YAG1</span> <span class="o">:=</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="n">YAG2</span> <span class="o">:=</span> <span class="mi">3</span>
+<span class="p">);</span>
+<span class="n">END_TYPE</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="gvls">
 <h1>GVLs<a class="headerlink" href="#gvls" title="Permalink to this headline">¶</a></h1>
@@ -292,6 +313,22 @@
 
     <span class="o">//</span> <span class="n">Lever</span> <span class="n">arm</span> <span class="k">for</span> <span class="n">Yright</span><span class="o">/</span><span class="n">Yleft</span> <span class="o">-&gt;</span> <span class="n">Roll</span> <span class="n">about</span> <span class="n">Z</span><span class="o">-</span><span class="n">axis</span>
     <span class="n">fRollLeverArm_um</span> <span class="p">:</span> <span class="n">REAL</span> <span class="o">:=</span> <span class="mi">717000</span><span class="p">;</span> <span class="o">//</span> <span class="n">lever</span> <span class="n">arm</span> <span class="k">for</span> <span class="n">Yright</span><span class="o">/</span><span class="n">Yleft</span> <span class="n">axes</span> <span class="ow">in</span> <span class="n">um</span>
+<span class="n">END_VAR</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="gvl-pmps">
+<h2>GVL_PMPS<a class="headerlink" href="#gvl-pmps" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;qualified_only&#39;</span><span class="p">}</span>
+<span class="n">VAR_GLOBAL</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: PLC:RIX:OPTICS:ARB&#39;</span><span class="p">}</span>
+    <span class="n">fbArbiter</span><span class="p">:</span> <span class="n">FB_Arbiter</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: PLC:RIX:OPTICS:FFO:01&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.q_xFastFaultOut:=TIIB[PMPS_FFO]^Channel 1^Output&#39;</span><span class="p">}</span>
+    <span class="n">fbFastFaultOutput1</span><span class="p">:</span> <span class="n">FB_HardwareFFOutput</span> <span class="o">:=</span> <span class="p">(</span><span class="n">bAutoReset</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">);</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: PLCRIX:OPTICS:FFO:02&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.q_xFastFaultOut:=TIIB[PMPS_FFO]^Channel 2^Output&#39;</span><span class="p">}</span>
+    <span class="n">fbFastFaultOutput2</span><span class="p">:</span> <span class="n">FB_HardwareFFOutput</span> <span class="o">:=</span> <span class="p">(</span><span class="n">bAutoReset</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">);</span>
 <span class="n">END_VAR</span>
 </pre></div>
 </div>
@@ -459,6 +496,48 @@ END_VAR
     <span class="s1">&#39;}</span>
     <span class="n">M18</span> <span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">nEnableMode</span><span class="o">:=</span><span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">,</span> <span class="n">bPowerSelf</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">);</span> <span class="o">//</span><span class="n">MR1K1</span> <span class="n">DS</span> <span class="n">BEND</span>
     <span class="n">fbMotionStage_m18</span> <span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+
+    <span class="p">(</span><span class="o">*</span><span class="n">SL1K2</span><span class="o">*</span><span class="p">)</span>
+    <span class="o">//</span> <span class="n">Motors</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable:=TIIB[EL7047_SL1K2_PITCH]^STM Status^Status^Digital input 2;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL7047_SL1K2_PITCH</span><span class="p">]</span><span class="o">^</span><span class="n">STM</span> <span class="n">Status</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Digital</span> <span class="nb">input</span> <span class="mi">1</span><span class="p">;</span>
+                                                      <span class="o">.</span><span class="n">nRawEncoderUINT</span>      <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">EL5042_PITCH_VERT</span><span class="p">]</span><span class="o">^</span><span class="n">FB</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Position</span><span class="s1">&#39;}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+            <span class="n">pv</span><span class="p">:</span> <span class="n">SL1K2</span><span class="p">:</span><span class="n">EXIT</span><span class="p">:</span><span class="n">MMS</span><span class="p">:</span><span class="n">PITCH</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">M19</span> <span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span><span class="o">:=</span> <span class="s1">&#39;SL1K2:EXIT:MMS:PITCH&#39;</span><span class="p">,</span><span class="n">fVelocity</span> <span class="o">:=</span><span class="mf">0.12</span><span class="p">,</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;Pitch&#39;</span><span class="p">);</span><span class="o">//</span> <span class="n">Air</span> <span class="n">Pitch</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable:=TIIB[EL7047_SL1K2_VERT]^STM Status^Status^Digital input 1;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL7047_SL1K2_VERT</span><span class="p">]</span><span class="o">^</span><span class="n">STM</span> <span class="n">Status</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Digital</span> <span class="nb">input</span> <span class="mi">2</span><span class="p">;</span>
+                                                      <span class="o">.</span><span class="n">nRawEncoderUINT</span>      <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">EL5042_PITCH_VERT</span><span class="p">]</span><span class="o">^</span><span class="n">FB</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Position</span><span class="s1">&#39;}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+            <span class="n">pv</span><span class="p">:</span><span class="n">SL1K2</span><span class="p">:</span><span class="n">EXIT</span><span class="p">:</span><span class="n">MMS</span><span class="p">:</span><span class="n">VERT</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">M20</span> <span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span><span class="o">:=</span> <span class="s1">&#39;SL1K2:EXIT:MMS:VERT&#39;</span><span class="p">,</span><span class="n">fVelocity</span> <span class="o">:=</span><span class="mf">0.3</span><span class="p">,</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;Vertical&#39;</span><span class="p">);</span> <span class="o">//</span> <span class="n">Air</span> <span class="n">Vertical</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable:=TIIB[EL7047_SL1K2_ROLL]^STM Status^Status^Digital input 2;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL7047_SL1K2_ROLL</span><span class="p">]</span><span class="o">^</span><span class="n">STM</span> <span class="n">Status</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Digital</span> <span class="nb">input</span> <span class="mi">1</span><span class="p">;</span>
+                                                      <span class="o">.</span><span class="n">nRawEncoderUINT</span>      <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">EL5042_ROLL_GAP</span><span class="p">]</span><span class="o">^</span><span class="n">FB</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Position</span><span class="s1">&#39;}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+            <span class="n">pv</span><span class="p">:</span> <span class="n">SL1K2</span><span class="p">:</span><span class="n">EXIT</span><span class="p">:</span><span class="n">MMS</span><span class="p">:</span><span class="n">ROLL</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">M21</span> <span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span><span class="o">:=</span> <span class="s1">&#39;SL1K2:EXIT:MMS:ROLL&#39;</span><span class="p">,</span><span class="n">fVelocity</span> <span class="o">:=</span><span class="mf">0.24</span><span class="p">,</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;Roll&#39;</span><span class="p">);</span> <span class="o">//</span> <span class="n">Air</span> <span class="n">Roll</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable:=TIIB[EL7047_SL1K2_GAP]^STM Status^Status^Digital input 2;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL7047_SL1K2_GAP</span><span class="p">]</span><span class="o">^</span><span class="n">STM</span> <span class="n">Status</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Digital</span> <span class="nb">input</span> <span class="mi">1</span><span class="p">;</span>
+                                                      <span class="o">.</span><span class="n">nRawEncoderUINT</span>      <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">EL5042_ROLL_GAP</span><span class="p">]</span><span class="o">^</span><span class="n">FB</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Position</span><span class="s1">&#39;}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+            <span class="n">pv</span><span class="p">:</span> <span class="n">SL1K2</span><span class="p">:</span><span class="n">EXIT</span><span class="p">:</span><span class="n">MMS</span><span class="p">:</span><span class="n">GAP</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">M22</span> <span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span><span class="o">:=</span> <span class="s1">&#39;SL1K2:EXIT:MMS:GAP&#39;</span><span class="p">,</span><span class="n">fVelocity</span> <span class="o">:=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;Gap&#39;</span><span class="p">);</span> <span class="o">//</span> <span class="n">GAP</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable:=TIIB[EL7047_SL1K2_YAG]^STM Status^Status^Digital input 1;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL7047_SL1K2_YAG</span><span class="p">]</span><span class="o">^</span><span class="n">STM</span> <span class="n">Status</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Digital</span> <span class="nb">input</span> <span class="mi">2</span><span class="p">;</span>
+                                                      <span class="o">.</span><span class="n">nRawEncoderUINT</span>      <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">EL5042_YAG</span><span class="p">]</span><span class="o">^</span><span class="n">FB</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Position</span><span class="s1">&#39;}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+            <span class="n">pv</span><span class="p">:</span> <span class="n">SL1K2</span><span class="p">:</span><span class="n">EXIT</span><span class="p">:</span><span class="n">MMS</span><span class="p">:</span><span class="n">YAG</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">M23</span> <span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span><span class="o">:=</span> <span class="s1">&#39;SL1K2:EXIT:MMS:YAG&#39;</span><span class="p">,</span><span class="n">fVelocity</span> <span class="o">:=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;Yag&#39;</span><span class="p">);</span> <span class="o">//</span> <span class="n">YAG</span>
 <span class="n">END_VAR</span>
 </pre></div>
 </div>
@@ -466,6 +545,78 @@ END_VAR
 </div>
 <div class="section" id="pous">
 <h1>POUs<a class="headerlink" href="#pous" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="fb-xs-yag-states">
+<h2>FB_XS_YAG_States<a class="headerlink" href="#fb-xs-yag-states" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FUNCTION_BLOCK</span> <span class="n">FB_XS_YAG_States</span> <span class="n">EXTENDS</span> <span class="n">FB_PositionStateBase_WithPMPS</span>
+<span class="n">VAR_INPUT</span>
+        <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">SET</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">io</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">enumSet</span><span class="p">:</span> <span class="n">ENUM_XS_YAG_States</span><span class="p">;</span>
+
+    <span class="n">stOut</span><span class="p">:</span> <span class="n">DUT_PositionState</span><span class="p">;</span>
+    <span class="n">stYag1</span><span class="p">:</span> <span class="n">DUT_PositionState</span><span class="p">;</span>
+    <span class="n">stYag2</span><span class="p">:</span> <span class="n">DUT_PositionState</span><span class="p">;</span>
+
+    <span class="n">bStatesLock</span><span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+<span class="n">VAR_OUTPUT</span>
+     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">GET</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">enumGet</span><span class="p">:</span> <span class="n">ENUM_XS_YAG_States</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+<span class="n">VAR</span>
+     <span class="n">bInit</span><span class="p">:</span> <span class="n">BOOL</span> <span class="o">:=</span><span class="n">TRUE</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+<span class="n">VAR</span> <span class="n">CONSTANT</span>
+    <span class="n">fInDelta</span><span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="n">fOutDelta</span><span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="n">fInVelocity</span><span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="n">fOutVelocity</span><span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="n">fAccel</span><span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="n">fOutDecel</span><span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mi">25</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+<span class="n">IF</span> <span class="n">bInit</span> <span class="n">THEN</span>
+    <span class="n">bInit</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
+
+    <span class="n">stOut</span><span class="o">.</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;OUT&#39;</span><span class="p">;</span>
+    <span class="n">stOut</span><span class="o">.</span><span class="n">fVelocity</span> <span class="o">:=</span> <span class="n">fOutVelocity</span><span class="p">;</span>
+    <span class="n">stOut</span><span class="o">.</span><span class="n">fDelta</span> <span class="o">:=</span> <span class="n">fOutDelta</span><span class="p">;</span>
+    <span class="n">stOut</span><span class="o">.</span><span class="n">fAccel</span> <span class="o">:=</span> <span class="n">fAccel</span><span class="p">;</span>
+    <span class="n">stOut</span><span class="o">.</span><span class="n">fDecel</span> <span class="o">:=</span> <span class="n">fOutDecel</span><span class="p">;</span>
+    <span class="n">stOut</span><span class="o">.</span><span class="n">bMoveOk</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+
+    <span class="n">stYag1</span><span class="o">.</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;YAG1&#39;</span><span class="p">;</span>
+    <span class="n">stYag1</span><span class="o">.</span><span class="n">fVelocity</span> <span class="o">:=</span> <span class="n">fInVelocity</span><span class="p">;</span>
+    <span class="n">stYag1</span><span class="o">.</span><span class="n">fDelta</span> <span class="o">:=</span> <span class="n">fInDelta</span><span class="p">;</span>
+    <span class="n">stYag1</span><span class="o">.</span><span class="n">fAccel</span> <span class="o">:=</span> <span class="n">fAccel</span><span class="p">;</span>
+    <span class="n">stYag1</span><span class="o">.</span><span class="n">fDecel</span> <span class="o">:=</span> <span class="n">fAccel</span><span class="p">;</span>
+    <span class="n">stYag1</span><span class="o">.</span><span class="n">bMoveOk</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+
+    <span class="n">stYag2</span><span class="o">.</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;YAG2&#39;</span><span class="p">;</span>
+    <span class="n">stYag2</span><span class="o">.</span><span class="n">fVelocity</span> <span class="o">:=</span> <span class="n">fInVelocity</span><span class="p">;</span>
+    <span class="n">stYag2</span><span class="o">.</span><span class="n">fDelta</span> <span class="o">:=</span> <span class="n">fInDelta</span><span class="p">;</span>
+    <span class="n">stYag2</span><span class="o">.</span><span class="n">fAccel</span> <span class="o">:=</span> <span class="n">fAccel</span><span class="p">;</span>
+    <span class="n">stYag2</span><span class="o">.</span><span class="n">fDecel</span> <span class="o">:=</span> <span class="n">fAccel</span><span class="p">;</span>
+    <span class="n">stYag2</span><span class="o">.</span><span class="n">bMoveOk</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+
+    <span class="n">arrStates</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">:=</span> <span class="n">stOut</span><span class="p">;</span>
+    <span class="n">arrStates</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">:=</span> <span class="n">stYag1</span><span class="p">;</span>
+    <span class="n">arrStates</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">:=</span> <span class="n">stYag2</span><span class="p">;</span>
+<span class="n">END_IF</span>
+
+<span class="n">setState</span> <span class="o">:=</span> <span class="n">enumSet</span><span class="p">;</span>
+<span class="n">Exec</span><span class="p">();</span>
+<span class="n">enumGet</span> <span class="o">:=</span> <span class="n">getState</span><span class="p">;</span>
+<span class="n">enumSet</span> <span class="o">:=</span> <span class="n">setState</span><span class="p">;</span>
+
+<span class="n">END_FUNCTION_BLOCK</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="p-serial-com">
 <h2>P_Serial_Com<a class="headerlink" href="#p-serial-com" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">P_Serial_Com</span>
@@ -519,6 +670,25 @@ END_VAR
 <span class="n">PRG_MR1K1_BEND_BENDER</span><span class="p">();</span>
 <span class="n">PRG_MR1K2_SWITCH</span><span class="p">();</span>
 <span class="n">PRG_SP1K1_MONO</span><span class="p">();</span>
+
+<span class="n">PRG_2_PMPS_POST</span><span class="p">();</span>
+
+<span class="n">END_PROGRAM</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="prg-2-pmps-post">
+<h2>PRG_2_PMPS_POST<a class="headerlink" href="#prg-2-pmps-post" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">PRG_2_PMPS_POST</span>
+<span class="n">VAR</span>
+    <span class="n">fbArbiterIO</span><span class="p">:</span> <span class="n">FB_SubSysToArbiter_IO</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+<span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbFastFaultOutput1</span><span class="o">.</span><span class="n">Execute</span><span class="p">();</span>
+<span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbFastFaultOutput2</span><span class="o">.</span><span class="n">Execute</span><span class="p">();</span>
+
+<span class="n">fbArbiterIO</span><span class="p">(</span>
+    <span class="n">Arbiter</span><span class="o">:=</span><span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbArbiter</span><span class="p">,</span>
+    <span class="n">fbFFHWO</span><span class="o">:=</span><span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbFastFaultOutput1</span><span class="p">);</span>
 
 <span class="n">END_PROGRAM</span>
 </pre></div>
@@ -762,9 +932,10 @@ END_VAR
     <span class="n">nEncRefBendDSM1K1</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
 
     <span class="o">//</span><span class="n">Emergency</span> <span class="n">Stop</span> <span class="k">for</span> <span class="n">MR1K1</span>
-    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">EL1004_M1K1_BENDER_STO</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="o">//</span><span class="n">Emergency</span> <span class="n">Stop</span> <span class="k">for</span> <span class="n">MR1K1</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL1004_M1K1_BENDER_STO^Channel 1^Input&#39;</span><span class="p">}</span>
     <span class="n">M1K1BENDbSTOEnable1</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span> <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
-    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">EL1004_M1K1_BENDER_STO</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Input</span><span class="s1">&#39;}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL1004_M1K1_BENDER_STO^Channel 2^Input&#39;</span><span class="p">}</span>
     <span class="n">M1K1BENDbSTOEnable2</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span> <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
 
     <span class="o">//</span> <span class="n">MR1K1</span> <span class="n">Bender</span> <span class="n">RTDs</span>
@@ -1086,14 +1257,181 @@ END_VAR
 </pre></div>
 </div>
 </div>
+<div class="section" id="prg-sl1k2-exit">
+<h2>PRG_SL1K2_EXIT<a class="headerlink" href="#prg-sl1k2-exit" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">PRG_SL1K2_EXIT</span>
+<span class="n">VAR</span>
+    <span class="n">FFO</span>    <span class="p">:</span>    <span class="n">FB_FastFault</span> <span class="o">:=</span><span class="p">(</span>
+        <span class="n">i_DevName</span> <span class="o">:=</span> <span class="s1">&#39;Slits&#39;</span><span class="p">,</span>
+        <span class="n">i_Desc</span> <span class="o">:=</span> <span class="s1">&#39;Fault occurs when device is in an usafe state&#39;</span><span class="p">,</span>
+        <span class="n">i_TypeCode</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#E50);</span>
+    <span class="n">fbPitch</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbRoll</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbVertical</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbGap</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="n">fbYag</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+
+     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">SL1K2</span><span class="p">:</span><span class="n">EXIT</span><span class="p">:</span><span class="n">YAG</span><span class="p">:</span><span class="n">STATE</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">fbStates</span><span class="p">:</span> <span class="n">FB_XS_YAG_States</span><span class="p">;</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">SL1K2</span><span class="p">:</span><span class="n">EXIT</span><span class="p">:</span><span class="n">RTD</span><span class="p">:</span><span class="n">CRYSTAL_TOP</span>
+    <span class="s1">&#39;}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[SL1K2-EL3201-E9]^RTD^Value;</span>
+                              <span class="o">.</span><span class="n">bError</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SL1K2</span><span class="o">-</span><span class="n">EL3201</span><span class="o">-</span><span class="n">E9</span><span class="p">]</span><span class="o">^</span><span class="n">RTD1</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Error</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bUnderrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SL1K2</span><span class="o">-</span><span class="n">EL3201</span><span class="o">-</span><span class="n">E9</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Underrange</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bOverrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SL1K2</span><span class="o">-</span><span class="n">EL3201</span><span class="o">-</span><span class="n">E9</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Overrange</span><span class="s1">&#39;}</span>
+    <span class="n">RTD_Crystal_TOP</span><span class="p">:</span> <span class="n">FB_TempSensor</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">SL1K2</span><span class="p">:</span><span class="n">EXIT</span><span class="p">:</span><span class="n">RTD</span><span class="p">:</span><span class="n">CRYSTAL_BOTTOM</span>
+    <span class="s1">&#39;}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[SL1K2-EL3201-E10]^RTD^Value;</span>
+                              <span class="o">.</span><span class="n">bError</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SL1K2</span><span class="o">-</span><span class="n">EL3201</span><span class="o">-</span><span class="n">E10</span><span class="p">]</span><span class="o">^</span><span class="n">RTD1</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Error</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bUnderrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SL1K2</span><span class="o">-</span><span class="n">EL3201</span><span class="o">-</span><span class="n">E10</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Underrange</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bOverrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SL1K2</span><span class="o">-</span><span class="n">EL3201</span><span class="o">-</span><span class="n">E10</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Overrange</span><span class="s1">&#39;}</span>
+    <span class="n">RTD_Crystal_BOTTOM</span><span class="p">:</span> <span class="n">FB_TempSensor</span><span class="p">;</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">SL1K2</span><span class="p">:</span><span class="n">EXIT</span><span class="p">:</span><span class="n">RTD</span><span class="p">:</span><span class="n">YAG</span>
+    <span class="s1">&#39;}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[SL1K2-EL3201-E11]^RTD^Value;</span>
+                              <span class="o">.</span><span class="n">bError</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SL1K2</span><span class="o">-</span><span class="n">EL3201</span><span class="o">-</span><span class="n">E11</span><span class="p">]</span><span class="o">^</span><span class="n">RTD1</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Error</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bUnderrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SL1K2</span><span class="o">-</span><span class="n">EL3201</span><span class="o">-</span><span class="n">E11</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Underrange</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bOverrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SL1K2</span><span class="o">-</span><span class="n">EL3201</span><span class="o">-</span><span class="n">E11</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Overrange</span><span class="s1">&#39;}</span>
+    <span class="n">RTD_YAG</span><span class="p">:</span> <span class="n">FB_TempSensor</span><span class="p">;</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">SL1K2</span><span class="p">:</span><span class="n">EXIT</span><span class="p">:</span><span class="n">RTD</span><span class="p">:</span><span class="n">HeatSync</span>
+    <span class="s1">&#39;}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[SL1K2-EL3201-E12]^RTD^Value;</span>
+                              <span class="o">.</span><span class="n">bError</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SL1K2</span><span class="o">-</span><span class="n">EL3201</span><span class="o">-</span><span class="n">E12</span><span class="p">]</span><span class="o">^</span><span class="n">RTD1</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Error</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bUnderrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SL1K2</span><span class="o">-</span><span class="n">EL3201</span><span class="o">-</span><span class="n">E12</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Underrange</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bOverrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SL1K2</span><span class="o">-</span><span class="n">EL3201</span><span class="o">-</span><span class="n">E12</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Overrange</span><span class="s1">&#39;}</span>
+    <span class="n">RTD_HeatSync</span><span class="p">:</span> <span class="n">FB_TempSensor</span><span class="p">;</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">SL1K2</span><span class="p">:</span><span class="n">EXIT</span><span class="p">:</span><span class="n">CAM</span><span class="p">:</span><span class="n">ON</span>
+            <span class="n">field</span><span class="p">:</span> <span class="n">ZNAM</span> <span class="n">OFF</span> <span class="p">;</span>
+            <span class="n">field</span><span class="p">:</span> <span class="n">ONAM</span> <span class="n">ON</span> <span class="p">;</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">bCameraOn</span><span class="p">:</span><span class="n">BOOL</span><span class="p">;</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">SL1K2</span><span class="p">:</span><span class="n">EXIT</span><span class="p">:</span><span class="n">FAN</span><span class="p">:</span><span class="n">ON</span>
+            <span class="n">field</span><span class="p">:</span> <span class="n">ZNAM</span> <span class="n">OFF</span> <span class="p">;</span>
+            <span class="n">field</span><span class="p">:</span> <span class="n">ONAM</span> <span class="n">ON</span> <span class="p">;</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">bFanOn</span><span class="p">:</span><span class="n">BOOL</span><span class="p">;</span>
+
+    <span class="n">bInit</span> <span class="p">:</span> <span class="n">BOOL</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">;</span>
+
+     <span class="p">(</span><span class="o">*</span><span class="n">Motion</span> <span class="n">Parameters</span><span class="o">*</span><span class="p">)</span>
+    <span class="n">fSmallDelta</span><span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mf">0.01</span><span class="p">;</span>
+    <span class="n">fBigDelta</span><span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="n">fMaxVelocity</span><span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mf">0.2</span><span class="p">;</span>
+    <span class="n">fHighAccel</span><span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mf">0.8</span><span class="p">;</span>
+    <span class="n">fLowAccel</span><span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mf">0.1</span><span class="p">;</span>
+
+<span class="n">END_VAR</span>
+<span class="o">//</span>  <span class="n">init</span> <span class="n">the</span> <span class="n">motion</span> <span class="n">stages</span> <span class="n">parameters</span>
+<span class="n">IF</span> <span class="p">(</span> <span class="n">bInit</span><span class="p">)</span> <span class="n">THEN</span>
+    <span class="n">bInit</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
+    <span class="n">FFO</span><span class="o">.</span><span class="n">i_DevName</span> <span class="o">:=</span> <span class="s1">&#39;SL1K2-SCATTER&#39;</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M19</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M19</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span><span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M19</span><span class="o">.</span><span class="n">nBrakeMode</span> <span class="o">:=</span> <span class="n">ENUM_StageBrakeMode</span><span class="o">.</span><span class="n">NO_BRAKE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M19</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M20</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M20</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span><span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M20</span><span class="o">.</span><span class="n">nBrakeMode</span> <span class="o">:=</span> <span class="n">ENUM_StageBrakeMode</span><span class="o">.</span><span class="n">NO_BRAKE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M20</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M21</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M21</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span><span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M21</span><span class="o">.</span><span class="n">nBrakeMode</span> <span class="o">:=</span> <span class="n">ENUM_StageBrakeMode</span><span class="o">.</span><span class="n">NO_BRAKE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M21</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M22</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M22</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span><span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M22</span><span class="o">.</span><span class="n">nBrakeMode</span> <span class="o">:=</span> <span class="n">ENUM_StageBrakeMode</span><span class="o">.</span><span class="n">NO_BRAKE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M22</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+
+    <span class="n">Main</span><span class="o">.</span><span class="n">M23</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M23</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span><span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M23</span><span class="o">.</span><span class="n">nBrakeMode</span> <span class="o">:=</span> <span class="n">ENUM_StageBrakeMode</span><span class="o">.</span><span class="n">NO_BRAKE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M23</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">YAG</span> <span class="n">STATES</span> <span class="n">Parameters</span>
+    <span class="n">fbStates</span><span class="o">.</span><span class="n">nTransitionAssertionID</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#E510;</span>
+    <span class="n">fbStates</span><span class="o">.</span><span class="n">nUnknownAssertionID</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#E500;</span>
+
+    <span class="n">fbStates</span><span class="o">.</span><span class="n">stOut</span><span class="o">.</span><span class="n">fPosition</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">fbStates</span><span class="o">.</span><span class="n">stOut</span><span class="o">.</span><span class="n">bUseRawCounts</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
+    <span class="n">fbStates</span><span class="o">.</span><span class="n">stOut</span><span class="o">.</span><span class="n">nRequestAssertionID</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#E513;</span>
+    <span class="n">fbStates</span><span class="o">.</span><span class="n">stOut</span><span class="o">.</span><span class="n">stBeamParams</span> <span class="o">:=</span> <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">cstFullBeam</span><span class="p">;</span>
+    <span class="n">fbStates</span><span class="o">.</span><span class="n">stOut</span><span class="o">.</span><span class="n">bValid</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+
+    <span class="n">fbStates</span><span class="o">.</span><span class="n">stYag1</span><span class="o">.</span><span class="n">fPosition</span> <span class="o">:=</span> <span class="mi">21</span><span class="p">;</span>
+    <span class="n">fbStates</span><span class="o">.</span><span class="n">stYag1</span><span class="o">.</span><span class="n">bUseRawCounts</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
+    <span class="n">fbStates</span><span class="o">.</span><span class="n">stYag1</span><span class="o">.</span><span class="n">nRequestAssertionID</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#E511;</span>
+    <span class="n">fbStates</span><span class="o">.</span><span class="n">stYag1</span><span class="o">.</span><span class="n">stBeamParams</span> <span class="o">:=</span> <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">cstFullBeam</span><span class="p">;</span>
+    <span class="n">fbStates</span><span class="o">.</span><span class="n">stYag1</span><span class="o">.</span><span class="n">bValid</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+
+    <span class="n">fbStates</span><span class="o">.</span><span class="n">stYag2</span><span class="o">.</span><span class="n">fPosition</span> <span class="o">:=</span> <span class="mi">40</span><span class="p">;</span>
+    <span class="n">fbStates</span><span class="o">.</span><span class="n">stYag2</span><span class="o">.</span><span class="n">bUseRawCounts</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
+    <span class="n">fbStates</span><span class="o">.</span><span class="n">stYag2</span><span class="o">.</span><span class="n">nRequestAssertionID</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#E512;</span>
+    <span class="n">fbStates</span><span class="o">.</span><span class="n">stYag2</span><span class="o">.</span><span class="n">stBeamParams</span> <span class="o">:=</span> <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">cstFullBeam</span><span class="p">;</span>
+    <span class="n">fbStates</span><span class="o">.</span><span class="n">stYag2</span><span class="o">.</span><span class="n">bValid</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+
+<span class="n">END_IF</span>
+
+
+
+<span class="o">//</span> <span class="n">Instantiate</span> <span class="n">Function</span> <span class="n">block</span> <span class="k">for</span> <span class="nb">all</span> <span class="n">the</span> <span class="n">motion</span>
+<span class="n">fbPitch</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M19</span><span class="p">);</span><span class="o">//</span><span class="ow">in</span> <span class="n">Air</span>
+<span class="n">fbRoll</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M20</span><span class="p">);</span><span class="o">//</span><span class="ow">in</span> <span class="n">Air</span>
+<span class="n">fbVertical</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M21</span><span class="p">);</span><span class="o">//</span><span class="ow">in</span> <span class="n">Air</span>
+<span class="n">fbGap</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M22</span><span class="p">);</span><span class="o">//</span><span class="ow">in</span> <span class="n">vacuum</span>
+<span class="n">fbYag</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M23</span><span class="p">);</span><span class="o">//</span><span class="ow">in</span> <span class="n">vacuum</span>
+
+
+<span class="o">//</span><span class="n">States</span> <span class="k">with</span> <span class="n">PMPS</span>
+<span class="n">fbStates</span><span class="p">(</span>
+    <span class="n">fbArbiter</span><span class="o">:=</span><span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbArbiter</span><span class="p">,</span>
+    <span class="n">fbFFHWO</span><span class="o">:=</span><span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbFastFaultOutput2</span><span class="p">,</span>
+    <span class="n">nTransitionAssertionID</span><span class="o">:=</span><span class="p">,</span>
+    <span class="n">nUnknownAssertionID</span><span class="o">:=</span><span class="p">,</span>
+    <span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M23</span><span class="p">,</span>
+    <span class="n">bEnable</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
+    <span class="n">stOut</span><span class="o">:=</span><span class="p">,</span>
+    <span class="n">stYag1</span><span class="o">:=</span><span class="p">,</span>
+    <span class="n">stYag2</span><span class="o">:=</span><span class="p">);</span>
+
+
+<span class="o">//</span><span class="n">RTDs</span>
+<span class="n">RTD_Crystal_TOP</span><span class="p">();</span>
+<span class="n">RTD_Crystal_BOTTOM</span><span class="p">();</span>
+<span class="n">RTD_YAG</span><span class="p">();</span>
+<span class="n">RTD_HeatSync</span><span class="p">();</span>
+
+<span class="n">END_PROGRAM</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="prg-sp1k1-mono">
 <h2>PRG_SP1K1_MONO<a class="headerlink" href="#prg-sp1k1-mono" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">PRG_SP1K1_MONO</span>
 <span class="n">VAR</span>
 
     <span class="o">//</span> <span class="n">Where</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">STO</span>
-    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 4 (EK1200)^di^Channel 1^Input&#39;</span><span class="p">}</span>
-    <span class="n">sto</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span><span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL1004-E17^Channel 1^Input&#39;</span><span class="p">}</span>
+    <span class="n">bSTOEnable1</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span><span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL1004-E17^Channel 2^Input&#39;</span><span class="p">}</span>
+    <span class="n">bSTOEnable2</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span><span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
 
 
     <span class="n">fbMotionStage_m_pi</span>  <span class="p">:</span><span class="n">FB_MotionStage</span><span class="p">;</span>
@@ -1121,11 +1459,11 @@ END_VAR
 
 
     <span class="p">(</span><span class="o">*</span><span class="n">Flow</span> <span class="n">Switches</span><span class="o">*</span><span class="p">)</span>
-    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIID^Device 4 (EtherCAT)^GM^Term 16 (EL3054)^AI Standard Channel 1^Value&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIIB[SP1K1-EL3054-E12]^AI Standard Channel 1^Value&#39;</span><span class="p">}</span>
     <span class="n">flow_1</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span><span class="p">:</span> <span class="n">INT</span><span class="p">;</span>
-    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIID^Device 4 (EtherCAT)^GM^Term 16 (EL3054)^AI Standard Channel 2^Value&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIIB[SP1K1-EL3054-E12]^AI Standard Channel 2^Value&#39;</span><span class="p">}</span>
     <span class="n">flow_2</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span><span class="p">:</span> <span class="n">INT</span><span class="p">;</span>
-    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIID^Device 4 (EtherCAT)^GM^Term 16 (EL3054)^AI Standard Channel 3^Value&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIIB[SP1K1-EL3054-E12]^AI Standard Channel 3^Value&#39;</span><span class="p">}</span>
     <span class="n">pres_1</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span><span class="p">:</span> <span class="n">INT</span><span class="p">;</span>
 
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
@@ -1154,7 +1492,7 @@ END_VAR
     <span class="s1">&#39;}</span>
      <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 1^Value;</span>
                               <span class="o">.</span><span class="n">bError</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SP1K1</span><span class="o">-</span><span class="n">EL3202</span><span class="o">-</span><span class="n">E13</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Error</span><span class="p">;</span>
-                              <span class="o">.</span><span class="n">bUnderrange</span> <span class="o">:=</span> <span class="n">TIIBSP1K1</span><span class="o">-</span><span class="n">EL3202</span><span class="o">-</span><span class="n">E13</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Underrange</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bUnderrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SP1K1</span><span class="o">-</span><span class="n">EL3202</span><span class="o">-</span><span class="n">E13</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Underrange</span><span class="p">;</span>
                               <span class="o">.</span><span class="n">bOverrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SP1K1</span><span class="o">-</span><span class="n">EL3202</span><span class="o">-</span><span class="n">E13</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Overrange</span><span class="s1">&#39;}</span>
     <span class="n">RTD1</span> <span class="p">:</span> <span class="n">FB_TempSensor</span><span class="p">;</span>
 
@@ -1164,7 +1502,7 @@ END_VAR
     <span class="s1">&#39;}</span>
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 2^Value;</span>
                               <span class="o">.</span><span class="n">bError</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SP1K1</span><span class="o">-</span><span class="n">EL3202</span><span class="o">-</span><span class="n">E13</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Error</span><span class="p">;</span>
-                              <span class="o">.</span><span class="n">bUnderrange</span> <span class="o">:=</span> <span class="n">TIIBSP1K1</span><span class="o">-</span><span class="n">EL3202</span><span class="o">-</span><span class="n">E13</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Underrange</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bUnderrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SP1K1</span><span class="o">-</span><span class="n">EL3202</span><span class="o">-</span><span class="n">E13</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Underrange</span><span class="p">;</span>
                               <span class="o">.</span><span class="n">bOverrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SP1K1</span><span class="o">-</span><span class="n">EL3202</span><span class="o">-</span><span class="n">E13</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Overrange</span><span class="s1">&#39;}</span>
     <span class="n">RTD2</span> <span class="p">:</span> <span class="n">FB_TempSensor</span><span class="p">;</span>
 
@@ -1174,7 +1512,7 @@ END_VAR
     <span class="s1">&#39;}</span>
      <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 1^Value;</span>
                               <span class="o">.</span><span class="n">bError</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SP1K1</span><span class="o">-</span><span class="n">EL3202</span><span class="o">-</span><span class="n">E14</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Error</span><span class="p">;</span>
-                              <span class="o">.</span><span class="n">bUnderrange</span> <span class="o">:=</span> <span class="n">TIIBSP1K1</span><span class="o">-</span><span class="n">EL3202</span><span class="o">-</span><span class="n">E14</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Underrange</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bUnderrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SP1K1</span><span class="o">-</span><span class="n">EL3202</span><span class="o">-</span><span class="n">E14</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Underrange</span><span class="p">;</span>
                               <span class="o">.</span><span class="n">bOverrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SP1K1</span><span class="o">-</span><span class="n">EL3202</span><span class="o">-</span><span class="n">E14</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Overrange</span><span class="s1">&#39;}</span>
     <span class="n">RTD3</span> <span class="p">:</span><span class="n">FB_TempSensor</span><span class="p">;</span>
 
@@ -1184,7 +1522,7 @@ END_VAR
     <span class="s1">&#39;}</span>
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 2^Value;</span>
                               <span class="o">.</span><span class="n">bError</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SP1K1</span><span class="o">-</span><span class="n">EL3202</span><span class="o">-</span><span class="n">E14</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Error</span><span class="p">;</span>
-                              <span class="o">.</span><span class="n">bUnderrange</span> <span class="o">:=</span> <span class="n">TIIBSP1K1</span><span class="o">-</span><span class="n">EL3202</span><span class="o">-</span><span class="n">E14</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Underrange</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bUnderrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SP1K1</span><span class="o">-</span><span class="n">EL3202</span><span class="o">-</span><span class="n">E14</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Underrange</span><span class="p">;</span>
                               <span class="o">.</span><span class="n">bOverrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SP1K1</span><span class="o">-</span><span class="n">EL3202</span><span class="o">-</span><span class="n">E14</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Overrange</span><span class="s1">&#39;}</span>
     <span class="n">RTD4</span> <span class="p">:</span> <span class="n">FB_TempSensor</span><span class="p">;</span>
 
@@ -1192,40 +1530,40 @@ END_VAR
             <span class="n">pv</span><span class="p">:</span> <span class="n">SP1K1</span><span class="p">:</span><span class="n">MONO</span><span class="p">:</span><span class="n">RTD</span><span class="p">:</span><span class="mi">05</span>
             <span class="n">io</span><span class="p">:</span> <span class="n">o</span>
     <span class="s1">&#39;}</span>
-    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[SP1K1-EL3202-E15]^RTD Inputs Channel 1^Value;</span>
-                              <span class="o">.</span><span class="n">bError</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SP1K1</span><span class="o">-</span><span class="n">EL3202</span><span class="o">-</span><span class="n">E15</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Error</span><span class="p">;</span>
-                              <span class="o">.</span><span class="n">bUnderrange</span> <span class="o">:=</span> <span class="n">TIIBSP1K1</span><span class="o">-</span><span class="n">EL3202</span><span class="o">-</span><span class="n">E15</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Underrange</span><span class="p">;</span>
-                              <span class="o">.</span><span class="n">bOverrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SP1K1</span><span class="o">-</span><span class="n">EL3202</span><span class="o">-</span><span class="n">E15</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Overrange</span><span class="s1">&#39;}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 1^Value;</span>
+                              <span class="o">.</span><span class="n">bError</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SP1K1</span><span class="o">-</span><span class="n">EL3204</span><span class="o">-</span><span class="n">E15</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Error</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bUnderrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SP1K1</span><span class="o">-</span><span class="n">EL3204</span><span class="o">-</span><span class="n">E15</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Underrange</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bOverrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SP1K1</span><span class="o">-</span><span class="n">EL3204</span><span class="o">-</span><span class="n">E15</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Overrange</span><span class="s1">&#39;}</span>
     <span class="n">RTD5</span> <span class="p">:</span> <span class="n">FB_TempSensor</span><span class="p">;</span>
 
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
             <span class="n">pv</span><span class="p">:</span> <span class="n">SP1K1</span><span class="p">:</span><span class="n">MONO</span><span class="p">:</span><span class="n">RTD</span><span class="p">:</span><span class="mi">06</span>
             <span class="n">io</span><span class="p">:</span> <span class="n">o</span>
     <span class="s1">&#39;}</span>
-    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[SP1K1-EL3202-E15]^RTD Inputs Channel 2^Value;</span>
-                              <span class="o">.</span><span class="n">bError</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SP1K1</span><span class="o">-</span><span class="n">EL3202</span><span class="o">-</span><span class="n">E15</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Error</span><span class="p">;</span>
-                              <span class="o">.</span><span class="n">bUnderrange</span> <span class="o">:=</span> <span class="n">TIIBSP1K1</span><span class="o">-</span><span class="n">EL3202</span><span class="o">-</span><span class="n">E15</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Underrange</span><span class="p">;</span>
-                              <span class="o">.</span><span class="n">bOverrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SP1K1</span><span class="o">-</span><span class="n">EL3202</span><span class="o">-</span><span class="n">E15</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Overrange</span><span class="s1">&#39;}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 2^Value;</span>
+                              <span class="o">.</span><span class="n">bError</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SP1K1</span><span class="o">-</span><span class="n">EL3204</span><span class="o">-</span><span class="n">E15</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Error</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bUnderrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SP1K1</span><span class="o">-</span><span class="n">EL3204</span><span class="o">-</span><span class="n">E15</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Underrange</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bOverrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SP1K1</span><span class="o">-</span><span class="n">EL3204</span><span class="o">-</span><span class="n">E15</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Overrange</span><span class="s1">&#39;}</span>
     <span class="n">RTD6</span> <span class="p">:</span> <span class="n">FB_TempSensor</span><span class="p">;</span>
 
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
             <span class="n">pv</span><span class="p">:</span> <span class="n">SP1K1</span><span class="p">:</span><span class="n">MONO</span><span class="p">:</span><span class="n">RTD</span><span class="p">:</span><span class="mi">07</span>
             <span class="n">io</span><span class="p">:</span> <span class="n">o</span>
     <span class="s1">&#39;}</span>
-    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[SP1K1-EL3202-E16]^RTD Inputs Channel 1^Value;</span>
-                              <span class="o">.</span><span class="n">bError</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SP1K1</span><span class="o">-</span><span class="n">EL3202</span><span class="o">-</span><span class="n">E16</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Error</span><span class="p">;</span>
-                              <span class="o">.</span><span class="n">bUnderrange</span> <span class="o">:=</span> <span class="n">TIIBSP1K1</span><span class="o">-</span><span class="n">EL3202</span><span class="o">-</span><span class="n">E16</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Underrange</span><span class="p">;</span>
-                              <span class="o">.</span><span class="n">bOverrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SP1K1</span><span class="o">-</span><span class="n">EL3202</span><span class="o">-</span><span class="n">E16</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Overrange</span><span class="s1">&#39;}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 1^Value;</span>
+                              <span class="o">.</span><span class="n">bError</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SP1K1</span><span class="o">-</span><span class="n">EL3204</span><span class="o">-</span><span class="n">E16</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Error</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bUnderrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SP1K1</span><span class="o">-</span><span class="n">EL3204</span><span class="o">-</span><span class="n">E16</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Underrange</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bOverrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SP1K1</span><span class="o">-</span><span class="n">EL3204</span><span class="o">-</span><span class="n">E16</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Overrange</span><span class="s1">&#39;}</span>
     <span class="n">RTD7</span> <span class="p">:</span> <span class="n">FB_TempSensor</span><span class="p">;</span>
 
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
             <span class="n">pv</span><span class="p">:</span> <span class="n">SP1K1</span><span class="p">:</span><span class="n">MONO</span><span class="p">:</span><span class="n">RTD</span><span class="p">:</span><span class="mi">08</span>
             <span class="n">io</span><span class="p">:</span> <span class="n">o</span>
     <span class="s1">&#39;}</span>
-    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[SP1K1-EL3202-E16]^RTD Inputs Channel 2^Value;</span>
-                              <span class="o">.</span><span class="n">bError</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SP1K1</span><span class="o">-</span><span class="n">EL3202</span><span class="o">-</span><span class="n">E16</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Error</span><span class="p">;</span>
-                              <span class="o">.</span><span class="n">bUnderrange</span> <span class="o">:=</span> <span class="n">TIIBSP1K1</span><span class="o">-</span><span class="n">EL3202</span><span class="o">-</span><span class="n">E16</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Underrange</span><span class="p">;</span>
-                              <span class="o">.</span><span class="n">bOverrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SP1K1</span><span class="o">-</span><span class="n">EL3202</span><span class="o">-</span><span class="n">E16</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Overrange</span><span class="s1">&#39;}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 2^Value;</span>
+                              <span class="o">.</span><span class="n">bError</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SP1K1</span><span class="o">-</span><span class="n">EL3204</span><span class="o">-</span><span class="n">E16</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Error</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bUnderrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SP1K1</span><span class="o">-</span><span class="n">EL3204</span><span class="o">-</span><span class="n">E16</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Underrange</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bOverrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">SP1K1</span><span class="o">-</span><span class="n">EL3204</span><span class="o">-</span><span class="n">E16</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Overrange</span><span class="s1">&#39;}</span>
     <span class="n">RTD8</span> <span class="p">:</span><span class="n">FB_TempSensor</span><span class="p">;</span>
 
 
@@ -1247,12 +1585,12 @@ END_VAR
     <span class="n">fipi_set</span><span class="p">:</span>  <span class="n">LREAL</span><span class="p">;</span>
 <span class="n">END_VAR</span>
 <span class="o">//</span> <span class="n">SP1K1</span><span class="o">-</span><span class="n">MONO</span>
-<span class="n">M6</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">sto</span><span class="p">;</span>
-<span class="n">M7</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">sto</span><span class="p">;</span>
-<span class="n">M8</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">sto</span><span class="p">;</span>
-<span class="n">M9</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">sto</span><span class="p">;</span>
-<span class="n">M10</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">sto</span><span class="p">;</span>
-<span class="n">M11</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">sto</span><span class="p">;</span>
+<span class="n">M6</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">bSTOEnable1</span> <span class="n">AND</span> <span class="n">bSTOEnable2</span><span class="p">;</span>
+<span class="n">M7</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">bSTOEnable1</span> <span class="n">AND</span> <span class="n">bSTOEnable2</span><span class="p">;</span>
+<span class="n">M8</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">bSTOEnable1</span> <span class="n">AND</span> <span class="n">bSTOEnable2</span><span class="p">;</span>
+<span class="n">M9</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">bSTOEnable1</span> <span class="n">AND</span> <span class="n">bSTOEnable2</span><span class="p">;</span>
+<span class="n">M10</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">bSTOEnable1</span> <span class="n">AND</span> <span class="n">bSTOEnable2</span><span class="p">;</span>
+<span class="n">M11</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">bSTOEnable1</span> <span class="n">AND</span> <span class="n">bSTOEnable2</span><span class="p">;</span>
 
 <span class="n">fbMotionStage_m_pi</span>  <span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M6</span><span class="p">);</span>
 <span class="n">fbMotionStage_g_pi</span>  <span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M7</span><span class="p">);</span>
