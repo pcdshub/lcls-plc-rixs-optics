@@ -3,7 +3,7 @@ Data Types
 ----------
 
 
-   
+    
 LCLS_General.FB_BasicStats
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1049,7 +1049,7 @@ LCLS_General.ST_PendingEvent
       - | io: input
 
 
-                      
+                                        
 lcls_twincat_motion.DUT_MotionStage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -10387,7 +10387,7 @@ ST_PMPS_Aperture_IO
         | io: input
 
 
-                                                                                                           
+                                                                                                            
 Database Records
 ----------------
 
@@ -29133,6 +29133,18 @@ Database Records
       - waveform
       - PLC program name
       - | io: input
+
+
+    * - SP1K1:MONO:ENC:G_PI:02
+      - ao
+      - PRG_SP1K1_MONO.gpi_upeurad
+      - | io: output
+
+
+    * - SP1K1:MONO:ENC:G_PI:02_RBV
+      - ai
+      - PRG_SP1K1_MONO.gpi_upeurad
+      - | io: output
 
 
     * - SP1K1:MONO:ENC:M_PI:02

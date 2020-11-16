@@ -24,6 +24,11 @@ NC Settings
         16, M1K1-Pitch
         17, M1K1-BEND-US
         18, M1K1-BEND-DS
+        19, SL1K2-Pitch
+        20, SL1K2-Vert
+        21, SL1K2-Roll
+        22, SL1K2-Gap
+        23, SL1K2-Yag
         200, enc_mpi_up
         201, enc_gpi_up
         202, g_h_enc-axis
@@ -59,7 +64,7 @@ Axis 1: M1K2-Yleft
     General:UnitName, um
     Id, 1
     OtherSettings:AllowMotionCmdToSlave, true
-    TargetPosControl:Range, 0.001
+    TargetPosControl:Range, 0.02
     Velo:FastManual, 100
     Velo:Maximum, 100
 
@@ -94,7 +99,7 @@ Axis 2: M1K2-Yright
     General:UnitName, um
     Id, 2
     OtherSettings:AllowMotionCmdToSlave, true
-    TargetPosControl:Range, 0.001
+    TargetPosControl:Range, 0.02
     Velo:FastManual, 100
     Velo:Maximum, 100
 
@@ -131,7 +136,7 @@ Axis 3: M1K2-Xup
     General:UnitName, um
     Id, 3
     OtherSettings:AllowMotionCmdToSlave, true
-    TargetPosControl:Range, 0.01
+    TargetPosControl:Range, 0.02
     Velo:FastManual, 180
     Velo:Maximum, 150
 
@@ -168,6 +173,7 @@ Axis 4: M1K2-Xdwn
     General:UnitName, um
     Id, 4
     OtherSettings:AllowMotionCmdToSlave, true
+    TargetPosControl:Range, 0.02
     Velo:FastManual, 200
     Velo:Maximum, 150
 
@@ -228,6 +234,7 @@ Axis 6: m_pi
     Enc:Inc:RefSoftSyncMask, #x0000ffff
     Enc:MaxCount, #xffffffff
     Enc:ScaleFactorNumerator, 0.004505
+    General:UnitName, urad
     Id, 6
     OtherSettings:AllowMotionCmdToSlave, true
 
@@ -253,6 +260,7 @@ Axis 7: g_pi
     Enc:Inc:RefSoftSyncMask, #x0000ffff
     Enc:MaxCount, #xffffffff
     Enc:ScaleFactorNumerator, 0.0066667
+    General:UnitName, urad
     Id, 7
     MotionControl:Enable, true
     OtherSettings:AllowMotionCmdToSlave, true
@@ -283,6 +291,7 @@ Axis 8: m_h
     Enc:MaxCount, #xffffffff
     Enc:ScaleFactorDenominator, 1000
     Enc:ScaleFactorNumerator, 1
+    General:UnitName, um
     Id, 8
     OtherSettings:AllowMotionCmdToSlave, true
 
@@ -314,6 +323,7 @@ Axis 9: g_h
     Enc:ScaleFactorNumerator, 1
     Enc:SoftEndMaxControl:Enable, true
     Enc:SoftEndMaxControl:Range, 135400
+    General:UnitName, um
     Id, 9
     OtherSettings:AllowMotionCmdToSlave, true
 
@@ -338,6 +348,7 @@ Axis 10: s_io
     Enc:Inverse, true
     Enc:MaxCount, #x0000ffff
     Enc:ScaleFactorNumerator, 0.0390625
+    General:UnitName, um
     Id, 10
     OtherSettings:AllowMotionCmdToSlave, true
 
@@ -362,6 +373,7 @@ Axis 11: s_r
     Enc:MaxCount, #x0000ffff
     Enc:ScaleFactorDenominator, 2048
     Enc:ScaleFactorNumerator, 360
+    General:UnitName, urad
     Id, 11
     OtherSettings:AllowMotionCmdToSlave, true
     Velo:Maximum, 1000
@@ -572,6 +584,96 @@ Axis 18: M1K1-BEND-DS
 
 
 
+Axis 19: SL1K2-Pitch
+^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 19
+    Name, SL1K2-Pitch
+    AxisFolder, SL1K2
+    AxisType, 1
+    CreateSymbols, true
+    Enc:EncType, 1
+    Id, 19
+    OtherSettings:AllowMotionCmdToSlave, true
+
+
+
+Axis 20: SL1K2-Vert
+^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 20
+    Name, SL1K2-Vert
+    AxisFolder, SL1K2
+    AxisType, 1
+    CreateSymbols, true
+    Enc:EncType, 1
+    Id, 20
+    OtherSettings:AllowMotionCmdToSlave, true
+
+
+
+Axis 21: SL1K2-Roll
+^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 21
+    Name, SL1K2-Roll
+    AxisFolder, SL1K2
+    AxisType, 1
+    CreateSymbols, true
+    Enc:EncType, 1
+    Id, 21
+    OtherSettings:AllowMotionCmdToSlave, true
+
+
+
+Axis 22: SL1K2-Gap
+^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 22
+    Name, SL1K2-Gap
+    AxisFolder, SL1K2
+    AxisType, 1
+    CreateSymbols, true
+    Enc:EncType, 1
+    Id, 22
+    OtherSettings:AllowMotionCmdToSlave, true
+
+
+
+Axis 23: SL1K2-Yag
+^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 23
+    Name, SL1K2-Yag
+    AxisFolder, SL1K2
+    AxisType, 1
+    CreateSymbols, true
+    Enc:EncType, 1
+    Id, 23
+    OtherSettings:AllowMotionCmdToSlave, true
+
+
+
 Axis 200: enc_mpi_up
 ^^^^^^^^^^^^^^^^^^^^
 
@@ -587,6 +689,7 @@ Axis 200: enc_mpi_up
     Enc:EncType, 29
     Enc:MaxCount, #xffffffff
     Enc:ScaleFactorNumerator, 0.004505
+    General:UnitName, urad
     Id, 200
     OtherSettings:AllowMotionCmdToSlave, true
 
@@ -607,6 +710,7 @@ Axis 201: enc_gpi_up
     Enc:EncType, 29
     Enc:MaxCount, #xffffffff
     Enc:ScaleFactorNumerator, 0.0066667
+    General:UnitName, urad
     Id, 201
     OtherSettings:AllowMotionCmdToSlave, true
 
@@ -628,6 +732,7 @@ Axis 202: g_h_enc-axis
     Enc:MaxCount, #xffffffff
     Enc:ScaleFactorDenominator, 1000
     Enc:ScaleFactorNumerator, 1
+    General:UnitName, um
     Id, 202
     OtherSettings:AllowMotionCmdToSlave, true
 
