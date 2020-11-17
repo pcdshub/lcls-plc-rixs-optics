@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="FB_XS_YAG_States" Id="{66ee526f-df02-4197-b798-b0ac2040b845}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_XS_YAG_States EXTENDS FB_PositionStateBase_WithPMPS
+VAR_INPUT
+	    {attribute 'pytmc' := '
+        pv: SET
+        io: io
+    '}
+    enumSet: ENUM_XS_YAG_States;
+
+    stOut: DUT_PositionState;
+    stYag1: DUT_PositionState;
+    stYag2: DUT_PositionState;
+
+    bStatesLock: BOOL;
+END_VAR
+VAR_OUTPUT
+	 {attribute 'pytmc' := '
+        pv: GET
+        io: i
+    '}
+    enumGet: ENUM_XS_YAG_States;
+END_VAR
+VAR
+	 bInit: BOOL :=TRUE;
+END_VAR
+VAR CONSTANT
+    fInDelta: LREAL := 2;
+    fOutDelta: LREAL := 2;
+    fInVelocity: LREAL := 0.5;
+    fOutVelocity: LREAL := 0.5;
+    fAccel: LREAL := 100;
+    fOutDecel: LREAL := 25;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF bInit THEN
+    bInit := FALSE;
+
+    stOut.sName := 'OUT';
+    stOut.fVelocity := fOutVelocity;
+    stOut.fDelta := fOutDelta;
+    stOut.fAccel := fAccel;
+    stOut.fDecel := fOutDecel;
+    stOut.bMoveOk := TRUE;
+
+    stYag1.sName := 'YAG1';
+    stYag1.fVelocity := fInVelocity;
+    stYag1.fDelta := fInDelta;
+    stYag1.fAccel := fAccel;
+    stYag1.fDecel := fAccel;
+    stYag1.bMoveOk := TRUE;
+
+    stYag2.sName := 'YAG2';
+    stYag2.fVelocity := fInVelocity;
+    stYag2.fDelta := fInDelta;
+    stYag2.fAccel := fAccel;
+    stYag2.fDecel := fAccel;
+    stYag2.bMoveOk := TRUE;
+
+    arrStates[1] := stOut;
+    arrStates[2] := stYag1;
+    arrStates[3] := stYag2;
+END_IF
+
+setState := enumSet;
+Exec();
+enumGet := getState;
+enumSet := setState;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="PRG_SL1K2_EXIT" Id="{a6ea7919-5ace-4786-88b3-ec4d11838f8d}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_SL1K2_EXIT
+VAR
+	FFO    :    FB_FastFault :=(
+        i_DevName := 'Slits',
+        i_Desc := 'Fault occurs when device is in an usafe state',
+        i_TypeCode := 16#E50);
+	fbPitch: FB_MotionStage;
+    fbRoll: FB_MotionStage;
+    fbVertical: FB_MotionStage;
+    fbGap: FB_MotionStage;
+	fbYag: FB_MotionStage;
+	
+	 {attribute 'pytmc' := '
+        pv: SL1K2:EXIT:YAG:STATE
+        io: i
+    '}
+    fbStates: FB_XS_YAG_States;
+	
+	{attribute 'pytmc' := '
+        pv: SL1K2:EXIT:RTD:CRYSTAL_TOP
+    '}
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[SL1K2-EL3201-E9]^RTD^Value;
+                              .bError := TIIB[SL1K2-EL3201-E9]^RTD1^Status^Error;
+                              .bUnderrange := TIIB[SL1K2-EL3201-E9]^RTD^Status^Underrange;
+                              .bOverrange := TIIB[SL1K2-EL3201-E9]^RTD^Status^Overrange'}
+    RTD_Crystal_TOP: FB_TempSensor;     
+	{attribute 'pytmc' := '
+        pv: SL1K2:EXIT:RTD:CRYSTAL_BOTTOM
+    '}
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[SL1K2-EL3201-E10]^RTD^Value;
+                              .bError := TIIB[SL1K2-EL3201-E10]^RTD1^Status^Error;
+                              .bUnderrange := TIIB[SL1K2-EL3201-E10]^RTD^Status^Underrange;
+                              .bOverrange := TIIB[SL1K2-EL3201-E10]^RTD^Status^Overrange'}
+    RTD_Crystal_BOTTOM: FB_TempSensor;   
+
+	{attribute 'pytmc' := '
+        pv: SL1K2:EXIT:RTD:YAG
+    '}
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[SL1K2-EL3201-E11]^RTD^Value;
+                              .bError := TIIB[SL1K2-EL3201-E11]^RTD1^Status^Error;
+                              .bUnderrange := TIIB[SL1K2-EL3201-E11]^RTD^Status^Underrange;
+                              .bOverrange := TIIB[SL1K2-EL3201-E11]^RTD^Status^Overrange'}
+    RTD_YAG: FB_TempSensor;    
+
+	{attribute 'pytmc' := '
+        pv: SL1K2:EXIT:RTD:HeatSync
+    '}
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[SL1K2-EL3201-E12]^RTD^Value;
+                              .bError := TIIB[SL1K2-EL3201-E12]^RTD1^Status^Error;
+                              .bUnderrange := TIIB[SL1K2-EL3201-E12]^RTD^Status^Underrange;
+                              .bOverrange := TIIB[SL1K2-EL3201-E12]^RTD^Status^Overrange'}
+    RTD_HeatSync: FB_TempSensor;      
+
+	{attribute 'pytmc' := '
+        pv: SL1K2:EXIT:CAM:ON
+		field: ZNAM OFF ;
+		field: ONAM ON ;
+    '}
+	bCameraOn:BOOL;    
+
+	{attribute 'pytmc' := '
+        pv: SL1K2:EXIT:FAN:ON
+		field: ZNAM OFF ;
+		field: ONAM ON ;
+    '}
+	bFanOn:BOOL;                        
+	
+	bInit : BOOL:=TRUE;
+	
+	 (*Motion Parameters*)
+    fSmallDelta: LREAL := 0.01;
+    fBigDelta: LREAL := 10;
+    fMaxVelocity: LREAL := 0.2;
+    fHighAccel: LREAL := 0.8;
+    fLowAccel: LREAL := 0.1;
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//  init the motion stages parameters
+IF ( bInit) THEN
+	bInit := FALSE;
+	FFO.i_DevName := 'SL1K2-SCATTER';
+    Main.M19.bHardwareEnable := TRUE;
+    Main.M19.bPowerSelf :=TRUE;
+    Main.M19.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
+	Main.M19.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+   
+	Main.M20.bHardwareEnable := TRUE;
+    Main.M20.bPowerSelf :=TRUE;
+    Main.M20.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
+	Main.M20.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+	
+	Main.M21.bHardwareEnable := TRUE;
+    Main.M21.bPowerSelf :=TRUE;
+    Main.M21.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
+	Main.M21.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+	
+	Main.M22.bHardwareEnable := TRUE;
+    Main.M22.bPowerSelf :=TRUE;
+    Main.M22.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
+	Main.M22.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+	
+	Main.M23.bHardwareEnable := TRUE;
+    Main.M23.bPowerSelf :=TRUE;
+    Main.M23.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
+	Main.M23.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+	
+	// YAG STATES Parameters
+	fbStates.nTransitionAssertionID := 16#E510;
+	fbStates.nUnknownAssertionID := 16#E500;
+	
+	fbStates.stOut.fPosition := 0;
+	fbStates.stOut.bUseRawCounts := FALSE;
+	fbStates.stOut.nRequestAssertionID := 16#E513;
+	fbStates.stOut.stBeamParams := PMPS_GVL.cstFullBeam;
+	fbStates.stOut.bValid := TRUE;
+	
+	fbStates.stYag1.fPosition := 21;
+	fbStates.stYag1.bUseRawCounts := FALSE;
+	fbStates.stYag1.nRequestAssertionID := 16#E511;
+	fbStates.stYag1.stBeamParams := PMPS_GVL.cstFullBeam;
+	fbStates.stYag1.bValid := TRUE;
+	
+	fbStates.stYag2.fPosition := 40;
+	fbStates.stYag2.bUseRawCounts := FALSE;
+	fbStates.stYag2.nRequestAssertionID := 16#E512;
+	fbStates.stYag2.stBeamParams := PMPS_GVL.cstFullBeam;
+	fbStates.stYag2.bValid := TRUE;
+	
+END_IF
+
+
+
+// Instantiate Function block for all the motion
+fbPitch(stMotionStage:=Main.M19);//in Air
+fbRoll(stMotionStage:=Main.M20);//in Air
+fbVertical(stMotionStage:=Main.M21);//in Air
+fbGap(stMotionStage:=Main.M22);//in vacuum
+fbYag(stMotionStage:=Main.M23);//in vacuum
+
+
+//States with PMPS
+fbStates(
+    fbArbiter:=GVL_PMPS.fbArbiter,
+    fbFFHWO:=GVL_PMPS.fbFastFaultOutput2,
+    nTransitionAssertionID:=,
+    nUnknownAssertionID:=,
+    stMotionStage:=Main.M23,
+    bEnable:=TRUE,
+    stOut:=,
+    stYag1:=,
+    stYag2:=);
+
+	
+//RTDs
+RTD_Crystal_TOP();
+RTD_Crystal_BOTTOM();
+RTD_YAG();
+RTD_HeatSync();]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
