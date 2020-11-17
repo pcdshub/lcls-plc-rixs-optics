@@ -117,6 +117,8 @@ record(waveform, "$(PREFIX)RequestedBP:ST_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PMPS_GVL.stRequestedBeamParameters.aStoppers?")
   field(FTVL, "CHAR")
   field(NELM, "16")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "monitor 1: VAL")
 }
 
@@ -200,6 +202,8 @@ record(waveform, "$(PREFIX)CurrentBP:ST_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PMPS_GVL.stCurrentBeamParameters.aStoppers?")
   field(FTVL, "CHAR")
   field(NELM, "16")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "monitor 1: VAL")
 }
 
@@ -235,6 +239,8 @@ record(waveform, "$(PREFIX)eVRangeCnst_RBV") {
   field(FTVL, "FLOAT")
   field(EGU, "eV")
   field(NELM, "16")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "monitor 1: VAL")
 }
 
@@ -293,6 +299,8 @@ record(waveform, "$(PREFIX)FullBeamCnst:ST_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PMPS_GVL.cstFullBeam.aStoppers?")
   field(FTVL, "CHAR")
   field(NELM, "16")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "monitor 1: VAL")
 }
 
@@ -373,6 +381,8 @@ record(waveform, "$(PREFIX)0RateBeamCnst:ST_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PMPS_GVL.cst0RateBeam.aStoppers?")
   field(FTVL, "CHAR")
   field(NELM, "16")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "monitor 1: VAL")
 }
 
@@ -453,6 +463,8 @@ record(waveform, "$(PREFIX)SafeBeamCnst:ST_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PMPS_GVL.cstSafeBeam.aStoppers?")
   field(FTVL, "CHAR")
   field(NELM, "16")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "monitor 1: VAL")
 }
 
@@ -501,6 +513,8 @@ record(waveform, "$(PREFIX)L:eVRangeCnst_RBV") {
   field(FTVL, "FLOAT")
   field(EGU, "eV")
   field(NELM, "16")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "monitor 1: VAL")
 }
 
@@ -514,6 +528,8 @@ record(waveform, "$(PREFIX)K:eVRangeCnst_RBV") {
   field(FTVL, "FLOAT")
   field(EGU, "eV")
   field(NELM, "16")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "monitor 1: VAL")
 }
 
@@ -715,7 +731,8 @@ record(waveform, "MR1K1:BEND:ENC:Y:ACTPOSARRAY_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_MR1K1_BEND.fbYRMSErrorM1K1.aEncActPos?")
   field(FTVL, "DOUBLE")
   field(NELM, "1000")
-  info(archive, "VAL")
+  field(MPST, "On Change")
+  field(APST, "On Change")
 }
 
 record(waveform, "MR1K1:BEND:ENC:Y:SETPOSARRAY_RBV") {
@@ -728,7 +745,8 @@ record(waveform, "MR1K1:BEND:ENC:Y:SETPOSARRAY_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_MR1K1_BEND.fbYRMSErrorM1K1.aEncSetPos?")
   field(FTVL, "DOUBLE")
   field(NELM, "1000")
-  info(archive, "VAL")
+  field(MPST, "On Change")
+  field(APST, "On Change")
 }
 
 record(ai, "MR1K1:BEND:ENC:X:MEAN_RBV") {
@@ -778,7 +796,8 @@ record(waveform, "MR1K1:BEND:ENC:X:ACTPOSARRAY_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_MR1K1_BEND.fbXRMSErrorM1K1.aEncActPos?")
   field(FTVL, "DOUBLE")
   field(NELM, "1000")
-  info(archive, "VAL")
+  field(MPST, "On Change")
+  field(APST, "On Change")
 }
 
 record(waveform, "MR1K1:BEND:ENC:X:SETPOSARRAY_RBV") {
@@ -791,7 +810,8 @@ record(waveform, "MR1K1:BEND:ENC:X:SETPOSARRAY_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_MR1K1_BEND.fbXRMSErrorM1K1.aEncSetPos?")
   field(FTVL, "DOUBLE")
   field(NELM, "1000")
-  info(archive, "VAL")
+  field(MPST, "On Change")
+  field(APST, "On Change")
 }
 
 record(ai, "MR1K1:BEND:ENC:PITCH:MEAN_RBV") {
@@ -843,7 +863,8 @@ record(waveform, "MR1K1:BEND:ENC:PITCH:ACTPOSARRAY_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_MR1K1_BEND.fbPitchRMSErrorM1K1.aEncActPos?")
   field(FTVL, "DOUBLE")
   field(NELM, "1000")
-  info(archive, "VAL")
+  field(MPST, "On Change")
+  field(APST, "On Change")
 }
 
 record(waveform, "MR1K1:BEND:ENC:PITCH:SETPOSARRAY_RBV") {
@@ -856,7 +877,8 @@ record(waveform, "MR1K1:BEND:ENC:PITCH:SETPOSARRAY_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_MR1K1_BEND.fbPitchRMSErrorM1K1.aEncSetPos?")
   field(FTVL, "DOUBLE")
   field(NELM, "1000")
-  info(archive, "VAL")
+  field(MPST, "On Change")
+  field(APST, "On Change")
 }
 
 record(longin, "MR1K1:BEND:ENC:YDWN:CNT_RBV") {
@@ -1029,7 +1051,8 @@ record(waveform, "MR1K1:BEND:ENC:US:ACTPOSARRAY_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_MR1K1_BEND_BENDER.fbBendUSRMSErrorM1K1.aEncActPos?")
   field(FTVL, "DOUBLE")
   field(NELM, "1000")
-  info(archive, "VAL")
+  field(MPST, "On Change")
+  field(APST, "On Change")
 }
 
 record(waveform, "MR1K1:BEND:ENC:US:SETPOSARRAY_RBV") {
@@ -1042,7 +1065,8 @@ record(waveform, "MR1K1:BEND:ENC:US:SETPOSARRAY_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_MR1K1_BEND_BENDER.fbBendUSRMSErrorM1K1.aEncSetPos?")
   field(FTVL, "DOUBLE")
   field(NELM, "1000")
-  info(archive, "VAL")
+  field(MPST, "On Change")
+  field(APST, "On Change")
 }
 
 record(ai, "MR1K1:BEND:ENC:DS:MEAN_RBV") {
@@ -1094,7 +1118,8 @@ record(waveform, "MR1K1:BEND:ENC:DS:ACTPOSARRAY_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_MR1K1_BEND_BENDER.fbBendDSRMSErrorM1K1.aEncActPos?")
   field(FTVL, "DOUBLE")
   field(NELM, "1000")
-  info(archive, "VAL")
+  field(MPST, "On Change")
+  field(APST, "On Change")
 }
 
 record(waveform, "MR1K1:BEND:ENC:DS:SETPOSARRAY_RBV") {
@@ -1107,6 +1132,29 @@ record(waveform, "MR1K1:BEND:ENC:DS:SETPOSARRAY_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_MR1K1_BEND_BENDER.fbBendDSRMSErrorM1K1.aEncSetPos?")
   field(FTVL, "DOUBLE")
   field(NELM, "1000")
+  field(MPST, "On Change")
+  field(APST, "On Change")
+}
+
+record(longin, "MR1K1:BEND:ENC:US:CNT_RBV") {
+  field(DESC, "PRG_MR1K1_BEND_BENDER.nEncCntBendUSM1K1")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_MR1K1_BEND_BENDER.nEncCntBendUSM1K1?")
+  field(EGU, "cnt")
+  info(archive, "VAL")
+}
+
+record(longin, "MR1K1:BEND:ENC:DS:CNT_RBV") {
+  field(DESC, "PRG_MR1K1_BEND_BENDER.nEncCntBendDSM1K1")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_MR1K1_BEND_BENDER.nEncCntBendDSM1K1?")
+  field(EGU, "cnt")
   info(archive, "VAL")
 }
 
@@ -1383,7 +1431,8 @@ record(waveform, "MR1K2:SWITCH:ENC:Y:ACTPOSARRAY_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_MR1K2_SWITCH.fbYRMSErrorM1K2.aEncActPos?")
   field(FTVL, "DOUBLE")
   field(NELM, "1000")
-  info(archive, "VAL")
+  field(MPST, "On Change")
+  field(APST, "On Change")
 }
 
 record(waveform, "MR1K2:SWITCH:ENC:Y:SETPOSARRAY_RBV") {
@@ -1396,7 +1445,8 @@ record(waveform, "MR1K2:SWITCH:ENC:Y:SETPOSARRAY_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_MR1K2_SWITCH.fbYRMSErrorM1K2.aEncSetPos?")
   field(FTVL, "DOUBLE")
   field(NELM, "1000")
-  info(archive, "VAL")
+  field(MPST, "On Change")
+  field(APST, "On Change")
 }
 
 record(ai, "MR1K2:SWITCH:ENC:X:MEAN_RBV") {
@@ -1448,7 +1498,8 @@ record(waveform, "MR1K2:SWITCH:ENC:X:ACTPOSARRAY_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_MR1K2_SWITCH.fbXRMSErrorM1K2.aEncActPos?")
   field(FTVL, "DOUBLE")
   field(NELM, "1000")
-  info(archive, "VAL")
+  field(MPST, "On Change")
+  field(APST, "On Change")
 }
 
 record(waveform, "MR1K2:SWITCH:ENC:X:SETPOSARRAY_RBV") {
@@ -1461,7 +1512,8 @@ record(waveform, "MR1K2:SWITCH:ENC:X:SETPOSARRAY_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_MR1K2_SWITCH.fbXRMSErrorM1K2.aEncSetPos?")
   field(FTVL, "DOUBLE")
   field(NELM, "1000")
-  info(archive, "VAL")
+  field(MPST, "On Change")
+  field(APST, "On Change")
 }
 
 record(ai, "MR1K2:SWITCH:ENC:PITCH:MEAN_RBV") {
@@ -1513,7 +1565,8 @@ record(waveform, "MR1K2:SWITCH:ENC:PITCH:ACTPOSARRAY_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_MR1K2_SWITCH.fbPitchRMSErrorM1K2.aEncActPos?")
   field(FTVL, "DOUBLE")
   field(NELM, "1000")
-  info(archive, "VAL")
+  field(MPST, "On Change")
+  field(APST, "On Change")
 }
 
 record(waveform, "MR1K2:SWITCH:ENC:PITCH:SETPOSARRAY_RBV") {
@@ -1526,7 +1579,8 @@ record(waveform, "MR1K2:SWITCH:ENC:PITCH:SETPOSARRAY_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_MR1K2_SWITCH.fbPitchRMSErrorM1K2.aEncSetPos?")
   field(FTVL, "DOUBLE")
   field(NELM, "1000")
-  info(archive, "VAL")
+  field(MPST, "On Change")
+  field(APST, "On Change")
 }
 
 record(ai, "MR1K2:SWITCH:ENC:ROLL_RBV") {
@@ -3015,6 +3069,8 @@ record(waveform, "PLC:RIX:OPTICS:ARB:AP:Entry:001:ST_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_PMPS.fbArbiter.fbBPAssertionPool.epicsDataPool[1].aStoppers?")
   field(FTVL, "CHAR")
   field(NELM, "16")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -3027,6 +3083,8 @@ record(waveform, "PLC:RIX:OPTICS:ARB:AP:Entry:002:ST_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_PMPS.fbArbiter.fbBPAssertionPool.epicsDataPool[2].aStoppers?")
   field(FTVL, "CHAR")
   field(NELM, "16")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -3039,6 +3097,8 @@ record(waveform, "PLC:RIX:OPTICS:ARB:AP:Entry:003:ST_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_PMPS.fbArbiter.fbBPAssertionPool.epicsDataPool[3].aStoppers?")
   field(FTVL, "CHAR")
   field(NELM, "16")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -3051,6 +3111,8 @@ record(waveform, "PLC:RIX:OPTICS:ARB:AP:Entry:004:ST_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_PMPS.fbArbiter.fbBPAssertionPool.epicsDataPool[4].aStoppers?")
   field(FTVL, "CHAR")
   field(NELM, "16")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -3063,6 +3125,8 @@ record(waveform, "PLC:RIX:OPTICS:ARB:AP:Entry:005:ST_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_PMPS.fbArbiter.fbBPAssertionPool.epicsDataPool[5].aStoppers?")
   field(FTVL, "CHAR")
   field(NELM, "16")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -3075,6 +3139,8 @@ record(waveform, "PLC:RIX:OPTICS:ARB:AP:Entry:006:ST_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_PMPS.fbArbiter.fbBPAssertionPool.epicsDataPool[6].aStoppers?")
   field(FTVL, "CHAR")
   field(NELM, "16")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -3087,6 +3153,8 @@ record(waveform, "PLC:RIX:OPTICS:ARB:AP:Entry:007:ST_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_PMPS.fbArbiter.fbBPAssertionPool.epicsDataPool[7].aStoppers?")
   field(FTVL, "CHAR")
   field(NELM, "16")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -3099,6 +3167,8 @@ record(waveform, "PLC:RIX:OPTICS:ARB:AP:Entry:008:ST_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_PMPS.fbArbiter.fbBPAssertionPool.epicsDataPool[8].aStoppers?")
   field(FTVL, "CHAR")
   field(NELM, "16")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -3111,6 +3181,8 @@ record(waveform, "PLC:RIX:OPTICS:ARB:AP:Entry:009:ST_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_PMPS.fbArbiter.fbBPAssertionPool.epicsDataPool[9].aStoppers?")
   field(FTVL, "CHAR")
   field(NELM, "16")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -3123,6 +3195,8 @@ record(waveform, "PLC:RIX:OPTICS:ARB:AP:Entry:010:ST_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_PMPS.fbArbiter.fbBPAssertionPool.epicsDataPool[10].aStoppers?")
   field(FTVL, "CHAR")
   field(NELM, "16")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -3135,6 +3209,8 @@ record(waveform, "PLC:RIX:OPTICS:ARB:AP:Entry:011:ST_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_PMPS.fbArbiter.fbBPAssertionPool.epicsDataPool[11].aStoppers?")
   field(FTVL, "CHAR")
   field(NELM, "16")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -3147,6 +3223,8 @@ record(waveform, "PLC:RIX:OPTICS:ARB:AP:Entry:012:ST_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_PMPS.fbArbiter.fbBPAssertionPool.epicsDataPool[12].aStoppers?")
   field(FTVL, "CHAR")
   field(NELM, "16")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -3159,6 +3237,8 @@ record(waveform, "PLC:RIX:OPTICS:ARB:AP:Entry:013:ST_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_PMPS.fbArbiter.fbBPAssertionPool.epicsDataPool[13].aStoppers?")
   field(FTVL, "CHAR")
   field(NELM, "16")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -3171,6 +3251,8 @@ record(waveform, "PLC:RIX:OPTICS:ARB:AP:Entry:014:ST_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_PMPS.fbArbiter.fbBPAssertionPool.epicsDataPool[14].aStoppers?")
   field(FTVL, "CHAR")
   field(NELM, "16")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -3183,6 +3265,8 @@ record(waveform, "PLC:RIX:OPTICS:ARB:AP:Entry:015:ST_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_PMPS.fbArbiter.fbBPAssertionPool.epicsDataPool[15].aStoppers?")
   field(FTVL, "CHAR")
   field(NELM, "16")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -3195,6 +3279,8 @@ record(waveform, "PLC:RIX:OPTICS:ARB:AP:Entry:016:ST_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_PMPS.fbArbiter.fbBPAssertionPool.epicsDataPool[16].aStoppers?")
   field(FTVL, "CHAR")
   field(NELM, "16")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -3207,6 +3293,8 @@ record(waveform, "PLC:RIX:OPTICS:ARB:AP:Entry:017:ST_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_PMPS.fbArbiter.fbBPAssertionPool.epicsDataPool[17].aStoppers?")
   field(FTVL, "CHAR")
   field(NELM, "16")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -3219,6 +3307,8 @@ record(waveform, "PLC:RIX:OPTICS:ARB:AP:Entry:018:ST_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_PMPS.fbArbiter.fbBPAssertionPool.epicsDataPool[18].aStoppers?")
   field(FTVL, "CHAR")
   field(NELM, "16")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -3231,6 +3321,8 @@ record(waveform, "PLC:RIX:OPTICS:ARB:AP:Entry:019:ST_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_PMPS.fbArbiter.fbBPAssertionPool.epicsDataPool[19].aStoppers?")
   field(FTVL, "CHAR")
   field(NELM, "16")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -3243,6 +3335,8 @@ record(waveform, "PLC:RIX:OPTICS:ARB:AP:Entry:020:ST_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_PMPS.fbArbiter.fbBPAssertionPool.epicsDataPool[20].aStoppers?")
   field(FTVL, "CHAR")
   field(NELM, "16")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -4213,6 +4307,8 @@ record(waveform, "PLC:RIX:OPTICS:ARB:ArbitratedBP:ST_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_PMPS.fbArbiter.q_stBeamParams.aStoppers?")
   field(FTVL, "CHAR")
   field(NELM, "16")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -27514,6 +27610,50 @@ record(bo, "MR1K2:SWITCH:MMS:YLEFT:PLC:bExecute") {
   info(archive, "VAL")
 }
 
+record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bMoveCmd_RBV") {
+  field(DESC, "Start a move")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M1.bMoveCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "MR1K2:SWITCH:MMS:YLEFT:PLC:bMoveCmd") {
+  field(DESC, "Start a move")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M1.bMoveCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
+record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bHomeCmd_RBV") {
+  field(DESC, "Start the homing routine")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M1.bHomeCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "MR1K2:SWITCH:MMS:YLEFT:PLC:bHomeCmd") {
+  field(DESC, "Start the homing routine")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M1.bHomeCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(longin, "MR1K2:SWITCH:MMS:YLEFT:PLC:nCommand_RBV") {
   # Used internally and by the IOC to pick move type
   field(DESC, "Used internally and ...to pick move type")
@@ -27713,6 +27853,18 @@ record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bDone_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M1.bDone?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
+}
+
+record(bi, "MR1K2:SWITCH:MMS:YLEFT:PLC:bHomed_RBV") {
+  field(DESC, "TRUE if the motor has been homed")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M1.bHomed?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
   info(archive, "VAL")
 }
 
@@ -28054,6 +28206,50 @@ record(bo, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bExecute") {
   info(archive, "VAL")
 }
 
+record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bMoveCmd_RBV") {
+  field(DESC, "Start a move")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M2.bMoveCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bMoveCmd") {
+  field(DESC, "Start a move")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M2.bMoveCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
+record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bHomeCmd_RBV") {
+  field(DESC, "Start the homing routine")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M2.bHomeCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bHomeCmd") {
+  field(DESC, "Start the homing routine")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M2.bHomeCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(longin, "MR1K2:SWITCH:MMS:YRIGHT:PLC:nCommand_RBV") {
   # Used internally and by the IOC to pick move type
   field(DESC, "Used internally and ...to pick move type")
@@ -28253,6 +28449,18 @@ record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bDone_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M2.bDone?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
+}
+
+record(bi, "MR1K2:SWITCH:MMS:YRIGHT:PLC:bHomed_RBV") {
+  field(DESC, "TRUE if the motor has been homed")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M2.bHomed?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
   info(archive, "VAL")
 }
 
@@ -28594,6 +28802,50 @@ record(bo, "MR1K2:SWITCH:MMS:XUP:PLC:bExecute") {
   info(archive, "VAL")
 }
 
+record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bMoveCmd_RBV") {
+  field(DESC, "Start a move")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M3.bMoveCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "MR1K2:SWITCH:MMS:XUP:PLC:bMoveCmd") {
+  field(DESC, "Start a move")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M3.bMoveCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
+record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bHomeCmd_RBV") {
+  field(DESC, "Start the homing routine")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M3.bHomeCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "MR1K2:SWITCH:MMS:XUP:PLC:bHomeCmd") {
+  field(DESC, "Start the homing routine")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M3.bHomeCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(longin, "MR1K2:SWITCH:MMS:XUP:PLC:nCommand_RBV") {
   # Used internally and by the IOC to pick move type
   field(DESC, "Used internally and ...to pick move type")
@@ -28793,6 +29045,18 @@ record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bDone_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M3.bDone?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
+}
+
+record(bi, "MR1K2:SWITCH:MMS:XUP:PLC:bHomed_RBV") {
+  field(DESC, "TRUE if the motor has been homed")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M3.bHomed?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
   info(archive, "VAL")
 }
 
@@ -29134,6 +29398,50 @@ record(bo, "MR1K2:SWITCH:MMS:XDWN:PLC:bExecute") {
   info(archive, "VAL")
 }
 
+record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bMoveCmd_RBV") {
+  field(DESC, "Start a move")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M4.bMoveCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "MR1K2:SWITCH:MMS:XDWN:PLC:bMoveCmd") {
+  field(DESC, "Start a move")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M4.bMoveCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
+record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bHomeCmd_RBV") {
+  field(DESC, "Start the homing routine")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M4.bHomeCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "MR1K2:SWITCH:MMS:XDWN:PLC:bHomeCmd") {
+  field(DESC, "Start the homing routine")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M4.bHomeCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(longin, "MR1K2:SWITCH:MMS:XDWN:PLC:nCommand_RBV") {
   # Used internally and by the IOC to pick move type
   field(DESC, "Used internally and ...to pick move type")
@@ -29333,6 +29641,18 @@ record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bDone_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M4.bDone?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
+}
+
+record(bi, "MR1K2:SWITCH:MMS:XDWN:PLC:bHomed_RBV") {
+  field(DESC, "TRUE if the motor has been homed")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M4.bHomed?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
   info(archive, "VAL")
 }
 
@@ -29674,6 +29994,50 @@ record(bo, "MR1K2:SWITCH:MMS:PITCH:PLC:bExecute") {
   info(archive, "VAL")
 }
 
+record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bMoveCmd_RBV") {
+  field(DESC, "Start a move")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M5.bMoveCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "MR1K2:SWITCH:MMS:PITCH:PLC:bMoveCmd") {
+  field(DESC, "Start a move")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M5.bMoveCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
+record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bHomeCmd_RBV") {
+  field(DESC, "Start the homing routine")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M5.bHomeCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "MR1K2:SWITCH:MMS:PITCH:PLC:bHomeCmd") {
+  field(DESC, "Start the homing routine")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M5.bHomeCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(longin, "MR1K2:SWITCH:MMS:PITCH:PLC:nCommand_RBV") {
   # Used internally and by the IOC to pick move type
   field(DESC, "Used internally and ...to pick move type")
@@ -29873,6 +30237,18 @@ record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bDone_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M5.bDone?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
+}
+
+record(bi, "MR1K2:SWITCH:MMS:PITCH:PLC:bHomed_RBV") {
+  field(DESC, "TRUE if the motor has been homed")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M5.bHomed?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
   info(archive, "VAL")
 }
 
@@ -30214,6 +30590,50 @@ record(bo, "SP1K1:MONO:MMS:M_PI:PLC:bExecute") {
   info(archive, "VAL")
 }
 
+record(bi, "SP1K1:MONO:MMS:M_PI:PLC:bMoveCmd_RBV") {
+  field(DESC, "Start a move")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M6.bMoveCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "SP1K1:MONO:MMS:M_PI:PLC:bMoveCmd") {
+  field(DESC, "Start a move")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M6.bMoveCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
+record(bi, "SP1K1:MONO:MMS:M_PI:PLC:bHomeCmd_RBV") {
+  field(DESC, "Start the homing routine")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M6.bHomeCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "SP1K1:MONO:MMS:M_PI:PLC:bHomeCmd") {
+  field(DESC, "Start the homing routine")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M6.bHomeCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(longin, "SP1K1:MONO:MMS:M_PI:PLC:nCommand_RBV") {
   # Used internally and by the IOC to pick move type
   field(DESC, "Used internally and ...to pick move type")
@@ -30413,6 +30833,18 @@ record(bi, "SP1K1:MONO:MMS:M_PI:PLC:bDone_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M6.bDone?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
+}
+
+record(bi, "SP1K1:MONO:MMS:M_PI:PLC:bHomed_RBV") {
+  field(DESC, "TRUE if the motor has been homed")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M6.bHomed?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
   info(archive, "VAL")
 }
 
@@ -30754,6 +31186,50 @@ record(bo, "SP1K1:MONO:MMS:G_PI:PLC:bExecute") {
   info(archive, "VAL")
 }
 
+record(bi, "SP1K1:MONO:MMS:G_PI:PLC:bMoveCmd_RBV") {
+  field(DESC, "Start a move")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M7.bMoveCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "SP1K1:MONO:MMS:G_PI:PLC:bMoveCmd") {
+  field(DESC, "Start a move")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M7.bMoveCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
+record(bi, "SP1K1:MONO:MMS:G_PI:PLC:bHomeCmd_RBV") {
+  field(DESC, "Start the homing routine")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M7.bHomeCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "SP1K1:MONO:MMS:G_PI:PLC:bHomeCmd") {
+  field(DESC, "Start the homing routine")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M7.bHomeCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(longin, "SP1K1:MONO:MMS:G_PI:PLC:nCommand_RBV") {
   # Used internally and by the IOC to pick move type
   field(DESC, "Used internally and ...to pick move type")
@@ -30953,6 +31429,18 @@ record(bi, "SP1K1:MONO:MMS:G_PI:PLC:bDone_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M7.bDone?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
+}
+
+record(bi, "SP1K1:MONO:MMS:G_PI:PLC:bHomed_RBV") {
+  field(DESC, "TRUE if the motor has been homed")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M7.bHomed?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
   info(archive, "VAL")
 }
 
@@ -31294,6 +31782,50 @@ record(bo, "SP1K1:MONO:MMS:M_H:PLC:bExecute") {
   info(archive, "VAL")
 }
 
+record(bi, "SP1K1:MONO:MMS:M_H:PLC:bMoveCmd_RBV") {
+  field(DESC, "Start a move")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M8.bMoveCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "SP1K1:MONO:MMS:M_H:PLC:bMoveCmd") {
+  field(DESC, "Start a move")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M8.bMoveCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
+record(bi, "SP1K1:MONO:MMS:M_H:PLC:bHomeCmd_RBV") {
+  field(DESC, "Start the homing routine")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M8.bHomeCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "SP1K1:MONO:MMS:M_H:PLC:bHomeCmd") {
+  field(DESC, "Start the homing routine")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M8.bHomeCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(longin, "SP1K1:MONO:MMS:M_H:PLC:nCommand_RBV") {
   # Used internally and by the IOC to pick move type
   field(DESC, "Used internally and ...to pick move type")
@@ -31493,6 +32025,18 @@ record(bi, "SP1K1:MONO:MMS:M_H:PLC:bDone_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M8.bDone?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
+}
+
+record(bi, "SP1K1:MONO:MMS:M_H:PLC:bHomed_RBV") {
+  field(DESC, "TRUE if the motor has been homed")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M8.bHomed?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
   info(archive, "VAL")
 }
 
@@ -31834,6 +32378,50 @@ record(bo, "SP1K1:MONO:MMS:G_H:PLC:bExecute") {
   info(archive, "VAL")
 }
 
+record(bi, "SP1K1:MONO:MMS:G_H:PLC:bMoveCmd_RBV") {
+  field(DESC, "Start a move")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M9.bMoveCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "SP1K1:MONO:MMS:G_H:PLC:bMoveCmd") {
+  field(DESC, "Start a move")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M9.bMoveCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
+record(bi, "SP1K1:MONO:MMS:G_H:PLC:bHomeCmd_RBV") {
+  field(DESC, "Start the homing routine")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M9.bHomeCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "SP1K1:MONO:MMS:G_H:PLC:bHomeCmd") {
+  field(DESC, "Start the homing routine")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M9.bHomeCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(longin, "SP1K1:MONO:MMS:G_H:PLC:nCommand_RBV") {
   # Used internally and by the IOC to pick move type
   field(DESC, "Used internally and ...to pick move type")
@@ -32033,6 +32621,18 @@ record(bi, "SP1K1:MONO:MMS:G_H:PLC:bDone_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M9.bDone?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
+}
+
+record(bi, "SP1K1:MONO:MMS:G_H:PLC:bHomed_RBV") {
+  field(DESC, "TRUE if the motor has been homed")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M9.bHomed?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
   info(archive, "VAL")
 }
 
@@ -32374,6 +32974,50 @@ record(bo, "SP1K1:MONO:MMS:SD_V:PLC:bExecute") {
   info(archive, "VAL")
 }
 
+record(bi, "SP1K1:MONO:MMS:SD_V:PLC:bMoveCmd_RBV") {
+  field(DESC, "Start a move")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M10.bMoveCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "SP1K1:MONO:MMS:SD_V:PLC:bMoveCmd") {
+  field(DESC, "Start a move")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M10.bMoveCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
+record(bi, "SP1K1:MONO:MMS:SD_V:PLC:bHomeCmd_RBV") {
+  field(DESC, "Start the homing routine")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M10.bHomeCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "SP1K1:MONO:MMS:SD_V:PLC:bHomeCmd") {
+  field(DESC, "Start the homing routine")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M10.bHomeCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(longin, "SP1K1:MONO:MMS:SD_V:PLC:nCommand_RBV") {
   # Used internally and by the IOC to pick move type
   field(DESC, "Used internally and ...to pick move type")
@@ -32573,6 +33217,18 @@ record(bi, "SP1K1:MONO:MMS:SD_V:PLC:bDone_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M10.bDone?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
+}
+
+record(bi, "SP1K1:MONO:MMS:SD_V:PLC:bHomed_RBV") {
+  field(DESC, "TRUE if the motor has been homed")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M10.bHomed?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
   info(archive, "VAL")
 }
 
@@ -32914,6 +33570,50 @@ record(bo, "SP1K1:MONO:MMS:SD_ROT:PLC:bExecute") {
   info(archive, "VAL")
 }
 
+record(bi, "SP1K1:MONO:MMS:SD_ROT:PLC:bMoveCmd_RBV") {
+  field(DESC, "Start a move")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M11.bMoveCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "SP1K1:MONO:MMS:SD_ROT:PLC:bMoveCmd") {
+  field(DESC, "Start a move")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M11.bMoveCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
+record(bi, "SP1K1:MONO:MMS:SD_ROT:PLC:bHomeCmd_RBV") {
+  field(DESC, "Start the homing routine")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M11.bHomeCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "SP1K1:MONO:MMS:SD_ROT:PLC:bHomeCmd") {
+  field(DESC, "Start the homing routine")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M11.bHomeCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(longin, "SP1K1:MONO:MMS:SD_ROT:PLC:nCommand_RBV") {
   # Used internally and by the IOC to pick move type
   field(DESC, "Used internally and ...to pick move type")
@@ -33113,6 +33813,18 @@ record(bi, "SP1K1:MONO:MMS:SD_ROT:PLC:bDone_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M11.bDone?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
+}
+
+record(bi, "SP1K1:MONO:MMS:SD_ROT:PLC:bHomed_RBV") {
+  field(DESC, "TRUE if the motor has been homed")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M11.bHomed?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
   info(archive, "VAL")
 }
 
@@ -33454,6 +34166,50 @@ record(bo, "MR1K1:BEND:MMS:YUP:PLC:bExecute") {
   info(archive, "VAL")
 }
 
+record(bi, "MR1K1:BEND:MMS:YUP:PLC:bMoveCmd_RBV") {
+  field(DESC, "Start a move")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M12.bMoveCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "MR1K1:BEND:MMS:YUP:PLC:bMoveCmd") {
+  field(DESC, "Start a move")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M12.bMoveCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
+record(bi, "MR1K1:BEND:MMS:YUP:PLC:bHomeCmd_RBV") {
+  field(DESC, "Start the homing routine")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M12.bHomeCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "MR1K1:BEND:MMS:YUP:PLC:bHomeCmd") {
+  field(DESC, "Start the homing routine")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M12.bHomeCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(longin, "MR1K1:BEND:MMS:YUP:PLC:nCommand_RBV") {
   # Used internally and by the IOC to pick move type
   field(DESC, "Used internally and ...to pick move type")
@@ -33653,6 +34409,18 @@ record(bi, "MR1K1:BEND:MMS:YUP:PLC:bDone_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M12.bDone?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
+}
+
+record(bi, "MR1K1:BEND:MMS:YUP:PLC:bHomed_RBV") {
+  field(DESC, "TRUE if the motor has been homed")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M12.bHomed?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
   info(archive, "VAL")
 }
 
@@ -33994,6 +34762,50 @@ record(bo, "MR1K1:BEND:MMS:YDWN:PLC:bExecute") {
   info(archive, "VAL")
 }
 
+record(bi, "MR1K1:BEND:MMS:YDWN:PLC:bMoveCmd_RBV") {
+  field(DESC, "Start a move")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M13.bMoveCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "MR1K1:BEND:MMS:YDWN:PLC:bMoveCmd") {
+  field(DESC, "Start a move")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M13.bMoveCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
+record(bi, "MR1K1:BEND:MMS:YDWN:PLC:bHomeCmd_RBV") {
+  field(DESC, "Start the homing routine")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M13.bHomeCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "MR1K1:BEND:MMS:YDWN:PLC:bHomeCmd") {
+  field(DESC, "Start the homing routine")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M13.bHomeCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(longin, "MR1K1:BEND:MMS:YDWN:PLC:nCommand_RBV") {
   # Used internally and by the IOC to pick move type
   field(DESC, "Used internally and ...to pick move type")
@@ -34193,6 +35005,18 @@ record(bi, "MR1K1:BEND:MMS:YDWN:PLC:bDone_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M13.bDone?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
+}
+
+record(bi, "MR1K1:BEND:MMS:YDWN:PLC:bHomed_RBV") {
+  field(DESC, "TRUE if the motor has been homed")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M13.bHomed?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
   info(archive, "VAL")
 }
 
@@ -34534,6 +35358,50 @@ record(bo, "MR1K1:BEND:MMS:XUP:PLC:bExecute") {
   info(archive, "VAL")
 }
 
+record(bi, "MR1K1:BEND:MMS:XUP:PLC:bMoveCmd_RBV") {
+  field(DESC, "Start a move")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M14.bMoveCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "MR1K1:BEND:MMS:XUP:PLC:bMoveCmd") {
+  field(DESC, "Start a move")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M14.bMoveCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
+record(bi, "MR1K1:BEND:MMS:XUP:PLC:bHomeCmd_RBV") {
+  field(DESC, "Start the homing routine")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M14.bHomeCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "MR1K1:BEND:MMS:XUP:PLC:bHomeCmd") {
+  field(DESC, "Start the homing routine")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M14.bHomeCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(longin, "MR1K1:BEND:MMS:XUP:PLC:nCommand_RBV") {
   # Used internally and by the IOC to pick move type
   field(DESC, "Used internally and ...to pick move type")
@@ -34733,6 +35601,18 @@ record(bi, "MR1K1:BEND:MMS:XUP:PLC:bDone_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M14.bDone?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
+}
+
+record(bi, "MR1K1:BEND:MMS:XUP:PLC:bHomed_RBV") {
+  field(DESC, "TRUE if the motor has been homed")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M14.bHomed?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
   info(archive, "VAL")
 }
 
@@ -35074,6 +35954,50 @@ record(bo, "MR1K1:BEND:MMS:XDWN:PLC:bExecute") {
   info(archive, "VAL")
 }
 
+record(bi, "MR1K1:BEND:MMS:XDWN:PLC:bMoveCmd_RBV") {
+  field(DESC, "Start a move")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M15.bMoveCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "MR1K1:BEND:MMS:XDWN:PLC:bMoveCmd") {
+  field(DESC, "Start a move")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M15.bMoveCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
+record(bi, "MR1K1:BEND:MMS:XDWN:PLC:bHomeCmd_RBV") {
+  field(DESC, "Start the homing routine")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M15.bHomeCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "MR1K1:BEND:MMS:XDWN:PLC:bHomeCmd") {
+  field(DESC, "Start the homing routine")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M15.bHomeCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(longin, "MR1K1:BEND:MMS:XDWN:PLC:nCommand_RBV") {
   # Used internally and by the IOC to pick move type
   field(DESC, "Used internally and ...to pick move type")
@@ -35273,6 +36197,18 @@ record(bi, "MR1K1:BEND:MMS:XDWN:PLC:bDone_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M15.bDone?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
+}
+
+record(bi, "MR1K1:BEND:MMS:XDWN:PLC:bHomed_RBV") {
+  field(DESC, "TRUE if the motor has been homed")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M15.bHomed?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
   info(archive, "VAL")
 }
 
@@ -35614,6 +36550,50 @@ record(bo, "MR1K1:BEND:MMS:PITCH:PLC:bExecute") {
   info(archive, "VAL")
 }
 
+record(bi, "MR1K1:BEND:MMS:PITCH:PLC:bMoveCmd_RBV") {
+  field(DESC, "Start a move")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M16.bMoveCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "MR1K1:BEND:MMS:PITCH:PLC:bMoveCmd") {
+  field(DESC, "Start a move")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M16.bMoveCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
+record(bi, "MR1K1:BEND:MMS:PITCH:PLC:bHomeCmd_RBV") {
+  field(DESC, "Start the homing routine")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M16.bHomeCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "MR1K1:BEND:MMS:PITCH:PLC:bHomeCmd") {
+  field(DESC, "Start the homing routine")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M16.bHomeCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(longin, "MR1K1:BEND:MMS:PITCH:PLC:nCommand_RBV") {
   # Used internally and by the IOC to pick move type
   field(DESC, "Used internally and ...to pick move type")
@@ -35813,6 +36793,18 @@ record(bi, "MR1K1:BEND:MMS:PITCH:PLC:bDone_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M16.bDone?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
+}
+
+record(bi, "MR1K1:BEND:MMS:PITCH:PLC:bHomed_RBV") {
+  field(DESC, "TRUE if the motor has been homed")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M16.bHomed?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
   info(archive, "VAL")
 }
 
@@ -36154,6 +37146,50 @@ record(bo, "MR1K1:BEND:MMS:US:PLC:bExecute") {
   info(archive, "VAL")
 }
 
+record(bi, "MR1K1:BEND:MMS:US:PLC:bMoveCmd_RBV") {
+  field(DESC, "Start a move")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M17.bMoveCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "MR1K1:BEND:MMS:US:PLC:bMoveCmd") {
+  field(DESC, "Start a move")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M17.bMoveCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
+record(bi, "MR1K1:BEND:MMS:US:PLC:bHomeCmd_RBV") {
+  field(DESC, "Start the homing routine")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M17.bHomeCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "MR1K1:BEND:MMS:US:PLC:bHomeCmd") {
+  field(DESC, "Start the homing routine")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M17.bHomeCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(longin, "MR1K1:BEND:MMS:US:PLC:nCommand_RBV") {
   # Used internally and by the IOC to pick move type
   field(DESC, "Used internally and ...to pick move type")
@@ -36353,6 +37389,18 @@ record(bi, "MR1K1:BEND:MMS:US:PLC:bDone_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M17.bDone?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
+}
+
+record(bi, "MR1K1:BEND:MMS:US:PLC:bHomed_RBV") {
+  field(DESC, "TRUE if the motor has been homed")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M17.bHomed?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
   info(archive, "VAL")
 }
 
@@ -36694,6 +37742,50 @@ record(bo, "MR1K1:BEND:MMS:DS:PLC:bExecute") {
   info(archive, "VAL")
 }
 
+record(bi, "MR1K1:BEND:MMS:DS:PLC:bMoveCmd_RBV") {
+  field(DESC, "Start a move")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M18.bMoveCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "MR1K1:BEND:MMS:DS:PLC:bMoveCmd") {
+  field(DESC, "Start a move")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M18.bMoveCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
+record(bi, "MR1K1:BEND:MMS:DS:PLC:bHomeCmd_RBV") {
+  field(DESC, "Start the homing routine")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M18.bHomeCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "MR1K1:BEND:MMS:DS:PLC:bHomeCmd") {
+  field(DESC, "Start the homing routine")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M18.bHomeCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(longin, "MR1K1:BEND:MMS:DS:PLC:nCommand_RBV") {
   # Used internally and by the IOC to pick move type
   field(DESC, "Used internally and ...to pick move type")
@@ -36893,6 +37985,18 @@ record(bi, "MR1K1:BEND:MMS:DS:PLC:bDone_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M18.bDone?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
+}
+
+record(bi, "MR1K1:BEND:MMS:DS:PLC:bHomed_RBV") {
+  field(DESC, "TRUE if the motor has been homed")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M18.bHomed?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
   info(archive, "VAL")
 }
 
@@ -37234,6 +38338,50 @@ record(bo, "SL1K2:EXIT:MMS:PITCH:PLC:bExecute") {
   info(archive, "VAL")
 }
 
+record(bi, "SL1K2:EXIT:MMS:PITCH:PLC:bMoveCmd_RBV") {
+  field(DESC, "Start a move")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M19.bMoveCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "SL1K2:EXIT:MMS:PITCH:PLC:bMoveCmd") {
+  field(DESC, "Start a move")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M19.bMoveCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
+record(bi, "SL1K2:EXIT:MMS:PITCH:PLC:bHomeCmd_RBV") {
+  field(DESC, "Start the homing routine")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M19.bHomeCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "SL1K2:EXIT:MMS:PITCH:PLC:bHomeCmd") {
+  field(DESC, "Start the homing routine")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M19.bHomeCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(longin, "SL1K2:EXIT:MMS:PITCH:PLC:nCommand_RBV") {
   # Used internally and by the IOC to pick move type
   field(DESC, "Used internally and ...to pick move type")
@@ -37433,6 +38581,18 @@ record(bi, "SL1K2:EXIT:MMS:PITCH:PLC:bDone_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M19.bDone?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
+}
+
+record(bi, "SL1K2:EXIT:MMS:PITCH:PLC:bHomed_RBV") {
+  field(DESC, "TRUE if the motor has been homed")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M19.bHomed?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
   info(archive, "VAL")
 }
 
@@ -37774,6 +38934,50 @@ record(bo, "SL1K2:EXIT:MMS:ROLL:PLC:bExecute") {
   info(archive, "VAL")
 }
 
+record(bi, "SL1K2:EXIT:MMS:ROLL:PLC:bMoveCmd_RBV") {
+  field(DESC, "Start a move")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M21.bMoveCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "SL1K2:EXIT:MMS:ROLL:PLC:bMoveCmd") {
+  field(DESC, "Start a move")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M21.bMoveCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
+record(bi, "SL1K2:EXIT:MMS:ROLL:PLC:bHomeCmd_RBV") {
+  field(DESC, "Start the homing routine")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M21.bHomeCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "SL1K2:EXIT:MMS:ROLL:PLC:bHomeCmd") {
+  field(DESC, "Start the homing routine")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M21.bHomeCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(longin, "SL1K2:EXIT:MMS:ROLL:PLC:nCommand_RBV") {
   # Used internally and by the IOC to pick move type
   field(DESC, "Used internally and ...to pick move type")
@@ -37973,6 +39177,18 @@ record(bi, "SL1K2:EXIT:MMS:ROLL:PLC:bDone_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M21.bDone?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
+}
+
+record(bi, "SL1K2:EXIT:MMS:ROLL:PLC:bHomed_RBV") {
+  field(DESC, "TRUE if the motor has been homed")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M21.bHomed?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
   info(archive, "VAL")
 }
 
@@ -38314,6 +39530,50 @@ record(bo, "SL1K2:EXIT:MMS:GAP:PLC:bExecute") {
   info(archive, "VAL")
 }
 
+record(bi, "SL1K2:EXIT:MMS:GAP:PLC:bMoveCmd_RBV") {
+  field(DESC, "Start a move")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M22.bMoveCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "SL1K2:EXIT:MMS:GAP:PLC:bMoveCmd") {
+  field(DESC, "Start a move")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M22.bMoveCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
+record(bi, "SL1K2:EXIT:MMS:GAP:PLC:bHomeCmd_RBV") {
+  field(DESC, "Start the homing routine")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M22.bHomeCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "SL1K2:EXIT:MMS:GAP:PLC:bHomeCmd") {
+  field(DESC, "Start the homing routine")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M22.bHomeCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(longin, "SL1K2:EXIT:MMS:GAP:PLC:nCommand_RBV") {
   # Used internally and by the IOC to pick move type
   field(DESC, "Used internally and ...to pick move type")
@@ -38513,6 +39773,18 @@ record(bi, "SL1K2:EXIT:MMS:GAP:PLC:bDone_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M22.bDone?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
+}
+
+record(bi, "SL1K2:EXIT:MMS:GAP:PLC:bHomed_RBV") {
+  field(DESC, "TRUE if the motor has been homed")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M22.bHomed?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
   info(archive, "VAL")
 }
 
@@ -38854,6 +40126,50 @@ record(bo, "SL1K2:EXIT:MMS:YAG:PLC:bExecute") {
   info(archive, "VAL")
 }
 
+record(bi, "SL1K2:EXIT:MMS:YAG:PLC:bMoveCmd_RBV") {
+  field(DESC, "Start a move")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M23.bMoveCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "SL1K2:EXIT:MMS:YAG:PLC:bMoveCmd") {
+  field(DESC, "Start a move")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M23.bMoveCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
+record(bi, "SL1K2:EXIT:MMS:YAG:PLC:bHomeCmd_RBV") {
+  field(DESC, "Start the homing routine")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M23.bHomeCmd?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(archive, "VAL")
+}
+
+record(bo, "SL1K2:EXIT:MMS:YAG:PLC:bHomeCmd") {
+  field(DESC, "Start the homing routine")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/Main.M23.bHomeCmd=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "VAL")
+  info(archive, "VAL")
+}
+
 record(longin, "SL1K2:EXIT:MMS:YAG:PLC:nCommand_RBV") {
   # Used internally and by the IOC to pick move type
   field(DESC, "Used internally and ...to pick move type")
@@ -39053,6 +40369,18 @@ record(bi, "SL1K2:EXIT:MMS:YAG:PLC:bDone_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M23.bDone?")
   field(ZNAM, "TRUE")
   field(ONAM, "FALSE")
+  info(archive, "VAL")
+}
+
+record(bi, "SL1K2:EXIT:MMS:YAG:PLC:bHomed_RBV") {
+  field(DESC, "TRUE if the motor has been homed")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/Main.M23.bHomed?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
   info(archive, "VAL")
 }
 
