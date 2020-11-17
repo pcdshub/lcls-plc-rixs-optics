@@ -35,6 +35,21 @@ VAR
 	'}
 	nEncRefBendDSM1K1 : UDINT;
 	
+	// Encoder raw counts
+	//M1K1 BEND US ENC CNT
+	{attribute 'pytmc' := '
+		pv: MR1K1:BEND:ENC:US:CNT
+		field: EGU cnt
+		io: i
+	'}
+	nEncCntBendUSM1K1 : UDINT;
+	//M1K1 BEND DS ENC CNT
+	{attribute 'pytmc' := '
+		pv: MR1K1:BEND:ENC:DS:CNT
+		field: EGU cnt
+		io: i
+	'}
+	nEncCntBendDSM1K1 : UDINT;
 	//Emergency Stop for MR1K1
 	//Emergency Stop for MR1K1
 	{attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL1004_M1K1_BENDER_STO^Channel 1^Input'}
@@ -125,6 +140,10 @@ M18.bHardwareEnable := M1K1BENDbSTOEnable1 AND M1K1BENDbSTOEnable2;
 //Encoder reference positions for MR1K1
 nEncRefBendUSM1K1  := ULINT_TO_UDINT(GVL_M1K1_BENDER_Constants.nM1K1bendUS_ENC_REF);
 nEncRefBendDSM1K1  := ULINT_TO_UDINT(GVL_M1K1_BENDER_Constants.nM1K1bendDS_ENC_REF);
+
+// M1K1 Bender Encoder Count Values For Epics
+nEncCntBendUSM1K1  := ULINT_TO_UDINT(M17.nRawEncoderULINT);
+nEncCntBendDSM1K1  := ULINT_TO_UDINT(M18.nRawEncoderULINT);	
 
 // MR1K1 Bender RTDs
 fM1K1US_RTD_1 := INT_TO_REAL(GVL_M1K1_BENDER_RTD.nM1K1US_RTD_1);
