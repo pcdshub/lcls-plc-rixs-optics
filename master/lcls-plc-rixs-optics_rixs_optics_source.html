@@ -931,6 +931,21 @@ END_VAR
     <span class="s1">&#39;}</span>
     <span class="n">nEncRefBendDSM1K1</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
 
+    <span class="o">//</span> <span class="n">Encoder</span> <span class="n">raw</span> <span class="n">counts</span>
+    <span class="o">//</span><span class="n">M1K1</span> <span class="n">BEND</span> <span class="n">US</span> <span class="n">ENC</span> <span class="n">CNT</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+            <span class="n">pv</span><span class="p">:</span> <span class="n">MR1K1</span><span class="p">:</span><span class="n">BEND</span><span class="p">:</span><span class="n">ENC</span><span class="p">:</span><span class="n">US</span><span class="p">:</span><span class="n">CNT</span>
+            <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">cnt</span>
+            <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">nEncCntBendUSM1K1</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
+    <span class="o">//</span><span class="n">M1K1</span> <span class="n">BEND</span> <span class="n">DS</span> <span class="n">ENC</span> <span class="n">CNT</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+            <span class="n">pv</span><span class="p">:</span> <span class="n">MR1K1</span><span class="p">:</span><span class="n">BEND</span><span class="p">:</span><span class="n">ENC</span><span class="p">:</span><span class="n">DS</span><span class="p">:</span><span class="n">CNT</span>
+            <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">cnt</span>
+            <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">nEncCntBendDSM1K1</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
     <span class="o">//</span><span class="n">Emergency</span> <span class="n">Stop</span> <span class="k">for</span> <span class="n">MR1K1</span>
     <span class="o">//</span><span class="n">Emergency</span> <span class="n">Stop</span> <span class="k">for</span> <span class="n">MR1K1</span>
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL1004_M1K1_BENDER_STO^Channel 1^Input&#39;</span><span class="p">}</span>
@@ -1020,6 +1035,10 @@ END_VAR
 <span class="o">//</span><span class="n">Encoder</span> <span class="n">reference</span> <span class="n">positions</span> <span class="k">for</span> <span class="n">MR1K1</span>
 <span class="n">nEncRefBendUSM1K1</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">GVL_M1K1_BENDER_Constants</span><span class="o">.</span><span class="n">nM1K1bendUS_ENC_REF</span><span class="p">);</span>
 <span class="n">nEncRefBendDSM1K1</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">GVL_M1K1_BENDER_Constants</span><span class="o">.</span><span class="n">nM1K1bendDS_ENC_REF</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">M1K1</span> <span class="n">Bender</span> <span class="n">Encoder</span> <span class="n">Count</span> <span class="n">Values</span> <span class="n">For</span> <span class="n">Epics</span>
+<span class="n">nEncCntBendUSM1K1</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">M17</span><span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="p">);</span>
+<span class="n">nEncCntBendDSM1K1</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">M18</span><span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="p">);</span>
 
 <span class="o">//</span> <span class="n">MR1K1</span> <span class="n">Bender</span> <span class="n">RTDs</span>
 <span class="n">fM1K1US_RTD_1</span> <span class="o">:=</span> <span class="n">INT_TO_REAL</span><span class="p">(</span><span class="n">GVL_M1K1_BENDER_RTD</span><span class="o">.</span><span class="n">nM1K1US_RTD_1</span><span class="p">);</span>

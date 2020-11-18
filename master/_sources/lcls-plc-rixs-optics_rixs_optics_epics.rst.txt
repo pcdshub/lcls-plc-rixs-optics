@@ -1197,6 +1197,24 @@ lcls_twincat_motion.DUT_MotionStage
         | io: input
 
 
+    * - $(PREFIX):PLC:bHomeCmd
+      - bo
+      - Start the homing routine
+      - | io: output
+
+
+    * - $(PREFIX):PLC:bHomeCmd_RBV
+      - bi
+      - Start the homing routine
+      - | io: output
+
+
+    * - $(PREFIX):PLC:bHomed_RBV
+      - bi
+      - TRUE if the motor has been homed
+      - | io: input
+
+
     * - $(PREFIX):PLC:bLimitBackwardEnable_RBV
       - bi
       - FALSE if reverse limit hit
@@ -1211,6 +1229,18 @@ lcls_twincat_motion.DUT_MotionStage
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - $(PREFIX):PLC:bMoveCmd
+      - bo
+      - Start a move
+      - | io: output
+
+
+    * - $(PREFIX):PLC:bMoveCmd_RBV
+      - bi
+      - Start a move
+      - | io: output
 
 
     * - $(PREFIX):PLC:bPowerSelf_RBV
@@ -1487,7 +1517,7 @@ lcls_twincat_motion.DUT_PositionState
       - | io: output
 
 
-                        
+                          
 lcls_twincat_optics.DUT_HOMS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -10828,6 +10858,13 @@ Database Records
       - | io: input
 
 
+    * - MR1K1:BEND:ENC:DS:CNT_RBV
+      - longin
+      - PRG_MR1K1_BEND_BENDER.nEncCntBendDSM1K1
+      - | field: EGU cnt
+        | io: input
+
+
     * - MR1K1:BEND:ENC:DS:MEAN_RBV
       - ai
       - PRG_MR1K1_BEND_BENDER.fbBendDSRMSErrorM1K1.fEncMean
@@ -10907,6 +10944,13 @@ Database Records
       - waveform
       - PRG_MR1K1_BEND_BENDER.fbBendUSRMSErrorM1K1.aEncActPos
       - | io: input
+
+
+    * - MR1K1:BEND:ENC:US:CNT_RBV
+      - longin
+      - PRG_MR1K1_BEND_BENDER.nEncCntBendUSM1K1
+      - | field: EGU cnt
+        | io: input
 
 
     * - MR1K1:BEND:ENC:US:MEAN_RBV
@@ -11206,6 +11250,24 @@ Database Records
         | io: input
 
 
+    * - MR1K1:BEND:MMS:DS:PLC:bHomeCmd
+      - bo
+      - Start the homing routine
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:bHomeCmd_RBV
+      - bi
+      - Start the homing routine
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:bHomed_RBV
+      - bi
+      - TRUE if the motor has been homed
+      - | io: input
+
+
     * - MR1K1:BEND:MMS:DS:PLC:bLimitBackwardEnable_RBV
       - bi
       - FALSE if reverse limit hit
@@ -11220,6 +11282,18 @@ Database Records
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:bMoveCmd
+      - bo
+      - Start a move
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:bMoveCmd_RBV
+      - bi
+      - Start a move
+      - | io: output
 
 
     * - MR1K1:BEND:MMS:DS:PLC:bPowerSelf_RBV
@@ -11522,6 +11596,24 @@ Database Records
         | io: input
 
 
+    * - MR1K1:BEND:MMS:PITCH:PLC:bHomeCmd
+      - bo
+      - Start the homing routine
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:PITCH:PLC:bHomeCmd_RBV
+      - bi
+      - Start the homing routine
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:PITCH:PLC:bHomed_RBV
+      - bi
+      - TRUE if the motor has been homed
+      - | io: input
+
+
     * - MR1K1:BEND:MMS:PITCH:PLC:bLimitBackwardEnable_RBV
       - bi
       - FALSE if reverse limit hit
@@ -11536,6 +11628,18 @@ Database Records
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - MR1K1:BEND:MMS:PITCH:PLC:bMoveCmd
+      - bo
+      - Start a move
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:PITCH:PLC:bMoveCmd_RBV
+      - bi
+      - Start a move
+      - | io: output
 
 
     * - MR1K1:BEND:MMS:PITCH:PLC:bPowerSelf_RBV
@@ -11838,6 +11942,24 @@ Database Records
         | io: input
 
 
+    * - MR1K1:BEND:MMS:US:PLC:bHomeCmd
+      - bo
+      - Start the homing routine
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:US:PLC:bHomeCmd_RBV
+      - bi
+      - Start the homing routine
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:US:PLC:bHomed_RBV
+      - bi
+      - TRUE if the motor has been homed
+      - | io: input
+
+
     * - MR1K1:BEND:MMS:US:PLC:bLimitBackwardEnable_RBV
       - bi
       - FALSE if reverse limit hit
@@ -11852,6 +11974,18 @@ Database Records
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:bMoveCmd
+      - bo
+      - Start a move
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:US:PLC:bMoveCmd_RBV
+      - bi
+      - Start a move
+      - | io: output
 
 
     * - MR1K1:BEND:MMS:US:PLC:bPowerSelf_RBV
@@ -12154,6 +12288,24 @@ Database Records
         | io: input
 
 
+    * - MR1K1:BEND:MMS:XDWN:PLC:bHomeCmd
+      - bo
+      - Start the homing routine
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:XDWN:PLC:bHomeCmd_RBV
+      - bi
+      - Start the homing routine
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:XDWN:PLC:bHomed_RBV
+      - bi
+      - TRUE if the motor has been homed
+      - | io: input
+
+
     * - MR1K1:BEND:MMS:XDWN:PLC:bLimitBackwardEnable_RBV
       - bi
       - FALSE if reverse limit hit
@@ -12168,6 +12320,18 @@ Database Records
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - MR1K1:BEND:MMS:XDWN:PLC:bMoveCmd
+      - bo
+      - Start a move
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:XDWN:PLC:bMoveCmd_RBV
+      - bi
+      - Start a move
+      - | io: output
 
 
     * - MR1K1:BEND:MMS:XDWN:PLC:bPowerSelf_RBV
@@ -12470,6 +12634,24 @@ Database Records
         | io: input
 
 
+    * - MR1K1:BEND:MMS:XUP:PLC:bHomeCmd
+      - bo
+      - Start the homing routine
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:XUP:PLC:bHomeCmd_RBV
+      - bi
+      - Start the homing routine
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:XUP:PLC:bHomed_RBV
+      - bi
+      - TRUE if the motor has been homed
+      - | io: input
+
+
     * - MR1K1:BEND:MMS:XUP:PLC:bLimitBackwardEnable_RBV
       - bi
       - FALSE if reverse limit hit
@@ -12484,6 +12666,18 @@ Database Records
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - MR1K1:BEND:MMS:XUP:PLC:bMoveCmd
+      - bo
+      - Start a move
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:XUP:PLC:bMoveCmd_RBV
+      - bi
+      - Start a move
+      - | io: output
 
 
     * - MR1K1:BEND:MMS:XUP:PLC:bPowerSelf_RBV
@@ -12786,6 +12980,24 @@ Database Records
         | io: input
 
 
+    * - MR1K1:BEND:MMS:YDWN:PLC:bHomeCmd
+      - bo
+      - Start the homing routine
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:YDWN:PLC:bHomeCmd_RBV
+      - bi
+      - Start the homing routine
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:YDWN:PLC:bHomed_RBV
+      - bi
+      - TRUE if the motor has been homed
+      - | io: input
+
+
     * - MR1K1:BEND:MMS:YDWN:PLC:bLimitBackwardEnable_RBV
       - bi
       - FALSE if reverse limit hit
@@ -12800,6 +13012,18 @@ Database Records
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - MR1K1:BEND:MMS:YDWN:PLC:bMoveCmd
+      - bo
+      - Start a move
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:YDWN:PLC:bMoveCmd_RBV
+      - bi
+      - Start a move
+      - | io: output
 
 
     * - MR1K1:BEND:MMS:YDWN:PLC:bPowerSelf_RBV
@@ -13102,6 +13326,24 @@ Database Records
         | io: input
 
 
+    * - MR1K1:BEND:MMS:YUP:PLC:bHomeCmd
+      - bo
+      - Start the homing routine
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:YUP:PLC:bHomeCmd_RBV
+      - bi
+      - Start the homing routine
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:YUP:PLC:bHomed_RBV
+      - bi
+      - TRUE if the motor has been homed
+      - | io: input
+
+
     * - MR1K1:BEND:MMS:YUP:PLC:bLimitBackwardEnable_RBV
       - bi
       - FALSE if reverse limit hit
@@ -13116,6 +13358,18 @@ Database Records
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - MR1K1:BEND:MMS:YUP:PLC:bMoveCmd
+      - bo
+      - Start a move
+      - | io: output
+
+
+    * - MR1K1:BEND:MMS:YUP:PLC:bMoveCmd_RBV
+      - bi
+      - Start a move
+      - | io: output
 
 
     * - MR1K1:BEND:MMS:YUP:PLC:bPowerSelf_RBV
@@ -13707,6 +13961,24 @@ Database Records
         | io: input
 
 
+    * - MR1K2:SWITCH:MMS:PITCH:PLC:bHomeCmd
+      - bo
+      - Start the homing routine
+      - | io: output
+
+
+    * - MR1K2:SWITCH:MMS:PITCH:PLC:bHomeCmd_RBV
+      - bi
+      - Start the homing routine
+      - | io: output
+
+
+    * - MR1K2:SWITCH:MMS:PITCH:PLC:bHomed_RBV
+      - bi
+      - TRUE if the motor has been homed
+      - | io: input
+
+
     * - MR1K2:SWITCH:MMS:PITCH:PLC:bLimitBackwardEnable_RBV
       - bi
       - FALSE if reverse limit hit
@@ -13721,6 +13993,18 @@ Database Records
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - MR1K2:SWITCH:MMS:PITCH:PLC:bMoveCmd
+      - bo
+      - Start a move
+      - | io: output
+
+
+    * - MR1K2:SWITCH:MMS:PITCH:PLC:bMoveCmd_RBV
+      - bi
+      - Start a move
+      - | io: output
 
 
     * - MR1K2:SWITCH:MMS:PITCH:PLC:bPowerSelf_RBV
@@ -14023,6 +14307,24 @@ Database Records
         | io: input
 
 
+    * - MR1K2:SWITCH:MMS:XDWN:PLC:bHomeCmd
+      - bo
+      - Start the homing routine
+      - | io: output
+
+
+    * - MR1K2:SWITCH:MMS:XDWN:PLC:bHomeCmd_RBV
+      - bi
+      - Start the homing routine
+      - | io: output
+
+
+    * - MR1K2:SWITCH:MMS:XDWN:PLC:bHomed_RBV
+      - bi
+      - TRUE if the motor has been homed
+      - | io: input
+
+
     * - MR1K2:SWITCH:MMS:XDWN:PLC:bLimitBackwardEnable_RBV
       - bi
       - FALSE if reverse limit hit
@@ -14037,6 +14339,18 @@ Database Records
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - MR1K2:SWITCH:MMS:XDWN:PLC:bMoveCmd
+      - bo
+      - Start a move
+      - | io: output
+
+
+    * - MR1K2:SWITCH:MMS:XDWN:PLC:bMoveCmd_RBV
+      - bi
+      - Start a move
+      - | io: output
 
 
     * - MR1K2:SWITCH:MMS:XDWN:PLC:bPowerSelf_RBV
@@ -14339,6 +14653,24 @@ Database Records
         | io: input
 
 
+    * - MR1K2:SWITCH:MMS:XUP:PLC:bHomeCmd
+      - bo
+      - Start the homing routine
+      - | io: output
+
+
+    * - MR1K2:SWITCH:MMS:XUP:PLC:bHomeCmd_RBV
+      - bi
+      - Start the homing routine
+      - | io: output
+
+
+    * - MR1K2:SWITCH:MMS:XUP:PLC:bHomed_RBV
+      - bi
+      - TRUE if the motor has been homed
+      - | io: input
+
+
     * - MR1K2:SWITCH:MMS:XUP:PLC:bLimitBackwardEnable_RBV
       - bi
       - FALSE if reverse limit hit
@@ -14353,6 +14685,18 @@ Database Records
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - MR1K2:SWITCH:MMS:XUP:PLC:bMoveCmd
+      - bo
+      - Start a move
+      - | io: output
+
+
+    * - MR1K2:SWITCH:MMS:XUP:PLC:bMoveCmd_RBV
+      - bi
+      - Start a move
+      - | io: output
 
 
     * - MR1K2:SWITCH:MMS:XUP:PLC:bPowerSelf_RBV
@@ -14655,6 +14999,24 @@ Database Records
         | io: input
 
 
+    * - MR1K2:SWITCH:MMS:YLEFT:PLC:bHomeCmd
+      - bo
+      - Start the homing routine
+      - | io: output
+
+
+    * - MR1K2:SWITCH:MMS:YLEFT:PLC:bHomeCmd_RBV
+      - bi
+      - Start the homing routine
+      - | io: output
+
+
+    * - MR1K2:SWITCH:MMS:YLEFT:PLC:bHomed_RBV
+      - bi
+      - TRUE if the motor has been homed
+      - | io: input
+
+
     * - MR1K2:SWITCH:MMS:YLEFT:PLC:bLimitBackwardEnable_RBV
       - bi
       - FALSE if reverse limit hit
@@ -14669,6 +15031,18 @@ Database Records
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - MR1K2:SWITCH:MMS:YLEFT:PLC:bMoveCmd
+      - bo
+      - Start a move
+      - | io: output
+
+
+    * - MR1K2:SWITCH:MMS:YLEFT:PLC:bMoveCmd_RBV
+      - bi
+      - Start a move
+      - | io: output
 
 
     * - MR1K2:SWITCH:MMS:YLEFT:PLC:bPowerSelf_RBV
@@ -14971,6 +15345,24 @@ Database Records
         | io: input
 
 
+    * - MR1K2:SWITCH:MMS:YRIGHT:PLC:bHomeCmd
+      - bo
+      - Start the homing routine
+      - | io: output
+
+
+    * - MR1K2:SWITCH:MMS:YRIGHT:PLC:bHomeCmd_RBV
+      - bi
+      - Start the homing routine
+      - | io: output
+
+
+    * - MR1K2:SWITCH:MMS:YRIGHT:PLC:bHomed_RBV
+      - bi
+      - TRUE if the motor has been homed
+      - | io: input
+
+
     * - MR1K2:SWITCH:MMS:YRIGHT:PLC:bLimitBackwardEnable_RBV
       - bi
       - FALSE if reverse limit hit
@@ -14985,6 +15377,18 @@ Database Records
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - MR1K2:SWITCH:MMS:YRIGHT:PLC:bMoveCmd
+      - bo
+      - Start a move
+      - | io: output
+
+
+    * - MR1K2:SWITCH:MMS:YRIGHT:PLC:bMoveCmd_RBV
+      - bi
+      - Start a move
+      - | io: output
 
 
     * - MR1K2:SWITCH:MMS:YRIGHT:PLC:bPowerSelf_RBV
@@ -28007,6 +28411,24 @@ Database Records
         | io: input
 
 
+    * - SL1K2:EXIT:MMS:GAP:PLC:bHomeCmd
+      - bo
+      - Start the homing routine
+      - | io: output
+
+
+    * - SL1K2:EXIT:MMS:GAP:PLC:bHomeCmd_RBV
+      - bi
+      - Start the homing routine
+      - | io: output
+
+
+    * - SL1K2:EXIT:MMS:GAP:PLC:bHomed_RBV
+      - bi
+      - TRUE if the motor has been homed
+      - | io: input
+
+
     * - SL1K2:EXIT:MMS:GAP:PLC:bLimitBackwardEnable_RBV
       - bi
       - FALSE if reverse limit hit
@@ -28021,6 +28443,18 @@ Database Records
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - SL1K2:EXIT:MMS:GAP:PLC:bMoveCmd
+      - bo
+      - Start a move
+      - | io: output
+
+
+    * - SL1K2:EXIT:MMS:GAP:PLC:bMoveCmd_RBV
+      - bi
+      - Start a move
+      - | io: output
 
 
     * - SL1K2:EXIT:MMS:GAP:PLC:bPowerSelf_RBV
@@ -28323,6 +28757,24 @@ Database Records
         | io: input
 
 
+    * - SL1K2:EXIT:MMS:PITCH:PLC:bHomeCmd
+      - bo
+      - Start the homing routine
+      - | io: output
+
+
+    * - SL1K2:EXIT:MMS:PITCH:PLC:bHomeCmd_RBV
+      - bi
+      - Start the homing routine
+      - | io: output
+
+
+    * - SL1K2:EXIT:MMS:PITCH:PLC:bHomed_RBV
+      - bi
+      - TRUE if the motor has been homed
+      - | io: input
+
+
     * - SL1K2:EXIT:MMS:PITCH:PLC:bLimitBackwardEnable_RBV
       - bi
       - FALSE if reverse limit hit
@@ -28337,6 +28789,18 @@ Database Records
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - SL1K2:EXIT:MMS:PITCH:PLC:bMoveCmd
+      - bo
+      - Start a move
+      - | io: output
+
+
+    * - SL1K2:EXIT:MMS:PITCH:PLC:bMoveCmd_RBV
+      - bi
+      - Start a move
+      - | io: output
 
 
     * - SL1K2:EXIT:MMS:PITCH:PLC:bPowerSelf_RBV
@@ -28639,6 +29103,24 @@ Database Records
         | io: input
 
 
+    * - SL1K2:EXIT:MMS:ROLL:PLC:bHomeCmd
+      - bo
+      - Start the homing routine
+      - | io: output
+
+
+    * - SL1K2:EXIT:MMS:ROLL:PLC:bHomeCmd_RBV
+      - bi
+      - Start the homing routine
+      - | io: output
+
+
+    * - SL1K2:EXIT:MMS:ROLL:PLC:bHomed_RBV
+      - bi
+      - TRUE if the motor has been homed
+      - | io: input
+
+
     * - SL1K2:EXIT:MMS:ROLL:PLC:bLimitBackwardEnable_RBV
       - bi
       - FALSE if reverse limit hit
@@ -28653,6 +29135,18 @@ Database Records
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - SL1K2:EXIT:MMS:ROLL:PLC:bMoveCmd
+      - bo
+      - Start a move
+      - | io: output
+
+
+    * - SL1K2:EXIT:MMS:ROLL:PLC:bMoveCmd_RBV
+      - bi
+      - Start a move
+      - | io: output
 
 
     * - SL1K2:EXIT:MMS:ROLL:PLC:bPowerSelf_RBV
@@ -28955,6 +29449,24 @@ Database Records
         | io: input
 
 
+    * - SL1K2:EXIT:MMS:YAG:PLC:bHomeCmd
+      - bo
+      - Start the homing routine
+      - | io: output
+
+
+    * - SL1K2:EXIT:MMS:YAG:PLC:bHomeCmd_RBV
+      - bi
+      - Start the homing routine
+      - | io: output
+
+
+    * - SL1K2:EXIT:MMS:YAG:PLC:bHomed_RBV
+      - bi
+      - TRUE if the motor has been homed
+      - | io: input
+
+
     * - SL1K2:EXIT:MMS:YAG:PLC:bLimitBackwardEnable_RBV
       - bi
       - FALSE if reverse limit hit
@@ -28969,6 +29481,18 @@ Database Records
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - SL1K2:EXIT:MMS:YAG:PLC:bMoveCmd
+      - bo
+      - Start a move
+      - | io: output
+
+
+    * - SL1K2:EXIT:MMS:YAG:PLC:bMoveCmd_RBV
+      - bi
+      - Start a move
+      - | io: output
 
 
     * - SL1K2:EXIT:MMS:YAG:PLC:bPowerSelf_RBV
@@ -29319,6 +29843,24 @@ Database Records
         | io: input
 
 
+    * - SP1K1:MONO:MMS:G_H:PLC:bHomeCmd
+      - bo
+      - Start the homing routine
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:bHomeCmd_RBV
+      - bi
+      - Start the homing routine
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:bHomed_RBV
+      - bi
+      - TRUE if the motor has been homed
+      - | io: input
+
+
     * - SP1K1:MONO:MMS:G_H:PLC:bLimitBackwardEnable_RBV
       - bi
       - FALSE if reverse limit hit
@@ -29333,6 +29875,18 @@ Database Records
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:bMoveCmd
+      - bo
+      - Start a move
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:bMoveCmd_RBV
+      - bi
+      - Start a move
+      - | io: output
 
 
     * - SP1K1:MONO:MMS:G_H:PLC:bPowerSelf_RBV
@@ -29635,6 +30189,24 @@ Database Records
         | io: input
 
 
+    * - SP1K1:MONO:MMS:G_PI:PLC:bHomeCmd
+      - bo
+      - Start the homing routine
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:bHomeCmd_RBV
+      - bi
+      - Start the homing routine
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:bHomed_RBV
+      - bi
+      - TRUE if the motor has been homed
+      - | io: input
+
+
     * - SP1K1:MONO:MMS:G_PI:PLC:bLimitBackwardEnable_RBV
       - bi
       - FALSE if reverse limit hit
@@ -29649,6 +30221,18 @@ Database Records
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:bMoveCmd
+      - bo
+      - Start a move
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:bMoveCmd_RBV
+      - bi
+      - Start a move
+      - | io: output
 
 
     * - SP1K1:MONO:MMS:G_PI:PLC:bPowerSelf_RBV
@@ -29951,6 +30535,24 @@ Database Records
         | io: input
 
 
+    * - SP1K1:MONO:MMS:M_H:PLC:bHomeCmd
+      - bo
+      - Start the homing routine
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:bHomeCmd_RBV
+      - bi
+      - Start the homing routine
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:bHomed_RBV
+      - bi
+      - TRUE if the motor has been homed
+      - | io: input
+
+
     * - SP1K1:MONO:MMS:M_H:PLC:bLimitBackwardEnable_RBV
       - bi
       - FALSE if reverse limit hit
@@ -29965,6 +30567,18 @@ Database Records
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:bMoveCmd
+      - bo
+      - Start a move
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:bMoveCmd_RBV
+      - bi
+      - Start a move
+      - | io: output
 
 
     * - SP1K1:MONO:MMS:M_H:PLC:bPowerSelf_RBV
@@ -30267,6 +30881,24 @@ Database Records
         | io: input
 
 
+    * - SP1K1:MONO:MMS:M_PI:PLC:bHomeCmd
+      - bo
+      - Start the homing routine
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:bHomeCmd_RBV
+      - bi
+      - Start the homing routine
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:bHomed_RBV
+      - bi
+      - TRUE if the motor has been homed
+      - | io: input
+
+
     * - SP1K1:MONO:MMS:M_PI:PLC:bLimitBackwardEnable_RBV
       - bi
       - FALSE if reverse limit hit
@@ -30281,6 +30913,18 @@ Database Records
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:bMoveCmd
+      - bo
+      - Start a move
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:bMoveCmd_RBV
+      - bi
+      - Start a move
+      - | io: output
 
 
     * - SP1K1:MONO:MMS:M_PI:PLC:bPowerSelf_RBV
@@ -30583,6 +31227,24 @@ Database Records
         | io: input
 
 
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:bHomeCmd
+      - bo
+      - Start the homing routine
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:bHomeCmd_RBV
+      - bi
+      - Start the homing routine
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:bHomed_RBV
+      - bi
+      - TRUE if the motor has been homed
+      - | io: input
+
+
     * - SP1K1:MONO:MMS:SD_ROT:PLC:bLimitBackwardEnable_RBV
       - bi
       - FALSE if reverse limit hit
@@ -30597,6 +31259,18 @@ Database Records
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:bMoveCmd
+      - bo
+      - Start a move
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:bMoveCmd_RBV
+      - bi
+      - Start a move
+      - | io: output
 
 
     * - SP1K1:MONO:MMS:SD_ROT:PLC:bPowerSelf_RBV
@@ -30899,6 +31573,24 @@ Database Records
         | io: input
 
 
+    * - SP1K1:MONO:MMS:SD_V:PLC:bHomeCmd
+      - bo
+      - Start the homing routine
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:bHomeCmd_RBV
+      - bi
+      - Start the homing routine
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:bHomed_RBV
+      - bi
+      - TRUE if the motor has been homed
+      - | io: input
+
+
     * - SP1K1:MONO:MMS:SD_V:PLC:bLimitBackwardEnable_RBV
       - bi
       - FALSE if reverse limit hit
@@ -30913,6 +31605,18 @@ Database Records
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:bMoveCmd
+      - bo
+      - Start a move
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:bMoveCmd_RBV
+      - bi
+      - Start a move
+      - | io: output
 
 
     * - SP1K1:MONO:MMS:SD_V:PLC:bPowerSelf_RBV
