@@ -179,7 +179,7 @@ fbMotionStage_s_io  (stMotionStage:=M10);
 fbMotionStage_s_r  (stMotionStage:=M11);
 
 //S_R with no hardware limit switched
-M11.bAllBackwardEnable := TRUE;
+M11.bLimitBackwardEnable := TRUE;
 M11.bLimitForwardEnable := TRUE;
 
 mpi_upeurad := ULINT_TO_LREAL(mpi_upe.Count)*0.004505;
@@ -198,5 +198,9 @@ RTD6();
 RTD7();
 RTD8();]]></ST>
     </Implementation>
+    <LineIds Name="PRG_SP1K1_MONO">
+      <LineId Id="3" Count="32" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>
