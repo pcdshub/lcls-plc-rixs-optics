@@ -279,8 +279,13 @@
     <span class="o">//</span> <span class="n">Enc</span> <span class="n">reference</span> <span class="n">values</span> <span class="kn">from</span> <span class="nn">Axilon</span> <span class="n">FAT</span>
     <span class="n">nYUP_ENC_REF</span> <span class="p">:</span> <span class="n">ULINT</span> <span class="o">:=</span> <span class="mi">13008545</span><span class="p">;</span>
     <span class="n">nYDWN_ENC_REF</span> <span class="p">:</span> <span class="n">ULINT</span> <span class="o">:=</span> <span class="mi">11158257</span><span class="p">;</span>
+    <span class="n">nXUP_ENC_REF</span> <span class="p">:</span> <span class="n">ULINT</span> <span class="o">:=</span> <span class="mi">19831295</span><span class="p">;</span>
+    <span class="n">nXDWN_ENC_REF</span> <span class="p">:</span> <span class="n">ULINT</span> <span class="o">:=</span> <span class="mi">19604132</span><span class="p">;</span>
+
+    <span class="p">(</span><span class="o">*</span> <span class="n">previous</span> <span class="n">values</span>
     <span class="n">nXUP_ENC_REF</span> <span class="p">:</span> <span class="n">ULINT</span> <span class="o">:=</span> <span class="mi">19649910</span><span class="p">;</span>
     <span class="n">nXDWN_ENC_REF</span> <span class="p">:</span> <span class="n">ULINT</span> <span class="o">:=</span> <span class="mi">19609100</span><span class="p">;</span>
+    <span class="o">*</span><span class="p">)</span>
 <span class="n">END_VAR</span>
 </pre></div>
 </div>
@@ -1619,7 +1624,7 @@ END_VAR
 <span class="n">fbMotionStage_s_r</span>  <span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M11</span><span class="p">);</span>
 
 <span class="o">//</span><span class="n">S_R</span> <span class="k">with</span> <span class="n">no</span> <span class="n">hardware</span> <span class="n">limit</span> <span class="n">switched</span>
-<span class="n">M11</span><span class="o">.</span><span class="n">bAllBackwardEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+<span class="n">M11</span><span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
 <span class="n">M11</span><span class="o">.</span><span class="n">bLimitForwardEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
 
 <span class="n">mpi_upeurad</span> <span class="o">:=</span> <span class="n">ULINT_TO_LREAL</span><span class="p">(</span><span class="n">mpi_upe</span><span class="o">.</span><span class="n">Count</span><span class="p">)</span><span class="o">*</span><span class="mf">0.004505</span><span class="p">;</span>
