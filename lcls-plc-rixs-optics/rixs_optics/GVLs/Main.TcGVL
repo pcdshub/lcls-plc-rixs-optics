@@ -193,6 +193,11 @@
 		pv: SL1K2:EXIT:MMS:YAG
 	'}
 	M23 : DUT_MotionStage := (sName:= 'SL1K2:EXIT:MMS:YAG',fVelocity :=0.5,sName := 'Yag'); // YAG
+	
+	sio_current AT%I* : UINT;
+	
+	sio_load AT%I* : UINT;
+	dummyBool: BOOL;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
