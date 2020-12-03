@@ -105,11 +105,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#axis-16-m1k1-pitch">Axis 16: M1K1-Pitch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#axis-17-m1k1-bend-us">Axis 17: M1K1-BEND-US</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#axis-18-m1k1-bend-ds">Axis 18: M1K1-BEND-DS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#axis-19-sl1k2-pitch">Axis 19: SL1K2-Pitch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#axis-20-sl1k2-vert">Axis 20: SL1K2-Vert</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#axis-21-sl1k2-roll">Axis 21: SL1K2-Roll</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#axis-22-sl1k2-gap">Axis 22: SL1K2-Gap</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#axis-23-sl1k2-yag">Axis 23: SL1K2-Yag</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#axis-19-sl1k2-pitch-m19">Axis 19: SL1K2-Pitch-M19</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#axis-20-sl1k2-vert-m20">Axis 20: SL1K2-Vert-M20</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#axis-21-sl1k2-roll-m21">Axis 21: SL1K2-Roll-M21</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#axis-22-sl1k2-crystalgap-m22">Axis 22: SL1K2-CrystalGap-M22</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#axis-23-sl1k2-yag-m23">Axis 23: SL1K2-YAG-M23</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#axis-200-enc-mpi-up">Axis 200: enc_mpi_up</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#axis-201-enc-gpi-up">Axis 201: enc_gpi_up</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#axis-202-g-h-enc-axis">Axis 202: g_h_enc-axis</a></li>
@@ -262,19 +262,19 @@
 <td><p>M1K1-BEND-DS</p></td>
 </tr>
 <tr class="row-even"><td><p>19</p></td>
-<td><p>SL1K2-Pitch</p></td>
+<td><p>SL1K2-Pitch-M19</p></td>
 </tr>
 <tr class="row-odd"><td><p>20</p></td>
-<td><p>SL1K2-Vert</p></td>
+<td><p>SL1K2-Vert-M20</p></td>
 </tr>
 <tr class="row-even"><td><p>21</p></td>
-<td><p>SL1K2-Roll</p></td>
+<td><p>SL1K2-Roll-M21</p></td>
 </tr>
 <tr class="row-odd"><td><p>22</p></td>
-<td><p>SL1K2-Gap</p></td>
+<td><p>SL1K2-CrystalGap-M22</p></td>
 </tr>
 <tr class="row-even"><td><p>23</p></td>
-<td><p>SL1K2-Yag</p></td>
+<td><p>SL1K2-YAG-M23</p></td>
 </tr>
 <tr class="row-odd"><td><p>200</p></td>
 <td><p>enc_mpi_up</p></td>
@@ -1724,8 +1724,8 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="axis-19-sl1k2-pitch">
-<h2>Axis 19: SL1K2-Pitch<a class="headerlink" href="#axis-19-sl1k2-pitch" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="axis-19-sl1k2-pitch-m19">
+<h2>Axis 19: SL1K2-Pitch-M19<a class="headerlink" href="#axis-19-sl1k2-pitch-m19" title="Permalink to this headline">¶</a></h2>
 <table class="docutils align-center">
 <colgroup>
 <col style="width: 50%" />
@@ -1741,7 +1741,7 @@
 <td><p>19</p></td>
 </tr>
 <tr class="row-odd"><td><p>Name</p></td>
-<td><p>SL1K2-Pitch</p></td>
+<td><p>SL1K2-Pitch-M19</p></td>
 </tr>
 <tr class="row-even"><td><p>AxisFolder</p></td>
 <td><p>SL1K2</p></td>
@@ -1752,8 +1752,44 @@
 <tr class="row-even"><td><p>CreateSymbols</p></td>
 <td><p>true</p></td>
 </tr>
-<tr class="row-odd"><td><p>Enc:EncType</p></td>
-<td><p>1</p></td>
+<tr class="row-odd"><td><p>Dynamic:Acceleration</p></td>
+<td><p>8.99313</p></td>
+</tr>
+<tr class="row-even"><td><p>Dynamic:Deceleration</p></td>
+<td><p>8.99313</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dynamic:Jerk</p></td>
+<td><p>27.7544</p></td>
+</tr>
+<tr class="row-even"><td><p>Enc:EncType</p></td>
+<td><p>29</p></td>
+</tr>
+<tr class="row-odd"><td><p>Enc:Inc:RefSoftSyncMask</p></td>
+<td><p>#x0000ffff</p></td>
+</tr>
+<tr class="row-even"><td><p>Enc:MaxCount</p></td>
+<td><p>#xffffffff</p></td>
+</tr>
+<tr class="row-odd"><td><p>Enc:Offset</p></td>
+<td><p>-4.6852</p></td>
+</tr>
+<tr class="row-even"><td><p>Enc:ScaleFactorNumerator</p></td>
+<td><p>1.2657e-07</p></td>
+</tr>
+<tr class="row-odd"><td><p>Enc:SoftEndMaxControl:Enable</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-even"><td><p>Enc:SoftEndMaxControl:Range</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>Enc:SoftEndMinControl:Enable</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-even"><td><p>Enc:SoftEndMinControl:Range</p></td>
+<td><p>-3.7</p></td>
+</tr>
+<tr class="row-odd"><td><p>General:UnitName</p></td>
+<td><p>mrad</p></td>
 </tr>
 <tr class="row-even"><td><p>Id</p></td>
 <td><p>19</p></td>
@@ -1761,11 +1797,29 @@
 <tr class="row-odd"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
 <td><p>true</p></td>
 </tr>
+<tr class="row-even"><td><p>OtherSettings:PulseDistanceNeg</p></td>
+<td><p>0.5</p></td>
+</tr>
+<tr class="row-odd"><td><p>OtherSettings:PulseDistancePos</p></td>
+<td><p>0.5</p></td>
+</tr>
+<tr class="row-even"><td><p>TargetPosControl:Range</p></td>
+<td><p>0.001</p></td>
+</tr>
+<tr class="row-odd"><td><p>Velo:FastManual</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>Velo:Maximum</p></td>
+<td><p>3.1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Velo:SlowManual</p></td>
+<td><p>1</p></td>
+</tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="axis-20-sl1k2-vert">
-<h2>Axis 20: SL1K2-Vert<a class="headerlink" href="#axis-20-sl1k2-vert" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="axis-20-sl1k2-vert-m20">
+<h2>Axis 20: SL1K2-Vert-M20<a class="headerlink" href="#axis-20-sl1k2-vert-m20" title="Permalink to this headline">¶</a></h2>
 <table class="docutils align-center">
 <colgroup>
 <col style="width: 50%" />
@@ -1781,7 +1835,7 @@
 <td><p>20</p></td>
 </tr>
 <tr class="row-odd"><td><p>Name</p></td>
-<td><p>SL1K2-Vert</p></td>
+<td><p>SL1K2-Vert-M20</p></td>
 </tr>
 <tr class="row-even"><td><p>AxisFolder</p></td>
 <td><p>SL1K2</p></td>
@@ -1792,20 +1846,68 @@
 <tr class="row-even"><td><p>CreateSymbols</p></td>
 <td><p>true</p></td>
 </tr>
-<tr class="row-odd"><td><p>Enc:EncType</p></td>
-<td><p>1</p></td>
+<tr class="row-odd"><td><p>Dynamic:Acceleration</p></td>
+<td><p>2.95205</p></td>
 </tr>
-<tr class="row-even"><td><p>Id</p></td>
+<tr class="row-even"><td><p>Dynamic:Deceleration</p></td>
+<td><p>2.95205</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dynamic:Jerk</p></td>
+<td><p>8.98412</p></td>
+</tr>
+<tr class="row-even"><td><p>Enc:EncType</p></td>
+<td><p>29</p></td>
+</tr>
+<tr class="row-odd"><td><p>Enc:Inc:RefSoftSyncMask</p></td>
+<td><p>#x0000ffff</p></td>
+</tr>
+<tr class="row-even"><td><p>Enc:MaxCount</p></td>
+<td><p>#xffffffff</p></td>
+</tr>
+<tr class="row-odd"><td><p>Enc:Offset</p></td>
+<td><p>-10.712</p></td>
+</tr>
+<tr class="row-even"><td><p>Enc:ScaleFactorNumerator</p></td>
+<td><p>1e-06</p></td>
+</tr>
+<tr class="row-odd"><td><p>Enc:SoftEndMaxControl:Enable</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-even"><td><p>Enc:SoftEndMaxControl:Range</p></td>
+<td><p>3.15</p></td>
+</tr>
+<tr class="row-odd"><td><p>Enc:SoftEndMinControl:Enable</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-even"><td><p>Enc:SoftEndMinControl:Range</p></td>
+<td><p>-4.15</p></td>
+</tr>
+<tr class="row-odd"><td><p>Id</p></td>
 <td><p>20</p></td>
 </tr>
-<tr class="row-odd"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
+<tr class="row-even"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
 <td><p>true</p></td>
+</tr>
+<tr class="row-odd"><td><p>PositionAreaControl:Range</p></td>
+<td><p>0.05</p></td>
+</tr>
+<tr class="row-even"><td><p>TargetPosControl:Range</p></td>
+<td><p>0.0001</p></td>
+</tr>
+<tr class="row-odd"><td><p>Velo:FastManual</p></td>
+<td><p>0.3</p></td>
+</tr>
+<tr class="row-even"><td><p>Velo:Maximum</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Velo:SlowManual</p></td>
+<td><p>0.1</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="axis-21-sl1k2-roll">
-<h2>Axis 21: SL1K2-Roll<a class="headerlink" href="#axis-21-sl1k2-roll" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="axis-21-sl1k2-roll-m21">
+<h2>Axis 21: SL1K2-Roll-M21<a class="headerlink" href="#axis-21-sl1k2-roll-m21" title="Permalink to this headline">¶</a></h2>
 <table class="docutils align-center">
 <colgroup>
 <col style="width: 50%" />
@@ -1821,7 +1923,7 @@
 <td><p>21</p></td>
 </tr>
 <tr class="row-odd"><td><p>Name</p></td>
-<td><p>SL1K2-Roll</p></td>
+<td><p>SL1K2-Roll-M21</p></td>
 </tr>
 <tr class="row-even"><td><p>AxisFolder</p></td>
 <td><p>SL1K2</p></td>
@@ -1832,8 +1934,44 @@
 <tr class="row-even"><td><p>CreateSymbols</p></td>
 <td><p>true</p></td>
 </tr>
-<tr class="row-odd"><td><p>Enc:EncType</p></td>
-<td><p>1</p></td>
+<tr class="row-odd"><td><p>Dynamic:Acceleration</p></td>
+<td><p>0.424188</p></td>
+</tr>
+<tr class="row-even"><td><p>Dynamic:Deceleration</p></td>
+<td><p>0.424188</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dynamic:Jerk</p></td>
+<td><p>6.42628</p></td>
+</tr>
+<tr class="row-even"><td><p>Enc:EncType</p></td>
+<td><p>29</p></td>
+</tr>
+<tr class="row-odd"><td><p>Enc:Inc:RefSoftSyncMask</p></td>
+<td><p>#x0000ffff</p></td>
+</tr>
+<tr class="row-even"><td><p>Enc:MaxCount</p></td>
+<td><p>#xffffffff</p></td>
+</tr>
+<tr class="row-odd"><td><p>Enc:Offset</p></td>
+<td><p>-1031.2195</p></td>
+</tr>
+<tr class="row-even"><td><p>Enc:ScaleFactorNumerator</p></td>
+<td><p>2.4267e-07</p></td>
+</tr>
+<tr class="row-odd"><td><p>Enc:SoftEndMaxControl:Enable</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-even"><td><p>Enc:SoftEndMaxControl:Range</p></td>
+<td><p>6.22</p></td>
+</tr>
+<tr class="row-odd"><td><p>Enc:SoftEndMinControl:Enable</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-even"><td><p>Enc:SoftEndMinControl:Range</p></td>
+<td><p>-4.82</p></td>
+</tr>
+<tr class="row-odd"><td><p>General:UnitName</p></td>
+<td><p>mrad</p></td>
 </tr>
 <tr class="row-even"><td><p>Id</p></td>
 <td><p>21</p></td>
@@ -1841,11 +1979,32 @@
 <tr class="row-odd"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
 <td><p>true</p></td>
 </tr>
+<tr class="row-even"><td><p>OtherSettings:PulseDistanceNeg</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>OtherSettings:PulseDistancePos</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>PositionAreaControl:Range</p></td>
+<td><p>0.2</p></td>
+</tr>
+<tr class="row-odd"><td><p>TargetPosControl:Range</p></td>
+<td><p>0.0005</p></td>
+</tr>
+<tr class="row-even"><td><p>Velo:FastManual</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Velo:Maximum</p></td>
+<td><p>2.8</p></td>
+</tr>
+<tr class="row-even"><td><p>Velo:SlowManual</p></td>
+<td><p>0.3</p></td>
+</tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="axis-22-sl1k2-gap">
-<h2>Axis 22: SL1K2-Gap<a class="headerlink" href="#axis-22-sl1k2-gap" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="axis-22-sl1k2-crystalgap-m22">
+<h2>Axis 22: SL1K2-CrystalGap-M22<a class="headerlink" href="#axis-22-sl1k2-crystalgap-m22" title="Permalink to this headline">¶</a></h2>
 <table class="docutils align-center">
 <colgroup>
 <col style="width: 50%" />
@@ -1861,7 +2020,7 @@
 <td><p>22</p></td>
 </tr>
 <tr class="row-odd"><td><p>Name</p></td>
-<td><p>SL1K2-Gap</p></td>
+<td><p>SL1K2-CrystalGap-M22</p></td>
 </tr>
 <tr class="row-even"><td><p>AxisFolder</p></td>
 <td><p>SL1K2</p></td>
@@ -1872,20 +2031,74 @@
 <tr class="row-even"><td><p>CreateSymbols</p></td>
 <td><p>true</p></td>
 </tr>
-<tr class="row-odd"><td><p>Enc:EncType</p></td>
-<td><p>1</p></td>
+<tr class="row-odd"><td><p>Dynamic:Acceleration</p></td>
+<td><p>1.59597</p></td>
 </tr>
-<tr class="row-even"><td><p>Id</p></td>
+<tr class="row-even"><td><p>Dynamic:Deceleration</p></td>
+<td><p>1.59597</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dynamic:Jerk</p></td>
+<td><p>4.61435</p></td>
+</tr>
+<tr class="row-even"><td><p>Enc:EncType</p></td>
+<td><p>29</p></td>
+</tr>
+<tr class="row-odd"><td><p>Enc:Inc:RefSoftSyncMask</p></td>
+<td><p>#x0000ffff</p></td>
+</tr>
+<tr class="row-even"><td><p>Enc:MaxCount</p></td>
+<td><p>#xffffffff</p></td>
+</tr>
+<tr class="row-odd"><td><p>Enc:Offset</p></td>
+<td><p>-19.5127</p></td>
+</tr>
+<tr class="row-even"><td><p>Enc:ScaleFactorNumerator</p></td>
+<td><p>1e-06</p></td>
+</tr>
+<tr class="row-odd"><td><p>Enc:SoftEndMaxControl:Enable</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-even"><td><p>Enc:SoftEndMaxControl:Range</p></td>
+<td><p>8.65</p></td>
+</tr>
+<tr class="row-odd"><td><p>Enc:SoftEndMinControl:Enable</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-even"><td><p>Enc:SoftEndMinControl:Range</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-odd"><td><p>Id</p></td>
 <td><p>22</p></td>
 </tr>
-<tr class="row-odd"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
+<tr class="row-even"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
 <td><p>true</p></td>
+</tr>
+<tr class="row-odd"><td><p>OtherSettings:PulseDistanceNeg</p></td>
+<td><p>0.05</p></td>
+</tr>
+<tr class="row-even"><td><p>OtherSettings:PulseDistancePos</p></td>
+<td><p>0.05</p></td>
+</tr>
+<tr class="row-odd"><td><p>PositionAreaControl:Range</p></td>
+<td><p>0.01</p></td>
+</tr>
+<tr class="row-even"><td><p>TargetPosControl:Range</p></td>
+<td><p>0.0001</p></td>
+</tr>
+<tr class="row-odd"><td><p>Velo:FastManual</p></td>
+<td><p>0.2</p></td>
+</tr>
+<tr class="row-even"><td><p>Velo:Maximum</p></td>
+<td><p>0.6</p></td>
+</tr>
+<tr class="row-odd"><td><p>Velo:SlowManual</p></td>
+<td><p>0.075</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="axis-23-sl1k2-yag">
-<h2>Axis 23: SL1K2-Yag<a class="headerlink" href="#axis-23-sl1k2-yag" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="axis-23-sl1k2-yag-m23">
+<h2>Axis 23: SL1K2-YAG-M23<a class="headerlink" href="#axis-23-sl1k2-yag-m23" title="Permalink to this headline">¶</a></h2>
 <table class="docutils align-center">
 <colgroup>
 <col style="width: 50%" />
@@ -1901,7 +2114,7 @@
 <td><p>23</p></td>
 </tr>
 <tr class="row-odd"><td><p>Name</p></td>
-<td><p>SL1K2-Yag</p></td>
+<td><p>SL1K2-YAG-M23</p></td>
 </tr>
 <tr class="row-even"><td><p>AxisFolder</p></td>
 <td><p>SL1K2</p></td>
@@ -1912,14 +2125,62 @@
 <tr class="row-even"><td><p>CreateSymbols</p></td>
 <td><p>true</p></td>
 </tr>
-<tr class="row-odd"><td><p>Enc:EncType</p></td>
-<td><p>1</p></td>
+<tr class="row-odd"><td><p>Dynamic:Acceleration</p></td>
+<td><p>4.26689</p></td>
 </tr>
-<tr class="row-even"><td><p>Id</p></td>
+<tr class="row-even"><td><p>Dynamic:Deceleration</p></td>
+<td><p>4.26689</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dynamic:Jerk</p></td>
+<td><p>19.1646</p></td>
+</tr>
+<tr class="row-even"><td><p>Enc:EncType</p></td>
+<td><p>29</p></td>
+</tr>
+<tr class="row-odd"><td><p>Enc:Inc:RefSoftSyncMask</p></td>
+<td><p>#x0000ffff</p></td>
+</tr>
+<tr class="row-even"><td><p>Enc:MaxCount</p></td>
+<td><p>#xffffffff</p></td>
+</tr>
+<tr class="row-odd"><td><p>Enc:Offset</p></td>
+<td><p>-17</p></td>
+</tr>
+<tr class="row-even"><td><p>Enc:ScaleFactorNumerator</p></td>
+<td><p>1e-06</p></td>
+</tr>
+<tr class="row-odd"><td><p>Enc:SoftEndMaxControl:Enable</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-even"><td><p>Enc:SoftEndMaxControl:Range</p></td>
+<td><p>41.6</p></td>
+</tr>
+<tr class="row-odd"><td><p>Enc:SoftEndMinControl:Enable</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-even"><td><p>Enc:SoftEndMinControl:Range</p></td>
+<td><p>-0.59</p></td>
+</tr>
+<tr class="row-odd"><td><p>Id</p></td>
 <td><p>23</p></td>
 </tr>
-<tr class="row-odd"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
+<tr class="row-even"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
 <td><p>true</p></td>
+</tr>
+<tr class="row-odd"><td><p>PositionAreaControl:Range</p></td>
+<td><p>0.05</p></td>
+</tr>
+<tr class="row-even"><td><p>TargetPosControl:Range</p></td>
+<td><p>0.05</p></td>
+</tr>
+<tr class="row-odd"><td><p>Velo:FastManual</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>Velo:Maximum</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>Velo:SlowManual</p></td>
+<td><p>0.5</p></td>
 </tr>
 </tbody>
 </table>

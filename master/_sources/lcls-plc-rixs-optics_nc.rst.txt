@@ -24,11 +24,11 @@ NC Settings
         16, M1K1-Pitch
         17, M1K1-BEND-US
         18, M1K1-BEND-DS
-        19, SL1K2-Pitch
-        20, SL1K2-Vert
-        21, SL1K2-Roll
-        22, SL1K2-Gap
-        23, SL1K2-Yag
+        19, SL1K2-Pitch-M19
+        20, SL1K2-Vert-M20
+        21, SL1K2-Roll-M21
+        22, SL1K2-CrystalGap-M22
+        23, SL1K2-YAG-M23
         200, enc_mpi_up
         201, enc_gpi_up
         202, g_h_enc-axis
@@ -598,93 +598,180 @@ Axis 18: M1K1-BEND-DS
 
 
 
-Axis 19: SL1K2-Pitch
-^^^^^^^^^^^^^^^^^^^^
+Axis 19: SL1K2-Pitch-M19
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. csv-table::
     :header: Setting, Value
     :align: center
 
     Axis ID, 19
-    Name, SL1K2-Pitch
+    Name, SL1K2-Pitch-M19
     AxisFolder, SL1K2
     AxisType, 1
     CreateSymbols, true
-    Enc:EncType, 1
+    Dynamic:Acceleration, 8.99313
+    Dynamic:Deceleration, 8.99313
+    Dynamic:Jerk, 27.7544
+    Enc:EncType, 29
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #xffffffff
+    Enc:Offset, -4.6852
+    Enc:ScaleFactorNumerator, 1.2657e-07
+    Enc:SoftEndMaxControl:Enable, true
+    Enc:SoftEndMaxControl:Range, 3
+    Enc:SoftEndMinControl:Enable, true
+    Enc:SoftEndMinControl:Range, -3.7
+    General:UnitName, mrad
     Id, 19
     OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 0.5
+    OtherSettings:PulseDistancePos, 0.5
+    TargetPosControl:Range, 0.001
+    Velo:FastManual, 2
+    Velo:Maximum, 3.1
+    Velo:SlowManual, 1
 
 
 
-Axis 20: SL1K2-Vert
-^^^^^^^^^^^^^^^^^^^
+Axis 20: SL1K2-Vert-M20
+^^^^^^^^^^^^^^^^^^^^^^^
 
 .. csv-table::
     :header: Setting, Value
     :align: center
 
     Axis ID, 20
-    Name, SL1K2-Vert
+    Name, SL1K2-Vert-M20
     AxisFolder, SL1K2
     AxisType, 1
     CreateSymbols, true
-    Enc:EncType, 1
+    Dynamic:Acceleration, 2.95205
+    Dynamic:Deceleration, 2.95205
+    Dynamic:Jerk, 8.98412
+    Enc:EncType, 29
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #xffffffff
+    Enc:Offset, -10.712
+    Enc:ScaleFactorNumerator, 1e-06
+    Enc:SoftEndMaxControl:Enable, true
+    Enc:SoftEndMaxControl:Range, 3.15
+    Enc:SoftEndMinControl:Enable, true
+    Enc:SoftEndMinControl:Range, -4.15
     Id, 20
     OtherSettings:AllowMotionCmdToSlave, true
+    PositionAreaControl:Range, 0.05
+    TargetPosControl:Range, 0.0001
+    Velo:FastManual, 0.3
+    Velo:Maximum, 1
+    Velo:SlowManual, 0.1
 
 
 
-Axis 21: SL1K2-Roll
-^^^^^^^^^^^^^^^^^^^
+Axis 21: SL1K2-Roll-M21
+^^^^^^^^^^^^^^^^^^^^^^^
 
 .. csv-table::
     :header: Setting, Value
     :align: center
 
     Axis ID, 21
-    Name, SL1K2-Roll
+    Name, SL1K2-Roll-M21
     AxisFolder, SL1K2
     AxisType, 1
     CreateSymbols, true
-    Enc:EncType, 1
+    Dynamic:Acceleration, 0.424188
+    Dynamic:Deceleration, 0.424188
+    Dynamic:Jerk, 6.42628
+    Enc:EncType, 29
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #xffffffff
+    Enc:Offset, -1031.2195
+    Enc:ScaleFactorNumerator, 2.4267e-07
+    Enc:SoftEndMaxControl:Enable, true
+    Enc:SoftEndMaxControl:Range, 6.22
+    Enc:SoftEndMinControl:Enable, true
+    Enc:SoftEndMinControl:Range, -4.82
+    General:UnitName, mrad
     Id, 21
     OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 1
+    OtherSettings:PulseDistancePos, 1
+    PositionAreaControl:Range, 0.2
+    TargetPosControl:Range, 0.0005
+    Velo:FastManual, 1
+    Velo:Maximum, 2.8
+    Velo:SlowManual, 0.3
 
 
 
-Axis 22: SL1K2-Gap
-^^^^^^^^^^^^^^^^^^
+Axis 22: SL1K2-CrystalGap-M22
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. csv-table::
     :header: Setting, Value
     :align: center
 
     Axis ID, 22
-    Name, SL1K2-Gap
+    Name, SL1K2-CrystalGap-M22
     AxisFolder, SL1K2
     AxisType, 1
     CreateSymbols, true
-    Enc:EncType, 1
+    Dynamic:Acceleration, 1.59597
+    Dynamic:Deceleration, 1.59597
+    Dynamic:Jerk, 4.61435
+    Enc:EncType, 29
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #xffffffff
+    Enc:Offset, -19.5127
+    Enc:ScaleFactorNumerator, 1e-06
+    Enc:SoftEndMaxControl:Enable, true
+    Enc:SoftEndMaxControl:Range, 8.65
+    Enc:SoftEndMinControl:Enable, true
+    Enc:SoftEndMinControl:Range, 5
     Id, 22
     OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 0.05
+    OtherSettings:PulseDistancePos, 0.05
+    PositionAreaControl:Range, 0.01
+    TargetPosControl:Range, 0.0001
+    Velo:FastManual, 0.2
+    Velo:Maximum, 0.6
+    Velo:SlowManual, 0.075
 
 
 
-Axis 23: SL1K2-Yag
-^^^^^^^^^^^^^^^^^^
+Axis 23: SL1K2-YAG-M23
+^^^^^^^^^^^^^^^^^^^^^^
 
 .. csv-table::
     :header: Setting, Value
     :align: center
 
     Axis ID, 23
-    Name, SL1K2-Yag
+    Name, SL1K2-YAG-M23
     AxisFolder, SL1K2
     AxisType, 1
     CreateSymbols, true
-    Enc:EncType, 1
+    Dynamic:Acceleration, 4.26689
+    Dynamic:Deceleration, 4.26689
+    Dynamic:Jerk, 19.1646
+    Enc:EncType, 29
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #xffffffff
+    Enc:Offset, -17
+    Enc:ScaleFactorNumerator, 1e-06
+    Enc:SoftEndMaxControl:Enable, true
+    Enc:SoftEndMaxControl:Range, 41.6
+    Enc:SoftEndMinControl:Enable, true
+    Enc:SoftEndMinControl:Range, -0.59
     Id, 23
     OtherSettings:AllowMotionCmdToSlave, true
+    PositionAreaControl:Range, 0.05
+    TargetPosControl:Range, 0.05
+    Velo:FastManual, 1
+    Velo:Maximum, 2
+    Velo:SlowManual, 0.5
 
 
 
