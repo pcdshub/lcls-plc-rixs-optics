@@ -1326,6 +1326,7 @@ External Setpoint Generation:
 		<AxisPara>
 			<General UnitName="um"/>
 			<Dynamic DelayTime="0.008"/>
+			<TargetPosControl Range="0.5"/>
 			<BacklashCompensation Range="100"/>
 			<OtherSettings AllowMotionCmdToSlave="true"/>
 		</AxisPara>
@@ -1466,7 +1467,7 @@ Drive Status 4 (manually linked):
 		<Controller Name="Ctrl" CtrType="3">
 			<CtrPara PriorControlFactor="1">
 				<PosDiffControl Range="500" Time="0.01"/>
-				<PID PosTn="1e-05" PosIOutputLimit="1e-06" DeadBandPosition="5"/>
+				<PID PosTn="1e-05" PosIOutputLimit="1e-06" DeadBandPosition="0.2"/>
 				<Observer BandWidth="20"/>
 			</CtrPara>
 		</Controller>
