@@ -66,15 +66,15 @@ Constants
     :header: Symbol, Type, Offset/Size
     :align: center
 
-        Constants.bFPUSupport, BOOL, 23719128 (8)
-        Constants.bLittleEndian, BOOL, 23718984 (8)
-        Constants.bSimulationMode, BOOL, 23719120 (8)
-        Constants.CompilerVersion, VERSION, 23719056 (64)
-        Constants.CompilerVersionNumeric, DWORD, 23719200 (32)
-        Constants.nPackMode, UINT, 23719152 (16)
-        Constants.nRegisterSize, WORD, 23719136 (16)
-        Constants.RuntimeVersion, VERSION, 23718992 (64)
-        Constants.RuntimeVersionNumeric, DWORD, 23719168 (32)
+        Constants.bFPUSupport, BOOL, 23719200 (8)
+        Constants.bLittleEndian, BOOL, 23719024 (8)
+        Constants.bSimulationMode, BOOL, 23719032 (8)
+        Constants.CompilerVersion, VERSION, 23719104 (64)
+        Constants.CompilerVersionNumeric, DWORD, 23719264 (32)
+        Constants.nPackMode, UINT, 23719184 (16)
+        Constants.nRegisterSize, WORD, 23719168 (16)
+        Constants.RuntimeVersion, VERSION, 23719040 (64)
+        Constants.RuntimeVersionNumeric, DWORD, 23719232 (32)
 
 
 DefaultGlobals
@@ -671,12 +671,13 @@ Main
 .. raw:: html
 
    <details>
-       <summary>283 Symbols</summary>
+       <summary>286 Symbols</summary>
 
 .. csv-table::
     :header: Symbol, Type, Offset/Size
     :align: center
 
+        Main.dummyBool, BOOL, 23719008 (8)
         Main.fbMotionStage_m1, FB_MotionStage, 21259456 (199488)
         Main.fbMotionStage_m1.fbDriveVirtual.MasterAxis.NcToPlc, NCTOPLC_AXIS_REF, 21261952 (2048)
         Main.fbMotionStage_m1.fbDriveVirtual.MasterAxis.PlcToNc, PLCTONC_AXIS_REF, 21260928 (1024)
@@ -960,6 +961,8 @@ Main
         Main.M9.nRawEncoderINT, INT, 22214416 (16)
         Main.M9.nRawEncoderUINT, UINT, 22214400 (16)
         Main.M9.nRawEncoderULINT, ULINT, 22214336 (64)
+        Main.sio_current, UINT, 23718976 (16)
+        Main.sio_load, UINT, 23718992 (16)
 
 .. raw:: html
 
@@ -1339,7 +1342,7 @@ TC_EVENTS
     :header: Symbol, Type, Offset/Size
     :align: center
 
-        TC_EVENTS.LCLSGeneralEventClass, LCLSGeneralEventClass, 23772096 (960)
+        TC_EVENTS.LCLSGeneralEventClass, LCLSGeneralEventClass, 23772160 (960)
 
 
 TC_EVENT_CLASSES
@@ -1349,12 +1352,12 @@ TC_EVENT_CLASSES
     :header: Symbol, Type, Offset/Size
     :align: center
 
-        TC_EVENT_CLASSES.LCLSGeneralEventClass, GUID, 23742016 (128)
-        TC_EVENT_CLASSES.TcGeneralAdsEventClass, GUID, 23741504 (128)
-        TC_EVENT_CLASSES.TcRouterEventClass, GUID, 23741632 (128)
-        TC_EVENT_CLASSES.TcRTimeEventClass, GUID, 23741760 (128)
-        TC_EVENT_CLASSES.TcSystemEventClass, GUID, 23741376 (128)
-        TC_EVENT_CLASSES.Win32EventClass, GUID, 23741888 (128)
+        TC_EVENT_CLASSES.LCLSGeneralEventClass, GUID, 23742080 (128)
+        TC_EVENT_CLASSES.TcGeneralAdsEventClass, GUID, 23741568 (128)
+        TC_EVENT_CLASSES.TcRouterEventClass, GUID, 23741696 (128)
+        TC_EVENT_CLASSES.TcRTimeEventClass, GUID, 23741824 (128)
+        TC_EVENT_CLASSES.TcSystemEventClass, GUID, 23741440 (128)
+        TC_EVENT_CLASSES.Win32EventClass, GUID, 23741952 (128)
 
 
 TwinCAT_LicenseInfoVarList
@@ -1364,7 +1367,7 @@ TwinCAT_LicenseInfoVarList
     :header: Symbol, Type, Offset/Size
     :align: center
 
-        TwinCAT_LicenseInfoVarList._LicenseInfo, PlcLicenseInfo, 23719232 (2048)
+        TwinCAT_LicenseInfoVarList._LicenseInfo, PlcLicenseInfo, 23719296 (2048)
 
 
 TwinCAT_SystemInfoVarList
@@ -1379,17 +1382,17 @@ TwinCAT_SystemInfoVarList
     :header: Symbol, Type, Offset/Size
     :align: center
 
-        TwinCAT_SystemInfoVarList.__PiezoDriver, _Implicit_Task_Info, 23727296 (704)
-        TwinCAT_SystemInfoVarList.__PlcTask, _Implicit_Task_Info, 23728000 (704)
-        TwinCAT_SystemInfoVarList.__SerialIO, _Implicit_Task_Info, 23726592 (704)
-        TwinCAT_SystemInfoVarList._AppInfo, PlcAppSystemInfo, 23721280 (2048)
-        TwinCAT_SystemInfoVarList._TaskInfo, PlcTaskSystemInfo, 23723328 (3072)
-        TwinCAT_SystemInfoVarList._TaskOid_PiezoDriver, OTCID, 23726496 (32)
-        TwinCAT_SystemInfoVarList._TaskOid_PlcTask, OTCID, 23726560 (32)
-        TwinCAT_SystemInfoVarList._TaskOid_SerialIO, OTCID, 23726432 (32)
-        TwinCAT_SystemInfoVarList._TaskPouOid_PiezoDriver, OTCID, 23726464 (32)
-        TwinCAT_SystemInfoVarList._TaskPouOid_PlcTask, OTCID, 23726528 (32)
-        TwinCAT_SystemInfoVarList._TaskPouOid_SerialIO, OTCID, 23726400 (32)
+        TwinCAT_SystemInfoVarList.__PiezoDriver, _Implicit_Task_Info, 23727360 (704)
+        TwinCAT_SystemInfoVarList.__PlcTask, _Implicit_Task_Info, 23728064 (704)
+        TwinCAT_SystemInfoVarList.__SerialIO, _Implicit_Task_Info, 23726656 (704)
+        TwinCAT_SystemInfoVarList._AppInfo, PlcAppSystemInfo, 23721344 (2048)
+        TwinCAT_SystemInfoVarList._TaskInfo, PlcTaskSystemInfo, 23723392 (3072)
+        TwinCAT_SystemInfoVarList._TaskOid_PiezoDriver, OTCID, 23726560 (32)
+        TwinCAT_SystemInfoVarList._TaskOid_PlcTask, OTCID, 23726624 (32)
+        TwinCAT_SystemInfoVarList._TaskOid_SerialIO, OTCID, 23726496 (32)
+        TwinCAT_SystemInfoVarList._TaskPouOid_PiezoDriver, OTCID, 23726528 (32)
+        TwinCAT_SystemInfoVarList._TaskPouOid_PlcTask, OTCID, 23726592 (32)
+        TwinCAT_SystemInfoVarList._TaskPouOid_SerialIO, OTCID, 23726464 (32)
 
 .. raw:: html
 

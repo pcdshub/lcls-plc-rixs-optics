@@ -343,14 +343,15 @@ Axis 10: s_io
     BacklashCompensation:Range, 100
     CreateSymbols, true
     Dynamic:DelayTime, 0.008
-    Enc:EncType, 4
+    Enc:EncType, 29
     Enc:Inc:RefSoftSyncMask, #x0000ffff
-    Enc:Inverse, true
-    Enc:MaxCount, #x0000ffff
-    Enc:ScaleFactorNumerator, 0.0390625
+    Enc:MaxCount, #xffffffff
+    Enc:ScaleFactorNumerator, 0.001
+    Enc:SoftEndMinControl:Range, 14771.254
     General:UnitName, um
     Id, 10
     OtherSettings:AllowMotionCmdToSlave, true
+    TargetPosControl:Range, 0.5
 
 
 
@@ -401,9 +402,7 @@ Axis 12: M1K1-Yup
     Enc:MaxCount, #xffffffff
     Enc:ScaleFactorDenominator, 1000
     Enc:ScaleFactorNumerator, 1
-    Enc:SoftEndMaxControl:Enable, true
     Enc:SoftEndMaxControl:Range, 13009
-    Enc:SoftEndMinControl:Enable, true
     Enc:SoftEndMinControl:Range, -7991
     General:UnitName, um
     Id, 12
