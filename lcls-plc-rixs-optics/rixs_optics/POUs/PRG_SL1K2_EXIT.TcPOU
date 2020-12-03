@@ -55,18 +55,37 @@ VAR
     RTD_HeatSync: FB_TempSensor;      
 
 	{attribute 'pytmc' := '
-        pv: SL1K2:EXIT:CAM:ON
+        pv: SL1K2:EXIT:CAM:PWR
 		field: ZNAM OFF ;
 		field: ONAM ON ;
     '}
-	bCameraOn:BOOL;    
+	bCameraOn AT %Q*:BOOL;    
 
 	{attribute 'pytmc' := '
-        pv: SL1K2:EXIT:FAN:ON
+        pv: SL1K2:EXIT:FAN:PWR
 		field: ZNAM OFF ;
 		field: ONAM ON ;
     '}
-	bFanOn:BOOL;                        
+	bFanOn AT %Q*:BOOL;  
+
+  {attribute 'pytmc' := '
+        pv:  SL1K2:EXIT:LED:PWR
+        io: io
+        field: ZNAM OFF
+        field: ONAM ON
+    '}
+    bLEDPower AT %Q*: BOOL;   
+
+ 	{attribute 'pytmc' := '
+        pv:  SL1K2:EXIT:LED:CTRL
+        io: io
+        field: ZNAM OFF
+        field: ONAM ON
+    '}
+	iLEDCtrl : INT; 
+    iLEDOut AT %Q*: BOOL;  
+
+	fbLEDCtrl:FB_AnalogOutput();                         
 	
 	bInit : BOOL:=TRUE;
 	
@@ -87,17 +106,17 @@ IF ( bInit) THEN
     Main.M19.bHardwareEnable := TRUE;
     Main.M19.bPowerSelf :=TRUE;
     Main.M19.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
-	Main.M19.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+	Main.M19.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
    
 	Main.M20.bHardwareEnable := TRUE;
     Main.M20.bPowerSelf :=TRUE;
     Main.M20.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
-	Main.M20.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+	Main.M20.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
 	
 	Main.M21.bHardwareEnable := TRUE;
     Main.M21.bPowerSelf :=TRUE;
     Main.M21.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
-	Main.M21.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+	Main.M21.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
 	
 	Main.M22.bHardwareEnable := TRUE;
     Main.M22.bPowerSelf :=TRUE;
@@ -154,6 +173,9 @@ fbStates(
     stOut:=,
     stYag1:=,
     stYag2:=);
+
+//LED Control
+fbLEDCtrl(fReal:= iLEDCtrl*0.1, fSafeMax:= 10, fSafeMin:=0, iTermBits:= 32767, fTermMax:=10, fTermMin:=0, iRaw=> iLEDOut);
 
 	
 //RTDs
