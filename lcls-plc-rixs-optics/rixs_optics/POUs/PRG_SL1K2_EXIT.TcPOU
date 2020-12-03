@@ -22,36 +22,36 @@ VAR
 	{attribute 'pytmc' := '
         pv: SL1K2:EXIT:RTD:CRYSTAL_TOP
     '}
-    {attribute 'TcLinkTo' := '.iRaw := TIIB[SL1K2-EL3201-E9]^RTD^Value;
-                              .bError := TIIB[SL1K2-EL3201-E9]^RTD1^Status^Error;
-                              .bUnderrange := TIIB[SL1K2-EL3201-E9]^RTD^Status^Underrange;
-                              .bOverrange := TIIB[SL1K2-EL3201-E9]^RTD^Status^Overrange'}
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3201_SL1K2_1]^RTD^Value;
+                              .bError := TIIB[EL3201_SL1K2_1]^RTD1^Status^Error;
+                              .bUnderrange := TIIB[EL3201_SL1K2_1]^RTD^Status^Underrange;
+                              .bOverrange := TIIB[EL3201_SL1K2_1]^RTD^Status^Overrange'}
     RTD_Crystal_TOP: FB_TempSensor;     
 	{attribute 'pytmc' := '
         pv: SL1K2:EXIT:RTD:CRYSTAL_BOTTOM
     '}
-    {attribute 'TcLinkTo' := '.iRaw := TIIB[SL1K2-EL3201-E10]^RTD^Value;
-                              .bError := TIIB[SL1K2-EL3201-E10]^RTD1^Status^Error;
-                              .bUnderrange := TIIB[SL1K2-EL3201-E10]^RTD^Status^Underrange;
-                              .bOverrange := TIIB[SL1K2-EL3201-E10]^RTD^Status^Overrange'}
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3201_SL1K2_2]^RTD^Value;
+                              .bError := TIIB[EL3201_SL1K2_2]^RTD1^Status^Error;
+                              .bUnderrange := TIIB[EL3201_SL1K2_2]^RTD^Status^Underrange;
+                              .bOverrange := TIIB[EL3201_SL1K2_2]^RTD^Status^Overrange'}
     RTD_Crystal_BOTTOM: FB_TempSensor;   
 
 	{attribute 'pytmc' := '
         pv: SL1K2:EXIT:RTD:YAG
     '}
-    {attribute 'TcLinkTo' := '.iRaw := TIIB[SL1K2-EL3201-E11]^RTD^Value;
-                              .bError := TIIB[SL1K2-EL3201-E11]^RTD1^Status^Error;
-                              .bUnderrange := TIIB[SL1K2-EL3201-E11]^RTD^Status^Underrange;
-                              .bOverrange := TIIB[SL1K2-EL3201-E11]^RTD^Status^Overrange'}
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3201_SL1K2_3]^RTD^Value;
+                              .bError := TIIB[EL3201_SL1K2_3]^RTD1^Status^Error;
+                              .bUnderrange := TIIB[EL3201_SL1K2_3]^RTD^Status^Underrange;
+                              .bOverrange := TIIB[EL3201_SL1K2_3]^RTD^Status^Overrange'}
     RTD_YAG: FB_TempSensor;    
 
 	{attribute 'pytmc' := '
         pv: SL1K2:EXIT:RTD:HeatSync
     '}
-    {attribute 'TcLinkTo' := '.iRaw := TIIB[SL1K2-EL3201-E12]^RTD^Value;
-                              .bError := TIIB[SL1K2-EL3201-E12]^RTD1^Status^Error;
-                              .bUnderrange := TIIB[SL1K2-EL3201-E12]^RTD^Status^Underrange;
-                              .bOverrange := TIIB[SL1K2-EL3201-E12]^RTD^Status^Overrange'}
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3201_SL1K2_4]^RTD^Value;
+                              .bError := TIIB[EL3201_SL1K2_4]^RTD1^Status^Error;
+                              .bUnderrange := TIIB[EL3201_SL1K2_4]^RTD^Status^Underrange;
+                              .bOverrange := TIIB[EL3201_SL1K2_4]^RTD^Status^Overrange'}
     RTD_HeatSync: FB_TempSensor;      
 
 	{attribute 'pytmc' := '
@@ -59,6 +59,7 @@ VAR
 		field: ZNAM OFF ;
 		field: ONAM ON ;
     '}
+	 {attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL2004_SL1K2^Channel 2^Output'}
 	bCameraOn AT %Q*:BOOL;    
 
 	{attribute 'pytmc' := '
@@ -66,6 +67,7 @@ VAR
 		field: ZNAM OFF ;
 		field: ONAM ON ;
     '}
+	 {attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL2004_SL1K2^Channel 1^Output'}
 	bFanOn AT %Q*:BOOL;  
 
   {attribute 'pytmc' := '
@@ -74,6 +76,7 @@ VAR
         field: ZNAM OFF
         field: ONAM ON
     '}
+	 {attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL2004_SL1K2^Channel 3^Output'}
     bLEDPower AT %Q*: BOOL;   
 
  	{attribute 'pytmc' := '
