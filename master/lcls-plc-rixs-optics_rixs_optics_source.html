@@ -1342,18 +1342,37 @@ END_VAR
     <span class="n">RTD_HeatSync</span><span class="p">:</span> <span class="n">FB_TempSensor</span><span class="p">;</span>
 
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
-        <span class="n">pv</span><span class="p">:</span> <span class="n">SL1K2</span><span class="p">:</span><span class="n">EXIT</span><span class="p">:</span><span class="n">CAM</span><span class="p">:</span><span class="n">ON</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">SL1K2</span><span class="p">:</span><span class="n">EXIT</span><span class="p">:</span><span class="n">CAM</span><span class="p">:</span><span class="n">PWR</span>
             <span class="n">field</span><span class="p">:</span> <span class="n">ZNAM</span> <span class="n">OFF</span> <span class="p">;</span>
             <span class="n">field</span><span class="p">:</span> <span class="n">ONAM</span> <span class="n">ON</span> <span class="p">;</span>
     <span class="s1">&#39;}</span>
-    <span class="n">bCameraOn</span><span class="p">:</span><span class="n">BOOL</span><span class="p">;</span>
+    <span class="n">bCameraOn</span> <span class="n">AT</span> <span class="o">%</span><span class="n">Q</span><span class="o">*</span><span class="p">:</span><span class="n">BOOL</span><span class="p">;</span>
 
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
-        <span class="n">pv</span><span class="p">:</span> <span class="n">SL1K2</span><span class="p">:</span><span class="n">EXIT</span><span class="p">:</span><span class="n">FAN</span><span class="p">:</span><span class="n">ON</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">SL1K2</span><span class="p">:</span><span class="n">EXIT</span><span class="p">:</span><span class="n">FAN</span><span class="p">:</span><span class="n">PWR</span>
             <span class="n">field</span><span class="p">:</span> <span class="n">ZNAM</span> <span class="n">OFF</span> <span class="p">;</span>
             <span class="n">field</span><span class="p">:</span> <span class="n">ONAM</span> <span class="n">ON</span> <span class="p">;</span>
     <span class="s1">&#39;}</span>
-    <span class="n">bFanOn</span><span class="p">:</span><span class="n">BOOL</span><span class="p">;</span>
+    <span class="n">bFanOn</span> <span class="n">AT</span> <span class="o">%</span><span class="n">Q</span><span class="o">*</span><span class="p">:</span><span class="n">BOOL</span><span class="p">;</span>
+
+  <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span>  <span class="n">SL1K2</span><span class="p">:</span><span class="n">EXIT</span><span class="p">:</span><span class="n">LED</span><span class="p">:</span><span class="n">PWR</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">io</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">ZNAM</span> <span class="n">OFF</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">ONAM</span> <span class="n">ON</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">bLEDPower</span> <span class="n">AT</span> <span class="o">%</span><span class="n">Q</span><span class="o">*</span><span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span>  <span class="n">SL1K2</span><span class="p">:</span><span class="n">EXIT</span><span class="p">:</span><span class="n">LED</span><span class="p">:</span><span class="n">CTRL</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">io</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">ZNAM</span> <span class="n">OFF</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">ONAM</span> <span class="n">ON</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">iLEDCtrl</span> <span class="p">:</span> <span class="n">INT</span><span class="p">;</span>
+    <span class="n">iLEDOut</span> <span class="n">AT</span> <span class="o">%</span><span class="n">Q</span><span class="o">*</span><span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+
+    <span class="n">fbLEDCtrl</span><span class="p">:</span><span class="n">FB_AnalogOutput</span><span class="p">();</span>
 
     <span class="n">bInit</span> <span class="p">:</span> <span class="n">BOOL</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">;</span>
 
@@ -1372,17 +1391,17 @@ END_VAR
     <span class="n">Main</span><span class="o">.</span><span class="n">M19</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
     <span class="n">Main</span><span class="o">.</span><span class="n">M19</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span><span class="n">TRUE</span><span class="p">;</span>
     <span class="n">Main</span><span class="o">.</span><span class="n">M19</span><span class="o">.</span><span class="n">nBrakeMode</span> <span class="o">:=</span> <span class="n">ENUM_StageBrakeMode</span><span class="o">.</span><span class="n">NO_BRAKE</span><span class="p">;</span>
-    <span class="n">Main</span><span class="o">.</span><span class="n">M19</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M19</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
 
     <span class="n">Main</span><span class="o">.</span><span class="n">M20</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
     <span class="n">Main</span><span class="o">.</span><span class="n">M20</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span><span class="n">TRUE</span><span class="p">;</span>
     <span class="n">Main</span><span class="o">.</span><span class="n">M20</span><span class="o">.</span><span class="n">nBrakeMode</span> <span class="o">:=</span> <span class="n">ENUM_StageBrakeMode</span><span class="o">.</span><span class="n">NO_BRAKE</span><span class="p">;</span>
-    <span class="n">Main</span><span class="o">.</span><span class="n">M20</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M20</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
 
     <span class="n">Main</span><span class="o">.</span><span class="n">M21</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
     <span class="n">Main</span><span class="o">.</span><span class="n">M21</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span><span class="n">TRUE</span><span class="p">;</span>
     <span class="n">Main</span><span class="o">.</span><span class="n">M21</span><span class="o">.</span><span class="n">nBrakeMode</span> <span class="o">:=</span> <span class="n">ENUM_StageBrakeMode</span><span class="o">.</span><span class="n">NO_BRAKE</span><span class="p">;</span>
-    <span class="n">Main</span><span class="o">.</span><span class="n">M21</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">ALWAYS</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M21</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
 
     <span class="n">Main</span><span class="o">.</span><span class="n">M22</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
     <span class="n">Main</span><span class="o">.</span><span class="n">M22</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span><span class="n">TRUE</span><span class="p">;</span>
@@ -1439,6 +1458,9 @@ END_VAR
     <span class="n">stOut</span><span class="o">:=</span><span class="p">,</span>
     <span class="n">stYag1</span><span class="o">:=</span><span class="p">,</span>
     <span class="n">stYag2</span><span class="o">:=</span><span class="p">);</span>
+
+<span class="o">//</span><span class="n">LED</span> <span class="n">Control</span>
+<span class="n">fbLEDCtrl</span><span class="p">(</span><span class="n">fReal</span><span class="o">:=</span> <span class="n">iLEDCtrl</span><span class="o">*</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">fSafeMax</span><span class="o">:=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">fSafeMin</span><span class="o">:=</span><span class="mi">0</span><span class="p">,</span> <span class="n">iTermBits</span><span class="o">:=</span> <span class="mi">32767</span><span class="p">,</span> <span class="n">fTermMax</span><span class="o">:=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fTermMin</span><span class="o">:=</span><span class="mi">0</span><span class="p">,</span> <span class="n">iRaw</span><span class="o">=&gt;</span> <span class="n">iLEDOut</span><span class="p">);</span>
 
 
 <span class="o">//</span><span class="n">RTDs</span>
@@ -1612,6 +1634,33 @@ END_VAR
             <span class="n">io</span><span class="p">:</span> <span class="n">o</span>
     <span class="s1">&#39;}</span>
     <span class="n">fipi_set</span><span class="p">:</span>  <span class="n">LREAL</span><span class="p">;</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">SP1K1</span><span class="p">:</span><span class="n">MONO</span><span class="p">:</span><span class="n">LED</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="n">PWR</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">io</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">ZNAM</span> <span class="n">OFF</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">ONAM</span> <span class="n">ON</span>
+    <span class="s1">&#39;}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^Box 84 (EP2338-0002)^Channel 10^Output&#39;</span><span class="p">}</span>
+    <span class="n">bLEDPower01</span> <span class="n">AT</span> <span class="o">%</span><span class="n">Q</span><span class="o">*</span><span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">SP1K1</span><span class="p">:</span><span class="n">MONO</span><span class="p">:</span><span class="n">LED</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="n">PWR</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">io</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">ZNAM</span> <span class="n">OFF</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">ONAM</span> <span class="n">ON</span>
+    <span class="s1">&#39;}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^Box 84 (EP2338-0002)^Channel 12^Output&#39;</span><span class="p">}</span>
+    <span class="n">bLEDPower02</span> <span class="n">AT</span> <span class="o">%</span><span class="n">Q</span><span class="o">*</span><span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">SP1K1</span><span class="p">:</span><span class="n">MONO</span><span class="p">:</span><span class="n">LED</span><span class="p">:</span><span class="mi">03</span><span class="p">:</span><span class="n">PWR</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">io</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">ZNAM</span> <span class="n">OFF</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">ONAM</span> <span class="n">ON</span>
+    <span class="s1">&#39;}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^Box 84 (EP2338-0002)^Channel 14^Output&#39;</span><span class="p">}</span>
+    <span class="n">bLEDPower03</span> <span class="n">AT</span> <span class="o">%</span><span class="n">Q</span><span class="o">*</span><span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
 <span class="n">END_VAR</span>
 <span class="o">//</span> <span class="n">SP1K1</span><span class="o">-</span><span class="n">MONO</span>
 <span class="n">M6</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">bSTOEnable1</span> <span class="n">AND</span> <span class="n">bSTOEnable2</span><span class="p">;</span>

@@ -1195,18 +1195,37 @@ PRG_SL1K2_EXIT
         RTD_HeatSync: FB_TempSensor;      
 
     	{attribute 'pytmc' := '
-            pv: SL1K2:EXIT:CAM:ON
+            pv: SL1K2:EXIT:CAM:PWR
     		field: ZNAM OFF ;
     		field: ONAM ON ;
         '}
-    	bCameraOn:BOOL;    
+    	bCameraOn AT %Q*:BOOL;    
 
     	{attribute 'pytmc' := '
-            pv: SL1K2:EXIT:FAN:ON
+            pv: SL1K2:EXIT:FAN:PWR
     		field: ZNAM OFF ;
     		field: ONAM ON ;
         '}
-    	bFanOn:BOOL;                        
+    	bFanOn AT %Q*:BOOL;  
+
+      {attribute 'pytmc' := '
+            pv:  SL1K2:EXIT:LED:PWR
+            io: io
+            field: ZNAM OFF
+            field: ONAM ON
+        '}
+        bLEDPower AT %Q*: BOOL;   
+
+     	{attribute 'pytmc' := '
+            pv:  SL1K2:EXIT:LED:CTRL
+            io: io
+            field: ZNAM OFF
+            field: ONAM ON
+        '}
+    	iLEDCtrl : INT; 
+        iLEDOut AT %Q*: BOOL;  
+
+    	fbLEDCtrl:FB_AnalogOutput();                         
     	
     	bInit : BOOL:=TRUE;
     	
@@ -1225,17 +1244,17 @@ PRG_SL1K2_EXIT
         Main.M19.bHardwareEnable := TRUE;
         Main.M19.bPowerSelf :=TRUE;
         Main.M19.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
-    	Main.M19.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+    	Main.M19.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
        
     	Main.M20.bHardwareEnable := TRUE;
         Main.M20.bPowerSelf :=TRUE;
         Main.M20.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
-    	Main.M20.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+    	Main.M20.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
     	
     	Main.M21.bHardwareEnable := TRUE;
         Main.M21.bPowerSelf :=TRUE;
         Main.M21.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
-    	Main.M21.nEnableMode := ENUM_StageEnableMode.ALWAYS;
+    	Main.M21.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
     	
     	Main.M22.bHardwareEnable := TRUE;
         Main.M22.bPowerSelf :=TRUE;
@@ -1292,6 +1311,9 @@ PRG_SL1K2_EXIT
         stOut:=,
         stYag1:=,
         stYag2:=);
+
+    //LED Control
+    fbLEDCtrl(fReal:= iLEDCtrl*0.1, fSafeMax:= 10, fSafeMin:=0, iTermBits:= 32767, fTermMax:=10, fTermMin:=0, iRaw=> iLEDOut);
 
     	
     //RTDs
@@ -1467,6 +1489,33 @@ PRG_SP1K1_MONO
     		io: o
     	'}
     	fipi_set:  LREAL;
+    	
+    	{attribute 'pytmc' := '
+            pv: SP1K1:MONO:LED:01:PWR
+            io: io
+            field: ZNAM OFF
+            field: ONAM ON
+        '}
+    	{attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^Box 84 (EP2338-0002)^Channel 10^Output'}
+        bLEDPower01 AT %Q*: BOOL;
+    	
+    	{attribute 'pytmc' := '
+            pv: SP1K1:MONO:LED:02:PWR
+            io: io
+            field: ZNAM OFF
+            field: ONAM ON
+        '}
+    	{attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^Box 84 (EP2338-0002)^Channel 12^Output'}
+        bLEDPower02 AT %Q*: BOOL;
+    			
+    	{attribute 'pytmc' := '
+            pv: SP1K1:MONO:LED:03:PWR
+            io: io
+            field: ZNAM OFF
+            field: ONAM ON
+        '}
+    	{attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^Box 84 (EP2338-0002)^Channel 14^Output'}
+        bLEDPower03 AT %Q*: BOOL;
     END_VAR
     // SP1K1-MONO
     M6.bHardwareEnable := bSTOEnable1 AND bSTOEnable2;
