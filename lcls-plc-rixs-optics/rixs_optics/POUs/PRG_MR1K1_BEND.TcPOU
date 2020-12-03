@@ -114,6 +114,42 @@ VAR
 
 	// Common
 	fEncLeverArm_mm : LREAL := 410.0;
+	
+	// Mirror LEDs
+	{attribute 'pytmc' := '
+        pv: MR1K1:BEND:LED:01:PWR
+        io: io
+        field: ZNAM OFF
+        field: ONAM ON
+    '}
+	{attribute 'TcLinkTo' := 'TIIB[EL2024-0010_M1K1_BEND_LED1]^Channel 1^Output'}
+    bLEDPower01 AT %Q*: BOOL;
+	
+	{attribute 'pytmc' := '
+        pv: MR1K1:BEND:LED:02:PWR
+        io: io
+        field: ZNAM OFF
+        field: ONAM ON
+    '}
+	{attribute 'TcLinkTo' := 'TIIB[EL2024-0010_M1K1_BEND_LED1]^Channel 2^Output'}
+    bLEDPower02 AT %Q*: BOOL;
+			
+	{attribute 'pytmc' := '
+        pv: MR1K1:BEND:LED:03:PWR
+        io: io
+        field: ZNAM OFF
+        field: ONAM ON
+    '}
+	{attribute 'TcLinkTo' := 'TIIB[EL2024-0010_M1K1_BEND_LED1]^Channel 3^Output'}
+    bLEDPower03 AT %Q*: BOOL;
+	{attribute 'pytmc' := '
+        pv: MR1K1:BEND:LED:04:PWR
+        io: io
+        field: ZNAM OFF
+        field: ONAM ON
+    '}
+	{attribute 'TcLinkTo' := 'TIIB[EL2024-0010_M1K1_BEND_LED1]^Channel 4^Output'}
+    bLEDPower04 AT %Q*: BOOL;	
 END_VAR
 ]]></Declaration>
     <Implementation>
