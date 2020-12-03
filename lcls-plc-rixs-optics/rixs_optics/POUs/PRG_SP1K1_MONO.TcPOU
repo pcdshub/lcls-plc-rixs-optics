@@ -160,6 +160,33 @@ VAR
 		io: o
 	'}
 	fipi_set:  LREAL;
+	
+	{attribute 'pytmc' := '
+        pv: SP1K1:MONO:LED:01:PWR
+        io: io
+        field: ZNAM OFF
+        field: ONAM ON
+    '}
+	{attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^Box 84 (EP2338-0002)^Channel 10^Output'}
+    bLEDPower01 AT %Q*: BOOL;
+	
+	{attribute 'pytmc' := '
+        pv: SP1K1:MONO:LED:02:PWR
+        io: io
+        field: ZNAM OFF
+        field: ONAM ON
+    '}
+	{attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^Box 84 (EP2338-0002)^Channel 12^Output'}
+    bLEDPower02 AT %Q*: BOOL;
+			
+	{attribute 'pytmc' := '
+        pv: SP1K1:MONO:LED:03:PWR
+        io: io
+        field: ZNAM OFF
+        field: ONAM ON
+    '}
+	{attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^Box 84 (EP2338-0002)^Channel 14^Output'}
+    bLEDPower03 AT %Q*: BOOL;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -179,7 +206,7 @@ fbMotionStage_s_io  (stMotionStage:=M10);
 fbMotionStage_s_r  (stMotionStage:=M11);
 
 //S_R with no hardware limit switched
-M11.bAllBackwardEnable := TRUE;
+M11.bLimitBackwardEnable := TRUE;
 M11.bLimitForwardEnable := TRUE;
 
 mpi_upeurad := ULINT_TO_LREAL(mpi_upe.Count)*0.004505;
