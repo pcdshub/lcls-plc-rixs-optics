@@ -77,12 +77,15 @@ VAR
     bLEDPower AT %Q*: BOOL;   
 
  	{attribute 'pytmc' := '
-        pv:  SL1K2:EXIT:LED:INT
+        pv:  SL1K2:EXIT:LED:CTRL
         io: io
         field: ZNAM OFF
         field: ONAM ON
     '}
-    bLEDCtrl AT %Q*: BOOL;                           
+	iLEDCtrl : INT; 
+    iLEDOut AT %Q*: BOOL;  
+
+	fbLEDCtrl:FB_AnalogOutput();                         
 	
 	bInit : BOOL:=TRUE;
 	
@@ -170,6 +173,9 @@ fbStates(
     stOut:=,
     stYag1:=,
     stYag2:=);
+
+//LED Control
+fbLEDCtrl(fReal:= iLEDCtrl*0.1, fSafeMax:= 10, fSafeMin:=0, iTermBits:= 32767, fTermMax:=10, fTermMin:=0, iRaw=> iLEDOut);
 
 	
 //RTDs
