@@ -50,7 +50,7 @@
 	{attribute 'pytmc' := '
 		pv: MR1K2:SWITCH:MMS:PITCH
 	'}
-	M5 : DUT_MotionStage := (fVelocity:=30.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=True); // M1K2 Pitch Stepper
+	M5 : DUT_MotionStage := (fVelocity:=30.0, nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=True); // M1K2 Pitch Stepper
 
 	
 	(*SP1K1-Mono*)
@@ -59,36 +59,36 @@
 	'}
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[m_pi_m]^STM Status^Status^Digital input 1;
                               .bLimitBackwardEnable:=TIIB[m_pi_m]^STM Status^Status^Digital input 2'}
-	M6: DUT_MotionStage:=(nEnableMode:=ENUM_StageEnableMode.ALWAYS, fVelocity:=200.0, bPowerSelf:=True); // M_PI, urad
+	M6: DUT_MotionStage:=(nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, fVelocity:=200.0, bPowerSelf:=True); // M_PI, urad
 	{attribute 'pytmc' := '
 		pv: SP1K1:MONO:MMS:G_PI
 	'}
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[g_pi_m]^STM Status^Status^Digital input 1;
                               .bLimitBackwardEnable:=TIIB[g_pi_m]^STM Status^Status^Digital input 2'}
-	M7: DUT_MotionStage:=(nEnableMode:=ENUM_StageEnableMode.ALWAYS, fVelocity:=200.0, bPowerSelf:=True); // G_PI, urad
+	M7: DUT_MotionStage:=(nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, fVelocity:=200.0, bPowerSelf:=True); // G_PI, urad
 	{attribute 'pytmc' := '
 		pv: SP1K1:MONO:MMS:M_H
 	'}
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[m_h_m]^STM Status^Status^Digital input 1;
                               .bLimitBackwardEnable:=TIIB[m_h_m]^STM Status^Status^Digital input 2'}
-	M8: DUT_MotionStage:=(nEnableMode:=ENUM_StageEnableMode.ALWAYS, fVelocity:=500.0, bPowerSelf:=True); // M_H, um
+	M8: DUT_MotionStage:=(nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, fVelocity:=500.0, bPowerSelf:=True); // M_H, um
 	{attribute 'pytmc' := '
 		pv: SP1K1:MONO:MMS:G_H
 	'}
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[g_h_m]^STM Status^Status^Digital input 1;
                               .bLimitBackwardEnable:=TIIB[g_h_m]^STM Status^Status^Digital input 2'}
-	M9: DUT_MotionStage:=(nEnableMode:=ENUM_StageEnableMode.ALWAYS, fVelocity:=1000.0, bPowerSelf:=True); // G_H, um
+	M9: DUT_MotionStage:=(nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, fVelocity:=1000.0, bPowerSelf:=True); // G_H, um
 	{attribute 'pytmc' := '
 		pv: SP1K1:MONO:MMS:SD_V
 	'}
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[s_io_m]^STM Status^Status^Digital input 1;
                               .bLimitBackwardEnable:=TIIB[s_io_m]^STM Status^Status^Digital input 2'}
-	M10: DUT_MotionStage:=(nEnableMode:=ENUM_StageEnableMode.ALWAYS, fVelocity:=500.0, bPowerSelf:=True); // SD_V, um
+	M10: DUT_MotionStage:=(nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, fVelocity:=500.0, bPowerSelf:=True); // SD_V, um
 	{attribute 'pytmc' := '
 		pv: SP1K1:MONO:MMS:SD_ROT
 	'}
 	// no limits on this motion
-	M11: DUT_MotionStage:=(nEnableMode:=ENUM_StageEnableMode.ALWAYS, fVelocity:=500.0, bPowerSelf:=True); // SD_R, urad
+	M11: DUT_MotionStage:=(nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, fVelocity:=500.0, bPowerSelf:=True); // SD_R, urad
 
 	(*MR1K1*)
 	// Should move before MR1K2 and re-number each motor, lots of work
@@ -132,7 +132,7 @@
 	{attribute 'pytmc' := '
 		pv: MR1K1:BEND:MMS:PITCH
 	'}
-	M16 : DUT_MotionStage := (fVelocity:=30.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=True); // M1K1 Pitch Stepper
+	M16 : DUT_MotionStage := (fVelocity:=30.0, nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=True); // M1K1 Pitch Stepper
 		
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable :=TIIB[EL7041_M1K1_BEND_US]^STM Status^Status^Digital input 1;
                               .bLimitBackwardEnable:=TIIB[EL7041_M1K1_BEND_US]^STM Status^Status^Digital input 2;
@@ -140,7 +140,7 @@
 	{attribute 'pytmc' := '
 	pv: MR1K1:BEND:MMS:US
 	'}
-	M17 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE); //MR1K1 US BEND
+	M17 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //MR1K1 US BEND
 	fbMotionStage_m17 : FB_MotionStage;
 	
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable :=TIIB[EL7041_M1K1_BEND_DS]^STM Status^Status^Digital input 1;
@@ -149,7 +149,7 @@
 	{attribute 'pytmc' := '
 	pv: MR1K1:BEND:MMS:DS
 	'}
-	M18 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE); //MR1K1 DS BEND
+	M18 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //MR1K1 DS BEND
 	fbMotionStage_m18 : FB_MotionStage;
 	
 	(*SL1K2*)
@@ -193,6 +193,11 @@
 		pv: SL1K2:EXIT:MMS:YAG
 	'}
 	M23 : DUT_MotionStage := (sName:= 'SL1K2:EXIT:MMS:YAG',fVelocity :=0.5,sName := 'Yag'); // YAG
+	
+	sio_current AT%I* : UINT;
+	
+	sio_load AT%I* : UINT;
+	dummyBool: BOOL;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
