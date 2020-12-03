@@ -400,10 +400,13 @@ Axis 12: M1K1-Yup
     Enc:EncType, 29
     Enc:Inc:RefSoftSyncMask, #x0000ffff
     Enc:MaxCount, #xffffffff
+    Enc:Offset, -31911.458
     Enc:ScaleFactorDenominator, 1000
     Enc:ScaleFactorNumerator, 1
-    Enc:SoftEndMaxControl:Range, 13009
-    Enc:SoftEndMinControl:Range, -7991
+    Enc:SoftEndMaxControl:Enable, true
+    Enc:SoftEndMaxControl:Range, 1450
+    Enc:SoftEndMinControl:Enable, true
+    Enc:SoftEndMinControl:Range, -18738
     General:UnitName, um
     Id, 12
     OtherSettings:AllowMotionCmdToSlave, true
@@ -430,6 +433,7 @@ Axis 13: M1K1-Ydwn
     Enc:EncType, 29
     Enc:Inc:RefSoftSyncMask, #x0000ffff
     Enc:MaxCount, #xffffffff
+    Enc:Offset, -31911.458
     Enc:ScaleFactorDenominator, 1000
     Enc:ScaleFactorNumerator, 1
     General:UnitName, um
