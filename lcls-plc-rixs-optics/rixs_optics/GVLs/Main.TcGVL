@@ -156,7 +156,7 @@
 	// Motors
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_PITCH]^STM Status^Status^Digital input 2;
                               .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_PITCH]^STM Status^Status^Digital input 1;
-		 					  .nRawEncoderUINT      := TIIB[EL5042_PITCH_VERT]^FB Inputs Channel 1^Position'}
+		 					  .nRawEncoderUINT      := TIIB[EL5042_SL1K2_PITCH_VERT]^FB Inputs Channel 1^Position'}
 	{attribute 'pytmc' := '
 		pv: SL1K2:EXIT:MMS:PITCH
 	'}
@@ -164,7 +164,7 @@
 
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_VERT]^STM Status^Status^Digital input 1;
                               .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_VERT]^STM Status^Status^Digital input 2;
-		 					  .nRawEncoderUINT      := TIIB[EL5042_PITCH_VERT]^FB Inputs Channel 2^Position'}
+		 					  .nRawEncoderUINT      := TIIB[EL5042_SL1K2_PITCH_VERT]^FB Inputs Channel 2^Position'}
 	{attribute 'pytmc' := '
 		pv:SL1K2:EXIT:MMS:VERT
 	'}
@@ -172,7 +172,7 @@
 
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_ROLL]^STM Status^Status^Digital input 2;
                               .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_ROLL]^STM Status^Status^Digital input 1;
-							  .nRawEncoderUINT      := TIIB[EL5042_ROLL_GAP]^FB Inputs Channel 1^Position'}
+							  .nRawEncoderUINT      := TIIB[EL5042_SL1K2_ROLL_GAP]^FB Inputs Channel 1^Position'}
 	{attribute 'pytmc' := '
 		pv: SL1K2:EXIT:MMS:ROLL
 	'}
@@ -180,7 +180,7 @@
 
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_GAP]^STM Status^Status^Digital input 2;
                               .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_GAP]^STM Status^Status^Digital input 1;
-							  .nRawEncoderUINT      := TIIB[EL5042_ROLL_GAP]^FB Inputs Channel 2^Position'}
+							  .nRawEncoderUINT      := TIIB[EL5042_SL1K2_ROLL_GAP]^FB Inputs Channel 2^Position'}
 	{attribute 'pytmc' := '
 		pv: SL1K2:EXIT:MMS:GAP
 	'}
@@ -188,7 +188,7 @@
 
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_YAG]^STM Status^Status^Digital input 1;
                               .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_YAG]^STM Status^Status^Digital input 2;
-							  .nRawEncoderUINT      := TIIB[EL5042_YAG]^FB Inputs Channel 1^Position'}
+							  .nRawEncoderUINT      := TIIB[EL5042_SL1K2_YAG]^FB Inputs Channel 1^Position'}
 	{attribute 'pytmc' := '
 		pv: SL1K2:EXIT:MMS:YAG
 	'}
