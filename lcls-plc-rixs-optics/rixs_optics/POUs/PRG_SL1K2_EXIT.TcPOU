@@ -55,14 +55,14 @@ VAR
     RTD_HeatSync: FB_TempSensor;      
 
 	{attribute 'pytmc' := '
-        pv: SL1K2:EXIT:CAM:ON
+        pv: SL1K2:EXIT:CAM:PWR
 		field: ZNAM OFF ;
 		field: ONAM ON ;
     '}
 	bCameraOn:BOOL;    
 
 	{attribute 'pytmc' := '
-        pv: SL1K2:EXIT:FAN:ON
+        pv: SL1K2:EXIT:FAN:PWR
 		field: ZNAM OFF ;
 		field: ONAM ON ;
     '}
