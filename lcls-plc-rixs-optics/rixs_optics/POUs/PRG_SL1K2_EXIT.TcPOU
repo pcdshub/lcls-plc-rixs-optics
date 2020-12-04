@@ -86,7 +86,7 @@ VAR
         field: ONAM ON
     '}
 	iLEDCtrl : INT; 
-    iLEDOut AT %Q*: BOOL;  
+    iLEDOut AT %Q*: INT;  
 
 	fbLEDCtrl:FB_AnalogOutput();                         
 	
@@ -159,8 +159,8 @@ END_IF
 
 // Instantiate Function block for all the motion
 fbPitch(stMotionStage:=Main.M19);//in Air
-fbRoll(stMotionStage:=Main.M20);//in Air
-fbVertical(stMotionStage:=Main.M21);//in Air
+fbVertical(stMotionStage:=Main.M20);//in Air
+fbRoll(stMotionStage:=Main.M21);//in Air
 fbGap(stMotionStage:=Main.M22);//in vacuum
 fbYag(stMotionStage:=Main.M23);//in vacuum
 
