@@ -36,7 +36,7 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[IF bInitXS THEN
-    bInit := FALSE;
+    bInitXS := FALSE;
 
     stOut.sName := 'OUT';
     stOut.fVelocity := fOutVelocity;

@@ -54,38 +54,21 @@ VAR
                               .bOverrange := TIIB[EL3201_SL1K2_4]^RTD^Status^Overrange'}
     RTD_HeatSync: FB_TempSensor;      
 
-	{attribute 'pytmc' := '
-        pv: SL1K2:EXIT:CAM:PWR
-		field: ZNAM OFF ;
-		field: ONAM ON ;
-    '}
-	{attribute 'TcLinkTo' := 'TIIB[EL2004_SL1K2]^Channel 3^Output'}
-	bCameraOn AT %Q*:BOOL;    
-
+	
 	{attribute 'pytmc' := '
         pv: SL1K2:EXIT:FAN:PWR
 		field: ZNAM OFF ;
 		field: ONAM ON ;
     '}
 	 {attribute 'TcLinkTo' := 'TIIB[EL2004_SL1K2]^Channel 1^Output'}
-	bFanOn AT %Q*:BOOL;  
-
-  {attribute 'pytmc' := '
-        pv:  SL1K2:EXIT:LED:PWR
-        io: io
-        field: ZNAM OFF
-        field: ONAM ON
+	bFanOn AT %Q*:BOOL;        
+	
+	{attribute 'pytmc' := '
+        pv: SL1K2:EXIT:CAM
     '}
-	 {attribute 'TcLinkTo' := 'TIIB[EL2004_SL1K2]^Channel 2^Output'}
-    bLEDPower AT %Q*: BOOL;   
-
- 	{attribute 'pytmc' := '
-        pv:  SL1K2:EXIT:LED:CTRL
-        io: io
-    '}
-	iLEDCtrl : INT; 
-	 {attribute 'TcLinkTo' :=  '.iRaw := TIIB[EL4004_SL1K2]^AO Outputs Channel 1^Analog output'}
-	fbLEDCtrl:FB_AnalogOutput();                         
+	 {attribute 'TcLinkTo' := '.fbGige.iIlluminatorINT := TIIB[EL4004_SL1K2]^AO Outputs Channel 1^Analog output;
+                              .fbGige.bGigePower := 'TIIB[EL2004_SL1K2]^Channel 3^Output'}
+    fbGige: FB_PPM_Gige;
 	
 	bInit : BOOL:=TRUE;
 	
@@ -103,52 +86,56 @@ END_VAR
 IF ( bInit) THEN
 	bInit := FALSE;
 	FFO.i_DevName := 'SL1K2-SCATTER';
+	//Pitch
     Main.M19.bHardwareEnable := TRUE;
-    Main.M19.bPowerSelf :=TRUE;
+    Main.M19.bPowerSelf :=FALSE;
     Main.M19.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
 	Main.M19.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
-   
+    //Vertical
 	Main.M20.bHardwareEnable := TRUE;
-    Main.M20.bPowerSelf :=TRUE;
+    Main.M20.bPowerSelf :=FALSE;
     Main.M20.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
 	Main.M20.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
-	
+	//Roll
 	Main.M21.bHardwareEnable := TRUE;
-    Main.M21.bPowerSelf :=TRUE;
+    Main.M21.bPowerSelf :=FALSE;
     Main.M21.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
 	Main.M21.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
-	
+	//GAP
 	Main.M22.bHardwareEnable := TRUE;
-    Main.M22.bPowerSelf :=TRUE;
+    Main.M22.bPowerSelf :=FALSE;
     Main.M22.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
 	Main.M22.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
-	
+	//YAG
 	Main.M23.bHardwareEnable := TRUE;
-    Main.M23.bPowerSelf :=TRUE;
+    Main.M23.bPowerSelf :=FALSE;
     Main.M23.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
 	Main.M23.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
 	
 	// YAG STATES Parameters
 	fbStates.nTransitionAssertionID := 16#E510;
 	fbStates.nUnknownAssertionID := 16#E500;
-	
+	//Out
 	fbStates.stOut.fPosition := 0;
 	fbStates.stOut.bUseRawCounts := FALSE;
 	fbStates.stOut.nRequestAssertionID := 16#E513;
 	fbStates.stOut.stBeamParams := PMPS_GVL.cstFullBeam;
 	fbStates.stOut.bValid := TRUE;
-	
+	//Yag1
 	fbStates.stYag1.fPosition := 21;
 	fbStates.stYag1.bUseRawCounts := FALSE;
 	fbStates.stYag1.nRequestAssertionID := 16#E511;
 	fbStates.stYag1.stBeamParams := PMPS_GVL.cstFullBeam;
 	fbStates.stYag1.bValid := TRUE;
-	
+	//Yag2
 	fbStates.stYag2.fPosition := 41;
 	fbStates.stYag2.bUseRawCounts := FALSE;
 	fbStates.stYag2.nRequestAssertionID := 16#E512;
 	fbStates.stYag2.stBeamParams := PMPS_GVL.cstFullBeam;
 	fbStates.stYag2.bValid := TRUE;
+	
+	//Turn on Fan by default
+	bFanOn := TRUE;
 	
 END_IF
 
@@ -173,11 +160,11 @@ fbStates(
     stOut:=,
     stYag1:=,
     stYag2:=);
-
-//LED Control
-fbLEDCtrl(fReal:= iLEDCtrl*0.1, fSafeMax:= 10, fSafeMin:=0, iTermBits:= 32767, fTermMax:=10, fTermMin:=0, iRaw=> );
-
 	
+	
+//Camera and Ilumination
+fbGige();
+
 //RTDs
 RTD_Crystal_TOP();
 RTD_Crystal_BOTTOM();
