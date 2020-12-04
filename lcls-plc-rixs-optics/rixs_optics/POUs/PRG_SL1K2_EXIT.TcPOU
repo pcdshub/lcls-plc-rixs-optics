@@ -4,7 +4,7 @@
     <Declaration><![CDATA[PROGRAM PRG_SL1K2_EXIT
 VAR
 	FFO    :    FB_FastFault :=(
-        i_DevName := 'Slits',
+        i_DevName := 'Exit Slits',
         i_Desc := 'Fault occurs when device is in an usafe state',
         i_TypeCode := 16#E50);
 	fbPitch: FB_MotionStage;
@@ -59,7 +59,7 @@ VAR
 		field: ZNAM OFF ;
 		field: ONAM ON ;
     '}
-	 {attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL2004_SL1K2^Channel 2^Output'}
+	{attribute 'TcLinkTo' := 'TIIB[EL2004_SL1K2]^Channel 3^Output'}
 	bCameraOn AT %Q*:BOOL;    
 
 	{attribute 'pytmc' := '
@@ -67,7 +67,7 @@ VAR
 		field: ZNAM OFF ;
 		field: ONAM ON ;
     '}
-	 {attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL2004_SL1K2^Channel 1^Output'}
+	 {attribute 'TcLinkTo' := 'TIIB[EL2004_SL1K2]^Channel 1^Output'}
 	bFanOn AT %Q*:BOOL;  
 
   {attribute 'pytmc' := '
@@ -76,16 +76,15 @@ VAR
         field: ZNAM OFF
         field: ONAM ON
     '}
-	 {attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL2004_SL1K2^Channel 3^Output'}
+	 {attribute 'TcLinkTo' := 'TIIB[EL2004_SL1K2]^Channel 2^Output'}
     bLEDPower AT %Q*: BOOL;   
 
  	{attribute 'pytmc' := '
         pv:  SL1K2:EXIT:LED:CTRL
         io: io
-        field: ZNAM OFF
-        field: ONAM ON
     '}
 	iLEDCtrl : INT; 
+	 {attribute 'TcLinkTo' := 'TIIB[EL4004_SL1K2]^AO Outputs Channel 1^Analog output'}
     iLEDOut AT %Q*: INT;  
 
 	fbLEDCtrl:FB_AnalogOutput();                         
