@@ -84,9 +84,7 @@ VAR
         io: io
     '}
 	iLEDCtrl : INT; 
-	 {attribute 'TcLinkTo' := 'TIIB[EL4004_SL1K2]^AO Outputs Channel 1^Analog output'}
-    iLEDOut AT %Q*: INT;  
-
+	 {attribute 'TcLinkTo' :=  '.iRaw := TIIB[EL4004_SL1K2]^AO Outputs Channel 1^Analog output'}
 	fbLEDCtrl:FB_AnalogOutput();                         
 	
 	bInit : BOOL:=TRUE;
@@ -94,7 +92,7 @@ VAR
 	 (*Motion Parameters*)
     fSmallDelta: LREAL := 0.01;
     fBigDelta: LREAL := 10;
-    fMaxVelocity: LREAL := 0.2;
+    fMaxVelocity: LREAL := 0.5;
     fHighAccel: LREAL := 0.8;
     fLowAccel: LREAL := 0.1;
 	
@@ -146,7 +144,7 @@ IF ( bInit) THEN
 	fbStates.stYag1.stBeamParams := PMPS_GVL.cstFullBeam;
 	fbStates.stYag1.bValid := TRUE;
 	
-	fbStates.stYag2.fPosition := 40;
+	fbStates.stYag2.fPosition := 41;
 	fbStates.stYag2.bUseRawCounts := FALSE;
 	fbStates.stYag2.nRequestAssertionID := 16#E512;
 	fbStates.stYag2.stBeamParams := PMPS_GVL.cstFullBeam;
@@ -177,7 +175,7 @@ fbStates(
     stYag2:=);
 
 //LED Control
-fbLEDCtrl(fReal:= iLEDCtrl*0.1, fSafeMax:= 10, fSafeMin:=0, iTermBits:= 32767, fTermMax:=10, fTermMin:=0, iRaw=> iLEDOut);
+fbLEDCtrl(fReal:= iLEDCtrl*0.1, fSafeMax:= 10, fSafeMin:=0, iTermBits:= 32767, fTermMax:=10, fTermMin:=0, iRaw=> );
 
 	
 //RTDs
