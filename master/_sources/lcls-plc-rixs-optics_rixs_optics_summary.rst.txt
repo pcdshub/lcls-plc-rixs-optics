@@ -24,7 +24,7 @@ Settings
 Pragmas
 -------
 
-Total pragmas found: 173
+Total pragmas found: 172
 Total linter errors: 0
 
 
@@ -37,6 +37,7 @@ Libraries
     :align: center
 
         LCLS General, SLAC, , Unset
+        lcls2-cc-lib, SLAC, Unset, Unset
         PMPS, SLAC - LCLS, Unset, Unset
         Tc2_MC2, Beckhoff Automation GmbH, Unset, 
         Tc2_SerialCom, Beckhoff Automation GmbH, Unset, 
@@ -1209,6 +1210,75 @@ PRG_MR1K2_SWITCH
         PRG_MR1K2_SWITCH.nEncRefXupM1K2, UDINT, 18581568 (32)
         PRG_MR1K2_SWITCH.nEncRefYleftM1K2, UDINT, 18581504 (32)
         PRG_MR1K2_SWITCH.nEncRefYrightM1K2, UDINT, 18581536 (32)
+
+.. raw:: html
+
+   </details>
+   <br />
+
+
+PRG_SL1K2_EXIT
+^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <details>
+       <summary>50 Symbols</summary>
+
+.. csv-table::
+    :header: Symbol, Type, Offset/Size
+    :align: center
+
+        PRG_SL1K2_EXIT.bFanOn, BOOL, 23798104 (8)
+        PRG_SL1K2_EXIT.bInit, BOOL, 23900200 (8)
+        PRG_SL1K2_EXIT.bLEDPower, BOOL, 23900192 (8)
+        PRG_SL1K2_EXIT.fbGap, FB_MotionStage, 28370496 (199488)
+        PRG_SL1K2_EXIT.fbGap.fbDriveVirtual.MasterAxis.NcToPlc, NCTOPLC_AXIS_REF, 28372992 (2048)
+        PRG_SL1K2_EXIT.fbGap.fbDriveVirtual.MasterAxis.PlcToNc, PLCTONC_AXIS_REF, 28371968 (1024)
+        PRG_SL1K2_EXIT.fbGige, FB_PPM_Gige, 29138048 (1088)
+        PRG_SL1K2_EXIT.fbGige.bGigePower, BOOL, 29138096 (8)
+        PRG_SL1K2_EXIT.fbGige.fbGetIllPercent.iRaw, INT, 29138208 (16)
+        PRG_SL1K2_EXIT.fbGige.fbSetIllPercent.iRaw, INT, 29138944 (16)
+        PRG_SL1K2_EXIT.fbGige.iIlluminatorINT, INT, 29138080 (16)
+        PRG_SL1K2_EXIT.fBigDelta, LREAL, 29139200 (64)
+        PRG_SL1K2_EXIT.fbPitch, FB_MotionStage, 27772032 (199488)
+        PRG_SL1K2_EXIT.fbPitch.fbDriveVirtual.MasterAxis.NcToPlc, NCTOPLC_AXIS_REF, 27774528 (2048)
+        PRG_SL1K2_EXIT.fbPitch.fbDriveVirtual.MasterAxis.PlcToNc, PLCTONC_AXIS_REF, 27773504 (1024)
+        PRG_SL1K2_EXIT.fbRoll, FB_MotionStage, 27971520 (199488)
+        PRG_SL1K2_EXIT.fbRoll.fbDriveVirtual.MasterAxis.NcToPlc, NCTOPLC_AXIS_REF, 27974016 (2048)
+        PRG_SL1K2_EXIT.fbRoll.fbDriveVirtual.MasterAxis.PlcToNc, PLCTONC_AXIS_REF, 27972992 (1024)
+        PRG_SL1K2_EXIT.fbStates, FB_XS_YAG_States, 28769472 (367552)
+        PRG_SL1K2_EXIT.fbVertical, FB_MotionStage, 28171008 (199488)
+        PRG_SL1K2_EXIT.fbVertical.fbDriveVirtual.MasterAxis.NcToPlc, NCTOPLC_AXIS_REF, 28173504 (2048)
+        PRG_SL1K2_EXIT.fbVertical.fbDriveVirtual.MasterAxis.PlcToNc, PLCTONC_AXIS_REF, 28172480 (1024)
+        PRG_SL1K2_EXIT.fbYag, FB_MotionStage, 28569984 (199488)
+        PRG_SL1K2_EXIT.fbYag.fbDriveVirtual.MasterAxis.NcToPlc, NCTOPLC_AXIS_REF, 28572480 (2048)
+        PRG_SL1K2_EXIT.fbYag.fbDriveVirtual.MasterAxis.PlcToNc, PLCTONC_AXIS_REF, 28571456 (1024)
+        PRG_SL1K2_EXIT.FFO, FB_FastFault, 27746944 (25088)
+        PRG_SL1K2_EXIT.fHighAccel, LREAL, 29139328 (64)
+        PRG_SL1K2_EXIT.fLowAccel, LREAL, 29139392 (64)
+        PRG_SL1K2_EXIT.fMaxVelocity, LREAL, 29139264 (64)
+        PRG_SL1K2_EXIT.fSmallDelta, LREAL, 29139136 (64)
+        PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM, FB_TempSensor, 29137280 (256)
+        PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.bError, BOOL, 29137480 (8)
+        PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.bOverrange, BOOL, 29137496 (8)
+        PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.bUnderrange, BOOL, 29137488 (8)
+        PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.iRaw, INT, 29137504 (16)
+        PRG_SL1K2_EXIT.RTD_Crystal_TOP, FB_TempSensor, 29137024 (256)
+        PRG_SL1K2_EXIT.RTD_Crystal_TOP.bError, BOOL, 29137224 (8)
+        PRG_SL1K2_EXIT.RTD_Crystal_TOP.bOverrange, BOOL, 29137240 (8)
+        PRG_SL1K2_EXIT.RTD_Crystal_TOP.bUnderrange, BOOL, 29137232 (8)
+        PRG_SL1K2_EXIT.RTD_Crystal_TOP.iRaw, INT, 29137248 (16)
+        PRG_SL1K2_EXIT.RTD_HeatSync, FB_TempSensor, 29137792 (256)
+        PRG_SL1K2_EXIT.RTD_HeatSync.bError, BOOL, 29137992 (8)
+        PRG_SL1K2_EXIT.RTD_HeatSync.bOverrange, BOOL, 29138008 (8)
+        PRG_SL1K2_EXIT.RTD_HeatSync.bUnderrange, BOOL, 29138000 (8)
+        PRG_SL1K2_EXIT.RTD_HeatSync.iRaw, INT, 29138016 (16)
+        PRG_SL1K2_EXIT.RTD_YAG, FB_TempSensor, 29137536 (256)
+        PRG_SL1K2_EXIT.RTD_YAG.bError, BOOL, 29137736 (8)
+        PRG_SL1K2_EXIT.RTD_YAG.bOverrange, BOOL, 29137752 (8)
+        PRG_SL1K2_EXIT.RTD_YAG.bUnderrange, BOOL, 29137744 (8)
+        PRG_SL1K2_EXIT.RTD_YAG.iRaw, INT, 29137760 (16)
 
 .. raw:: html
 

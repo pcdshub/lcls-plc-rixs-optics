@@ -698,6 +698,7 @@ Links
         InputDst, PRG_1_PlcTask.M4.bLimitForwardEnable, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL7047_M1K2_Xdwn, STM Status^Status^Digital input 1
         InputDst, PRG_1_PlcTask.M5.bLimitBackwardEnable, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL7047_M1K2_PitchCoarse, STM Status^Status^Digital input 2
         InputDst, PRG_1_PlcTask.M5.bLimitForwardEnable, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL7047_M1K2_PitchCoarse, STM Status^Status^Digital input 1
+        OutputSrc, PRG_SL1K2_EXIT.bCameraOn, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL2004_SL1K2, Channel 2^Output
         rixs_optics Instance, PlcTask Inputs^GVL_M1K1.M1K1_Pitch.diEncCnt, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL5042_M1K2_Pitch, FB Inputs Channel 1^Position
         rixs_optics Instance, PlcTask Inputs^GVL_M1K1_BENDER_RTD.nM1K1DS_RTD_1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL3202-0010_M1K1US3_M1K1DS1, RTD Inputs Channel 2^Value
         rixs_optics Instance, PlcTask Inputs^GVL_M1K1_BENDER_RTD.nM1K1DS_RTD_2, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL3202-0010_M1K1DS2_M1K1DS3, RTD Inputs Channel 1^Value
@@ -799,6 +800,18 @@ Links
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stXupEnc^Count, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL5042_M1K2_Xupdwn, FB Inputs Channel 1^Position
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stYdwnEnc^Count, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL5042_M1K2_Yleftright, FB Inputs Channel 2^Position
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stYupEnc^Count, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL5042_M1K2_Yleftright, FB Inputs Channel 1^Position
+        rixs_optics Instance, PlcTask Inputs^PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.bOverrange, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_2, RTD^Status^Overrange
+        rixs_optics Instance, PlcTask Inputs^PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.bUnderrange, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_2, RTD^Status^Underrange
+        rixs_optics Instance, PlcTask Inputs^PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.iRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_2, RTD^Value
+        rixs_optics Instance, PlcTask Inputs^PRG_SL1K2_EXIT.RTD_Crystal_TOP.bOverrange, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_1, RTD^Status^Overrange
+        rixs_optics Instance, PlcTask Inputs^PRG_SL1K2_EXIT.RTD_Crystal_TOP.bUnderrange, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_1, RTD^Status^Underrange
+        rixs_optics Instance, PlcTask Inputs^PRG_SL1K2_EXIT.RTD_Crystal_TOP.iRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_1, RTD^Value
+        rixs_optics Instance, PlcTask Inputs^PRG_SL1K2_EXIT.RTD_HeatSync.bOverrange, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_4, RTD^Status^Overrange
+        rixs_optics Instance, PlcTask Inputs^PRG_SL1K2_EXIT.RTD_HeatSync.bUnderrange, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_4, RTD^Status^Underrange
+        rixs_optics Instance, PlcTask Inputs^PRG_SL1K2_EXIT.RTD_HeatSync.iRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_4, RTD^Value
+        rixs_optics Instance, PlcTask Inputs^PRG_SL1K2_EXIT.RTD_YAG.bOverrange, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_3, RTD^Status^Overrange
+        rixs_optics Instance, PlcTask Inputs^PRG_SL1K2_EXIT.RTD_YAG.bUnderrange, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_3, RTD^Status^Underrange
+        rixs_optics Instance, PlcTask Inputs^PRG_SL1K2_EXIT.RTD_YAG.iRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_3, RTD^Value
         rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD1.bError, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3202-E13, RTD Inputs Channel 1^Status^Error
         rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD1.bOverrange, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3202-E13, RTD Inputs Channel 1^Status^Overrange
         rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD1.bUnderrange, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3202-E13, RTD Inputs Channel 1^Status^Underrange
@@ -868,6 +881,10 @@ Links
         rixs_optics Instance, PlcTask Outputs^PRG_MR1K1_BEND.bLEDPower02, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL2024-0010_M1K1_BEND_LED1, Channel 2^Output
         rixs_optics Instance, PlcTask Outputs^PRG_MR1K1_BEND.bLEDPower03, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL2024-0010_M1K1_BEND_LED1, Channel 3^Output
         rixs_optics Instance, PlcTask Outputs^PRG_MR1K1_BEND.bLEDPower04, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL2024-0010_M1K1_BEND_LED1, Channel 4^Output
+        rixs_optics Instance, PlcTask Outputs^PRG_SL1K2_EXIT.bFanOn, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL2004_SL1K2, Channel 1^Output
+        rixs_optics Instance, PlcTask Outputs^PRG_SL1K2_EXIT.bLEDPower, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL2004_SL1K2, Channel 2^Output
+        rixs_optics Instance, PlcTask Outputs^PRG_SL1K2_EXIT.fbGige.bGigePower, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL2004_SL1K2, Channel 3^Output
+        rixs_optics Instance, PlcTask Outputs^PRG_SL1K2_EXIT.fbGige.iIlluminatorINT, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL4004_SL1K2, AO Outputs Channel 1^Analog output
         rixs_optics Instance, PlcTask Outputs^PRG_SP1K1_MONO.bLEDPower01, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^Box 84 (EP2338-0002), Channel 10^Output
         rixs_optics Instance, PlcTask Outputs^PRG_SP1K1_MONO.bLEDPower02, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^Box 84 (EP2338-0002), Channel 12^Output
         rixs_optics Instance, PlcTask Outputs^PRG_SP1K1_MONO.bLEDPower03, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^Box 84 (EP2338-0002), Channel 14^Output

@@ -127,6 +127,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#prg-mr1k1-bend">PRG_MR1K1_BEND</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prg-mr1k1-bend-bender">PRG_MR1K1_BEND_BENDER</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prg-mr1k2-switch">PRG_MR1K2_SWITCH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prg-sl1k2-exit">PRG_SL1K2_EXIT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prg-sp1k1-mono">PRG_SP1K1_MONO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#p-serial-com">P_Serial_Com</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#parameterlist">ParameterList</a></li>
@@ -240,7 +241,7 @@
 </div>
 <div class="section" id="pragmas">
 <span id="rixs-optics-pragmas"></span><h1>Pragmas<a class="headerlink" href="#pragmas" title="Permalink to this headline">¶</a></h1>
-<p>Total pragmas found: 173
+<p>Total pragmas found: 172
 Total linter errors: 0</p>
 </div>
 <div class="section" id="libraries">
@@ -265,37 +266,42 @@ Total linter errors: 0</p>
 <td></td>
 <td><p>Unset</p></td>
 </tr>
-<tr class="row-odd"><td><p>PMPS</p></td>
+<tr class="row-odd"><td><p>lcls2-cc-lib</p></td>
+<td><p>SLAC</p></td>
+<td><p>Unset</p></td>
+<td><p>Unset</p></td>
+</tr>
+<tr class="row-even"><td><p>PMPS</p></td>
 <td><p>SLAC - LCLS</p></td>
 <td><p>Unset</p></td>
 <td><p>Unset</p></td>
 </tr>
-<tr class="row-even"><td><p>Tc2_MC2</p></td>
+<tr class="row-odd"><td><p>Tc2_MC2</p></td>
 <td><p>Beckhoff Automation GmbH</p></td>
 <td><p>Unset</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>Tc2_SerialCom</p></td>
+<tr class="row-even"><td><p>Tc2_SerialCom</p></td>
 <td><p>Beckhoff Automation GmbH</p></td>
 <td><p>Unset</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>Tc2_Standard</p></td>
+<tr class="row-odd"><td><p>Tc2_Standard</p></td>
 <td><p>Beckhoff Automation GmbH</p></td>
 <td><p>Unset</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>Tc2_System</p></td>
+<tr class="row-even"><td><p>Tc2_System</p></td>
 <td><p>Beckhoff Automation GmbH</p></td>
 <td><p>Unset</p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>Tc2_Utilities</p></td>
+<tr class="row-odd"><td><p>Tc2_Utilities</p></td>
 <td><p>Beckhoff Automation GmbH</p></td>
 <td><p>Unset</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>Tc3_Module</p></td>
+<tr class="row-even"><td><p>Tc3_Module</p></td>
 <td><p>Beckhoff Automation GmbH</p></td>
 <td><p>Unset</p></td>
 <td></td>
@@ -4085,6 +4091,226 @@ Total linter errors: 0</p>
 <tr class="row-odd"><td><p>PRG_MR1K2_SWITCH.nEncRefYrightM1K2</p></td>
 <td><p>UDINT</p></td>
 <td><p>18581536 (32)</p></td>
+</tr>
+</tbody>
+</table>
+</details>
+<br /></div>
+<div class="section" id="prg-sl1k2-exit">
+<h2>PRG_SL1K2_EXIT<a class="headerlink" href="#prg-sl1k2-exit" title="Permalink to this headline">¶</a></h2>
+<details>
+    <summary>50 Symbols</summary><table class="docutils align-center">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Offset/Size</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PRG_SL1K2_EXIT.bFanOn</p></td>
+<td><p>BOOL</p></td>
+<td><p>23798104 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRG_SL1K2_EXIT.bInit</p></td>
+<td><p>BOOL</p></td>
+<td><p>23900200 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>PRG_SL1K2_EXIT.bLEDPower</p></td>
+<td><p>BOOL</p></td>
+<td><p>23900192 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRG_SL1K2_EXIT.fbGap</p></td>
+<td><p>FB_MotionStage</p></td>
+<td><p>28370496 (199488)</p></td>
+</tr>
+<tr class="row-even"><td><p>PRG_SL1K2_EXIT.fbGap.fbDriveVirtual.MasterAxis.NcToPlc</p></td>
+<td><p>NCTOPLC_AXIS_REF</p></td>
+<td><p>28372992 (2048)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRG_SL1K2_EXIT.fbGap.fbDriveVirtual.MasterAxis.PlcToNc</p></td>
+<td><p>PLCTONC_AXIS_REF</p></td>
+<td><p>28371968 (1024)</p></td>
+</tr>
+<tr class="row-even"><td><p>PRG_SL1K2_EXIT.fbGige</p></td>
+<td><p>FB_PPM_Gige</p></td>
+<td><p>29138048 (1088)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRG_SL1K2_EXIT.fbGige.bGigePower</p></td>
+<td><p>BOOL</p></td>
+<td><p>29138096 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>PRG_SL1K2_EXIT.fbGige.fbGetIllPercent.iRaw</p></td>
+<td><p>INT</p></td>
+<td><p>29138208 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRG_SL1K2_EXIT.fbGige.fbSetIllPercent.iRaw</p></td>
+<td><p>INT</p></td>
+<td><p>29138944 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>PRG_SL1K2_EXIT.fbGige.iIlluminatorINT</p></td>
+<td><p>INT</p></td>
+<td><p>29138080 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRG_SL1K2_EXIT.fBigDelta</p></td>
+<td><p>LREAL</p></td>
+<td><p>29139200 (64)</p></td>
+</tr>
+<tr class="row-even"><td><p>PRG_SL1K2_EXIT.fbPitch</p></td>
+<td><p>FB_MotionStage</p></td>
+<td><p>27772032 (199488)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRG_SL1K2_EXIT.fbPitch.fbDriveVirtual.MasterAxis.NcToPlc</p></td>
+<td><p>NCTOPLC_AXIS_REF</p></td>
+<td><p>27774528 (2048)</p></td>
+</tr>
+<tr class="row-even"><td><p>PRG_SL1K2_EXIT.fbPitch.fbDriveVirtual.MasterAxis.PlcToNc</p></td>
+<td><p>PLCTONC_AXIS_REF</p></td>
+<td><p>27773504 (1024)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRG_SL1K2_EXIT.fbRoll</p></td>
+<td><p>FB_MotionStage</p></td>
+<td><p>27971520 (199488)</p></td>
+</tr>
+<tr class="row-even"><td><p>PRG_SL1K2_EXIT.fbRoll.fbDriveVirtual.MasterAxis.NcToPlc</p></td>
+<td><p>NCTOPLC_AXIS_REF</p></td>
+<td><p>27974016 (2048)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRG_SL1K2_EXIT.fbRoll.fbDriveVirtual.MasterAxis.PlcToNc</p></td>
+<td><p>PLCTONC_AXIS_REF</p></td>
+<td><p>27972992 (1024)</p></td>
+</tr>
+<tr class="row-even"><td><p>PRG_SL1K2_EXIT.fbStates</p></td>
+<td><p>FB_XS_YAG_States</p></td>
+<td><p>28769472 (367552)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRG_SL1K2_EXIT.fbVertical</p></td>
+<td><p>FB_MotionStage</p></td>
+<td><p>28171008 (199488)</p></td>
+</tr>
+<tr class="row-even"><td><p>PRG_SL1K2_EXIT.fbVertical.fbDriveVirtual.MasterAxis.NcToPlc</p></td>
+<td><p>NCTOPLC_AXIS_REF</p></td>
+<td><p>28173504 (2048)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRG_SL1K2_EXIT.fbVertical.fbDriveVirtual.MasterAxis.PlcToNc</p></td>
+<td><p>PLCTONC_AXIS_REF</p></td>
+<td><p>28172480 (1024)</p></td>
+</tr>
+<tr class="row-even"><td><p>PRG_SL1K2_EXIT.fbYag</p></td>
+<td><p>FB_MotionStage</p></td>
+<td><p>28569984 (199488)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRG_SL1K2_EXIT.fbYag.fbDriveVirtual.MasterAxis.NcToPlc</p></td>
+<td><p>NCTOPLC_AXIS_REF</p></td>
+<td><p>28572480 (2048)</p></td>
+</tr>
+<tr class="row-even"><td><p>PRG_SL1K2_EXIT.fbYag.fbDriveVirtual.MasterAxis.PlcToNc</p></td>
+<td><p>PLCTONC_AXIS_REF</p></td>
+<td><p>28571456 (1024)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRG_SL1K2_EXIT.FFO</p></td>
+<td><p>FB_FastFault</p></td>
+<td><p>27746944 (25088)</p></td>
+</tr>
+<tr class="row-even"><td><p>PRG_SL1K2_EXIT.fHighAccel</p></td>
+<td><p>LREAL</p></td>
+<td><p>29139328 (64)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRG_SL1K2_EXIT.fLowAccel</p></td>
+<td><p>LREAL</p></td>
+<td><p>29139392 (64)</p></td>
+</tr>
+<tr class="row-even"><td><p>PRG_SL1K2_EXIT.fMaxVelocity</p></td>
+<td><p>LREAL</p></td>
+<td><p>29139264 (64)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRG_SL1K2_EXIT.fSmallDelta</p></td>
+<td><p>LREAL</p></td>
+<td><p>29139136 (64)</p></td>
+</tr>
+<tr class="row-even"><td><p>PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM</p></td>
+<td><p>FB_TempSensor</p></td>
+<td><p>29137280 (256)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.bError</p></td>
+<td><p>BOOL</p></td>
+<td><p>29137480 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.bOverrange</p></td>
+<td><p>BOOL</p></td>
+<td><p>29137496 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.bUnderrange</p></td>
+<td><p>BOOL</p></td>
+<td><p>29137488 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.iRaw</p></td>
+<td><p>INT</p></td>
+<td><p>29137504 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRG_SL1K2_EXIT.RTD_Crystal_TOP</p></td>
+<td><p>FB_TempSensor</p></td>
+<td><p>29137024 (256)</p></td>
+</tr>
+<tr class="row-even"><td><p>PRG_SL1K2_EXIT.RTD_Crystal_TOP.bError</p></td>
+<td><p>BOOL</p></td>
+<td><p>29137224 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRG_SL1K2_EXIT.RTD_Crystal_TOP.bOverrange</p></td>
+<td><p>BOOL</p></td>
+<td><p>29137240 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>PRG_SL1K2_EXIT.RTD_Crystal_TOP.bUnderrange</p></td>
+<td><p>BOOL</p></td>
+<td><p>29137232 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRG_SL1K2_EXIT.RTD_Crystal_TOP.iRaw</p></td>
+<td><p>INT</p></td>
+<td><p>29137248 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>PRG_SL1K2_EXIT.RTD_HeatSync</p></td>
+<td><p>FB_TempSensor</p></td>
+<td><p>29137792 (256)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRG_SL1K2_EXIT.RTD_HeatSync.bError</p></td>
+<td><p>BOOL</p></td>
+<td><p>29137992 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>PRG_SL1K2_EXIT.RTD_HeatSync.bOverrange</p></td>
+<td><p>BOOL</p></td>
+<td><p>29138008 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRG_SL1K2_EXIT.RTD_HeatSync.bUnderrange</p></td>
+<td><p>BOOL</p></td>
+<td><p>29138000 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>PRG_SL1K2_EXIT.RTD_HeatSync.iRaw</p></td>
+<td><p>INT</p></td>
+<td><p>29138016 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRG_SL1K2_EXIT.RTD_YAG</p></td>
+<td><p>FB_TempSensor</p></td>
+<td><p>29137536 (256)</p></td>
+</tr>
+<tr class="row-even"><td><p>PRG_SL1K2_EXIT.RTD_YAG.bError</p></td>
+<td><p>BOOL</p></td>
+<td><p>29137736 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRG_SL1K2_EXIT.RTD_YAG.bOverrange</p></td>
+<td><p>BOOL</p></td>
+<td><p>29137752 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>PRG_SL1K2_EXIT.RTD_YAG.bUnderrange</p></td>
+<td><p>BOOL</p></td>
+<td><p>29137744 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>PRG_SL1K2_EXIT.RTD_YAG.iRaw</p></td>
+<td><p>INT</p></td>
+<td><p>29137760 (16)</p></td>
 </tr>
 </tbody>
 </table>

@@ -579,7 +579,7 @@ END_VAR
     <span class="n">enumGet</span><span class="p">:</span> <span class="n">ENUM_XS_YAG_States</span><span class="p">;</span>
 <span class="n">END_VAR</span>
 <span class="n">VAR</span>
-     <span class="n">bInit</span><span class="p">:</span> <span class="n">BOOL</span> <span class="o">:=</span><span class="n">TRUE</span><span class="p">;</span>
+     <span class="n">bXSInit</span><span class="p">:</span> <span class="n">BOOL</span> <span class="o">:=</span><span class="n">TRUE</span><span class="p">;</span>
 <span class="n">END_VAR</span>
 <span class="n">VAR</span> <span class="n">CONSTANT</span>
     <span class="n">fInDelta</span><span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mi">2</span><span class="p">;</span>
@@ -590,7 +590,7 @@ END_VAR
     <span class="n">fOutDecel</span><span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mi">25</span><span class="p">;</span>
 <span class="n">END_VAR</span>
 <span class="n">IF</span> <span class="n">bInit</span> <span class="n">THEN</span>
-    <span class="n">bInit</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
+    <span class="n">bXSInit</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
 
     <span class="n">stOut</span><span class="o">.</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;OUT&#39;</span><span class="p">;</span>
     <span class="n">stOut</span><span class="o">.</span><span class="n">fVelocity</span> <span class="o">:=</span> <span class="n">fOutVelocity</span><span class="p">;</span>
@@ -680,7 +680,7 @@ END_VAR
 <span class="n">PRG_MR1K1_BEND_BENDER</span><span class="p">();</span>
 <span class="n">PRG_MR1K2_SWITCH</span><span class="p">();</span>
 <span class="n">PRG_SP1K1_MONO</span><span class="p">();</span>
-
+<span class="n">PRG_SL1K2_EXIT</span><span class="p">();</span>
 <span class="n">PRG_2_PMPS_POST</span><span class="p">();</span>
 
 <span class="n">END_PROGRAM</span>
@@ -1327,7 +1327,7 @@ END_VAR
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">PRG_SL1K2_EXIT</span>
 <span class="n">VAR</span>
     <span class="n">FFO</span>    <span class="p">:</span>    <span class="n">FB_FastFault</span> <span class="o">:=</span><span class="p">(</span>
-        <span class="n">i_DevName</span> <span class="o">:=</span> <span class="s1">&#39;Slits&#39;</span><span class="p">,</span>
+        <span class="n">i_DevName</span> <span class="o">:=</span> <span class="s1">&#39;Exit Slits&#39;</span><span class="p">,</span>
         <span class="n">i_Desc</span> <span class="o">:=</span> <span class="s1">&#39;Fault occurs when device is in an usafe state&#39;</span><span class="p">,</span>
         <span class="n">i_TypeCode</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#E50);</span>
     <span class="n">fbPitch</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
@@ -1377,20 +1377,13 @@ END_VAR
                               <span class="o">.</span><span class="n">bOverrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">EL3201_SL1K2_4</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Overrange</span><span class="s1">&#39;}</span>
     <span class="n">RTD_HeatSync</span><span class="p">:</span> <span class="n">FB_TempSensor</span><span class="p">;</span>
 
-    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
-        <span class="n">pv</span><span class="p">:</span> <span class="n">SL1K2</span><span class="p">:</span><span class="n">EXIT</span><span class="p">:</span><span class="n">CAM</span><span class="p">:</span><span class="n">PWR</span>
-            <span class="n">field</span><span class="p">:</span> <span class="n">ZNAM</span> <span class="n">OFF</span> <span class="p">;</span>
-            <span class="n">field</span><span class="p">:</span> <span class="n">ONAM</span> <span class="n">ON</span> <span class="p">;</span>
-    <span class="s1">&#39;}</span>
-     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL2004_SL1K2^Channel 2^Output&#39;</span><span class="p">}</span>
-    <span class="n">bCameraOn</span> <span class="n">AT</span> <span class="o">%</span><span class="n">Q</span><span class="o">*</span><span class="p">:</span><span class="n">BOOL</span><span class="p">;</span>
 
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
         <span class="n">pv</span><span class="p">:</span> <span class="n">SL1K2</span><span class="p">:</span><span class="n">EXIT</span><span class="p">:</span><span class="n">FAN</span><span class="p">:</span><span class="n">PWR</span>
             <span class="n">field</span><span class="p">:</span> <span class="n">ZNAM</span> <span class="n">OFF</span> <span class="p">;</span>
             <span class="n">field</span><span class="p">:</span> <span class="n">ONAM</span> <span class="n">ON</span> <span class="p">;</span>
     <span class="s1">&#39;}</span>
-     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL2004_SL1K2^Channel 1^Output&#39;</span><span class="p">}</span>
+     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIIB[EL2004_SL1K2]^Channel 1^Output&#39;</span><span class="p">}</span>
     <span class="n">bFanOn</span> <span class="n">AT</span> <span class="o">%</span><span class="n">Q</span><span class="o">*</span><span class="p">:</span><span class="n">BOOL</span><span class="p">;</span>
 
   <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
@@ -1399,26 +1392,22 @@ END_VAR
         <span class="n">field</span><span class="p">:</span> <span class="n">ZNAM</span> <span class="n">OFF</span>
         <span class="n">field</span><span class="p">:</span> <span class="n">ONAM</span> <span class="n">ON</span>
     <span class="s1">&#39;}</span>
-     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL2004_SL1K2^Channel 3^Output&#39;</span><span class="p">}</span>
+     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIIB[EL2004_SL1K2]^Channel 2^Output&#39;</span><span class="p">}</span>
     <span class="n">bLEDPower</span> <span class="n">AT</span> <span class="o">%</span><span class="n">Q</span><span class="o">*</span><span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
 
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
-        <span class="n">pv</span><span class="p">:</span>  <span class="n">SL1K2</span><span class="p">:</span><span class="n">EXIT</span><span class="p">:</span><span class="n">LED</span><span class="p">:</span><span class="n">CTRL</span>
-        <span class="n">io</span><span class="p">:</span> <span class="n">io</span>
-        <span class="n">field</span><span class="p">:</span> <span class="n">ZNAM</span> <span class="n">OFF</span>
-        <span class="n">field</span><span class="p">:</span> <span class="n">ONAM</span> <span class="n">ON</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">SL1K2</span><span class="p">:</span><span class="n">EXIT</span><span class="p">:</span><span class="n">CAM</span>
     <span class="s1">&#39;}</span>
-    <span class="n">iLEDCtrl</span> <span class="p">:</span> <span class="n">INT</span><span class="p">;</span>
-    <span class="n">iLEDOut</span> <span class="n">AT</span> <span class="o">%</span><span class="n">Q</span><span class="o">*</span><span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
-
-    <span class="n">fbLEDCtrl</span><span class="p">:</span><span class="n">FB_AnalogOutput</span><span class="p">();</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iIlluminatorINT := TIIB[EL4004_SL1K2]^AO Outputs Channel 1^Analog output;</span>
+                              <span class="o">.</span><span class="n">bGigePower</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">EL2004_SL1K2</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">3</span><span class="o">^</span><span class="n">Output</span><span class="s1">&#39;}</span>
+    <span class="n">fbGige</span><span class="p">:</span> <span class="n">FB_PPM_Gige</span><span class="p">;</span>
 
     <span class="n">bInit</span> <span class="p">:</span> <span class="n">BOOL</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">;</span>
 
      <span class="p">(</span><span class="o">*</span><span class="n">Motion</span> <span class="n">Parameters</span><span class="o">*</span><span class="p">)</span>
     <span class="n">fSmallDelta</span><span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mf">0.01</span><span class="p">;</span>
     <span class="n">fBigDelta</span><span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mi">10</span><span class="p">;</span>
-    <span class="n">fMaxVelocity</span><span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mf">0.2</span><span class="p">;</span>
+    <span class="n">fMaxVelocity</span><span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mf">0.5</span><span class="p">;</span>
     <span class="n">fHighAccel</span><span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mf">0.8</span><span class="p">;</span>
     <span class="n">fLowAccel</span><span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mf">0.1</span><span class="p">;</span>
 
@@ -1426,27 +1415,28 @@ END_VAR
 <span class="o">//</span>  <span class="n">init</span> <span class="n">the</span> <span class="n">motion</span> <span class="n">stages</span> <span class="n">parameters</span>
 <span class="n">IF</span> <span class="p">(</span> <span class="n">bInit</span><span class="p">)</span> <span class="n">THEN</span>
     <span class="n">bInit</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
-    <span class="n">FFO</span><span class="o">.</span><span class="n">i_DevName</span> <span class="o">:=</span> <span class="s1">&#39;SL1K2-SCATTER&#39;</span><span class="p">;</span>
+    <span class="n">FFO</span><span class="o">.</span><span class="n">i_DevName</span> <span class="o">:=</span> <span class="s1">&#39;SL1K2-EXIT&#39;</span><span class="p">;</span>
+    <span class="o">//</span><span class="n">Pitch</span>
     <span class="n">Main</span><span class="o">.</span><span class="n">M19</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
     <span class="n">Main</span><span class="o">.</span><span class="n">M19</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span><span class="n">TRUE</span><span class="p">;</span>
     <span class="n">Main</span><span class="o">.</span><span class="n">M19</span><span class="o">.</span><span class="n">nBrakeMode</span> <span class="o">:=</span> <span class="n">ENUM_StageBrakeMode</span><span class="o">.</span><span class="n">NO_BRAKE</span><span class="p">;</span>
     <span class="n">Main</span><span class="o">.</span><span class="n">M19</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
-
+   <span class="o">//</span><span class="n">Vert</span>
     <span class="n">Main</span><span class="o">.</span><span class="n">M20</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
     <span class="n">Main</span><span class="o">.</span><span class="n">M20</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span><span class="n">TRUE</span><span class="p">;</span>
     <span class="n">Main</span><span class="o">.</span><span class="n">M20</span><span class="o">.</span><span class="n">nBrakeMode</span> <span class="o">:=</span> <span class="n">ENUM_StageBrakeMode</span><span class="o">.</span><span class="n">NO_BRAKE</span><span class="p">;</span>
     <span class="n">Main</span><span class="o">.</span><span class="n">M20</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
-
+    <span class="o">//</span><span class="n">ROLL</span>
     <span class="n">Main</span><span class="o">.</span><span class="n">M21</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
     <span class="n">Main</span><span class="o">.</span><span class="n">M21</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span><span class="n">TRUE</span><span class="p">;</span>
     <span class="n">Main</span><span class="o">.</span><span class="n">M21</span><span class="o">.</span><span class="n">nBrakeMode</span> <span class="o">:=</span> <span class="n">ENUM_StageBrakeMode</span><span class="o">.</span><span class="n">NO_BRAKE</span><span class="p">;</span>
     <span class="n">Main</span><span class="o">.</span><span class="n">M21</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
-
+    <span class="o">//</span><span class="n">GAP</span>
     <span class="n">Main</span><span class="o">.</span><span class="n">M22</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
     <span class="n">Main</span><span class="o">.</span><span class="n">M22</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span><span class="n">TRUE</span><span class="p">;</span>
     <span class="n">Main</span><span class="o">.</span><span class="n">M22</span><span class="o">.</span><span class="n">nBrakeMode</span> <span class="o">:=</span> <span class="n">ENUM_StageBrakeMode</span><span class="o">.</span><span class="n">NO_BRAKE</span><span class="p">;</span>
     <span class="n">Main</span><span class="o">.</span><span class="n">M22</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
-
+    <span class="o">//</span><span class="n">YAG</span>
     <span class="n">Main</span><span class="o">.</span><span class="n">M23</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
     <span class="n">Main</span><span class="o">.</span><span class="n">M23</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span><span class="n">TRUE</span><span class="p">;</span>
     <span class="n">Main</span><span class="o">.</span><span class="n">M23</span><span class="o">.</span><span class="n">nBrakeMode</span> <span class="o">:=</span> <span class="n">ENUM_StageBrakeMode</span><span class="o">.</span><span class="n">NO_BRAKE</span><span class="p">;</span>
@@ -1455,25 +1445,27 @@ END_VAR
     <span class="o">//</span> <span class="n">YAG</span> <span class="n">STATES</span> <span class="n">Parameters</span>
     <span class="n">fbStates</span><span class="o">.</span><span class="n">nTransitionAssertionID</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#E510;</span>
     <span class="n">fbStates</span><span class="o">.</span><span class="n">nUnknownAssertionID</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#E500;</span>
-
+    <span class="o">//</span><span class="n">Out</span>
     <span class="n">fbStates</span><span class="o">.</span><span class="n">stOut</span><span class="o">.</span><span class="n">fPosition</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="n">fbStates</span><span class="o">.</span><span class="n">stOut</span><span class="o">.</span><span class="n">bUseRawCounts</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
     <span class="n">fbStates</span><span class="o">.</span><span class="n">stOut</span><span class="o">.</span><span class="n">nRequestAssertionID</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#E513;</span>
     <span class="n">fbStates</span><span class="o">.</span><span class="n">stOut</span><span class="o">.</span><span class="n">stBeamParams</span> <span class="o">:=</span> <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">cstFullBeam</span><span class="p">;</span>
     <span class="n">fbStates</span><span class="o">.</span><span class="n">stOut</span><span class="o">.</span><span class="n">bValid</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
-
+    <span class="o">//</span><span class="n">Yag1</span>
     <span class="n">fbStates</span><span class="o">.</span><span class="n">stYag1</span><span class="o">.</span><span class="n">fPosition</span> <span class="o">:=</span> <span class="mi">21</span><span class="p">;</span>
     <span class="n">fbStates</span><span class="o">.</span><span class="n">stYag1</span><span class="o">.</span><span class="n">bUseRawCounts</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
     <span class="n">fbStates</span><span class="o">.</span><span class="n">stYag1</span><span class="o">.</span><span class="n">nRequestAssertionID</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#E511;</span>
     <span class="n">fbStates</span><span class="o">.</span><span class="n">stYag1</span><span class="o">.</span><span class="n">stBeamParams</span> <span class="o">:=</span> <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">cstFullBeam</span><span class="p">;</span>
     <span class="n">fbStates</span><span class="o">.</span><span class="n">stYag1</span><span class="o">.</span><span class="n">bValid</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
-
+    <span class="o">//</span><span class="n">Yag2</span>
     <span class="n">fbStates</span><span class="o">.</span><span class="n">stYag2</span><span class="o">.</span><span class="n">fPosition</span> <span class="o">:=</span> <span class="mi">40</span><span class="p">;</span>
     <span class="n">fbStates</span><span class="o">.</span><span class="n">stYag2</span><span class="o">.</span><span class="n">bUseRawCounts</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
     <span class="n">fbStates</span><span class="o">.</span><span class="n">stYag2</span><span class="o">.</span><span class="n">nRequestAssertionID</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#E512;</span>
     <span class="n">fbStates</span><span class="o">.</span><span class="n">stYag2</span><span class="o">.</span><span class="n">stBeamParams</span> <span class="o">:=</span> <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">cstFullBeam</span><span class="p">;</span>
     <span class="n">fbStates</span><span class="o">.</span><span class="n">stYag2</span><span class="o">.</span><span class="n">bValid</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
 
+    <span class="o">//</span><span class="n">Turn</span> <span class="n">on</span> <span class="n">Fan</span> <span class="n">by</span> <span class="n">default</span>
+    <span class="n">bFanOn</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
 <span class="n">END_IF</span>
 
 
@@ -1489,7 +1481,7 @@ END_VAR
 <span class="o">//</span><span class="n">States</span> <span class="k">with</span> <span class="n">PMPS</span>
 <span class="n">fbStates</span><span class="p">(</span>
     <span class="n">fbArbiter</span><span class="o">:=</span><span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbArbiter</span><span class="p">,</span>
-    <span class="n">fbFFHWO</span><span class="o">:=</span><span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbFastFaultOutput2</span><span class="p">,</span>
+    <span class="n">fbFFHWO</span><span class="o">:=</span><span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbFastFaultOutput1</span><span class="p">,</span>
     <span class="n">nTransitionAssertionID</span><span class="o">:=</span><span class="p">,</span>
     <span class="n">nUnknownAssertionID</span><span class="o">:=</span><span class="p">,</span>
     <span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M23</span><span class="p">,</span>
@@ -1498,9 +1490,8 @@ END_VAR
     <span class="n">stYag1</span><span class="o">:=</span><span class="p">,</span>
     <span class="n">stYag2</span><span class="o">:=</span><span class="p">);</span>
 
-<span class="o">//</span><span class="n">LED</span> <span class="n">Control</span>
-<span class="n">fbLEDCtrl</span><span class="p">(</span><span class="n">fReal</span><span class="o">:=</span> <span class="n">iLEDCtrl</span><span class="o">*</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">fSafeMax</span><span class="o">:=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">fSafeMin</span><span class="o">:=</span><span class="mi">0</span><span class="p">,</span> <span class="n">iTermBits</span><span class="o">:=</span> <span class="mi">32767</span><span class="p">,</span> <span class="n">fTermMax</span><span class="o">:=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fTermMin</span><span class="o">:=</span><span class="mi">0</span><span class="p">,</span> <span class="n">iRaw</span><span class="o">=&gt;</span> <span class="n">iLEDOut</span><span class="p">);</span>
-
+<span class="o">//</span><span class="n">Camera</span> <span class="ow">and</span> <span class="n">Ilumination</span>
+<span class="n">fbGige</span><span class="p">();</span>
 
 <span class="o">//</span><span class="n">RTDs</span>
 <span class="n">RTD_Crystal_TOP</span><span class="p">();</span>
