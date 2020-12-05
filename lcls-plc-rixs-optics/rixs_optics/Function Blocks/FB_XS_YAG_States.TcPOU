@@ -23,7 +23,7 @@ VAR_OUTPUT
     enumGet: ENUM_XS_YAG_States;
 END_VAR
 VAR
-	 bInit: BOOL :=TRUE;
+	 bXSInit: BOOL :=TRUE;
 END_VAR
 VAR CONSTANT
     fInDelta: LREAL := 2;
@@ -36,7 +36,7 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[IF bInit THEN
-    bInit := FALSE;
+    bXSInit := FALSE;
 
     stOut.sName := 'OUT';
     stOut.fVelocity := fOutVelocity;
