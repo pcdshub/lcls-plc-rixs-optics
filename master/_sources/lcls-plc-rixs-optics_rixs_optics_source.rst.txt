@@ -350,7 +350,7 @@ Main
                                   .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_VERT]^STM Status^Status^Digital input 2;
     		 					  .nRawEncoderUINT      := TIIB[EL5042_SL1K2_PITCH_VERT]^FB Inputs Channel 2^Position'}
     	{attribute 'pytmc' := '
-    		pv:SL1K2:EXIT:MMS:VERT
+    		pv: SL1K2:EXIT:MMS:VERT
     	'}
     	M20 : DUT_MotionStage := (sName:= 'SL1K2:EXIT:MMS:VERT',fVelocity :=0.3,sName := 'Vertical'); // Air Vertical
 
