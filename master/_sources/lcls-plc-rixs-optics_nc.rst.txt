@@ -564,8 +564,10 @@ Axis 17: M1K1-BEND-US
     Enc:Inc:RefSoftSyncMask, #x0000ffff
     Enc:MaxCount, #xffffffff
     Enc:ScaleFactorNumerator, 1e-06
+    Enc:SoftEndMaxControl:Enable, true
+    Enc:SoftEndMaxControl:Range, 22.1
     Enc:SoftEndMinControl:Enable, true
-    Enc:SoftEndMinControl:Range, 6
+    Enc:SoftEndMinControl:Range, 20.9
     Id, 17
     OtherSettings:AllowMotionCmdToSlave, true
     Velo:Maximum, 0.1
@@ -594,8 +596,9 @@ Axis 18: M1K1-BEND-DS
     Enc:Inc:RefSoftSyncMask, #x0000ffff
     Enc:MaxCount, #xffffffff
     Enc:ScaleFactorNumerator, 1e-06
+    Enc:SoftEndMaxControl:Range, 21.8
     Enc:SoftEndMinControl:Enable, true
-    Enc:SoftEndMinControl:Range, 6
+    Enc:SoftEndMinControl:Range, 20.6
     Id, 18
     OtherSettings:AllowMotionCmdToSlave, true
     Velo:Maximum, 0.1

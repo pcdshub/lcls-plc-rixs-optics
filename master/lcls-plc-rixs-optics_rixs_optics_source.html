@@ -243,6 +243,13 @@
     <span class="o">//</span> <span class="n">Encoder</span> <span class="n">reference</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">counts</span> <span class="o">=</span> <span class="n">nm</span>
     <span class="n">nM1K1bendUS_ENC_REF</span> <span class="p">:</span> <span class="n">ULINT</span> <span class="o">:=</span> <span class="mi">21458400</span><span class="p">;</span>
     <span class="n">nM1K1bendDS_ENC_REF</span> <span class="p">:</span> <span class="n">ULINT</span> <span class="o">:=</span> <span class="mi">21225900</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">PMPS</span> <span class="n">Limits</span> <span class="k">for</span> <span class="n">benders</span>
+    <span class="n">nM1K1bendUS_PMPS_UpperLimit</span> <span class="p">:</span> <span class="n">ULINT</span> <span class="o">:=</span> <span class="mi">22100000</span><span class="p">;</span>
+    <span class="n">nM1K1bendUS_PMPS_LowerLimit</span> <span class="p">:</span> <span class="n">ULINT</span> <span class="o">:=</span> <span class="mi">20900000</span><span class="p">;</span>
+
+    <span class="n">nM1K1bendDS_PMPS_UpperLimit</span> <span class="p">:</span> <span class="n">ULINT</span> <span class="o">:=</span> <span class="mi">21800000</span><span class="p">;</span>
+    <span class="n">nM1K1bendDS_PMPS_LowerLimit</span> <span class="p">:</span> <span class="n">ULINT</span> <span class="o">:=</span> <span class="mi">20600000</span><span class="p">;</span>
 <span class="n">END_VAR</span>
 </pre></div>
 </div>
@@ -855,6 +862,16 @@ END_VAR
     <span class="s1">&#39;}</span>
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIIB[EL2024-0010_M1K1_BEND_LED1]^Channel 4^Output&#39;</span><span class="p">}</span>
     <span class="n">bLEDPower04</span> <span class="n">AT</span> <span class="o">%</span><span class="n">Q</span><span class="o">*</span><span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">MR1K1</span> <span class="n">Y</span> <span class="n">Encoder</span> <span class="k">for</span> <span class="n">PMPS</span> <span class="n">Veto</span> <span class="n">Device</span>
+    <span class="o">///////////////////////////////////////</span>
+        <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIIB[PMPS_PRE]^IO Outputs^MR1K1_Y_ENC&#39;</span><span class="p">}</span>
+        <span class="n">nMR1K1_Y_ENC_PMPS</span> <span class="n">AT</span> <span class="o">%</span><span class="n">Q</span><span class="o">*</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
+        <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 1^Status^Ready&#39;</span><span class="p">}</span>
+        <span class="n">bMR1K1_Y_ENC_Ready</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span> <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+        <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 1^Status^TxPDO State&#39;</span><span class="p">}</span>
+        <span class="n">bMR1K1_Y_ENC_TxPDO</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span> <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+
 <span class="n">END_VAR</span>
 <span class="o">//</span> <span class="n">M1K1</span>
 <span class="n">M1K1</span><span class="o">.</span><span class="n">fbRunHOMS</span><span class="p">(</span><span class="n">stYup</span><span class="o">:=</span><span class="n">M12</span><span class="p">,</span>
@@ -936,6 +953,13 @@ END_VAR
                                      <span class="n">Value</span><span class="o">=&gt;</span><span class="n">fEncRefPitchM1K1_urad</span><span class="p">);</span>
 
 <span class="n">nEncRefPitchM1K1</span> <span class="o">:=</span> <span class="n">LREAL_TO_UDINT</span><span class="p">(</span><span class="n">ABS</span><span class="p">(</span><span class="n">fEncRefPitchM1K1_urad</span><span class="p">)</span> <span class="o">*</span> <span class="n">fEncLeverArm_mm</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">Export</span> <span class="n">the</span> <span class="n">Y</span> <span class="n">encoder</span> <span class="n">value</span> <span class="k">for</span> <span class="n">PMPS</span> <span class="n">veto</span> <span class="n">device</span> <span class="n">evaluation</span>
+    <span class="n">IF</span> <span class="n">bMR1K1_Y_ENC_Ready</span> <span class="n">AND</span> <span class="n">NOT</span> <span class="n">bMR1K1_Y_ENC_TxPDO</span> <span class="n">THEN</span>
+        <span class="n">nMR1K1_Y_ENC_PMPS</span> <span class="o">:=</span> <span class="n">nEncCntYupM1K1</span><span class="p">;</span>
+    <span class="n">ELSE</span>
+        <span class="n">nMR1K1_Y_ENC_PMPS</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">END_IF</span>
 
 <span class="n">END_PROGRAM</span>
 </pre></div>
@@ -1057,6 +1081,13 @@ END_VAR
     <span class="o">//</span> <span class="n">Logging</span>
     <span class="n">fbLogHandler</span> <span class="p">:</span> <span class="n">FB_LogHandler</span><span class="p">;</span>
     <span class="n">fbBendUSRMSErrorMR1K1</span><span class="p">:</span> <span class="n">INT</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">PMPS</span>
+    <span class="n">ffBenderRange</span> <span class="p">:</span> <span class="n">FB_FastFault</span> <span class="o">:=</span> <span class="p">(</span>
+        <span class="n">i_xAutoReset</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">,</span>
+        <span class="n">i_DevName</span> <span class="o">:=</span> <span class="s1">&#39;MR1K1 Bender&#39;</span><span class="p">,</span>
+        <span class="n">i_Desc</span> <span class="o">:=</span> <span class="s1">&#39;Benders have moved out of range, monochromator beam may be focused where it can damage the BCS. Adjust bender to be within limits to clear fault&#39;</span><span class="p">,</span>
+        <span class="n">i_TypeCode</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#402);</span>
 <span class="n">END_VAR</span>
 <span class="o">//</span><span class="n">FB_Motion</span> <span class="n">stages</span> <span class="k">for</span> <span class="n">MR1K1</span> <span class="n">Benders</span>
 <span class="o">//</span><span class="n">MR1K1</span> <span class="n">BEND</span>
@@ -1107,6 +1138,11 @@ END_VAR
 <span class="o">//</span> <span class="n">M1K1</span> <span class="n">Bender</span> <span class="n">RTD</span> <span class="n">interlocks</span>
 <span class="n">M17</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="n">R</span><span class="o">=</span> <span class="n">fM1K1US_RTD_1</span> <span class="o">&gt;</span> <span class="mi">10000</span> <span class="n">OR</span> <span class="n">bM1K1US_RTD_1_Err</span><span class="p">;</span>
 <span class="n">M18</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="n">R</span><span class="o">=</span> <span class="n">fM1K1DS_RTD_1</span> <span class="o">&gt;</span> <span class="mi">10000</span> <span class="n">OR</span> <span class="n">bM1K1DS_RTD_1_Err</span><span class="p">;</span>
+
+<span class="n">ffBenderRange</span><span class="o">.</span><span class="n">i_xOK</span> <span class="o">:=</span>
+    <span class="n">GVL_M1K1_BENDER_Constants</span><span class="o">.</span><span class="n">nM1K1bendUS_PMPS_LowerLimit</span> <span class="o">&lt;</span> <span class="n">nEncCntBendUSM1K1</span> <span class="n">AND</span> <span class="n">nEncCntBendUSM1K1</span> <span class="o">&lt;</span> <span class="n">GVL_M1K1_BENDER_Constants</span><span class="o">.</span><span class="n">nM1K1bendUS_PMPS_UpperLimit</span> <span class="n">AND</span>
+    <span class="n">GVL_M1K1_BENDER_Constants</span><span class="o">.</span><span class="n">nM1K1bendDS_PMPS_LowerLimit</span> <span class="o">&lt;</span> <span class="n">nEncCntBendDSM1K1</span> <span class="n">AND</span> <span class="n">nEncCntBendDSM1K1</span> <span class="o">&lt;</span> <span class="n">GVL_M1K1_BENDER_Constants</span><span class="o">.</span><span class="n">nM1K1bendDS_PMPS_UpperLimit</span><span class="p">;</span>
+<span class="n">ffBenderRange</span><span class="p">(</span><span class="n">io_fbFFHWO</span> <span class="o">:=</span> <span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbFastFaultOutput1</span><span class="p">);</span>
 
 <span class="n">END_PROGRAM</span>
 </pre></div>

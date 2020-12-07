@@ -63,6 +63,13 @@ GVL_M1K1_BENDER_Constants
     	// Encoder reference values in counts = nm
     	nM1K1bendUS_ENC_REF : ULINT := 21458400;
     	nM1K1bendDS_ENC_REF : ULINT := 21225900;
+        
+        // PMPS Limits for benders
+        nM1K1bendUS_PMPS_UpperLimit : ULINT := 22100000;
+        nM1K1bendUS_PMPS_LowerLimit : ULINT := 20900000;
+        
+        nM1K1bendDS_PMPS_UpperLimit : ULINT := 21800000;
+        nM1K1bendDS_PMPS_LowerLimit : ULINT := 20600000;
     END_VAR
 
 
@@ -701,7 +708,17 @@ PRG_MR1K1_BEND
             field: ONAM ON
         '}
     	{attribute 'TcLinkTo' := 'TIIB[EL2024-0010_M1K1_BEND_LED1]^Channel 4^Output'}
-        bLEDPower04 AT %Q*: BOOL;	
+        bLEDPower04 AT %Q*: BOOL;
+
+        // MR1K1 Y Encoder for PMPS Veto Device
+        ///////////////////////////////////////
+            {attribute 'TcLinkTo' := 'TIIB[PMPS_PRE]^IO Outputs^MR1K1_Y_ENC'}
+            nMR1K1_Y_ENC_PMPS AT %Q* : UDINT;
+            {attribute 'TcLinkTo' := 'TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 1^Status^Ready'}
+            bMR1K1_Y_ENC_Ready AT %I* : BOOL;
+            {attribute 'TcLinkTo' := 'TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 1^Status^TxPDO State'}
+            bMR1K1_Y_ENC_TxPDO AT %I* : BOOL;
+
     END_VAR
     // M1K1
     M1K1.fbRunHOMS(stYup:=M12,
@@ -783,6 +800,13 @@ PRG_MR1K1_BEND
     				         Value=>fEncRefPitchM1K1_urad);
 
     nEncRefPitchM1K1 := LREAL_TO_UDINT(ABS(fEncRefPitchM1K1_urad) * fEncLeverArm_mm);
+
+    // Export the Y encoder value for PMPS veto device evaluation
+        IF bMR1K1_Y_ENC_Ready AND NOT bMR1K1_Y_ENC_TxPDO THEN
+            nMR1K1_Y_ENC_PMPS := nEncCntYupM1K1;
+        ELSE
+            nMR1K1_Y_ENC_PMPS := 0;
+        END_IF
 
     END_PROGRAM
 
@@ -906,6 +930,13 @@ PRG_MR1K1_BEND_BENDER
     	// Logging
     	fbLogHandler : FB_LogHandler;
     	fbBendUSRMSErrorMR1K1: INT;
+        
+        // PMPS
+        ffBenderRange : FB_FastFault := (
+            i_xAutoReset := TRUE,
+            i_DevName := 'MR1K1 Bender',
+            i_Desc := 'Benders have moved out of range, monochromator beam may be focused where it can damage the BCS. Adjust bender to be within limits to clear fault',
+            i_TypeCode := 16#402);
     END_VAR
     //FB_Motion stages for MR1K1 Benders
     //MR1K1 BEND
@@ -956,6 +987,11 @@ PRG_MR1K1_BEND_BENDER
     // M1K1 Bender RTD interlocks
     M17.bHardwareEnable R= fM1K1US_RTD_1 > 10000 OR bM1K1US_RTD_1_Err;
     M18.bHardwareEnable R= fM1K1DS_RTD_1 > 10000 OR bM1K1DS_RTD_1_Err;
+
+    ffBenderRange.i_xOK :=
+        GVL_M1K1_BENDER_Constants.nM1K1bendUS_PMPS_LowerLimit < nEncCntBendUSM1K1 AND nEncCntBendUSM1K1 < GVL_M1K1_BENDER_Constants.nM1K1bendUS_PMPS_UpperLimit AND
+        GVL_M1K1_BENDER_Constants.nM1K1bendDS_PMPS_LowerLimit < nEncCntBendDSM1K1 AND nEncCntBendDSM1K1 < GVL_M1K1_BENDER_Constants.nM1K1bendDS_PMPS_UpperLimit;
+    ffBenderRange(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
 
     END_PROGRAM
 
