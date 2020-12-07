@@ -115,6 +115,13 @@ VAR
 	// Logging
 	fbLogHandler : FB_LogHandler;
 	fbBendUSRMSErrorMR1K1: INT;
+    
+    // PMPS
+    ffBenderRange : FB_FastFault := (
+        i_xAutoReset := TRUE,
+        i_DevName := 'MR1K1 Bender',
+        i_Desc := 'Benders have moved out of range, monochromator beam may be focused where it can damage the BCS. Adjust bender to be within limits to clear fault',
+        i_TypeCode := 16#402);
 END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[//FB_Motion stages for MR1K1 Benders
@@ -166,6 +173,11 @@ bM1K1DS_RTD_3_Err := fM1K1DS_RTD_3 = 0;
 // M1K1 Bender RTD interlocks
 M17.bHardwareEnable R= fM1K1US_RTD_1 > 10000 OR bM1K1US_RTD_1_Err;
 M18.bHardwareEnable R= fM1K1DS_RTD_1 > 10000 OR bM1K1DS_RTD_1_Err;
+
+ffBenderRange.i_xOK :=
+    GVL_M1K1_BENDER_Constants.nM1K1bendUS_PMPS_LowerLimit < nEncCntBendUSM1K1 AND nEncCntBendUSM1K1 < GVL_M1K1_BENDER_Constants.nM1K1bendUS_PMPS_UpperLimit AND
+    GVL_M1K1_BENDER_Constants.nM1K1bendDS_PMPS_LowerLimit < nEncCntBendDSM1K1 AND nEncCntBendDSM1K1 < GVL_M1K1_BENDER_Constants.nM1K1bendDS_PMPS_UpperLimit;
+ffBenderRange(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
 ]]></ST>
     </Implementation>
   </POU>

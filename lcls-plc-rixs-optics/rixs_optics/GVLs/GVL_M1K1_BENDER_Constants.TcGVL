@@ -6,6 +6,13 @@ VAR_GLOBAL CONSTANT
 	// Encoder reference values in counts = nm
 	nM1K1bendUS_ENC_REF : ULINT := 21458400;
 	nM1K1bendDS_ENC_REF : ULINT := 21225900;
+    
+    // PMPS Limits for benders
+    nM1K1bendUS_PMPS_UpperLimit : ULINT := 22100000;
+    nM1K1bendUS_PMPS_LowerLimit : ULINT := 20900000;
+    
+    nM1K1bendDS_PMPS_UpperLimit : ULINT := 21800000;
+    nM1K1bendDS_PMPS_LowerLimit : ULINT := 20600000;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
