@@ -1727,6 +1727,13 @@ END_VAR
     <span class="s1">&#39;}</span>
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^Box 84 (EP2338-0002)^Channel 14^Output&#39;</span><span class="p">}</span>
     <span class="n">bLEDPower03</span> <span class="n">AT</span> <span class="o">%</span><span class="n">Q</span><span class="o">*</span><span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+
+    <span class="n">sd_io_FFO</span>    <span class="p">:</span>    <span class="n">FB_FastFault</span> <span class="o">:=</span><span class="p">(</span>
+        <span class="n">i_DevName</span> <span class="o">:=</span> <span class="s1">&#39;SP1K1-MONO&#39;</span><span class="p">,</span>
+        <span class="n">i_Desc</span> <span class="o">:=</span> <span class="s1">&#39;Fault occurs When SP1K1-MONO screw driver motor is not in the out position&#39;</span><span class="p">,</span>
+        <span class="n">i_TypeCode</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#1110);</span>
+    <span class="n">sd_io_e_pmps</span> <span class="p">:</span> <span class="n">LREAL</span><span class="o">:=</span> <span class="mf">74000.29</span><span class="p">;</span>
+
 <span class="n">END_VAR</span>
 <span class="o">//</span> <span class="n">SP1K1</span><span class="o">-</span><span class="n">MONO</span>
 <span class="n">M6</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">bSTOEnable1</span> <span class="n">AND</span> <span class="n">bSTOEnable2</span><span class="p">;</span>
@@ -1762,6 +1769,20 @@ END_VAR
 <span class="n">RTD6</span><span class="p">();</span>
 <span class="n">RTD7</span><span class="p">();</span>
 <span class="n">RTD8</span><span class="p">();</span>
+
+<span class="o">//</span><span class="n">Evaluate</span> <span class="n">the</span> <span class="n">encoder</span> <span class="n">reading</span> <span class="k">for</span> <span class="n">the</span> <span class="n">screw</span> <span class="n">driver</span> <span class="n">encoder</span><span class="o">.</span> <span class="n">Fast</span> <span class="n">fault</span> <span class="n">when</span> <span class="n">it</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">out</span><span class="o">.</span>
+<span class="o">//</span> <span class="n">i</span><span class="o">.</span><span class="n">e</span><span class="o">.</span> <span class="n">encoder</span> <span class="n">value</span> <span class="n">must</span> <span class="n">be</span> <span class="n">greater</span> <span class="n">than</span> <span class="n">the</span> <span class="n">out</span> <span class="n">position</span> <span class="p">(</span><span class="mf">75000.29</span> <span class="o">-</span> <span class="mi">1000</span><span class="n">u</span><span class="p">)</span>
+<span class="n">IF</span><span class="p">(</span> <span class="n">M10</span><span class="o">.</span><span class="n">Axis</span><span class="o">.</span><span class="n">NcToPlc</span><span class="o">.</span><span class="n">ActPos</span> <span class="o">&lt;</span> <span class="n">sd_io_e_pmps</span><span class="p">)</span> <span class="n">THEN</span>
+        <span class="n">sd_io_FFO</span><span class="o">.</span><span class="n">i_xOK</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
+    <span class="n">ELSE</span>
+        <span class="n">sd_io_FFO</span><span class="o">.</span><span class="n">i_xOK</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+<span class="n">END_IF</span>
+
+<span class="p">(</span><span class="o">*</span><span class="n">FAST</span> <span class="n">FAULT</span><span class="o">*</span><span class="p">)</span>
+<span class="n">sd_io_FFO</span><span class="p">(</span><span class="n">i_xOK</span> <span class="o">:=</span> <span class="p">,</span>
+    <span class="n">i_xReset</span> <span class="o">:=</span> <span class="p">,</span>
+    <span class="n">i_xAutoReset</span> <span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
+    <span class="n">io_fbFFHWO</span> <span class="o">:=</span> <span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbFastFaultOutput1</span><span class="p">);</span>
 
 <span class="n">END_PROGRAM</span>
 </pre></div>
