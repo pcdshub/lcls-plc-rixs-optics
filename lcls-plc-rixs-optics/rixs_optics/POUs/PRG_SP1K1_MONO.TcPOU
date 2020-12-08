@@ -187,6 +187,13 @@ VAR
     '}
 	{attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^Box 84 (EP2338-0002)^Channel 14^Output'}
     bLEDPower03 AT %Q*: BOOL;
+	
+	sd_io_FFO    :    FB_FastFault :=(
+        i_DevName := 'SP1K1-MONO',
+        i_Desc := 'Fault occurs When SP1K1-MONO screw driver motor is not in the out position',
+        i_TypeCode := 16#1110);
+	sd_io_e_pmps : LREAL:= 74000.29; 
+
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -223,7 +230,21 @@ RTD4();
 RTD5();
 RTD6();
 RTD7();
-RTD8();]]></ST>
+RTD8();
+
+//Evaluate the encoder reading for the screw driver encoder. Fast fault when it is not out.
+// i.e. encoder value must be greater than the out position (75000.29 - 1000u)
+IF( M10.Axis.NcToPlc.ActPos < sd_io_e_pmps) THEN
+        sd_io_FFO.i_xOK := FALSE;
+    ELSE
+        sd_io_FFO.i_xOK := TRUE;
+END_IF
+
+(*FAST FAULT*)
+sd_io_FFO(i_xOK := ,
+    i_xReset := ,
+    i_xAutoReset :=TRUE,
+    io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
