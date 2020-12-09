@@ -433,7 +433,7 @@ FB_XS_YAG_States
         fAccel: LREAL := 100;
         fOutDecel: LREAL := 25;
     END_VAR
-    IF bInit THEN
+    IF bXSInit THEN
         bXSInit := FALSE;
 
         stOut.sName := 'OUT';

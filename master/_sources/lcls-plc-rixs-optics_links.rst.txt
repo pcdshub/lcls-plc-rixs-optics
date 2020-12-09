@@ -792,6 +792,8 @@ Links
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fbRunHOMS.stXupEnc^Count, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL5042_M1K1_Xupdwn, FB Inputs Channel 1^Position
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fbRunHOMS.stYdwnEnc^Count, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL5042_M1K1_Yupdwn, FB Inputs Channel 2^Position
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fbRunHOMS.stYupEnc^Count, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL5042_M1K1_Yupdwn, FB Inputs Channel 1^Position
+        rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.bMR1K1_Y_ENC_Ready, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL5042_M1K1_Yupdwn, FB Inputs Channel 1^Status^Ready
+        rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.bMR1K1_Y_ENC_TxPDO, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL5042_M1K1_Yupdwn, FB Inputs Channel 1^Status^TxPDO State
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND_BENDER.M1K1BENDbSTOEnable1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL1004_M1K1_BENDER_STO, Channel 1^Input
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND_BENDER.M1K1BENDbSTOEnable2, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL1004_M1K1_BENDER_STO, Channel 2^Input
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.bSTOEnable1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL1004_M1K2_STO, Channel 1^Input
@@ -881,6 +883,7 @@ Links
         rixs_optics Instance, PlcTask Outputs^PRG_MR1K1_BEND.bLEDPower02, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL2024-0010_M1K1_BEND_LED1, Channel 2^Output
         rixs_optics Instance, PlcTask Outputs^PRG_MR1K1_BEND.bLEDPower03, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL2024-0010_M1K1_BEND_LED1, Channel 3^Output
         rixs_optics Instance, PlcTask Outputs^PRG_MR1K1_BEND.bLEDPower04, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL2024-0010_M1K1_BEND_LED1, Channel 4^Output
+        rixs_optics Instance, PlcTask Outputs^PRG_MR1K1_BEND.nMR1K1_Y_ENC_PMPS, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_PRE, IO Outputs^MR1K1_Y_ENC
         rixs_optics Instance, PlcTask Outputs^PRG_SL1K2_EXIT.bFanOn, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL2004_SL1K2, Channel 1^Output
         rixs_optics Instance, PlcTask Outputs^PRG_SL1K2_EXIT.bLEDPower, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL2004_SL1K2, Channel 2^Output
         rixs_optics Instance, PlcTask Outputs^PRG_SL1K2_EXIT.fbGige.bGigePower, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL2004_SL1K2, Channel 3^Output
