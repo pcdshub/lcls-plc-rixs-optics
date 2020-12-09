@@ -168,7 +168,7 @@ GVL_PMPS
         {attribute 'pytmc' := 'pv: PLC:RIX:OPTICS:FFO:01'}
         {attribute 'TcLinkTo' := '.q_xFastFaultOut:=TIIB[PMPS_FFO]^Channel 1^Output'}
         fbFastFaultOutput1: FB_HardwareFFOutput := (bAutoReset := TRUE);
-        {attribute 'pytmc' := 'pv: PLCRIX:OPTICS:FFO:02'}
+        {attribute 'pytmc' := 'pv: PLC:RIX:OPTICS:FFO:02'}
         {attribute 'TcLinkTo' := '.q_xFastFaultOut:=TIIB[PMPS_FFO]^Channel 2^Output'}
         fbFastFaultOutput2: FB_HardwareFFOutput := (bAutoReset := TRUE);
     END_VAR
@@ -351,7 +351,7 @@ Main
     	{attribute 'pytmc' := '
     		pv: SL1K2:EXIT:MMS:PITCH
     	'}
-    	M19 : DUT_MotionStage := (sName:= 'SL1K2:EXIT:MMS:PITCH',fVelocity :=0.12,sName := 'Pitch');// Air Pitch
+    	M19 : DUT_MotionStage := (sName:= 'SL1K2:EXIT:MMS:PITCH',fVelocity :=0.12);// Air Pitch
 
     	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_VERT]^STM Status^Status^Digital input 1;
                                   .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_VERT]^STM Status^Status^Digital input 2;
@@ -359,7 +359,7 @@ Main
     	{attribute 'pytmc' := '
     		pv: SL1K2:EXIT:MMS:VERT
     	'}
-    	M20 : DUT_MotionStage := (sName:= 'SL1K2:EXIT:MMS:VERT',fVelocity :=0.3,sName := 'Vertical'); // Air Vertical
+    	M20 : DUT_MotionStage := (sName:= 'SL1K2:EXIT:MMS:VERT',fVelocity :=0.3); // Air Vertical
 
     	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_ROLL]^STM Status^Status^Digital input 2;
                                   .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_ROLL]^STM Status^Status^Digital input 1;
@@ -367,7 +367,7 @@ Main
     	{attribute 'pytmc' := '
     		pv: SL1K2:EXIT:MMS:ROLL
     	'}
-    	M21 : DUT_MotionStage := (sName:= 'SL1K2:EXIT:MMS:ROLL',fVelocity :=0.24,sName := 'Roll'); // Air Roll
+    	M21 : DUT_MotionStage := (sName:= 'SL1K2:EXIT:MMS:ROLL',fVelocity :=0.24); // Air Roll
 
     	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_GAP]^STM Status^Status^Digital input 2;
                                   .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_GAP]^STM Status^Status^Digital input 1;
@@ -375,7 +375,7 @@ Main
     	{attribute 'pytmc' := '
     		pv: SL1K2:EXIT:MMS:GAP
     	'}
-    	M22 : DUT_MotionStage := (sName:= 'SL1K2:EXIT:MMS:GAP',fVelocity :=0.1,sName := 'Gap'); // GAP
+    	M22 : DUT_MotionStage := (sName:= 'SL1K2:EXIT:MMS:GAP',fVelocity :=0.1); // GAP
 
     	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_YAG]^STM Status^Status^Digital input 1;
                                   .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_YAG]^STM Status^Status^Digital input 2;
@@ -383,7 +383,7 @@ Main
     	{attribute 'pytmc' := '
     		pv: SL1K2:EXIT:MMS:YAG
     	'}
-    	M23 : DUT_MotionStage := (sName:= 'SL1K2:EXIT:MMS:YAG',fVelocity :=0.5,sName := 'Yag'); // YAG
+    	M23 : DUT_MotionStage := (sName:= 'SL1K2:EXIT:MMS:YAG',fVelocity :=0.5); // YAG
     	
     	sio_current AT%I* : UINT;
     	
@@ -1216,7 +1216,7 @@ PRG_SL1K2_EXIT
     PROGRAM PRG_SL1K2_EXIT
     VAR
     	FFO    :    FB_FastFault :=(
-            i_DevName := 'Exit Slits',
+            i_DevName := 'SL1K2-EXIT',
             i_Desc := 'Fault occurs when device is in an usafe state',
             i_TypeCode := 16#E50);
     	fbPitch: FB_MotionStage;
