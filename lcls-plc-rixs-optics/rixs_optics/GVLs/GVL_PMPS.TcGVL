@@ -8,7 +8,7 @@ VAR_GLOBAL
     {attribute 'pytmc' := 'pv: PLC:RIX:OPTICS:FFO:01'}
     {attribute 'TcLinkTo' := '.q_xFastFaultOut:=TIIB[PMPS_FFO]^Channel 1^Output'}
     fbFastFaultOutput1: FB_HardwareFFOutput := (bAutoReset := TRUE);
-    {attribute 'pytmc' := 'pv: PLCRIX:OPTICS:FFO:02'}
+    {attribute 'pytmc' := 'pv: PLC:RIX:OPTICS:FFO:02'}
     {attribute 'TcLinkTo' := '.q_xFastFaultOut:=TIIB[PMPS_FFO]^Channel 2^Output'}
     fbFastFaultOutput2: FB_HardwareFFOutput := (bAutoReset := TRUE);
 END_VAR]]></Declaration>
