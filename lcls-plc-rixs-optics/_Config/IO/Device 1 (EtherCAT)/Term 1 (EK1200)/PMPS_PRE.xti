@@ -294,7 +294,7 @@
 		<EtherCAT SlaveType="3" AdsServerAddress="ac155c440205eb03" PdiType="#x0008" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="47" EoeType="1" FoeType="1" VendorId="#x00000002" ProductCode="#x1a273052" RevisionNo="#x00050000" InfoDataAddr="true" InfoDataNetId="true" TimeoutMailbox2="2000" GenerateOwnNetId="true" CheckRevisionNoType="3" PortPhys="51" DcTimeLoopControlOnly="true" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL6695 EtherCAT Bridge terminal (Primary)" Desc="EL6695">
 			<SyncMan>0010000426000100010000008000da050004001026010000</SyncMan>
 			<SyncMan>0016000422000100020000008000da050004001622010000</SyncMan>
-			<SyncMan>001c98006400010003000000000000000000001c64010000</SyncMan>
+			<SyncMan>001c9c006400010003000000000000000000001c64010000</SyncMan>
 			<SyncMan>008e9a002000010004000000000000000200008e20010000</SyncMan>
 			<Fmmu>0000000000000000001c00020100000001000000000000000000000000000000</Fmmu>
 			<Fmmu>0000000000000000008e00010100000002000000000000000000000000000000</Fmmu>
@@ -446,6 +446,9 @@
 			<Pdo Name="IO Outputs" Index="#x1608" InOut="1" Flags="#x0020" SyncMan="2">
 				<Entry Name="RequestedBP" Index="#x7000" Sub="#x01">
 					<Type GUID="{5FC92061-002A-45B0-B954-CD8F28B5CE49}">ST_BeamParams_IO</Type>
+				</Entry>
+				<Entry Name="MR1K1_Y_ENC" Index="#x7000" Sub="#x02">
+					<Type>UDINT</Type>
 				</Entry>
 			</Pdo>
 			<CoeProfile ProfileNo="5001"/>

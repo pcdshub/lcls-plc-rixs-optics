@@ -160,15 +160,15 @@
 	{attribute 'pytmc' := '
 		pv: SL1K2:EXIT:MMS:PITCH
 	'}
-	M19 : DUT_MotionStage := (sName:= 'SL1K2:EXIT:MMS:PITCH',fVelocity :=0.12,sName := 'Pitch');// Air Pitch
+	M19 : DUT_MotionStage := (sName:= 'SL1K2:EXIT:MMS:PITCH',fVelocity :=0.12);// Air Pitch
 
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_VERT]^STM Status^Status^Digital input 1;
                               .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_VERT]^STM Status^Status^Digital input 2;
 		 					  .nRawEncoderUINT      := TIIB[EL5042_SL1K2_PITCH_VERT]^FB Inputs Channel 2^Position'}
 	{attribute 'pytmc' := '
-		pv:SL1K2:EXIT:MMS:VERT
+		pv: SL1K2:EXIT:MMS:VERT
 	'}
-	M20 : DUT_MotionStage := (sName:= 'SL1K2:EXIT:MMS:VERT',fVelocity :=0.3,sName := 'Vertical'); // Air Vertical
+	M20 : DUT_MotionStage := (sName:= 'SL1K2:EXIT:MMS:VERT',fVelocity :=0.3); // Air Vertical
 
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_ROLL]^STM Status^Status^Digital input 2;
                               .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_ROLL]^STM Status^Status^Digital input 1;
@@ -176,7 +176,7 @@
 	{attribute 'pytmc' := '
 		pv: SL1K2:EXIT:MMS:ROLL
 	'}
-	M21 : DUT_MotionStage := (sName:= 'SL1K2:EXIT:MMS:ROLL',fVelocity :=0.24,sName := 'Roll'); // Air Roll
+	M21 : DUT_MotionStage := (sName:= 'SL1K2:EXIT:MMS:ROLL',fVelocity :=0.24); // Air Roll
 
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_GAP]^STM Status^Status^Digital input 2;
                               .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_GAP]^STM Status^Status^Digital input 1;
@@ -184,7 +184,7 @@
 	{attribute 'pytmc' := '
 		pv: SL1K2:EXIT:MMS:GAP
 	'}
-	M22 : DUT_MotionStage := (sName:= 'SL1K2:EXIT:MMS:GAP',fVelocity :=0.1,sName := 'Gap'); // GAP
+	M22 : DUT_MotionStage := (sName:= 'SL1K2:EXIT:MMS:GAP',fVelocity :=0.1); // GAP
 
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_YAG]^STM Status^Status^Digital input 1;
                               .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_YAG]^STM Status^Status^Digital input 2;
@@ -192,7 +192,7 @@
 	{attribute 'pytmc' := '
 		pv: SL1K2:EXIT:MMS:YAG
 	'}
-	M23 : DUT_MotionStage := (sName:= 'SL1K2:EXIT:MMS:YAG',fVelocity :=0.5,sName := 'Yag'); // YAG
+	M23 : DUT_MotionStage := (sName:= 'SL1K2:EXIT:MMS:YAG',fVelocity :=0.5); // YAG
 	
 	sio_current AT%I* : UINT;
 	
