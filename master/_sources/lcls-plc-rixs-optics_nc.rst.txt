@@ -29,6 +29,7 @@ NC Settings
         21, SL1K2-Roll-M21
         22, SL1K2-CrystalGap-M22
         23, SL1K2-YAG-M23
+        24, Axis 24 ST1K1-ZOS-MMS
         200, enc_mpi_up
         201, enc_gpi_up
         202, g_h_enc-axis
@@ -779,6 +780,39 @@ Axis 23: SL1K2-YAG-M23
     Velo:FastManual, 1
     Velo:Maximum, 2
     Velo:SlowManual, 0.5
+
+
+
+Axis 24: Axis 24 ST1K1-ZOS-MMS
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. csv-table::
+    :header: Setting, Value
+    :align: center
+
+    Axis ID, 24
+    Name, Axis 24 ST1K1-ZOS-MMS
+    AxisFolder, ST1K1-ZOS
+    AxisType, 1
+    CreateSymbols, true
+    Enc:EncType, 29
+    Enc:Inc:RefSoftSyncMask, #x0000ffff
+    Enc:MaxCount, #xffffffff
+    Enc:Offset, -4264.0407
+    Enc:ReferenceSystem, 1
+    Enc:ScaleFactorNumerator, 1e-06
+    Enc:SoftEndMaxControl:Enable, true
+    Enc:SoftEndMaxControl:Range, 12.192
+    Enc:SoftEndMinControl:Enable, true
+    Id, 24
+    OtherSettings:AllowMotionCmdToSlave, true
+    OtherSettings:PulseDistanceNeg, 1
+    OtherSettings:PulseDistancePos, 1
+    Velo:FastManual, 1
+    Velo:Maximum, 1
+    Velo:RefSearch, 0.1
+    Velo:RefSync, 0.1
+    Velo:SlowManual, 0.1
 
 
 

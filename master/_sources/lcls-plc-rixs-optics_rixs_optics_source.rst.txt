@@ -385,6 +385,17 @@ Main
     	'}
     	M23 : DUT_MotionStage := (sName:= 'SL1K2:EXIT:MMS:YAG',fVelocity :=0.5); // YAG
     	
+    	
+        // ST1K1-ZOS-MMS
+        {attribute 'pytmc' := 'pv: ST1K1:ZOS:MMS'}
+        {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[ST1K1-EL7041]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable := TIIB[ST1K1-EL7041]^STM Status^Status^Digital input 2;
+                                  .bBrakeRelease        := TIIB[ST1K1-EL2008]^Channel 1^Output'}
+        M24: DUT_MotionStage := (sName := 'ST1K1:ZOS:MMS');
+
+    	
+    	
+    	
     	sio_current AT%I* : UINT;
     	
     	sio_load AT%I* : UINT;
@@ -531,6 +542,7 @@ PRG_1_PlcTask
     PRG_MR1K2_SWITCH();
     PRG_SP1K1_MONO();
     PRG_SL1K2_EXIT();
+    PRG_ST1K1_ZOS();
     PRG_2_PMPS_POST();
 
     END_PROGRAM
@@ -1638,6 +1650,22 @@ PRG_SP1K1_MONO
         i_xReset := ,
         i_xAutoReset :=TRUE,
         io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
+
+    END_PROGRAM
+
+
+PRG_ST1K1_ZOS
+^^^^^^^^^^^^^
+
+::
+
+    PROGRAM PRG_ST1K1_ZOS
+    VAR
+        fbZOS: FB_MotionStage;
+    END_VAR
+    Main.M24.bPowerSelf := TRUE;
+    Main.M24.bHardwareEnable := TRUE;
+    fbZOS(stMotionStage:=Main.M24);
 
     END_PROGRAM
 

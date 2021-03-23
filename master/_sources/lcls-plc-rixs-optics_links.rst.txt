@@ -148,6 +148,13 @@ Links
         , Drive^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL7041_M1K1_BEND_DS, STM Status^Status^Ready to enable
         , Drive^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL7041_M1K1_BEND_DS, STM Status^Status^Torque reduced
         , Drive^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL7041_M1K1_BEND_DS, STM Status^Status^Warning
+        , Drive^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_ST1K2_ZOS^ST1K1-EL7041, STM Status^Status^Error
+        , Drive^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_ST1K2_ZOS^ST1K1-EL7041, STM Status^Status^Moving negative
+        , Drive^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_ST1K2_ZOS^ST1K1-EL7041, STM Status^Status^Moving positive
+        , Drive^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_ST1K2_ZOS^ST1K1-EL7041, STM Status^Status^Ready
+        , Drive^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_ST1K2_ZOS^ST1K1-EL7041, STM Status^Status^Ready to enable
+        , Drive^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_ST1K2_ZOS^ST1K1-EL7041, STM Status^Status^Torque reduced
+        , Drive^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_ST1K2_ZOS^ST1K1-EL7041, STM Status^Status^Warning
         , Drive^Inputs^In^nState2, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL7047_M1K2_Yleft, STM Status^Status^Digital input 1
         , Drive^Inputs^In^nState2, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL7047_M1K2_Yleft, STM Status^Status^Digital input 2
         , Drive^Inputs^In^nState2, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL7047_M1K2_Yleft, STM Status^Status^Sync error
@@ -220,6 +227,10 @@ Links
         , Drive^Inputs^In^nState2, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL7041_M1K1_BEND_DS, STM Status^Status^Digital input 2
         , Drive^Inputs^In^nState2, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL7041_M1K1_BEND_DS, STM Status^Status^Sync error
         , Drive^Inputs^In^nState2, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL7041_M1K1_BEND_DS, STM Status^Status^TxPDO Toggle
+        , Drive^Inputs^In^nState2, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_ST1K2_ZOS^ST1K1-EL7041, STM Status^Status^Digital input 1
+        , Drive^Inputs^In^nState2, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_ST1K2_ZOS^ST1K1-EL7041, STM Status^Status^Digital input 2
+        , Drive^Inputs^In^nState2, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_ST1K2_ZOS^ST1K1-EL7041, STM Status^Status^Sync error
+        , Drive^Inputs^In^nState2, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_ST1K2_ZOS^ST1K1-EL7041, STM Status^Status^TxPDO Toggle
         , Drive^Inputs^In^nState4, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL7047_M1K2_Yleft, WcState^InputToggle
         , Drive^Inputs^In^nState4, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL7047_M1K2_Yleft, WcState^WcState
         , Drive^Inputs^In^nState4, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL7047_M1K2_Yright, WcState^InputToggle
@@ -256,6 +267,8 @@ Links
         , Drive^Inputs^In^nState4, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL7041_M1K1_BEND_US, WcState^WcState
         , Drive^Inputs^In^nState4, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL7041_M1K1_BEND_DS, WcState^InputToggle
         , Drive^Inputs^In^nState4, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL7041_M1K1_BEND_DS, WcState^WcState
+        , Drive^Inputs^In^nState4, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_ST1K2_ZOS^ST1K1-EL7041, WcState^InputToggle
+        , Drive^Inputs^In^nState4, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_ST1K2_ZOS^ST1K1-EL7041, WcState^WcState
         , Drive^Outputs^Out^nCtrl1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL7047_M1K2_Yleft, STM Control^Control^Enable
         , Drive^Outputs^Out^nCtrl1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL7047_M1K2_Yleft, STM Control^Control^Reduce torque
         , Drive^Outputs^Out^nCtrl1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL7047_M1K2_Yleft, STM Control^Control^Reset
@@ -310,6 +323,9 @@ Links
         , Drive^Outputs^Out^nCtrl1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL7041_M1K1_BEND_DS, STM Control^Control^Enable
         , Drive^Outputs^Out^nCtrl1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL7041_M1K1_BEND_DS, STM Control^Control^Reduce torque
         , Drive^Outputs^Out^nCtrl1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL7041_M1K1_BEND_DS, STM Control^Control^Reset
+        , Drive^Outputs^Out^nCtrl1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_ST1K2_ZOS^ST1K1-EL7041, STM Control^Control^Enable
+        , Drive^Outputs^Out^nCtrl1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_ST1K2_ZOS^ST1K1-EL7041, STM Control^Control^Reduce torque
+        , Drive^Outputs^Out^nCtrl1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_ST1K2_ZOS^ST1K1-EL7041, STM Control^Control^Reset
         , Drive^Outputs^Out^nCtrl2, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL7047_M1K2_Yleft, STM Control^Control^Digital output 1
         , Drive^Outputs^Out^nCtrl2, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL7047_M1K2_Yright, STM Control^Control^Digital output 1
         , Drive^Outputs^Out^nCtrl2, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL7047_M1K2_Xup, STM Control^Control^Digital output 1
@@ -344,6 +360,7 @@ Links
         , Drive^Outputs^Out^nDataOut2[0], TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL7047_M1K1_PitchCoarse, STM Velocity^Velocity
         , Drive^Outputs^Out^nDataOut2[0], TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL7041_M1K1_BEND_US, STM Velocity^Velocity
         , Drive^Outputs^Out^nDataOut2[0], TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL7041_M1K1_BEND_DS, STM Velocity^Velocity
+        , Drive^Outputs^Out^nDataOut2[0], TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_ST1K2_ZOS^ST1K1-EL7041, STM Velocity^Velocity
         , Enc^Inputs^In^nComState, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL5042_M1K2_Yleftright, WcState^InputToggle
         , Enc^Inputs^In^nComState, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL5042_M1K2_Yleftright, WcState^WcState
         , Enc^Inputs^In^nComState, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL5042_M1K2_Yleftright, WcState^InputToggle
@@ -376,6 +393,8 @@ Links
         , Enc^Inputs^In^nComState, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL5042_M1K1_BEND_USDS, WcState^WcState
         , Enc^Inputs^In^nComState, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL5042_M1K1_BEND_USDS, WcState^InputToggle
         , Enc^Inputs^In^nComState, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL5042_M1K1_BEND_USDS, WcState^WcState
+        , Enc^Inputs^In^nComState, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_ST1K2_ZOS^ST1K1-EL5042, WcState^InputToggle
+        , Enc^Inputs^In^nComState, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_ST1K2_ZOS^ST1K1-EL5042, WcState^WcState
         , Enc^Inputs^In^nDataIn1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL5042_M1K2_Yleftright, FB Inputs Channel 1^Position
         , Enc^Inputs^In^nDataIn1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL5042_M1K2_Yleftright, FB Inputs Channel 2^Position
         , Enc^Inputs^In^nDataIn1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL5042_M1K2_Xupdwn, FB Inputs Channel 1^Position
@@ -392,6 +411,7 @@ Links
         , Enc^Inputs^In^nDataIn1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL5042_M1K1_Pitch, FB Inputs Channel 1^Position
         , Enc^Inputs^In^nDataIn1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL5042_M1K1_BEND_USDS, FB Inputs Channel 1^Position
         , Enc^Inputs^In^nDataIn1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL5042_M1K1_BEND_USDS, FB Inputs Channel 2^Position
+        , Enc^Inputs^In^nDataIn1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_ST1K2_ZOS^ST1K1-EL5042, FB Inputs Channel 1^Position
         , Enc^Inputs^In^nDataIn1[0], TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^s_r, ENC Status compact^Counter value
         , Enc^Inputs^In^nDataIn2[0], TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^s_r, ENC Status compact^Latch value
         , Enc^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL5042_M1K2_Yleftright, FB Inputs Channel 1^Status^Diag
@@ -496,6 +516,12 @@ Links
         , Enc^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL5042_M1K1_BEND_USDS, FB Inputs Channel 2^Status^Ready
         , Enc^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL5042_M1K1_BEND_USDS, FB Inputs Channel 2^Status^TxPDO State
         , Enc^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL5042_M1K1_BEND_USDS, FB Inputs Channel 2^Status^Warning
+        , Enc^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_ST1K2_ZOS^ST1K1-EL5042, FB Inputs Channel 1^Status^Diag
+        , Enc^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_ST1K2_ZOS^ST1K1-EL5042, FB Inputs Channel 1^Status^Error
+        , Enc^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_ST1K2_ZOS^ST1K1-EL5042, FB Inputs Channel 1^Status^Input cycle counter
+        , Enc^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_ST1K2_ZOS^ST1K1-EL5042, FB Inputs Channel 1^Status^Ready
+        , Enc^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_ST1K2_ZOS^ST1K1-EL5042, FB Inputs Channel 1^Status^TxPDO State
+        , Enc^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_ST1K2_ZOS^ST1K1-EL5042, FB Inputs Channel 1^Status^Warning
         , Enc^Inputs^In^nState2, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^s_r, ENC Status compact^Status^Status of extern latch
         , Enc^Inputs^In^nState2, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^s_r, ENC Status compact^Status^Status of input A
         , Enc^Inputs^In^nState2, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^s_r, ENC Status compact^Status^Status of input B
@@ -760,6 +786,9 @@ Links
         rixs_optics Instance, PlcTask Inputs^Main.M23.bLimitBackwardEnable, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL7047_SL1K2_YAG, STM Status^Status^Digital input 2
         rixs_optics Instance, PlcTask Inputs^Main.M23.bLimitForwardEnable, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL7047_SL1K2_YAG, STM Status^Status^Digital input 1
         rixs_optics Instance, PlcTask Inputs^Main.M23.nRawEncoderUINT, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL5042_SL1K2_YAG, FB Inputs Channel 1^Position
+        rixs_optics Instance, PlcTask Inputs^Main.M24.Axis.NcToPlc, TINC^NC-Task 1 SAF^Axes^Axis 24 ST1K1-ZOS-MMS, Outputs^ToPlc
+        rixs_optics Instance, PlcTask Inputs^Main.M24.bLimitBackwardEnable, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_ST1K2_ZOS^ST1K1-EL7041, STM Status^Status^Digital input 2
+        rixs_optics Instance, PlcTask Inputs^Main.M24.bLimitForwardEnable, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_ST1K2_ZOS^ST1K1-EL7041, STM Status^Status^Digital input 1
         rixs_optics Instance, PlcTask Inputs^Main.M3.Axis.NcToPlc, TINC^NC-Task 1 SAF^Axes^M1K2-Xup, Outputs^ToPlc
         rixs_optics Instance, PlcTask Inputs^Main.M3.bLimitBackwardEnable, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL7047_M1K2_Xup, STM Status^Status^Digital input 2
         rixs_optics Instance, PlcTask Inputs^Main.M3.bLimitForwardEnable, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL7047_M1K2_Xup, STM Status^Status^Digital input 1
@@ -871,6 +900,8 @@ Links
         rixs_optics Instance, PlcTask Outputs^Main.M21.Axis.PlcToNc, TINC^NC-Task 1 SAF^Axes^SL1K2-Roll-M21, Inputs^FromPlc
         rixs_optics Instance, PlcTask Outputs^Main.M22.Axis.PlcToNc, TINC^NC-Task 1 SAF^Axes^SL1K2-CrystalGap-M22, Inputs^FromPlc
         rixs_optics Instance, PlcTask Outputs^Main.M23.Axis.PlcToNc, TINC^NC-Task 1 SAF^Axes^SL1K2-YAG-M23, Inputs^FromPlc
+        rixs_optics Instance, PlcTask Outputs^Main.M24.Axis.PlcToNc, TINC^NC-Task 1 SAF^Axes^Axis 24 ST1K1-ZOS-MMS, Inputs^FromPlc
+        rixs_optics Instance, PlcTask Outputs^Main.M24.bBrakeRelease, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_ST1K2_ZOS^ST1K1-EL2008, Channel 1^Output
         rixs_optics Instance, PlcTask Outputs^Main.M3.Axis.PlcToNc, TINC^NC-Task 1 SAF^Axes^M1K2-Xup, Inputs^FromPlc
         rixs_optics Instance, PlcTask Outputs^Main.M4.Axis.PlcToNc, TINC^NC-Task 1 SAF^Axes^M1K2-Xdwn, Inputs^FromPlc
         rixs_optics Instance, PlcTask Outputs^Main.M5.Axis.PlcToNc, TINC^NC-Task 1 SAF^Axes^M1K2-Pitch, Inputs^FromPlc

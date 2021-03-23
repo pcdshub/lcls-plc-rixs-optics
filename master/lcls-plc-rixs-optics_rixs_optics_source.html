@@ -127,6 +127,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#prg-mr1k2-switch">PRG_MR1K2_SWITCH</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prg-sl1k2-exit">PRG_SL1K2_EXIT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prg-sp1k1-mono">PRG_SP1K1_MONO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prg-st1k1-zos">PRG_ST1K1_ZOS</a></li>
 </ul>
 </li>
 </ul>
@@ -555,6 +556,17 @@ END_VAR
     <span class="s1">&#39;}</span>
     <span class="n">M23</span> <span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span><span class="o">:=</span> <span class="s1">&#39;SL1K2:EXIT:MMS:YAG&#39;</span><span class="p">,</span><span class="n">fVelocity</span> <span class="o">:=</span><span class="mf">0.5</span><span class="p">);</span> <span class="o">//</span> <span class="n">YAG</span>
 
+
+    <span class="o">//</span> <span class="n">ST1K1</span><span class="o">-</span><span class="n">ZOS</span><span class="o">-</span><span class="n">MMS</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: ST1K1:ZOS:MMS&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable  := TIIB[ST1K1-EL7041]^STM Status^Status^Digital input 1;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">ST1K1</span><span class="o">-</span><span class="n">EL7041</span><span class="p">]</span><span class="o">^</span><span class="n">STM</span> <span class="n">Status</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Digital</span> <span class="nb">input</span> <span class="mi">2</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bBrakeRelease</span>        <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">ST1K1</span><span class="o">-</span><span class="n">EL2008</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Output</span><span class="s1">&#39;}</span>
+    <span class="n">M24</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;ST1K1:ZOS:MMS&#39;</span><span class="p">);</span>
+
+
+
+
     <span class="n">sio_current</span> <span class="n">AT</span><span class="o">%</span><span class="n">I</span><span class="o">*</span> <span class="p">:</span> <span class="n">UINT</span><span class="p">;</span>
 
     <span class="n">sio_load</span> <span class="n">AT</span><span class="o">%</span><span class="n">I</span><span class="o">*</span> <span class="p">:</span> <span class="n">UINT</span><span class="p">;</span>
@@ -692,6 +704,7 @@ END_VAR
 <span class="n">PRG_MR1K2_SWITCH</span><span class="p">();</span>
 <span class="n">PRG_SP1K1_MONO</span><span class="p">();</span>
 <span class="n">PRG_SL1K2_EXIT</span><span class="p">();</span>
+<span class="n">PRG_ST1K1_ZOS</span><span class="p">();</span>
 <span class="n">PRG_2_PMPS_POST</span><span class="p">();</span>
 
 <span class="n">END_PROGRAM</span>
@@ -1787,6 +1800,20 @@ END_VAR
     <span class="n">i_xReset</span> <span class="o">:=</span> <span class="p">,</span>
     <span class="n">i_xAutoReset</span> <span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
     <span class="n">io_fbFFHWO</span> <span class="o">:=</span> <span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbFastFaultOutput1</span><span class="p">);</span>
+
+<span class="n">END_PROGRAM</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="prg-st1k1-zos">
+<h2>PRG_ST1K1_ZOS<a class="headerlink" href="#prg-st1k1-zos" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">PRG_ST1K1_ZOS</span>
+<span class="n">VAR</span>
+    <span class="n">fbZOS</span><span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+<span class="n">Main</span><span class="o">.</span><span class="n">M24</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+<span class="n">Main</span><span class="o">.</span><span class="n">M24</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+<span class="n">fbZOS</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M24</span><span class="p">);</span>
 
 <span class="n">END_PROGRAM</span>
 </pre></div>
