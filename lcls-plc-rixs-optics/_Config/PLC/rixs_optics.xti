@@ -6481,6 +6481,7 @@ External Setpoint Generation:
 				<Link VarA="PlcTask Inputs^Main.M7.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_up_dwn_e">
+				<Link VarA="PlcTask Inputs^Main.M7.nRawEncoderULINT" VarB="FB Inputs Channel 2^Position" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.gpi_upe^Count" VarB="FB Inputs Channel 1^Position" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^m_h_m">
@@ -6492,6 +6493,7 @@ External Setpoint Generation:
 				<Link VarA="PlcTask Inputs^Main.M6.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^m_pi_up_dwn_e">
+				<Link VarA="PlcTask Inputs^Main.M6.nRawEncoderULINT" VarB="FB Inputs Channel 2^Position" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.mpi_upe^Count" VarB="FB Inputs Channel 1^Position" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^s_io_m">

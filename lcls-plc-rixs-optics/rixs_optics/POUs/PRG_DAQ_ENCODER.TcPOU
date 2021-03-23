@@ -74,11 +74,11 @@ fbHeader(
 );
 
 fbChannel(
-    nEncCount := M16.nEncoderCount,
+    nEncCount := M7.nEncoderCount,
     nTiming := ULINT_TO_UDINT(iTimeSincePos),
-    nScale := M16.stAxisParameters.fEncScaleFactorNumerator,
+    nScale := M7.stAxisParameters.fEncScaleFactorNumerator,
     nError := UDINT_TO_USINT(M16.nErrorId),
-    sHardwareID := 'MR1K1:PITCH',
+    sHardwareID := 'SP1K1:G_PITCH',
     stChannel => payload.channel1
 );
 F_AddChannelToHeader(
