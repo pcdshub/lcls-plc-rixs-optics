@@ -194,6 +194,17 @@
 	'}
 	M23 : DUT_MotionStage := (sName:= 'SL1K2:EXIT:MMS:YAG',fVelocity :=0.5); // YAG
 	
+	
+    // ST1K1-ZOS-MMS
+    {attribute 'pytmc' := 'pv: ST1K1:ZOS:MMS'}
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[ST1K1-EL7041]^STM Status^Status^Digital input 1;
+                              .bLimitBackwardEnable := TIIB[ST1K1-EL7041]^STM Status^Status^Digital input 2;
+                              .bBrakeRelease        := TIIB[ST1K1-EL2008]^Channel 1^Output'}
+    M24: DUT_MotionStage := (sName := 'ST1K1:ZOS:MMS');
+
+	
+	
+	
 	sio_current AT%I* : UINT;
 	
 	sio_load AT%I* : UINT;
