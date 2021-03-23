@@ -128,7 +128,8 @@
 	fbMotionStage_m15 : FB_MotionStage;
 
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K1_PitchCoarse]^STM Status^Status^Digital input 1;
-                              .bLimitBackwardEnable:=TIIB[EL7047_M1K1_PitchCoarse]^STM Status^Status^Digital input 2'}
+                              .bLimitBackwardEnable:=TIIB[EL7047_M1K1_PitchCoarse]^STM Status^Status^Digital input 2;
+                              .nRawEncoderULINT:=TIIB[EL5042_M1K1_Pitch]^FB Inputs Channel 1^Position'}
 	{attribute 'pytmc' := '
 		pv: MR1K1:BEND:MMS:PITCH
 	'}
