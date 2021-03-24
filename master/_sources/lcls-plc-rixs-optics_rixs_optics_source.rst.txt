@@ -346,13 +346,15 @@ Main
     		pv: SP1K1:MONO:MMS:M_H
     	'}
     	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[m_h_m]^STM Status^Status^Digital input 1;
-                                  .bLimitBackwardEnable:=TIIB[m_h_m]^STM Status^Status^Digital input 2'}
+                                  .bLimitBackwardEnable:=TIIB[m_h_m]^STM Status^Status^Digital input 2;
+    							  .nRawEncoderULINT:=TIIB[m_h_e-g_h_e]^FB Inputs Channel 1^Position'}
     	M8: DUT_MotionStage:=(nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, fVelocity:=500.0, bPowerSelf:=True); // M_H, um
     	{attribute 'pytmc' := '
     		pv: SP1K1:MONO:MMS:G_H
     	'}
     	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[g_h_m]^STM Status^Status^Digital input 1;
-                                  .bLimitBackwardEnable:=TIIB[g_h_m]^STM Status^Status^Digital input 2'}
+                                  .bLimitBackwardEnable:=TIIB[g_h_m]^STM Status^Status^Digital input 2;
+    							  .nRawEncoderULINT:=TIIB[m_h_e-g_h_e]^FB Inputs Channel 2^Position'}
     	M9: DUT_MotionStage:=(nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, fVelocity:=1000.0, bPowerSelf:=True); // G_H, um
     	{attribute 'pytmc' := '
     		pv: SP1K1:MONO:MMS:SD_V
@@ -372,7 +374,8 @@ Main
     	// For now just want functional PLC project
     	// Motors
     	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K1_Yup]^STM Status^Status^Digital input 1;
-                                  .bLimitBackwardEnable:=TIIB[EL7047_M1K1_Ydwn]^STM Status^Status^Digital input 2'}
+                                  .bLimitBackwardEnable:=TIIB[EL7047_M1K1_Ydwn]^STM Status^Status^Digital input 2;
+    							  .nRawEncoderULINT:=TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 1^Position'}
     	{attribute 'pytmc' := '
     		pv: MR1K1:BEND:MMS:YUP
     	'}
@@ -433,7 +436,7 @@ Main
     	// Motors
     	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_PITCH]^STM Status^Status^Digital input 2;
                                   .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_PITCH]^STM Status^Status^Digital input 1;
-    		 					  .nRawEncoderUINT      := TIIB[EL5042_SL1K2_PITCH_VERT]^FB Inputs Channel 1^Position'}
+    		 					  .nRawEncoderULINT      := TIIB[EL5042_SL1K2_PITCH_VERT]^FB Inputs Channel 1^Position'}
     	{attribute 'pytmc' := '
     		pv: SL1K2:EXIT:MMS:PITCH
     	'}
@@ -441,7 +444,7 @@ Main
 
     	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_VERT]^STM Status^Status^Digital input 1;
                                   .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_VERT]^STM Status^Status^Digital input 2;
-    		 					  .nRawEncoderUINT      := TIIB[EL5042_SL1K2_PITCH_VERT]^FB Inputs Channel 2^Position'}
+    		 					  .nRawEncoderULINT      := TIIB[EL5042_SL1K2_PITCH_VERT]^FB Inputs Channel 2^Position'}
     	{attribute 'pytmc' := '
     		pv: SL1K2:EXIT:MMS:VERT
     	'}
@@ -449,7 +452,7 @@ Main
 
     	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_ROLL]^STM Status^Status^Digital input 2;
                                   .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_ROLL]^STM Status^Status^Digital input 1;
-    							  .nRawEncoderUINT      := TIIB[EL5042_SL1K2_ROLL_GAP]^FB Inputs Channel 1^Position'}
+    							  .nRawEncoderULINT      := TIIB[EL5042_SL1K2_ROLL_GAP]^FB Inputs Channel 1^Position'}
     	{attribute 'pytmc' := '
     		pv: SL1K2:EXIT:MMS:ROLL
     	'}
@@ -457,7 +460,7 @@ Main
 
     	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_GAP]^STM Status^Status^Digital input 2;
                                   .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_GAP]^STM Status^Status^Digital input 1;
-    							  .nRawEncoderUINT      := TIIB[EL5042_SL1K2_ROLL_GAP]^FB Inputs Channel 2^Position'}
+    							  .nRawEncoderULINT      := TIIB[EL5042_SL1K2_ROLL_GAP]^FB Inputs Channel 2^Position'}
     	{attribute 'pytmc' := '
     		pv: SL1K2:EXIT:MMS:GAP
     	'}
@@ -465,7 +468,7 @@ Main
 
     	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_YAG]^STM Status^Status^Digital input 1;
                                   .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_YAG]^STM Status^Status^Digital input 2;
-    							  .nRawEncoderUINT      := TIIB[EL5042_SL1K2_YAG]^FB Inputs Channel 1^Position'}
+    							  .nRawEncoderULINT      := TIIB[EL5042_SL1K2_YAG]^FB Inputs Channel 1^Position'}
     	{attribute 'pytmc' := '
     		pv: SL1K2:EXIT:MMS:YAG
     	'}
@@ -476,6 +479,7 @@ Main
         {attribute 'pytmc' := 'pv: ST1K1:ZOS:MMS'}
         {attribute 'TcLinkTo' := '.bLimitForwardEnable  := TIIB[ST1K1-EL7041]^STM Status^Status^Digital input 1;
                                   .bLimitBackwardEnable := TIIB[ST1K1-EL7041]^STM Status^Status^Digital input 2;
+    							  .nRawEncoderULINT     :=TIIB[ST1K1-EL5042]^FB Inputs Channel 1^Position;
                                   .bBrakeRelease        := TIIB[ST1K1-EL2008]^Channel 1^Output'}
         M24: DUT_MotionStage := (sName := 'ST1K1:ZOS:MMS');
 
@@ -817,6 +821,7 @@ PRG_1_PlcTask
     PRG_SL1K2_EXIT();
     PRG_ST1K1_ZOS();
     PRG_DAQ_ENCODER();
+    PRG_SPO_PMPS();
     PRG_2_PMPS_POST();
 
     END_PROGRAM
@@ -831,8 +836,8 @@ PRG_2_PMPS_POST
     VAR
         fbArbiterIO: FB_SubSysToArbiter_IO;
     END_VAR
-    GVL_PMPS.fbFastFaultOutput1.Execute();
-    GVL_PMPS.fbFastFaultOutput2.Execute();
+    GVL_PMPS.fbFastFaultOutput1.Execute(i_xVeto := PMPS_GVL.stCurrentBeamParameters.aStoppers[PMPS.K_Stopper.MR1K1_OUT] AND NOT PMPS_GVL.stCurrentBeamParameters.aStoppers[PMPS.K_Stopper.MR1K1_IN]);
+    GVL_PMPS.fbFastFaultOutput2.Execute(i_xVeto := PMPS_GVL.stCurrentBeamParameters.aStoppers[PMPS.K_Stopper.MR1K1_OUT] AND NOT PMPS_GVL.stCurrentBeamParameters.aStoppers[PMPS.K_Stopper.MR1K1_IN]);
 
     fbArbiterIO(
         Arbiter:=GVL_PMPS.fbArbiter,
@@ -1628,7 +1633,7 @@ PRG_SL1K2_EXIT
             pv: SL1K2:EXIT:RTD:CRYSTAL_TOP
         '}
         {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3201_SL1K2_1]^RTD^Value;
-                                  .bError := TIIB[EL3201_SL1K2_1]^RTD1^Status^Error;
+                                  .bError := TIIB[EL3201_SL1K2_1]^RTD^Status^Error;
                                   .bUnderrange := TIIB[EL3201_SL1K2_1]^RTD^Status^Underrange;
                                   .bOverrange := TIIB[EL3201_SL1K2_1]^RTD^Status^Overrange'}
         RTD_Crystal_TOP: FB_TempSensor;     
@@ -1636,7 +1641,7 @@ PRG_SL1K2_EXIT
             pv: SL1K2:EXIT:RTD:CRYSTAL_BOTTOM
         '}
         {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3201_SL1K2_2]^RTD^Value;
-                                  .bError := TIIB[EL3201_SL1K2_2]^RTD1^Status^Error;
+                                  .bError := TIIB[EL3201_SL1K2_2]^RTD^Status^Error;
                                   .bUnderrange := TIIB[EL3201_SL1K2_2]^RTD^Status^Underrange;
                                   .bOverrange := TIIB[EL3201_SL1K2_2]^RTD^Status^Overrange'}
         RTD_Crystal_BOTTOM: FB_TempSensor;   
@@ -1645,7 +1650,7 @@ PRG_SL1K2_EXIT
             pv: SL1K2:EXIT:RTD:YAG
         '}
         {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3201_SL1K2_3]^RTD^Value;
-                                  .bError := TIIB[EL3201_SL1K2_3]^RTD1^Status^Error;
+                                  .bError := TIIB[EL3201_SL1K2_3]^RTD^Status^Error;
                                   .bUnderrange := TIIB[EL3201_SL1K2_3]^RTD^Status^Underrange;
                                   .bOverrange := TIIB[EL3201_SL1K2_3]^RTD^Status^Overrange'}
         RTD_YAG: FB_TempSensor;    
@@ -1654,7 +1659,7 @@ PRG_SL1K2_EXIT
             pv: SL1K2:EXIT:RTD:HeatSync
         '}
         {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3201_SL1K2_4]^RTD^Value;
-                                  .bError := TIIB[EL3201_SL1K2_4]^RTD1^Status^Error;
+                                  .bError := TIIB[EL3201_SL1K2_4]^RTD^Status^Error;
                                   .bUnderrange := TIIB[EL3201_SL1K2_4]^RTD^Status^Underrange;
                                   .bOverrange := TIIB[EL3201_SL1K2_4]^RTD^Status^Overrange'}
         RTD_HeatSync: FB_TempSensor;      
@@ -2031,6 +2036,89 @@ PRG_SP1K1_MONO
         i_xReset := ,
         i_xAutoReset :=TRUE,
         io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
+
+    END_PROGRAM
+
+
+PRG_SPO_PMPS
+^^^^^^^^^^^^
+
+::
+
+    PROGRAM PRG_SPO_PMPS
+    VAR
+    	// PMPS
+        ffMR1K1Height : FB_FastFault := (
+            i_xAutoReset := TRUE,
+            i_DevName := 'MR1K1 Height',
+            i_Desc := 'MR1K1 Height is out of Single Point Operation safe range',
+            i_TypeCode := 16#F501);	
+        ffMR1K1Pitch : FB_FastFault := (
+            i_xAutoReset := TRUE,
+            i_DevName := 'MR1K1 Pitch',
+            i_Desc := 'MR1K1 Pitch is out of Single Point Operation safe range',
+            i_TypeCode := 16#F502);	
+    		
+        ffSP1K1MPitch : FB_FastFault := (
+            i_xAutoReset := TRUE,
+            i_DevName := 'SP1K1 Mirror Pitch',
+            i_Desc := 'SP1K1 Mirror Pitch is out of Single Point Operation safe range',
+            i_TypeCode := 16#F503);	
+    	ffSP1K1GPitch : FB_FastFault := (
+            i_xAutoReset := TRUE,
+            i_DevName := 'SP1K1 Grating Pitch',
+            i_Desc := 'SP1K1 Grating Pitch is out of Single Point Operation safe range',
+            i_TypeCode := 16#F504);	
+    	ffSP1K1GHorisontal : FB_FastFault := (
+            i_xAutoReset := TRUE,
+            i_DevName := 'SP1K1 Grating horizontal',
+            i_Desc := 'SP1K1 horizontal Pitch is out of Single Point Operation safe range',
+            i_TypeCode := 16#F505);		
+    	
+    	ffZos : FB_FastFault := (
+            i_xAutoReset := TRUE,
+            i_DevName := 'T1K1 ZOS',
+            i_Desc := 'ST1K1 ZOS is out of Single Point Operation safe range',
+            i_TypeCode := 16#F506);	
+    END_VAR
+    VAR CONSTANT
+    	nUpperMR1K1Height : UDINT := 32961458; //POS 32911458+ Delta 50000;
+    	nLowerMR1K1Height : UDINT := 32861458; //POS 32911458- Delta 50000;
+    	
+    	nUpperMR1K1Pitch : UDINT := 10114377;// 10093885 + 20491;
+    	nLowerMR1K1Pitch : UDINT := 10073393; //10093885 - 20491;
+    	
+    	nUpperSP1K1MPitch : UDINT := 31769145;// 31758046 + 11098;
+    	nLowerSP1K1MPitch : UDINT := 31746947;//31758046 - 11098;
+    	
+    	
+    	nUpperSP1K1GPitch : UDINT := 23624881;
+    	
+    	nUpperSP1K1GH: UDINT := 40000000;
+    	nLowerSP1K1GH: UDINT := 24000000;
+    	
+    	nZOSLower : UDINT := 22926596; // value still needs to be verified
+    	
+    	
+    END_VAR
+    //MR1K1 height
+    ffMR1K1Height.i_xOK := (M12.nEncoderCount > nLowerMR1K1Height ) AND (M12.nEncoderCount < nUpperMR1K1Height );
+    ffMR1K1Height(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
+    //MR1K1 pitch
+    ffMR1K1Pitch.i_xOK := (M16.nEncoderCount > nLowerMR1K1Pitch) AND ( M16.nEncoderCount < nUpperMR1K1Pitch);
+    ffMR1K1Pitch(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
+    //SP1K1 mirror pitch
+    ffSP1K1MPitch.i_xOK := (M6.nEncoderCount > nLowerSP1K1MPitch) AND (M6.nEncoderCount < nUpperSP1K1MPitch); 
+    ffSP1K1MPitch(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
+    //SP1K1 grating pitch
+    ffSP1K1GPitch.i_xOK := (M7.nEncoderCount < nUpperSP1K1GPitch);
+    ffSP1K1GPitch(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
+    //SP1K1 Grating horizontal
+    ffSP1K1GHorisontal.i_xOK := (M9.nEncoderCount > nLowerSP1K1GH) AND (M9.nEncoderCount < nUpperSP1K1GH); 
+    ffSP1K1GHorisontal(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
+    //ST1K1 ZOS
+    ffZos.i_xOK := M24.nEncoderCount < nZOSLower; //encoder counts decreases as value in mm increases
+    ffZos(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
 
     END_PROGRAM
 
