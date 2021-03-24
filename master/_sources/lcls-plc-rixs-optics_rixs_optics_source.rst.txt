@@ -4,6 +4,89 @@ DUTs
 ----
 
 
+DUT_01_Channel_NW
+^^^^^^^^^^^^^^^^^
+
+::
+
+    TYPE DUT_01_Channel_NW :
+    STRUCT
+        header: DUT_Header_NW;
+        channel1: DUT_Channel_NW;
+    END_STRUCT
+    END_TYPE
+
+
+DUT_Channel_NW
+^^^^^^^^^^^^^^
+
+::
+
+    TYPE DUT_Channel_NW :
+    STRUCT
+        count: DWORD;                       // 4    4
+        timing: DWORD;                      // 4    8
+        scale: WORD;                        // 2    10
+        hardwareID: ARRAY [0..15] OF BYTE;  // 16   26
+        reserved1: BYTE;                    // 1    27
+        channel: BYTE;                      // 1    28
+        error: BYTE;                        // 1    29
+        mode: BYTE;                         // 1    30
+        reserved2: WORD;                    // 2    32
+    END_STRUCT
+    END_TYPE
+    (*
+    typedef struct {
+        uint32_t    encoderValue;       // network byte order
+        uint32_t    timing;             // network byte order
+        uint16_t    scale;              // network byte order
+        char        hardwareID[16];
+        uint8_t     reserved1;
+        uint8_t     channel;
+        uint8_t     error;
+        uint8_t     mode;
+        uint8_t     reserved2[2];
+    } encoder_channel_t;
+    *)
+
+
+DUT_Header_NW
+^^^^^^^^^^^^^
+
+::
+
+    TYPE DUT_Header_NW :
+    STRUCT
+        frameCount: WORD;                   // 2    2
+        reserved1: WORD;                    // 2    4
+        major: WORD;                        // 2    6
+        minor: BYTE;                        // 1    7
+        micro: BYTE;                        // 1    8
+        hardwareID: ARRAY [0..15] OF BYTE;  // 16   24
+        reserved2: BYTE;                    // 1    25
+        channelMask: BYTE;                  // 1    26
+        errorMask: BYTE;                    // 1    27
+        mode: BYTE;                         // 1    28
+        reserved3: DWORD;                   // 4    32
+    END_STRUCT 
+    END_TYPE
+    (*
+    typedef struct {
+        uint16_t    frameCount;         // network byte order
+        uint8_t     reserved1[2];
+        uint16_t    majorVersion;       // network byte order
+        uint8_t     minorVersion;
+        uint8_t     microVersion;
+        char        hardwareID[16];
+        uint8_t     reserved2;
+        uint8_t     channelMask;
+        uint8_t     errorMask;
+        uint8_t     mode;
+        uint8_t     reserved3[4];
+    } encoder_header_t;
+    *)
+
+
 ENUM_XS_YAG_States
 ^^^^^^^^^^^^^^^^^^
 
@@ -249,13 +332,15 @@ Main
     		pv: SP1K1:MONO:MMS:M_PI
     	'}
     	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[m_pi_m]^STM Status^Status^Digital input 1;
-                                  .bLimitBackwardEnable:=TIIB[m_pi_m]^STM Status^Status^Digital input 2'}
+                                  .bLimitBackwardEnable:=TIIB[m_pi_m]^STM Status^Status^Digital input 2;
+                                  .nRawEncoderULINT:=TIIB[m_pi_up_dwn_e]^FB Inputs Channel 2^Position'}
     	M6: DUT_MotionStage:=(nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, fVelocity:=200.0, bPowerSelf:=True); // M_PI, urad
     	{attribute 'pytmc' := '
     		pv: SP1K1:MONO:MMS:G_PI
     	'}
     	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[g_pi_m]^STM Status^Status^Digital input 1;
-                                  .bLimitBackwardEnable:=TIIB[g_pi_m]^STM Status^Status^Digital input 2'}
+                                  .bLimitBackwardEnable:=TIIB[g_pi_m]^STM Status^Status^Digital input 2;
+                                  .nRawEncoderULINT:=TIIB[g_pi_up_dwn_e]^FB Inputs Channel 2^Position'}
     	M7: DUT_MotionStage:=(nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, fVelocity:=200.0, bPowerSelf:=True); // G_PI, urad
     	{attribute 'pytmc' := '
     		pv: SP1K1:MONO:MMS:M_H
@@ -319,7 +404,8 @@ Main
     	fbMotionStage_m15 : FB_MotionStage;
 
     	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K1_PitchCoarse]^STM Status^Status^Digital input 1;
-                                  .bLimitBackwardEnable:=TIIB[EL7047_M1K1_PitchCoarse]^STM Status^Status^Digital input 2'}
+                                  .bLimitBackwardEnable:=TIIB[EL7047_M1K1_PitchCoarse]^STM Status^Status^Digital input 2;
+                                  .nRawEncoderULINT:=TIIB[EL5042_M1K1_Pitch]^FB Inputs Channel 1^Position'}
     	{attribute 'pytmc' := '
     		pv: MR1K1:BEND:MMS:PITCH
     	'}
@@ -405,6 +491,193 @@ Main
 
 POUs
 ----
+
+
+F_AddChannelToHeader
+^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    FUNCTION F_AddChannelToHeader : BOOL
+    // Adds data about our channel to the header
+    VAR_IN_OUT
+        stHeader: DUT_Header_NW;
+        stChannel: DUT_Channel_NW;
+    END_VAR
+    IF stChannel.channel = 0 THEN
+        F_AddChannelToHeader := FALSE;
+    ELSE
+        stHeader.channelMask := stHeader.channelMask + SHL(1, stChannel.channel - 1);
+        IF stChannel.error > 0 THEN
+            stHeader.errorMask := stHeader.errorMask + SHL(1, stChannel.channel - 1);
+        END_IF
+        F_AddChannelToHeader := TRUE;
+    END_IF
+
+    END_FUNCTION
+
+
+FB_AssembleChannel
+^^^^^^^^^^^^^^^^^^
+
+::
+
+    FUNCTION_BLOCK FB_AssembleChannel
+    VAR_INPUT
+        // Raw count from the encoder, taken from DUT_MotionStage.nEncoderCount
+        nEncCount : UDINT;
+        // Latched rising edge timestamp from EL1252-0050 terminal.
+        nTiming : ULINT;
+        // Scale as reported in DUT_MotionStage.stAxisParameters.fEncScaleFactorNumerator
+        nScale : LREAL;
+        // Serial number of the encoder
+        sHardwareID : STRING(15);
+        // Channel number for the data packet
+        nChannel : USINT;
+        // Error code for the data packet
+        nError : USINT;
+        // Selector for acquisition mode (currently unused)
+        nMode : USINT;
+    END_VAR
+    VAR_OUTPUT
+        // Network-ready encoder channel structure
+        stChannel : DUT_Channel_NW;
+    END_VAR
+    VAR
+        nStringIter : USINT;
+    END_VAR
+    stChannel.count := HOST_TO_BE32(UDINT_TO_DWORD(nEncCount));
+    stChannel.timing := HOST_TO_BE32(ULINT_TO_DWORD(nTiming)); //  Truncate to remove the "seconds" bytes.
+    stChannel.scale := HOST_TO_BE16(LREAL_TO_WORD(nScale * 1_000_000)); // Send as "nanometers per count" uint (assuming mm scale)
+
+    FOR nStringIter := 0 TO 15 DO
+        stChannel.hardwareID[nStringIter] := sHardwareID[nStringIter];
+    END_FOR
+
+    stChannel.channel := nChannel;
+    stChannel.error := nError;
+    stChannel.mode := nMode;
+
+    END_FUNCTION_BLOCK
+
+
+FB_AssembleHeader
+^^^^^^^^^^^^^^^^^
+
+::
+
+    FUNCTION_BLOCK FB_AssembleHeader
+    VAR_INPUT
+        // The count of how many frames we've sent, e.g. 1 on the first send, 2 on the second...
+        nFrameCount : UINT;
+        // Protocol version. This is set for you by this function block.
+        nMajor : UINT := 1;
+        nMinor : USINT := 0;
+        nMicro : USINT := 0;
+        // Unambiguous identifier for the PLC
+        sHardwareID : STRING(15);
+        // Selector for acquisition mode (currently unused)
+        nMode : USINT;
+    END_VAR
+    VAR_OUTPUT
+        // Almost ready encoder header structure. See FB_AddChannelToHeader.
+        stHeader : DUT_Header_NW;
+    END_VAR
+    VAR
+        nStringIter : USINT;
+    END_VAR
+    stHeader.frameCount := HOST_TO_BE16(UINT_TO_WORD(nFrameCount));
+    stHeader.major := HOST_TO_BE16(UINT_TO_WORD(nMajor));
+    stHeader.minor := USINT_TO_BYTE(nMinor);
+    stHeader.micro := USINT_TO_BYTE(nMicro);
+
+    FOR nStringIter := 0 TO 15 DO
+        stHeader.hardwareID[nStringIter] := sHardwareID[nStringIter];
+    END_FOR
+
+    stHeader.mode := nMode;
+
+    END_FUNCTION_BLOCK
+
+
+FB_UDPSocketHandler
+^^^^^^^^^^^^^^^^^^^
+
+::
+
+    FUNCTION_BLOCK FB_UDPSocketHandler
+    VAR_INPUT
+        bEnable : BOOL;
+        bReset : BOOL;
+        nLocalPort: UDINT;
+        tRetry : TIME := T#1h;
+        sLocalIP : T_IPv4Addr;
+    END_VAR
+    VAR_OUTPUT
+        bReady : BOOL;
+    	hSocket : T_HSOCKET;
+    END_VAR
+    VAR
+        rtReset : R_TRIG;
+        tonRetryConnection : TON; // Retry after an hour
+        
+        fbGetAdapterIP : FB_GetAdaptersInfo := (bExecute := TRUE, sNetID := ''); // Acquire IP of the correct adapter
+        fbSocket : FB_ConnectionlessSocket;
+        
+        ctuSocketError : CTU := (PV:=3); 
+        
+        bSocketEnable : BOOL;
+        bAdapterSet : BOOL;
+        
+        idxPortFind : UDINT;
+    END_VAR
+    IF sLocalIP <> '' THEN
+        fbSocket.sLocalHost := sLocalIP;
+        bSocketEnable := TRUE;
+        bAdapterSet := TRUE;
+    END_IF
+    IF bEnable AND NOT bAdapterSet THEN
+        fbGetAdapterIP();
+        IF NOT (fbGetAdapterIP.bBusy or fbGetAdapterIP.bError) THEN
+            FOR idxPortFind := 0 TO MAX_LOCAL_ADAPTERS DO
+                IF FIND(fbGetAdapterIP.arrAdapters[idxPortFind].sIpAddr,
+                   GVL_Logger.sIpTidbit) <> 0 THEN
+                    fbSocket.sLocalHost := fbGetAdapterIP.arrAdapters[idxPortFind].sIpAddr;
+                    bSocketEnable := TRUE;
+                    bAdapterSet := TRUE;
+                    EXIT;
+                END_IF
+            END_FOR
+        END_IF
+    END_IF
+
+    (* Ensure the socket is ready for when data is emitted *)
+    rtReset(CLK:=bReset);
+
+    IF (rtReset.Q AND fbSocket.bEnable) THEN
+    	fbSocket(bEnable:=FALSE);
+    END_IF
+
+    // Disable fbSocket if too many errors occur
+    ctuSocketError(CU:=fbSocket.bError, RESET:=tonRetryConnection.Q OR rtReset.Q);
+    bSocketEnable R= ctuSocketError.Q;
+
+    // Retry an hour later
+    tonRetryConnection(IN:=ctuSocketError.Q,
+                       PT:=tRetry);
+    bSocketEnable S= tonRetryConnection.Q OR rtReset.Q;
+
+    fbSocket(
+    	nLocalPort:=nLocalPort,
+    	bEnable:=bSocketEnable AND bEnable,
+    	nMode:=CONNECT_MODE_ENABLEDBG,
+    );
+
+    bReady := (bAdapterSet AND fbSocket.bEnable AND NOT fbSocket.bError AND
+               fbSocket.eState = E_SocketConnectionlessState.eSOCKET_CREATED);
+    hSocket := fbSocket.hSocket;
+
+    END_FUNCTION_BLOCK
 
 
 FB_XS_YAG_States
@@ -543,6 +816,7 @@ PRG_1_PlcTask
     PRG_SP1K1_MONO();
     PRG_SL1K2_EXIT();
     PRG_ST1K1_ZOS();
+    PRG_DAQ_ENCODER();
     PRG_2_PMPS_POST();
 
     END_PROGRAM
@@ -563,6 +837,113 @@ PRG_2_PMPS_POST
     fbArbiterIO(
         Arbiter:=GVL_PMPS.fbArbiter,
         fbFFHWO:=GVL_PMPS.fbFastFaultOutput1);
+
+    END_PROGRAM
+
+
+PRG_DAQ_ENCODER
+^^^^^^^^^^^^^^^
+
+::
+
+    PROGRAM PRG_DAQ_ENCODER
+    VAR
+        // Inputs
+        iLatchPos AT %I*: ULINT;
+        iLatchNeg AT %I*: ULINT;
+        bEnableSend: BOOL := TRUE;
+        
+        // Outputs
+        iTimeSincePos: ULINT;
+        iMaxTime: ULINT;
+        iMinTime: ULINT := 10000000000;
+        fTimeInS: LREAL;
+        iTriggerWidth: ULINT;
+        fTriggerRate: LREAL;
+        
+        // Internals
+        bNewTrigger: BOOL;
+        iPrevLatchPos: ULINT;
+        fMaxTimeInS: LREAL;
+        fMinTimeInS: LREAL := 10000000;
+        iTimeSinceLast: ULINT;
+        nUpdateCycles: ULINT;
+        stTaskInfo: PlcTaskSystemInfo;
+        iUnderflowCount: ULINT;
+        fUnderflowPercent: LREAL;
+        
+        fbSocketHandler : FB_UDPSocketHandler;
+    	fbSocketSend : FB_SocketUdpSendTo;
+        payload : DUT_01_Channel_NW;
+        fbHeader : FB_AssembleHeader := (sHardwareID := 'plc-tst-proto6');
+        fbChannel : FB_AssembleChannel := (nChannel := 1);
+        
+        // Function blocks
+        fbGetTaskIndex: GETCURTASKINDEX;
+    END_VAR
+    fbGetTaskIndex();
+    stTaskInfo := _TaskInfo[fbGetTaskIndex.index];
+    bNewTrigger := iLatchPos <> iPrevLatchPos;
+    IF bNewTrigger THEN
+        nUpdateCycles := nUpdateCycles + 1;
+        iTimeSincePos := LINT_TO_ULINT(stTaskInfo.DcTaskTime) - iLatchPos - (stTaskInfo.CycleTime * 100) + (stTaskInfo.LastExecTime * 100);
+        IF iTimeSincePos > 9223372036854775800 THEN
+            iTimeSincePos := 0;
+            iUnderflowCount := iUnderflowCount + 1;
+            IF nUpdateCycles > 0 THEN
+                fUnderFlowPercent := 100 * ULINT_TO_LREAL(iUnderflowCount) / ULINT_TO_LREAL(nUpdateCycles);
+    		END_IF
+    	END_IF
+        iMaxTime := MAX(iTimeSincePos, iMaxTime);
+        iMinTime := MIN(iTimeSincePos, iMinTime);
+        fTimeInS := ULINT_TO_LREAL(iTimeSincePos) / 1_000_000_000;
+        fMinTimeInS := MIN(fTimeInS, fMinTimeInS);
+        fMaxTimeInS := MAX(fTimeInS, fMaxTimeInS);
+        iTimeSinceLast := iLatchPos - iPrevLatchPos;
+        IF iTimeSinceLast > 0 THEN
+            fTriggerRate := 1_000_000_000/ULINT_TO_LREAL(iTimeSinceLast);
+    	END_IF
+        IF iLatchNeg > iLatchPos THEN
+            iTriggerWidth := iLatchNeg - iLatchPos;
+    	END_IF
+    END_IF
+
+    iPrevLatchPos := iLatchPos;
+
+    fbHeader(
+        nFrameCount := ULINT_TO_UINT(nUpdateCycles),
+        sHardwareID := 'plc-rixs-optics',
+        stHeader => payload.header
+    );
+
+    fbChannel(
+        nEncCount := M7.nEncoderCount,
+        nTiming := ULINT_TO_UDINT(iTimeSincePos),
+        nScale := M7.stAxisParameters.fEncScaleFactorNumerator,
+        nError := UDINT_TO_USINT(M16.nErrorId),
+        sHardwareID := 'SP1K1:G_PITCH',
+        stChannel => payload.channel1
+    );
+    F_AddChannelToHeader(
+        stHeader := payload.header,
+        stChannel := payload.channel1,
+    );
+
+    fbSocketHandler(
+        bEnable := TRUE,
+        tRetry := T#30s,
+        nLocalPort := 0,
+        sLocalIP := '192.168.0.3'
+    );
+
+    fbSocketSend(
+        hSocket := fbSocketHandler.hSocket,
+        sRemoteHost := '192.168.0.8',
+        nRemotePort := 5006,
+        cbLen := SIZEOF(payload),
+        pSrc := ADR(payload),
+        bExecute := bEnableSend AND bNewTrigger,
+    );
 
     END_PROGRAM
 
