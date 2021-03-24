@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="FB_AssembleHeader" Id="{7da7172d-5724-4b69-a0ba-806919d6f847}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_AssembleHeader
+VAR_INPUT
+    // The count of how many frames we've sent, e.g. 1 on the first send, 2 on the second...
+    nFrameCount : UINT;
+    // Protocol version. This is set for you by this function block.
+    nMajor : UINT := 1;
+    nMinor : USINT := 0;
+    nMicro : USINT := 0;
+    // Unambiguous identifier for the PLC
+    sHardwareID : STRING(15);
+    // Selector for acquisition mode (currently unused)
+    nMode : USINT;
+END_VAR
+VAR_OUTPUT
+    // Almost ready encoder header structure. See FB_AddChannelToHeader.
+    stHeader : DUT_Header_NW;
+END_VAR
+VAR
+    nStringIter : USINT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[stHeader.frameCount := HOST_TO_BE16(UINT_TO_WORD(nFrameCount));
+stHeader.major := HOST_TO_BE16(UINT_TO_WORD(nMajor));
+stHeader.minor := USINT_TO_BYTE(nMinor);
+stHeader.micro := USINT_TO_BYTE(nMicro);
+
+FOR nStringIter := 0 TO 15 DO
+    stHeader.hardwareID[nStringIter] := sHardwareID[nStringIter];
+END_FOR
+
+stHeader.mode := nMode;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

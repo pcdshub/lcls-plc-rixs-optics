@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="F_AddChannelToHeader" Id="{959519f1-ba9d-4157-89b1-d9ff7bcd8738}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION F_AddChannelToHeader : BOOL
+// Adds data about our channel to the header
+VAR_IN_OUT
+    stHeader: DUT_Header_NW;
+    stChannel: DUT_Channel_NW;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF stChannel.channel = 0 THEN
+    F_AddChannelToHeader := FALSE;
+ELSE
+    stHeader.channelMask := stHeader.channelMask + SHL(1, stChannel.channel - 1);
+    IF stChannel.error > 0 THEN
+        stHeader.errorMask := stHeader.errorMask + SHL(1, stChannel.channel - 1);
+    END_IF
+    F_AddChannelToHeader := TRUE;
+END_IF
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

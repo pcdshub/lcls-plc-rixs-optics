@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="FB_AssembleChannel" Id="{5ef2e007-6efe-4b71-ad1b-59044bb806ba}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_AssembleChannel
+VAR_INPUT
+    // Raw count from the encoder, taken from DUT_MotionStage.nEncoderCount
+    nEncCount : UDINT;
+    // Latched rising edge timestamp from EL1252-0050 terminal.
+    nTiming : ULINT;
+    // Scale as reported in DUT_MotionStage.stAxisParameters.fEncScaleFactorNumerator
+    nScale : LREAL;
+    // Serial number of the encoder
+    sHardwareID : STRING(15);
+    // Channel number for the data packet
+    nChannel : USINT;
+    // Error code for the data packet
+    nError : USINT;
+    // Selector for acquisition mode (currently unused)
+    nMode : USINT;
+END_VAR
+VAR_OUTPUT
+    // Network-ready encoder channel structure
+    stChannel : DUT_Channel_NW;
+END_VAR
+VAR
+    nStringIter : USINT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[stChannel.count := HOST_TO_BE32(UDINT_TO_DWORD(nEncCount));
+stChannel.timing := HOST_TO_BE32(ULINT_TO_DWORD(nTiming)); //  Truncate to remove the "seconds" bytes.
+stChannel.scale := HOST_TO_BE16(LREAL_TO_WORD(nScale * 1_000_000)); // Send as "nanometers per count" uint (assuming mm scale)
+
+FOR nStringIter := 0 TO 15 DO
+    stChannel.hardwareID[nStringIter] := sHardwareID[nStringIter];
+END_FOR
+
+stChannel.channel := nChannel;
+stChannel.error := nError;
+stChannel.mode := nMode;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

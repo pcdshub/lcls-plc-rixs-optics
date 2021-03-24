@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <DUT Name="DUT_Header_NW" Id="{682061e6-379e-4fcf-9497-1b38d00de834}">
+    <Declaration><![CDATA[TYPE DUT_Header_NW :
+STRUCT
+    frameCount: WORD;                   // 2    2
+    reserved1: WORD;                    // 2    4
+    major: WORD;                        // 2    6
+    minor: BYTE;                        // 1    7
+    micro: BYTE;                        // 1    8
+    hardwareID: ARRAY [0..15] OF BYTE;  // 16   24
+    reserved2: BYTE;                    // 1    25
+    channelMask: BYTE;                  // 1    26
+    errorMask: BYTE;                    // 1    27
+    mode: BYTE;                         // 1    28
+    reserved3: DWORD;                   // 4    32
+END_STRUCT 
+END_TYPE
+(*
+typedef struct {
+    uint16_t    frameCount;         // network byte order
+    uint8_t     reserved1[2];
+    uint16_t    majorVersion;       // network byte order
+    uint8_t     minorVersion;
+    uint8_t     microVersion;
+    char        hardwareID[16];
+    uint8_t     reserved2;
+    uint8_t     channelMask;
+    uint8_t     errorMask;
+    uint8_t     mode;
+    uint8_t     reserved3[4];
+} encoder_header_t;
+*)]]></Declaration>
+  </DUT>
+</TcPlcObject>

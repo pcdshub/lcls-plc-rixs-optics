@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <DUT Name="DUT_Channel_NW" Id="{30aa7d47-7e9a-44a6-9e7c-9492a9b47d16}">
+    <Declaration><![CDATA[TYPE DUT_Channel_NW :
+STRUCT
+    count: DWORD;                       // 4    4
+    timing: DWORD;                      // 4    8
+    scale: WORD;                        // 2    10
+    hardwareID: ARRAY [0..15] OF BYTE;  // 16   26
+    reserved1: BYTE;                    // 1    27
+    channel: BYTE;                      // 1    28
+    error: BYTE;                        // 1    29
+    mode: BYTE;                         // 1    30
+    reserved2: WORD;                    // 2    32
+END_STRUCT
+END_TYPE
+(*
+typedef struct {
+    uint32_t    encoderValue;       // network byte order
+    uint32_t    timing;             // network byte order
+    uint16_t    scale;              // network byte order
+    char        hardwareID[16];
+    uint8_t     reserved1;
+    uint8_t     channel;
+    uint8_t     error;
+    uint8_t     mode;
+    uint8_t     reserved2[2];
+} encoder_channel_t;
+*)]]></Declaration>
+  </DUT>
+</TcPlcObject>

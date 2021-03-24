@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="PRG_DAQ_ENCODER" Id="{c31c4f90-877e-418a-91ce-5f5d622e7b14}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_DAQ_ENCODER
+VAR
+    // Inputs
+    iLatchPos AT %I*: ULINT;
+    iLatchNeg AT %I*: ULINT;
+    bEnableSend: BOOL := TRUE;
+    
+    // Outputs
+    iTimeSincePos: ULINT;
+    iMaxTime: ULINT;
+    iMinTime: ULINT := 10000000000;
+    fTimeInS: LREAL;
+    iTriggerWidth: ULINT;
+    fTriggerRate: LREAL;
+    
+    // Internals
+    bNewTrigger: BOOL;
+    iPrevLatchPos: ULINT;
+    fMaxTimeInS: LREAL;
+    fMinTimeInS: LREAL := 10000000;
+    iTimeSinceLast: ULINT;
+    nUpdateCycles: ULINT;
+    stTaskInfo: PlcTaskSystemInfo;
+    iUnderflowCount: ULINT;
+    fUnderflowPercent: LREAL;
+    
+    fbSocketHandler : FB_UDPSocketHandler;
+	fbSocketSend : FB_SocketUdpSendTo;
+    payload : DUT_01_Channel_NW;
+    fbHeader : FB_AssembleHeader := (sHardwareID := 'plc-tst-proto6');
+    fbChannel : FB_AssembleChannel := (nChannel := 1);
+    
+    // Function blocks
+    fbGetTaskIndex: GETCURTASKINDEX;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbGetTaskIndex();
+stTaskInfo := _TaskInfo[fbGetTaskIndex.index];
+bNewTrigger := iLatchPos <> iPrevLatchPos;
+IF bNewTrigger THEN
+    nUpdateCycles := nUpdateCycles + 1;
+    iTimeSincePos := LINT_TO_ULINT(stTaskInfo.DcTaskTime) - iLatchPos - (stTaskInfo.CycleTime * 100) + (stTaskInfo.LastExecTime * 100);
+    IF iTimeSincePos > 9223372036854775800 THEN
+        iTimeSincePos := 0;
+        iUnderflowCount := iUnderflowCount + 1;
+        IF nUpdateCycles > 0 THEN
+            fUnderFlowPercent := 100 * ULINT_TO_LREAL(iUnderflowCount) / ULINT_TO_LREAL(nUpdateCycles);
+		END_IF
+	END_IF
+    iMaxTime := MAX(iTimeSincePos, iMaxTime);
+    iMinTime := MIN(iTimeSincePos, iMinTime);
+    fTimeInS := ULINT_TO_LREAL(iTimeSincePos) / 1_000_000_000;
+    fMinTimeInS := MIN(fTimeInS, fMinTimeInS);
+    fMaxTimeInS := MAX(fTimeInS, fMaxTimeInS);
+    iTimeSinceLast := iLatchPos - iPrevLatchPos;
+    IF iTimeSinceLast > 0 THEN
+        fTriggerRate := 1_000_000_000/ULINT_TO_LREAL(iTimeSinceLast);
+	END_IF
+    IF iLatchNeg > iLatchPos THEN
+        iTriggerWidth := iLatchNeg - iLatchPos;
+	END_IF
+END_IF
+
+iPrevLatchPos := iLatchPos;
+
+fbHeader(
+    nFrameCount := ULINT_TO_UINT(nUpdateCycles),
+    sHardwareID := 'plc-rixs-optics',
+    stHeader => payload.header
+);
+
+fbChannel(
+    nEncCount := M7.nEncoderCount,
+    nTiming := ULINT_TO_UDINT(iTimeSincePos),
+    nScale := M7.stAxisParameters.fEncScaleFactorNumerator,
+    nError := UDINT_TO_USINT(M16.nErrorId),
+    sHardwareID := 'SP1K1:G_PITCH',
+    stChannel => payload.channel1
+);
+F_AddChannelToHeader(
+    stHeader := payload.header,
+    stChannel := payload.channel1,
+);
+
+fbSocketHandler(
+    bEnable := TRUE,
+    tRetry := T#30s,
+    nLocalPort := 0,
+    sLocalIP := '192.168.0.3'
+);
+
+fbSocketSend(
+    hSocket := fbSocketHandler.hSocket,
+    sRemoteHost := '192.168.0.8',
+    nRemotePort := 5006,
+    cbLen := SIZEOF(payload),
+    pSrc := ADR(payload),
+    bExecute := bEnableSend AND bNewTrigger,
+);]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

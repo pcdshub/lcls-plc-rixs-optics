@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="FB_UDPSocketHandler" Id="{bd695c8e-f432-4864-af87-8456383fd6e6}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_UDPSocketHandler
+VAR_INPUT
+    bEnable : BOOL;
+    bReset : BOOL;
+    nLocalPort: UDINT;
+    tRetry : TIME := T#1h;
+    sLocalIP : T_IPv4Addr;
+END_VAR
+VAR_OUTPUT
+    bReady : BOOL;
+	hSocket : T_HSOCKET;
+END_VAR
+VAR
+    rtReset : R_TRIG;
+    tonRetryConnection : TON; // Retry after an hour
+    
+    fbGetAdapterIP : FB_GetAdaptersInfo := (bExecute := TRUE, sNetID := ''); // Acquire IP of the correct adapter
+    fbSocket : FB_ConnectionlessSocket;
+    
+    ctuSocketError : CTU := (PV:=3); 
+    
+    bSocketEnable : BOOL;
+    bAdapterSet : BOOL;
+    
+    idxPortFind : UDINT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF sLocalIP <> '' THEN
+    fbSocket.sLocalHost := sLocalIP;
+    bSocketEnable := TRUE;
+    bAdapterSet := TRUE;
+END_IF
+IF bEnable AND NOT bAdapterSet THEN
+    fbGetAdapterIP();
+    IF NOT (fbGetAdapterIP.bBusy or fbGetAdapterIP.bError) THEN
+        FOR idxPortFind := 0 TO MAX_LOCAL_ADAPTERS DO
+            IF FIND(fbGetAdapterIP.arrAdapters[idxPortFind].sIpAddr,
+               GVL_Logger.sIpTidbit) <> 0 THEN
+                fbSocket.sLocalHost := fbGetAdapterIP.arrAdapters[idxPortFind].sIpAddr;
+                bSocketEnable := TRUE;
+                bAdapterSet := TRUE;
+                EXIT;
+            END_IF
+        END_FOR
+    END_IF
+END_IF
+
+(* Ensure the socket is ready for when data is emitted *)
+rtReset(CLK:=bReset);
+
+IF (rtReset.Q AND fbSocket.bEnable) THEN
+	fbSocket(bEnable:=FALSE);
+END_IF
+
+// Disable fbSocket if too many errors occur
+ctuSocketError(CU:=fbSocket.bError, RESET:=tonRetryConnection.Q OR rtReset.Q);
+bSocketEnable R= ctuSocketError.Q;
+
+// Retry an hour later
+tonRetryConnection(IN:=ctuSocketError.Q,
+                   PT:=tRetry);
+bSocketEnable S= tonRetryConnection.Q OR rtReset.Q;
+
+fbSocket(
+	nLocalPort:=nLocalPort,
+	bEnable:=bSocketEnable AND bEnable,
+	nMode:=CONNECT_MODE_ENABLEDBG,
+);
+
+bReady := (bAdapterSet AND fbSocket.bEnable AND NOT fbSocket.bError AND
+           fbSocket.eState = E_SocketConnectionlessState.eSOCKET_CREATED);
+hSocket := fbSocket.hSocket;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
