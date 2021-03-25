@@ -76,7 +76,7 @@ ffSP1K1GPitch(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
 ffSP1K1GHorisontal.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M9.nEncoderCount > nLowerSP1K1GH) AND (M9.nEncoderCount < nUpperSP1K1GH)); 
 ffSP1K1GHorisontal(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
 //ST1K1 ZOS
-ffZos.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR (M24.nEncoderCount < nZOSLower); //encoder counts decreases as value in mm increases
+ffZos.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR (M24.nEncoderCount <= nZOSLower); //encoder counts decreases as value in mm increases
 ffZos(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);]]></ST>
     </Implementation>
   </POU>
