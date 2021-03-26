@@ -2106,22 +2106,22 @@ PRG_SPO_PMPS
     	
     END_VAR
     //MR1K1 height
-    ffMR1K1Height.i_xOK := (M12.nEncoderCount > nLowerMR1K1Height ) AND (M12.nEncoderCount < nUpperMR1K1Height );
+    ffMR1K1Height.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M12.nEncoderCount > nLowerMR1K1Height ) AND (M12.nEncoderCount < nUpperMR1K1Height ));
     ffMR1K1Height(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
     //MR1K1 pitch
-    ffMR1K1Pitch.i_xOK := (M16.nEncoderCount > nLowerMR1K1Pitch) AND ( M16.nEncoderCount < nUpperMR1K1Pitch);
+    ffMR1K1Pitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ( (M16.nEncoderCount > nLowerMR1K1Pitch) AND ( M16.nEncoderCount < nUpperMR1K1Pitch));
     ffMR1K1Pitch(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
     //SP1K1 mirror pitch
-    ffSP1K1MPitch.i_xOK := (M6.nEncoderCount > nLowerSP1K1MPitch) AND (M6.nEncoderCount < nUpperSP1K1MPitch); 
+    ffSP1K1MPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M6.nEncoderCount > nLowerSP1K1MPitch) AND (M6.nEncoderCount < nUpperSP1K1MPitch)); 
     ffSP1K1MPitch(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
     //SP1K1 grating pitch
-    ffSP1K1GPitch.i_xOK := (M7.nEncoderCount < nUpperSP1K1GPitch);
+    ffSP1K1GPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M7.nEncoderCount < nUpperSP1K1GPitch));
     ffSP1K1GPitch(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
     //SP1K1 Grating horizontal
-    ffSP1K1GHorisontal.i_xOK := (M9.nEncoderCount > nLowerSP1K1GH) AND (M9.nEncoderCount < nUpperSP1K1GH); 
+    ffSP1K1GHorisontal.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M9.nEncoderCount > nLowerSP1K1GH) AND (M9.nEncoderCount < nUpperSP1K1GH)); 
     ffSP1K1GHorisontal(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
     //ST1K1 ZOS
-    ffZos.i_xOK := M24.nEncoderCount < nZOSLower; //encoder counts decreases as value in mm increases
+    ffZos.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR (M24.nEncoderCount <= nZOSLower); //encoder counts decreases as value in mm increases
     ffZos(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
 
     END_PROGRAM
