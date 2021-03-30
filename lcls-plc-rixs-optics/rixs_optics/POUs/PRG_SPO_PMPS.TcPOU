@@ -70,16 +70,15 @@ END_VAR
 IF (GVL_PMPS.rPhotonEnergy <= 707) AND (GVL_PMPS.rPhotonEnergy >=693) THEN
 	ffSP1K1MPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M6.nEncoderCount > nLowerSP1K1MPitch) AND (M6.nEncoderCount < nUpperSP1K1MPitch));
 	ffSP1K1GPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M7.nEncoderCount < nUpperSP1K1GPitch_700));
-	ELSIF (GVL_PMPS.rPhotonEnergy <= 404) AND (GVL_PMPS.rPhotonEnergy >=396) THEN
-		ffSP1K1MPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M6.nEncoderCount > nLowerSP1K1MPitch_400) AND (M6.nEncoderCount < nUpperSP1K1MPitch_400));
-		ffSP1K1GPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M7.nEncoderCount < nUpperSP1K1GPitch_400));
-		ELSIF (GVL_PMPS.rPhotonEnergy <= 1100) AND (GVL_PMPS.rPhotonEnergy >=900) THEN
-			ffSP1K1MPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M6.nEncoderCount > nLowerSP1K1MPitch_1000) AND (M6.nEncoderCount < nUpperSP1K1MPitch_1000));
-			ffSP1K1GPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M7.nEncoderCount < nUpperSP1K1GPitch_1000));
-			ELSE 
-				ffSP1K1MPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK;
-				ffSP1K1GPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK;
-
+ELSIF (GVL_PMPS.rPhotonEnergy <= 404) AND (GVL_PMPS.rPhotonEnergy >=396) THEN
+	ffSP1K1MPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M6.nEncoderCount > nLowerSP1K1MPitch_400) AND (M6.nEncoderCount < nUpperSP1K1MPitch_400));
+	ffSP1K1GPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M7.nEncoderCount < nUpperSP1K1GPitch_400));
+ELSIF (GVL_PMPS.rPhotonEnergy <= 1100) AND (GVL_PMPS.rPhotonEnergy >=900) THEN
+	ffSP1K1MPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M6.nEncoderCount > nLowerSP1K1MPitch_1000) AND (M6.nEncoderCount < nUpperSP1K1MPitch_1000));
+	ffSP1K1GPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M7.nEncoderCount < nUpperSP1K1GPitch_1000));
+ELSE 
+	ffSP1K1MPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK;
+	ffSP1K1GPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK;
 END_IF
 
 
