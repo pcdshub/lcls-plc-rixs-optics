@@ -15,6 +15,9 @@
     <LibraryReferences>{a268f2e5-6568-4b9e-95d3-625fe109bef1}</LibraryReferences>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DaqEncoder.TcTTO">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DUTs\ENUM_XS_YAG_States.TcDUT">
       <SubType>Code</SubType>
     </Compile>
@@ -82,13 +85,13 @@
     <Compile Include="POUs\DAQ Comm\F_AddChannelToHeader.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\DAQ Comm\PRG_DAQ_ENCODER.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\PRG_1_PlcTask.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\PRG_2_PMPS_POST.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\PRG_DAQ_ENCODER.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\PRG_MR1K1_BEND.TcPOU">
