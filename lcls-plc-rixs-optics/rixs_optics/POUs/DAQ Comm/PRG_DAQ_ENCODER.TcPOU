@@ -4,8 +4,12 @@
     <Declaration><![CDATA[PROGRAM PRG_DAQ_ENCODER
 VAR
     // Inputs
+	{attribute 'TcLinkTo' := 'TIIB[EVR]^Latch^LatchPos1'}
     iLatchPos AT %I*: ULINT;
+	{attribute 'TcLinkTo' := 'TIIB[EVR]^Latch^LatchNeg1'}
     iLatchNeg AT %I*: ULINT;
+	{attribute 'TcLinkTo' := 'TIIB[g_pi_up_dwn_e]^FB Inputs Channel 2^Position'}
+    nEncoderCount AT %I*: ULINT;
     bEnableSend: BOOL := TRUE;
     
     // Outputs
@@ -26,6 +30,7 @@ VAR
     stTaskInfo: PlcTaskSystemInfo;
     iUnderflowCount: ULINT;
     fUnderflowPercent: LREAL;
+    fEncScale: LREAL;
     
     fbSocketHandler : FB_UDPSocketHandler;
 	fbSocketSend : FB_SocketUdpSendTo;
@@ -67,16 +72,21 @@ END_IF
 
 iPrevLatchPos := iLatchPos;
 
+
 fbHeader(
     nFrameCount := ULINT_TO_UINT(nUpdateCycles),
     sHardwareID := 'plc-rixs-optics',
     stHeader => payload.header
 );
 
+IF fEncScale = 0 THEN
+    fEncScale := M7.stAxisParameters.fEncScaleFactorNumerator;
+END_IF
+
 fbChannel(
-    nEncCount := M7.nEncoderCount,
+    nEncCount := ULINT_TO_UDINT(nEncoderCount),
     nTiming := ULINT_TO_UDINT(iTimeSincePos),
-    nScale := M7.stAxisParameters.fEncScaleFactorNumerator,
+    nScale := fEncScale,
     nError := UDINT_TO_USINT(M16.nErrorId),
     sHardwareID := 'SP1K1:G_PITCH',
     stChannel => payload.channel1
@@ -85,6 +95,7 @@ F_AddChannelToHeader(
     stHeader := payload.header,
     stChannel := payload.channel1,
 );
+
 
 fbSocketHandler(
     bEnable := TRUE,
