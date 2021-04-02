@@ -254,6 +254,8 @@ GVL_PMPS
         {attribute 'pytmc' := 'pv: PLC:RIX:OPTICS:FFO:02'}
         {attribute 'TcLinkTo' := '.q_xFastFaultOut:=TIIB[PMPS_FFO]^Channel 2^Output'}
         fbFastFaultOutput2: FB_HardwareFFOutput := (bAutoReset := TRUE);
+    	{attribute 'TcLinkTo' := ':=TIIB[PMPS_PRE]^IO Inputs^rPhotonEnergy'}
+    	rPhotonEnergy AT%I*: REAL;
     END_VAR
 
 
@@ -2095,8 +2097,15 @@ PRG_SPO_PMPS
     	nUpperSP1K1MPitch : UDINT := 31769145;// 31758046 + 11098;
     	nLowerSP1K1MPitch : UDINT := 31746947;//31758046 - 11098;
     	
+    	nUpperSP1K1MPitch_400 : UDINT := 31285238;
+    	nLowerSP1K1MPitch_400 : UDINT := 31263041;
     	
-    	nUpperSP1K1GPitch : UDINT := 23624881;
+    	nUpperSP1K1MPitch_1000 : UDINT := 31809544;
+    	nLowerSP1K1MPitch_1000 : UDINT := 31787347;
+    	
+    	nUpperSP1K1GPitch_700 : UDINT := 23624881;
+    	nUpperSP1K1GPitch_400 : UDINT := 21133394;
+    	nUpperSP1K1GPitch_1000 : UDINT := 23564882;
     	
     	nUpperSP1K1GH: UDINT := 40000000;
     	nLowerSP1K1GH: UDINT := 24000000;
@@ -2105,20 +2114,34 @@ PRG_SPO_PMPS
     	
     	
     END_VAR
+    IF (GVL_PMPS.rPhotonEnergy < 715) AND (GVL_PMPS.rPhotonEnergy >685) THEN
+    	ffSP1K1MPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M6.nEncoderCount > nLowerSP1K1MPitch) AND (M6.nEncoderCount < nUpperSP1K1MPitch));
+    	ffSP1K1GPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M7.nEncoderCount < nUpperSP1K1GPitch_700));
+    ELSIF (GVL_PMPS.rPhotonEnergy < 410) AND (GVL_PMPS.rPhotonEnergy >390) THEN
+    	ffSP1K1MPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M6.nEncoderCount > nLowerSP1K1MPitch_400) AND (M6.nEncoderCount < nUpperSP1K1MPitch_400));
+    	ffSP1K1GPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M7.nEncoderCount < nUpperSP1K1GPitch_400));
+    ELSIF (GVL_PMPS.rPhotonEnergy < 1020) AND (GVL_PMPS.rPhotonEnergy >980) THEN
+    	ffSP1K1MPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M6.nEncoderCount > nLowerSP1K1MPitch_1000) AND (M6.nEncoderCount < nUpperSP1K1MPitch_1000));
+    	ffSP1K1GPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M7.nEncoderCount < nUpperSP1K1GPitch_1000));
+    ELSE 
+    	ffSP1K1MPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK;
+    	ffSP1K1GPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK;
+
+    END_IF
+
+
     //MR1K1 height
     ffMR1K1Height.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M12.nEncoderCount > nLowerMR1K1Height ) AND (M12.nEncoderCount < nUpperMR1K1Height ));
     ffMR1K1Height(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
     //MR1K1 pitch
     ffMR1K1Pitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ( (M16.nEncoderCount > nLowerMR1K1Pitch) AND ( M16.nEncoderCount < nUpperMR1K1Pitch));
     ffMR1K1Pitch(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
-    //SP1K1 mirror pitch
-    ffSP1K1MPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M6.nEncoderCount > nLowerSP1K1MPitch) AND (M6.nEncoderCount < nUpperSP1K1MPitch)); 
+    //SP1K1 mirror pitch 
     ffSP1K1MPitch(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
     //SP1K1 grating pitch
-    ffSP1K1GPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M7.nEncoderCount < nUpperSP1K1GPitch));
     ffSP1K1GPitch(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
-    //SP1K1 Grating horizontal
-    ffSP1K1GHorisontal.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M9.nEncoderCount > nLowerSP1K1GH) AND (M9.nEncoderCount < nUpperSP1K1GH)); 
+    //SP1K1 Grating horizontal 
+    ffSP1K1GHorisontal.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M9.nEncoderCount > nLowerSP1K1GH) AND (M9.nEncoderCount < nUpperSP1K1GH));
     ffSP1K1GHorisontal(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
     //ST1K1 ZOS
     ffZos.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR (M24.nEncoderCount <= nZOSLower); //encoder counts decreases as value in mm increases
