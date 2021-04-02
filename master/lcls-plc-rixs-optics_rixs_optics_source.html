@@ -1012,8 +1012,12 @@ END_VAR
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">PRG_DAQ_ENCODER</span>
 <span class="n">VAR</span>
     <span class="o">//</span> <span class="n">Inputs</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIIB[EVR]^Latch^LatchPos1&#39;</span><span class="p">}</span>
     <span class="n">iLatchPos</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span><span class="p">:</span> <span class="n">ULINT</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIIB[EVR]^Latch^LatchNeg1&#39;</span><span class="p">}</span>
     <span class="n">iLatchNeg</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span><span class="p">:</span> <span class="n">ULINT</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIIB[g_pi_up_dwn_e]^FB Inputs Channel 2^Position&#39;</span><span class="p">}</span>
+    <span class="n">nEncoderCount</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span><span class="p">:</span> <span class="n">ULINT</span><span class="p">;</span>
     <span class="n">bEnableSend</span><span class="p">:</span> <span class="n">BOOL</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
 
     <span class="o">//</span> <span class="n">Outputs</span>
@@ -1034,6 +1038,7 @@ END_VAR
     <span class="n">stTaskInfo</span><span class="p">:</span> <span class="n">PlcTaskSystemInfo</span><span class="p">;</span>
     <span class="n">iUnderflowCount</span><span class="p">:</span> <span class="n">ULINT</span><span class="p">;</span>
     <span class="n">fUnderflowPercent</span><span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+    <span class="n">fEncScale</span><span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
 
     <span class="n">fbSocketHandler</span> <span class="p">:</span> <span class="n">FB_UDPSocketHandler</span><span class="p">;</span>
     <span class="n">fbSocketSend</span> <span class="p">:</span> <span class="n">FB_SocketUdpSendTo</span><span class="p">;</span>
@@ -1073,16 +1078,21 @@ END_VAR
 
 <span class="n">iPrevLatchPos</span> <span class="o">:=</span> <span class="n">iLatchPos</span><span class="p">;</span>
 
+
 <span class="n">fbHeader</span><span class="p">(</span>
     <span class="n">nFrameCount</span> <span class="o">:=</span> <span class="n">ULINT_TO_UINT</span><span class="p">(</span><span class="n">nUpdateCycles</span><span class="p">),</span>
     <span class="n">sHardwareID</span> <span class="o">:=</span> <span class="s1">&#39;plc-rixs-optics&#39;</span><span class="p">,</span>
     <span class="n">stHeader</span> <span class="o">=&gt;</span> <span class="n">payload</span><span class="o">.</span><span class="n">header</span>
 <span class="p">);</span>
 
+<span class="n">IF</span> <span class="n">fEncScale</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">THEN</span>
+    <span class="n">fEncScale</span> <span class="o">:=</span> <span class="n">M7</span><span class="o">.</span><span class="n">stAxisParameters</span><span class="o">.</span><span class="n">fEncScaleFactorNumerator</span><span class="p">;</span>
+<span class="n">END_IF</span>
+
 <span class="n">fbChannel</span><span class="p">(</span>
-    <span class="n">nEncCount</span> <span class="o">:=</span> <span class="n">M7</span><span class="o">.</span><span class="n">nEncoderCount</span><span class="p">,</span>
+    <span class="n">nEncCount</span> <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">nEncoderCount</span><span class="p">),</span>
     <span class="n">nTiming</span> <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">iTimeSincePos</span><span class="p">),</span>
-    <span class="n">nScale</span> <span class="o">:=</span> <span class="n">M7</span><span class="o">.</span><span class="n">stAxisParameters</span><span class="o">.</span><span class="n">fEncScaleFactorNumerator</span><span class="p">,</span>
+    <span class="n">nScale</span> <span class="o">:=</span> <span class="n">fEncScale</span><span class="p">,</span>
     <span class="n">nError</span> <span class="o">:=</span> <span class="n">UDINT_TO_USINT</span><span class="p">(</span><span class="n">M16</span><span class="o">.</span><span class="n">nErrorId</span><span class="p">),</span>
     <span class="n">sHardwareID</span> <span class="o">:=</span> <span class="s1">&#39;SP1K1:G_PITCH&#39;</span><span class="p">,</span>
     <span class="n">stChannel</span> <span class="o">=&gt;</span> <span class="n">payload</span><span class="o">.</span><span class="n">channel1</span>
@@ -1091,6 +1101,7 @@ END_VAR
     <span class="n">stHeader</span> <span class="o">:=</span> <span class="n">payload</span><span class="o">.</span><span class="n">header</span><span class="p">,</span>
     <span class="n">stChannel</span> <span class="o">:=</span> <span class="n">payload</span><span class="o">.</span><span class="n">channel1</span><span class="p">,</span>
 <span class="p">);</span>
+
 
 <span class="n">fbSocketHandler</span><span class="p">(</span>
     <span class="n">bEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">,</span>
