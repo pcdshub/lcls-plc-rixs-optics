@@ -814,7 +814,7 @@ PRG_1_PlcTask
 
     PROGRAM PRG_1_PlcTask
     VAR
-
+    fbLogHandler: FB_LogHandler;
     END_VAR
     PRG_MR1K1_BEND();
     PRG_MR1K1_BEND_BENDER();
@@ -824,6 +824,7 @@ PRG_1_PlcTask
     PRG_ST1K1_ZOS();
     PRG_SPO_PMPS();
     PRG_2_PMPS_POST();
+    fbLogHandler();
 
     END_PROGRAM
 
