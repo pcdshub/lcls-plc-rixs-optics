@@ -15,6 +15,9 @@
     <LibraryReferences>{a268f2e5-6568-4b9e-95d3-625fe109bef1}</LibraryReferences>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DaqTask.TcTTO">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DUTs\ENUM_XS_YAG_States.TcDUT">
       <SubType>Code</SubType>
     </Compile>
@@ -61,6 +64,30 @@
     <Compile Include="PlcTask.TcTTO">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\DAQ Comm\DUT_01_Channel_NW.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\DAQ Comm\DUT_Channel_NW.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\DAQ Comm\DUT_Header_NW.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\DAQ Comm\FB_AssembleChannel.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\DAQ Comm\FB_AssembleHeader.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\DAQ Comm\FB_UDPSocketHandler.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\DAQ Comm\F_AddChannelToHeader.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\DAQ Comm\PRG_DAQ_ENCODER.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\PRG_1_PlcTask.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -82,6 +109,12 @@
     <Compile Include="POUs\PRG_SP1K1_MONO.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\PRG_SPO_PMPS.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\PRG_ST1K1_ZOS.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\Serial Comm\PiezoSerial.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -96,6 +129,7 @@
     <Folder Include="DUTs" />
     <Folder Include="GVLs" />
     <Folder Include="Function Blocks" />
+    <Folder Include="POUs\DAQ Comm" />
     <Folder Include="POUs\Serial Comm" />
     <Folder Include="VISUs" />
     <Folder Include="POUs" />
@@ -124,6 +158,10 @@
     <PlaceholderReference Include="Tc2_System">
       <DefaultResolution>Tc2_System, * (Beckhoff Automation GmbH)</DefaultResolution>
       <Namespace>Tc2_System</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="Tc2_TcpIp">
+      <DefaultResolution>Tc2_TcpIp, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc2_TcpIp</Namespace>
     </PlaceholderReference>
     <PlaceholderReference Include="Tc2_Utilities">
       <DefaultResolution>Tc2_Utilities, * (Beckhoff Automation GmbH)</DefaultResolution>

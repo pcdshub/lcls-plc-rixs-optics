@@ -7,12 +7,16 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[GVL_PMPS.fbFastFaultOutput1.Execute();
-GVL_PMPS.fbFastFaultOutput2.Execute();
+      <ST><![CDATA[GVL_PMPS.fbFastFaultOutput1.Execute(i_xVeto := PMPS_GVL.stCurrentBeamParameters.aStoppers[PMPS.K_Stopper.MR1K1_OUT] 
+                                        AND NOT PMPS_GVL.stCurrentBeamParameters.aStoppers[PMPS.K_Stopper.MR1K1_IN]);
+GVL_PMPS.fbFastFaultOutput2.Execute(i_xVeto := PMPS_GVL.stCurrentBeamParameters.aStoppers[PMPS.K_Stopper.MR1K1_OUT] 
+                                        AND NOT PMPS_GVL.stCurrentBeamParameters.aStoppers[PMPS.K_Stopper.MR1K1_IN]);
 
 fbArbiterIO(
     Arbiter:=GVL_PMPS.fbArbiter,
-    fbFFHWO:=GVL_PMPS.fbFastFaultOutput1);]]></ST>
+    fbFFHWO:=GVL_PMPS.fbFastFaultOutput1,
+    i_bVeto := PMPS_GVL.stCurrentBeamParameters.aStoppers[PMPS.K_Stopper.MR1K1_OUT] 
+               AND NOT PMPS_GVL.stCurrentBeamParameters.aStoppers[PMPS.K_Stopper.MR1K1_IN]);]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <Task Name="DaqTask" Id="{5e4ed573-5ff2-4d07-8788-3f3c6f4218e3}">
+    <!--CycleTime in micro seconds.-->
+    <CycleTime>1000</CycleTime>
+    <Priority>19</Priority>
+    <PouCall>
+      <Name>PRG_DAQ_ENCODER</Name>
+    </PouCall>
+    <TaskFBGuid>{eb313b8a-73fb-43ff-bc1b-9fe6f6a8b4f4}</TaskFBGuid>
+    <Fb_init>{d1e355cf-2637-4bf2-a2d5-a0b3715a0c55}</Fb_init>
+    <Fb_exit>{98212413-8f7f-41b9-8a82-31ce14908ab0}</Fb_exit>
+    <CycleUpdate>{6758be7c-883d-4073-8088-a690eb72632f}</CycleUpdate>
+    <PostCycleUpdate>{b8b06b77-1706-426b-9e8a-e581c6bb9c61}</PostCycleUpdate>
+  </Task>
+</TcPlcObject>
