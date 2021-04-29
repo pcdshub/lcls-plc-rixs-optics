@@ -76,15 +76,15 @@
 			</Format>
 		</DataType>
 		<DataType>
-			<Name GUID="{1DA78E0F-F15E-4353-ADB2-7358C9384DD6}" Namespace="lcls_twincat_motion" AutoDeleteType="true">EL5042_Status</Name>
+			<Name GUID="{249CEB8F-5EF6-460E-A126-AE63037A3FE6}" Namespace="lcls_twincat_motion" AutoDeleteType="true">EL5042_Status</Name>
 			<BitSize>0</BitSize>
 			<BaseType GUID="{FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF}"/>
 			<Hides>
-				<Hide GUID="{EC70915E-17BF-468A-B7A5-2E09E875AD70}"/>
+				<Hide GUID="{43285439-038F-4B95-B232-DDA90A6A0751}"/>
 			</Hides>
 		</DataType>
 		<DataType>
-			<Name GUID="{B6ABEA6F-9714-485E-908C-05EFBE1AA789}" Namespace="lcls_twincat_motion" AutoDeleteType="true">ST_RenishawAbsEnc</Name>
+			<Name GUID="{3949E547-F58C-4B99-89CF-8E4E78ACC35E}" Namespace="lcls_twincat_motion" AutoDeleteType="true">ST_RenishawAbsEnc</Name>
 			<Comment>
 				<![CDATA[ Renishaw BiSS-C absolute encoder used with an EL5042]]>
 			</Comment>
@@ -106,7 +106,7 @@
 			</SubItem>
 			<SubItem>
 				<Name>Status</Name>
-				<Type GUID="{1DA78E0F-F15E-4353-ADB2-7358C9384DD6}" Namespace="lcls_twincat_motion">EL5042_Status</Type>
+				<Type GUID="{249CEB8F-5EF6-460E-A126-AE63037A3FE6}" Namespace="lcls_twincat_motion">EL5042_Status</Type>
 				<Comment>
 					<![CDATA[ Status struct placeholder]]>
 				</Comment>
@@ -123,7 +123,7 @@
 				<BitOffs>64</BitOffs>
 			</SubItem>
 			<Hides>
-				<Hide GUID="{172316AE-B6F4-49F3-B4F1-AF8C3515C656}"/>
+				<Hide GUID="{C9BB47C2-B031-4064-B302-7B96E34CCECB}"/>
 			</Hides>
 		</DataType>
 		<DataType>
@@ -1332,7 +1332,7 @@ External Setpoint Generation:
 					<Comment>
 						<![CDATA[ Encoders]]>
 					</Comment>
-					<Type GUID="{B6ABEA6F-9714-485E-908C-05EFBE1AA789}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{3949E547-F58C-4B99-89CF-8E4E78ACC35E}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -1354,7 +1354,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.stYdwnEnc</Name>
-					<Type GUID="{B6ABEA6F-9714-485E-908C-05EFBE1AA789}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{3949E547-F58C-4B99-89CF-8E4E78ACC35E}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -1376,7 +1376,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.stXupEnc</Name>
-					<Type GUID="{B6ABEA6F-9714-485E-908C-05EFBE1AA789}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{3949E547-F58C-4B99-89CF-8E4E78ACC35E}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -1398,7 +1398,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.stXdwnEnc</Name>
-					<Type GUID="{B6ABEA6F-9714-485E-908C-05EFBE1AA789}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{3949E547-F58C-4B99-89CF-8E4E78ACC35E}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -1599,6 +1599,10 @@ Emergency Stop for MR1K1]]>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
+					<Name>PRG_SP1K1_MONO.bSTOEnable2</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
 					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.bSTOEnable1</Name>
 					<Comment>
 						<![CDATA[ STO Button]]>
@@ -1614,7 +1618,7 @@ Emergency Stop for MR1K1]]>
 					<Comment>
 						<![CDATA[ Encoders]]>
 					</Comment>
-					<Type GUID="{B6ABEA6F-9714-485E-908C-05EFBE1AA789}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{3949E547-F58C-4B99-89CF-8E4E78ACC35E}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -1636,7 +1640,7 @@ Emergency Stop for MR1K1]]>
 				</Var>
 				<Var>
 					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stYdwnEnc</Name>
-					<Type GUID="{B6ABEA6F-9714-485E-908C-05EFBE1AA789}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{3949E547-F58C-4B99-89CF-8E4E78ACC35E}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -1658,7 +1662,7 @@ Emergency Stop for MR1K1]]>
 				</Var>
 				<Var>
 					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stXupEnc</Name>
-					<Type GUID="{B6ABEA6F-9714-485E-908C-05EFBE1AA789}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{3949E547-F58C-4B99-89CF-8E4E78ACC35E}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -1680,7 +1684,7 @@ Emergency Stop for MR1K1]]>
 				</Var>
 				<Var>
 					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stXdwnEnc</Name>
-					<Type GUID="{B6ABEA6F-9714-485E-908C-05EFBE1AA789}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{3949E547-F58C-4B99-89CF-8E4E78ACC35E}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -1827,14 +1831,14 @@ External Setpoint Generation:
 					</SubVar>
 				</Var>
 				<Var>
-					<Name>PRG_SP1K1_MONO.bSTOEnable2</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
 					<Name>PRG_SP1K1_MONO.flow_1</Name>
 					<Comment>
 						<![CDATA[Flow Switches]]>
 					</Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.flow_2</Name>
 					<Type>INT</Type>
 				</Var>
 				<Var>
@@ -2133,7 +2137,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>PRG_SP1K1_MONO.mpi_upe</Name>
-					<Type GUID="{B6ABEA6F-9714-485E-908C-05EFBE1AA789}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{3949E547-F58C-4B99-89CF-8E4E78ACC35E}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -2155,7 +2159,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>PRG_SP1K1_MONO.gpi_upe</Name>
-					<Type GUID="{B6ABEA6F-9714-485E-908C-05EFBE1AA789}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{3949E547-F58C-4B99-89CF-8E4E78ACC35E}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -2174,10 +2178,6 @@ External Setpoint Generation:
 							<![CDATA[ Encoder zero position (useful for aligned position with gantries)]]>
 						</Comment>
 					</SubVar>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.flow_2</Name>
-					<Type>INT</Type>
 				</Var>
 				<Var>
 					<Name>PRG_SP1K1_MONO.pres_1</Name>
@@ -2628,13 +2628,6 @@ External Setpoint Generation:
 					<Type>INT</Type>
 				</Var>
 				<Var>
-					<Name>GVL_M1K1_BENDER_RTD.nM1K1US_RTD_1</Name>
-					<Comment>
-						<![CDATA[ M1K1 US RTDs]]>
-					</Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
 					<Name>PRG_ST1K1_ZOS.fbZOS.fbDriveVirtual.MasterAxis.NcToPlc</Name>
 					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
@@ -2682,6 +2675,17 @@ External Setpoint Generation:
 ]]>
 						</Comment>
 					</SubVar>
+				</Var>
+				<Var>
+					<Name>GVL_M1K1_BENDER_RTD.nM1K1US_RTD_1</Name>
+					<Comment>
+						<![CDATA[ M1K1 US RTDs]]>
+					</Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_M1K1_BENDER_RTD.nM1K1US_RTD_2</Name>
+					<Type>INT</Type>
 				</Var>
 				<Var>
 					<Name>PRG_2_PMPS_POST.fbArbiterIO.i_stCurrentBP</Name>
@@ -2822,11 +2826,14 @@ External Setpoint Generation:
 					<Type>BIT</Type>
 				</Var>
 				<Var>
-					<Name>GVL_M1K1_BENDER_RTD.nM1K1US_RTD_2</Name>
+					<Name>GVL_M1K1_BENDER_RTD.nM1K1US_RTD_3</Name>
 					<Type>INT</Type>
 				</Var>
 				<Var>
-					<Name>GVL_M1K1_BENDER_RTD.nM1K1US_RTD_3</Name>
+					<Name>GVL_M1K1_BENDER_RTD.nM1K1DS_RTD_1</Name>
+					<Comment>
+						<![CDATA[ M1K1 DS RTDs]]>
+					</Comment>
 					<Type>INT</Type>
 				</Var>
 				<Var>
@@ -2837,23 +2844,12 @@ External Setpoint Generation:
 					<Type>LINT</Type>
 				</Var>
 				<Var>
-					<Name>GVL_M1K1_BENDER_RTD.nM1K1DS_RTD_1</Name>
-					<Comment>
-						<![CDATA[ M1K1 DS RTDs]]>
-					</Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
 					<Name>GVL_M1K1_BENDER_RTD.nM1K1DS_RTD_2</Name>
 					<Type>INT</Type>
 				</Var>
 				<Var>
 					<Name>GVL_M1K1_BENDER_RTD.nM1K1DS_RTD_3</Name>
 					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>Main.sio_current</Name>
-					<Type>UINT</Type>
 				</Var>
 				<Var>
 					<Name>GVL_M1K2.M1K2_Pitch.diEncCnt</Name>
@@ -2865,6 +2861,100 @@ External Setpoint Generation:
 				<Var>
 					<Name>GVL_PMPS.rPhotonEnergy</Name>
 					<Type>REAL</Type>
+				</Var>
+				<Var>
+					<Name>Main.sio_current</Name>
+					<Comment>
+						<![CDATA[	// MR2K2-FLAT axes
+	{attribute 'pytmc' := 'pv: MR2K2:FLAT:MMS:X'}
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M2K2X]^STM Status^Status^Digital input 1;
+                              .bLimitBackwardEnable:=TIIB[EL7041_M2K2X]^STM Status^Status^Digital input 2;
+							  .nRawEncoderULINT:=TIIB[EL5042_M2K2X_M2K2Y]^FB Inputs Channel 1^Position'}
+	M25 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //X mot
+   	fbMotionStageM25 : FB_MotionStage;
+	{attribute 'pytmc' := 'pv: MR2K2:FLAT:MMS:Y'}
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M2K2Y]^STM Status^Status^Digital input 1;
+                              .bLimitBackwardEnable:=TIIB[EL7041_M2K2Y]^STM Status^Status^Digital input 2;
+							  .nRawEncoderULINT:=TIIB[EL5042_M2K2X_M2K2Y]^FB Inputs Channel 2^Position'}
+    M26 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //Y mot
+    fbMotionStageM26 : FB_MotionStage;
+	{attribute 'pytmc' := 'pv: MR2K2:FLAT:MMS:rX'}
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M2K2rX]^STM Status^Status^Digital input 1;
+                              .bLimitBackwardEnable:=TIIB[EL7041_M2K2rX]^STM Status^Status^Digital input 2;
+							  .nRawEncoderULINT:=TIIB[EL5042_M2K2rX]^FB Inputs Channel 1^Position'}
+    M27 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //Pitch mot
+    fbMotionStageM27 : FB_MotionStage;
+	
+	// MR3K2-KBO axes
+	{attribute 'pytmc' := 'pv: MR3K2:KBO:MMS:X'}
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M3K2X]^STM Status^Status^Digital input 1;
+                              .bLimitBackwardEnable:=TIIB[EL7041_M3K2X]^STM Status^Status^Digital input 2;
+							  .nRawEncoderULINT:=TIIB[EL5042_M3K2X_M3K2Y]^FB Inputs Channel 1^Position'}
+    M28 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //X mot
+    fbMotionStageM28 : FB_MotionStage;
+	{attribute 'pytmc' := 'pv: MR3K2:KBO:MMS:Y'}
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M3K2Y]^STM Status^Status^Digital input 1;
+                              .bLimitBackwardEnable:=TIIB[EL7041_M3K2Y]^STM Status^Status^Digital input 2;
+							  .nRawEncoderULINT:=TIIB[EL5042_M3K2X_M3K2Y]^FB Inputs Channel 2^Position'}
+    M29 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //Y mot
+    fbMotionStageM29 : FB_MotionStage;
+	{attribute 'pytmc' := 'pv: MR3K2:KBO:MMS:rY'}
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M3K2rX]^STM Status^Status^Digital input 1;
+                              .bLimitBackwardEnable:=TIIB[EL7041_M3K2rX]^STM Status^Status^Digital input 2;
+							  .nRawEncoderULINT:=TIIB[EL5042_M3K2rY]^FB Inputs Channel 1^Position'}
+    M30 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //Pitch mot
+    fbMotionStageM30 : FB_MotionStage;
+	{attribute 'pytmc' := '	pv: MR3K2:KBO:MMS:US'}
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable :=TIIB[EL7041_M3K2_BEND_US]^STM Status^Status^Digital input 1;
+                              .bLimitBackwardEnable:=TIIB[EL7041_M3K2_BEND_US]^STM Status^Status^Digital input 2;
+							  .nRawEncoderULINT:= TIIB[EL5042_M3K2_BEND_USDS]^FB Inputs Channel 1^Position'}
+	M31 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //MR3K2 US BEND
+	fbMotionStage_m31 : FB_MotionStage;
+	{attribute 'pytmc' := 'pv: MR3K2:KBO:MMS:DS'}
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable :=TIIB[EL7041_M3K2_BEND_DS]^STM Status^Status^Digital input 1;
+                              .bLimitBackwardEnable:=TIIB[EL7041_M3K2_BEND_DS]^STM Status^Status^Digital input 2;
+							  .nRawEncoderULINT:= TIIB[EL5042_M3K2_BEND_USDS]^FB Inputs Channel 2^Position'}
+	M32 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //MR3K2 DS BEND
+	fbMotionStage_m32 : FB_MotionStage;
+	
+	
+	// MR4K2-KBO axes
+	{attribute 'pytmc' := 'pv: MR4K2:KBO:MMS:X'}
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M4K2X]^STM Status^Status^Digital input 1;
+                              .bLimitBackwardEnable:=TIIB[EL7041_M4K2X]^STM Status^Status^Digital input 2;
+							  .nRawEncoderULINT:=TIIB[EL5042_M4K2X_M4K2Y]^FB Inputs Channel 1^Position'}
+    M33 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //X mot
+    fbMotionStageM33 : FB_MotionStage;
+	{attribute 'pytmc' := 'pv: MR4K2:KBO:MMS:Y'}
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M4K2Y]^STM Status^Status^Digital input 1;
+                              .bLimitBackwardEnable:=TIIB[EL7041_M4K2Y]^STM Status^Status^Digital input 2;
+							  .nRawEncoderULINT:=TIIB[EL5042_M4K2X_M4K2Y]^FB Inputs Channel 2^Position'}
+    M34 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //Y mot
+    fbMotionStageM34 : FB_MotionStage;
+	{attribute 'pytmc' := 'pv: MR4K2:KBO:MMS:rY'}
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M4K2rX]^STM Status^Status^Digital input 1;
+                              .bLimitBackwardEnable:=TIIB[EL7041_M4K2rX]^STM Status^Status^Digital input 2;
+							  .nRawEncoderULINT:=TIIB[EL5042_M4K2rY]^FB Inputs Channel 1^Position'}
+    M35 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //Pitch mot
+    fbMotionStageM35 : FB_MotionStage;
+	{attribute 'pytmc' := '	pv: MR4K2:KBO:MMS:US'}
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable :=TIIB[EL7041_M4K2_BEND_US]^STM Status^Status^Digital input 1;
+                              .bLimitBackwardEnable:=TIIB[EL7041_M4K2_BEND_US]^STM Status^Status^Digital input 2;
+							  .nRawEncoderULINT:= TIIB[EL5042_M4K2_BEND_USDS]^FB Inputs Channel 1^Position'}
+	M36 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //MR4K2 US BEND
+	fbMotionStage_m36 : FB_MotionStage;
+	{attribute 'pytmc' := 'pv: MR4K2:KBO:MMS:DS'}
+	{attribute 'TcLinkTo' := '.bLimitForwardEnable :=TIIB[EL7041_M4K2_BEND_DS]^STM Status^Status^Digital input 1;
+                              .bLimitBackwardEnable:=TIIB[EL7041_M4K2_BEND_DS]^STM Status^Status^Digital input 2;
+							  .nRawEncoderULINT:= TIIB[EL5042_M4K2_BEND_USDS]^FB Inputs Channel 2^Position'}
+	M37 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //MR4K2 DS BEND
+	fbMotionStage_m37 : FB_MotionStage;		]]>
+					</Comment>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
+					<Name>Main.sio_load</Name>
+					<Type>UINT</Type>
 				</Var>
 				<Var>
 					<Name>Main.M1.Axis.NcToPlc</Name>
@@ -5708,13 +5798,17 @@ External Setpoint Generation:
 					</Comment>
 					<Type>INT</Type>
 				</Var>
-				<Var>
-					<Name>Main.sio_load</Name>
-					<Type>UINT</Type>
-				</Var>
 			</Vars>
 			<Vars VarGrpType="2">
 				<Name>PlcTask Outputs</Name>
+				<Var>
+					<Name>PRG_MR1K1_BEND.fbM1K1PitchControl.fbMotionStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K1_BEND.fbMotionStage_m16.fbDriveVirtual.MasterAxis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
 				<Var>
 					<Name>PRG_MR1K1_BEND.bLEDPower01</Name>
 					<Comment>
@@ -5729,14 +5823,6 @@ External Setpoint Generation:
 				<Var>
 					<Name>PRG_MR1K1_BEND.bLEDPower03</Name>
 					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K1_BEND.fbM1K1PitchControl.fbMotionStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K1_BEND.fbMotionStage_m16.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 				</Var>
 				<Var>
 					<Name>PRG_MR1K1_BEND.bLEDPower04</Name>
@@ -5756,10 +5842,6 @@ External Setpoint Generation:
 				<Var>
 					<Name>PRG_MR1K2_SWITCH.fbMotionStage_m5.fbDriveVirtual.MasterAxis.PlcToNc</Name>
 					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.bLEDPower01</Name>
-					<Type>BOOL</Type>
 				</Var>
 				<Var>
 					<Name>PRG_SP1K1_MONO.fbMotionStage_m_pi.fbDriveVirtual.MasterAxis.PlcToNc</Name>
@@ -5784,6 +5866,10 @@ External Setpoint Generation:
 				<Var>
 					<Name>PRG_SP1K1_MONO.fbMotionStage_s_io.fbDriveVirtual.MasterAxis.PlcToNc</Name>
 					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.bLEDPower01</Name>
+					<Type>BOOL</Type>
 				</Var>
 				<Var>
 					<Name>PRG_SP1K1_MONO.bLEDPower02</Name>
@@ -6361,11 +6447,65 @@ External Setpoint Generation:
 					</OwnerB>
 				</OwnerA>
 			</UnrestoredVarLinks>
+			<UnrestoredVarLinks ImportTime="2021-04-28T16:04:27">
+				<OwnerA Name="InputDst" Prefix="TIPC^rixs_optics^rixs_optics Instance" Type="1">
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 310 (EK1122)^EK1100_MR2K2^EL5042_M2K2X_M2K2Y">
+						<Link VarA="Main.M25.nRawEncoderULINT" TypeA="ULINT" InOutA="0" GuidA="{18071995-0000-0000-0000-00000000000B}" VarB="FB Inputs Channel 1^Position" AutoLink="true" RestoreInfo="ANotFound"/>
+						<Link VarA="Main.M26.nRawEncoderULINT" TypeA="ULINT" InOutA="0" GuidA="{18071995-0000-0000-0000-00000000000B}" VarB="FB Inputs Channel 2^Position" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 310 (EK1122)^EK1100_MR2K2^EL5042_M2K2rX">
+						<Link VarA="Main.M27.nRawEncoderULINT" TypeA="ULINT" InOutA="0" GuidA="{18071995-0000-0000-0000-00000000000B}" VarB="FB Inputs Channel 1^Position" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 310 (EK1122)^EK1100_MR2K2^EL7041_M2K2X">
+						<Link VarA="Main.M25.bLimitBackwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="Main.M25.bLimitForwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 310 (EK1122)^EK1100_MR2K2^EL7041_M2K2Y">
+						<Link VarA="Main.M26.bLimitBackwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="Main.M26.bLimitForwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 310 (EK1122)^EK1100_MR2K2^EL7041_M2K2rX">
+						<Link VarA="Main.M27.bLimitBackwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="Main.M27.bLimitForwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+				</OwnerA>
+			</UnrestoredVarLinks>
+			<UnrestoredVarLinks ImportTime="2021-04-28T16:06:49">
+				<OwnerA Name="InputDst" Prefix="TIPC^rixs_optics^rixs_optics Instance" Type="1">
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 310 (EK1122)^EK1100_MR3K2^EL5042_M3K2X_M3K2Y">
+						<Link VarA="Main.M28.nRawEncoderULINT" TypeA="ULINT" InOutA="0" GuidA="{18071995-0000-0000-0000-00000000000B}" VarB="FB Inputs Channel 1^Position" AutoLink="true" RestoreInfo="ANotFound"/>
+						<Link VarA="Main.M29.nRawEncoderULINT" TypeA="ULINT" InOutA="0" GuidA="{18071995-0000-0000-0000-00000000000B}" VarB="FB Inputs Channel 2^Position" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 310 (EK1122)^EK1100_MR3K2^EL5042_M3K2rY">
+						<Link VarA="Main.M30.nRawEncoderULINT" TypeA="ULINT" InOutA="0" GuidA="{18071995-0000-0000-0000-00000000000B}" VarB="FB Inputs Channel 1^Position" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 310 (EK1122)^EK1100_MR3K2^EL7041_M3K2X">
+						<Link VarA="Main.M28.bLimitBackwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="Main.M28.bLimitForwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 310 (EK1122)^EK1100_MR3K2^EL7041_M3K2Y">
+						<Link VarA="Main.M29.bLimitBackwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="Main.M29.bLimitForwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 310 (EK1122)^EK1100_MR3K2_BENDER^EL5042_M3K2_BEND_USDS">
+						<Link VarA="Main.M31.nRawEncoderULINT" TypeA="ULINT" InOutA="0" GuidA="{18071995-0000-0000-0000-00000000000B}" VarB="FB Inputs Channel 1^Position" AutoLink="true" RestoreInfo="ANotFound"/>
+						<Link VarA="Main.M32.nRawEncoderULINT" TypeA="ULINT" InOutA="0" GuidA="{18071995-0000-0000-0000-00000000000B}" VarB="FB Inputs Channel 2^Position" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 310 (EK1122)^EK1100_MR3K2_BENDER^EL7041_M3K2_BEND_DS">
+						<Link VarA="Main.M32.bLimitBackwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="Main.M32.bLimitForwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 310 (EK1122)^EK1100_MR3K2_BENDER^EL7041_M3K2_BEND_US">
+						<Link VarA="Main.M31.bLimitBackwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="Main.M31.bLimitForwardEnable" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+				</OwnerA>
+			</UnrestoredVarLinks>
 			<TaskPouOids>
 				<TaskPouOid Prio="19" OTCID="#x08502004"/>
 				<TaskPouOid Prio="1" OTCID="#x08502001"/>
-				<TaskPouOid Prio="3" OTCID="#x08502002"/>
 				<TaskPouOid Prio="20" OTCID="#x08502003"/>
+				<TaskPouOid Prio="3" OTCID="#x08502002"/>
 			</TaskPouOids>
 		</Instance>
 	</Project>
