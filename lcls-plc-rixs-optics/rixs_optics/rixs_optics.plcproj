@@ -58,6 +58,36 @@
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
+    <Compile Include="Implicit Checks\CheckBounds.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implicit Checks\CheckDivDInt.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implicit Checks\CheckDivLInt.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implicit Checks\CheckDivLReal.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implicit Checks\CheckDivReal.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implicit Checks\CheckLRangeSigned.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implicit Checks\CheckLRangeUnsigned.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implicit Checks\CheckPointer.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implicit Checks\CheckRangeSigned.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Implicit Checks\CheckRangeUnsigned.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="PiezoDriver.TcTTO">
       <SubType>Code</SubType>
     </Compile>
@@ -115,6 +145,9 @@
     <Compile Include="POUs\PRG_ST1K1_ZOS.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\PRG_ZeroOrder_PMPS.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\Serial Comm\PiezoSerial.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -129,6 +162,7 @@
     <Folder Include="DUTs" />
     <Folder Include="GVLs" />
     <Folder Include="Function Blocks" />
+    <Folder Include="Implicit Checks" />
     <Folder Include="POUs\DAQ Comm" />
     <Folder Include="POUs\Serial Comm" />
     <Folder Include="VISUs" />

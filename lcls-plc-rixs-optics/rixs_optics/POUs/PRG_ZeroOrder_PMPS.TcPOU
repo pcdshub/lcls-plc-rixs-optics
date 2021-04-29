@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="PRG_ZeroOrder_PMPS" Id="{91b5156c-1864-44ab-9bf4-9660205ee3fe}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_ZeroOrder_PMPS
+VAR
+// PMPS
+	ffZeroOrderBeam : FB_FastFault := (
+        i_xAutoReset := TRUE,
+        i_DevName := 'Zero Order Beam',
+        i_Desc := 'Faults when Zero order beam safe conditions are not met',
+        i_TypeCode := 16#F506);	
+	{attribute 'pytmc' := '
+        pv: SIM:SafeBenderRange
+        field: ZNAM FALSE
+        field: ONAM TRUE
+    '}
+    bSafeBenderRange : BOOL;
+	
+	{attribute 'pytmc' := '
+        pv: SIM:LRG_Grating_IN
+        field: ZNAM FALSE
+        field: ONAM TRUE
+    '}
+    bLRG_Grating_IN : BOOL;
+	
+	{attribute 'pytmc' := '
+        pv: SIM:ZOS_IN
+        field: ZNAM FALSE
+        field: ONAM TRUE
+    '}
+    bZOS_IN : BOOL;
+	
+	{attribute 'pytmc' := '
+        pv: SIM:ZOB_on_Lower_Stopper
+        field: ZNAM FALSE
+        field: ONAM TRUE
+    '}
+    bZOB_on_Lower_Stopper : BOOL;
+	
+	{attribute 'pytmc' := '
+        pv: SIM:MR1K1_Inserted
+        field: ZNAM FALSE
+        field: ONAM TRUE
+    '}
+    bMR1K1_Inserted : BOOL;
+	
+	{attribute 'pytmc' := '
+        pv: SIM:ZeroOrderBeam
+        field: ZNAM FALSE
+        field: ONAM TRUE
+    '}
+    bZeroOrderBeam : BOOL;
+		
+
+	Pm3 : LREAL;
+	Pm2: LREAL;
+	Pm1: LREAL;
+	Hm1: LREAL;
+	HZos:LREAL;
+	Zbm1: LREAL;
+	Zbm2: LREAL;
+	Zbm3: LREAL;
+	Hbm1: LREAL;
+	Hbm2: LREAL;
+	Hbm3: LREAL;
+	Hb0m3:LREAL;
+	//fixed calc
+	Hm3	 : LREAL;
+	Hpiv : LREAL;
+	Theta_m1: LREAL;
+	Theta_m2: LREAL;
+	Theta_m3: LREAL;
+	Delta : LREAL;
+	Ans : LREAL;
+END_VAR
+VAR CONSTANT
+	Hi2 :LREAL:=1.4;//m
+	Zi2: LREAL :=731.613;//m
+	Theta0 : LREAL:=0;
+	Zm1 : LREAL:=733.772;//m
+	Zmon : LREAL:=739.622;//m
+	Zpiv : LREAL:= 739.622 ; //m
+	Zzos : LREAL:= 741.422;//m
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+ffZeroOrderBeam.i_xOK := SafeBenderRange() OR (bLRG_Grating_IN AND bZOS_IN AND bZeroOrderBeam AND MR1K1_Inserted());
+ffZeroOrderBeam(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
+
+
+//Diagnostics
+bSafeBenderRange := SafeBenderRange();
+//bLRG_Grating_IN := LRG_Grating_IN();
+//bZOS_IN := ZOS_IN();
+bZOB_on_Lower_Stopper := ZOB_on_Lower_Stopper();
+bMR1K1_Inserted := MR1K1_Inserted();
+//bZeroOrderBeam := ffZeroOrderBeam.i_xOK;
+
+
+
+
+//TRUE if hb0m3(Zzoz) - Hzos > D
+Ans := Hb0m3 - (Hzos*1E3); //um
+IF GVL_PMPS.rPhotonEnergy <550 THEN
+	bZeroOrderBeam := Ans > 6*1E3;
+	ELSIF GVL_PMPS.rPhotonEnergy <1000 THEN
+		bZeroOrderBeam := Ans >  3.2*1E3;
+	ELSIF GVL_PMPS.rPhotonEnergy >=1000 THEN
+		bZeroOrderBeam := Ans >  2.5*1E3;		
+END_IF
+
+//
+ACT_CALC();
+ACT_ZOS_IN();
+ACT_LRG_Grating_IN();]]></ST>
+    </Implementation>
+    <Action Name="ACT_CALC" Id="{29570aa5-9d14-46b0-b59e-651abe0f5e16}">
+      <Implementation>
+        <ST><![CDATA[///calc
+//Hm1 = 1400000+mr1k1 ben Y up
+Hm1:= 1400000+M12.fPosition; //um
+//Pm1 = 18310 - 281 + mr1k1 bend pitch 
+Pm1 := 18310 - 281 + Main.M16.fPosition; //urad
+//Hpiv = 1.620305 + 0.001 // m 0.001 is correction from nominal
+Hpiv:= (1.620305 + 0.001)*1E6; //um
+//Pm2 = mono mirror pitch - 90700 urad
+Pm2 := Main.M6.fPosition - 90700;//urad
+//Hm3 = Hpiv + 0.006 m
+Hm3:= Hpiv + (0.006*1E6); //um
+//Pm3 = mono grating pitch - 63300 urad
+Pm3 := Main.M7.fPosition - 63300; //urad
+//Hzos = 1824.3 + st1k1_zos mm
+Hzos:= 1824.3 + M24.fPosition; //mm
+
+
+//urad
+Theta_m1 := 2*Pm1 - Theta0;
+Theta_m2 := 2*Pm2 - Theta_m1;
+Theta_m3 := 2 *Pm3 - 2 * Pm2 + 2* Pm1 - Theta0;
+
+// fix units
+//um
+Zbm1 := (Hm1 - TAN(Pm1)* (Zm1*1E6) - (Hi2*1E6) + TAN(Theta0) *(Zi2*1E6))/(TAN(Theta0) - TAN(Pm1));
+hbm1 := TAN(Pm1)*Zbm1 + Hm1 - TAN(Pm1)*(Zm1*1E6);
+//u?
+Zbm2 := (Hbm1 - TAN(Theta_m1)*Zbm1 - Hpiv + TAN(Pm2)*(Zpiv*1E6))/ (TAN(Pm2) - TAN(Theta_m1));
+Hbm2 := TAN(Pm2)*Zbm2 + Hpiv - TAN(Pm2)*(Zpiv*1E6);
+
+Zbm3 := (Hbm2 - TAN(Theta_m2)*Zbm2 - Hm3 + TAN(Pm3)*(Zpiv*1E6))/ (TAN(Pm3) - TAN(Theta_m2));
+Hbm3 := TAN(Pm3) * Zbm3 + Hm3 - TAN(Pm3)*(Zpiv*1E6);
+
+Hb0m3 := TAN(Theta_m3)*(Zzos*1E6) + Hbm3 - TAN(Theta_m3)*Zbm3;
+]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ACT_LRG_Grating_IN" Id="{8babb51d-911c-461c-99fc-bb1adfccc9fe}">
+      <Implementation>
+        <ST><![CDATA[bLRG_Grating_IN := (M9.fPosition >= 24000) AND (M9.fPosition <= 28000);]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ACT_ZOS_IN" Id="{ea635b1c-413a-4430-b9a8-7a35a57ab8c1}">
+      <Implementation>
+        <ST><![CDATA[IF GVL_PMPS.rPhotonEnergy >1500 THEN bZOS_IN:= FALSE;
+	ELSIF (GVL_PMPS.rPhotonEnergy >1000 AND M24.fPosition>= 8.5) THEN bZOS_IN:= TRUE;
+		ELSIF (GVL_PMPS.rPhotonEnergy <=1000 AND GVL_PMPS.rPhotonEnergy >550 AND M24.fPosition>= 7.9) THEN bZOS_IN:= TRUE;
+			ELSIF (GVL_PMPS.rPhotonEnergy <=550 AND GVL_PMPS.rPhotonEnergy >200 AND M24.fPosition>= 6.9) THEN bZOS_IN:= TRUE; 
+				ELSE bZOS_IN:= FALSE;
+END_IF
+
+]]></ST>
+      </Implementation>
+    </Action>
+    <Method Name="MR1K1_Inserted" Id="{a6f63631-54cf-4bad-bff6-69bbc818c904}">
+      <Declaration><![CDATA[METHOD MR1K1_Inserted : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[MR1K1_Inserted := PMPS_GVL.stCurrentBeamParameters.aStoppers[PMPS.K_Stopper.MR1K1_IN] 
+                    AND NOT PMPS_GVL.stCurrentBeamParameters.aStoppers[PMPS.K_Stopper.MR1K1_OUT];]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="SafeBenderRange" Id="{b4c0e9bb-a0bf-4708-9d0f-639acbeed916}">
+      <Declaration><![CDATA[METHOD SafeBenderRange : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[ SafeBenderRange :=  GVL_M1K1_BENDER_Constants.nM1K1bendUS_PMPS_LowerLimit < M17.nEncoderCount AND M17.nEncoderCount < GVL_M1K1_BENDER_Constants.nM1K1bendUS_PMPS_UpperLimit AND
+    GVL_M1K1_BENDER_Constants.nM1K1bendDS_PMPS_LowerLimit < M18.nEncoderCount AND M18.nEncoderCount < GVL_M1K1_BENDER_Constants.nM1K1bendDS_PMPS_UpperLimit;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="ZOB_on_Lower_Stopper" Id="{1038aeb1-9507-4623-b455-ede771c58d51}">
+      <Declaration><![CDATA[METHOD ZOB_on_Lower_Stopper : BOOL
+VAR_INPUT
+END_VAR
+VAR
+	Pm3 : LREAL;
+	Pm2: LREAL;
+	Pm1: LREAL;
+	Hm1: LREAL;
+	HZos:LREAL;
+	Zbm1: LREAL;
+	Zbm2: LREAL;
+	Zbm3: LREAL;
+	Hbm1: LREAL;
+	Hbm2: LREAL;
+	Hbm3: LREAL;
+	Hb0m3:LREAL;
+	//fixed calc
+	Hm3	 : LREAL;
+	Hpiv : LREAL;
+	Theta_m1: LREAL;
+	Theta_m2: LREAL;
+	Theta_m3: LREAL;
+	Delta : LREAL;
+	Ans : LREAL;
+END_VAR
+
+VAR CONSTANT
+	Hi2 :LREAL:=1.4;//m
+	Zi2: LREAL :=731.613;//m
+	Theta0 : LREAL:=0;
+	Zm1 : LREAL:=733.772;//m
+	Zmon : LREAL:=739.622;//m
+	Zpiv : LREAL:= 739.622 ; //m
+	Zzos : LREAL:= 741.422;//m
+END_VAR
+
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+
+//Hm1 = 1400000+mr1k1 ben Y up
+Hm1:= 1400000+M12.fPosition; //um
+//Pm1 = 18310 - 281 + mr1k1 bend pitch 
+Pm1 := 18310 - 281 + Main.M16.fPosition; //urad
+//Hpiv = 1.620305 + 0.001 // m 0.001 is correction from nominal
+Hpiv:= (1.620305 + 0.001)*1E6; //um
+//Pm2 = mono mirror pitch - 90700 urad
+Pm2 := Main.M6.fPosition - 90700;//urad
+//Hm3 = Hpiv + 0.006 m
+Hm3:= Hpiv + (0.006*1E6); //um
+//Pm3 = mono grating pitch - 63300 urad
+Pm3 := Main.M7.fPosition - 63300; //urad
+//Hzos = 1824.3 + st1k1_zos mm
+Hzos:= 1824.3 + M24.fPosition; //mm
+
+
+//urad
+Theta_m1 := 2*Pm1 - Theta0;
+Theta_m2 := 2*Pm2 - Theta_m1;
+Theta_m3 := 2 *Pm3 - 2 * Pm2 + 2* Pm1 - Theta0;
+
+// fix units
+//um
+Zbm1 := (Hm1 - TAN(Pm1)* (Zm1*1E6) - (Hi2*1E6) + TAN(Theta0) *(Zi2*1E6))/(TAN(Theta0) - TAN(Pm1));
+hbm1 := TAN(Pm1)*Zbm1 + Hm1 - TAN(Pm1)*(Zm1*1E6);
+//u?
+Zbm2 := (Hbm1 - TAN(Theta_m1)*Zbm1 - Hpiv + TAN(Pm2)*(Zpiv*1E6))/ (TAN(Pm2) - TAN(Theta_m1));
+Hbm2 := TAN(Pm2)*Zbm2 + Hpiv - TAN(Pm2)*(Zpiv*1E6);
+
+Zbm3 := (Hbm2 - TAN(Theta_m2)*Zbm2 - Hm3 + TAN(Pm3)*(Zpiv*1E6))/ (TAN(Pm3) - TAN(Theta_m2));
+Hbm3 := TAN(Pm3) * Zbm3 + Hm3 - TAN(Pm3)*(Zpiv*1E6);
+
+Hb0m3 := TAN(Theta_m3)*(Zzos*1E6) + Hbm3 - TAN(Theta_m3)*Zbm3;
+
+
+//TRUE if hb0m3(Zzoz) - Hzos > D
+Ans := Hb0m3 - (Hzos*1E3); //um
+IF GVL_PMPS.rPhotonEnergy <550 THEN
+	ZOB_on_Lower_Stopper := Ans > 6*1E3;
+	ELSIF GVL_PMPS.rPhotonEnergy <1000 THEN
+		ZOB_on_Lower_Stopper := Ans >  3.2*1E3;
+	ELSIF GVL_PMPS.rPhotonEnergy >=1000 THEN
+		ZOB_on_Lower_Stopper := Ans >  2.5*1E3;		
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>
