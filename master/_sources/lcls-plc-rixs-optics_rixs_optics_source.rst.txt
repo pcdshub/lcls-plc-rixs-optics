@@ -627,13 +627,13 @@ Main
     							  .nRawEncoderULINT:=TIIB[EL5042_M3K2rY]^FB Inputs Channel 1^Position'}
         M30 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //Pitch mot
         fbMotionStageM30 : FB_MotionStage;
-    	{attribute 'pytmc' := '	pv: MR3K2:KBH:MMS:US'}
+    	{attribute 'pytmc' := '	pv: MR3K2:KBH:MMS:BEND:US'}
     	{attribute 'TcLinkTo' := '.bLimitForwardEnable :=TIIB[EL7041_M3K2_BEND_US]^STM Status^Status^Digital input 1;
                                   .bLimitBackwardEnable:=TIIB[EL7041_M3K2_BEND_US]^STM Status^Status^Digital input 2;
     							  .nRawEncoderULINT:= TIIB[EL5042_M3K2_BEND_USDS]^FB Inputs Channel 1^Position'}
     	M31 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //MR3K2 US BEND
     	fbMotionStageM31 : FB_MotionStage;
-    	{attribute 'pytmc' := 'pv: MR3K2:KBH:MMS:DS'}
+    	{attribute 'pytmc' := 'pv: MR3K2:KBH:MMS:BEND:DS'}
     	{attribute 'TcLinkTo' := '.bLimitForwardEnable :=TIIB[EL7041_M3K2_BEND_DS]^STM Status^Status^Digital input 1;
                                   .bLimitBackwardEnable:=TIIB[EL7041_M3K2_BEND_DS]^STM Status^Status^Digital input 2;
     							  .nRawEncoderULINT:= TIIB[EL5042_M3K2_BEND_USDS]^FB Inputs Channel 2^Position'}
@@ -660,13 +660,13 @@ Main
     							  .nRawEncoderULINT:=TIIB[EL5042_M4K2rY]^FB Inputs Channel 1^Position'}
         M35 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //Pitch mot
         fbMotionStageM35 : FB_MotionStage;
-    	{attribute 'pytmc' := '	pv: MR4K2:KBV:MMS:US'}
+    	{attribute 'pytmc' := '	pv: MR4K2:KBV:MMS:BEND:US'}
     	{attribute 'TcLinkTo' := '.bLimitForwardEnable :=TIIB[EL7041_M4K2_BEND_US]^STM Status^Status^Digital input 1;
                                   .bLimitBackwardEnable:=TIIB[EL7041_M4K2_BEND_US]^STM Status^Status^Digital input 2;
     							  .nRawEncoderULINT:= TIIB[EL5042_M4K2_BEND_USDS]^FB Inputs Channel 1^Position'}
     	M36 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //MR4K2 US BEND
     	fbMotionStageM36 : FB_MotionStage;
-    	{attribute 'pytmc' := 'pv: MR4K2:KBV:MMS:DS'}
+    	{attribute 'pytmc' := 'pv: MR4K2:KBV:MMS:BEND:DS'}
     	{attribute 'TcLinkTo' := '.bLimitForwardEnable :=TIIB[EL7041_M4K2_BEND_DS]^STM Status^Status^Digital input 1;
                                   .bLimitBackwardEnable:=TIIB[EL7041_M4K2_BEND_DS]^STM Status^Status^Digital input 2;
     							  .nRawEncoderULINT:= TIIB[EL5042_M4K2_BEND_USDS]^FB Inputs Channel 2^Position'}
@@ -2268,21 +2268,21 @@ PRG_MR3K2_KBH
     	// MR3K2 Bender RTDs
     		// MR3K2 US RTDs
     		{attribute 'pytmc' := '
-    			pv: MR3K2:KBH:RTD:US:1
+    			pv: MR3K2:KBH:RTD:BEND:US:1
     			field: ASLO 0.01
     			field: EGU C
     			io: i
     		'}
     		fM3K2US_RTD_1 : REAL;
     		{attribute 'pytmc' := '
-    			pv: MR3K2:KBH:RTD:US:2
+    			pv: MR3K2:KBH:RTD:BEND:US:2
     			field: ASLO 0.01
     			field: EGU C
     			io: i
     		'}
     		fM3K2US_RTD_2 : REAL;
     		{attribute 'pytmc' := '
-    			pv: MR3K2:KBH:RTD:US:3
+    			pv: MR3K2:KBH:RTD:BEND:US:3
     			field: ASLO 0.01
     			field: EGU C
     			io: i
@@ -2291,21 +2291,21 @@ PRG_MR3K2_KBH
     	
     		// M3K2 DS RTDs
     		{attribute 'pytmc' := '
-    			pv: MR3K2:KBH:RTD:DS:1
+    			pv: MR3K2:KBH:RTD:BEND:DS:1
     			field: ASLO 0.01
     			field: EGU C
     			io: i
     		'}
     		fM3K2DS_RTD_1 : REAL;
     		{attribute 'pytmc' := '
-    			pv: MR3K2:KBH:RTD:DS:2
+    			pv: MR3K2:KBH:RTD:BEND:DS:2
     			field: ASLO 0.01
     			field: EGU C
     			io: i
     		'}
     		fM3K2DS_RTD_2 : REAL;
     		{attribute 'pytmc' := '
-    			pv: MR3K2:KBH:RTD:DS:3
+    			pv: MR3K2:KBH:RTD:BEND:DS:3
     			field: ASLO 0.01
     			field: EGU C
     			io: i
@@ -2530,21 +2530,21 @@ PRG_MR4K2_KBV
     	// MR4K2 Bender RTDs
     		// MR4K2 US RTDs
     		{attribute 'pytmc' := '
-    			pv: MR4K2:KBV:RTD:US:1
+    			pv: MR4K2:KBV:RTD:BEND:US:1
     			field: ASLO 0.01
     			field: EGU C
     			io: i
     		'}
     		fM4K2US_RTD_1 : REAL;
     		{attribute 'pytmc' := '
-    			pv: MR4K2:KBV:RTD:US:2
+    			pv: MR4K2:KBV:RTD:BEND:US:2
     			field: ASLO 0.01
     			field: EGU C
     			io: i
     		'}
     		fM4K2US_RTD_2 : REAL;
     		{attribute 'pytmc' := '
-    			pv: MR4K2:KBV:RTD:US:3
+    			pv: MR4K2:KBV:RTD:BEND:US:3
     			field: ASLO 0.01
     			field: EGU C
     			io: i
@@ -2553,21 +2553,21 @@ PRG_MR4K2_KBV
     	
     		// M4K2 DS RTDs
     		{attribute 'pytmc' := '
-    			pv: MR4K2:KBV:RTD:DS:1
+    			pv: MR4K2:KBV:RTD:BEND:DS:1
     			field: ASLO 0.01
     			field: EGU C
     			io: i
     		'}
     		fM4K2DS_RTD_1 : REAL;
     		{attribute 'pytmc' := '
-    			pv: MR4K2:KBV:RTD:DS:2
+    			pv: MR4K2:KBV:RTD:BEND:DS:2
     			field: ASLO 0.01
     			field: EGU C
     			io: i
     		'}
     		fM4K2DS_RTD_2 : REAL;
     		{attribute 'pytmc' := '
-    			pv: MR4K2:KBV:RTD:DS:3
+    			pv: MR4K2:KBV:RTD:BEND:DS:3
     			field: ASLO 0.01
     			field: EGU C
     			io: i
