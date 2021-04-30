@@ -16,7 +16,15 @@ PRG_ST1K1_ZOS();
 PRG_SPO_PMPS();
 PRG_2_PMPS_POST();
 fbLogHandler();
-PRG_ZeroOrder_PMPS();]]></ST>
+PRG_ZeroOrder_PMPS();
+//PRG_MR2K2_FLAT();
+PRG_MR3K2_KBH();
+//PRG_MR4K2_KBV();]]></ST>
     </Implementation>
+    <LineIds Name="PRG_1_PlcTask">
+      <LineId Id="3" Count="8" />
+      <LineId Id="2" Count="0" />
+      <LineId Id="16" Count="2" />
+    </LineIds>
   </POU>
 </TcPlcObject>

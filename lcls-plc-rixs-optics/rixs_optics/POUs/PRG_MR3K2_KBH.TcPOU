@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="PRG_MR3K2_KBH" Id="{316fd8b6-1288-4e79-bc69-1e585cb80ef5}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_MR3K2_KBH
+VAR
+	// Encoder Arrays/RMS Watch:
+		//MR3K2 X ENC RMS
+		{attribute 'pytmc' := '	pv: MR3K2:KBH:ENC:X'}
+		fbXRMSErrorM3K2 : FB_RMSWatch;
+		fMaxXRMSErrorM3K2 : LREAL;
+		fMinXRMSErrorM3K2 : LREAL;
+		//MR3K2 Y ENC RMS
+		{attribute 'pytmc' := '	pv: MR3K2:KBH:ENC:Y'}
+		fbYRMSErrorM3K2 : FB_RMSWatch;
+		fMaxYRMSErrorM3K2 : LREAL;
+		fMinYRMSErrorM3K2 : LREAL;
+		//MR3K2 rY ENC RMS
+		{attribute 'pytmc' := '	pv: MR3K2:KBH:ENC:PITCH'}
+		fbrYRMSErrorM3K2 : FB_RMSWatch;
+		fMaxrYRMSErrorM3K2 : LREAL;
+		fMinrYRMSErrorM3K2 : LREAL;
+		//MR3K2 US ENC RMS
+		{attribute 'pytmc' := '	pv: MR3K2:KBH:ENC:BEND:US'}
+		fbUSRMSErrorM3K2 : FB_RMSWatch;
+		fMaxUSRMSErrorM3K2 : LREAL;
+		fMinUSRMSErrorM3K2 : LREAL;
+		//MR3K2 DS ENC RMS
+		{attribute 'pytmc' := '	pv: MR3K2:KBH:ENC:BEND:DS'}
+		fbdSRMSErrorM3K2 : FB_RMSWatch;
+		fMaxDSRMSErrorM3K2 : LREAL;
+		fMinDSRMSErrorM3K2 : LREAL;
+		
+	// Encoder Reference Values
+		//MR3K2 X ENC REF
+		{attribute 'pytmc' := '
+			pv: MR3K2:KBH:ENC:X:REF
+			field: EGU cnt
+			io: i
+		'}
+		nEncRefXM3K2 : UDINT;
+		//MR3K2 Y ENC REF
+		{attribute 'pytmc' := '
+			pv: MR3K2:KBH:ENC:Y:REF
+			field: EGU cnt
+			io: i
+		'}
+		nEncRefYM3K2 : UDINT;
+		//MR3K2 rY ENC REF
+		{attribute 'pytmc' := '
+			pv: MR3K2:KBH:ENC:PITCH:REF
+			field: EGU cnt
+			io: i
+		'}
+		nEncRefrYM3K2 : UDINT;
+		//MR3K2 US ENC REF
+		{attribute 'pytmc' := '
+			pv: MR3K2:KBH:ENC:BEND:US:REF
+			field: EGU cnt
+			io: i
+		'}
+		nEncRefUSM3K2 : UDINT;
+		//MR3K2 DS ENC REF
+		{attribute 'pytmc' := '
+			pv: MR3K2:KBH:ENC:BEND:DS:REF
+			field: EGU cnt
+			io: i
+		'}
+		nEncRefDSM3K2 : UDINT;
+		
+	// Encoder raw counts
+		//M3K2 KBH X ENC CNT
+		{attribute 'pytmc' := '
+			pv: MR3K2:KBH:ENC:X:CNT
+			field: EGU cnt
+			io: i
+		'}
+		nEncCntXM3K2 : UDINT;
+		//M3K2 KBH Y ENC CNT
+		{attribute 'pytmc' := '
+			pv: MR3K2:KBH:ENC:Y:CNT
+			field: EGU cnt
+			io: i
+		'}
+		nEncCntYM3K2 : UDINT;
+		//M3K2 KBH rY ENC CNT
+		{attribute 'pytmc' := '
+			pv: MR3K2:KBH:ENC:PITCH:CNT
+			field: EGU cnt
+			io: i
+		'}
+		nEncCntrYM3K2 : UDINT;
+		//M3K2 KBH US ENC CNT
+		{attribute 'pytmc' := '
+			pv: MR3K2:KBH:ENC:BEND:US:CNT
+			field: EGU cnt
+			io: i
+		'}
+		nEncCntUSM3K2 : UDINT;
+		//M3K2 KBH DS ENC CNT
+		{attribute 'pytmc' := '
+			pv: MR3K2:KBH:ENC:BEND:DS:CNT
+			field: EGU cnt
+			io: i
+		'}
+		nEncCntDSM3K2 : UDINT;
+	
+	// MR3K2 Bender RTDs
+		// MR3K2 US RTDs
+		{attribute 'pytmc' := '
+			pv: MR3K2:KBH:RTD:US:1
+			field: ASLO 0.01
+			field: EGU C
+			io: i
+		'}
+		fM3K2US_RTD_1 : REAL;
+		{attribute 'pytmc' := '
+			pv: MR3K2:KBH:RTD:US:2
+			field: ASLO 0.01
+			field: EGU C
+			io: i
+		'}
+		fM3K2US_RTD_2 : REAL;
+		{attribute 'pytmc' := '
+			pv: MR3K2:KBH:RTD:US:3
+			field: ASLO 0.01
+			field: EGU C
+			io: i
+		'}
+		fM3K2US_RTD_3 : REAL;
+	
+		// M3K2 DS RTDs
+		{attribute 'pytmc' := '
+			pv: MR3K2:KBH:RTD:DS:1
+			field: ASLO 0.01
+			field: EGU C
+			io: i
+		'}
+		fM3K2DS_RTD_1 : REAL;
+		{attribute 'pytmc' := '
+			pv: MR3K2:KBH:RTD:DS:2
+			field: ASLO 0.01
+			field: EGU C
+			io: i
+		'}
+		fM3K2DS_RTD_2 : REAL;
+		{attribute 'pytmc' := '
+			pv: MR3K2:KBH:RTD:DS:3
+			field: ASLO 0.01
+			field: EGU C
+			io: i
+		'}
+		fM3K2DS_RTD_3 : REAL;
+	
+	// RTD error bit
+		bM3K2US_RTD_1_Err AT %I*: BOOL;
+		bM3K2US_RTD_2_Err AT %I*: BOOL;
+		bM3K2US_RTD_3_Err AT %I*: BOOL;
+		bM3K2DS_RTD_1_Err AT %I*: BOOL;
+		bM3K2DS_RTD_2_Err AT %I*: BOOL;
+		bM3K2DS_RTD_3_Err AT %I*: BOOL;
+	
+	//Emergency Stop for MR3K2
+		{attribute 'TcLinkTo' := 'TIIB[EL1004_M3K2_STO]^Channel 1^Input'}
+		M3K2KBHbSTOEnable1 AT %I* : BOOL;
+		{attribute 'TcLinkTo' := 'TIIB[EL1004_M3K2_STO]^Channel 2^Input'}
+		M3K2KBHbSTOEnable2 AT %I* : BOOL;
+
+(*	
+	// PMPS
+		ffBenderRange : FB_FastFault := (
+			i_xAutoReset := TRUE,
+			i_DevName := 'MR3K2 Bender',
+			i_Desc := 'Benders have moved out of range. Adjust bender to be within limits to clear fault',
+			i_TypeCode := 16#???);
+*)
+	
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//FB_Motion stages for MR3K2 Axes
+//MR3K2 KBH
+fbMotionStageM28(stMotionStage:=M28);
+fbMotionStageM29(stMotionStage:=M29);
+fbMotionStageM30(stMotionStage:=M30);
+fbMotionStageM31(stMotionStage:=M31);
+fbMotionStageM32(stMotionStage:=M32);
+
+// Calculate Pitch RMS Error for MR3K2 Axes:
+//MR3K2 X ENC RMS
+fbXRMSErrorM3K2(stMotionStage:=M28,
+					 fMaxRMSError=>fMaxXRMSErrorM3K2,
+					 fMinRMSError=>fMinXRMSErrorM3K2);
+//MR3K2 X ENC RMS
+fbYRMSErrorM3K2(stMotionStage:=M29,
+					 fMaxRMSError=>fMaxYRMSErrorM3K2,
+					 fMinRMSError=>fMinYRMSErrorM3K2);
+//MR3K2 rY ENC RMS
+fbrYRMSErrorM3K2(stMotionStage:=M30,
+					 fMaxRMSError=>fMaxrYRMSErrorM3K2,
+					 fMinRMSError=>fMinrYRMSErrorM3K2);
+//MR3K2 US ENC RMS
+fbUSRMSErrorM3K2(stMotionStage:=M31,
+					 fMaxRMSError=>fMaxUSRMSErrorM3K2,
+					 fMinRMSError=>fMinUSRMSErrorM3K2);
+//MR3K2 DS ENC RMS
+fbDSRMSErrorM3K2(stMotionStage:=M32,
+					 fMaxRMSError=>fMaxDSRMSErrorM3K2,
+					 fMinRMSError=>fMinDSRMSErrorM3K2);
+
+//STO for MR3K2 Benders
+M28.bHardwareEnable := M3K2KBHbSTOEnable1 AND M3K2KBHbSTOEnable2;
+M29.bHardwareEnable := M3K2KBHbSTOEnable1 AND M3K2KBHbSTOEnable2;
+M30.bHardwareEnable := M3K2KBHbSTOEnable1 AND M3K2KBHbSTOEnable2;
+M31.bHardwareEnable := M3K2KBHbSTOEnable1 AND M3K2KBHbSTOEnable2;
+M32.bHardwareEnable := M3K2KBHbSTOEnable1 AND M3K2KBHbSTOEnable2;
+
+//Encoder reference positions for MR3K2
+nEncRefXM3K2  := ULINT_TO_UDINT(GVL_M3K2.nM3K2X_ENC_REF);
+nEncRefYM3K2  := ULINT_TO_UDINT(GVL_M3K2.nM3K2Y_ENC_REF);
+nEncRefrYM3K2  := ULINT_TO_UDINT(GVL_M3K2.nM3K2rY_ENC_REF);
+nEncRefUSM3K2  := ULINT_TO_UDINT(GVL_M3K2.nM3K2US_ENC_REF);
+nEncRefDSM3K2  := ULINT_TO_UDINT(GVL_M3K2.nM3K2DS_ENC_REF);
+
+// M3K2 Bender Encoder Count Values For Epics
+nEncCntXM3K2  := ULINT_TO_UDINT(M28.nRawEncoderULINT);
+nEncCntYM3K2  := ULINT_TO_UDINT(M29.nRawEncoderULINT);
+nEncCntrYM3K2  := ULINT_TO_UDINT(M30.nRawEncoderULINT);
+nEncCntUSM3K2  := ULINT_TO_UDINT(M31.nRawEncoderULINT);
+nEncCntDSM3K2  := ULINT_TO_UDINT(M32.nRawEncoderULINT);
+
+// MR3K2 Bender RTDs
+fM3K2US_RTD_1 := INT_TO_REAL(GVL_M3K2.nM3K2US_RTD_1);
+fM3K2US_RTD_2 := INT_TO_REAL(GVL_M3K2.nM3K2US_RTD_2);
+fM3K2US_RTD_3 := INT_TO_REAL(GVL_M3K2.nM3K2US_RTD_3);
+
+fM3K2DS_RTD_1 := INT_TO_REAL(GVL_M3K2.nM3K2DS_RTD_1);
+fM3K2DS_RTD_2 := INT_TO_REAL(GVL_M3K2.nM3K2DS_RTD_2);
+fM3K2DS_RTD_3 := INT_TO_REAL(GVL_M3K2.nM3K2DS_RTD_3);
+
+// RTD not connected if T=0
+bM3K2US_RTD_1_Err := fM3K2US_RTD_1 = 0;
+bM3K2US_RTD_2_Err := fM3K2DS_RTD_2 = 0;
+bM3K2US_RTD_3_Err := fM3K2US_RTD_3 = 0;
+bM3K2DS_RTD_1_Err := fM3K2DS_RTD_1 = 0;
+bM3K2DS_RTD_2_Err := fM3K2DS_RTD_2 = 0;
+bM3K2DS_RTD_3_Err := fM3K2DS_RTD_3 = 0;
+
+// M3K2 Bender RTD interlocks
+M31.bHardwareEnable R= fM3K2US_RTD_1 > 10000 OR bM3K2US_RTD_1_Err;
+M32.bHardwareEnable R= fM3K2DS_RTD_1 > 10000 OR bM3K2DS_RTD_1_Err;
+
+(*
+//PMPS
+ffBenderRange.i_xOK :=
+    GVL_M3K2.nM3K2US_PMPS_LowerLimit < nEncCntUSM3K2 AND nEncCntUSM3K2 < GVL_M3K2.nM3K2US_PMPS_UpperLimit AND
+    GVL_M3K2.nM3K2DS_PMPS_LowerLimit < nEncCntDSM3K2 AND nEncCntUSM3K2 < GVL_M3K2.nM3K2DS_PMPS_UpperLimit;
+ffBenderRange(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1); 
+*)]]></ST>
+    </Implementation>
+    <LineIds Name="PRG_MR3K2_KBH">
+      <LineId Id="462" Count="46" />
+      <LineId Id="2" Count="0" />
+      <LineId Id="589" Count="1" />
+      <LineId Id="568" Count="16" />
+      <LineId Id="586" Count="2" />
+      <LineId Id="567" Count="0" />
+      <LineId Id="607" Count="0" />
+      <LineId Id="605" Count="0" />
+      <LineId Id="601" Count="3" />
+      <LineId Id="600" Count="0" />
+      <LineId Id="608" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
