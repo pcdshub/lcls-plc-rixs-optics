@@ -2978,13 +2978,13 @@ External Setpoint Generation:
 							  .nRawEncoderULINT:=TIIB[EL5042_M4K2rY]^FB Inputs Channel 1^Position'}
     M35 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //Pitch mot
     fbMotionStageM35 : FB_MotionStage;
-	{attribute 'pytmc' := '	pv: MR4K2:KBV:MMS:US'}
+	{attribute 'pytmc' := '	pv: MR4K2:KBV:MMS:BEND:US'}
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable :=TIIB[EL7041_M4K2_BEND_US]^STM Status^Status^Digital input 1;
                               .bLimitBackwardEnable:=TIIB[EL7041_M4K2_BEND_US]^STM Status^Status^Digital input 2;
 							  .nRawEncoderULINT:= TIIB[EL5042_M4K2_BEND_USDS]^FB Inputs Channel 1^Position'}
 	M36 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //MR4K2 US BEND
 	fbMotionStageM36 : FB_MotionStage;
-	{attribute 'pytmc' := 'pv: MR4K2:KBV:MMS:DS'}
+	{attribute 'pytmc' := 'pv: MR4K2:KBV:MMS:BEND:DS'}
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable :=TIIB[EL7041_M4K2_BEND_DS]^STM Status^Status^Digital input 1;
                               .bLimitBackwardEnable:=TIIB[EL7041_M4K2_BEND_DS]^STM Status^Status^Digital input 2;
 							  .nRawEncoderULINT:= TIIB[EL5042_M4K2_BEND_USDS]^FB Inputs Channel 2^Position'}
