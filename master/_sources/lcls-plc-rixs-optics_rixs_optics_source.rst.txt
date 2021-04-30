@@ -2367,11 +2367,11 @@ PRG_MR3K2_KBH
     					 fMinRMSError=>fMinDSRMSErrorM3K2);
 
     //STO for MR3K2 Benders
-    M28.bHardwareEnable := M3K2KBHbSTOEnable1 AND M3K2KBHbSTOEnable2;
-    M29.bHardwareEnable := M3K2KBHbSTOEnable1 AND M3K2KBHbSTOEnable2;
-    M30.bHardwareEnable := M3K2KBHbSTOEnable1 AND M3K2KBHbSTOEnable2;
-    M31.bHardwareEnable := M3K2KBHbSTOEnable1 AND M3K2KBHbSTOEnable2;
-    M32.bHardwareEnable := M3K2KBHbSTOEnable1 AND M3K2KBHbSTOEnable2;
+    M28.bHardwareEnable := M3K2KBHbSTOEnable1;// AND M3K2KBHbSTOEnable2;
+    M29.bHardwareEnable := M3K2KBHbSTOEnable1;// AND M3K2KBHbSTOEnable2;
+    M30.bHardwareEnable := M3K2KBHbSTOEnable1;// AND M3K2KBHbSTOEnable2;
+    M31.bHardwareEnable := M3K2KBHbSTOEnable1;// AND M3K2KBHbSTOEnable2;
+    M32.bHardwareEnable := M3K2KBHbSTOEnable1;// AND M3K2KBHbSTOEnable2;
 
     //Encoder reference positions for MR3K2
     nEncRefXM3K2  := ULINT_TO_UDINT(GVL_M3K2.nM3K2X_ENC_REF);
