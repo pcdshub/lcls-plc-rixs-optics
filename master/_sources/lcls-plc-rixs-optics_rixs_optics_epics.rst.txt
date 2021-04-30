@@ -20072,7 +20072,7 @@ Database Records
       - | io: input
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:bAllBackwardEnable_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:bAllBackwardEnable_RBV
       - bi
       - Summary of axis permission to move backward
       - | field: ONAM TRUE
@@ -20080,7 +20080,7 @@ Database Records
         | io: input
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:bAllEnable_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:bAllEnable_RBV
       - bi
       - Summary of axis permission to have power
       - | field: ONAM TRUE
@@ -20088,7 +20088,7 @@ Database Records
         | io: input
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:bAllForwardEnable_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:bAllForwardEnable_RBV
       - bi
       - Summary of axis permission to move forward
       - | field: ONAM TRUE
@@ -20096,7 +20096,7 @@ Database Records
         | io: input
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:bBrakeRelease_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:bBrakeRelease_RBV
       - bi
       - TRUE if brake released
       - | field: ONAM TRUE
@@ -20104,7 +20104,7 @@ Database Records
         | io: input
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:bBusy_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:bBusy_RBV
       - bi
       - TRUE if in the middle of a command
       - | field: ONAM TRUE
@@ -20112,7 +20112,7 @@ Database Records
         | io: input
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:bDone_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:bDone_RBV
       - bi
       - TRUE if command finished successfully
       - | field: ONAM TRUE
@@ -20120,7 +20120,7 @@ Database Records
         | io: input
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:bEnable
+    * - MR3K2:KBH:MMS:PITCH:PLC:bEnable
       - bo
       - Used internally to request enables
       - | field: ONAM TRUE
@@ -20128,7 +20128,7 @@ Database Records
         | io: output
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:bEnable_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:bEnable_RBV
       - bi
       - Used internally to request enables
       - | field: ONAM TRUE
@@ -20136,7 +20136,7 @@ Database Records
         | io: output
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:bEnableDone_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:bEnableDone_RBV
       - bi
       - TRUE if done enabling
       - | field: ONAM TRUE
@@ -20144,7 +20144,7 @@ Database Records
         | io: input
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:bError_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:bError_RBV
       - bi
       - TRUE if we
       - | field: ONAM TRUE
@@ -20152,7 +20152,7 @@ Database Records
         | io: input
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:bExecute
+    * - MR3K2:KBH:MMS:PITCH:PLC:bExecute
       - bo
       - Used internally and by the IOC to start or stop
       - | field: ONAM TRUE
@@ -20160,7 +20160,7 @@ Database Records
         | io: output
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:bExecute_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:bExecute_RBV
       - bi
       - Used internally and by the IOC to start or stop
       - | field: ONAM TRUE
@@ -20168,7 +20168,7 @@ Database Records
         | io: output
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:bGantryAxis_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:bGantryAxis_RBV
       - bi
       - TRUE if gantry EPS active
       - | field: ONAM TRUE
@@ -20176,7 +20176,7 @@ Database Records
         | io: input
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:bGantryBackwardEnable_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:bGantryBackwardEnable_RBV
       - bi
       - TRUE if gantry ok to move backward
       - | field: ONAM TRUE
@@ -20184,7 +20184,7 @@ Database Records
         | io: input
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:bGantryForwardEnable_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:bGantryForwardEnable_RBV
       - bi
       - TRUE if gantry ok to move forward
       - | field: ONAM TRUE
@@ -20192,7 +20192,7 @@ Database Records
         | io: input
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:bHardwareEnable_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:bHardwareEnable_RBV
       - bi
       - TRUE if STO not hit
       - | field: ONAM TRUE
@@ -20200,7 +20200,7 @@ Database Records
         | io: input
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:bHome_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:bHome_RBV
       - bi
       - TRUE if at homing switch
       - | field: ONAM TRUE
@@ -20208,25 +20208,25 @@ Database Records
         | io: input
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:bHomeCmd
+    * - MR3K2:KBH:MMS:PITCH:PLC:bHomeCmd
       - bo
       - Start the homing routine
       - | io: output
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:bHomeCmd_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:bHomeCmd_RBV
       - bi
       - Start the homing routine
       - | io: output
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:bHomed_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:bHomed_RBV
       - bi
       - TRUE if the motor has been homed
       - | io: input
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:bLimitBackwardEnable_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:bLimitBackwardEnable_RBV
       - bi
       - FALSE if reverse limit hit
       - | field: ONAM TRUE
@@ -20234,7 +20234,7 @@ Database Records
         | io: input
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:bLimitForwardEnable_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:bLimitForwardEnable_RBV
       - bi
       - FALSE if forward limit hit
       - | field: ONAM TRUE
@@ -20242,19 +20242,19 @@ Database Records
         | io: input
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:bMoveCmd
+    * - MR3K2:KBH:MMS:PITCH:PLC:bMoveCmd
       - bo
       - Start a move
       - | io: output
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:bMoveCmd_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:bMoveCmd_RBV
       - bi
       - Start a move
       - | io: output
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:bPowerSelf_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:bPowerSelf_RBV
       - bi
       - FALSE if axis is in PMPS
       - | field: ONAM TRUE
@@ -20262,7 +20262,7 @@ Database Records
         | io: input
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:bReset
+    * - MR3K2:KBH:MMS:PITCH:PLC:bReset
       - bo
       - Used internally to reset errors
       - | field: ONAM TRUE
@@ -20270,7 +20270,7 @@ Database Records
         | io: output
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:bReset_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:bReset_RBV
       - bi
       - Used internally to reset errors
       - | field: ONAM TRUE
@@ -20278,7 +20278,7 @@ Database Records
         | io: output
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:bSafetyReady_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:bSafetyReady_RBV
       - bi
       - TRUE if safe to start a move
       - | field: ONAM TRUE
@@ -20286,7 +20286,7 @@ Database Records
         | io: input
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:bUserEnable
+    * - MR3K2:KBH:MMS:PITCH:PLC:bUserEnable
       - bo
       - Used to disable power entirely for an axis
       - | field: ONAM ENABLE
@@ -20294,7 +20294,7 @@ Database Records
         | io: output
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:bUserEnable_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:bUserEnable_RBV
       - bi
       - Used to disable power entirely for an axis
       - | field: ONAM ENABLE
@@ -20302,139 +20302,139 @@ Database Records
         | io: output
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:fAcceleration
+    * - MR3K2:KBH:MMS:PITCH:PLC:fAcceleration
       - ao
       - Used internally and by the IOC to set acceleration
       - | io: output
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:fAcceleration_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:fAcceleration_RBV
       - ai
       - Used internally and by the IOC to set acceleration
       - | io: output
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:fDeceleration
+    * - MR3K2:KBH:MMS:PITCH:PLC:fDeceleration
       - ao
       - Used internally and by the IOC to set deceleration
       - | io: output
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:fDeceleration_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:fDeceleration_RBV
       - ai
       - Used internally and by the IOC to set deceleration
       - | io: output
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:fHomePosition
+    * - MR3K2:KBH:MMS:PITCH:PLC:fHomePosition
       - ao
       - Used internally and by the IOC to pick home position
       - | io: output
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:fHomePosition_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:fHomePosition_RBV
       - ai
       - Used internally and by the IOC to pick home position
       - | io: output
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:fPosDiff_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:fPosDiff_RBV
       - ai
       - Position lag difference
       - | io: input
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:fPosition
+    * - MR3K2:KBH:MMS:PITCH:PLC:fPosition
       - ao
       - Used internally and by the IOC as the set position
       - | io: output
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:fPosition_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:fPosition_RBV
       - ai
       - Used internally and by the IOC as the set position
       - | io: output
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:fVelocity
+    * - MR3K2:KBH:MMS:PITCH:PLC:fVelocity
       - ao
       - Used internally and by the IOC to set velocity
       - | io: output
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:fVelocity_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:fVelocity_RBV
       - ai
       - Used internally and by the IOC to set velocity
       - | io: output
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:nBrakeMode_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:nBrakeMode_RBV
       - mbbi
       - Describes when the brake will be released
       - | io: input
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:nCmdData
+    * - MR3K2:KBH:MMS:PITCH:PLC:nCmdData
       - longout
       - Used internally and by the IOC to pass extra args
       - | io: output
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:nCmdData_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:nCmdData_RBV
       - longin
       - Used internally and by the IOC to pass extra args
       - | io: output
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:nCommand
+    * - MR3K2:KBH:MMS:PITCH:PLC:nCommand
       - longout
       - Used internally and by the IOC to pick move type
       - | io: output
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:nCommand_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:nCommand_RBV
       - longin
       - Used internally and by the IOC to pick move type
       - | io: output
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:nEnableMode_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:nEnableMode_RBV
       - mbbi
       - Describes when the axis will automatically get power
       - | io: input
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:nEncoderCount_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:nEncoderCount_RBV
       - longin
       - Count from encoder hardware
       - | io: input
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:nErrorId_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:nErrorId_RBV
       - longin
       - Error code if nonzero
       - | io: input
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:nHomingMode_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:nHomingMode_RBV
       - mbbi
       - Describes our homing strategy
       - | io: input
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:nMotionAxisID_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:nMotionAxisID_RBV
       - longin
       - Unique ID assigned to each axis in the NC
       - | io: input
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:sErrorMessage_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:sErrorMessage_RBV
       - waveform
       - Message to identify the error state
       - | io: input
 
 
-    * - MR3K2:KBH:MMS:rY:PLC:sName_RBV
+    * - MR3K2:KBH:MMS:PITCH:PLC:sName_RBV
       - waveform
       - PLC program name
       - | io: input
