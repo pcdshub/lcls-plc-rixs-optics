@@ -114,12 +114,25 @@
 <li class="toctree-l2"><a class="reference internal" href="#gvl-m1k1-constants">GVL_M1K1_Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gvl-m1k2">GVL_M1K2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gvl-m1k2-constants">GVL_M1K2_Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gvl-m2k2">GVL_M2K2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gvl-m3k2">GVL_M3K2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gvl-m4k2">GVL_M4K2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gvl-pmps">GVL_PMPS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gvl-serialio">GVL_SerialIO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#main">Main</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#pous">POUs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#checkbounds">CheckBounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#checkdivdint">CheckDivDInt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#checkdivlint">CheckDivLInt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#checkdivlreal">CheckDivLReal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#checkdivreal">CheckDivReal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#checklrangesigned">CheckLRangeSigned</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#checklrangeunsigned">CheckLRangeUnsigned</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#checkpointer">CheckPointer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#checkrangesigned">CheckRangeSigned</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#checkrangeunsigned">CheckRangeUnsigned</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#f-addchanneltoheader">F_AddChannelToHeader</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#fb-assemblechannel">FB_AssembleChannel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#fb-assembleheader">FB_AssembleHeader</a></li>
@@ -133,10 +146,14 @@
 <li class="toctree-l2"><a class="reference internal" href="#prg-mr1k1-bend">PRG_MR1K1_BEND</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prg-mr1k1-bend-bender">PRG_MR1K1_BEND_BENDER</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prg-mr1k2-switch">PRG_MR1K2_SWITCH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prg-mr2k2-flat">PRG_MR2K2_FLAT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prg-mr3k2-kbh">PRG_MR3K2_KBH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prg-mr4k2-kbv">PRG_MR4K2_KBV</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prg-sl1k2-exit">PRG_SL1K2_EXIT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prg-sp1k1-mono">PRG_SP1K1_MONO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prg-spo-pmps">PRG_SPO_PMPS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prg-st1k1-zos">PRG_ST1K1_ZOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prg-zeroorder-pmps">PRG_ZeroOrder_PMPS</a></li>
 </ul>
 </li>
 </ul>
@@ -420,6 +437,103 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="gvl-m2k2">
+<h2>GVL_M2K2<a class="headerlink" href="#gvl-m2k2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{attribute &#39;qualified_only&#39;}
+VAR_GLOBAL CONSTANT
+    // Encoder reference values in counts = nm
+    // Put encoder reference values for nominal 0 here
+    nM2K2X_ENC_REF : ULINT := 1234567; //these numbers
+    nM2K2Y_ENC_REF : ULINT := 1234567; //are not
+    nM2K2rX_ENC_REF : ULINT := 1234567;//real!!
+END_VAR
+</pre></div>
+</div>
+</div>
+<div class="section" id="gvl-m3k2">
+<h2>GVL_M3K2<a class="headerlink" href="#gvl-m3k2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{attribute &#39;qualified_only&#39;}
+VAR_GLOBAL CONSTANT
+    // Encoder reference values in counts = nm
+    // Put encoder reference values for nominal 0 here
+    nM3K2X_ENC_REF : ULINT := 5951195;
+    nM3K2Y_ENC_REF : ULINT := 5857203;
+    nM3K2rY_ENC_REF : ULINT := 39991700;
+    nM3K2US_ENC_REF : ULINT := 1234567; //these numbers
+    nM3K2DS_ENC_REF : ULINT := 1234567;      //are not real!!
+
+(*
+    // PMPS Limits for benders - need to identify these
+    nM3K2US_PMPS_UpperLimit : ULINT := 21500000;//22100000;
+    nM3K2US_PMPS_LowerLimit : ULINT := 20100000;//20900000;
+
+    nM3K2DS_PMPS_UpperLimit : ULINT := 21100000;//21800000;
+    nM3K2DS_PMPS_LowerLimit : ULINT := 19800000;//20600000;
+*)
+END_VAR
+
+VAR_GLOBAL
+    // M3K2 US RTDs
+    {attribute &#39;TcLinkTo&#39; := &#39;TIIB[EL3202-0010_M3K2US1_M3K2US2]^RTD Inputs Channel 1^Value&#39;}
+    nM3K2US_RTD_1 AT %I* : INT;
+    {attribute &#39;TcLinkTo&#39; := &#39;TIIB[EL3202-0010_M3K2US1_M3K2US2]^RTD Inputs Channel 2^Value&#39;}
+    nM3K2US_RTD_2 AT %I* : INT;
+    {attribute &#39;TcLinkTo&#39; := &#39;TIIB[EL3202-0010_M3K2US3_M3K2DS1]^RTD Inputs Channel 1^Value&#39;}
+    nM3K2US_RTD_3 AT %I* : INT;
+
+    // M3K2 DS RTDs
+    {attribute &#39;TcLinkTo&#39; := &#39;TIIB[EL3202-0010_M3K2US3_M3K2DS1]^RTD Inputs Channel 2^Value&#39;}
+    nM3K2DS_RTD_1 AT %I* : INT;
+    {attribute &#39;TcLinkTo&#39; := &#39;TIIB[EL3202-0010_M3K2DS2_M3K2DS3]^RTD Inputs Channel 1^Value&#39;}
+    nM3K2DS_RTD_2 AT %I* : INT;
+    {attribute &#39;TcLinkTo&#39; := &#39;TIIB[EL3202-0010_M3K2DS2_M3K2DS3]^RTD Inputs Channel 2^Value&#39;}
+    nM3K2DS_RTD_3 AT %I* : INT;
+
+END_VAR
+</pre></div>
+</div>
+</div>
+<div class="section" id="gvl-m4k2">
+<h2>GVL_M4K2<a class="headerlink" href="#gvl-m4k2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{attribute &#39;qualified_only&#39;}
+VAR_GLOBAL CONSTANT
+    // Encoder reference values in counts = nm
+    // Put encoder reference values for nominal 0 here
+    nM4K2X_ENC_REF : ULINT := 5902073;
+    nM4K2Y_ENC_REF : ULINT := 6000313;
+    nM4K2rX_ENC_REF : ULINT := 50657020;
+    nM4K2US_ENC_REF : ULINT := 1234567; //these numbers
+    nM4K2DS_ENC_REF : ULINT := 1234567; //are not real!!
+
+    // PMPS Limits for benders - need to identify these
+    nM4K2US_PMPS_UpperLimit : ULINT := 21500000;//22100000;
+    nM4K2US_PMPS_LowerLimit : ULINT := 20100000;//20900000;
+
+    nM4K2DS_PMPS_UpperLimit : ULINT := 21100000;//21800000;
+    nM4K2DS_PMPS_LowerLimit : ULINT := 19800000;//20600000;
+END_VAR
+
+VAR_GLOBAL
+    // M4K2 US RTDs
+    {attribute &#39;TcLinkTo&#39; := &#39;TIIB[EL3202-0010_M4K2US1_M4K2US2]^RTD Inputs Channel 1^Value&#39;}
+    nM4K2US_RTD_1 AT %I* : INT;
+    {attribute &#39;TcLinkTo&#39; := &#39;TIIB[EL3202-0010_M4K2US1_M4K2US2]^RTD Inputs Channel 2^Value&#39;}
+    nM4K2US_RTD_2 AT %I* : INT;
+    {attribute &#39;TcLinkTo&#39; := &#39;TIIB[EL3202-0010_M4K2US3_M4K2DS1]^RTD Inputs Channel 1^Value&#39;}
+    nM4K2US_RTD_3 AT %I* : INT;
+
+    // M4K2 DS RTDs
+    {attribute &#39;TcLinkTo&#39; := &#39;TIIB[EL3202-0010_M4K2US3_M4K2DS1]^RTD Inputs Channel 2^Value&#39;}
+    nM4K2DS_RTD_1 AT %I* : INT;
+    {attribute &#39;TcLinkTo&#39; := &#39;TIIB[EL3202-0010_M4K2DS2_M4K2DS3]^RTD Inputs Channel 1^Value&#39;}
+    nM4K2DS_RTD_2 AT %I* : INT;
+    {attribute &#39;TcLinkTo&#39; := &#39;TIIB[EL3202-0010_M4K2DS2_M4K2DS3]^RTD Inputs Channel 2^Value&#39;}
+    nM4K2DS_RTD_3 AT %I* : INT;
+
+END_VAR
+</pre></div>
+</div>
+</div>
 <div class="section" id="gvl-pmps">
 <h2>GVL_PMPS<a class="headerlink" href="#gvl-pmps" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;qualified_only&#39;</span><span class="p">}</span>
@@ -659,7 +773,90 @@ END_VAR
                               <span class="o">.</span><span class="n">bBrakeRelease</span>        <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">ST1K1</span><span class="o">-</span><span class="n">EL2008</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Output</span><span class="s1">&#39;}</span>
     <span class="n">M24</span><span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span> <span class="o">:=</span> <span class="s1">&#39;ST1K1:ZOS:MMS&#39;</span><span class="p">);</span>
 
+<span class="p">(</span><span class="o">*</span>  <span class="o">//</span> <span class="n">MR2K2</span><span class="o">-</span><span class="n">FLAT</span> <span class="n">axes</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MR2K2:FLAT:MMS:X&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable:=TIIB[EL7041_M2K2X]^STM Status^Status^Digital input 1;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL7041_M2K2X</span><span class="p">]</span><span class="o">^</span><span class="n">STM</span> <span class="n">Status</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Digital</span> <span class="nb">input</span> <span class="mi">2</span><span class="p">;</span>
+                                                      <span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL5042_M2K2X_M2K2Y</span><span class="p">]</span><span class="o">^</span><span class="n">FB</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Position</span><span class="s1">&#39;}</span>
+    <span class="n">M25</span> <span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">nEnableMode</span><span class="o">:=</span><span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">,</span> <span class="n">bPowerSelf</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">);</span> <span class="o">//</span><span class="n">X</span> <span class="n">mot</span>
+    <span class="n">fbMotionStageM25</span> <span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MR2K2:FLAT:MMS:Y&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable:=TIIB[EL7041_M2K2Y]^STM Status^Status^Digital input 1;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL7041_M2K2Y</span><span class="p">]</span><span class="o">^</span><span class="n">STM</span> <span class="n">Status</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Digital</span> <span class="nb">input</span> <span class="mi">2</span><span class="p">;</span>
+                                                      <span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL5042_M2K2X_M2K2Y</span><span class="p">]</span><span class="o">^</span><span class="n">FB</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Position</span><span class="s1">&#39;}</span>
+    <span class="n">M26</span> <span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">nEnableMode</span><span class="o">:=</span><span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">,</span> <span class="n">bPowerSelf</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">);</span> <span class="o">//</span><span class="n">Y</span> <span class="n">mot</span>
+    <span class="n">fbMotionStageM26</span> <span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MR2K2:FLAT:MMS:rX&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable:=TIIB[EL7041_M2K2rX]^STM Status^Status^Digital input 1;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL7041_M2K2rX</span><span class="p">]</span><span class="o">^</span><span class="n">STM</span> <span class="n">Status</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Digital</span> <span class="nb">input</span> <span class="mi">2</span><span class="p">;</span>
+                                                      <span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL5042_M2K2rX</span><span class="p">]</span><span class="o">^</span><span class="n">FB</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Position</span><span class="s1">&#39;}</span>
+    <span class="n">M27</span> <span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">nEnableMode</span><span class="o">:=</span><span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">,</span> <span class="n">bPowerSelf</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">);</span> <span class="o">//</span><span class="n">Pitch</span> <span class="n">mot</span>
+    <span class="n">fbMotionStageM27</span> <span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>              <span class="o">*</span><span class="p">)</span>
 
+    <span class="o">//</span> <span class="n">MR3K2</span><span class="o">-</span><span class="n">KBH</span> <span class="n">axes</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MR3K2:KBH:MMS:X&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable:=TIIB[EL7041_M3K2X]^STM Status^Status^Digital input 1;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL7041_M3K2X</span><span class="p">]</span><span class="o">^</span><span class="n">STM</span> <span class="n">Status</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Digital</span> <span class="nb">input</span> <span class="mi">2</span><span class="p">;</span>
+                                                      <span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL5042_M3K2X_M3K2Y</span><span class="p">]</span><span class="o">^</span><span class="n">FB</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Position</span><span class="s1">&#39;}</span>
+    <span class="n">M28</span> <span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">nEnableMode</span><span class="o">:=</span><span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">,</span> <span class="n">bPowerSelf</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">);</span> <span class="o">//</span><span class="n">X</span> <span class="n">mot</span>
+    <span class="n">fbMotionStageM28</span> <span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MR3K2:KBH:MMS:Y&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable:=TIIB[EL7041_M3K2Y]^STM Status^Status^Digital input 1;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL7041_M3K2Y</span><span class="p">]</span><span class="o">^</span><span class="n">STM</span> <span class="n">Status</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Digital</span> <span class="nb">input</span> <span class="mi">2</span><span class="p">;</span>
+                                                      <span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL5042_M3K2X_M3K2Y</span><span class="p">]</span><span class="o">^</span><span class="n">FB</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Position</span><span class="s1">&#39;}</span>
+    <span class="n">M29</span> <span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">nEnableMode</span><span class="o">:=</span><span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">,</span> <span class="n">bPowerSelf</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">);</span> <span class="o">//</span><span class="n">Y</span> <span class="n">mot</span>
+    <span class="n">fbMotionStageM29</span> <span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MR3K2:KBH:MMS:rY&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable:=TIIB[EL7041_M3K2rY]^STM Status^Status^Digital input 1;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL7041_M3K2ry</span><span class="p">]</span><span class="o">^</span><span class="n">STM</span> <span class="n">Status</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Digital</span> <span class="nb">input</span> <span class="mi">2</span><span class="p">;</span>
+                                                      <span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL5042_M3K2rY</span><span class="p">]</span><span class="o">^</span><span class="n">FB</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Position</span><span class="s1">&#39;}</span>
+    <span class="n">M30</span> <span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">nEnableMode</span><span class="o">:=</span><span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">,</span> <span class="n">bPowerSelf</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">);</span> <span class="o">//</span><span class="n">Pitch</span> <span class="n">mot</span>
+    <span class="n">fbMotionStageM30</span> <span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39; pv: MR3K2:KBH:MMS:US&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable :=TIIB[EL7041_M3K2_BEND_US]^STM Status^Status^Digital input 1;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL7041_M3K2_BEND_US</span><span class="p">]</span><span class="o">^</span><span class="n">STM</span> <span class="n">Status</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Digital</span> <span class="nb">input</span> <span class="mi">2</span><span class="p">;</span>
+                                                      <span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">EL5042_M3K2_BEND_USDS</span><span class="p">]</span><span class="o">^</span><span class="n">FB</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Position</span><span class="s1">&#39;}</span>
+    <span class="n">M31</span> <span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">nEnableMode</span><span class="o">:=</span><span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">,</span> <span class="n">bPowerSelf</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">);</span> <span class="o">//</span><span class="n">MR3K2</span> <span class="n">US</span> <span class="n">BEND</span>
+    <span class="n">fbMotionStageM31</span> <span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MR3K2:KBH:MMS:DS&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable :=TIIB[EL7041_M3K2_BEND_DS]^STM Status^Status^Digital input 1;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL7041_M3K2_BEND_DS</span><span class="p">]</span><span class="o">^</span><span class="n">STM</span> <span class="n">Status</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Digital</span> <span class="nb">input</span> <span class="mi">2</span><span class="p">;</span>
+                                                      <span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">EL5042_M3K2_BEND_USDS</span><span class="p">]</span><span class="o">^</span><span class="n">FB</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Position</span><span class="s1">&#39;}</span>
+    <span class="n">M32</span> <span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">nEnableMode</span><span class="o">:=</span><span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">,</span> <span class="n">bPowerSelf</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">);</span> <span class="o">//</span><span class="n">MR3K2</span> <span class="n">DS</span> <span class="n">BEND</span>
+    <span class="n">fbMotionStageM32</span> <span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+
+
+<span class="p">(</span><span class="o">*</span>  <span class="o">//</span> <span class="n">MR4K2</span><span class="o">-</span><span class="n">KBV</span> <span class="n">axes</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MR4K2:KBV:MMS:X&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable:=TIIB[EL7041_M4K2X]^STM Status^Status^Digital input 1;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL7041_M4K2X</span><span class="p">]</span><span class="o">^</span><span class="n">STM</span> <span class="n">Status</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Digital</span> <span class="nb">input</span> <span class="mi">2</span><span class="p">;</span>
+                                                      <span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL5042_M4K2X_M4K2Y</span><span class="p">]</span><span class="o">^</span><span class="n">FB</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Position</span><span class="s1">&#39;}</span>
+    <span class="n">M33</span> <span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">nEnableMode</span><span class="o">:=</span><span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">,</span> <span class="n">bPowerSelf</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">);</span> <span class="o">//</span><span class="n">X</span> <span class="n">mot</span>
+    <span class="n">fbMotionStageM33</span> <span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MR4K2:KBV:MMS:Y&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable:=TIIB[EL7041_M4K2Y]^STM Status^Status^Digital input 1;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL7041_M4K2Y</span><span class="p">]</span><span class="o">^</span><span class="n">STM</span> <span class="n">Status</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Digital</span> <span class="nb">input</span> <span class="mi">2</span><span class="p">;</span>
+                                                      <span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL5042_M4K2X_M4K2Y</span><span class="p">]</span><span class="o">^</span><span class="n">FB</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Position</span><span class="s1">&#39;}</span>
+    <span class="n">M34</span> <span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">nEnableMode</span><span class="o">:=</span><span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">,</span> <span class="n">bPowerSelf</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">);</span> <span class="o">//</span><span class="n">Y</span> <span class="n">mot</span>
+    <span class="n">fbMotionStageM34</span> <span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MR4K2:KBV:MMS:rY&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable:=TIIB[EL7041_M4K2rX]^STM Status^Status^Digital input 1;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL7041_M4K2rX</span><span class="p">]</span><span class="o">^</span><span class="n">STM</span> <span class="n">Status</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Digital</span> <span class="nb">input</span> <span class="mi">2</span><span class="p">;</span>
+                                                      <span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL5042_M4K2rY</span><span class="p">]</span><span class="o">^</span><span class="n">FB</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Position</span><span class="s1">&#39;}</span>
+    <span class="n">M35</span> <span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">nEnableMode</span><span class="o">:=</span><span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">,</span> <span class="n">bPowerSelf</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">);</span> <span class="o">//</span><span class="n">Pitch</span> <span class="n">mot</span>
+    <span class="n">fbMotionStageM35</span> <span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39; pv: MR4K2:KBV:MMS:US&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable :=TIIB[EL7041_M4K2_BEND_US]^STM Status^Status^Digital input 1;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL7041_M4K2_BEND_US</span><span class="p">]</span><span class="o">^</span><span class="n">STM</span> <span class="n">Status</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Digital</span> <span class="nb">input</span> <span class="mi">2</span><span class="p">;</span>
+                                                      <span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">EL5042_M4K2_BEND_USDS</span><span class="p">]</span><span class="o">^</span><span class="n">FB</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Position</span><span class="s1">&#39;}</span>
+    <span class="n">M36</span> <span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">nEnableMode</span><span class="o">:=</span><span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">,</span> <span class="n">bPowerSelf</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">);</span> <span class="o">//</span><span class="n">MR4K2</span> <span class="n">US</span> <span class="n">BEND</span>
+    <span class="n">fbMotionStageM36</span> <span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MR4K2:KBV:MMS:DS&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable :=TIIB[EL7041_M4K2_BEND_DS]^STM Status^Status^Digital input 1;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL7041_M4K2_BEND_DS</span><span class="p">]</span><span class="o">^</span><span class="n">STM</span> <span class="n">Status</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Digital</span> <span class="nb">input</span> <span class="mi">2</span><span class="p">;</span>
+                                                      <span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">EL5042_M4K2_BEND_USDS</span><span class="p">]</span><span class="o">^</span><span class="n">FB</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Position</span><span class="s1">&#39;}</span>
+    <span class="n">M37</span> <span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">nEnableMode</span><span class="o">:=</span><span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">,</span> <span class="n">bPowerSelf</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">);</span> <span class="o">//</span><span class="n">MR4K2</span> <span class="n">DS</span> <span class="n">BEND</span>
+    <span class="n">fbMotionStageM37</span> <span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>              <span class="o">*</span><span class="p">)</span>
 
 
     <span class="n">sio_current</span> <span class="n">AT</span><span class="o">%</span><span class="n">I</span><span class="o">*</span> <span class="p">:</span> <span class="n">UINT</span><span class="p">;</span>
@@ -673,6 +870,215 @@ END_VAR
 </div>
 <div class="section" id="pous">
 <h1>POUs<a class="headerlink" href="#pous" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="checkbounds">
+<h2>CheckBounds<a class="headerlink" href="#checkbounds" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Implicitly</span> <span class="n">generated</span> <span class="n">code</span> <span class="p">:</span> <span class="n">DO</span> <span class="n">NOT</span> <span class="n">EDIT</span>
+<span class="n">FUNCTION</span> <span class="n">CheckBounds</span> <span class="p">:</span> <span class="n">DINT</span>
+<span class="n">VAR_INPUT</span>
+    <span class="n">index</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">:</span> <span class="n">DINT</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+<span class="o">//</span> <span class="n">Implicitly</span> <span class="n">generated</span> <span class="n">code</span> <span class="p">:</span> <span class="n">Only</span> <span class="n">an</span> <span class="n">Implementation</span> <span class="n">suggestion</span>
+<span class="p">{</span><span class="n">noflow</span><span class="p">}</span>
+<span class="n">IF</span>  <span class="n">index</span> <span class="o">&lt;</span> <span class="n">lower</span> <span class="n">THEN</span>
+    <span class="n">CheckBounds</span> <span class="o">:=</span> <span class="n">lower</span><span class="p">;</span>
+<span class="n">ELSIF</span>  <span class="n">index</span> <span class="o">&gt;</span> <span class="n">upper</span> <span class="n">THEN</span>
+    <span class="n">CheckBounds</span> <span class="o">:=</span> <span class="n">upper</span><span class="p">;</span>
+<span class="n">ELSE</span>
+    <span class="n">CheckBounds</span> <span class="o">:=</span> <span class="n">index</span><span class="p">;</span>
+<span class="n">END_IF</span>
+<span class="p">{</span><span class="n">flow</span><span class="p">}</span>
+
+<span class="n">END_FUNCTION</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="checkdivdint">
+<h2>CheckDivDInt<a class="headerlink" href="#checkdivdint" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Implicitly</span> <span class="n">generated</span> <span class="n">code</span> <span class="p">:</span> <span class="n">DO</span> <span class="n">NOT</span> <span class="n">EDIT</span>
+<span class="n">FUNCTION</span> <span class="n">CheckDivDInt</span> <span class="p">:</span> <span class="n">DINT</span>
+<span class="n">VAR_INPUT</span>
+    <span class="n">divisor</span><span class="p">:</span><span class="n">DINT</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+<span class="o">//</span> <span class="n">Implicitly</span> <span class="n">generated</span> <span class="n">code</span> <span class="p">:</span> <span class="n">Only</span> <span class="n">an</span> <span class="n">Implementation</span> <span class="n">suggestion</span>
+<span class="p">{</span><span class="n">noflow</span><span class="p">}</span>
+<span class="n">IF</span> <span class="n">divisor</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">THEN</span>
+    <span class="n">CheckDivDInt</span><span class="o">:=</span><span class="mi">1</span><span class="p">;</span>
+<span class="n">ELSE</span>
+    <span class="n">CheckDivDInt</span><span class="o">:=</span><span class="n">divisor</span><span class="p">;</span>
+<span class="n">END_IF</span><span class="p">;</span>
+<span class="p">{</span><span class="n">flow</span><span class="p">}</span>
+
+<span class="n">END_FUNCTION</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="checkdivlint">
+<h2>CheckDivLInt<a class="headerlink" href="#checkdivlint" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Implicitly</span> <span class="n">generated</span> <span class="n">code</span> <span class="p">:</span> <span class="n">DO</span> <span class="n">NOT</span> <span class="n">EDIT</span>
+<span class="n">FUNCTION</span> <span class="n">CheckDivLInt</span> <span class="p">:</span> <span class="n">LINT</span>
+<span class="n">VAR_INPUT</span>
+    <span class="n">divisor</span><span class="p">:</span><span class="n">LINT</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+<span class="o">//</span> <span class="n">Implicitly</span> <span class="n">generated</span> <span class="n">code</span> <span class="p">:</span> <span class="n">Only</span> <span class="n">an</span> <span class="n">Implementation</span> <span class="n">suggestion</span>
+<span class="p">{</span><span class="n">noflow</span><span class="p">}</span>
+<span class="n">IF</span> <span class="n">divisor</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">THEN</span>
+    <span class="n">CheckDivLInt</span><span class="o">:=</span><span class="mi">1</span><span class="p">;</span>
+<span class="n">ELSE</span>
+    <span class="n">CheckDivLInt</span><span class="o">:=</span><span class="n">divisor</span><span class="p">;</span>
+<span class="n">END_IF</span><span class="p">;</span>
+<span class="p">{</span><span class="n">flow</span><span class="p">}</span>
+
+<span class="n">END_FUNCTION</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="checkdivlreal">
+<h2>CheckDivLReal<a class="headerlink" href="#checkdivlreal" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Implicitly</span> <span class="n">generated</span> <span class="n">code</span> <span class="p">:</span> <span class="n">DO</span> <span class="n">NOT</span> <span class="n">EDIT</span>
+<span class="n">FUNCTION</span> <span class="n">CheckDivLReal</span> <span class="p">:</span> <span class="n">LREAL</span>
+<span class="n">VAR_INPUT</span>
+    <span class="n">divisor</span><span class="p">:</span><span class="n">LREAL</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+<span class="o">//</span> <span class="n">Implicitly</span> <span class="n">generated</span> <span class="n">code</span> <span class="p">:</span> <span class="n">Only</span> <span class="n">an</span> <span class="n">Implementation</span> <span class="n">suggestion</span>
+<span class="p">{</span><span class="n">noflow</span><span class="p">}</span>
+<span class="n">IF</span> <span class="n">divisor</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">THEN</span>
+    <span class="n">CheckDivLReal</span><span class="o">:=</span><span class="mi">1</span><span class="p">;</span>
+<span class="n">ELSE</span>
+    <span class="n">CheckDivLReal</span><span class="o">:=</span><span class="n">divisor</span><span class="p">;</span>
+<span class="n">END_IF</span><span class="p">;</span>
+<span class="p">{</span><span class="n">flow</span><span class="p">}</span>
+
+<span class="n">END_FUNCTION</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="checkdivreal">
+<h2>CheckDivReal<a class="headerlink" href="#checkdivreal" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Implicitly</span> <span class="n">generated</span> <span class="n">code</span> <span class="p">:</span> <span class="n">DO</span> <span class="n">NOT</span> <span class="n">EDIT</span>
+<span class="n">FUNCTION</span> <span class="n">CheckDivReal</span> <span class="p">:</span> <span class="n">REAL</span>
+<span class="n">VAR_INPUT</span>
+    <span class="n">divisor</span><span class="p">:</span><span class="n">REAL</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+<span class="o">//</span> <span class="n">Implicitly</span> <span class="n">generated</span> <span class="n">code</span> <span class="p">:</span> <span class="n">Only</span> <span class="n">an</span> <span class="n">Implementation</span> <span class="n">suggestion</span>
+<span class="p">{</span><span class="n">noflow</span><span class="p">}</span>
+<span class="n">IF</span> <span class="n">divisor</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">THEN</span>
+    <span class="n">CheckDivReal</span><span class="o">:=</span><span class="mi">1</span><span class="p">;</span>
+<span class="n">ELSE</span>
+    <span class="n">CheckDivReal</span><span class="o">:=</span><span class="n">divisor</span><span class="p">;</span>
+<span class="n">END_IF</span><span class="p">;</span>
+<span class="p">{</span><span class="n">flow</span><span class="p">}</span>
+
+<span class="n">END_FUNCTION</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="checklrangesigned">
+<h2>CheckLRangeSigned<a class="headerlink" href="#checklrangesigned" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Implicitly</span> <span class="n">generated</span> <span class="n">code</span> <span class="p">:</span> <span class="n">DO</span> <span class="n">NOT</span> <span class="n">EDIT</span>
+<span class="n">FUNCTION</span> <span class="n">CheckLRangeSigned</span> <span class="p">:</span> <span class="n">LINT</span>
+<span class="n">VAR_INPUT</span>
+    <span class="n">value</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">:</span> <span class="n">LINT</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+<span class="o">//</span> <span class="n">Implicitly</span> <span class="n">generated</span> <span class="n">code</span> <span class="p">:</span> <span class="n">Only</span> <span class="n">an</span> <span class="n">Implementation</span> <span class="n">suggestion</span>
+<span class="p">{</span><span class="n">noflow</span><span class="p">}</span>
+<span class="n">IF</span> <span class="p">(</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">lower</span><span class="p">)</span> <span class="n">THEN</span>
+    <span class="n">CheckLRangeSigned</span> <span class="o">:=</span> <span class="n">lower</span><span class="p">;</span>
+<span class="n">ELSIF</span><span class="p">(</span><span class="n">value</span> <span class="o">&gt;</span> <span class="n">upper</span><span class="p">)</span> <span class="n">THEN</span>
+    <span class="n">CheckLRangeSigned</span> <span class="o">:=</span> <span class="n">upper</span><span class="p">;</span>
+<span class="n">ELSE</span>
+    <span class="n">CheckLRangeSigned</span> <span class="o">:=</span> <span class="n">value</span><span class="p">;</span>
+<span class="n">END_IF</span>
+
+<span class="p">{</span><span class="n">flow</span><span class="p">}</span>
+
+<span class="n">END_FUNCTION</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="checklrangeunsigned">
+<h2>CheckLRangeUnsigned<a class="headerlink" href="#checklrangeunsigned" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Implicitly</span> <span class="n">generated</span> <span class="n">code</span> <span class="p">:</span> <span class="n">DO</span> <span class="n">NOT</span> <span class="n">EDIT</span>
+<span class="n">FUNCTION</span> <span class="n">CheckLRangeUnsigned</span> <span class="p">:</span> <span class="n">ULINT</span>
+<span class="n">VAR_INPUT</span>
+    <span class="n">value</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">:</span> <span class="n">ULINT</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+<span class="o">//</span> <span class="n">Implicitly</span> <span class="n">generated</span> <span class="n">code</span> <span class="p">:</span> <span class="n">Only</span> <span class="n">an</span> <span class="n">Implementation</span> <span class="n">suggestion</span>
+<span class="p">{</span><span class="n">noflow</span><span class="p">}</span>
+<span class="n">IF</span> <span class="p">(</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">lower</span><span class="p">)</span> <span class="n">THEN</span>
+    <span class="n">CheckLRangeUnsigned</span> <span class="o">:=</span> <span class="n">lower</span><span class="p">;</span>
+<span class="n">ELSIF</span><span class="p">(</span><span class="n">value</span> <span class="o">&gt;</span> <span class="n">upper</span><span class="p">)</span> <span class="n">THEN</span>
+    <span class="n">CheckLRangeUnsigned</span> <span class="o">:=</span> <span class="n">upper</span><span class="p">;</span>
+<span class="n">ELSE</span>
+    <span class="n">CheckLRangeUnsigned</span> <span class="o">:=</span> <span class="n">value</span><span class="p">;</span>
+<span class="n">END_IF</span>
+<span class="p">{</span><span class="n">flow</span><span class="p">}</span>
+
+<span class="n">END_FUNCTION</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="checkpointer">
+<h2>CheckPointer<a class="headerlink" href="#checkpointer" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Implicitly</span> <span class="n">generated</span> <span class="n">code</span> <span class="p">:</span> <span class="n">DO</span> <span class="n">NOT</span> <span class="n">EDIT</span>
+<span class="n">FUNCTION</span> <span class="n">CheckPointer</span> <span class="p">:</span> <span class="n">POINTER</span> <span class="n">TO</span> <span class="n">BYTE</span>
+<span class="n">VAR_INPUT</span>
+    <span class="n">ptToTest</span> <span class="p">:</span> <span class="n">POINTER</span> <span class="n">TO</span> <span class="n">BYTE</span><span class="p">;</span> <span class="o">//</span> <span class="n">Destination</span> <span class="n">address</span> <span class="n">of</span> <span class="n">the</span> <span class="n">pointer</span>
+    <span class="n">iSize</span> <span class="p">:</span> <span class="n">DINT</span><span class="p">;</span>                   <span class="o">//</span> <span class="n">Size</span> <span class="n">of</span> <span class="n">the</span> <span class="nb">type</span> <span class="n">the</span> <span class="n">pointer</span> <span class="n">points</span> <span class="n">to</span><span class="o">.</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="p">:</span> <span class="mi">20</span> <span class="k">for</span> <span class="n">POINTER</span> <span class="n">TO</span> <span class="n">ARRAY</span> <span class="p">[</span><span class="mf">0.</span><span class="o">.</span><span class="mi">9</span><span class="p">]</span> <span class="n">OF</span> <span class="n">INT</span><span class="p">)</span>
+    <span class="n">iGran</span> <span class="p">:</span> <span class="n">DINT</span><span class="p">;</span>                   <span class="o">//</span> <span class="n">Granularity</span> <span class="n">of</span> <span class="n">the</span> <span class="n">pointer</span> <span class="n">access</span><span class="o">.</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">size</span> <span class="n">of</span> <span class="n">the</span> <span class="n">biggest</span> <span class="n">non</span><span class="o">-</span><span class="n">structured</span> <span class="n">data</span> <span class="nb">type</span> <span class="ow">in</span> <span class="n">the</span> <span class="nb">type</span> <span class="n">the</span> <span class="n">pointer</span> <span class="n">points</span> <span class="n">to</span><span class="o">.</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="p">:</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">POINTER</span> <span class="n">TO</span> <span class="n">ARRAY</span> <span class="p">[</span><span class="mf">0.</span><span class="o">.</span><span class="mi">9</span><span class="p">]</span> <span class="n">OF</span> <span class="n">INT</span><span class="p">)</span>
+    <span class="n">bWrite</span><span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>                   <span class="o">//</span> <span class="n">Indicates</span> <span class="n">read</span> <span class="ow">or</span> <span class="n">write</span> <span class="n">Access</span><span class="o">.</span> <span class="n">TRUE</span> <span class="o">=</span> <span class="n">write</span> <span class="n">access</span><span class="o">.</span>
+<span class="n">END_VAR</span>
+<span class="o">//</span> <span class="n">No</span> <span class="n">standard</span> <span class="n">way</span> <span class="n">of</span> <span class="n">implementation</span><span class="o">.</span> <span class="n">Fill</span> <span class="n">your</span> <span class="n">own</span> <span class="n">code</span> <span class="n">here</span>
+<span class="n">CheckPointer</span> <span class="o">:=</span> <span class="n">ptToTest</span><span class="p">;</span>
+<span class="p">{</span><span class="n">flow</span><span class="p">}</span>
+
+<span class="n">END_FUNCTION</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="checkrangesigned">
+<h2>CheckRangeSigned<a class="headerlink" href="#checkrangesigned" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Implicitly</span> <span class="n">generated</span> <span class="n">code</span> <span class="p">:</span> <span class="n">DO</span> <span class="n">NOT</span> <span class="n">EDIT</span>
+<span class="n">FUNCTION</span> <span class="n">CheckRangeSigned</span> <span class="p">:</span> <span class="n">DINT</span>
+<span class="n">VAR_INPUT</span>
+    <span class="n">value</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">:</span> <span class="n">DINT</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+<span class="o">//</span> <span class="n">Implicitly</span> <span class="n">generated</span> <span class="n">code</span> <span class="p">:</span> <span class="n">Only</span> <span class="n">an</span> <span class="n">Implementation</span> <span class="n">suggestion</span>
+<span class="p">{</span><span class="n">noflow</span><span class="p">}</span>
+<span class="n">IF</span> <span class="p">(</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">lower</span><span class="p">)</span> <span class="n">THEN</span>
+    <span class="n">CheckRangeSigned</span> <span class="o">:=</span> <span class="n">lower</span><span class="p">;</span>
+<span class="n">ELSIF</span><span class="p">(</span><span class="n">value</span> <span class="o">&gt;</span> <span class="n">upper</span><span class="p">)</span> <span class="n">THEN</span>
+    <span class="n">CheckRangeSigned</span> <span class="o">:=</span> <span class="n">upper</span><span class="p">;</span>
+<span class="n">ELSE</span>
+    <span class="n">CheckRangeSigned</span> <span class="o">:=</span> <span class="n">value</span><span class="p">;</span>
+<span class="n">END_IF</span>
+<span class="p">{</span><span class="n">flow</span><span class="p">}</span>
+
+<span class="n">END_FUNCTION</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="checkrangeunsigned">
+<h2>CheckRangeUnsigned<a class="headerlink" href="#checkrangeunsigned" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Implicitly</span> <span class="n">generated</span> <span class="n">code</span> <span class="p">:</span> <span class="n">DO</span> <span class="n">NOT</span> <span class="n">EDIT</span>
+<span class="n">FUNCTION</span> <span class="n">CheckRangeUnsigned</span> <span class="p">:</span> <span class="n">UDINT</span>
+<span class="n">VAR_INPUT</span>
+    <span class="n">value</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+<span class="o">//</span> <span class="n">Implicitly</span> <span class="n">generated</span> <span class="n">code</span> <span class="p">:</span> <span class="n">Only</span> <span class="n">an</span> <span class="n">Implementation</span> <span class="n">suggestion</span>
+<span class="p">{</span><span class="n">noflow</span><span class="p">}</span>
+<span class="n">IF</span> <span class="p">(</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">lower</span><span class="p">)</span> <span class="n">THEN</span>
+    <span class="n">CheckRangeUnsigned</span> <span class="o">:=</span> <span class="n">lower</span><span class="p">;</span>
+<span class="n">ELSIF</span><span class="p">(</span><span class="n">value</span> <span class="o">&gt;</span> <span class="n">upper</span><span class="p">)</span> <span class="n">THEN</span>
+    <span class="n">CheckRangeUnsigned</span> <span class="o">:=</span> <span class="n">upper</span><span class="p">;</span>
+<span class="n">ELSE</span>
+    <span class="n">CheckRangeUnsigned</span> <span class="o">:=</span> <span class="n">value</span><span class="p">;</span>
+<span class="n">END_IF</span>
+<span class="p">{</span><span class="n">flow</span><span class="p">}</span>
+
+<span class="n">END_FUNCTION</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="f-addchanneltoheader">
 <h2>F_AddChannelToHeader<a class="headerlink" href="#f-addchanneltoheader" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FUNCTION</span> <span class="n">F_AddChannelToHeader</span> <span class="p">:</span> <span class="n">BOOL</span>
@@ -982,6 +1388,10 @@ END_VAR
 <span class="n">PRG_SPO_PMPS</span><span class="p">();</span>
 <span class="n">PRG_2_PMPS_POST</span><span class="p">();</span>
 <span class="n">fbLogHandler</span><span class="p">();</span>
+<span class="n">PRG_ZeroOrder_PMPS</span><span class="p">();</span>
+<span class="o">//</span><span class="n">PRG_MR2K2_FLAT</span><span class="p">();</span>
+<span class="n">PRG_MR3K2_KBH</span><span class="p">();</span>
+<span class="o">//</span><span class="n">PRG_MR4K2_KBV</span><span class="p">();</span>
 
 <span class="n">END_PROGRAM</span>
 </pre></div>
@@ -1771,6 +2181,639 @@ END_VAR
 </pre></div>
 </div>
 </div>
+<div class="section" id="prg-mr2k2-flat">
+<h2>PRG_MR2K2_FLAT<a class="headerlink" href="#prg-mr2k2-flat" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">PRG_MR2K2_FLAT</span>
+<span class="n">VAR</span>
+    <span class="o">//</span> <span class="n">Encoder</span> <span class="n">Arrays</span><span class="o">/</span><span class="n">RMS</span> <span class="n">Watch</span><span class="p">:</span>
+            <span class="o">//</span><span class="n">MR2K2</span> <span class="n">X</span> <span class="n">ENC</span> <span class="n">RMS</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39; pv: MR2K2:FLAT:ENC:X&#39;</span><span class="p">}</span>
+            <span class="n">fbXRMSErrorM2K2</span> <span class="p">:</span> <span class="n">FB_RMSWatch</span><span class="p">;</span>
+            <span class="n">fMaxXRMSErrorM2K2</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+            <span class="n">fMinXRMSErrorM2K2</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+            <span class="o">//</span><span class="n">MR2K2</span> <span class="n">Y</span> <span class="n">ENC</span> <span class="n">RMS</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39; pv: MR2K2:FLAT:ENC:Y&#39;</span><span class="p">}</span>
+            <span class="n">fbYRMSErrorM2K2</span> <span class="p">:</span> <span class="n">FB_RMSWatch</span><span class="p">;</span>
+            <span class="n">fMaxYRMSErrorM2K2</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+            <span class="n">fMinYRMSErrorM2K2</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+            <span class="o">//</span><span class="n">MR2K2</span> <span class="n">rX</span> <span class="n">ENC</span> <span class="n">RMS</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39; pv: MR2K2:FLAT:ENC:PITCH&#39;</span><span class="p">}</span>
+            <span class="n">fbrXRMSErrorM2K2</span> <span class="p">:</span> <span class="n">FB_RMSWatch</span><span class="p">;</span>
+            <span class="n">fMaxrXRMSErrorM2K2</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+            <span class="n">fMinrXRMSErrorM2K2</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">Encoder</span> <span class="n">Reference</span> <span class="n">Values</span>
+            <span class="o">//</span><span class="n">MR2K2</span> <span class="n">X</span> <span class="n">ENC</span> <span class="n">REF</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR2K2</span><span class="p">:</span><span class="n">FLAT</span><span class="p">:</span><span class="n">ENC</span><span class="p">:</span><span class="n">X</span><span class="p">:</span><span class="n">REF</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">cnt</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">nEncRefXM2K2</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
+            <span class="o">//</span><span class="n">MR2K2</span> <span class="n">Y</span> <span class="n">ENC</span> <span class="n">REF</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR2K2</span><span class="p">:</span><span class="n">FLAT</span><span class="p">:</span><span class="n">ENC</span><span class="p">:</span><span class="n">Y</span><span class="p">:</span><span class="n">REF</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">cnt</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">nEncRefYM2K2</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
+            <span class="o">//</span><span class="n">MR2K2</span> <span class="n">rX</span> <span class="n">ENC</span> <span class="n">REF</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR2K2</span><span class="p">:</span><span class="n">FLAT</span><span class="p">:</span><span class="n">ENC</span><span class="p">:</span><span class="n">PITCH</span><span class="p">:</span><span class="n">REF</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">cnt</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">nEncRefrXM2K2</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">Encoder</span> <span class="n">raw</span> <span class="n">counts</span>
+            <span class="o">//</span><span class="n">M2K2</span> <span class="n">FLAT</span> <span class="n">X</span> <span class="n">ENC</span> <span class="n">CNT</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR2K2</span><span class="p">:</span><span class="n">FLAT</span><span class="p">:</span><span class="n">ENC</span><span class="p">:</span><span class="n">X</span><span class="p">:</span><span class="n">CNT</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">cnt</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">nEncCntXM2K2</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
+            <span class="o">//</span><span class="n">M2K2</span> <span class="n">FLAT</span> <span class="n">Y</span> <span class="n">ENC</span> <span class="n">CNT</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR2K2</span><span class="p">:</span><span class="n">FLAT</span><span class="p">:</span><span class="n">ENC</span><span class="p">:</span><span class="n">Y</span><span class="p">:</span><span class="n">CNT</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">cnt</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">nEncCntYM2K2</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
+            <span class="o">//</span><span class="n">M2K2</span> <span class="n">FLAT</span> <span class="n">rX</span> <span class="n">ENC</span> <span class="n">CNT</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR2K2</span><span class="p">:</span><span class="n">FLAT</span><span class="p">:</span><span class="n">ENC</span><span class="p">:</span><span class="n">PITCH</span><span class="p">:</span><span class="n">CNT</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">cnt</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">nEncCntrXM2K2</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
+
+    <span class="o">//</span><span class="n">Emergency</span> <span class="n">Stop</span> <span class="k">for</span> <span class="n">MR2K2</span> <span class="o">//</span><span class="n">M2K2</span> <span class="n">needs</span> <span class="n">an</span> <span class="n">EL1004</span> <span class="n">term</span> <span class="ow">and</span> <span class="n">an</span> <span class="n">ESTOP</span> <span class="n">added</span><span class="p">,</span> <span class="ow">not</span> <span class="n">listed</span> <span class="ow">in</span> <span class="n">I</span><span class="o">/</span><span class="n">O</span> <span class="n">either</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIIB[EL1004_M2K2_FLAT_STO]^Channel 1^Input&#39;</span><span class="p">}</span>
+    <span class="n">M2K2FLATbSTOEnable1</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span> <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIIB[EL1004_M2K2_FLAT_STO]^Channel 2^Input&#39;</span><span class="p">}</span>
+    <span class="n">M2K2FLATbSTOEnable2</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span> <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+
+<span class="n">END_VAR</span>
+<span class="o">//</span><span class="n">FB_Motion</span> <span class="n">stages</span> <span class="k">for</span> <span class="n">MR2K2</span> <span class="n">Axes</span>
+<span class="o">//</span><span class="n">MR2K2</span> <span class="n">FLAT</span>
+<span class="n">fbMotionStageM25</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M25</span><span class="p">);</span>
+<span class="n">fbMotionStageM26</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M26</span><span class="p">);</span>
+<span class="n">fbMotionStageM27</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M27</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">Calculate</span> <span class="n">Pitch</span> <span class="n">RMS</span> <span class="n">Error</span> <span class="k">for</span> <span class="n">MR2K2</span> <span class="n">Axes</span><span class="p">:</span>
+<span class="o">//</span><span class="n">MR2K2</span> <span class="n">X</span> <span class="n">ENC</span> <span class="n">RMS</span>
+<span class="n">fbXRMSErrorM2K2</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M25</span><span class="p">,</span>
+                                     <span class="n">fMaxRMSError</span><span class="o">=&gt;</span><span class="n">fMaxXRMSErrorM2K2</span><span class="p">,</span>
+                                     <span class="n">fMinRMSError</span><span class="o">=&gt;</span><span class="n">fMinXRMSErrorM2K2</span><span class="p">);</span>
+<span class="o">//</span><span class="n">MR2K2</span> <span class="n">X</span> <span class="n">ENC</span> <span class="n">RMS</span>
+<span class="n">fbYRMSErrorM2K2</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M26</span><span class="p">,</span>
+                                     <span class="n">fMaxRMSError</span><span class="o">=&gt;</span><span class="n">fMaxYRMSErrorM2K2</span><span class="p">,</span>
+                                     <span class="n">fMinRMSError</span><span class="o">=&gt;</span><span class="n">fMinYRMSErrorM2K2</span><span class="p">);</span>
+<span class="o">//</span><span class="n">MR2K2</span> <span class="n">rX</span> <span class="n">ENC</span> <span class="n">RMS</span>
+<span class="n">fbrXRMSErrorM2K2</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M27</span><span class="p">,</span>
+                                     <span class="n">fMaxRMSError</span><span class="o">=&gt;</span><span class="n">fMaxrXRMSErrorM2K2</span><span class="p">,</span>
+                                     <span class="n">fMinRMSError</span><span class="o">=&gt;</span><span class="n">fMinrXRMSErrorM2K2</span><span class="p">);</span>
+
+<span class="o">//</span><span class="n">STO</span> <span class="k">for</span> <span class="n">MR2K2</span> <span class="n">Benders</span>
+<span class="n">M25</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">M2K2FLATbSTOEnable1</span> <span class="n">AND</span> <span class="n">M2K2FLATbSTOEnable2</span><span class="p">;</span>
+<span class="n">M26</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">M2K2FLATbSTOEnable1</span> <span class="n">AND</span> <span class="n">M2K2FLATbSTOEnable2</span><span class="p">;</span>
+<span class="n">M27</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">M2K2FLATbSTOEnable1</span> <span class="n">AND</span> <span class="n">M2K2FLATbSTOEnable2</span><span class="p">;</span>
+
+<span class="o">//</span><span class="n">Encoder</span> <span class="n">reference</span> <span class="n">positions</span> <span class="k">for</span> <span class="n">MR2K2</span>
+<span class="n">nEncRefXM2K2</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">GVL_M2K2</span><span class="o">.</span><span class="n">nM2K2X_ENC_REF</span><span class="p">);</span>
+<span class="n">nEncRefYM2K2</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">GVL_M2K2</span><span class="o">.</span><span class="n">nM2K2Y_ENC_REF</span><span class="p">);</span>
+<span class="n">nEncRefrXM2K2</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">GVL_M2K2</span><span class="o">.</span><span class="n">nM2K2rX_ENC_REF</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">M2K2</span> <span class="n">Bender</span> <span class="n">Encoder</span> <span class="n">Count</span> <span class="n">Values</span> <span class="n">For</span> <span class="n">Epics</span>
+<span class="n">nEncCntXM2K2</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">M25</span><span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="p">);</span>
+<span class="n">nEncCntYM2K2</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">M26</span><span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="p">);</span>
+<span class="n">nEncCntrXM2K2</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">M27</span><span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="p">);</span>
+
+<span class="n">END_PROGRAM</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="prg-mr3k2-kbh">
+<h2>PRG_MR3K2_KBH<a class="headerlink" href="#prg-mr3k2-kbh" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">PRG_MR3K2_KBH</span>
+<span class="n">VAR</span>
+    <span class="o">//</span> <span class="n">Encoder</span> <span class="n">Arrays</span><span class="o">/</span><span class="n">RMS</span> <span class="n">Watch</span><span class="p">:</span>
+            <span class="o">//</span><span class="n">MR3K2</span> <span class="n">X</span> <span class="n">ENC</span> <span class="n">RMS</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39; pv: MR3K2:KBH:ENC:X&#39;</span><span class="p">}</span>
+            <span class="n">fbXRMSErrorM3K2</span> <span class="p">:</span> <span class="n">FB_RMSWatch</span><span class="p">;</span>
+            <span class="n">fMaxXRMSErrorM3K2</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+            <span class="n">fMinXRMSErrorM3K2</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+            <span class="o">//</span><span class="n">MR3K2</span> <span class="n">Y</span> <span class="n">ENC</span> <span class="n">RMS</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39; pv: MR3K2:KBH:ENC:Y&#39;</span><span class="p">}</span>
+            <span class="n">fbYRMSErrorM3K2</span> <span class="p">:</span> <span class="n">FB_RMSWatch</span><span class="p">;</span>
+            <span class="n">fMaxYRMSErrorM3K2</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+            <span class="n">fMinYRMSErrorM3K2</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+            <span class="o">//</span><span class="n">MR3K2</span> <span class="n">rY</span> <span class="n">ENC</span> <span class="n">RMS</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39; pv: MR3K2:KBH:ENC:PITCH&#39;</span><span class="p">}</span>
+            <span class="n">fbrYRMSErrorM3K2</span> <span class="p">:</span> <span class="n">FB_RMSWatch</span><span class="p">;</span>
+            <span class="n">fMaxrYRMSErrorM3K2</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+            <span class="n">fMinrYRMSErrorM3K2</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+            <span class="o">//</span><span class="n">MR3K2</span> <span class="n">US</span> <span class="n">ENC</span> <span class="n">RMS</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39; pv: MR3K2:KBH:ENC:BEND:US&#39;</span><span class="p">}</span>
+            <span class="n">fbUSRMSErrorM3K2</span> <span class="p">:</span> <span class="n">FB_RMSWatch</span><span class="p">;</span>
+            <span class="n">fMaxUSRMSErrorM3K2</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+            <span class="n">fMinUSRMSErrorM3K2</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+            <span class="o">//</span><span class="n">MR3K2</span> <span class="n">DS</span> <span class="n">ENC</span> <span class="n">RMS</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39; pv: MR3K2:KBH:ENC:BEND:DS&#39;</span><span class="p">}</span>
+            <span class="n">fbdSRMSErrorM3K2</span> <span class="p">:</span> <span class="n">FB_RMSWatch</span><span class="p">;</span>
+            <span class="n">fMaxDSRMSErrorM3K2</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+            <span class="n">fMinDSRMSErrorM3K2</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">Encoder</span> <span class="n">Reference</span> <span class="n">Values</span>
+            <span class="o">//</span><span class="n">MR3K2</span> <span class="n">X</span> <span class="n">ENC</span> <span class="n">REF</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR3K2</span><span class="p">:</span><span class="n">KBH</span><span class="p">:</span><span class="n">ENC</span><span class="p">:</span><span class="n">X</span><span class="p">:</span><span class="n">REF</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">cnt</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">nEncRefXM3K2</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
+            <span class="o">//</span><span class="n">MR3K2</span> <span class="n">Y</span> <span class="n">ENC</span> <span class="n">REF</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR3K2</span><span class="p">:</span><span class="n">KBH</span><span class="p">:</span><span class="n">ENC</span><span class="p">:</span><span class="n">Y</span><span class="p">:</span><span class="n">REF</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">cnt</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">nEncRefYM3K2</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
+            <span class="o">//</span><span class="n">MR3K2</span> <span class="n">rY</span> <span class="n">ENC</span> <span class="n">REF</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR3K2</span><span class="p">:</span><span class="n">KBH</span><span class="p">:</span><span class="n">ENC</span><span class="p">:</span><span class="n">PITCH</span><span class="p">:</span><span class="n">REF</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">cnt</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">nEncRefrYM3K2</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
+            <span class="o">//</span><span class="n">MR3K2</span> <span class="n">US</span> <span class="n">ENC</span> <span class="n">REF</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR3K2</span><span class="p">:</span><span class="n">KBH</span><span class="p">:</span><span class="n">ENC</span><span class="p">:</span><span class="n">BEND</span><span class="p">:</span><span class="n">US</span><span class="p">:</span><span class="n">REF</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">cnt</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">nEncRefUSM3K2</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
+            <span class="o">//</span><span class="n">MR3K2</span> <span class="n">DS</span> <span class="n">ENC</span> <span class="n">REF</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR3K2</span><span class="p">:</span><span class="n">KBH</span><span class="p">:</span><span class="n">ENC</span><span class="p">:</span><span class="n">BEND</span><span class="p">:</span><span class="n">DS</span><span class="p">:</span><span class="n">REF</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">cnt</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">nEncRefDSM3K2</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">Encoder</span> <span class="n">raw</span> <span class="n">counts</span>
+            <span class="o">//</span><span class="n">M3K2</span> <span class="n">KBH</span> <span class="n">X</span> <span class="n">ENC</span> <span class="n">CNT</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR3K2</span><span class="p">:</span><span class="n">KBH</span><span class="p">:</span><span class="n">ENC</span><span class="p">:</span><span class="n">X</span><span class="p">:</span><span class="n">CNT</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">cnt</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">nEncCntXM3K2</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
+            <span class="o">//</span><span class="n">M3K2</span> <span class="n">KBH</span> <span class="n">Y</span> <span class="n">ENC</span> <span class="n">CNT</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR3K2</span><span class="p">:</span><span class="n">KBH</span><span class="p">:</span><span class="n">ENC</span><span class="p">:</span><span class="n">Y</span><span class="p">:</span><span class="n">CNT</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">cnt</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">nEncCntYM3K2</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
+            <span class="o">//</span><span class="n">M3K2</span> <span class="n">KBH</span> <span class="n">rY</span> <span class="n">ENC</span> <span class="n">CNT</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR3K2</span><span class="p">:</span><span class="n">KBH</span><span class="p">:</span><span class="n">ENC</span><span class="p">:</span><span class="n">PITCH</span><span class="p">:</span><span class="n">CNT</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">cnt</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">nEncCntrYM3K2</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
+            <span class="o">//</span><span class="n">M3K2</span> <span class="n">KBH</span> <span class="n">US</span> <span class="n">ENC</span> <span class="n">CNT</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR3K2</span><span class="p">:</span><span class="n">KBH</span><span class="p">:</span><span class="n">ENC</span><span class="p">:</span><span class="n">BEND</span><span class="p">:</span><span class="n">US</span><span class="p">:</span><span class="n">CNT</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">cnt</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">nEncCntUSM3K2</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
+            <span class="o">//</span><span class="n">M3K2</span> <span class="n">KBH</span> <span class="n">DS</span> <span class="n">ENC</span> <span class="n">CNT</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR3K2</span><span class="p">:</span><span class="n">KBH</span><span class="p">:</span><span class="n">ENC</span><span class="p">:</span><span class="n">BEND</span><span class="p">:</span><span class="n">DS</span><span class="p">:</span><span class="n">CNT</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">cnt</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">nEncCntDSM3K2</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">MR3K2</span> <span class="n">Bender</span> <span class="n">RTDs</span>
+            <span class="o">//</span> <span class="n">MR3K2</span> <span class="n">US</span> <span class="n">RTDs</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR3K2</span><span class="p">:</span><span class="n">KBH</span><span class="p">:</span><span class="n">RTD</span><span class="p">:</span><span class="n">US</span><span class="p">:</span><span class="mi">1</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">ASLO</span> <span class="mf">0.01</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">C</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">fM3K2US_RTD_1</span> <span class="p">:</span> <span class="n">REAL</span><span class="p">;</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR3K2</span><span class="p">:</span><span class="n">KBH</span><span class="p">:</span><span class="n">RTD</span><span class="p">:</span><span class="n">US</span><span class="p">:</span><span class="mi">2</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">ASLO</span> <span class="mf">0.01</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">C</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">fM3K2US_RTD_2</span> <span class="p">:</span> <span class="n">REAL</span><span class="p">;</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR3K2</span><span class="p">:</span><span class="n">KBH</span><span class="p">:</span><span class="n">RTD</span><span class="p">:</span><span class="n">US</span><span class="p">:</span><span class="mi">3</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">ASLO</span> <span class="mf">0.01</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">C</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">fM3K2US_RTD_3</span> <span class="p">:</span> <span class="n">REAL</span><span class="p">;</span>
+
+            <span class="o">//</span> <span class="n">M3K2</span> <span class="n">DS</span> <span class="n">RTDs</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR3K2</span><span class="p">:</span><span class="n">KBH</span><span class="p">:</span><span class="n">RTD</span><span class="p">:</span><span class="n">DS</span><span class="p">:</span><span class="mi">1</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">ASLO</span> <span class="mf">0.01</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">C</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">fM3K2DS_RTD_1</span> <span class="p">:</span> <span class="n">REAL</span><span class="p">;</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR3K2</span><span class="p">:</span><span class="n">KBH</span><span class="p">:</span><span class="n">RTD</span><span class="p">:</span><span class="n">DS</span><span class="p">:</span><span class="mi">2</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">ASLO</span> <span class="mf">0.01</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">C</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">fM3K2DS_RTD_2</span> <span class="p">:</span> <span class="n">REAL</span><span class="p">;</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR3K2</span><span class="p">:</span><span class="n">KBH</span><span class="p">:</span><span class="n">RTD</span><span class="p">:</span><span class="n">DS</span><span class="p">:</span><span class="mi">3</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">ASLO</span> <span class="mf">0.01</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">C</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">fM3K2DS_RTD_3</span> <span class="p">:</span> <span class="n">REAL</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">RTD</span> <span class="n">error</span> <span class="n">bit</span>
+            <span class="n">bM3K2US_RTD_1_Err</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span><span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+            <span class="n">bM3K2US_RTD_2_Err</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span><span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+            <span class="n">bM3K2US_RTD_3_Err</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span><span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+            <span class="n">bM3K2DS_RTD_1_Err</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span><span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+            <span class="n">bM3K2DS_RTD_2_Err</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span><span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+            <span class="n">bM3K2DS_RTD_3_Err</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span><span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+
+    <span class="o">//</span><span class="n">Emergency</span> <span class="n">Stop</span> <span class="k">for</span> <span class="n">MR3K2</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIIB[EL1004_M3K2_STO]^Channel 1^Input&#39;</span><span class="p">}</span>
+            <span class="n">M3K2KBHbSTOEnable1</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span> <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIIB[EL1004_M3K2_STO]^Channel 2^Input&#39;</span><span class="p">}</span>
+            <span class="n">M3K2KBHbSTOEnable2</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span> <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+
+<span class="p">(</span><span class="o">*</span>
+    <span class="o">//</span> <span class="n">PMPS</span>
+            <span class="n">ffBenderRange</span> <span class="p">:</span> <span class="n">FB_FastFault</span> <span class="o">:=</span> <span class="p">(</span>
+                    <span class="n">i_xAutoReset</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">,</span>
+                    <span class="n">i_DevName</span> <span class="o">:=</span> <span class="s1">&#39;MR3K2 Bender&#39;</span><span class="p">,</span>
+                    <span class="n">i_Desc</span> <span class="o">:=</span> <span class="s1">&#39;Benders have moved out of range. Adjust bender to be within limits to clear fault&#39;</span><span class="p">,</span>
+                    <span class="n">i_TypeCode</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#???);</span>
+<span class="o">*</span><span class="p">)</span>
+
+<span class="n">END_VAR</span>
+<span class="o">//</span><span class="n">FB_Motion</span> <span class="n">stages</span> <span class="k">for</span> <span class="n">MR3K2</span> <span class="n">Axes</span>
+<span class="o">//</span><span class="n">MR3K2</span> <span class="n">KBH</span>
+<span class="n">fbMotionStageM28</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M28</span><span class="p">);</span>
+<span class="n">fbMotionStageM29</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M29</span><span class="p">);</span>
+<span class="n">fbMotionStageM30</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M30</span><span class="p">);</span>
+<span class="n">fbMotionStageM31</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M31</span><span class="p">);</span>
+<span class="n">fbMotionStageM32</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M32</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">Calculate</span> <span class="n">Pitch</span> <span class="n">RMS</span> <span class="n">Error</span> <span class="k">for</span> <span class="n">MR3K2</span> <span class="n">Axes</span><span class="p">:</span>
+<span class="o">//</span><span class="n">MR3K2</span> <span class="n">X</span> <span class="n">ENC</span> <span class="n">RMS</span>
+<span class="n">fbXRMSErrorM3K2</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M28</span><span class="p">,</span>
+                                     <span class="n">fMaxRMSError</span><span class="o">=&gt;</span><span class="n">fMaxXRMSErrorM3K2</span><span class="p">,</span>
+                                     <span class="n">fMinRMSError</span><span class="o">=&gt;</span><span class="n">fMinXRMSErrorM3K2</span><span class="p">);</span>
+<span class="o">//</span><span class="n">MR3K2</span> <span class="n">X</span> <span class="n">ENC</span> <span class="n">RMS</span>
+<span class="n">fbYRMSErrorM3K2</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M29</span><span class="p">,</span>
+                                     <span class="n">fMaxRMSError</span><span class="o">=&gt;</span><span class="n">fMaxYRMSErrorM3K2</span><span class="p">,</span>
+                                     <span class="n">fMinRMSError</span><span class="o">=&gt;</span><span class="n">fMinYRMSErrorM3K2</span><span class="p">);</span>
+<span class="o">//</span><span class="n">MR3K2</span> <span class="n">rY</span> <span class="n">ENC</span> <span class="n">RMS</span>
+<span class="n">fbrYRMSErrorM3K2</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M30</span><span class="p">,</span>
+                                     <span class="n">fMaxRMSError</span><span class="o">=&gt;</span><span class="n">fMaxrYRMSErrorM3K2</span><span class="p">,</span>
+                                     <span class="n">fMinRMSError</span><span class="o">=&gt;</span><span class="n">fMinrYRMSErrorM3K2</span><span class="p">);</span>
+<span class="o">//</span><span class="n">MR3K2</span> <span class="n">US</span> <span class="n">ENC</span> <span class="n">RMS</span>
+<span class="n">fbUSRMSErrorM3K2</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M31</span><span class="p">,</span>
+                                     <span class="n">fMaxRMSError</span><span class="o">=&gt;</span><span class="n">fMaxUSRMSErrorM3K2</span><span class="p">,</span>
+                                     <span class="n">fMinRMSError</span><span class="o">=&gt;</span><span class="n">fMinUSRMSErrorM3K2</span><span class="p">);</span>
+<span class="o">//</span><span class="n">MR3K2</span> <span class="n">DS</span> <span class="n">ENC</span> <span class="n">RMS</span>
+<span class="n">fbDSRMSErrorM3K2</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M32</span><span class="p">,</span>
+                                     <span class="n">fMaxRMSError</span><span class="o">=&gt;</span><span class="n">fMaxDSRMSErrorM3K2</span><span class="p">,</span>
+                                     <span class="n">fMinRMSError</span><span class="o">=&gt;</span><span class="n">fMinDSRMSErrorM3K2</span><span class="p">);</span>
+
+<span class="o">//</span><span class="n">STO</span> <span class="k">for</span> <span class="n">MR3K2</span> <span class="n">Benders</span>
+<span class="n">M28</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">M3K2KBHbSTOEnable1</span> <span class="n">AND</span> <span class="n">M3K2KBHbSTOEnable2</span><span class="p">;</span>
+<span class="n">M29</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">M3K2KBHbSTOEnable1</span> <span class="n">AND</span> <span class="n">M3K2KBHbSTOEnable2</span><span class="p">;</span>
+<span class="n">M30</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">M3K2KBHbSTOEnable1</span> <span class="n">AND</span> <span class="n">M3K2KBHbSTOEnable2</span><span class="p">;</span>
+<span class="n">M31</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">M3K2KBHbSTOEnable1</span> <span class="n">AND</span> <span class="n">M3K2KBHbSTOEnable2</span><span class="p">;</span>
+<span class="n">M32</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">M3K2KBHbSTOEnable1</span> <span class="n">AND</span> <span class="n">M3K2KBHbSTOEnable2</span><span class="p">;</span>
+
+<span class="o">//</span><span class="n">Encoder</span> <span class="n">reference</span> <span class="n">positions</span> <span class="k">for</span> <span class="n">MR3K2</span>
+<span class="n">nEncRefXM3K2</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">GVL_M3K2</span><span class="o">.</span><span class="n">nM3K2X_ENC_REF</span><span class="p">);</span>
+<span class="n">nEncRefYM3K2</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">GVL_M3K2</span><span class="o">.</span><span class="n">nM3K2Y_ENC_REF</span><span class="p">);</span>
+<span class="n">nEncRefrYM3K2</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">GVL_M3K2</span><span class="o">.</span><span class="n">nM3K2rY_ENC_REF</span><span class="p">);</span>
+<span class="n">nEncRefUSM3K2</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">GVL_M3K2</span><span class="o">.</span><span class="n">nM3K2US_ENC_REF</span><span class="p">);</span>
+<span class="n">nEncRefDSM3K2</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">GVL_M3K2</span><span class="o">.</span><span class="n">nM3K2DS_ENC_REF</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">M3K2</span> <span class="n">Bender</span> <span class="n">Encoder</span> <span class="n">Count</span> <span class="n">Values</span> <span class="n">For</span> <span class="n">Epics</span>
+<span class="n">nEncCntXM3K2</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">M28</span><span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="p">);</span>
+<span class="n">nEncCntYM3K2</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">M29</span><span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="p">);</span>
+<span class="n">nEncCntrYM3K2</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">M30</span><span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="p">);</span>
+<span class="n">nEncCntUSM3K2</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">M31</span><span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="p">);</span>
+<span class="n">nEncCntDSM3K2</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">M32</span><span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">MR3K2</span> <span class="n">Bender</span> <span class="n">RTDs</span>
+<span class="n">fM3K2US_RTD_1</span> <span class="o">:=</span> <span class="n">INT_TO_REAL</span><span class="p">(</span><span class="n">GVL_M3K2</span><span class="o">.</span><span class="n">nM3K2US_RTD_1</span><span class="p">);</span>
+<span class="n">fM3K2US_RTD_2</span> <span class="o">:=</span> <span class="n">INT_TO_REAL</span><span class="p">(</span><span class="n">GVL_M3K2</span><span class="o">.</span><span class="n">nM3K2US_RTD_2</span><span class="p">);</span>
+<span class="n">fM3K2US_RTD_3</span> <span class="o">:=</span> <span class="n">INT_TO_REAL</span><span class="p">(</span><span class="n">GVL_M3K2</span><span class="o">.</span><span class="n">nM3K2US_RTD_3</span><span class="p">);</span>
+
+<span class="n">fM3K2DS_RTD_1</span> <span class="o">:=</span> <span class="n">INT_TO_REAL</span><span class="p">(</span><span class="n">GVL_M3K2</span><span class="o">.</span><span class="n">nM3K2DS_RTD_1</span><span class="p">);</span>
+<span class="n">fM3K2DS_RTD_2</span> <span class="o">:=</span> <span class="n">INT_TO_REAL</span><span class="p">(</span><span class="n">GVL_M3K2</span><span class="o">.</span><span class="n">nM3K2DS_RTD_2</span><span class="p">);</span>
+<span class="n">fM3K2DS_RTD_3</span> <span class="o">:=</span> <span class="n">INT_TO_REAL</span><span class="p">(</span><span class="n">GVL_M3K2</span><span class="o">.</span><span class="n">nM3K2DS_RTD_3</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">RTD</span> <span class="ow">not</span> <span class="n">connected</span> <span class="k">if</span> <span class="n">T</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">bM3K2US_RTD_1_Err</span> <span class="o">:=</span> <span class="n">fM3K2US_RTD_1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">bM3K2US_RTD_2_Err</span> <span class="o">:=</span> <span class="n">fM3K2DS_RTD_2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">bM3K2US_RTD_3_Err</span> <span class="o">:=</span> <span class="n">fM3K2US_RTD_3</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">bM3K2DS_RTD_1_Err</span> <span class="o">:=</span> <span class="n">fM3K2DS_RTD_1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">bM3K2DS_RTD_2_Err</span> <span class="o">:=</span> <span class="n">fM3K2DS_RTD_2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">bM3K2DS_RTD_3_Err</span> <span class="o">:=</span> <span class="n">fM3K2DS_RTD_3</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="o">//</span> <span class="n">M3K2</span> <span class="n">Bender</span> <span class="n">RTD</span> <span class="n">interlocks</span>
+<span class="n">M31</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="n">R</span><span class="o">=</span> <span class="n">fM3K2US_RTD_1</span> <span class="o">&gt;</span> <span class="mi">10000</span> <span class="n">OR</span> <span class="n">bM3K2US_RTD_1_Err</span><span class="p">;</span>
+<span class="n">M32</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="n">R</span><span class="o">=</span> <span class="n">fM3K2DS_RTD_1</span> <span class="o">&gt;</span> <span class="mi">10000</span> <span class="n">OR</span> <span class="n">bM3K2DS_RTD_1_Err</span><span class="p">;</span>
+
+<span class="p">(</span><span class="o">*</span>
+<span class="o">//</span><span class="n">PMPS</span>
+<span class="n">ffBenderRange</span><span class="o">.</span><span class="n">i_xOK</span> <span class="o">:=</span>
+    <span class="n">GVL_M3K2</span><span class="o">.</span><span class="n">nM3K2US_PMPS_LowerLimit</span> <span class="o">&lt;</span> <span class="n">nEncCntUSM3K2</span> <span class="n">AND</span> <span class="n">nEncCntUSM3K2</span> <span class="o">&lt;</span> <span class="n">GVL_M3K2</span><span class="o">.</span><span class="n">nM3K2US_PMPS_UpperLimit</span> <span class="n">AND</span>
+    <span class="n">GVL_M3K2</span><span class="o">.</span><span class="n">nM3K2DS_PMPS_LowerLimit</span> <span class="o">&lt;</span> <span class="n">nEncCntDSM3K2</span> <span class="n">AND</span> <span class="n">nEncCntUSM3K2</span> <span class="o">&lt;</span> <span class="n">GVL_M3K2</span><span class="o">.</span><span class="n">nM3K2DS_PMPS_UpperLimit</span><span class="p">;</span>
+<span class="n">ffBenderRange</span><span class="p">(</span><span class="n">io_fbFFHWO</span> <span class="o">:=</span> <span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbFastFaultOutput1</span><span class="p">);</span>
+<span class="o">*</span><span class="p">)</span>
+
+<span class="n">END_PROGRAM</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="prg-mr4k2-kbv">
+<h2>PRG_MR4K2_KBV<a class="headerlink" href="#prg-mr4k2-kbv" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">PRG_MR4K2_KBV</span>
+<span class="n">VAR</span>
+    <span class="o">//</span> <span class="n">Encoder</span> <span class="n">Arrays</span><span class="o">/</span><span class="n">RMS</span> <span class="n">Watch</span><span class="p">:</span>
+            <span class="o">//</span><span class="n">MR4K2</span> <span class="n">X</span> <span class="n">ENC</span> <span class="n">RMS</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39; pv: MR4K2:KBV:ENC:X&#39;</span><span class="p">}</span>
+            <span class="n">fbXRMSErrorM4K2</span> <span class="p">:</span> <span class="n">FB_RMSWatch</span><span class="p">;</span>
+            <span class="n">fMaxXRMSErrorM4K2</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+            <span class="n">fMinXRMSErrorM4K2</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+            <span class="o">//</span><span class="n">MR4K2</span> <span class="n">Y</span> <span class="n">ENC</span> <span class="n">RMS</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39; pv: MR4K2:KBV:ENC:Y&#39;</span><span class="p">}</span>
+            <span class="n">fbYRMSErrorM4K2</span> <span class="p">:</span> <span class="n">FB_RMSWatch</span><span class="p">;</span>
+            <span class="n">fMaxYRMSErrorM4K2</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+            <span class="n">fMinYRMSErrorM4K2</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+            <span class="o">//</span><span class="n">MR4K2</span> <span class="n">rX</span> <span class="n">ENC</span> <span class="n">RMS</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39; pv: MR4K2:KBV:ENC:PITCH&#39;</span><span class="p">}</span>
+            <span class="n">fbrXRMSErrorM4K2</span> <span class="p">:</span> <span class="n">FB_RMSWatch</span><span class="p">;</span>
+            <span class="n">fMaxrXRMSErrorM4K2</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+            <span class="n">fMinrXRMSErrorM4K2</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+            <span class="o">//</span><span class="n">MR4K2</span> <span class="n">US</span> <span class="n">ENC</span> <span class="n">RMS</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39; pv: MR4K2:KBV:ENC:BEND:US&#39;</span><span class="p">}</span>
+            <span class="n">fbUSRMSErrorM4K2</span> <span class="p">:</span> <span class="n">FB_RMSWatch</span><span class="p">;</span>
+            <span class="n">fMaxUSRMSErrorM4K2</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+            <span class="n">fMinUSRMSErrorM4K2</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+            <span class="o">//</span><span class="n">MR4K2</span> <span class="n">DS</span> <span class="n">ENC</span> <span class="n">RMS</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39; pv: MR4K2:KBV:ENC:BEND:DS&#39;</span><span class="p">}</span>
+            <span class="n">fbdSRMSErrorM4K2</span> <span class="p">:</span> <span class="n">FB_RMSWatch</span><span class="p">;</span>
+            <span class="n">fMaxDSRMSErrorM4K2</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+            <span class="n">fMinDSRMSErrorM4K2</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">Encoder</span> <span class="n">Reference</span> <span class="n">Values</span>
+            <span class="o">//</span><span class="n">MR4K2</span> <span class="n">X</span> <span class="n">ENC</span> <span class="n">REF</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR4K2</span><span class="p">:</span><span class="n">KBV</span><span class="p">:</span><span class="n">ENC</span><span class="p">:</span><span class="n">X</span><span class="p">:</span><span class="n">REF</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">cnt</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">nEncRefXM4K2</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
+            <span class="o">//</span><span class="n">MR4K2</span> <span class="n">Y</span> <span class="n">ENC</span> <span class="n">REF</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR4K2</span><span class="p">:</span><span class="n">KBV</span><span class="p">:</span><span class="n">ENC</span><span class="p">:</span><span class="n">Y</span><span class="p">:</span><span class="n">REF</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">cnt</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">nEncRefYM4K2</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
+            <span class="o">//</span><span class="n">MR4K2</span> <span class="n">rX</span> <span class="n">ENC</span> <span class="n">REF</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR4K2</span><span class="p">:</span><span class="n">KBV</span><span class="p">:</span><span class="n">ENC</span><span class="p">:</span><span class="n">PITCH</span><span class="p">:</span><span class="n">REF</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">cnt</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">nEncRefrXM4K2</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
+            <span class="o">//</span><span class="n">MR4K2</span> <span class="n">US</span> <span class="n">ENC</span> <span class="n">REF</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR4K2</span><span class="p">:</span><span class="n">KBV</span><span class="p">:</span><span class="n">ENC</span><span class="p">:</span><span class="n">BEND</span><span class="p">:</span><span class="n">US</span><span class="p">:</span><span class="n">REF</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">cnt</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">nEncRefUSM4K2</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
+            <span class="o">//</span><span class="n">MR4K2</span> <span class="n">DS</span> <span class="n">ENC</span> <span class="n">REF</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR4K2</span><span class="p">:</span><span class="n">KBV</span><span class="p">:</span><span class="n">ENC</span><span class="p">:</span><span class="n">BEND</span><span class="p">:</span><span class="n">DS</span><span class="p">:</span><span class="n">REF</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">cnt</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">nEncRefDSM4K2</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">Encoder</span> <span class="n">raw</span> <span class="n">counts</span>
+            <span class="o">//</span><span class="n">M4K2</span> <span class="n">KBV</span> <span class="n">X</span> <span class="n">ENC</span> <span class="n">CNT</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR4K2</span><span class="p">:</span><span class="n">KBV</span><span class="p">:</span><span class="n">ENC</span><span class="p">:</span><span class="n">X</span><span class="p">:</span><span class="n">CNT</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">cnt</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">nEncCntXM4K2</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
+            <span class="o">//</span><span class="n">M4K2</span> <span class="n">KBV</span> <span class="n">Y</span> <span class="n">ENC</span> <span class="n">CNT</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR4K2</span><span class="p">:</span><span class="n">KBV</span><span class="p">:</span><span class="n">ENC</span><span class="p">:</span><span class="n">Y</span><span class="p">:</span><span class="n">CNT</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">cnt</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">nEncCntYM4K2</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
+            <span class="o">//</span><span class="n">M4K2</span> <span class="n">KBV</span> <span class="n">rX</span> <span class="n">ENC</span> <span class="n">CNT</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR4K2</span><span class="p">:</span><span class="n">KBV</span><span class="p">:</span><span class="n">ENC</span><span class="p">:</span><span class="n">PITCH</span><span class="p">:</span><span class="n">CNT</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">cnt</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">nEncCntrXM4K2</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
+            <span class="o">//</span><span class="n">M4K2</span> <span class="n">KBV</span> <span class="n">US</span> <span class="n">ENC</span> <span class="n">CNT</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR4K2</span><span class="p">:</span><span class="n">KBV</span><span class="p">:</span><span class="n">ENC</span><span class="p">:</span><span class="n">BEND</span><span class="p">:</span><span class="n">US</span><span class="p">:</span><span class="n">CNT</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">cnt</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">nEncCntUSM4K2</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
+            <span class="o">//</span><span class="n">M4K2</span> <span class="n">KBV</span> <span class="n">DS</span> <span class="n">ENC</span> <span class="n">CNT</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR4K2</span><span class="p">:</span><span class="n">KBV</span><span class="p">:</span><span class="n">ENC</span><span class="p">:</span><span class="n">BEND</span><span class="p">:</span><span class="n">DS</span><span class="p">:</span><span class="n">CNT</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">cnt</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">nEncCntDSM4K2</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">MR4K2</span> <span class="n">Bender</span> <span class="n">RTDs</span>
+            <span class="o">//</span> <span class="n">MR4K2</span> <span class="n">US</span> <span class="n">RTDs</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR4K2</span><span class="p">:</span><span class="n">KBV</span><span class="p">:</span><span class="n">RTD</span><span class="p">:</span><span class="n">US</span><span class="p">:</span><span class="mi">1</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">ASLO</span> <span class="mf">0.01</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">C</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">fM4K2US_RTD_1</span> <span class="p">:</span> <span class="n">REAL</span><span class="p">;</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR4K2</span><span class="p">:</span><span class="n">KBV</span><span class="p">:</span><span class="n">RTD</span><span class="p">:</span><span class="n">US</span><span class="p">:</span><span class="mi">2</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">ASLO</span> <span class="mf">0.01</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">C</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">fM4K2US_RTD_2</span> <span class="p">:</span> <span class="n">REAL</span><span class="p">;</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR4K2</span><span class="p">:</span><span class="n">KBV</span><span class="p">:</span><span class="n">RTD</span><span class="p">:</span><span class="n">US</span><span class="p">:</span><span class="mi">3</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">ASLO</span> <span class="mf">0.01</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">C</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">fM4K2US_RTD_3</span> <span class="p">:</span> <span class="n">REAL</span><span class="p">;</span>
+
+            <span class="o">//</span> <span class="n">M4K2</span> <span class="n">DS</span> <span class="n">RTDs</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR4K2</span><span class="p">:</span><span class="n">KBV</span><span class="p">:</span><span class="n">RTD</span><span class="p">:</span><span class="n">DS</span><span class="p">:</span><span class="mi">1</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">ASLO</span> <span class="mf">0.01</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">C</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">fM4K2DS_RTD_1</span> <span class="p">:</span> <span class="n">REAL</span><span class="p">;</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR4K2</span><span class="p">:</span><span class="n">KBV</span><span class="p">:</span><span class="n">RTD</span><span class="p">:</span><span class="n">DS</span><span class="p">:</span><span class="mi">2</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">ASLO</span> <span class="mf">0.01</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">C</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">fM4K2DS_RTD_2</span> <span class="p">:</span> <span class="n">REAL</span><span class="p">;</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+                    <span class="n">pv</span><span class="p">:</span> <span class="n">MR4K2</span><span class="p">:</span><span class="n">KBV</span><span class="p">:</span><span class="n">RTD</span><span class="p">:</span><span class="n">DS</span><span class="p">:</span><span class="mi">3</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">ASLO</span> <span class="mf">0.01</span>
+                    <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">C</span>
+                    <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+            <span class="s1">&#39;}</span>
+            <span class="n">fM4K2DS_RTD_3</span> <span class="p">:</span> <span class="n">REAL</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">RTD</span> <span class="n">error</span> <span class="n">bit</span>
+            <span class="n">bM4K2US_RTD_1_Err</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span><span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+            <span class="n">bM4K2US_RTD_2_Err</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span><span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+            <span class="n">bM4K2US_RTD_3_Err</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span><span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+            <span class="n">bM4K2DS_RTD_1_Err</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span><span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+            <span class="n">bM4K2DS_RTD_2_Err</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span><span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+            <span class="n">bM4K2DS_RTD_3_Err</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span><span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+
+    <span class="o">//</span><span class="n">Emergency</span> <span class="n">Stop</span> <span class="k">for</span> <span class="n">MR4K2</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIIB[EL1004_M4K2_STO]^Channel 1^Input&#39;</span><span class="p">}</span>
+            <span class="n">M4K2KBVbSTOEnable1</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span> <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+            <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIIB[EL1004_M4K2_STO]^Channel 2^Input&#39;</span><span class="p">}</span>
+            <span class="n">M4K2KBVbSTOEnable2</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span> <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+
+<span class="p">(</span><span class="o">*</span>
+    <span class="o">//</span> <span class="n">PMPS</span>
+            <span class="n">ffBenderRange</span> <span class="p">:</span> <span class="n">FB_FastFault</span> <span class="o">:=</span> <span class="p">(</span>
+                    <span class="n">i_xAutoReset</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">,</span>
+                    <span class="n">i_DevName</span> <span class="o">:=</span> <span class="s1">&#39;MR4K2 Bender&#39;</span><span class="p">,</span>
+                    <span class="n">i_Desc</span> <span class="o">:=</span> <span class="s1">&#39;Benders have moved out of range. Adjust bender to be within limits to clear fault&#39;</span><span class="p">,</span>
+                    <span class="n">i_TypeCode</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#???);</span>
+<span class="o">*</span><span class="p">)</span>
+
+<span class="n">END_VAR</span>
+<span class="o">//</span><span class="n">FB_Motion</span> <span class="n">stages</span> <span class="k">for</span> <span class="n">MR4K2</span> <span class="n">Axes</span>
+<span class="o">//</span><span class="n">MR4K2</span> <span class="n">KBV</span>
+<span class="n">fbMotionStageM33</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M33</span><span class="p">);</span>
+<span class="n">fbMotionStageM34</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M34</span><span class="p">);</span>
+<span class="n">fbMotionStageM35</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M35</span><span class="p">);</span>
+<span class="n">fbMotionStageM36</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M36</span><span class="p">);</span>
+<span class="n">fbMotionStageM37</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M37</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">Calculate</span> <span class="n">Pitch</span> <span class="n">RMS</span> <span class="n">Error</span> <span class="k">for</span> <span class="n">MR4K2</span> <span class="n">Axes</span><span class="p">:</span>
+<span class="o">//</span><span class="n">MR4K2</span> <span class="n">X</span> <span class="n">ENC</span> <span class="n">RMS</span>
+<span class="n">fbXRMSErrorM4K2</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M33</span><span class="p">,</span>
+                                     <span class="n">fMaxRMSError</span><span class="o">=&gt;</span><span class="n">fMaxXRMSErrorM4K2</span><span class="p">,</span>
+                                     <span class="n">fMinRMSError</span><span class="o">=&gt;</span><span class="n">fMinXRMSErrorM4K2</span><span class="p">);</span>
+<span class="o">//</span><span class="n">MR4K2</span> <span class="n">X</span> <span class="n">ENC</span> <span class="n">RMS</span>
+<span class="n">fbYRMSErrorM4K2</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M34</span><span class="p">,</span>
+                                     <span class="n">fMaxRMSError</span><span class="o">=&gt;</span><span class="n">fMaxYRMSErrorM4K2</span><span class="p">,</span>
+                                     <span class="n">fMinRMSError</span><span class="o">=&gt;</span><span class="n">fMinYRMSErrorM4K2</span><span class="p">);</span>
+<span class="o">//</span><span class="n">MR4K2</span> <span class="n">rX</span> <span class="n">ENC</span> <span class="n">RMS</span>
+<span class="n">fbrXRMSErrorM4K2</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M35</span><span class="p">,</span>
+                                     <span class="n">fMaxRMSError</span><span class="o">=&gt;</span><span class="n">fMaxrXRMSErrorM4K2</span><span class="p">,</span>
+                                     <span class="n">fMinRMSError</span><span class="o">=&gt;</span><span class="n">fMinrXRMSErrorM4K2</span><span class="p">);</span>
+<span class="o">//</span><span class="n">MR4K2</span> <span class="n">US</span> <span class="n">ENC</span> <span class="n">RMS</span>
+<span class="n">fbUSRMSErrorM4K2</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M36</span><span class="p">,</span>
+                                     <span class="n">fMaxRMSError</span><span class="o">=&gt;</span><span class="n">fMaxUSRMSErrorM4K2</span><span class="p">,</span>
+                                     <span class="n">fMinRMSError</span><span class="o">=&gt;</span><span class="n">fMinUSRMSErrorM4K2</span><span class="p">);</span>
+<span class="o">//</span><span class="n">MR4K2</span> <span class="n">DS</span> <span class="n">ENC</span> <span class="n">RMS</span>
+<span class="n">fbDSRMSErrorM4K2</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M37</span><span class="p">,</span>
+                                     <span class="n">fMaxRMSError</span><span class="o">=&gt;</span><span class="n">fMaxDSRMSErrorM4K2</span><span class="p">,</span>
+                                     <span class="n">fMinRMSError</span><span class="o">=&gt;</span><span class="n">fMinDSRMSErrorM4K2</span><span class="p">);</span>
+
+<span class="o">//</span><span class="n">STO</span> <span class="k">for</span> <span class="n">MR4K2</span> <span class="n">Benders</span>
+<span class="n">M33</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">M4K2KBVbSTOEnable1</span> <span class="n">AND</span> <span class="n">M4K2KBVbSTOEnable2</span><span class="p">;</span>
+<span class="n">M34</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">M4K2KBVbSTOEnable1</span> <span class="n">AND</span> <span class="n">M4K2KBVbSTOEnable2</span><span class="p">;</span>
+<span class="n">M35</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">M4K2KBVbSTOEnable1</span> <span class="n">AND</span> <span class="n">M4K2KBVbSTOEnable2</span><span class="p">;</span>
+<span class="n">M36</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">M4K2KBVbSTOEnable1</span> <span class="n">AND</span> <span class="n">M4K2KBVbSTOEnable2</span><span class="p">;</span>
+<span class="n">M37</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">M4K2KBVbSTOEnable1</span> <span class="n">AND</span> <span class="n">M4K2KBVbSTOEnable2</span><span class="p">;</span>
+
+<span class="o">//</span><span class="n">Encoder</span> <span class="n">reference</span> <span class="n">positions</span> <span class="k">for</span> <span class="n">MR4K2</span>
+<span class="n">nEncRefXM4K2</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">GVL_M4K2</span><span class="o">.</span><span class="n">nM4K2X_ENC_REF</span><span class="p">);</span>
+<span class="n">nEncRefYM4K2</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">GVL_M4K2</span><span class="o">.</span><span class="n">nM4K2Y_ENC_REF</span><span class="p">);</span>
+<span class="n">nEncRefrXM4K2</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">GVL_M4K2</span><span class="o">.</span><span class="n">nM4K2rX_ENC_REF</span><span class="p">);</span>
+<span class="n">nEncRefUSM4K2</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">GVL_M4K2</span><span class="o">.</span><span class="n">nM4K2US_ENC_REF</span><span class="p">);</span>
+<span class="n">nEncRefDSM4K2</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">GVL_M4K2</span><span class="o">.</span><span class="n">nM4K2DS_ENC_REF</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">M4K2</span> <span class="n">Bender</span> <span class="n">Encoder</span> <span class="n">Count</span> <span class="n">Values</span> <span class="n">For</span> <span class="n">Epics</span>
+<span class="n">nEncCntXM4K2</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">M33</span><span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="p">);</span>
+<span class="n">nEncCntYM4K2</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">M34</span><span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="p">);</span>
+<span class="n">nEncCntrXM4K2</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">M35</span><span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="p">);</span>
+<span class="n">nEncCntUSM4K2</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">M36</span><span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="p">);</span>
+<span class="n">nEncCntDSM4K2</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">M37</span><span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">MR4K2</span> <span class="n">Bender</span> <span class="n">RTDs</span>
+<span class="n">fM4K2US_RTD_1</span> <span class="o">:=</span> <span class="n">INT_TO_REAL</span><span class="p">(</span><span class="n">GVL_M4K2</span><span class="o">.</span><span class="n">nM4K2US_RTD_1</span><span class="p">);</span>
+<span class="n">fM4K2US_RTD_2</span> <span class="o">:=</span> <span class="n">INT_TO_REAL</span><span class="p">(</span><span class="n">GVL_M4K2</span><span class="o">.</span><span class="n">nM4K2US_RTD_2</span><span class="p">);</span>
+<span class="n">fM4K2US_RTD_3</span> <span class="o">:=</span> <span class="n">INT_TO_REAL</span><span class="p">(</span><span class="n">GVL_M4K2</span><span class="o">.</span><span class="n">nM4K2US_RTD_3</span><span class="p">);</span>
+
+<span class="n">fM4K2DS_RTD_1</span> <span class="o">:=</span> <span class="n">INT_TO_REAL</span><span class="p">(</span><span class="n">GVL_M4K2</span><span class="o">.</span><span class="n">nM4K2DS_RTD_1</span><span class="p">);</span>
+<span class="n">fM4K2DS_RTD_2</span> <span class="o">:=</span> <span class="n">INT_TO_REAL</span><span class="p">(</span><span class="n">GVL_M4K2</span><span class="o">.</span><span class="n">nM4K2DS_RTD_2</span><span class="p">);</span>
+<span class="n">fM4K2DS_RTD_3</span> <span class="o">:=</span> <span class="n">INT_TO_REAL</span><span class="p">(</span><span class="n">GVL_M4K2</span><span class="o">.</span><span class="n">nM4K2DS_RTD_3</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">RTD</span> <span class="ow">not</span> <span class="n">connected</span> <span class="k">if</span> <span class="n">T</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">bM4K2US_RTD_1_Err</span> <span class="o">:=</span> <span class="n">fM4K2US_RTD_1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">bM4K2US_RTD_2_Err</span> <span class="o">:=</span> <span class="n">fM4K2DS_RTD_2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">bM4K2US_RTD_3_Err</span> <span class="o">:=</span> <span class="n">fM4K2US_RTD_3</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">bM4K2DS_RTD_1_Err</span> <span class="o">:=</span> <span class="n">fM4K2DS_RTD_1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">bM4K2DS_RTD_2_Err</span> <span class="o">:=</span> <span class="n">fM4K2DS_RTD_2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">bM4K2DS_RTD_3_Err</span> <span class="o">:=</span> <span class="n">fM4K2DS_RTD_3</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="o">//</span> <span class="n">M4K2</span> <span class="n">Bender</span> <span class="n">RTD</span> <span class="n">interlocks</span>
+<span class="n">M36</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="n">R</span><span class="o">=</span> <span class="n">fM4K2US_RTD_1</span> <span class="o">&gt;</span> <span class="mi">10000</span> <span class="n">OR</span> <span class="n">bM4K2US_RTD_1_Err</span><span class="p">;</span>
+<span class="n">M37</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="n">R</span><span class="o">=</span> <span class="n">fM4K2DS_RTD_1</span> <span class="o">&gt;</span> <span class="mi">10000</span> <span class="n">OR</span> <span class="n">bM4K2DS_RTD_1_Err</span><span class="p">;</span>
+
+<span class="p">(</span><span class="o">*</span>
+<span class="o">//</span><span class="n">PMPS</span>
+<span class="n">ffBenderRange</span><span class="o">.</span><span class="n">i_xOK</span> <span class="o">:=</span>
+    <span class="n">GVL_M4K2</span><span class="o">.</span><span class="n">nM4K2US_PMPS_LowerLimit</span> <span class="o">&lt;</span> <span class="n">nEncCntUSM4K2</span> <span class="n">AND</span> <span class="n">nEncCntUSM4K2</span> <span class="o">&lt;</span> <span class="n">GVL_M4K2</span><span class="o">.</span><span class="n">nM4K2US_PMPS_UpperLimit</span> <span class="n">AND</span>
+    <span class="n">GVL_M4K2</span><span class="o">.</span><span class="n">nM4K2DS_PMPS_LowerLimit</span> <span class="o">&lt;</span> <span class="n">nEncCntDSM4K2</span> <span class="n">AND</span> <span class="n">nEncCntUSM4K2</span> <span class="o">&lt;</span> <span class="n">GVL_M4K2</span><span class="o">.</span><span class="n">nM4K2DS_PMPS_UpperLimit</span><span class="p">;</span>
+<span class="n">ffBenderRange</span><span class="p">(</span><span class="n">io_fbFFHWO</span> <span class="o">:=</span> <span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbFastFaultOutput1</span><span class="p">);</span>
+<span class="o">*</span><span class="p">)</span>
+
+<span class="n">END_PROGRAM</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="prg-sl1k2-exit">
 <h2>PRG_SL1K2_EXIT<a class="headerlink" href="#prg-sl1k2-exit" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">PRG_SL1K2_EXIT</span>
@@ -2314,6 +3357,170 @@ END_VAR
 <span class="n">fbZOS</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M24</span><span class="p">);</span>
 
 <span class="n">END_PROGRAM</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="prg-zeroorder-pmps">
+<h2>PRG_ZeroOrder_PMPS<a class="headerlink" href="#prg-zeroorder-pmps" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>PROGRAM PRG_ZeroOrder_PMPS
+VAR
+// PMPS
+    ffZeroOrderBeam : FB_FastFault := (
+        i_xAutoReset := TRUE,
+        i_DevName := &#39;Zero Order Beam&#39;,
+        i_Desc := &#39;Faults when Zero order beam safe conditions are not met&#39;,
+        i_TypeCode := 16#F506);
+    {attribute &#39;pytmc&#39; := &#39;
+        pv: SIM:SafeBenderRange
+        field: ZNAM FALSE
+        field: ONAM TRUE
+    &#39;}
+    bSafeBenderRange : BOOL;
+
+    {attribute &#39;pytmc&#39; := &#39;
+        pv: SIM:LRG_Grating_IN
+        field: ZNAM FALSE
+        field: ONAM TRUE
+    &#39;}
+    bLRG_Grating_IN : BOOL;
+
+    {attribute &#39;pytmc&#39; := &#39;
+        pv: SIM:ZOS_IN
+        field: ZNAM FALSE
+        field: ONAM TRUE
+    &#39;}
+    bZOS_IN : BOOL;
+
+    {attribute &#39;pytmc&#39; := &#39;
+        pv: SIM:ZOB_on_Lower_Stopper
+        field: ZNAM FALSE
+        field: ONAM TRUE
+    &#39;}
+    bZOB_on_Lower_Stopper : BOOL;
+
+    {attribute &#39;pytmc&#39; := &#39;
+        pv: SIM:MR1K1_Inserted
+        field: ZNAM FALSE
+        field: ONAM TRUE
+    &#39;}
+    bMR1K1_Inserted : BOOL;
+
+    {attribute &#39;pytmc&#39; := &#39;
+        pv: SIM:ZeroOrderBeam
+        field: ZNAM FALSE
+        field: ONAM TRUE
+    &#39;}
+    bZeroOrderBeam : BOOL;
+
+
+    Pm3 : LREAL;
+    Pm2: LREAL;
+    Pm1: LREAL;
+    Hm1: LREAL;
+    HZos:LREAL;
+    Zbm1: LREAL;
+    Zbm2: LREAL;
+    Zbm3: LREAL;
+    Hbm1: LREAL;
+    Hbm2: LREAL;
+    Hbm3: LREAL;
+    Hb0m3:LREAL;
+    //fixed calc
+    Hm3      : LREAL;
+    Hpiv : LREAL;
+    Theta_m1: LREAL;
+    Theta_m2: LREAL;
+    Theta_m3: LREAL;
+    Delta : LREAL;
+    Ans : LREAL;
+END_VAR
+VAR CONSTANT
+    Hi2 :LREAL:=1.4;//m
+    Zi2: LREAL :=731.613;//m
+    Theta0 : LREAL:=0;
+    Zm1 : LREAL:=733.772;//m
+    Zmon : LREAL:=739.622;//m
+    Zpiv : LREAL:= 739.622 ; //m
+    Zzos : LREAL:= 741.422;//m
+END_VAR
+ffZeroOrderBeam.i_xOK := SafeBenderRange() OR (bLRG_Grating_IN AND bZOS_IN AND bZeroOrderBeam AND MR1K1_Inserted());
+ffZeroOrderBeam(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
+
+
+//Diagnostics
+bSafeBenderRange := SafeBenderRange();
+//bLRG_Grating_IN := LRG_Grating_IN();
+//bZOS_IN := ZOS_IN();
+bZOB_on_Lower_Stopper := ZOB_on_Lower_Stopper();
+bMR1K1_Inserted := MR1K1_Inserted();
+//bZeroOrderBeam := ffZeroOrderBeam.i_xOK;
+
+
+
+
+//TRUE if hb0m3(Zzoz) - Hzos &gt; D
+Ans := Hb0m3 - (Hzos*1E3); //um
+IF GVL_PMPS.rPhotonEnergy &lt;550 THEN
+    bZeroOrderBeam := Ans &gt; 6*1E3;
+    ELSIF GVL_PMPS.rPhotonEnergy &lt;1000 THEN
+            bZeroOrderBeam := Ans &gt;  3.2*1E3;
+    ELSIF GVL_PMPS.rPhotonEnergy &gt;=1000 THEN
+            bZeroOrderBeam := Ans &gt;  2.5*1E3;
+END_IF
+
+//
+ACT_CALC();
+ACT_ZOS_IN();
+ACT_LRG_Grating_IN();
+
+END_PROGRAM
+ACTION ACT_CALC:
+///calc
+//Hm1 = 1400000+mr1k1 ben Y up
+Hm1:= 1400000+M12.fPosition; //um
+//Pm1 = 18310 - 281 + mr1k1 bend pitch
+Pm1 := 18310 - 281 + Main.M16.fPosition; //urad
+//Hpiv = 1.620305 + 0.001 // m 0.001 is correction from nominal
+Hpiv:= (1.620305 + 0.001)*1E6; //um
+//Pm2 = mono mirror pitch - 90700 urad
+Pm2 := Main.M6.fPosition - 90700;//urad
+//Hm3 = Hpiv + 0.006 m
+Hm3:= Hpiv + (0.006*1E6); //um
+//Pm3 = mono grating pitch - 63300 urad
+Pm3 := Main.M7.fPosition - 63300; //urad
+//Hzos = 1824.3 + st1k1_zos mm
+Hzos:= 1824.3 + M24.fPosition; //mm
+
+
+//urad
+Theta_m1 := 2*Pm1 - Theta0;
+Theta_m2 := 2*Pm2 - Theta_m1;
+Theta_m3 := 2 *Pm3 - 2 * Pm2 + 2* Pm1 - Theta0;
+
+// fix units
+//um
+Zbm1 := (Hm1 - TAN(Pm1)* (Zm1*1E6) - (Hi2*1E6) + TAN(Theta0) *(Zi2*1E6))/(TAN(Theta0) - TAN(Pm1));
+hbm1 := TAN(Pm1)*Zbm1 + Hm1 - TAN(Pm1)*(Zm1*1E6);
+//u?
+Zbm2 := (Hbm1 - TAN(Theta_m1)*Zbm1 - Hpiv + TAN(Pm2)*(Zpiv*1E6))/ (TAN(Pm2) - TAN(Theta_m1));
+Hbm2 := TAN(Pm2)*Zbm2 + Hpiv - TAN(Pm2)*(Zpiv*1E6);
+
+Zbm3 := (Hbm2 - TAN(Theta_m2)*Zbm2 - Hm3 + TAN(Pm3)*(Zpiv*1E6))/ (TAN(Pm3) - TAN(Theta_m2));
+Hbm3 := TAN(Pm3) * Zbm3 + Hm3 - TAN(Pm3)*(Zpiv*1E6);
+
+Hb0m3 := TAN(Theta_m3)*(Zzos*1E6) + Hbm3 - TAN(Theta_m3)*Zbm3;
+END_ACTION
+ACTION ACT_LRG_Grating_IN:
+bLRG_Grating_IN := (M9.fPosition &gt;= 24000) AND (M9.fPosition &lt;= 28000);
+END_ACTION
+ACTION ACT_ZOS_IN:
+IF GVL_PMPS.rPhotonEnergy &gt;1500 THEN bZOS_IN:= FALSE;
+    ELSIF (GVL_PMPS.rPhotonEnergy &gt;1000 AND M24.fPosition&gt;= 8.5) THEN bZOS_IN:= TRUE;
+            ELSIF (GVL_PMPS.rPhotonEnergy &lt;=1000 AND GVL_PMPS.rPhotonEnergy &gt;550 AND M24.fPosition&gt;= 7.9) THEN bZOS_IN:= TRUE;
+                    ELSIF (GVL_PMPS.rPhotonEnergy &lt;=550 AND GVL_PMPS.rPhotonEnergy &gt;200 AND M24.fPosition&gt;= 6.9) THEN bZOS_IN:= TRUE;
+                            ELSE bZOS_IN:= FALSE;
+END_IF
+END_ACTION
 </pre></div>
 </div>
 </div>

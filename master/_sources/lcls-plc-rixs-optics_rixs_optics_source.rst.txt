@@ -239,6 +239,109 @@ GVL_M1K2_Constants
     END_VAR
 
 
+GVL_M2K2
+^^^^^^^^
+
+::
+
+    {attribute 'qualified_only'}
+    VAR_GLOBAL CONSTANT
+    	// Encoder reference values in counts = nm
+    	// Put encoder reference values for nominal 0 here
+    	nM2K2X_ENC_REF : ULINT := 1234567; //these numbers
+    	nM2K2Y_ENC_REF : ULINT := 1234567; //are not
+    	nM2K2rX_ENC_REF : ULINT := 1234567;//real!!
+    END_VAR
+
+
+GVL_M3K2
+^^^^^^^^
+
+::
+
+    {attribute 'qualified_only'}
+    VAR_GLOBAL CONSTANT
+    	// Encoder reference values in counts = nm
+    	// Put encoder reference values for nominal 0 here
+    	nM3K2X_ENC_REF : ULINT := 5951195;
+    	nM3K2Y_ENC_REF : ULINT := 5857203;
+    	nM3K2rY_ENC_REF : ULINT := 39991700;
+    	nM3K2US_ENC_REF : ULINT := 1234567; //these numbers
+    	nM3K2DS_ENC_REF : ULINT := 1234567;	 //are not real!!
+    	
+    (*
+    	// PMPS Limits for benders - need to identify these
+        nM3K2US_PMPS_UpperLimit : ULINT := 21500000;//22100000;
+        nM3K2US_PMPS_LowerLimit : ULINT := 20100000;//20900000;
+        
+        nM3K2DS_PMPS_UpperLimit : ULINT := 21100000;//21800000;
+        nM3K2DS_PMPS_LowerLimit : ULINT := 19800000;//20600000;
+    *)
+    END_VAR
+
+    VAR_GLOBAL
+    	// M3K2 US RTDs
+    	{attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M3K2US1_M3K2US2]^RTD Inputs Channel 1^Value'}
+    	nM3K2US_RTD_1 AT %I* : INT;
+    	{attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M3K2US1_M3K2US2]^RTD Inputs Channel 2^Value'}
+    	nM3K2US_RTD_2 AT %I* : INT;
+    	{attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M3K2US3_M3K2DS1]^RTD Inputs Channel 1^Value'}
+    	nM3K2US_RTD_3 AT %I* : INT;
+
+    	// M3K2 DS RTDs
+    	{attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M3K2US3_M3K2DS1]^RTD Inputs Channel 2^Value'}
+    	nM3K2DS_RTD_1 AT %I* : INT;
+    	{attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M3K2DS2_M3K2DS3]^RTD Inputs Channel 1^Value'}
+    	nM3K2DS_RTD_2 AT %I* : INT;
+    	{attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M3K2DS2_M3K2DS3]^RTD Inputs Channel 2^Value'}
+    	nM3K2DS_RTD_3 AT %I* : INT;
+    	
+    END_VAR
+
+
+GVL_M4K2
+^^^^^^^^
+
+::
+
+    {attribute 'qualified_only'}
+    VAR_GLOBAL CONSTANT
+    	// Encoder reference values in counts = nm
+    	// Put encoder reference values for nominal 0 here
+    	nM4K2X_ENC_REF : ULINT := 5902073;
+    	nM4K2Y_ENC_REF : ULINT := 6000313;
+    	nM4K2rX_ENC_REF : ULINT := 50657020;
+    	nM4K2US_ENC_REF : ULINT := 1234567; //these numbers
+    	nM4K2DS_ENC_REF : ULINT := 1234567; //are not real!!
+    	
+    	// PMPS Limits for benders - need to identify these
+        nM4K2US_PMPS_UpperLimit : ULINT := 21500000;//22100000;
+        nM4K2US_PMPS_LowerLimit : ULINT := 20100000;//20900000;
+        
+        nM4K2DS_PMPS_UpperLimit : ULINT := 21100000;//21800000;
+        nM4K2DS_PMPS_LowerLimit : ULINT := 19800000;//20600000;
+    END_VAR
+
+    VAR_GLOBAL
+    	// M4K2 US RTDs
+    	{attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M4K2US1_M4K2US2]^RTD Inputs Channel 1^Value'}
+    	nM4K2US_RTD_1 AT %I* : INT;
+    	{attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M4K2US1_M4K2US2]^RTD Inputs Channel 2^Value'}
+    	nM4K2US_RTD_2 AT %I* : INT;
+    	{attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M4K2US3_M4K2DS1]^RTD Inputs Channel 1^Value'}
+    	nM4K2US_RTD_3 AT %I* : INT;
+
+    	// M4K2 DS RTDs
+    	{attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M4K2US3_M4K2DS1]^RTD Inputs Channel 2^Value'}
+    	nM4K2DS_RTD_1 AT %I* : INT;
+    	{attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M4K2DS2_M4K2DS3]^RTD Inputs Channel 1^Value'}
+    	nM4K2DS_RTD_2 AT %I* : INT;
+    	{attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M4K2DS2_M4K2DS3]^RTD Inputs Channel 2^Value'}
+    	nM4K2DS_RTD_3 AT %I* : INT;
+    	
+    END_VAR
+
+
 GVL_PMPS
 ^^^^^^^^
 
@@ -484,8 +587,91 @@ Main
     							  .nRawEncoderULINT     :=TIIB[ST1K1-EL5042]^FB Inputs Channel 1^Position;
                                   .bBrakeRelease        := TIIB[ST1K1-EL2008]^Channel 1^Output'}
         M24: DUT_MotionStage := (sName := 'ST1K1:ZOS:MMS');
-
     	
+    (*	// MR2K2-FLAT axes
+    	{attribute 'pytmc' := 'pv: MR2K2:FLAT:MMS:X'}
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M2K2X]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7041_M2K2X]^STM Status^Status^Digital input 2;
+    							  .nRawEncoderULINT:=TIIB[EL5042_M2K2X_M2K2Y]^FB Inputs Channel 1^Position'}
+    	M25 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //X mot
+       	fbMotionStageM25 : FB_MotionStage;
+    	{attribute 'pytmc' := 'pv: MR2K2:FLAT:MMS:Y'}
+        {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M2K2Y]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7041_M2K2Y]^STM Status^Status^Digital input 2;
+    							  .nRawEncoderULINT:=TIIB[EL5042_M2K2X_M2K2Y]^FB Inputs Channel 2^Position'}
+        M26 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //Y mot
+        fbMotionStageM26 : FB_MotionStage;
+    	{attribute 'pytmc' := 'pv: MR2K2:FLAT:MMS:rX'}
+        {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M2K2rX]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7041_M2K2rX]^STM Status^Status^Digital input 2;
+    							  .nRawEncoderULINT:=TIIB[EL5042_M2K2rX]^FB Inputs Channel 1^Position'}
+        M27 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //Pitch mot
+        fbMotionStageM27 : FB_MotionStage;		*)
+    	
+    	// MR3K2-KBH axes
+    	{attribute 'pytmc' := 'pv: MR3K2:KBH:MMS:X'}
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M3K2X]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7041_M3K2X]^STM Status^Status^Digital input 2;
+    							  .nRawEncoderULINT:=TIIB[EL5042_M3K2X_M3K2Y]^FB Inputs Channel 1^Position'}
+        M28 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //X mot
+        fbMotionStageM28 : FB_MotionStage;
+    	{attribute 'pytmc' := 'pv: MR3K2:KBH:MMS:Y'}
+        {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M3K2Y]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7041_M3K2Y]^STM Status^Status^Digital input 2;
+    							  .nRawEncoderULINT:=TIIB[EL5042_M3K2X_M3K2Y]^FB Inputs Channel 2^Position'}
+        M29 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //Y mot
+        fbMotionStageM29 : FB_MotionStage;
+    	{attribute 'pytmc' := 'pv: MR3K2:KBH:MMS:rY'}
+        {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M3K2rY]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7041_M3K2ry]^STM Status^Status^Digital input 2;
+    							  .nRawEncoderULINT:=TIIB[EL5042_M3K2rY]^FB Inputs Channel 1^Position'}
+        M30 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //Pitch mot
+        fbMotionStageM30 : FB_MotionStage;
+    	{attribute 'pytmc' := '	pv: MR3K2:KBH:MMS:US'}
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable :=TIIB[EL7041_M3K2_BEND_US]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7041_M3K2_BEND_US]^STM Status^Status^Digital input 2;
+    							  .nRawEncoderULINT:= TIIB[EL5042_M3K2_BEND_USDS]^FB Inputs Channel 1^Position'}
+    	M31 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //MR3K2 US BEND
+    	fbMotionStageM31 : FB_MotionStage;
+    	{attribute 'pytmc' := 'pv: MR3K2:KBH:MMS:DS'}
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable :=TIIB[EL7041_M3K2_BEND_DS]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7041_M3K2_BEND_DS]^STM Status^Status^Digital input 2;
+    							  .nRawEncoderULINT:= TIIB[EL5042_M3K2_BEND_USDS]^FB Inputs Channel 2^Position'}
+    	M32 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //MR3K2 DS BEND
+    	fbMotionStageM32 : FB_MotionStage;
+    	
+    	
+    (*	// MR4K2-KBV axes
+    	{attribute 'pytmc' := 'pv: MR4K2:KBV:MMS:X'}
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M4K2X]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7041_M4K2X]^STM Status^Status^Digital input 2;
+    							  .nRawEncoderULINT:=TIIB[EL5042_M4K2X_M4K2Y]^FB Inputs Channel 1^Position'}
+        M33 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //X mot
+        fbMotionStageM33 : FB_MotionStage;
+    	{attribute 'pytmc' := 'pv: MR4K2:KBV:MMS:Y'}
+        {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M4K2Y]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7041_M4K2Y]^STM Status^Status^Digital input 2;
+    							  .nRawEncoderULINT:=TIIB[EL5042_M4K2X_M4K2Y]^FB Inputs Channel 2^Position'}
+        M34 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //Y mot
+        fbMotionStageM34 : FB_MotionStage;
+    	{attribute 'pytmc' := 'pv: MR4K2:KBV:MMS:rY'}
+        {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M4K2rX]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7041_M4K2rX]^STM Status^Status^Digital input 2;
+    							  .nRawEncoderULINT:=TIIB[EL5042_M4K2rY]^FB Inputs Channel 1^Position'}
+        M35 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //Pitch mot
+        fbMotionStageM35 : FB_MotionStage;
+    	{attribute 'pytmc' := '	pv: MR4K2:KBV:MMS:US'}
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable :=TIIB[EL7041_M4K2_BEND_US]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7041_M4K2_BEND_US]^STM Status^Status^Digital input 2;
+    							  .nRawEncoderULINT:= TIIB[EL5042_M4K2_BEND_USDS]^FB Inputs Channel 1^Position'}
+    	M36 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //MR4K2 US BEND
+    	fbMotionStageM36 : FB_MotionStage;
+    	{attribute 'pytmc' := 'pv: MR4K2:KBV:MMS:DS'}
+    	{attribute 'TcLinkTo' := '.bLimitForwardEnable :=TIIB[EL7041_M4K2_BEND_DS]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7041_M4K2_BEND_DS]^STM Status^Status^Digital input 2;
+    							  .nRawEncoderULINT:= TIIB[EL5042_M4K2_BEND_USDS]^FB Inputs Channel 2^Position'}
+    	M37 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //MR4K2 DS BEND
+    	fbMotionStageM37 : FB_MotionStage;		*)
     	
     	
     	sio_current AT%I* : UINT;
@@ -497,6 +683,235 @@ Main
 
 POUs
 ----
+
+
+CheckBounds
+^^^^^^^^^^^
+
+::
+
+    // Implicitly generated code : DO NOT EDIT
+    FUNCTION CheckBounds : DINT
+    VAR_INPUT
+    	index, lower, upper: DINT;
+    END_VAR
+    // Implicitly generated code : Only an Implementation suggestion
+    {noflow}
+    IF  index < lower THEN
+    	CheckBounds := lower;
+    ELSIF  index > upper THEN
+    	CheckBounds := upper;
+    ELSE  
+    	CheckBounds := index;
+    END_IF
+    {flow}
+
+    END_FUNCTION
+
+
+CheckDivDInt
+^^^^^^^^^^^^
+
+::
+
+    // Implicitly generated code : DO NOT EDIT
+    FUNCTION CheckDivDInt : DINT
+    VAR_INPUT
+    	divisor:DINT;
+    END_VAR
+    // Implicitly generated code : Only an Implementation suggestion
+    {noflow}
+    IF divisor = 0 THEN
+    	CheckDivDInt:=1;
+    ELSE
+    	CheckDivDInt:=divisor;
+    END_IF;
+    {flow}
+
+    END_FUNCTION
+
+
+CheckDivLInt
+^^^^^^^^^^^^
+
+::
+
+    // Implicitly generated code : DO NOT EDIT
+    FUNCTION CheckDivLInt : LINT
+    VAR_INPUT
+    	divisor:LINT;
+    END_VAR
+    // Implicitly generated code : Only an Implementation suggestion
+    {noflow}
+    IF divisor = 0 THEN
+    	CheckDivLInt:=1;
+    ELSE
+    	CheckDivLInt:=divisor;
+    END_IF;
+    {flow}
+
+    END_FUNCTION
+
+
+CheckDivLReal
+^^^^^^^^^^^^^
+
+::
+
+    // Implicitly generated code : DO NOT EDIT
+    FUNCTION CheckDivLReal : LREAL
+    VAR_INPUT
+    	divisor:LREAL;
+    END_VAR
+    // Implicitly generated code : Only an Implementation suggestion
+    {noflow}
+    IF divisor = 0 THEN
+    	CheckDivLReal:=1;
+    ELSE
+    	CheckDivLReal:=divisor;
+    END_IF;
+    {flow}
+
+    END_FUNCTION
+
+
+CheckDivReal
+^^^^^^^^^^^^
+
+::
+
+    // Implicitly generated code : DO NOT EDIT
+    FUNCTION CheckDivReal : REAL
+    VAR_INPUT
+    	divisor:REAL;
+    END_VAR
+    // Implicitly generated code : Only an Implementation suggestion
+    {noflow}
+    IF divisor = 0 THEN
+    	CheckDivReal:=1;
+    ELSE
+    	CheckDivReal:=divisor;
+    END_IF;
+    {flow}
+
+    END_FUNCTION
+
+
+CheckLRangeSigned
+^^^^^^^^^^^^^^^^^
+
+::
+
+    // Implicitly generated code : DO NOT EDIT
+    FUNCTION CheckLRangeSigned : LINT
+    VAR_INPUT
+    	value, lower, upper: LINT;
+    END_VAR
+    // Implicitly generated code : Only an Implementation suggestion
+    {noflow}
+    IF (value < lower) THEN
+    	CheckLRangeSigned := lower;
+    ELSIF(value > upper) THEN
+    	CheckLRangeSigned := upper;
+    ELSE
+    	CheckLRangeSigned := value;
+    END_IF
+
+    {flow}
+
+    END_FUNCTION
+
+
+CheckLRangeUnsigned
+^^^^^^^^^^^^^^^^^^^
+
+::
+
+    // Implicitly generated code : DO NOT EDIT
+    FUNCTION CheckLRangeUnsigned : ULINT
+    VAR_INPUT
+    	value, lower, upper: ULINT;
+    END_VAR
+    // Implicitly generated code : Only an Implementation suggestion
+    {noflow}
+    IF (value < lower) THEN
+    	CheckLRangeUnsigned := lower;
+    ELSIF(value > upper) THEN
+    	CheckLRangeUnsigned := upper;
+    ELSE
+    	CheckLRangeUnsigned := value;
+    END_IF
+    {flow}
+
+    END_FUNCTION
+
+
+CheckPointer
+^^^^^^^^^^^^
+
+::
+
+    // Implicitly generated code : DO NOT EDIT
+    FUNCTION CheckPointer : POINTER TO BYTE
+    VAR_INPUT 
+    	ptToTest : POINTER TO BYTE; // Destination address of the pointer
+    	iSize : DINT;		        // Size of the type the pointer points to. (e.g: 20 for POINTER TO ARRAY [0..9] OF INT) 
+    	iGran : DINT;		        // Granularity of the pointer access. This is the size of the biggest non-structured data type in the type the pointer points to. (e.g: 2 for POINTER TO ARRAY [0..9] OF INT)
+    	bWrite: BOOL;		        // Indicates read or write Access. TRUE = write access.
+    END_VAR
+    // No standard way of implementation. Fill your own code here
+    CheckPointer := ptToTest;
+    {flow}
+
+    END_FUNCTION
+
+
+CheckRangeSigned
+^^^^^^^^^^^^^^^^
+
+::
+
+    // Implicitly generated code : DO NOT EDIT
+    FUNCTION CheckRangeSigned : DINT
+    VAR_INPUT
+    	value, lower, upper: DINT;
+    END_VAR
+    // Implicitly generated code : Only an Implementation suggestion
+    {noflow}
+    IF (value < lower) THEN
+    	CheckRangeSigned := lower;
+    ELSIF(value > upper) THEN
+    	CheckRangeSigned := upper;
+    ELSE
+    	CheckRangeSigned := value;
+    END_IF
+    {flow}
+
+    END_FUNCTION
+
+
+CheckRangeUnsigned
+^^^^^^^^^^^^^^^^^^
+
+::
+
+    // Implicitly generated code : DO NOT EDIT
+    FUNCTION CheckRangeUnsigned : UDINT
+    VAR_INPUT
+    	value, lower, upper: UDINT;
+    END_VAR
+    // Implicitly generated code : Only an Implementation suggestion
+    {noflow}
+    IF (value < lower) THEN
+    	CheckRangeUnsigned := lower;
+    ELSIF(value > upper) THEN
+    	CheckRangeUnsigned := upper;
+    ELSE
+    	CheckRangeUnsigned := value;
+    END_IF
+    {flow}
+
+    END_FUNCTION
 
 
 F_AddChannelToHeader
@@ -825,6 +1240,10 @@ PRG_1_PlcTask
     PRG_SPO_PMPS();
     PRG_2_PMPS_POST();
     fbLogHandler();
+    PRG_ZeroOrder_PMPS();
+    //PRG_MR2K2_FLAT();
+    PRG_MR3K2_KBH();
+    //PRG_MR4K2_KBV();
 
     END_PROGRAM
 
@@ -1623,6 +2042,645 @@ PRG_MR1K2_SWITCH
     END_PROGRAM
 
 
+PRG_MR2K2_FLAT
+^^^^^^^^^^^^^^
+
+::
+
+    PROGRAM PRG_MR2K2_FLAT
+    VAR
+    	// Encoder Arrays/RMS Watch:
+    		//MR2K2 X ENC RMS
+    		{attribute 'pytmc' := '	pv: MR2K2:FLAT:ENC:X'}
+    		fbXRMSErrorM2K2 : FB_RMSWatch;
+    		fMaxXRMSErrorM2K2 : LREAL;
+    		fMinXRMSErrorM2K2 : LREAL;
+    		//MR2K2 Y ENC RMS
+    		{attribute 'pytmc' := '	pv: MR2K2:FLAT:ENC:Y'}
+    		fbYRMSErrorM2K2 : FB_RMSWatch;
+    		fMaxYRMSErrorM2K2 : LREAL;
+    		fMinYRMSErrorM2K2 : LREAL;
+    		//MR2K2 rX ENC RMS
+    		{attribute 'pytmc' := '	pv: MR2K2:FLAT:ENC:PITCH'}
+    		fbrXRMSErrorM2K2 : FB_RMSWatch;
+    		fMaxrXRMSErrorM2K2 : LREAL;
+    		fMinrXRMSErrorM2K2 : LREAL;
+
+    	// Encoder Reference Values
+    		//MR2K2 X ENC REF
+    		{attribute 'pytmc' := '
+    			pv: MR2K2:FLAT:ENC:X:REF
+    			field: EGU cnt
+    			io: i
+    		'}
+    		nEncRefXM2K2 : UDINT;
+    		//MR2K2 Y ENC REF
+    		{attribute 'pytmc' := '
+    			pv: MR2K2:FLAT:ENC:Y:REF
+    			field: EGU cnt
+    			io: i
+    		'}
+    		nEncRefYM2K2 : UDINT;
+    		//MR2K2 rX ENC REF
+    		{attribute 'pytmc' := '
+    			pv: MR2K2:FLAT:ENC:PITCH:REF
+    			field: EGU cnt
+    			io: i
+    		'}
+    		nEncRefrXM2K2 : UDINT;
+
+    	// Encoder raw counts
+    		//M2K2 FLAT X ENC CNT
+    		{attribute 'pytmc' := '
+    			pv: MR2K2:FLAT:ENC:X:CNT
+    			field: EGU cnt
+    			io: i
+    		'}
+    		nEncCntXM2K2 : UDINT;
+    		//M2K2 FLAT Y ENC CNT
+    		{attribute 'pytmc' := '
+    			pv: MR2K2:FLAT:ENC:Y:CNT
+    			field: EGU cnt
+    			io: i
+    		'}
+    		nEncCntYM2K2 : UDINT;
+    		//M2K2 FLAT rX ENC CNT
+    		{attribute 'pytmc' := '
+    			pv: MR2K2:FLAT:ENC:PITCH:CNT
+    			field: EGU cnt
+    			io: i
+    		'}
+    		nEncCntrXM2K2 : UDINT;
+    	
+    	//Emergency Stop for MR2K2 //M2K2 needs an EL1004 term and an ESTOP added, not listed in I/O either
+    	{attribute 'TcLinkTo' := 'TIIB[EL1004_M2K2_FLAT_STO]^Channel 1^Input'}
+    	M2K2FLATbSTOEnable1 AT %I* : BOOL;
+    	{attribute 'TcLinkTo' := 'TIIB[EL1004_M2K2_FLAT_STO]^Channel 2^Input'}
+    	M2K2FLATbSTOEnable2 AT %I* : BOOL;
+    	
+    END_VAR
+    //FB_Motion stages for MR2K2 Axes
+    //MR2K2 FLAT
+    fbMotionStageM25(stMotionStage:=M25);
+    fbMotionStageM26(stMotionStage:=M26);
+    fbMotionStageM27(stMotionStage:=M27);
+
+    // Calculate Pitch RMS Error for MR2K2 Axes:
+    //MR2K2 X ENC RMS
+    fbXRMSErrorM2K2(stMotionStage:=M25,
+    					 fMaxRMSError=>fMaxXRMSErrorM2K2,
+    					 fMinRMSError=>fMinXRMSErrorM2K2);
+    //MR2K2 X ENC RMS
+    fbYRMSErrorM2K2(stMotionStage:=M26,
+    					 fMaxRMSError=>fMaxYRMSErrorM2K2,
+    					 fMinRMSError=>fMinYRMSErrorM2K2);
+    //MR2K2 rX ENC RMS
+    fbrXRMSErrorM2K2(stMotionStage:=M27,
+    					 fMaxRMSError=>fMaxrXRMSErrorM2K2,
+    					 fMinRMSError=>fMinrXRMSErrorM2K2);
+
+    //STO for MR2K2 Benders
+    M25.bHardwareEnable := M2K2FLATbSTOEnable1 AND M2K2FLATbSTOEnable2;
+    M26.bHardwareEnable := M2K2FLATbSTOEnable1 AND M2K2FLATbSTOEnable2;
+    M27.bHardwareEnable := M2K2FLATbSTOEnable1 AND M2K2FLATbSTOEnable2;
+
+    //Encoder reference positions for MR2K2
+    nEncRefXM2K2  := ULINT_TO_UDINT(GVL_M2K2.nM2K2X_ENC_REF);
+    nEncRefYM2K2  := ULINT_TO_UDINT(GVL_M2K2.nM2K2Y_ENC_REF);
+    nEncRefrXM2K2  := ULINT_TO_UDINT(GVL_M2K2.nM2K2rX_ENC_REF);
+
+    // M2K2 Bender Encoder Count Values For Epics
+    nEncCntXM2K2  := ULINT_TO_UDINT(M25.nRawEncoderULINT);
+    nEncCntYM2K2  := ULINT_TO_UDINT(M26.nRawEncoderULINT);
+    nEncCntrXM2K2  := ULINT_TO_UDINT(M27.nRawEncoderULINT);
+
+    END_PROGRAM
+
+
+PRG_MR3K2_KBH
+^^^^^^^^^^^^^
+
+::
+
+    PROGRAM PRG_MR3K2_KBH
+    VAR
+    	// Encoder Arrays/RMS Watch:
+    		//MR3K2 X ENC RMS
+    		{attribute 'pytmc' := '	pv: MR3K2:KBH:ENC:X'}
+    		fbXRMSErrorM3K2 : FB_RMSWatch;
+    		fMaxXRMSErrorM3K2 : LREAL;
+    		fMinXRMSErrorM3K2 : LREAL;
+    		//MR3K2 Y ENC RMS
+    		{attribute 'pytmc' := '	pv: MR3K2:KBH:ENC:Y'}
+    		fbYRMSErrorM3K2 : FB_RMSWatch;
+    		fMaxYRMSErrorM3K2 : LREAL;
+    		fMinYRMSErrorM3K2 : LREAL;
+    		//MR3K2 rY ENC RMS
+    		{attribute 'pytmc' := '	pv: MR3K2:KBH:ENC:PITCH'}
+    		fbrYRMSErrorM3K2 : FB_RMSWatch;
+    		fMaxrYRMSErrorM3K2 : LREAL;
+    		fMinrYRMSErrorM3K2 : LREAL;
+    		//MR3K2 US ENC RMS
+    		{attribute 'pytmc' := '	pv: MR3K2:KBH:ENC:BEND:US'}
+    		fbUSRMSErrorM3K2 : FB_RMSWatch;
+    		fMaxUSRMSErrorM3K2 : LREAL;
+    		fMinUSRMSErrorM3K2 : LREAL;
+    		//MR3K2 DS ENC RMS
+    		{attribute 'pytmc' := '	pv: MR3K2:KBH:ENC:BEND:DS'}
+    		fbdSRMSErrorM3K2 : FB_RMSWatch;
+    		fMaxDSRMSErrorM3K2 : LREAL;
+    		fMinDSRMSErrorM3K2 : LREAL;
+    		
+    	// Encoder Reference Values
+    		//MR3K2 X ENC REF
+    		{attribute 'pytmc' := '
+    			pv: MR3K2:KBH:ENC:X:REF
+    			field: EGU cnt
+    			io: i
+    		'}
+    		nEncRefXM3K2 : UDINT;
+    		//MR3K2 Y ENC REF
+    		{attribute 'pytmc' := '
+    			pv: MR3K2:KBH:ENC:Y:REF
+    			field: EGU cnt
+    			io: i
+    		'}
+    		nEncRefYM3K2 : UDINT;
+    		//MR3K2 rY ENC REF
+    		{attribute 'pytmc' := '
+    			pv: MR3K2:KBH:ENC:PITCH:REF
+    			field: EGU cnt
+    			io: i
+    		'}
+    		nEncRefrYM3K2 : UDINT;
+    		//MR3K2 US ENC REF
+    		{attribute 'pytmc' := '
+    			pv: MR3K2:KBH:ENC:BEND:US:REF
+    			field: EGU cnt
+    			io: i
+    		'}
+    		nEncRefUSM3K2 : UDINT;
+    		//MR3K2 DS ENC REF
+    		{attribute 'pytmc' := '
+    			pv: MR3K2:KBH:ENC:BEND:DS:REF
+    			field: EGU cnt
+    			io: i
+    		'}
+    		nEncRefDSM3K2 : UDINT;
+    		
+    	// Encoder raw counts
+    		//M3K2 KBH X ENC CNT
+    		{attribute 'pytmc' := '
+    			pv: MR3K2:KBH:ENC:X:CNT
+    			field: EGU cnt
+    			io: i
+    		'}
+    		nEncCntXM3K2 : UDINT;
+    		//M3K2 KBH Y ENC CNT
+    		{attribute 'pytmc' := '
+    			pv: MR3K2:KBH:ENC:Y:CNT
+    			field: EGU cnt
+    			io: i
+    		'}
+    		nEncCntYM3K2 : UDINT;
+    		//M3K2 KBH rY ENC CNT
+    		{attribute 'pytmc' := '
+    			pv: MR3K2:KBH:ENC:PITCH:CNT
+    			field: EGU cnt
+    			io: i
+    		'}
+    		nEncCntrYM3K2 : UDINT;
+    		//M3K2 KBH US ENC CNT
+    		{attribute 'pytmc' := '
+    			pv: MR3K2:KBH:ENC:BEND:US:CNT
+    			field: EGU cnt
+    			io: i
+    		'}
+    		nEncCntUSM3K2 : UDINT;
+    		//M3K2 KBH DS ENC CNT
+    		{attribute 'pytmc' := '
+    			pv: MR3K2:KBH:ENC:BEND:DS:CNT
+    			field: EGU cnt
+    			io: i
+    		'}
+    		nEncCntDSM3K2 : UDINT;
+    	
+    	// MR3K2 Bender RTDs
+    		// MR3K2 US RTDs
+    		{attribute 'pytmc' := '
+    			pv: MR3K2:KBH:RTD:US:1
+    			field: ASLO 0.01
+    			field: EGU C
+    			io: i
+    		'}
+    		fM3K2US_RTD_1 : REAL;
+    		{attribute 'pytmc' := '
+    			pv: MR3K2:KBH:RTD:US:2
+    			field: ASLO 0.01
+    			field: EGU C
+    			io: i
+    		'}
+    		fM3K2US_RTD_2 : REAL;
+    		{attribute 'pytmc' := '
+    			pv: MR3K2:KBH:RTD:US:3
+    			field: ASLO 0.01
+    			field: EGU C
+    			io: i
+    		'}
+    		fM3K2US_RTD_3 : REAL;
+    	
+    		// M3K2 DS RTDs
+    		{attribute 'pytmc' := '
+    			pv: MR3K2:KBH:RTD:DS:1
+    			field: ASLO 0.01
+    			field: EGU C
+    			io: i
+    		'}
+    		fM3K2DS_RTD_1 : REAL;
+    		{attribute 'pytmc' := '
+    			pv: MR3K2:KBH:RTD:DS:2
+    			field: ASLO 0.01
+    			field: EGU C
+    			io: i
+    		'}
+    		fM3K2DS_RTD_2 : REAL;
+    		{attribute 'pytmc' := '
+    			pv: MR3K2:KBH:RTD:DS:3
+    			field: ASLO 0.01
+    			field: EGU C
+    			io: i
+    		'}
+    		fM3K2DS_RTD_3 : REAL;
+    	
+    	// RTD error bit
+    		bM3K2US_RTD_1_Err AT %I*: BOOL;
+    		bM3K2US_RTD_2_Err AT %I*: BOOL;
+    		bM3K2US_RTD_3_Err AT %I*: BOOL;
+    		bM3K2DS_RTD_1_Err AT %I*: BOOL;
+    		bM3K2DS_RTD_2_Err AT %I*: BOOL;
+    		bM3K2DS_RTD_3_Err AT %I*: BOOL;
+    	
+    	//Emergency Stop for MR3K2
+    		{attribute 'TcLinkTo' := 'TIIB[EL1004_M3K2_STO]^Channel 1^Input'}
+    		M3K2KBHbSTOEnable1 AT %I* : BOOL;
+    		{attribute 'TcLinkTo' := 'TIIB[EL1004_M3K2_STO]^Channel 2^Input'}
+    		M3K2KBHbSTOEnable2 AT %I* : BOOL;
+
+    (*	
+    	// PMPS
+    		ffBenderRange : FB_FastFault := (
+    			i_xAutoReset := TRUE,
+    			i_DevName := 'MR3K2 Bender',
+    			i_Desc := 'Benders have moved out of range. Adjust bender to be within limits to clear fault',
+    			i_TypeCode := 16#???);
+    *)
+    	
+    END_VAR
+    //FB_Motion stages for MR3K2 Axes
+    //MR3K2 KBH
+    fbMotionStageM28(stMotionStage:=M28);
+    fbMotionStageM29(stMotionStage:=M29);
+    fbMotionStageM30(stMotionStage:=M30);
+    fbMotionStageM31(stMotionStage:=M31);
+    fbMotionStageM32(stMotionStage:=M32);
+
+    // Calculate Pitch RMS Error for MR3K2 Axes:
+    //MR3K2 X ENC RMS
+    fbXRMSErrorM3K2(stMotionStage:=M28,
+    					 fMaxRMSError=>fMaxXRMSErrorM3K2,
+    					 fMinRMSError=>fMinXRMSErrorM3K2);
+    //MR3K2 X ENC RMS
+    fbYRMSErrorM3K2(stMotionStage:=M29,
+    					 fMaxRMSError=>fMaxYRMSErrorM3K2,
+    					 fMinRMSError=>fMinYRMSErrorM3K2);
+    //MR3K2 rY ENC RMS
+    fbrYRMSErrorM3K2(stMotionStage:=M30,
+    					 fMaxRMSError=>fMaxrYRMSErrorM3K2,
+    					 fMinRMSError=>fMinrYRMSErrorM3K2);
+    //MR3K2 US ENC RMS
+    fbUSRMSErrorM3K2(stMotionStage:=M31,
+    					 fMaxRMSError=>fMaxUSRMSErrorM3K2,
+    					 fMinRMSError=>fMinUSRMSErrorM3K2);
+    //MR3K2 DS ENC RMS
+    fbDSRMSErrorM3K2(stMotionStage:=M32,
+    					 fMaxRMSError=>fMaxDSRMSErrorM3K2,
+    					 fMinRMSError=>fMinDSRMSErrorM3K2);
+
+    //STO for MR3K2 Benders
+    M28.bHardwareEnable := M3K2KBHbSTOEnable1 AND M3K2KBHbSTOEnable2;
+    M29.bHardwareEnable := M3K2KBHbSTOEnable1 AND M3K2KBHbSTOEnable2;
+    M30.bHardwareEnable := M3K2KBHbSTOEnable1 AND M3K2KBHbSTOEnable2;
+    M31.bHardwareEnable := M3K2KBHbSTOEnable1 AND M3K2KBHbSTOEnable2;
+    M32.bHardwareEnable := M3K2KBHbSTOEnable1 AND M3K2KBHbSTOEnable2;
+
+    //Encoder reference positions for MR3K2
+    nEncRefXM3K2  := ULINT_TO_UDINT(GVL_M3K2.nM3K2X_ENC_REF);
+    nEncRefYM3K2  := ULINT_TO_UDINT(GVL_M3K2.nM3K2Y_ENC_REF);
+    nEncRefrYM3K2  := ULINT_TO_UDINT(GVL_M3K2.nM3K2rY_ENC_REF);
+    nEncRefUSM3K2  := ULINT_TO_UDINT(GVL_M3K2.nM3K2US_ENC_REF);
+    nEncRefDSM3K2  := ULINT_TO_UDINT(GVL_M3K2.nM3K2DS_ENC_REF);
+
+    // M3K2 Bender Encoder Count Values For Epics
+    nEncCntXM3K2  := ULINT_TO_UDINT(M28.nRawEncoderULINT);
+    nEncCntYM3K2  := ULINT_TO_UDINT(M29.nRawEncoderULINT);
+    nEncCntrYM3K2  := ULINT_TO_UDINT(M30.nRawEncoderULINT);
+    nEncCntUSM3K2  := ULINT_TO_UDINT(M31.nRawEncoderULINT);
+    nEncCntDSM3K2  := ULINT_TO_UDINT(M32.nRawEncoderULINT);
+
+    // MR3K2 Bender RTDs
+    fM3K2US_RTD_1 := INT_TO_REAL(GVL_M3K2.nM3K2US_RTD_1);
+    fM3K2US_RTD_2 := INT_TO_REAL(GVL_M3K2.nM3K2US_RTD_2);
+    fM3K2US_RTD_3 := INT_TO_REAL(GVL_M3K2.nM3K2US_RTD_3);
+
+    fM3K2DS_RTD_1 := INT_TO_REAL(GVL_M3K2.nM3K2DS_RTD_1);
+    fM3K2DS_RTD_2 := INT_TO_REAL(GVL_M3K2.nM3K2DS_RTD_2);
+    fM3K2DS_RTD_3 := INT_TO_REAL(GVL_M3K2.nM3K2DS_RTD_3);
+
+    // RTD not connected if T=0
+    bM3K2US_RTD_1_Err := fM3K2US_RTD_1 = 0;
+    bM3K2US_RTD_2_Err := fM3K2DS_RTD_2 = 0;
+    bM3K2US_RTD_3_Err := fM3K2US_RTD_3 = 0;
+    bM3K2DS_RTD_1_Err := fM3K2DS_RTD_1 = 0;
+    bM3K2DS_RTD_2_Err := fM3K2DS_RTD_2 = 0;
+    bM3K2DS_RTD_3_Err := fM3K2DS_RTD_3 = 0;
+
+    // M3K2 Bender RTD interlocks
+    M31.bHardwareEnable R= fM3K2US_RTD_1 > 10000 OR bM3K2US_RTD_1_Err;
+    M32.bHardwareEnable R= fM3K2DS_RTD_1 > 10000 OR bM3K2DS_RTD_1_Err;
+
+    (*
+    //PMPS
+    ffBenderRange.i_xOK :=
+        GVL_M3K2.nM3K2US_PMPS_LowerLimit < nEncCntUSM3K2 AND nEncCntUSM3K2 < GVL_M3K2.nM3K2US_PMPS_UpperLimit AND
+        GVL_M3K2.nM3K2DS_PMPS_LowerLimit < nEncCntDSM3K2 AND nEncCntUSM3K2 < GVL_M3K2.nM3K2DS_PMPS_UpperLimit;
+    ffBenderRange(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1); 
+    *)
+
+    END_PROGRAM
+
+
+PRG_MR4K2_KBV
+^^^^^^^^^^^^^
+
+::
+
+    PROGRAM PRG_MR4K2_KBV
+    VAR
+    	// Encoder Arrays/RMS Watch:
+    		//MR4K2 X ENC RMS
+    		{attribute 'pytmc' := '	pv: MR4K2:KBV:ENC:X'}
+    		fbXRMSErrorM4K2 : FB_RMSWatch;
+    		fMaxXRMSErrorM4K2 : LREAL;
+    		fMinXRMSErrorM4K2 : LREAL;
+    		//MR4K2 Y ENC RMS
+    		{attribute 'pytmc' := '	pv: MR4K2:KBV:ENC:Y'}
+    		fbYRMSErrorM4K2 : FB_RMSWatch;
+    		fMaxYRMSErrorM4K2 : LREAL;
+    		fMinYRMSErrorM4K2 : LREAL;
+    		//MR4K2 rX ENC RMS
+    		{attribute 'pytmc' := '	pv: MR4K2:KBV:ENC:PITCH'}
+    		fbrXRMSErrorM4K2 : FB_RMSWatch;
+    		fMaxrXRMSErrorM4K2 : LREAL;
+    		fMinrXRMSErrorM4K2 : LREAL;
+    		//MR4K2 US ENC RMS
+    		{attribute 'pytmc' := '	pv: MR4K2:KBV:ENC:BEND:US'}
+    		fbUSRMSErrorM4K2 : FB_RMSWatch;
+    		fMaxUSRMSErrorM4K2 : LREAL;
+    		fMinUSRMSErrorM4K2 : LREAL;
+    		//MR4K2 DS ENC RMS
+    		{attribute 'pytmc' := '	pv: MR4K2:KBV:ENC:BEND:DS'}
+    		fbdSRMSErrorM4K2 : FB_RMSWatch;
+    		fMaxDSRMSErrorM4K2 : LREAL;
+    		fMinDSRMSErrorM4K2 : LREAL;
+    		
+    	// Encoder Reference Values
+    		//MR4K2 X ENC REF
+    		{attribute 'pytmc' := '
+    			pv: MR4K2:KBV:ENC:X:REF
+    			field: EGU cnt
+    			io: i
+    		'}
+    		nEncRefXM4K2 : UDINT;
+    		//MR4K2 Y ENC REF
+    		{attribute 'pytmc' := '
+    			pv: MR4K2:KBV:ENC:Y:REF
+    			field: EGU cnt
+    			io: i
+    		'}
+    		nEncRefYM4K2 : UDINT;
+    		//MR4K2 rX ENC REF
+    		{attribute 'pytmc' := '
+    			pv: MR4K2:KBV:ENC:PITCH:REF
+    			field: EGU cnt
+    			io: i
+    		'}
+    		nEncRefrXM4K2 : UDINT;
+    		//MR4K2 US ENC REF
+    		{attribute 'pytmc' := '
+    			pv: MR4K2:KBV:ENC:BEND:US:REF
+    			field: EGU cnt
+    			io: i
+    		'}
+    		nEncRefUSM4K2 : UDINT;
+    		//MR4K2 DS ENC REF
+    		{attribute 'pytmc' := '
+    			pv: MR4K2:KBV:ENC:BEND:DS:REF
+    			field: EGU cnt
+    			io: i
+    		'}
+    		nEncRefDSM4K2 : UDINT;
+    		
+    	// Encoder raw counts
+    		//M4K2 KBV X ENC CNT
+    		{attribute 'pytmc' := '
+    			pv: MR4K2:KBV:ENC:X:CNT
+    			field: EGU cnt
+    			io: i
+    		'}
+    		nEncCntXM4K2 : UDINT;
+    		//M4K2 KBV Y ENC CNT
+    		{attribute 'pytmc' := '
+    			pv: MR4K2:KBV:ENC:Y:CNT
+    			field: EGU cnt
+    			io: i
+    		'}
+    		nEncCntYM4K2 : UDINT;
+    		//M4K2 KBV rX ENC CNT
+    		{attribute 'pytmc' := '
+    			pv: MR4K2:KBV:ENC:PITCH:CNT
+    			field: EGU cnt
+    			io: i
+    		'}
+    		nEncCntrXM4K2 : UDINT;
+    		//M4K2 KBV US ENC CNT
+    		{attribute 'pytmc' := '
+    			pv: MR4K2:KBV:ENC:BEND:US:CNT
+    			field: EGU cnt
+    			io: i
+    		'}
+    		nEncCntUSM4K2 : UDINT;
+    		//M4K2 KBV DS ENC CNT
+    		{attribute 'pytmc' := '
+    			pv: MR4K2:KBV:ENC:BEND:DS:CNT
+    			field: EGU cnt
+    			io: i
+    		'}
+    		nEncCntDSM4K2 : UDINT;
+    	
+    	// MR4K2 Bender RTDs
+    		// MR4K2 US RTDs
+    		{attribute 'pytmc' := '
+    			pv: MR4K2:KBV:RTD:US:1
+    			field: ASLO 0.01
+    			field: EGU C
+    			io: i
+    		'}
+    		fM4K2US_RTD_1 : REAL;
+    		{attribute 'pytmc' := '
+    			pv: MR4K2:KBV:RTD:US:2
+    			field: ASLO 0.01
+    			field: EGU C
+    			io: i
+    		'}
+    		fM4K2US_RTD_2 : REAL;
+    		{attribute 'pytmc' := '
+    			pv: MR4K2:KBV:RTD:US:3
+    			field: ASLO 0.01
+    			field: EGU C
+    			io: i
+    		'}
+    		fM4K2US_RTD_3 : REAL;
+    	
+    		// M4K2 DS RTDs
+    		{attribute 'pytmc' := '
+    			pv: MR4K2:KBV:RTD:DS:1
+    			field: ASLO 0.01
+    			field: EGU C
+    			io: i
+    		'}
+    		fM4K2DS_RTD_1 : REAL;
+    		{attribute 'pytmc' := '
+    			pv: MR4K2:KBV:RTD:DS:2
+    			field: ASLO 0.01
+    			field: EGU C
+    			io: i
+    		'}
+    		fM4K2DS_RTD_2 : REAL;
+    		{attribute 'pytmc' := '
+    			pv: MR4K2:KBV:RTD:DS:3
+    			field: ASLO 0.01
+    			field: EGU C
+    			io: i
+    		'}
+    		fM4K2DS_RTD_3 : REAL;
+    	
+    	// RTD error bit
+    		bM4K2US_RTD_1_Err AT %I*: BOOL;
+    		bM4K2US_RTD_2_Err AT %I*: BOOL;
+    		bM4K2US_RTD_3_Err AT %I*: BOOL;
+    		bM4K2DS_RTD_1_Err AT %I*: BOOL;
+    		bM4K2DS_RTD_2_Err AT %I*: BOOL;
+    		bM4K2DS_RTD_3_Err AT %I*: BOOL;
+    	
+    	//Emergency Stop for MR4K2
+    		{attribute 'TcLinkTo' := 'TIIB[EL1004_M4K2_STO]^Channel 1^Input'}
+    		M4K2KBVbSTOEnable1 AT %I* : BOOL;
+    		{attribute 'TcLinkTo' := 'TIIB[EL1004_M4K2_STO]^Channel 2^Input'}
+    		M4K2KBVbSTOEnable2 AT %I* : BOOL;
+
+    (*	
+    	// PMPS
+    		ffBenderRange : FB_FastFault := (
+    			i_xAutoReset := TRUE,
+    			i_DevName := 'MR4K2 Bender',
+    			i_Desc := 'Benders have moved out of range. Adjust bender to be within limits to clear fault',
+    			i_TypeCode := 16#???);
+    *)
+    	
+    END_VAR
+    //FB_Motion stages for MR4K2 Axes
+    //MR4K2 KBV
+    fbMotionStageM33(stMotionStage:=M33);
+    fbMotionStageM34(stMotionStage:=M34);
+    fbMotionStageM35(stMotionStage:=M35);
+    fbMotionStageM36(stMotionStage:=M36);
+    fbMotionStageM37(stMotionStage:=M37);
+
+    // Calculate Pitch RMS Error for MR4K2 Axes:
+    //MR4K2 X ENC RMS
+    fbXRMSErrorM4K2(stMotionStage:=M33,
+    					 fMaxRMSError=>fMaxXRMSErrorM4K2,
+    					 fMinRMSError=>fMinXRMSErrorM4K2);
+    //MR4K2 X ENC RMS
+    fbYRMSErrorM4K2(stMotionStage:=M34,
+    					 fMaxRMSError=>fMaxYRMSErrorM4K2,
+    					 fMinRMSError=>fMinYRMSErrorM4K2);
+    //MR4K2 rX ENC RMS
+    fbrXRMSErrorM4K2(stMotionStage:=M35,
+    					 fMaxRMSError=>fMaxrXRMSErrorM4K2,
+    					 fMinRMSError=>fMinrXRMSErrorM4K2);
+    //MR4K2 US ENC RMS
+    fbUSRMSErrorM4K2(stMotionStage:=M36,
+    					 fMaxRMSError=>fMaxUSRMSErrorM4K2,
+    					 fMinRMSError=>fMinUSRMSErrorM4K2);
+    //MR4K2 DS ENC RMS
+    fbDSRMSErrorM4K2(stMotionStage:=M37,
+    					 fMaxRMSError=>fMaxDSRMSErrorM4K2,
+    					 fMinRMSError=>fMinDSRMSErrorM4K2);
+
+    //STO for MR4K2 Benders
+    M33.bHardwareEnable := M4K2KBVbSTOEnable1 AND M4K2KBVbSTOEnable2;
+    M34.bHardwareEnable := M4K2KBVbSTOEnable1 AND M4K2KBVbSTOEnable2;
+    M35.bHardwareEnable := M4K2KBVbSTOEnable1 AND M4K2KBVbSTOEnable2;
+    M36.bHardwareEnable := M4K2KBVbSTOEnable1 AND M4K2KBVbSTOEnable2;
+    M37.bHardwareEnable := M4K2KBVbSTOEnable1 AND M4K2KBVbSTOEnable2;
+
+    //Encoder reference positions for MR4K2
+    nEncRefXM4K2  := ULINT_TO_UDINT(GVL_M4K2.nM4K2X_ENC_REF);
+    nEncRefYM4K2  := ULINT_TO_UDINT(GVL_M4K2.nM4K2Y_ENC_REF);
+    nEncRefrXM4K2  := ULINT_TO_UDINT(GVL_M4K2.nM4K2rX_ENC_REF);
+    nEncRefUSM4K2  := ULINT_TO_UDINT(GVL_M4K2.nM4K2US_ENC_REF);
+    nEncRefDSM4K2  := ULINT_TO_UDINT(GVL_M4K2.nM4K2DS_ENC_REF);
+
+    // M4K2 Bender Encoder Count Values For Epics
+    nEncCntXM4K2  := ULINT_TO_UDINT(M33.nRawEncoderULINT);
+    nEncCntYM4K2  := ULINT_TO_UDINT(M34.nRawEncoderULINT);
+    nEncCntrXM4K2  := ULINT_TO_UDINT(M35.nRawEncoderULINT);
+    nEncCntUSM4K2  := ULINT_TO_UDINT(M36.nRawEncoderULINT);
+    nEncCntDSM4K2  := ULINT_TO_UDINT(M37.nRawEncoderULINT);
+
+    // MR4K2 Bender RTDs
+    fM4K2US_RTD_1 := INT_TO_REAL(GVL_M4K2.nM4K2US_RTD_1);
+    fM4K2US_RTD_2 := INT_TO_REAL(GVL_M4K2.nM4K2US_RTD_2);
+    fM4K2US_RTD_3 := INT_TO_REAL(GVL_M4K2.nM4K2US_RTD_3);
+
+    fM4K2DS_RTD_1 := INT_TO_REAL(GVL_M4K2.nM4K2DS_RTD_1);
+    fM4K2DS_RTD_2 := INT_TO_REAL(GVL_M4K2.nM4K2DS_RTD_2);
+    fM4K2DS_RTD_3 := INT_TO_REAL(GVL_M4K2.nM4K2DS_RTD_3);
+
+    // RTD not connected if T=0
+    bM4K2US_RTD_1_Err := fM4K2US_RTD_1 = 0;
+    bM4K2US_RTD_2_Err := fM4K2DS_RTD_2 = 0;
+    bM4K2US_RTD_3_Err := fM4K2US_RTD_3 = 0;
+    bM4K2DS_RTD_1_Err := fM4K2DS_RTD_1 = 0;
+    bM4K2DS_RTD_2_Err := fM4K2DS_RTD_2 = 0;
+    bM4K2DS_RTD_3_Err := fM4K2DS_RTD_3 = 0;
+
+    // M4K2 Bender RTD interlocks
+    M36.bHardwareEnable R= fM4K2US_RTD_1 > 10000 OR bM4K2US_RTD_1_Err;
+    M37.bHardwareEnable R= fM4K2DS_RTD_1 > 10000 OR bM4K2DS_RTD_1_Err;
+
+    (*
+    //PMPS
+    ffBenderRange.i_xOK :=
+        GVL_M4K2.nM4K2US_PMPS_LowerLimit < nEncCntUSM4K2 AND nEncCntUSM4K2 < GVL_M4K2.nM4K2US_PMPS_UpperLimit AND
+        GVL_M4K2.nM4K2DS_PMPS_LowerLimit < nEncCntDSM4K2 AND nEncCntUSM4K2 < GVL_M4K2.nM4K2DS_PMPS_UpperLimit;
+    ffBenderRange(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1); 
+    *)
+
+    END_PROGRAM
+
+
 PRG_SL1K2_EXIT
 ^^^^^^^^^^^^^^
 
@@ -2175,4 +3233,170 @@ PRG_ST1K1_ZOS
     fbZOS(stMotionStage:=Main.M24);
 
     END_PROGRAM
+
+
+PRG_ZeroOrder_PMPS
+^^^^^^^^^^^^^^^^^^
+
+::
+
+    PROGRAM PRG_ZeroOrder_PMPS
+    VAR
+    // PMPS
+    	ffZeroOrderBeam : FB_FastFault := (
+            i_xAutoReset := TRUE,
+            i_DevName := 'Zero Order Beam',
+            i_Desc := 'Faults when Zero order beam safe conditions are not met',
+            i_TypeCode := 16#F506);	
+    	{attribute 'pytmc' := '
+            pv: SIM:SafeBenderRange
+            field: ZNAM FALSE
+            field: ONAM TRUE
+        '}
+        bSafeBenderRange : BOOL;
+    	
+    	{attribute 'pytmc' := '
+            pv: SIM:LRG_Grating_IN
+            field: ZNAM FALSE
+            field: ONAM TRUE
+        '}
+        bLRG_Grating_IN : BOOL;
+    	
+    	{attribute 'pytmc' := '
+            pv: SIM:ZOS_IN
+            field: ZNAM FALSE
+            field: ONAM TRUE
+        '}
+        bZOS_IN : BOOL;
+    	
+    	{attribute 'pytmc' := '
+            pv: SIM:ZOB_on_Lower_Stopper
+            field: ZNAM FALSE
+            field: ONAM TRUE
+        '}
+        bZOB_on_Lower_Stopper : BOOL;
+    	
+    	{attribute 'pytmc' := '
+            pv: SIM:MR1K1_Inserted
+            field: ZNAM FALSE
+            field: ONAM TRUE
+        '}
+        bMR1K1_Inserted : BOOL;
+    	
+    	{attribute 'pytmc' := '
+            pv: SIM:ZeroOrderBeam
+            field: ZNAM FALSE
+            field: ONAM TRUE
+        '}
+        bZeroOrderBeam : BOOL;
+    		
+
+    	Pm3 : LREAL;
+    	Pm2: LREAL;
+    	Pm1: LREAL;
+    	Hm1: LREAL;
+    	HZos:LREAL;
+    	Zbm1: LREAL;
+    	Zbm2: LREAL;
+    	Zbm3: LREAL;
+    	Hbm1: LREAL;
+    	Hbm2: LREAL;
+    	Hbm3: LREAL;
+    	Hb0m3:LREAL;
+    	//fixed calc
+    	Hm3	 : LREAL;
+    	Hpiv : LREAL;
+    	Theta_m1: LREAL;
+    	Theta_m2: LREAL;
+    	Theta_m3: LREAL;
+    	Delta : LREAL;
+    	Ans : LREAL;
+    END_VAR
+    VAR CONSTANT
+    	Hi2 :LREAL:=1.4;//m
+    	Zi2: LREAL :=731.613;//m
+    	Theta0 : LREAL:=0;
+    	Zm1 : LREAL:=733.772;//m
+    	Zmon : LREAL:=739.622;//m
+    	Zpiv : LREAL:= 739.622 ; //m
+    	Zzos : LREAL:= 741.422;//m
+    END_VAR
+    ffZeroOrderBeam.i_xOK := SafeBenderRange() OR (bLRG_Grating_IN AND bZOS_IN AND bZeroOrderBeam AND MR1K1_Inserted());
+    ffZeroOrderBeam(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
+
+
+    //Diagnostics
+    bSafeBenderRange := SafeBenderRange();
+    //bLRG_Grating_IN := LRG_Grating_IN();
+    //bZOS_IN := ZOS_IN();
+    bZOB_on_Lower_Stopper := ZOB_on_Lower_Stopper();
+    bMR1K1_Inserted := MR1K1_Inserted();
+    //bZeroOrderBeam := ffZeroOrderBeam.i_xOK;
+
+
+
+
+    //TRUE if hb0m3(Zzoz) - Hzos > D
+    Ans := Hb0m3 - (Hzos*1E3); //um
+    IF GVL_PMPS.rPhotonEnergy <550 THEN
+    	bZeroOrderBeam := Ans > 6*1E3;
+    	ELSIF GVL_PMPS.rPhotonEnergy <1000 THEN
+    		bZeroOrderBeam := Ans >  3.2*1E3;
+    	ELSIF GVL_PMPS.rPhotonEnergy >=1000 THEN
+    		bZeroOrderBeam := Ans >  2.5*1E3;		
+    END_IF
+
+    //
+    ACT_CALC();
+    ACT_ZOS_IN();
+    ACT_LRG_Grating_IN();
+
+    END_PROGRAM
+    ACTION ACT_CALC:
+    ///calc
+    //Hm1 = 1400000+mr1k1 ben Y up
+    Hm1:= 1400000+M12.fPosition; //um
+    //Pm1 = 18310 - 281 + mr1k1 bend pitch 
+    Pm1 := 18310 - 281 + Main.M16.fPosition; //urad
+    //Hpiv = 1.620305 + 0.001 // m 0.001 is correction from nominal
+    Hpiv:= (1.620305 + 0.001)*1E6; //um
+    //Pm2 = mono mirror pitch - 90700 urad
+    Pm2 := Main.M6.fPosition - 90700;//urad
+    //Hm3 = Hpiv + 0.006 m
+    Hm3:= Hpiv + (0.006*1E6); //um
+    //Pm3 = mono grating pitch - 63300 urad
+    Pm3 := Main.M7.fPosition - 63300; //urad
+    //Hzos = 1824.3 + st1k1_zos mm
+    Hzos:= 1824.3 + M24.fPosition; //mm
+
+
+    //urad
+    Theta_m1 := 2*Pm1 - Theta0;
+    Theta_m2 := 2*Pm2 - Theta_m1;
+    Theta_m3 := 2 *Pm3 - 2 * Pm2 + 2* Pm1 - Theta0;
+
+    // fix units
+    //um
+    Zbm1 := (Hm1 - TAN(Pm1)* (Zm1*1E6) - (Hi2*1E6) + TAN(Theta0) *(Zi2*1E6))/(TAN(Theta0) - TAN(Pm1));
+    hbm1 := TAN(Pm1)*Zbm1 + Hm1 - TAN(Pm1)*(Zm1*1E6);
+    //u?
+    Zbm2 := (Hbm1 - TAN(Theta_m1)*Zbm1 - Hpiv + TAN(Pm2)*(Zpiv*1E6))/ (TAN(Pm2) - TAN(Theta_m1));
+    Hbm2 := TAN(Pm2)*Zbm2 + Hpiv - TAN(Pm2)*(Zpiv*1E6);
+
+    Zbm3 := (Hbm2 - TAN(Theta_m2)*Zbm2 - Hm3 + TAN(Pm3)*(Zpiv*1E6))/ (TAN(Pm3) - TAN(Theta_m2));
+    Hbm3 := TAN(Pm3) * Zbm3 + Hm3 - TAN(Pm3)*(Zpiv*1E6);
+
+    Hb0m3 := TAN(Theta_m3)*(Zzos*1E6) + Hbm3 - TAN(Theta_m3)*Zbm3;
+    END_ACTION
+    ACTION ACT_LRG_Grating_IN:
+    bLRG_Grating_IN := (M9.fPosition >= 24000) AND (M9.fPosition <= 28000);
+    END_ACTION
+    ACTION ACT_ZOS_IN:
+    IF GVL_PMPS.rPhotonEnergy >1500 THEN bZOS_IN:= FALSE;
+    	ELSIF (GVL_PMPS.rPhotonEnergy >1000 AND M24.fPosition>= 8.5) THEN bZOS_IN:= TRUE;
+    		ELSIF (GVL_PMPS.rPhotonEnergy <=1000 AND GVL_PMPS.rPhotonEnergy >550 AND M24.fPosition>= 7.9) THEN bZOS_IN:= TRUE;
+    			ELSIF (GVL_PMPS.rPhotonEnergy <=550 AND GVL_PMPS.rPhotonEnergy >200 AND M24.fPosition>= 6.9) THEN bZOS_IN:= TRUE; 
+    				ELSE bZOS_IN:= FALSE;
+    END_IF
+    END_ACTION
 
