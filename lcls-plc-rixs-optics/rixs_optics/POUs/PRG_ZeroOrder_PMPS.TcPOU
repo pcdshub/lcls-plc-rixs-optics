@@ -79,7 +79,7 @@ VAR CONSTANT
 	Theta0 : LREAL:=0;
 	Zm1 : LREAL:=733.772;//m
 	Zmon : LREAL:=739.622;//m
-	Zpiv : LREAL:= 739.622 ; //m
+	Zpiv : LREAL:= 739.762 ; //m
 	Zzos : LREAL:= 741.422;//m
 END_VAR
 ]]></Declaration>
@@ -87,7 +87,7 @@ END_VAR
       <ST><![CDATA[
 ffZeroOrderBeam.i_xOK := SafeBenderRange() OR (bLRG_Grating_IN AND bZOS_IN AND bZeroOrderBeam AND MR1K1_Inserted());
 ffZeroOrderBeam(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
-
+bZOB_on_Lower_Stopper := ffZeroOrderBeam.i_xOK;
 
 //Diagnostics
 bSafeBenderRange := SafeBenderRange();
@@ -141,22 +141,22 @@ Theta_m3 := 2 *Pm3 - 2 * Pm2 + 2* Pm1 - Theta0;
 
 // fix units
 //um
-Zbm1 := (Hm1 - TAN(Pm1)* (Zm1*1E6) - (Hi2*1E6) + TAN(Theta0) *(Zi2*1E6))/(TAN(Theta0) - TAN(Pm1));
-hbm1 := TAN(Pm1)*Zbm1 + Hm1 - TAN(Pm1)*(Zm1*1E6);
+Zbm1 := (Hm1 - TAN(Pm1*1E-6)* (Zm1*1E6) - (Hi2*1E6) + TAN(Theta0*1E-6) *(Zi2*1E6))/(TAN(Theta0*1E-6) - TAN(Pm1*1E-6));
+hbm1 := TAN(Pm1*1E-6)*Zbm1 + Hm1 - TAN(Pm1*1E-6)*(Zm1*1E6);
 //u?
-Zbm2 := (Hbm1 - TAN(Theta_m1)*Zbm1 - Hpiv + TAN(Pm2)*(Zpiv*1E6))/ (TAN(Pm2) - TAN(Theta_m1));
-Hbm2 := TAN(Pm2)*Zbm2 + Hpiv - TAN(Pm2)*(Zpiv*1E6);
+Zbm2 := (Hbm1 - TAN(Theta_m1*1E-6)*Zbm1 - Hpiv + TAN(Pm2*1E-6)*(Zpiv*1E6))/ (TAN(Pm2*1E-6) - TAN(Theta_m1*1E-6));
+Hbm2 := TAN(Pm2*1E-6)*Zbm2 + Hpiv - TAN(Pm2*1E-6)*(Zpiv*1E6);
 
-Zbm3 := (Hbm2 - TAN(Theta_m2)*Zbm2 - Hm3 + TAN(Pm3)*(Zpiv*1E6))/ (TAN(Pm3) - TAN(Theta_m2));
-Hbm3 := TAN(Pm3) * Zbm3 + Hm3 - TAN(Pm3)*(Zpiv*1E6);
+Zbm3 := (Hbm2 - TAN(Theta_m2*1E-6)*Zbm2 - Hm3 + TAN(Pm3*1E-6)*(Zpiv*1E6))/ (TAN(Pm3*1E-6) - TAN(Theta_m2*1E-6));
+Hbm3 := TAN(Pm3*1E-6) * Zbm3 + Hm3 - TAN(Pm3*1E-6)*(Zpiv*1E6);
 
-Hb0m3 := TAN(Theta_m3)*(Zzos*1E6) + Hbm3 - TAN(Theta_m3)*Zbm3;
+Hb0m3 := TAN(Theta_m3*1E-6)*(Zzos*1E6) + Hbm3 - TAN(Theta_m3*1E-6)*Zbm3;
 ]]></ST>
       </Implementation>
     </Action>
     <Action Name="ACT_LRG_Grating_IN" Id="{8babb51d-911c-461c-99fc-bb1adfccc9fe}">
       <Implementation>
-        <ST><![CDATA[bLRG_Grating_IN := (M9.fPosition >= 24000) AND (M9.fPosition <= 28000);]]></ST>
+        <ST><![CDATA[bLRG_Grating_IN := ((M9.nEncoderCount/1000) >= 24000) AND ((M9.nEncoderCount/1000) <= 28000);]]></ST>
       </Implementation>
     </Action>
     <Action Name="ACT_ZOS_IN" Id="{ea635b1c-413a-4430-b9a8-7a35a57ab8c1}">
