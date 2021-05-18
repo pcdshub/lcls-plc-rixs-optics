@@ -177,8 +177,8 @@ VAR_INPUT
 END_VAR
 ]]></Declaration>
       <Implementation>
-        <ST><![CDATA[MR1K1_Inserted := PMPS_GVL.stCurrentBeamParameters.aStoppers[PMPS.K_Stopper.MR1K1_IN] 
-                    AND NOT PMPS_GVL.stCurrentBeamParameters.aStoppers[PMPS.K_Stopper.MR1K1_OUT];]]></ST>
+        <ST><![CDATA[MR1K1_Inserted := PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_IN] 
+                    AND NOT PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_OUT];]]></ST>
       </Implementation>
     </Method>
     <Method Name="SafeBenderRange" Id="{b4c0e9bb-a0bf-4708-9d0f-639acbeed916}">
