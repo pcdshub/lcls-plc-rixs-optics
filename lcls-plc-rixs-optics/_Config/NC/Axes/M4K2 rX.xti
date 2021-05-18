@@ -1333,8 +1333,14 @@ External Setpoint Generation:
 		</AxisPara>
 		<Encoder Name="Enc" EncType="29">
 			<EncPara ScaleFactorNumerator="0.002571" Offset="-836.5" MaxCount="#xffffffff" ReferenceSystem="1">
+				<SoftEndMinControl Enable="true" Range="-100"/>
+				<SoftEndMaxControl Enable="true" Range="100"/>
 				<Inc RefSoftSyncMask="#x00000000"/>
+				<ParameterChanged>14</ParameterChanged>
+				<ParameterChanged>11</ParameterChanged>
 				<ParameterChanged>25</ParameterChanged>
+				<ParameterChanged>13</ParameterChanged>
+				<ParameterChanged>12</ParameterChanged>
 			</EncPara>
 			<Vars VarGrpType="1">
 				<Name>Inputs</Name>
@@ -1376,9 +1382,10 @@ External Setpoint Generation:
 			</Vars>
 		</Encoder>
 		<Drive Name="Drive" DrvType="24">
-			<DrvPara Inverse="true">
+			<DrvPara>
 				<Analog VeloReferenz="50" ScaleFactorActTorque="0.1"/>
 				<TimeComp TaskDelayCycles="1"/>
+				<ParameterChanged>6</ParameterChanged>
 			</DrvPara>
 			<Vars VarGrpType="1">
 				<Name>Inputs</Name>
