@@ -1321,7 +1321,7 @@ External Setpoint Generation:
 			</Relations>
 		</DataType>
 	</DataTypes>
-	<Axis Id="26" Disabled="true" CreateSymbols="true" AxisType="1" AxisFolder="M2K2">
+	<Axis Id="26" CreateSymbols="true" AxisType="1" AxisFolder="M2K2">
 		<Name>__FILENAME__</Name>
 		<AxisPara>
 			<Dynamic AccelerationMaximum="10" DecelerationMaximum="10" Acceleration="10" Deceleration="10" Jerk="15" DelayTime="0.008"/>
@@ -1345,7 +1345,7 @@ External Setpoint Generation:
 				<Var>
 					<Name>In</Name>
 					<Type GUID="{9ED17BA1-BC38-47CA-9DD2-F96861AB0266}" Namespace="MC">NCENCODERSTRUCT_IN3</Type>
-					<BitOffs>54272</BitOffs>
+					<BitOffs>56256</BitOffs>
 					<SubVar>
 						<Name>nState1</Name>
 						<Comment>
@@ -1375,7 +1375,7 @@ External Setpoint Generation:
 				<Var>
 					<Name>Out</Name>
 					<Type GUID="{4AA66E19-7B91-4A09-817D-0357681B7869}" Namespace="MC">NCENCODERSTRUCT_OUT3</Type>
-					<BitOffs>82944</BitOffs>
+					<BitOffs>85952</BitOffs>
 				</Var>
 			</Vars>
 		</Encoder>
@@ -1389,7 +1389,7 @@ External Setpoint Generation:
 				<Var>
 					<Name>In</Name>
 					<Type GUID="{F95C7C69-0C87-46C4-9559-1285CCA5B23A}" Namespace="MC">NCDRIVESTRUCT_IN2</Type>
-					<BitOffs>54912</BitOffs>
+					<BitOffs>56896</BitOffs>
 					<SubVar TypeFormatIndex="2">
 						<Name>nDataIn1</Name>
 					</SubVar>
@@ -1427,7 +1427,7 @@ Drive Status 4 (manually linked):
 				<Var>
 					<Name>Out</Name>
 					<Type GUID="{644DC4BD-3D15-4DCB-94C7-24F3A5D579AA}" Namespace="MC">NCDRIVESTRUCT_OUT2</Type>
-					<BitOffs>83584</BitOffs>
+					<BitOffs>86592</BitOffs>
 					<SubVar TypeFormatIndex="2">
 						<Name>nDataOut1</Name>
 					</SubVar>
@@ -1482,7 +1482,7 @@ Drive Status 4 (manually linked):
 			<Var>
 				<Name>FromPlc</Name>
 				<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				<BitOffs>53248</BitOffs>
+				<BitOffs>55232</BitOffs>
 			</Var>
 		</Vars>
 		<Vars VarGrpType="2" InsertType="1">
@@ -1490,7 +1490,7 @@ Drive Status 4 (manually linked):
 			<Var>
 				<Name>ToPlc</Name>
 				<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
-				<BitOffs>80896</BitOffs>
+				<BitOffs>83904</BitOffs>
 				<SubVar>
 					<Name>AxisState</Name>
 					<Comment>
