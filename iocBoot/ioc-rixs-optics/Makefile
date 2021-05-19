@@ -1,4 +1,4 @@
-IOC_TOP = /reg/g/pcds/epics/ioc/common/ads-ioc/R0.3.1
+IOC_TOP = /reg/g/pcds/epics/ioc/common/ads-ioc/R0.4.1
 
 IOC_INSTANCE_PATH := $(shell pwd)
 
@@ -10,6 +10,6 @@ PROJECT_PATH := ../../lcls-plc-rixs-optics/lcls-plc-rixs-optics.tsproj
 PLC := rixs_optics
 
 PYTMC_OPTS := 
-PREFIX := PLC:RIXS:OPTICS
+PREFIX := PLC:RIX:OPTICS
 
 include $(IOC_TOP)/iocBoot/templates/Makefile.base
