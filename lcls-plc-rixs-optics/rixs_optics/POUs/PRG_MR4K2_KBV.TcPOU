@@ -160,9 +160,9 @@ VAR
 		bM4K2DS_RTD_3_Err AT %I*: BOOL;
 	
 	//Emergency Stop for MR4K2
-		{attribute 'TcLinkTo' := 'TIIB[EL1004_M4K2_STO]^Channel 1^Input'}
+		{attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2_BENDER^EL1004_M4K2_STO^Channel 1^Input'}
 		M4K2KBVbSTOEnable1 AT %I* : BOOL;
-		{attribute 'TcLinkTo' := 'TIIB[EL1004_M4K2_STO]^Channel 2^Input'}
+		{attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2_BENDER^EL1004_M4K2_STO^Channel 2^Input'}
 		M4K2KBVbSTOEnable2 AT %I* : BOOL;
 
 (*	
@@ -245,8 +245,8 @@ bM4K2DS_RTD_2_Err := fM4K2DS_RTD_2 = 0;
 bM4K2DS_RTD_3_Err := fM4K2DS_RTD_3 = 0;
 
 // M4K2 Bender RTD interlocks
-M36.bHardwareEnable R= fM4K2US_RTD_1 > 10000 OR bM4K2US_RTD_1_Err;
-M37.bHardwareEnable R= fM4K2DS_RTD_1 > 10000 OR bM4K2DS_RTD_1_Err;
+//M36.bHardwareEnable R= fM4K2US_RTD_1 > 10000 OR bM4K2US_RTD_1_Err;
+//M37.bHardwareEnable R= fM4K2DS_RTD_1 > 10000 OR bM4K2DS_RTD_1_Err;
 
 (*
 //PMPS
@@ -256,18 +256,5 @@ ffBenderRange.i_xOK :=
 ffBenderRange(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1); 
 *)]]></ST>
     </Implementation>
-    <LineIds Name="PRG_MR4K2_KBV">
-      <LineId Id="462" Count="46" />
-      <LineId Id="2" Count="0" />
-      <LineId Id="589" Count="1" />
-      <LineId Id="568" Count="16" />
-      <LineId Id="586" Count="2" />
-      <LineId Id="567" Count="0" />
-      <LineId Id="607" Count="0" />
-      <LineId Id="605" Count="0" />
-      <LineId Id="601" Count="3" />
-      <LineId Id="600" Count="0" />
-      <LineId Id="608" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>

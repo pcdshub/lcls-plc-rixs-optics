@@ -67,9 +67,10 @@ VAR
 		nEncCntrXM2K2 : UDINT;
 	
 	//Emergency Stop for MR2K2 //M2K2 needs an EL1004 term and an ESTOP added, not listed in I/O either
-	{attribute 'TcLinkTo' := 'TIIB[EL1004_M2K2_FLAT_STO]^Channel 1^Input'}
+	
+	{attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 310 (EK1122)^EK1100_MR2K2^EL1004_M2K2_STO^Channel 1^Input'}
 	M2K2FLATbSTOEnable1 AT %I* : BOOL;
-	{attribute 'TcLinkTo' := 'TIIB[EL1004_M2K2_FLAT_STO]^Channel 2^Input'}
+	{attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 310 (EK1122)^EK1100_MR2K2^EL1004_M2K2_STO^Channel 2^Input'}
 	M2K2FLATbSTOEnable2 AT %I* : BOOL;
 	
 END_VAR]]></Declaration>
@@ -109,9 +110,5 @@ nEncCntXM2K2  := ULINT_TO_UDINT(M25.nRawEncoderULINT);
 nEncCntYM2K2  := ULINT_TO_UDINT(M26.nRawEncoderULINT);
 nEncCntrXM2K2  := ULINT_TO_UDINT(M27.nRawEncoderULINT);]]></ST>
     </Implementation>
-    <LineIds Name="PRG_MR2K2_FLAT">
-      <LineId Id="353" Count="32" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>
