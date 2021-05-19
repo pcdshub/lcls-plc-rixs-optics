@@ -160,8 +160,7 @@ VAR
 		bM4K2DS_RTD_3_Err AT %I*: BOOL;
 	
 	//Emergency Stop for MR4K2
-		{attribute 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2_BENDER^EL1004_M4K2_STO^Channel 1^Input'}
-        
+		{attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2_BENDER^EL1004_M4K2_STO^Channel 1^Input'}
 		M4K2KBVbSTOEnable1 AT %I* : BOOL;
 		{attribute 'TcLinkTo' := 'TIIB[EL1004_M4K2_STO]^Channel 2^Input'}
 		M4K2KBVbSTOEnable2 AT %I* : BOOL;
