@@ -148,11 +148,11 @@ GVL_M1K1_BENDER_Constants
     	nM1K1bendDS_ENC_REF : ULINT := 21225900;
         
         // PMPS Limits for benders
-        nM1K1bendUS_PMPS_UpperLimit : ULINT := 21500000;//22100000; As requested by Alex R and RP
-        nM1K1bendUS_PMPS_LowerLimit : ULINT := 20100000;//20900000;
+        nM1K1bendUS_PMPS_UpperLimit : ULINT := 22100000; //21500000;//22100000; As requested by Alex R and RP, switched back again
+        nM1K1bendUS_PMPS_LowerLimit : ULINT := 20900000; //20100000;//20900000;
         
-        nM1K1bendDS_PMPS_UpperLimit : ULINT := 21100000;//21800000;
-        nM1K1bendDS_PMPS_LowerLimit : ULINT := 19800000;//20600000;
+        nM1K1bendDS_PMPS_UpperLimit : ULINT := 21800000;//21100000;//21800000;
+        nM1K1bendDS_PMPS_LowerLimit : ULINT := 20600000;// 19800000;//20600000;
     END_VAR
 
 
@@ -353,10 +353,10 @@ GVL_PMPS
         fbArbiter: FB_Arbiter(1);
         {attribute 'pytmc' := 'pv: PLC:RIX:OPTICS:FFO:01'}
         {attribute 'TcLinkTo' := '.q_xFastFaultOut:=TIIB[PMPS_FFO]^Channel 1^Output'}
-        fbFastFaultOutput1: FB_HardwareFFOutput := (bAutoReset := TRUE);
+        fbFastFaultOutput1: FB_HardwareFFOutput := (bAutoReset := TRUE , i_sNetID:='172.21.92.73.1.1' );
         {attribute 'pytmc' := 'pv: PLC:RIX:OPTICS:FFO:02'}
         {attribute 'TcLinkTo' := '.q_xFastFaultOut:=TIIB[PMPS_FFO]^Channel 2^Output'}
-        fbFastFaultOutput2: FB_HardwareFFOutput := (bAutoReset := TRUE);
+        fbFastFaultOutput2: FB_HardwareFFOutput := (bAutoReset := TRUE, i_sNetID:='172.21.92.73.1.1');
     	{attribute 'TcLinkTo' := ':=TIIB[PMPS_PRE]^IO Inputs^rPhotonEnergy'}
     	rPhotonEnergy AT%I*: REAL;
     END_VAR
@@ -588,25 +588,25 @@ Main
                                   .bBrakeRelease        := TIIB[ST1K1-EL2008]^Channel 1^Output'}
         M24: DUT_MotionStage := (sName := 'ST1K1:ZOS:MMS');
     	
-    (*	// MR2K2-FLAT axes
+        // MR2K2-FLAT axes
     	{attribute 'pytmc' := 'pv: MR2K2:FLAT:MMS:X'}
     	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M2K2X]^STM Status^Status^Digital input 1;
                                   .bLimitBackwardEnable:=TIIB[EL7041_M2K2X]^STM Status^Status^Digital input 2;
     							  .nRawEncoderULINT:=TIIB[EL5042_M2K2X_M2K2Y]^FB Inputs Channel 1^Position'}
-    	M25 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //X mot
+    	M25 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE); //X mot
        	fbMotionStageM25 : FB_MotionStage;
     	{attribute 'pytmc' := 'pv: MR2K2:FLAT:MMS:Y'}
         {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M2K2Y]^STM Status^Status^Digital input 1;
                                   .bLimitBackwardEnable:=TIIB[EL7041_M2K2Y]^STM Status^Status^Digital input 2;
     							  .nRawEncoderULINT:=TIIB[EL5042_M2K2X_M2K2Y]^FB Inputs Channel 2^Position'}
-        M26 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //Y mot
+        M26 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE); //Y mot
         fbMotionStageM26 : FB_MotionStage;
     	{attribute 'pytmc' := 'pv: MR2K2:FLAT:MMS:PITCH'}
         {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M2K2rX]^STM Status^Status^Digital input 1;
                                   .bLimitBackwardEnable:=TIIB[EL7041_M2K2rX]^STM Status^Status^Digital input 2;
     							  .nRawEncoderULINT:=TIIB[EL5042_M2K2rX]^FB Inputs Channel 1^Position'}
-        M27 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //Pitch mot
-        fbMotionStageM27 : FB_MotionStage;		*)
+        M27 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE); //Pitch mot
+        fbMotionStageM27 : FB_MotionStage;
     	
     	// MR3K2-KBH axes
     	{attribute 'pytmc' := 'pv: MR3K2:KBH:MMS:X'}
@@ -641,37 +641,37 @@ Main
     	fbMotionStageM32 : FB_MotionStage;
     	
     	
-    (*	// MR4K2-KBV axes
+        // MR4K2-KBV axes
     	{attribute 'pytmc' := 'pv: MR4K2:KBV:MMS:X'}
     	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M4K2X]^STM Status^Status^Digital input 1;
                                   .bLimitBackwardEnable:=TIIB[EL7041_M4K2X]^STM Status^Status^Digital input 2;
     							  .nRawEncoderULINT:=TIIB[EL5042_M4K2X_M4K2Y]^FB Inputs Channel 1^Position'}
-        M33 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //X mot
+        M33 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE); //X mot
         fbMotionStageM33 : FB_MotionStage;
     	{attribute 'pytmc' := 'pv: MR4K2:KBV:MMS:Y'}
         {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M4K2Y]^STM Status^Status^Digital input 1;
                                   .bLimitBackwardEnable:=TIIB[EL7041_M4K2Y]^STM Status^Status^Digital input 2;
     							  .nRawEncoderULINT:=TIIB[EL5042_M4K2X_M4K2Y]^FB Inputs Channel 2^Position'}
-        M34 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //Y mot
+        M34 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE); //Y mot
         fbMotionStageM34 : FB_MotionStage;
     	{attribute 'pytmc' := 'pv: MR4K2:KBV:MMS:PITCH'}
         {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M4K2rX]^STM Status^Status^Digital input 1;
                                   .bLimitBackwardEnable:=TIIB[EL7041_M4K2rX]^STM Status^Status^Digital input 2;
     							  .nRawEncoderULINT:=TIIB[EL5042_M4K2rY]^FB Inputs Channel 1^Position'}
-        M35 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //Pitch mot
+        M35 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE); //Pitch mot
         fbMotionStageM35 : FB_MotionStage;
     	{attribute 'pytmc' := '	pv: MR4K2:KBV:MMS:BEND:US'}
     	{attribute 'TcLinkTo' := '.bLimitForwardEnable :=TIIB[EL7041_M4K2_BEND_US]^STM Status^Status^Digital input 1;
                                   .bLimitBackwardEnable:=TIIB[EL7041_M4K2_BEND_US]^STM Status^Status^Digital input 2;
     							  .nRawEncoderULINT:= TIIB[EL5042_M4K2_BEND_USDS]^FB Inputs Channel 1^Position'}
-    	M36 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //MR4K2 US BEND
+    	M36 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE); //MR4K2 US BEND
     	fbMotionStageM36 : FB_MotionStage;
     	{attribute 'pytmc' := 'pv: MR4K2:KBV:MMS:BEND:DS'}
     	{attribute 'TcLinkTo' := '.bLimitForwardEnable :=TIIB[EL7041_M4K2_BEND_DS]^STM Status^Status^Digital input 1;
                                   .bLimitBackwardEnable:=TIIB[EL7041_M4K2_BEND_DS]^STM Status^Status^Digital input 2;
     							  .nRawEncoderULINT:= TIIB[EL5042_M4K2_BEND_USDS]^FB Inputs Channel 2^Position'}
-    	M37 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //MR4K2 DS BEND
-    	fbMotionStageM37 : FB_MotionStage;		*)
+    	M37 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE); //MR4K2 DS BEND
+    	fbMotionStageM37 : FB_MotionStage;
     	
     	
     	sio_current AT%I* : UINT;
@@ -1241,9 +1241,9 @@ PRG_1_PlcTask
     PRG_2_PMPS_POST();
     fbLogHandler();
     PRG_ZeroOrder_PMPS();
-    //PRG_MR2K2_FLAT();
+    PRG_MR2K2_FLAT();
     PRG_MR3K2_KBH();
-    //PRG_MR4K2_KBV();
+    PRG_MR4K2_KBV();
 
     END_PROGRAM
 
@@ -1257,16 +1257,16 @@ PRG_2_PMPS_POST
     VAR
         fbArbiterIO: FB_SubSysToArbiter_IO;
     END_VAR
-    GVL_PMPS.fbFastFaultOutput1.Execute(i_xVeto := PMPS_GVL.stCurrentBeamParameters.aStoppers[PMPS.K_Stopper.MR1K1_OUT] 
-                                            AND NOT PMPS_GVL.stCurrentBeamParameters.aStoppers[PMPS.K_Stopper.MR1K1_IN]);
-    GVL_PMPS.fbFastFaultOutput2.Execute(i_xVeto := PMPS_GVL.stCurrentBeamParameters.aStoppers[PMPS.K_Stopper.MR1K1_OUT] 
-                                            AND NOT PMPS_GVL.stCurrentBeamParameters.aStoppers[PMPS.K_Stopper.MR1K1_IN]);
+    GVL_PMPS.fbFastFaultOutput1.Execute(i_xVeto := PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_OUT] 
+                                            AND NOT PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_IN]);
+    GVL_PMPS.fbFastFaultOutput2.Execute(i_xVeto := PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_OUT] 
+                                            AND NOT PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_IN]);
 
     fbArbiterIO(
         Arbiter:=GVL_PMPS.fbArbiter,
         fbFFHWO:=GVL_PMPS.fbFastFaultOutput1,
-        i_bVeto := PMPS_GVL.stCurrentBeamParameters.aStoppers[PMPS.K_Stopper.MR1K1_OUT] 
-                   AND NOT PMPS_GVL.stCurrentBeamParameters.aStoppers[PMPS.K_Stopper.MR1K1_IN]);
+        i_bVeto := PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_OUT] 
+                   AND NOT PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_IN]);
 
     END_PROGRAM
 
@@ -2113,9 +2113,10 @@ PRG_MR2K2_FLAT
     		nEncCntrXM2K2 : UDINT;
     	
     	//Emergency Stop for MR2K2 //M2K2 needs an EL1004 term and an ESTOP added, not listed in I/O either
-    	{attribute 'TcLinkTo' := 'TIIB[EL1004_M2K2_FLAT_STO]^Channel 1^Input'}
+    	
+    	{attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 310 (EK1122)^EK1100_MR2K2^EL1004_M2K2_STO^Channel 1^Input'}
     	M2K2FLATbSTOEnable1 AT %I* : BOOL;
-    	{attribute 'TcLinkTo' := 'TIIB[EL1004_M2K2_FLAT_STO]^Channel 2^Input'}
+    	{attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 310 (EK1122)^EK1100_MR2K2^EL1004_M2K2_STO^Channel 2^Input'}
     	M2K2FLATbSTOEnable2 AT %I* : BOOL;
     	
     END_VAR
@@ -2583,9 +2584,9 @@ PRG_MR4K2_KBV
     		bM4K2DS_RTD_3_Err AT %I*: BOOL;
     	
     	//Emergency Stop for MR4K2
-    		{attribute 'TcLinkTo' := 'TIIB[EL1004_M4K2_STO]^Channel 1^Input'}
+    		{attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2_BENDER^EL1004_M4K2_STO^Channel 1^Input'}
     		M4K2KBVbSTOEnable1 AT %I* : BOOL;
-    		{attribute 'TcLinkTo' := 'TIIB[EL1004_M4K2_STO]^Channel 2^Input'}
+    		{attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2_BENDER^EL1004_M4K2_STO^Channel 2^Input'}
     		M4K2KBVbSTOEnable2 AT %I* : BOOL;
 
     (*	
@@ -2667,8 +2668,8 @@ PRG_MR4K2_KBV
     bM4K2DS_RTD_3_Err := fM4K2DS_RTD_3 = 0;
 
     // M4K2 Bender RTD interlocks
-    M36.bHardwareEnable R= fM4K2US_RTD_1 > 10000 OR bM4K2US_RTD_1_Err;
-    M37.bHardwareEnable R= fM4K2DS_RTD_1 > 10000 OR bM4K2DS_RTD_1_Err;
+    //M36.bHardwareEnable R= fM4K2US_RTD_1 > 10000 OR bM4K2US_RTD_1_Err;
+    //M37.bHardwareEnable R= fM4K2DS_RTD_1 > 10000 OR bM4K2DS_RTD_1_Err;
 
     (*
     //PMPS
@@ -3318,12 +3319,12 @@ PRG_ZeroOrder_PMPS
     	Theta0 : LREAL:=0;
     	Zm1 : LREAL:=733.772;//m
     	Zmon : LREAL:=739.622;//m
-    	Zpiv : LREAL:= 739.622 ; //m
+    	Zpiv : LREAL:= 739.762 ; //m
     	Zzos : LREAL:= 741.422;//m
     END_VAR
     ffZeroOrderBeam.i_xOK := SafeBenderRange() OR (bLRG_Grating_IN AND bZOS_IN AND bZeroOrderBeam AND MR1K1_Inserted());
     ffZeroOrderBeam(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
-
+    bZOB_on_Lower_Stopper := ffZeroOrderBeam.i_xOK;
 
     //Diagnostics
     bSafeBenderRange := SafeBenderRange();
@@ -3377,19 +3378,19 @@ PRG_ZeroOrder_PMPS
 
     // fix units
     //um
-    Zbm1 := (Hm1 - TAN(Pm1)* (Zm1*1E6) - (Hi2*1E6) + TAN(Theta0) *(Zi2*1E6))/(TAN(Theta0) - TAN(Pm1));
-    hbm1 := TAN(Pm1)*Zbm1 + Hm1 - TAN(Pm1)*(Zm1*1E6);
+    Zbm1 := (Hm1 - TAN(Pm1*1E-6)* (Zm1*1E6) - (Hi2*1E6) + TAN(Theta0*1E-6) *(Zi2*1E6))/(TAN(Theta0*1E-6) - TAN(Pm1*1E-6));
+    hbm1 := TAN(Pm1*1E-6)*Zbm1 + Hm1 - TAN(Pm1*1E-6)*(Zm1*1E6);
     //u?
-    Zbm2 := (Hbm1 - TAN(Theta_m1)*Zbm1 - Hpiv + TAN(Pm2)*(Zpiv*1E6))/ (TAN(Pm2) - TAN(Theta_m1));
-    Hbm2 := TAN(Pm2)*Zbm2 + Hpiv - TAN(Pm2)*(Zpiv*1E6);
+    Zbm2 := (Hbm1 - TAN(Theta_m1*1E-6)*Zbm1 - Hpiv + TAN(Pm2*1E-6)*(Zpiv*1E6))/ (TAN(Pm2*1E-6) - TAN(Theta_m1*1E-6));
+    Hbm2 := TAN(Pm2*1E-6)*Zbm2 + Hpiv - TAN(Pm2*1E-6)*(Zpiv*1E6);
 
-    Zbm3 := (Hbm2 - TAN(Theta_m2)*Zbm2 - Hm3 + TAN(Pm3)*(Zpiv*1E6))/ (TAN(Pm3) - TAN(Theta_m2));
-    Hbm3 := TAN(Pm3) * Zbm3 + Hm3 - TAN(Pm3)*(Zpiv*1E6);
+    Zbm3 := (Hbm2 - TAN(Theta_m2*1E-6)*Zbm2 - Hm3 + TAN(Pm3*1E-6)*(Zpiv*1E6))/ (TAN(Pm3*1E-6) - TAN(Theta_m2*1E-6));
+    Hbm3 := TAN(Pm3*1E-6) * Zbm3 + Hm3 - TAN(Pm3*1E-6)*(Zpiv*1E6);
 
-    Hb0m3 := TAN(Theta_m3)*(Zzos*1E6) + Hbm3 - TAN(Theta_m3)*Zbm3;
+    Hb0m3 := TAN(Theta_m3*1E-6)*(Zzos*1E6) + Hbm3 - TAN(Theta_m3*1E-6)*Zbm3;
     END_ACTION
     ACTION ACT_LRG_Grating_IN:
-    bLRG_Grating_IN := (M9.fPosition >= 24000) AND (M9.fPosition <= 28000);
+    bLRG_Grating_IN := ((M9.nEncoderCount/1000) >= 24000) AND ((M9.nEncoderCount/1000) <= 28000);
     END_ACTION
     ACTION ACT_ZOS_IN:
     IF GVL_PMPS.rPhotonEnergy >1500 THEN bZOS_IN:= FALSE;

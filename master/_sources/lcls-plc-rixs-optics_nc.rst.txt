@@ -610,6 +610,7 @@ Axis 18: M1K1-BEND-DS
     Enc:Inc:RefSoftSyncMask, #x0000ffff
     Enc:MaxCount, #xffffffff
     Enc:ScaleFactorNumerator, 1e-06
+    Enc:SoftEndMaxControl:Enable, true
     Enc:SoftEndMaxControl:Range, 22
     Enc:SoftEndMinControl:Enable, true
     Enc:SoftEndMinControl:Range, 5.86
@@ -841,7 +842,6 @@ Axis 25: M2K2 X
     AxisFolder, M2K2
     AxisType, 1
     CreateSymbols, true
-    Disabled, true
     Dynamic:Acceleration, 100
     Dynamic:AccelerationMaximum, 100
     Dynamic:Deceleration, 100
@@ -853,6 +853,10 @@ Axis 25: M2K2 X
     Enc:Offset, -21445
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 5e-06
+    Enc:SoftEndMaxControl:Enable, true
+    Enc:SoftEndMaxControl:Range, 12.5
+    Enc:SoftEndMinControl:Enable, true
+    Enc:SoftEndMinControl:Range, -12.5
     Id, 25
     OtherSettings:AllowMotionCmdToSlave, true
     Velo:Maximum, 20
@@ -871,7 +875,6 @@ Axis 26: M2K2 Y
     AxisFolder, M2K2
     AxisType, 1
     CreateSymbols, true
-    Disabled, true
     Dynamic:Acceleration, 10
     Dynamic:AccelerationMaximum, 10
     Dynamic:Deceleration, 10
@@ -884,6 +887,10 @@ Axis 26: M2K2 Y
     Enc:Offset, -29.8
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 5e-06
+    Enc:SoftEndMaxControl:Enable, true
+    Enc:SoftEndMaxControl:Range, 2.3
+    Enc:SoftEndMinControl:Enable, true
+    Enc:SoftEndMinControl:Range, -2.3
     Id, 26
     OtherSettings:AllowMotionCmdToSlave, true
     Velo:Maximum, 1.25
@@ -902,7 +909,6 @@ Axis 27: M2K2 rX
     AxisFolder, M2K2
     AxisType, 1
     CreateSymbols, true
-    Disabled, true
     Dynamic:Acceleration, 200
     Dynamic:AccelerationMaximum, 200
     Dynamic:Deceleration, 200
@@ -914,6 +920,10 @@ Axis 27: M2K2 rX
     Enc:Offset, -1152
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 0.0025826446
+    Enc:SoftEndMaxControl:Enable, true
+    Enc:SoftEndMaxControl:Range, 150
+    Enc:SoftEndMinControl:Enable, true
+    Enc:SoftEndMinControl:Range, -150
     General:UnitName, urad
     Id, 27
     OtherSettings:AllowMotionCmdToSlave, true
@@ -1034,9 +1044,9 @@ Axis 31: M3K2-BEND-US
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 1e-06
     Enc:SoftEndMaxControl:Enable, true
-    Enc:SoftEndMaxControl:Range, 22
+    Enc:SoftEndMaxControl:Range, 18.25
     Enc:SoftEndMinControl:Enable, true
-    Enc:SoftEndMinControl:Range, 5
+    Enc:SoftEndMinControl:Range, 13.75
     Id, 31
     OtherSettings:AllowMotionCmdToSlave, true
     Velo:Maximum, 0.1
@@ -1067,9 +1077,9 @@ Axis 32: M3K2-BEND-DS
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 1e-06
     Enc:SoftEndMaxControl:Enable, true
-    Enc:SoftEndMaxControl:Range, 22
+    Enc:SoftEndMaxControl:Range, 19.25
     Enc:SoftEndMinControl:Enable, true
-    Enc:SoftEndMinControl:Range, 2
+    Enc:SoftEndMinControl:Range, 13.75
     Id, 32
     OtherSettings:AllowMotionCmdToSlave, true
     Velo:Maximum, 0.1
@@ -1088,7 +1098,6 @@ Axis 33: M4K2 X
     AxisFolder, M4K2
     AxisType, 1
     CreateSymbols, true
-    Disabled, true
     Dynamic:Acceleration, 100
     Dynamic:AccelerationMaximum, 100
     Dynamic:Deceleration, 100
@@ -1100,6 +1109,10 @@ Axis 33: M4K2 X
     Enc:Offset, -29.51
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 5e-06
+    Enc:SoftEndMaxControl:Enable, true
+    Enc:SoftEndMaxControl:Range, 11.9
+    Enc:SoftEndMinControl:Enable, true
+    Enc:SoftEndMinControl:Range, -11.9
     Id, 33
     OtherSettings:AllowMotionCmdToSlave, true
     Velo:Maximum, 20
@@ -1118,7 +1131,6 @@ Axis 34: M4K2 Y
     AxisFolder, M4K2
     AxisType, 1
     CreateSymbols, true
-    Disabled, true
     Dynamic:Acceleration, 10
     Dynamic:AccelerationMaximum, 10
     Dynamic:Deceleration, 10
@@ -1131,6 +1143,10 @@ Axis 34: M4K2 Y
     Enc:Offset, -30
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 5e-06
+    Enc:SoftEndMaxControl:Enable, true
+    Enc:SoftEndMaxControl:Range, 1.2
+    Enc:SoftEndMinControl:Enable, true
+    Enc:SoftEndMinControl:Range, -1.2
     Id, 34
     OtherSettings:AllowMotionCmdToSlave, true
     Velo:Maximum, 1.25
@@ -1149,7 +1165,6 @@ Axis 35: M4K2 rX
     AxisFolder, M4K2
     AxisType, 1
     CreateSymbols, true
-    Disabled, true
     Dynamic:Acceleration, 200
     Dynamic:AccelerationMaximum, 200
     Dynamic:Deceleration, 200
@@ -1161,6 +1176,10 @@ Axis 35: M4K2 rX
     Enc:Offset, -836.5
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 0.002571
+    Enc:SoftEndMaxControl:Enable, true
+    Enc:SoftEndMaxControl:Range, 100
+    Enc:SoftEndMinControl:Enable, true
+    Enc:SoftEndMinControl:Range, -100
     General:UnitName, urad
     Id, 35
     OtherSettings:AllowMotionCmdToSlave, true
@@ -1180,7 +1199,6 @@ Axis 36: M4K2-BEND-US
     AxisFolder, M4K2
     AxisType, 1
     CreateSymbols, true
-    Disabled, true
     Dynamic:Acceleration, 0.6
     Dynamic:AccelerationMaximum, 0.6
     Dynamic:Deceleration, 0.6
@@ -1193,9 +1211,9 @@ Axis 36: M4K2-BEND-US
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 1e-06
     Enc:SoftEndMaxControl:Enable, true
-    Enc:SoftEndMaxControl:Range, 22
+    Enc:SoftEndMaxControl:Range, 14.7
     Enc:SoftEndMinControl:Enable, true
-    Enc:SoftEndMinControl:Range, 5
+    Enc:SoftEndMinControl:Range, 6.5
     Id, 36
     OtherSettings:AllowMotionCmdToSlave, true
     Velo:Maximum, 0.1
@@ -1214,7 +1232,6 @@ Axis 37: M4K2-BEND-DS
     AxisFolder, M4K2
     AxisType, 1
     CreateSymbols, true
-    Disabled, true
     Dynamic:Acceleration, 0.6
     Dynamic:AccelerationMaximum, 0.6
     Dynamic:Deceleration, 0.6
@@ -1227,9 +1244,9 @@ Axis 37: M4K2-BEND-DS
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 1e-06
     Enc:SoftEndMaxControl:Enable, true
-    Enc:SoftEndMaxControl:Range, 22
+    Enc:SoftEndMaxControl:Range, 16.55
     Enc:SoftEndMinControl:Enable, true
-    Enc:SoftEndMinControl:Range, 5
+    Enc:SoftEndMinControl:Range, 8
     Id, 37
     OtherSettings:AllowMotionCmdToSlave, true
     Velo:Maximum, 0.1
