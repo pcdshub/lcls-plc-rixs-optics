@@ -72,6 +72,11 @@ VAR
 	Theta_m3: LREAL;
 	Delta : LREAL;
 	Ans : LREAL;
+	ffZeroOrderBeamExitSlits : FB_FastFault := (
+        i_xAutoReset := TRUE,
+        i_DevName := 'Zero Order Beam and Exit Slits',
+        i_Desc := 'Faults when Zero order beam is aligned and exit slits are closed',
+        i_TypeCode := 16#F506);	
 END_VAR
 VAR CONSTANT
 	Hi2 :LREAL:=1.4;//m
@@ -101,19 +106,20 @@ bMR1K1_Inserted := MR1K1_Inserted();
 
 
 //TRUE if hb0m3(Zzoz) - Hzos > D
-Ans := Hb0m3 - (Hzos*1E3); //um
+Ans := (Hzos*1E3) - Hb0m3; //um
 IF GVL_PMPS.rPhotonEnergy <550 THEN
-	bZeroOrderBeam := Ans > 6*1E3;
+	bZeroOrderBeam := Ans > 3*1E3;
 	ELSIF GVL_PMPS.rPhotonEnergy <1000 THEN
-		bZeroOrderBeam := Ans >  3.2*1E3;
+		bZeroOrderBeam := Ans >  2.5*1E3;
 	ELSIF GVL_PMPS.rPhotonEnergy >=1000 THEN
-		bZeroOrderBeam := Ans >  2.5*1E3;		
+		bZeroOrderBeam := Ans >  2*1E3;		
 END_IF
 
 //
 ACT_CALC();
 ACT_ZOS_IN();
-ACT_LRG_Grating_IN();]]></ST>
+ACT_LRG_Grating_IN();
+ACT_ExitSlitsGap();]]></ST>
     </Implementation>
     <Action Name="ACT_CALC" Id="{29570aa5-9d14-46b0-b59e-651abe0f5e16}">
       <Implementation>
@@ -152,6 +158,13 @@ Hbm3 := TAN(Pm3*1E-6) * Zbm3 + Hm3 - TAN(Pm3*1E-6)*(Zpiv*1E6);
 
 Hb0m3 := TAN(Theta_m3*1E-6)*(Zzos*1E6) + Hbm3 - TAN(Theta_m3*1E-6)*Zbm3;
 ]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ACT_ExitSlitsGap" Id="{72615217-f71d-41ee-b0dd-e3c54f411832}">
+      <Implementation>
+        <ST><![CDATA[// FAULT condition: Hzos -1.0mm <= Hb0m3) AND sl1k2 gap <= 8.0
+ffZeroOrderBeamExitSlits.i_xOK := NOT( (( (Hzos*1E3) - 1) <= Hb0m3) AND ( M22.fPosition <= 8.0));
+ffZeroOrderBeamExitSlits(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);]]></ST>
       </Implementation>
     </Action>
     <Action Name="ACT_LRG_Grating_IN" Id="{8babb51d-911c-461c-99fc-bb1adfccc9fe}">
