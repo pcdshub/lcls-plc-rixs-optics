@@ -849,8 +849,9 @@ Axis 25: M2K2 X
     Dynamic:DelayTime, 0.008
     Enc:EncType, 29
     Enc:Inc:RefSoftSyncMask, #x00000000
+    Enc:Inverse, true
     Enc:MaxCount, #xffffffff
-    Enc:Offset, -21445
+    Enc:Offset, -92233720368517.4
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 5e-06
     Enc:SoftEndMaxControl:Enable, true
@@ -884,7 +885,7 @@ Axis 26: M2K2 Y
     Enc:EncType, 29
     Enc:Inc:RefSoftSyncMask, #x00000000
     Enc:MaxCount, #xffffffff
-    Enc:Offset, -29.8
+    Enc:Offset, -29.8773
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 5e-06
     Enc:SoftEndMaxControl:Enable, true
@@ -917,7 +918,7 @@ Axis 27: M2K2 rX
     Enc:EncType, 29
     Enc:Inc:RefSoftSyncMask, #x00000000
     Enc:MaxCount, #xffffffff
-    Enc:Offset, -1152
+    Enc:Offset, -130197.25
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 0.0025826446
     Enc:SoftEndMaxControl:Enable, true
@@ -954,6 +955,10 @@ Axis 28: M3K2 X
     Enc:Offset, -29.756
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 5e-06
+    Enc:SoftEndMaxControl:Enable, true
+    Enc:SoftEndMaxControl:Range, 1.2
+    Enc:SoftEndMinControl:Enable, true
+    Enc:SoftEndMinControl:Range, -1.2
     Id, 28
     OtherSettings:AllowMotionCmdToSlave, true
     Velo:Maximum, 20
@@ -984,6 +989,10 @@ Axis 29: M3K2 Y
     Enc:Offset, -29.286
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 5e-06
+    Enc:SoftEndMaxControl:Enable, true
+    Enc:SoftEndMaxControl:Range, 7
+    Enc:SoftEndMinControl:Enable, true
+    Enc:SoftEndMinControl:Range, -11
     Id, 29
     OtherSettings:AllowMotionCmdToSlave, true
     Velo:Maximum, 1.25
@@ -1013,6 +1022,10 @@ Axis 30: M3K2 rY
     Enc:Offset, -209396
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 0.005236
+    Enc:SoftEndMaxControl:Enable, true
+    Enc:SoftEndMaxControl:Range, 100
+    Enc:SoftEndMinControl:Enable, true
+    Enc:SoftEndMinControl:Range, -100
     General:UnitName, urad
     Id, 30
     OtherSettings:AllowMotionCmdToSlave, true
@@ -1106,16 +1119,16 @@ Axis 33: M4K2 X
     Enc:EncType, 29
     Enc:Inc:RefSoftSyncMask, #x00000000
     Enc:MaxCount, #xffffffff
-    Enc:Offset, -29.51
+    Enc:Offset, -26.6221
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 5e-06
     Enc:SoftEndMaxControl:Enable, true
-    Enc:SoftEndMaxControl:Range, 11.9
+    Enc:SoftEndMaxControl:Range, 14
     Enc:SoftEndMinControl:Enable, true
-    Enc:SoftEndMinControl:Range, -11.9
+    Enc:SoftEndMinControl:Range, -9.1
     Id, 33
     OtherSettings:AllowMotionCmdToSlave, true
-    Velo:Maximum, 20
+    Velo:Maximum, 0.6
 
 
 
@@ -1140,13 +1153,13 @@ Axis 34: M4K2 Y
     Enc:EncType, 29
     Enc:Inc:RefSoftSyncMask, #x00000000
     Enc:MaxCount, #xffffffff
-    Enc:Offset, -30
+    Enc:Offset, -29.075
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 5e-06
     Enc:SoftEndMaxControl:Enable, true
-    Enc:SoftEndMaxControl:Range, 1.2
+    Enc:SoftEndMaxControl:Range, 1.8
     Enc:SoftEndMinControl:Enable, true
-    Enc:SoftEndMinControl:Range, -1.2
+    Enc:SoftEndMinControl:Range, -0.37
     Id, 34
     OtherSettings:AllowMotionCmdToSlave, true
     Velo:Maximum, 1.25
@@ -1173,7 +1186,7 @@ Axis 35: M4K2 rX
     Enc:EncType, 29
     Enc:Inc:RefSoftSyncMask, #x00000000
     Enc:MaxCount, #xffffffff
-    Enc:Offset, -836.5
+    Enc:Offset, -130236.02
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 0.002571
     Enc:SoftEndMaxControl:Enable, true
@@ -1216,7 +1229,7 @@ Axis 36: M4K2-BEND-US
     Enc:SoftEndMinControl:Range, 6.5
     Id, 36
     OtherSettings:AllowMotionCmdToSlave, true
-    Velo:Maximum, 0.1
+    Velo:Maximum, 0.04
 
 
 
