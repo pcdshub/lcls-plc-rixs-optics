@@ -234,31 +234,31 @@
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M3K2X]^STM Status^Status^Digital input 1;
                               .bLimitBackwardEnable:=TIIB[EL7041_M3K2X]^STM Status^Status^Digital input 2;
 							  .nRawEncoderULINT:=TIIB[EL5042_M3K2X_M3K2Y]^FB Inputs Channel 1^Position'}
-    M28 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //X mot
+    M28 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE); //X mot
     fbMotionStageM28 : FB_MotionStage;
 	{attribute 'pytmc' := 'pv: MR3K2:KBH:MMS:Y'}
     {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M3K2Y]^STM Status^Status^Digital input 1;
                               .bLimitBackwardEnable:=TIIB[EL7041_M3K2Y]^STM Status^Status^Digital input 2;
 							  .nRawEncoderULINT:=TIIB[EL5042_M3K2X_M3K2Y]^FB Inputs Channel 2^Position'}
-    M29 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //Y mot
+    M29 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE); //Y mot
     fbMotionStageM29 : FB_MotionStage;
 	{attribute 'pytmc' := 'pv: MR3K2:KBH:MMS:PITCH'}
     {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M3K2rY]^STM Status^Status^Digital input 1;
                               .bLimitBackwardEnable:=TIIB[EL7041_M3K2ry]^STM Status^Status^Digital input 2;
 							  .nRawEncoderULINT:=TIIB[EL5042_M3K2rY]^FB Inputs Channel 1^Position'}
-    M30 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //Pitch mot
+    M30 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE); //Pitch mot
     fbMotionStageM30 : FB_MotionStage;
 	{attribute 'pytmc' := '	pv: MR3K2:KBH:MMS:BEND:US'}
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable :=TIIB[EL7041_M3K2_BEND_US]^STM Status^Status^Digital input 1;
                               .bLimitBackwardEnable:=TIIB[EL7041_M3K2_BEND_US]^STM Status^Status^Digital input 2;
 							  .nRawEncoderULINT:= TIIB[EL5042_M3K2_BEND_USDS]^FB Inputs Channel 1^Position'}
-	M31 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //MR3K2 US BEND
+	M31 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE); //MR3K2 US BEND
 	fbMotionStageM31 : FB_MotionStage;
 	{attribute 'pytmc' := 'pv: MR3K2:KBH:MMS:BEND:DS'}
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable :=TIIB[EL7041_M3K2_BEND_DS]^STM Status^Status^Digital input 1;
                               .bLimitBackwardEnable:=TIIB[EL7041_M3K2_BEND_DS]^STM Status^Status^Digital input 2;
 							  .nRawEncoderULINT:= TIIB[EL5042_M3K2_BEND_USDS]^FB Inputs Channel 2^Position'}
-	M32 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE); //MR3K2 DS BEND
+	M32 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE); //MR3K2 DS BEND
 	fbMotionStageM32 : FB_MotionStage;
 	
 	
