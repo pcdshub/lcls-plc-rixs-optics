@@ -1,22 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
   <POU Name="PRG_2_PMPS_POST" Id="{336c6a08-057c-4abe-b1ea-e25741c63140}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_2_PMPS_POST
 VAR
     fbArbiterIO: FB_SubSysToArbiter_IO;
+	ff2_ff1_link: FB_FastFault := (i_xAutoReset := TRUE, i_DevName := 'FF2 to FF1 Link', i_Desc := 'This is virtual FF2 fault', i_TypeCode := 16#FFFF);
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[GVL_PMPS.fbFastFaultOutput1.Execute(i_xVeto := PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_OUT] 
                                         AND NOT PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_IN]);
-GVL_PMPS.fbFastFaultOutput2.Execute(i_xVeto := PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_OUT] 
-                                        AND NOT PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_IN]);
+GVL_PMPS.fbFastFaultOutput2.Execute(i_xVeto := (PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_OUT] 
+                                        AND NOT PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_IN])
+										 OR PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.ST1K2]);
 
 fbArbiterIO(
     Arbiter:=GVL_PMPS.fbArbiter,
     fbFFHWO:=GVL_PMPS.fbFastFaultOutput1,
     i_bVeto := PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_OUT] 
-               AND NOT PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_IN]);]]></ST>
+               AND NOT PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_IN]);
+
+ff2_ff1_link(
+	io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1,
+    i_xOK :=  GVL_PMPS.fbFastFaultOutput2.q_xFastFaultOut);
+
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
