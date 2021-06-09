@@ -349,8 +349,10 @@ GVL_PMPS
 
     {attribute 'qualified_only'}
     VAR_GLOBAL
-    	{attribute 'pytmc' := 'pv: PLC:RIX:OPTICS:ARB'}
-        fbArbiter: FB_Arbiter(1);
+    	{attribute 'pytmc' := 'pv: PLC:RIX:OPTICS:ARB:01'}
+        fbArbiter1: FB_Arbiter(1);
+    	{attribute 'pytmc' := 'pv: PLC:RIX:OPTICS:ARB:02'}
+        fbArbiter2: FB_Arbiter(2);
         {attribute 'pytmc' := 'pv: PLC:RIX:OPTICS:FFO:01'}
         {attribute 'TcLinkTo' := '.q_xFastFaultOut:=TIIB[PMPS_FFO]^Channel 1^Output'}
         fbFastFaultOutput1: FB_HardwareFFOutput := (bAutoReset := TRUE , i_sNetID:='172.21.92.73.1.1' );
@@ -1256,21 +1258,27 @@ PRG_2_PMPS_POST
     PROGRAM PRG_2_PMPS_POST
     VAR
         fbArbiterIO: FB_SubSysToArbiter_IO;
-    	ff2_ff1_link: FB_FastFault := (i_xAutoReset := TRUE, i_DevName := 'FF2 to FF1 Link', i_Desc := 'This is virtual FF2 fault', i_TypeCode := 16#FFFF);
+    	fb_vetoArbiter: FB_VetoArbiter;
+    	ff2_ff1_link_optics: FB_FastFault := (i_xAutoReset := TRUE, i_DevName := 'FF2 to FF1 Link Optics', i_Desc := 'This is virtual FF2 fault, Please see faulting optics devices', i_TypeCode := 16#FFFF);
     END_VAR
-    GVL_PMPS.fbFastFaultOutput1.Execute(i_xVeto := PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_OUT] 
-                                            AND NOT PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_IN]);
+    GVL_PMPS.fbFastFaultOutput1.Execute(i_xVeto := (PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_OUT]) 
+                                                 AND (NOT PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_IN]));
     GVL_PMPS.fbFastFaultOutput2.Execute(i_xVeto := (PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_OUT] 
                                             AND NOT PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_IN])
     										 OR PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.ST1K2]);
 
     fbArbiterIO(
-        Arbiter:=GVL_PMPS.fbArbiter,
+        Arbiter:=GVL_PMPS.fbArbiter1,
         fbFFHWO:=GVL_PMPS.fbFastFaultOutput1,
         i_bVeto := PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_OUT] 
                    AND NOT PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_IN]);
+    			   
+    fb_vetoArbiter(bVeto:= PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.ST1K2], 
+                    HigherAuthority := GVL_PMPS.fbArbiter1,
+    				LowerAuthority := GVL_PMPS.fbArbiter2,
+                    FFO := GVL_PMPS.fbFastFaultOutput2);			   
 
-    ff2_ff1_link(
+    ff2_ff1_link_optics(
     	io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1,
         i_xOK :=  GVL_PMPS.fbFastFaultOutput2.q_xFastFaultOut);
 
@@ -2849,7 +2857,7 @@ PRG_SL1K2_EXIT
 
     //States with PMPS
     fbStates(
-        fbArbiter:=GVL_PMPS.fbArbiter,
+        fbArbiter:=GVL_PMPS.fbArbiter1,
         fbFFHWO:=GVL_PMPS.fbFastFaultOutput1,
         nTransitionAssertionID:=,
         nUnknownAssertionID:=,
