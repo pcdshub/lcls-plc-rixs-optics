@@ -178,6 +178,8 @@ ffBenderRange.i_xOK :=
     GVL_M1K1_BENDER_Constants.nM1K1bendUS_PMPS_LowerLimit < nEncCntBendUSM1K1 AND nEncCntBendUSM1K1 < GVL_M1K1_BENDER_Constants.nM1K1bendUS_PMPS_UpperLimit AND
     GVL_M1K1_BENDER_Constants.nM1K1bendDS_PMPS_LowerLimit < nEncCntBendDSM1K1 AND nEncCntBendDSM1K1 < GVL_M1K1_BENDER_Constants.nM1K1bendDS_PMPS_UpperLimit;
 ffBenderRange(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
+
+M17.bLimitForwardEnable := TRUE;
 ]]></ST>
     </Implementation>
   </POU>
