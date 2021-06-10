@@ -245,8 +245,8 @@ bM3K2DS_RTD_2_Err := fM3K2DS_RTD_2 = 0;
 bM3K2DS_RTD_3_Err := fM3K2DS_RTD_3 = 0;
 
 // M3K2 Bender RTD interlocks
-M31.bHardwareEnable R= fM3K2US_RTD_1 > 10000 OR bM3K2US_RTD_1_Err;
-M32.bHardwareEnable R= fM3K2DS_RTD_1 > 10000 OR bM3K2DS_RTD_1_Err;
+M31.bHardwareEnable R= fM3K2US_RTD_1 > 9000 OR bM3K2US_RTD_1_Err;
+M32.bHardwareEnable R= fM3K2DS_RTD_1 > 9000 OR bM3K2DS_RTD_1_Err;
 
 (*
 //PMPS
@@ -256,18 +256,5 @@ ffBenderRange.i_xOK :=
 ffBenderRange(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1); 
 *)]]></ST>
     </Implementation>
-    <LineIds Name="PRG_MR3K2_KBH">
-      <LineId Id="462" Count="46" />
-      <LineId Id="2" Count="0" />
-      <LineId Id="589" Count="1" />
-      <LineId Id="568" Count="16" />
-      <LineId Id="586" Count="2" />
-      <LineId Id="567" Count="0" />
-      <LineId Id="607" Count="0" />
-      <LineId Id="605" Count="0" />
-      <LineId Id="601" Count="3" />
-      <LineId Id="600" Count="0" />
-      <LineId Id="608" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>
