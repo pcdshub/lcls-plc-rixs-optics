@@ -2016,11 +2016,12 @@ External Setpoint Generation:
 				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.05" PulseDistanceNeg="0.05"/>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="29">
-				<EncPara ScaleFactorNumerator="1e-06" Offset="-19.5127" MaxCount="#xffffffff">
+				<EncPara ScaleFactorNumerator="1e-06" Offset="-19.5307" MaxCount="#xffffffff">
 					<SoftEndMinControl Enable="true" Range="0.02"/>
 					<SoftEndMaxControl Enable="true" Range="8.65"/>
 					<Inc RefSoftSyncMask="#x0000ffff"/>
 					<ParameterChanged>13</ParameterChanged>
+					<ParameterChanged>7</ParameterChanged>
 				</EncPara>
 				<Vars VarGrpType="1">
 					<Name>Inputs</Name>
