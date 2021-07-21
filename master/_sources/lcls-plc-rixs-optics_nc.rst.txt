@@ -251,6 +251,8 @@ Axis 6: m_pi
     General:UnitName, urad
     Id, 6
     OtherSettings:AllowMotionCmdToSlave, true
+    TargetPosControl:Range, 0.05
+    TargetPosControl:Time, 0.5
 
 
 
@@ -276,10 +278,11 @@ Axis 7: g_pi
     Enc:ScaleFactorNumerator, 0.0066667
     General:UnitName, urad
     Id, 7
-    MotionControl:Enable, true
+    MotionControl:Time, 1
     OtherSettings:AllowMotionCmdToSlave, true
     PositionAreaControl:Range, 0.05
     TargetPosControl:Range, 0.05
+    TargetPosControl:Time, 0.5
 
 
 
