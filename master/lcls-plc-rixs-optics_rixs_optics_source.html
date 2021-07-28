@@ -1409,6 +1409,23 @@ END_VAR
     <span class="n">fbArbiterIO</span><span class="p">:</span> <span class="n">FB_SubSysToArbiter_IO</span><span class="p">;</span>
     <span class="n">fb_vetoArbiter</span><span class="p">:</span> <span class="n">FB_VetoArbiter</span><span class="p">;</span>
     <span class="n">ff2_ff1_link_optics</span><span class="p">:</span> <span class="n">FB_FastFault</span> <span class="o">:=</span> <span class="p">(</span><span class="n">i_xAutoReset</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">i_DevName</span> <span class="o">:=</span> <span class="s1">&#39;FF2 to FF1 Link Optics&#39;</span><span class="p">,</span> <span class="n">i_Desc</span> <span class="o">:=</span> <span class="s1">&#39;This is virtual FF2 fault, Please see faulting optics devices&#39;</span><span class="p">,</span> <span class="n">i_TypeCode</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#FFFF);</span>
+    <span class="o">//</span><span class="n">Extra</span> <span class="n">FFOs</span>
+    <span class="n">ffRIX01</span> <span class="p">:</span> <span class="n">FB_FastFault</span> <span class="o">:=</span> <span class="p">(</span>
+        <span class="n">i_xAutoReset</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">,</span>
+        <span class="n">i_DevName</span> <span class="o">:=</span> <span class="s1">&#39;RIX Tran 0.1&#39;</span><span class="p">,</span>
+        <span class="n">i_Desc</span> <span class="o">:=</span> <span class="s1">&#39;Faults when M1K1 is IN and transmission is above 0.1&#39;</span><span class="p">,</span>
+        <span class="n">i_TypeCode</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#F509);</span>
+    <span class="n">ffRIX02</span> <span class="p">:</span> <span class="n">FB_FastFault</span> <span class="o">:=</span> <span class="p">(</span>
+        <span class="n">i_xAutoReset</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">,</span>
+        <span class="n">i_DevName</span> <span class="o">:=</span> <span class="s1">&#39;RIX Tran 0.2&#39;</span><span class="p">,</span>
+        <span class="n">i_Desc</span> <span class="o">:=</span> <span class="s1">&#39;Faults when M1K1 is IN and transmission is above 0.2&#39;</span><span class="p">,</span>
+        <span class="n">i_TypeCode</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#F510);</span>
+    <span class="n">ffRIX05</span> <span class="p">:</span> <span class="n">FB_FastFault</span> <span class="o">:=</span> <span class="p">(</span>
+        <span class="n">i_xAutoReset</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">,</span>
+        <span class="n">i_DevName</span> <span class="o">:=</span> <span class="s1">&#39;RIX Tran 0.5&#39;</span><span class="p">,</span>
+        <span class="n">i_Desc</span> <span class="o">:=</span> <span class="s1">&#39;Faults when M1K1 is IN and transmission is above 0.5&#39;</span><span class="p">,</span>
+        <span class="n">i_TypeCode</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#F511);</span>
+    <span class="n">delta</span><span class="p">:</span> <span class="n">real</span><span class="o">:=</span><span class="mf">0.1</span><span class="p">;</span>
 <span class="n">END_VAR</span>
 <span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbFastFaultOutput1</span><span class="o">.</span><span class="n">Execute</span><span class="p">(</span><span class="n">i_xVeto</span> <span class="o">:=</span> <span class="p">(</span><span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stCurrentBeamParameters</span><span class="o">.</span><span class="n">aVetoDevices</span><span class="p">[</span><span class="n">PMPS</span><span class="o">.</span><span class="n">K_Stopper</span><span class="o">.</span><span class="n">MR1K1_OUT</span><span class="p">])</span>
                                              <span class="n">AND</span> <span class="p">(</span><span class="n">NOT</span> <span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stCurrentBeamParameters</span><span class="o">.</span><span class="n">aVetoDevices</span><span class="p">[</span><span class="n">PMPS</span><span class="o">.</span><span class="n">K_Stopper</span><span class="o">.</span><span class="n">MR1K1_IN</span><span class="p">]));</span>
@@ -1430,6 +1447,14 @@ END_VAR
 <span class="n">ff2_ff1_link_optics</span><span class="p">(</span>
     <span class="n">io_fbFFHWO</span> <span class="o">:=</span> <span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbFastFaultOutput1</span><span class="p">,</span>
     <span class="n">i_xOK</span> <span class="o">:=</span>  <span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbFastFaultOutput2</span><span class="o">.</span><span class="n">q_xFastFaultOut</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">Extra</span> <span class="n">FFOs</span>
+<span class="n">ffRIX01</span><span class="o">.</span><span class="n">i_xOK</span> <span class="o">:=</span> <span class="p">(</span><span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stCurrentBeamParameters</span><span class="o">.</span><span class="n">nTran</span> <span class="o">&lt;=</span><span class="mf">0.1</span><span class="o">+</span><span class="p">(</span><span class="mf">0.1</span><span class="o">*</span><span class="n">delta</span><span class="p">));</span> <span class="o">//</span><span class="mf">0.1</span>
+<span class="n">ffRIX01</span><span class="p">(</span><span class="n">io_fbFFHWO</span> <span class="o">:=</span> <span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbFastFaultOutput1</span><span class="p">);</span>
+<span class="n">ffRIX02</span><span class="o">.</span><span class="n">i_xOK</span> <span class="o">:=</span> <span class="p">(</span><span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stCurrentBeamParameters</span><span class="o">.</span><span class="n">nTran</span> <span class="o">&lt;=</span><span class="mf">0.2</span><span class="o">+</span><span class="p">(</span><span class="mf">0.2</span><span class="o">*</span><span class="n">delta</span><span class="p">));</span>
+<span class="n">ffRIX02</span><span class="p">(</span><span class="n">io_fbFFHWO</span> <span class="o">:=</span> <span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbFastFaultOutput1</span><span class="p">);</span>
+<span class="n">ffRIX05</span><span class="o">.</span><span class="n">i_xOK</span> <span class="o">:=</span> <span class="p">(</span><span class="n">PMPS_GVL</span><span class="o">.</span><span class="n">stCurrentBeamParameters</span><span class="o">.</span><span class="n">nTran</span> <span class="o">&lt;=</span><span class="mf">0.5</span><span class="o">+</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">delta</span><span class="p">));</span>
+<span class="n">ffRIX05</span><span class="p">(</span><span class="n">io_fbFFHWO</span> <span class="o">:=</span> <span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbFastFaultOutput1</span><span class="p">);</span>
 
 <span class="n">END_PROGRAM</span>
 </pre></div>
