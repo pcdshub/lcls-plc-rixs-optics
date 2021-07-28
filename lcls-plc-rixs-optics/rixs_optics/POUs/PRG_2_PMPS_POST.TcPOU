@@ -4,6 +4,24 @@
     <Declaration><![CDATA[PROGRAM PRG_2_PMPS_POST
 VAR
     fbArbiterIO: FB_SubSysToArbiter_IO;
+	
+	//Extra FFOs
+	ffRIX01 : FB_FastFault := (
+        i_xAutoReset := FALSE,
+        i_DevName := 'RIX Tran 0.1',
+        i_Desc := 'Faults when M1K1 is IN and transmission is above 0.1',
+        i_TypeCode := 16#F509);	
+	ffRIX02 : FB_FastFault := (
+        i_xAutoReset := FALSE,
+        i_DevName := 'RIX Tran 0.2',
+        i_Desc := 'Faults when M1K1 is IN and transmission is above 0.2',
+        i_TypeCode := 16#F510);	
+	ffRIX05 : FB_FastFault := (
+        i_xAutoReset := FALSE,
+        i_DevName := 'RIX Tran 0.5',
+        i_Desc := 'Faults when M1K1 is IN and transmission is above 0.5',
+        i_TypeCode := 16#F511);	
+	delta: real:=0.2;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -16,7 +34,15 @@ fbArbiterIO(
     Arbiter:=GVL_PMPS.fbArbiter,
     fbFFHWO:=GVL_PMPS.fbFastFaultOutput1,
     i_bVeto := PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_OUT] 
-               AND NOT PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_IN]);]]></ST>
+               AND NOT PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_IN]);
+			   
+// Extra FFOs
+ffRIX01.i_xOK := (PMPS_GVL.stCurrentBeamParameters.nTran <=0.1+(0.1*delta)); //0.1
+ffRIX01(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
+ffRIX02.i_xOK := (PMPS_GVL.stCurrentBeamParameters.nTran <=0.2+(0.2*delta));
+ffRIX02(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);		
+ffRIX05.i_xOK := (PMPS_GVL.stCurrentBeamParameters.nTran <=0.5+(0.5*delta));
+ffRIX05(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);	   ]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
