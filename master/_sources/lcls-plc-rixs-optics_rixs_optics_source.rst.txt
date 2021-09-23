@@ -17,6 +17,12 @@ DUT_01_Channel_NW
     END_TYPE
 
 
+Related:
+    * `DUT_01_Channel_NW`_
+    * `DUT_Channel_NW`_
+    * `DUT_Header_NW`_
+
+
 DUT_Channel_NW
 ^^^^^^^^^^^^^^
 
@@ -48,6 +54,8 @@ DUT_Channel_NW
         uint8_t     reserved2[2];
     } encoder_channel_t;
     *)
+
+
 
 
 DUT_Header_NW
@@ -87,6 +95,8 @@ DUT_Header_NW
     *)
 
 
+
+
 ENUM_XS_YAG_States
 ^^^^^^^^^^^^^^^^^^
 
@@ -101,6 +111,8 @@ ENUM_XS_YAG_States
         YAG2 := 3
     );
     END_TYPE
+
+
 
 
 GVLs
@@ -119,6 +131,8 @@ GVL_COM_Buffers
     END_VAR
 
 
+
+
 GVL_M1K1
 ^^^^^^^^
 
@@ -134,6 +148,8 @@ GVL_M1K1
     		                                 diEncPosLimHi := 10139808,
     		                                 diEncPosLimLo := 9950984); // Set to 50 urad before hard limits tripped during SAT
     END_VAR
+
+
 
 
 GVL_M1K1_BENDER_Constants
@@ -154,6 +170,8 @@ GVL_M1K1_BENDER_Constants
         nM1K1bendDS_PMPS_UpperLimit : ULINT := 21800000;//21100000;//21800000;
         nM1K1bendDS_PMPS_LowerLimit : ULINT := 20600000;// 19800000;//20600000;
     END_VAR
+
+
 
 
 GVL_M1K1_BENDER_RTD
@@ -182,6 +200,8 @@ GVL_M1K1_BENDER_RTD
     END_VAR
 
 
+
+
 GVL_M1K1_Constants
 ^^^^^^^^^^^^^^^^^^
 
@@ -203,6 +223,8 @@ GVL_M1K1_Constants
     END_VAR
 
 
+
+
 GVL_M1K2
 ^^^^^^^^
 
@@ -218,6 +240,8 @@ GVL_M1K2
     		                                 diEncPosLimHi := 10121210,
     		                                 diEncPosLimLo := 10004610); // Set to 50 urad before hard limits tripped during SAT
     END_VAR
+
+
 
 
 GVL_M1K2_Constants
@@ -239,6 +263,8 @@ GVL_M1K2_Constants
     END_VAR
 
 
+
+
 GVL_M2K2
 ^^^^^^^^
 
@@ -252,6 +278,8 @@ GVL_M2K2
     	nM2K2Y_ENC_REF : ULINT := 5975460; //are
     	nM2K2rX_ENC_REF : ULINT := 50412360;//real
     END_VAR
+
+
 
 
 GVL_M3K2
@@ -299,6 +327,8 @@ GVL_M3K2
     END_VAR
 
 
+
+
 GVL_M4K2
 ^^^^^^^^
 
@@ -342,6 +372,8 @@ GVL_M4K2
     END_VAR
 
 
+
+
 GVL_PMPS
 ^^^^^^^^
 
@@ -364,6 +396,8 @@ GVL_PMPS
     END_VAR
 
 
+
+
 GVL_SerialIO
 ^^^^^^^^^^^^
 
@@ -375,6 +409,8 @@ GVL_SerialIO
     	Serial_stComIn_M1K2   AT %I*	:	EL6inData22B (*KL6inData22B*);
     	Serial_stComOut_M1K2  AT %Q*	:	EL6outData22B (*KL6outData22B*);
     END_VAR
+
+
 
 
 Main
@@ -683,6 +719,8 @@ Main
     END_VAR
 
 
+
+
 POUs
 ----
 
@@ -711,6 +749,8 @@ CheckBounds
     END_FUNCTION
 
 
+
+
 CheckDivDInt
 ^^^^^^^^^^^^
 
@@ -731,6 +771,8 @@ CheckDivDInt
     {flow}
 
     END_FUNCTION
+
+
 
 
 CheckDivLInt
@@ -755,6 +797,8 @@ CheckDivLInt
     END_FUNCTION
 
 
+
+
 CheckDivLReal
 ^^^^^^^^^^^^^
 
@@ -777,6 +821,8 @@ CheckDivLReal
     END_FUNCTION
 
 
+
+
 CheckDivReal
 ^^^^^^^^^^^^
 
@@ -797,6 +843,8 @@ CheckDivReal
     {flow}
 
     END_FUNCTION
+
+
 
 
 CheckLRangeSigned
@@ -824,6 +872,8 @@ CheckLRangeSigned
     END_FUNCTION
 
 
+
+
 CheckLRangeUnsigned
 ^^^^^^^^^^^^^^^^^^^
 
@@ -848,6 +898,8 @@ CheckLRangeUnsigned
     END_FUNCTION
 
 
+
+
 CheckPointer
 ^^^^^^^^^^^^
 
@@ -866,6 +918,8 @@ CheckPointer
     {flow}
 
     END_FUNCTION
+
+
 
 
 CheckRangeSigned
@@ -892,6 +946,8 @@ CheckRangeSigned
     END_FUNCTION
 
 
+
+
 CheckRangeUnsigned
 ^^^^^^^^^^^^^^^^^^
 
@@ -916,6 +972,8 @@ CheckRangeUnsigned
     END_FUNCTION
 
 
+
+
 F_AddChannelToHeader
 ^^^^^^^^^^^^^^^^^^^^
 
@@ -938,6 +996,11 @@ F_AddChannelToHeader
     END_IF
 
     END_FUNCTION
+
+
+Related:
+    * `DUT_Channel_NW`_
+    * `DUT_Header_NW`_
 
 
 FB_AssembleChannel
@@ -984,6 +1047,10 @@ FB_AssembleChannel
     END_FUNCTION_BLOCK
 
 
+Related:
+    * `DUT_Channel_NW`_
+
+
 FB_AssembleHeader
 ^^^^^^^^^^^^^^^^^
 
@@ -1021,6 +1088,10 @@ FB_AssembleHeader
     stHeader.mode := nMode;
 
     END_FUNCTION_BLOCK
+
+
+Related:
+    * `DUT_Header_NW`_
 
 
 FB_UDPSocketHandler
@@ -1103,6 +1174,8 @@ FB_UDPSocketHandler
     END_FUNCTION_BLOCK
 
 
+
+
 FB_XS_YAG_States
 ^^^^^^^^^^^^^^^^
 
@@ -1177,6 +1250,10 @@ FB_XS_YAG_States
     END_FUNCTION_BLOCK
 
 
+Related:
+    * `ENUM_XS_YAG_States`_
+
+
 P_Serial_Com
 ^^^^^^^^^^^^
 
@@ -1199,6 +1276,8 @@ P_Serial_Com
     						        ErrorID=> );
 
     END_PROGRAM
+
+
 
 
 PiezoSerial
@@ -1224,6 +1303,10 @@ PiezoSerial
     END_PROGRAM
 
 
+Related:
+    * `GVL_M1K2`_
+
+
 PRG_1_PlcTask
 ^^^^^^^^^^^^^
 
@@ -1239,7 +1322,7 @@ PRG_1_PlcTask
     PRG_SP1K1_MONO();
     PRG_SL1K2_EXIT();
     PRG_ST1K1_ZOS();
-    PRG_SPO_PMPS();
+    //PRG_SPO_PMPS(); As per Jira Ticket LCLSECSD-249
     PRG_2_PMPS_POST();
     fbLogHandler();
     PRG_ZeroOrder_PMPS();
@@ -1248,6 +1331,21 @@ PRG_1_PlcTask
     PRG_MR4K2_KBV();
 
     END_PROGRAM
+
+
+Related:
+    * `PRG_2_PMPS_POST`_
+    * `PRG_MR1K1_BEND`_
+    * `PRG_MR1K1_BEND_BENDER`_
+    * `PRG_MR1K2_SWITCH`_
+    * `PRG_MR2K2_FLAT`_
+    * `PRG_MR3K2_KBH`_
+    * `PRG_MR4K2_KBV`_
+    * `PRG_SL1K2_EXIT`_
+    * `PRG_SP1K1_MONO`_
+    * `PRG_SPO_PMPS`_
+    * `PRG_ST1K1_ZOS`_
+    * `PRG_ZeroOrder_PMPS`_
 
 
 PRG_2_PMPS_POST
@@ -1308,6 +1406,10 @@ PRG_2_PMPS_POST
     ffRIX05(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
 
     END_PROGRAM
+
+
+Related:
+    * `GVL_PMPS`_
 
 
 PRG_DAQ_ENCODER
@@ -1426,6 +1528,14 @@ PRG_DAQ_ENCODER
     );
 
     END_PROGRAM
+
+
+Related:
+    * `DUT_01_Channel_NW`_
+    * `FB_AssembleChannel`_
+    * `FB_AssembleHeader`_
+    * `FB_UDPSocketHandler`_
+    * `F_AddChannelToHeader`_
 
 
 PRG_MR1K1_BEND
@@ -1684,6 +1794,11 @@ PRG_MR1K1_BEND
     END_PROGRAM
 
 
+Related:
+    * `GVL_M1K1`_
+    * `GVL_M1K1_Constants`_
+
+
 PRG_MR1K1_BEND_BENDER
 ^^^^^^^^^^^^^^^^^^^^^
 
@@ -1869,6 +1984,12 @@ PRG_MR1K1_BEND_BENDER
     M17.bLimitForwardEnable := TRUE;
 
     END_PROGRAM
+
+
+Related:
+    * `GVL_M1K1_BENDER_Constants`_
+    * `GVL_M1K1_BENDER_RTD`_
+    * `GVL_PMPS`_
 
 
 PRG_MR1K2_SWITCH
@@ -2083,6 +2204,11 @@ PRG_MR1K2_SWITCH
     END_PROGRAM
 
 
+Related:
+    * `GVL_M1K2`_
+    * `GVL_M1K2_Constants`_
+
+
 PRG_MR2K2_FLAT
 ^^^^^^^^^^^^^^
 
@@ -2197,6 +2323,10 @@ PRG_MR2K2_FLAT
     nEncCntrXM2K2  := ULINT_TO_UDINT(M27.nRawEncoderULINT);
 
     END_PROGRAM
+
+
+Related:
+    * `GVL_M2K2`_
 
 
 PRG_MR3K2_KBH
@@ -2461,6 +2591,11 @@ PRG_MR3K2_KBH
     END_PROGRAM
 
 
+Related:
+    * `GVL_M3K2`_
+    * `GVL_PMPS`_
+
+
 PRG_MR4K2_KBV
 ^^^^^^^^^^^^^
 
@@ -2723,6 +2858,11 @@ PRG_MR4K2_KBV
     END_PROGRAM
 
 
+Related:
+    * `GVL_M4K2`_
+    * `GVL_PMPS`_
+
+
 PRG_SL1K2_EXIT
 ^^^^^^^^^^^^^^
 
@@ -2904,6 +3044,12 @@ PRG_SL1K2_EXIT
     RTD_HeatSync();
 
     END_PROGRAM
+
+
+Related:
+    * `FB_XS_YAG_States`_
+    * `GVL_PMPS`_
+    * `Main`_
 
 
 PRG_SP1K1_MONO
@@ -3157,6 +3303,10 @@ PRG_SP1K1_MONO
     END_PROGRAM
 
 
+Related:
+    * `GVL_PMPS`_
+
+
 PRG_SPO_PMPS
 ^^^^^^^^^^^^
 
@@ -3261,6 +3411,11 @@ PRG_SPO_PMPS
     END_PROGRAM
 
 
+Related:
+    * `GVL_PMPS`_
+    * `PRG_MR1K1_BEND_BENDER`_
+
+
 PRG_ST1K1_ZOS
 ^^^^^^^^^^^^^
 
@@ -3275,6 +3430,10 @@ PRG_ST1K1_ZOS
     fbZOS(stMotionStage:=Main.M24);
 
     END_PROGRAM
+
+
+Related:
+    * `Main`_
 
 
 PRG_ZeroOrder_PMPS
@@ -3452,4 +3611,9 @@ PRG_ZeroOrder_PMPS
     				ELSE bZOS_IN:= FALSE;
     END_IF
     END_ACTION
+
+
+Related:
+    * `GVL_PMPS`_
+    * `Main`_
 
