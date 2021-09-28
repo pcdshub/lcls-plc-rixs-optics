@@ -34,6 +34,8 @@ VAR
     
     fbSocketHandler : FB_UDPSocketHandler;
 	fbSocketSend : FB_SocketUdpSendTo;
+    fbSocketHandlerTest : FB_UDPSocketHandler;
+    fbSocketSendTest : FB_SocketUdpSendTo;
     payload : DUT_01_Channel_NW;
     fbHeader : FB_AssembleHeader := (sHardwareID := 'plc-tst-proto6');
     fbChannel : FB_AssembleChannel := (nChannel := 1);
@@ -97,17 +99,33 @@ F_AddChannelToHeader(
 );
 
 
+// Send to the DAQ
 fbSocketHandler(
     bEnable := TRUE,
     tRetry := T#30s,
     nLocalPort := 0,
     sLocalIP := '192.168.0.3'
 );
-
 fbSocketSend(
     hSocket := fbSocketHandler.hSocket,
     sRemoteHost := '192.168.0.8',
     nRemotePort := 5006,
+    cbLen := SIZEOF(payload),
+    pSrc := ADR(payload),
+    bExecute := bEnableSend AND bNewTrigger,
+);
+
+// Also send to a second port for testing/snooping
+fbSocketHandlerTest(
+    bEnable := TRUE,
+    tRetry := T#30s,
+    nLocalPort := 0,
+    sLocalIP := '192.168.0.3'
+);
+fbSocketSendTest(
+    hSocket := fbSocketHandler.hSocket,
+    sRemoteHost := '192.168.0.8',
+    nRemotePort := 5007,
     cbLen := SIZEOF(payload),
     pSrc := ADR(payload),
     bExecute := bEnableSend AND bNewTrigger,
