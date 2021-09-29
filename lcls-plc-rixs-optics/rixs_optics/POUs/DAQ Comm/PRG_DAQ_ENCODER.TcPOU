@@ -10,7 +10,13 @@ VAR
     iLatchNeg AT %I*: ULINT;
 	{attribute 'TcLinkTo' := 'TIIB[g_pi_up_dwn_e]^FB Inputs Channel 2^Position'}
     nEncoderCount AT %I*: ULINT;
-    bEnableSend: BOOL := TRUE;
+    bSendToDAQ: BOOL := TRUE;
+    bSendToTest: BOOL := FALSE;
+    // rix-daq is the default test host
+    sTestHost: STRING := '172.21.140.21';
+    bUseHWTriggers: BOOL := TRUE;
+    bUseSWTriggers: BOOL := FALSE;
+    tSWTriggerDelay: TIME := T#8ms;
     
     // Outputs
     iTimeSincePos: ULINT;
@@ -22,6 +28,7 @@ VAR
     
     // Internals
     bNewTrigger: BOOL;
+    tonSWTrigger: TON;
     iPrevLatchPos: ULINT;
     fMaxTimeInS: LREAL;
     fMinTimeInS: LREAL := 10000000;
@@ -33,22 +40,43 @@ VAR
     fEncScale: LREAL;
     
     fbSocketHandler : FB_UDPSocketHandler;
-	fbSocketSend : FB_SocketUdpSendTo;
+	fbSocketSend : FB_BufferedSocketSend;
     fbSocketHandlerTest : FB_UDPSocketHandler;
-    fbSocketSendTest : FB_SocketUdpSendTo;
+    fbSocketSendTest : FB_BufferedSocketSend;
     payload : DUT_01_Channel_NW;
     fbHeader : FB_AssembleHeader := (sHardwareID := 'plc-tst-proto6');
     fbChannel : FB_AssembleChannel := (nChannel := 1);
     
     // Function blocks
     fbGetTaskIndex: GETCURTASKINDEX;
+    
+    // Temp testing
+    nBusyCycles: UINT;
+    nMaxBusyCycles: UINT;
+    nDroppedFrames: UINT;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[fbGetTaskIndex();
+      <ST><![CDATA[IF fEncScale = 0 THEN
+    fEncScale := M7.stAxisParameters.fEncScaleFactorNumerator;
+END_IF
+
+fbGetTaskIndex();
 stTaskInfo := _TaskInfo[fbGetTaskIndex.index];
-bNewTrigger := iLatchPos <> iPrevLatchPos;
+IF bUseHWTriggers THEN
+    bNewTrigger := iLatchPos <> iPrevLatchPos;
+ELSIF bUseSWTriggers THEN
+    tonSWTrigger(
+        IN:=NOT tonSWTrigger.Q,
+        PT:=tSWTriggerDelay,
+        Q=>bNewTrigger,
+    );
+ELSE
+    bNewTrigger := FALSE;
+END_IF
+
 IF bNewTrigger THEN
+    // Core timing check
     nUpdateCycles := nUpdateCycles + 1;
     iTimeSincePos := LINT_TO_ULINT(stTaskInfo.DcTaskTime) - iLatchPos - (stTaskInfo.CycleTime * 100) + (stTaskInfo.LastExecTime * 100);
     IF iTimeSincePos > 9223372036854775800 THEN
@@ -58,6 +86,8 @@ IF bNewTrigger THEN
             fUnderFlowPercent := 100 * ULINT_TO_LREAL(iUnderflowCount) / ULINT_TO_LREAL(nUpdateCycles);
 		END_IF
 	END_IF
+    
+    // Stats
     iMaxTime := MAX(iTimeSincePos, iMaxTime);
     iMinTime := MIN(iTimeSincePos, iMinTime);
     fTimeInS := ULINT_TO_LREAL(iTimeSincePos) / 1_000_000_000;
@@ -70,66 +100,64 @@ IF bNewTrigger THEN
     IF iLatchNeg > iLatchPos THEN
         iTriggerWidth := iLatchNeg - iLatchPos;
 	END_IF
+        
+    // Assemble Packet
+    fbHeader(
+        nFrameCount := ULINT_TO_UINT(nUpdateCycles),
+        sHardwareID := 'plc-rixs-optics',
+        stHeader => payload.header
+    );
+    fbChannel(
+        nEncCount := ULINT_TO_UDINT(nEncoderCount),
+        nTiming := ULINT_TO_UDINT(iTimeSincePos),
+        nScale := fEncScale,
+        nError := UDINT_TO_USINT(M16.nErrorId),
+        sHardwareID := 'SP1K1:G_PITCH',
+        stChannel => payload.channel1
+    );
+    F_AddChannelToHeader(
+        stHeader := payload.header,
+        stChannel := payload.channel1,
+    );
+
+    // Make sure we don't send packets on the same trigger twice
+    iPrevLatchPos := iLatchPos;
 END_IF
 
-iPrevLatchPos := iLatchPos;
-
-
-fbHeader(
-    nFrameCount := ULINT_TO_UINT(nUpdateCycles),
-    sHardwareID := 'plc-rixs-optics',
-    stHeader => payload.header
-);
-
-IF fEncScale = 0 THEN
-    fEncScale := M7.stAxisParameters.fEncScaleFactorNumerator;
-END_IF
-
-fbChannel(
-    nEncCount := ULINT_TO_UDINT(nEncoderCount),
-    nTiming := ULINT_TO_UDINT(iTimeSincePos),
-    nScale := fEncScale,
-    nError := UDINT_TO_USINT(M16.nErrorId),
-    sHardwareID := 'SP1K1:G_PITCH',
-    stChannel => payload.channel1
-);
-F_AddChannelToHeader(
-    stHeader := payload.header,
-    stChannel := payload.channel1,
-);
-
-
-// Send to the DAQ
+// Create our sockets
+// For the private DAQ network
 fbSocketHandler(
     bEnable := TRUE,
     tRetry := T#30s,
     nLocalPort := 0,
     sLocalIP := '192.168.0.3'
 );
-fbSocketSend(
-    hSocket := fbSocketHandler.hSocket,
-    sRemoteHost := '192.168.0.8',
-    nRemotePort := 5006,
-    cbLen := SIZEOF(payload),
-    pSrc := ADR(payload),
-    bExecute := bEnableSend AND bNewTrigger,
-);
-
-// Also send to a second port for testing/snooping
+// For the CDS network (testing)
 fbSocketHandlerTest(
     bEnable := TRUE,
     tRetry := T#30s,
     nLocalPort := 0,
-    sLocalIP := '192.168.0.3'
+    sLocalIP := '172.21.140.71'
 );
-fbSocketSendTest(
+
+// Sent to the DAQ
+fbSocketSend(
+    stData := payload,
+    bNewData := bSendToDAQ AND bNewTrigger,
     hSocket := fbSocketHandler.hSocket,
     sRemoteHost := '192.168.0.8',
-    nRemotePort := 5007,
-    cbLen := SIZEOF(payload),
-    pSrc := ADR(payload),
-    bExecute := bEnableSend AND bNewTrigger,
-);]]></ST>
+    nRemotePort := 5006,
+);
+
+// Sent to test host (default: rix-daq)
+fbSocketSendTest(
+    stData := payload,
+    bNewData := bSendToTest AND bNewTrigger,
+    hSocket := fbSocketHandlerTest.hSocket,
+    sRemoteHost := sTestHost,
+    nRemotePort := 5006,
+);
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

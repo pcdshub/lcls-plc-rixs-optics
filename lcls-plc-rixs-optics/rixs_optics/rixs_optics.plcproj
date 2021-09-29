@@ -117,6 +117,9 @@
     <Compile Include="POUs\DAQ Comm\DUT_Header_NW.TcDUT">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\DAQ Comm\FB_BufferedSocketSend.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\DAQ Comm\FB_AssembleChannel.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -215,6 +218,12 @@
     <PlaceholderReference Include="Tc2_TcpIp">
       <DefaultResolution>Tc2_TcpIp, * (Beckhoff Automation GmbH)</DefaultResolution>
       <Namespace>Tc2_TcpIp</Namespace>
+      <Parameters>
+        <Parameter xmlns="">
+          <Key>TCPADS_MAXUDP_BUFFSIZE</Key>
+          <Value>16#8000</Value>
+        </Parameter>
+      </Parameters>
     </PlaceholderReference>
     <PlaceholderReference Include="Tc2_Utilities">
       <DefaultResolution>Tc2_Utilities, * (Beckhoff Automation GmbH)</DefaultResolution>
