@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="FB_BufferedSocketSend" Id="{27867e8b-85ca-4e06-ad4f-3a739398c015}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_BufferedSocketSend
+VAR_INPUT
+    stData: DUT_01_Channel_NW;
+    bNewData: BOOL;
+    hSocket: T_HSOCKET;
+    sRemoteHost: STRING;
+    nRemotePort: UDINT;
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR CONSTANT
+    BUFFER_SIZE: UINT := 16;
+END_VAR
+VAR
+    // Input handling
+    rtNewData: R_TRIG;
+    
+    // Data buffer and iteration
+    arrBuffer: ARRAY[0..BUFFER_SIZE-1] OF DUT_01_Channel_NW;
+    nDataRecvCount: ULINT;
+    nDataSentCount: ULINT;
+    nIndex: UINT;
+    
+    // Actually send the data
+    fbSocketSend: FB_SocketUdpSendTo;
+    bExecuteSend: BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[rtNewData(CLK:=bNewData);
+IF rtNewData.Q THEN
+    arrBuffer[nDataRecvCount MOD BUFFER_SIZE] := stData;
+    nDataRecvCount := nDataRecvCount + 1;
+END_IF
+IF nDataRecvCount > nDataSentCount AND NOT fbSocketSend.bBusy THEN
+    nIndex := ULINT_TO_UINT(nDataSentCount MOD BUFFER_SIZE);
+    bExecuteSend := TRUE;
+    nDataSentCount := nDataSentCount + 1;
+END_IF
+fbSocketSend(
+    hSocket:=hSocket,
+    sRemoteHost:=sRemoteHost,
+    nRemotePort:=nRemotePort,
+    cbLen:=SIZEOF(arrBuffer[nIndex]),
+    pSrc:=ADR(arrBuffer[nIndex]),
+    bExecute:=bExecuteSend,
+);
+fbSocketSend(
+    bExecute:=FALSE,
+);
+bExecuteSend := FALSE;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
