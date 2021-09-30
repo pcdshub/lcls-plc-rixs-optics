@@ -89,6 +89,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#f-addchanneltoheader">F_AddChannelToHeader</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#fb-assemblechannel">FB_AssembleChannel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#fb-assembleheader">FB_AssembleHeader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fb-bufferedsocketsend">FB_BufferedSocketSend</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#fb-udpsockethandler">FB_UDPSocketHandler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#fb-xs-yag-states">FB_XS_YAG_States</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#p-serial-com">P_Serial_Com</a></li>
@@ -1121,6 +1122,68 @@ END_VAR
 </dd>
 </dl>
 </section>
+<section id="fb-bufferedsocketsend">
+<h2>FB_BufferedSocketSend<a class="headerlink" href="#fb-bufferedsocketsend" title="Permalink to this headline"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FUNCTION_BLOCK</span> <span class="n">FB_BufferedSocketSend</span>
+<span class="n">VAR_INPUT</span>
+    <span class="n">stData</span><span class="p">:</span> <span class="n">DUT_01_Channel_NW</span><span class="p">;</span>
+    <span class="n">bNewData</span><span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+    <span class="n">hSocket</span><span class="p">:</span> <span class="n">T_HSOCKET</span><span class="p">;</span>
+    <span class="n">sRemoteHost</span><span class="p">:</span> <span class="n">STRING</span><span class="p">;</span>
+    <span class="n">nRemotePort</span><span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+<span class="n">VAR_OUTPUT</span>
+<span class="n">END_VAR</span>
+<span class="n">VAR</span> <span class="n">CONSTANT</span>
+    <span class="n">BUFFER_SIZE</span><span class="p">:</span> <span class="n">UINT</span> <span class="o">:=</span> <span class="mi">16</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+<span class="n">VAR</span>
+    <span class="o">//</span> <span class="n">Input</span> <span class="n">handling</span>
+    <span class="n">rtNewData</span><span class="p">:</span> <span class="n">R_TRIG</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">Data</span> <span class="n">buffer</span> <span class="ow">and</span> <span class="n">iteration</span>
+    <span class="n">arrBuffer</span><span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">0.</span><span class="o">.</span><span class="n">BUFFER_SIZE</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="n">OF</span> <span class="n">DUT_01_Channel_NW</span><span class="p">;</span>
+    <span class="n">nDataRecvCount</span><span class="p">:</span> <span class="n">ULINT</span><span class="p">;</span>
+    <span class="n">nDataSentCount</span><span class="p">:</span> <span class="n">ULINT</span><span class="p">;</span>
+    <span class="n">nIndex</span><span class="p">:</span> <span class="n">UINT</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">Actually</span> <span class="n">send</span> <span class="n">the</span> <span class="n">data</span>
+    <span class="n">fbSocketSend</span><span class="p">:</span> <span class="n">FB_SocketUdpSendTo</span><span class="p">;</span>
+    <span class="n">bExecuteSend</span><span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+<span class="n">rtNewData</span><span class="p">(</span><span class="n">CLK</span><span class="o">:=</span><span class="n">bNewData</span><span class="p">);</span>
+<span class="n">IF</span> <span class="n">rtNewData</span><span class="o">.</span><span class="n">Q</span> <span class="n">THEN</span>
+    <span class="n">arrBuffer</span><span class="p">[</span><span class="n">nDataRecvCount</span> <span class="n">MOD</span> <span class="n">BUFFER_SIZE</span><span class="p">]</span> <span class="o">:=</span> <span class="n">stData</span><span class="p">;</span>
+    <span class="n">nDataRecvCount</span> <span class="o">:=</span> <span class="n">nDataRecvCount</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">END_IF</span>
+<span class="n">IF</span> <span class="n">nDataRecvCount</span> <span class="o">&gt;</span> <span class="n">nDataSentCount</span> <span class="n">AND</span> <span class="n">NOT</span> <span class="n">fbSocketSend</span><span class="o">.</span><span class="n">bBusy</span> <span class="n">THEN</span>
+    <span class="n">nIndex</span> <span class="o">:=</span> <span class="n">ULINT_TO_UINT</span><span class="p">(</span><span class="n">nDataSentCount</span> <span class="n">MOD</span> <span class="n">BUFFER_SIZE</span><span class="p">);</span>
+    <span class="n">bExecuteSend</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">nDataSentCount</span> <span class="o">:=</span> <span class="n">nDataSentCount</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">END_IF</span>
+<span class="n">fbSocketSend</span><span class="p">(</span>
+    <span class="n">hSocket</span><span class="o">:=</span><span class="n">hSocket</span><span class="p">,</span>
+    <span class="n">sRemoteHost</span><span class="o">:=</span><span class="n">sRemoteHost</span><span class="p">,</span>
+    <span class="n">nRemotePort</span><span class="o">:=</span><span class="n">nRemotePort</span><span class="p">,</span>
+    <span class="n">cbLen</span><span class="o">:=</span><span class="n">SIZEOF</span><span class="p">(</span><span class="n">arrBuffer</span><span class="p">[</span><span class="n">nIndex</span><span class="p">]),</span>
+    <span class="n">pSrc</span><span class="o">:=</span><span class="n">ADR</span><span class="p">(</span><span class="n">arrBuffer</span><span class="p">[</span><span class="n">nIndex</span><span class="p">]),</span>
+    <span class="n">bExecute</span><span class="o">:=</span><span class="n">bExecuteSend</span><span class="p">,</span>
+<span class="p">);</span>
+<span class="n">fbSocketSend</span><span class="p">(</span>
+    <span class="n">bExecute</span><span class="o">:=</span><span class="n">FALSE</span><span class="p">,</span>
+<span class="p">);</span>
+<span class="n">bExecuteSend</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
+
+<span class="n">END_FUNCTION_BLOCK</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>Related:</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="#dut-01-channel-nw">DUT_01_Channel_NW</a></p></li>
+</ul>
+</dd>
+</dl>
+</section>
 <section id="fb-udpsockethandler">
 <h2>FB_UDPSocketHandler<a class="headerlink" href="#fb-udpsockethandler" title="Permalink to this headline"></a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FUNCTION_BLOCK</span> <span class="n">FB_UDPSocketHandler</span>
@@ -1442,7 +1505,13 @@ END_VAR
     <span class="n">iLatchNeg</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span><span class="p">:</span> <span class="n">ULINT</span><span class="p">;</span>
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIIB[g_pi_up_dwn_e]^FB Inputs Channel 2^Position&#39;</span><span class="p">}</span>
     <span class="n">nEncoderCount</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span><span class="p">:</span> <span class="n">ULINT</span><span class="p">;</span>
-    <span class="n">bEnableSend</span><span class="p">:</span> <span class="n">BOOL</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">bSendToDAQ</span><span class="p">:</span> <span class="n">BOOL</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">bSendToTest</span><span class="p">:</span> <span class="n">BOOL</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
+    <span class="o">//</span> <span class="n">rix</span><span class="o">-</span><span class="n">daq</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">default</span> <span class="n">test</span> <span class="n">host</span>
+    <span class="n">sTestHost</span><span class="p">:</span> <span class="n">STRING</span> <span class="o">:=</span> <span class="s1">&#39;172.21.140.21&#39;</span><span class="p">;</span>
+    <span class="n">bUseHWTriggers</span><span class="p">:</span> <span class="n">BOOL</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">bUseSWTriggers</span><span class="p">:</span> <span class="n">BOOL</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
+    <span class="n">tSWTriggerDelay</span><span class="p">:</span> <span class="n">TIME</span> <span class="o">:=</span> <span class="n">T</span><span class="c1">#8ms;</span>
 
     <span class="o">//</span> <span class="n">Outputs</span>
     <span class="n">iTimeSincePos</span><span class="p">:</span> <span class="n">ULINT</span><span class="p">;</span>
@@ -1454,6 +1523,7 @@ END_VAR
 
     <span class="o">//</span> <span class="n">Internals</span>
     <span class="n">bNewTrigger</span><span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
+    <span class="n">tonSWTrigger</span><span class="p">:</span> <span class="n">TON</span><span class="p">;</span>
     <span class="n">iPrevLatchPos</span><span class="p">:</span> <span class="n">ULINT</span><span class="p">;</span>
     <span class="n">fMaxTimeInS</span><span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
     <span class="n">fMinTimeInS</span><span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mi">10000000</span><span class="p">;</span>
@@ -1465,18 +1535,41 @@ END_VAR
     <span class="n">fEncScale</span><span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
 
     <span class="n">fbSocketHandler</span> <span class="p">:</span> <span class="n">FB_UDPSocketHandler</span><span class="p">;</span>
-    <span class="n">fbSocketSend</span> <span class="p">:</span> <span class="n">FB_SocketUdpSendTo</span><span class="p">;</span>
+    <span class="n">fbSocketSend</span> <span class="p">:</span> <span class="n">FB_BufferedSocketSend</span><span class="p">;</span>
+    <span class="n">fbSocketHandlerTest</span> <span class="p">:</span> <span class="n">FB_UDPSocketHandler</span><span class="p">;</span>
+    <span class="n">fbSocketSendTest</span> <span class="p">:</span> <span class="n">FB_BufferedSocketSend</span><span class="p">;</span>
     <span class="n">payload</span> <span class="p">:</span> <span class="n">DUT_01_Channel_NW</span><span class="p">;</span>
     <span class="n">fbHeader</span> <span class="p">:</span> <span class="n">FB_AssembleHeader</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sHardwareID</span> <span class="o">:=</span> <span class="s1">&#39;plc-tst-proto6&#39;</span><span class="p">);</span>
     <span class="n">fbChannel</span> <span class="p">:</span> <span class="n">FB_AssembleChannel</span> <span class="o">:=</span> <span class="p">(</span><span class="n">nChannel</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">);</span>
 
     <span class="o">//</span> <span class="n">Function</span> <span class="n">blocks</span>
     <span class="n">fbGetTaskIndex</span><span class="p">:</span> <span class="n">GETCURTASKINDEX</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">Temp</span> <span class="n">testing</span>
+    <span class="n">nBusyCycles</span><span class="p">:</span> <span class="n">UINT</span><span class="p">;</span>
+    <span class="n">nMaxBusyCycles</span><span class="p">:</span> <span class="n">UINT</span><span class="p">;</span>
+    <span class="n">nDroppedFrames</span><span class="p">:</span> <span class="n">UINT</span><span class="p">;</span>
 <span class="n">END_VAR</span>
+<span class="n">IF</span> <span class="n">fEncScale</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">THEN</span>
+    <span class="n">fEncScale</span> <span class="o">:=</span> <span class="n">M7</span><span class="o">.</span><span class="n">stAxisParameters</span><span class="o">.</span><span class="n">fEncScaleFactorNumerator</span><span class="p">;</span>
+<span class="n">END_IF</span>
+
 <span class="n">fbGetTaskIndex</span><span class="p">();</span>
 <span class="n">stTaskInfo</span> <span class="o">:=</span> <span class="n">_TaskInfo</span><span class="p">[</span><span class="n">fbGetTaskIndex</span><span class="o">.</span><span class="n">index</span><span class="p">];</span>
-<span class="n">bNewTrigger</span> <span class="o">:=</span> <span class="n">iLatchPos</span> <span class="o">&lt;&gt;</span> <span class="n">iPrevLatchPos</span><span class="p">;</span>
+<span class="n">IF</span> <span class="n">bUseHWTriggers</span> <span class="n">THEN</span>
+    <span class="n">bNewTrigger</span> <span class="o">:=</span> <span class="n">iLatchPos</span> <span class="o">&lt;&gt;</span> <span class="n">iPrevLatchPos</span><span class="p">;</span>
+<span class="n">ELSIF</span> <span class="n">bUseSWTriggers</span> <span class="n">THEN</span>
+    <span class="n">tonSWTrigger</span><span class="p">(</span>
+        <span class="n">IN</span><span class="o">:=</span><span class="n">NOT</span> <span class="n">tonSWTrigger</span><span class="o">.</span><span class="n">Q</span><span class="p">,</span>
+        <span class="n">PT</span><span class="o">:=</span><span class="n">tSWTriggerDelay</span><span class="p">,</span>
+        <span class="n">Q</span><span class="o">=&gt;</span><span class="n">bNewTrigger</span><span class="p">,</span>
+    <span class="p">);</span>
+<span class="n">ELSE</span>
+    <span class="n">bNewTrigger</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span>
+<span class="n">END_IF</span>
+
 <span class="n">IF</span> <span class="n">bNewTrigger</span> <span class="n">THEN</span>
+    <span class="o">//</span> <span class="n">Core</span> <span class="n">timing</span> <span class="n">check</span>
     <span class="n">nUpdateCycles</span> <span class="o">:=</span> <span class="n">nUpdateCycles</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
     <span class="n">iTimeSincePos</span> <span class="o">:=</span> <span class="n">LINT_TO_ULINT</span><span class="p">(</span><span class="n">stTaskInfo</span><span class="o">.</span><span class="n">DcTaskTime</span><span class="p">)</span> <span class="o">-</span> <span class="n">iLatchPos</span> <span class="o">-</span> <span class="p">(</span><span class="n">stTaskInfo</span><span class="o">.</span><span class="n">CycleTime</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">stTaskInfo</span><span class="o">.</span><span class="n">LastExecTime</span> <span class="o">*</span> <span class="mi">100</span><span class="p">);</span>
     <span class="n">IF</span> <span class="n">iTimeSincePos</span> <span class="o">&gt;</span> <span class="mi">9223372036854775800</span> <span class="n">THEN</span>
@@ -1486,6 +1579,8 @@ END_VAR
             <span class="n">fUnderFlowPercent</span> <span class="o">:=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">ULINT_TO_LREAL</span><span class="p">(</span><span class="n">iUnderflowCount</span><span class="p">)</span> <span class="o">/</span> <span class="n">ULINT_TO_LREAL</span><span class="p">(</span><span class="n">nUpdateCycles</span><span class="p">);</span>
             <span class="n">END_IF</span>
     <span class="n">END_IF</span>
+
+    <span class="o">//</span> <span class="n">Stats</span>
     <span class="n">iMaxTime</span> <span class="o">:=</span> <span class="n">MAX</span><span class="p">(</span><span class="n">iTimeSincePos</span><span class="p">,</span> <span class="n">iMaxTime</span><span class="p">);</span>
     <span class="n">iMinTime</span> <span class="o">:=</span> <span class="n">MIN</span><span class="p">(</span><span class="n">iTimeSincePos</span><span class="p">,</span> <span class="n">iMinTime</span><span class="p">);</span>
     <span class="n">fTimeInS</span> <span class="o">:=</span> <span class="n">ULINT_TO_LREAL</span><span class="p">(</span><span class="n">iTimeSincePos</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1_000_000_000</span><span class="p">;</span>
@@ -1498,49 +1593,62 @@ END_VAR
     <span class="n">IF</span> <span class="n">iLatchNeg</span> <span class="o">&gt;</span> <span class="n">iLatchPos</span> <span class="n">THEN</span>
         <span class="n">iTriggerWidth</span> <span class="o">:=</span> <span class="n">iLatchNeg</span> <span class="o">-</span> <span class="n">iLatchPos</span><span class="p">;</span>
     <span class="n">END_IF</span>
+
+    <span class="o">//</span> <span class="n">Assemble</span> <span class="n">Packet</span>
+    <span class="n">fbHeader</span><span class="p">(</span>
+        <span class="n">nFrameCount</span> <span class="o">:=</span> <span class="n">ULINT_TO_UINT</span><span class="p">(</span><span class="n">nUpdateCycles</span><span class="p">),</span>
+        <span class="n">sHardwareID</span> <span class="o">:=</span> <span class="s1">&#39;plc-rixs-optics&#39;</span><span class="p">,</span>
+        <span class="n">stHeader</span> <span class="o">=&gt;</span> <span class="n">payload</span><span class="o">.</span><span class="n">header</span>
+    <span class="p">);</span>
+    <span class="n">fbChannel</span><span class="p">(</span>
+        <span class="n">nEncCount</span> <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">nEncoderCount</span><span class="p">),</span>
+        <span class="n">nTiming</span> <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">iTimeSincePos</span><span class="p">),</span>
+        <span class="n">nScale</span> <span class="o">:=</span> <span class="n">fEncScale</span><span class="p">,</span>
+        <span class="n">nError</span> <span class="o">:=</span> <span class="n">UDINT_TO_USINT</span><span class="p">(</span><span class="n">M7</span><span class="o">.</span><span class="n">nErrorId</span><span class="p">),</span>
+        <span class="n">sHardwareID</span> <span class="o">:=</span> <span class="s1">&#39;SP1K1:G_PITCH&#39;</span><span class="p">,</span>
+        <span class="n">stChannel</span> <span class="o">=&gt;</span> <span class="n">payload</span><span class="o">.</span><span class="n">channel1</span>
+    <span class="p">);</span>
+    <span class="n">F_AddChannelToHeader</span><span class="p">(</span>
+        <span class="n">stHeader</span> <span class="o">:=</span> <span class="n">payload</span><span class="o">.</span><span class="n">header</span><span class="p">,</span>
+        <span class="n">stChannel</span> <span class="o">:=</span> <span class="n">payload</span><span class="o">.</span><span class="n">channel1</span><span class="p">,</span>
+    <span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">Make</span> <span class="n">sure</span> <span class="n">we</span> <span class="n">don</span><span class="s1">&#39;t send packets on the same trigger twice</span>
+    <span class="n">iPrevLatchPos</span> <span class="o">:=</span> <span class="n">iLatchPos</span><span class="p">;</span>
 <span class="n">END_IF</span>
 
-<span class="n">iPrevLatchPos</span> <span class="o">:=</span> <span class="n">iLatchPos</span><span class="p">;</span>
-
-
-<span class="n">fbHeader</span><span class="p">(</span>
-    <span class="n">nFrameCount</span> <span class="o">:=</span> <span class="n">ULINT_TO_UINT</span><span class="p">(</span><span class="n">nUpdateCycles</span><span class="p">),</span>
-    <span class="n">sHardwareID</span> <span class="o">:=</span> <span class="s1">&#39;plc-rixs-optics&#39;</span><span class="p">,</span>
-    <span class="n">stHeader</span> <span class="o">=&gt;</span> <span class="n">payload</span><span class="o">.</span><span class="n">header</span>
-<span class="p">);</span>
-
-<span class="n">IF</span> <span class="n">fEncScale</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">THEN</span>
-    <span class="n">fEncScale</span> <span class="o">:=</span> <span class="n">M7</span><span class="o">.</span><span class="n">stAxisParameters</span><span class="o">.</span><span class="n">fEncScaleFactorNumerator</span><span class="p">;</span>
-<span class="n">END_IF</span>
-
-<span class="n">fbChannel</span><span class="p">(</span>
-    <span class="n">nEncCount</span> <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">nEncoderCount</span><span class="p">),</span>
-    <span class="n">nTiming</span> <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">iTimeSincePos</span><span class="p">),</span>
-    <span class="n">nScale</span> <span class="o">:=</span> <span class="n">fEncScale</span><span class="p">,</span>
-    <span class="n">nError</span> <span class="o">:=</span> <span class="n">UDINT_TO_USINT</span><span class="p">(</span><span class="n">M16</span><span class="o">.</span><span class="n">nErrorId</span><span class="p">),</span>
-    <span class="n">sHardwareID</span> <span class="o">:=</span> <span class="s1">&#39;SP1K1:G_PITCH&#39;</span><span class="p">,</span>
-    <span class="n">stChannel</span> <span class="o">=&gt;</span> <span class="n">payload</span><span class="o">.</span><span class="n">channel1</span>
-<span class="p">);</span>
-<span class="n">F_AddChannelToHeader</span><span class="p">(</span>
-    <span class="n">stHeader</span> <span class="o">:=</span> <span class="n">payload</span><span class="o">.</span><span class="n">header</span><span class="p">,</span>
-    <span class="n">stChannel</span> <span class="o">:=</span> <span class="n">payload</span><span class="o">.</span><span class="n">channel1</span><span class="p">,</span>
-<span class="p">);</span>
-
-
+<span class="o">//</span> <span class="n">Create</span> <span class="n">our</span> <span class="n">sockets</span>
+<span class="o">//</span> <span class="n">For</span> <span class="n">the</span> <span class="n">private</span> <span class="n">DAQ</span> <span class="n">network</span>
 <span class="n">fbSocketHandler</span><span class="p">(</span>
     <span class="n">bEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">,</span>
     <span class="n">tRetry</span> <span class="o">:=</span> <span class="n">T</span><span class="c1">#30s,</span>
     <span class="n">nLocalPort</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">,</span>
     <span class="n">sLocalIP</span> <span class="o">:=</span> <span class="s1">&#39;192.168.0.3&#39;</span>
 <span class="p">);</span>
+<span class="o">//</span> <span class="n">For</span> <span class="n">the</span> <span class="n">CDS</span> <span class="n">network</span> <span class="p">(</span><span class="n">testing</span><span class="p">)</span>
+<span class="n">fbSocketHandlerTest</span><span class="p">(</span>
+    <span class="n">bEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">,</span>
+    <span class="n">tRetry</span> <span class="o">:=</span> <span class="n">T</span><span class="c1">#30s,</span>
+    <span class="n">nLocalPort</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">sLocalIP</span> <span class="o">:=</span> <span class="s1">&#39;172.21.140.71&#39;</span>
+<span class="p">);</span>
 
+<span class="o">//</span> <span class="n">Sent</span> <span class="n">to</span> <span class="n">the</span> <span class="n">DAQ</span>
 <span class="n">fbSocketSend</span><span class="p">(</span>
+    <span class="n">stData</span> <span class="o">:=</span> <span class="n">payload</span><span class="p">,</span>
+    <span class="n">bNewData</span> <span class="o">:=</span> <span class="n">bSendToDAQ</span> <span class="n">AND</span> <span class="n">bNewTrigger</span><span class="p">,</span>
     <span class="n">hSocket</span> <span class="o">:=</span> <span class="n">fbSocketHandler</span><span class="o">.</span><span class="n">hSocket</span><span class="p">,</span>
     <span class="n">sRemoteHost</span> <span class="o">:=</span> <span class="s1">&#39;192.168.0.8&#39;</span><span class="p">,</span>
     <span class="n">nRemotePort</span> <span class="o">:=</span> <span class="mi">5006</span><span class="p">,</span>
-    <span class="n">cbLen</span> <span class="o">:=</span> <span class="n">SIZEOF</span><span class="p">(</span><span class="n">payload</span><span class="p">),</span>
-    <span class="n">pSrc</span> <span class="o">:=</span> <span class="n">ADR</span><span class="p">(</span><span class="n">payload</span><span class="p">),</span>
-    <span class="n">bExecute</span> <span class="o">:=</span> <span class="n">bEnableSend</span> <span class="n">AND</span> <span class="n">bNewTrigger</span><span class="p">,</span>
+<span class="p">);</span>
+
+<span class="o">//</span> <span class="n">Sent</span> <span class="n">to</span> <span class="n">test</span> <span class="n">host</span> <span class="p">(</span><span class="n">default</span><span class="p">:</span> <span class="n">rix</span><span class="o">-</span><span class="n">daq</span><span class="p">)</span>
+<span class="n">fbSocketSendTest</span><span class="p">(</span>
+    <span class="n">stData</span> <span class="o">:=</span> <span class="n">payload</span><span class="p">,</span>
+    <span class="n">bNewData</span> <span class="o">:=</span> <span class="n">bSendToTest</span> <span class="n">AND</span> <span class="n">bNewTrigger</span><span class="p">,</span>
+    <span class="n">hSocket</span> <span class="o">:=</span> <span class="n">fbSocketHandlerTest</span><span class="o">.</span><span class="n">hSocket</span><span class="p">,</span>
+    <span class="n">sRemoteHost</span> <span class="o">:=</span> <span class="n">sTestHost</span><span class="p">,</span>
+    <span class="n">nRemotePort</span> <span class="o">:=</span> <span class="mi">5006</span><span class="p">,</span>
 <span class="p">);</span>
 
 <span class="n">END_PROGRAM</span>
@@ -1551,6 +1659,7 @@ END_VAR
 <li><p><a class="reference internal" href="#dut-01-channel-nw">DUT_01_Channel_NW</a></p></li>
 <li><p><a class="reference internal" href="#fb-assemblechannel">FB_AssembleChannel</a></p></li>
 <li><p><a class="reference internal" href="#fb-assembleheader">FB_AssembleHeader</a></p></li>
+<li><p><a class="reference internal" href="#fb-bufferedsocketsend">FB_BufferedSocketSend</a></p></li>
 <li><p><a class="reference internal" href="#fb-udpsockethandler">FB_UDPSocketHandler</a></p></li>
 <li><p><a class="reference internal" href="#f-addchanneltoheader">F_AddChannelToHeader</a></p></li>
 </ul>
