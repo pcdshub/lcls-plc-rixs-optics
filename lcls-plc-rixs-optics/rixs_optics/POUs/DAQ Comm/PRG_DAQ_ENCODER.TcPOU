@@ -111,7 +111,7 @@ IF bNewTrigger THEN
         nEncCount := ULINT_TO_UDINT(nEncoderCount),
         nTiming := ULINT_TO_UDINT(iTimeSincePos),
         nScale := fEncScale,
-        nError := UDINT_TO_USINT(M16.nErrorId),
+        nError := UDINT_TO_USINT(M7.nErrorId),
         sHardwareID := 'SP1K1:G_PITCH',
         stChannel => payload.channel1
     );
