@@ -358,8 +358,8 @@ GVL_Param_TcUnit
         GVL_Param_TcUnit.MaxNumberOfAssertsForEachTestSuite, UINT, 8559232 (16)
         GVL_Param_TcUnit.MaxNumberOfTestsForEachTestSuite, UINT, 8559216 (16)
         GVL_Param_TcUnit.MaxNumberOfTestsForEachTestSuite, UINT, 4392320 (16)
-        GVL_Param_TcUnit.MaxNumberOfTestSuites, UINT, 8559200 (16)
         GVL_Param_TcUnit.MaxNumberOfTestSuites, UINT, 4390160 (16)
+        GVL_Param_TcUnit.MaxNumberOfTestSuites, UINT, 8559200 (16)
         GVL_Param_TcUnit.xUnitBufferSize, UDINT, 8559264 (32)
         GVL_Param_TcUnit.xUnitEnablePublish, BOOL, 8559248 (8)
         GVL_Param_TcUnit.xUnitFilePath, STRING(255), 8559296 (2048)
@@ -395,22 +395,22 @@ GVL_TcUnit
 
         GVL_TcUnit.AdsLogger, FB_ADSLogStringMessageFifoQueue, 4411008 (4128864)
         GVL_TcUnit.AdsMessageQueue, FB_AdsLogStringMessageFifoQueue, 630422432 (8320864)
-        GVL_TcUnit.CurrentTestIsFinished, BOOL, 4392872 (8)
         GVL_TcUnit.CurrentTestIsFinished, BOOL, 8561360 (8)
-        GVL_TcUnit.CurrentTestNameBeingCalled, STRING(255), 630388352 (2048)
+        GVL_TcUnit.CurrentTestIsFinished, BOOL, 4392872 (8)
         GVL_TcUnit.CurrentTestNameBeingCalled, STRING(255), 4392928 (2048)
-        GVL_TcUnit.CurrentTestSuiteBeingCalled, POINTER TO FB_TestSuite, 630388320 (32)
+        GVL_TcUnit.CurrentTestNameBeingCalled, STRING(255), 630388352 (2048)
         GVL_TcUnit.CurrentTestSuiteBeingCalled, POINTER TO FB_TestSuite, 4392896 (32)
-        GVL_TcUnit.IgnoreCurrentTest, BOOL, 4392880 (8)
+        GVL_TcUnit.CurrentTestSuiteBeingCalled, POINTER TO FB_TestSuite, 630388320 (32)
         GVL_TcUnit.IgnoreCurrentTest, BOOL, 8561368 (8)
-        GVL_TcUnit.NumberOfInitializedTestSuites, UINT, 4394976 (16)
+        GVL_TcUnit.IgnoreCurrentTest, BOOL, 4392880 (8)
         GVL_TcUnit.NumberOfInitializedTestSuites, UINT, 630390400 (16)
-        GVL_TcUnit.TcUnitRunner, FB_TcUnitRunner, 4392352 (512)
+        GVL_TcUnit.NumberOfInitializedTestSuites, UINT, 4394976 (16)
         GVL_TcUnit.TcUnitRunner, FB_TcUnitRunner, 8561376 (621826944)
+        GVL_TcUnit.TcUnitRunner, FB_TcUnitRunner, 4392352 (512)
         GVL_TcUnit.TestSuiteAddresses, POINTER TO FB_TestSuite, 630390432 (32000)
         GVL_TcUnit.TestSuiteAddresses, POINTER TO FB_TestSuite, 4395008 (16000)
-        GVL_TcUnit.TestSuiteIsRegistered, BOOL, 4392864 (8)
         GVL_TcUnit.TestSuiteIsRegistered, BOOL, 8559256 (8)
+        GVL_TcUnit.TestSuiteIsRegistered, BOOL, 4392864 (8)
 
 .. raw:: html
 
@@ -761,8 +761,8 @@ Global_Version
         Global_Version.stLibVersion_Tc3_EventLogger, ST_LibVersion, 4389696 (288)
         Global_Version.stLibVersion_Tc3_JsonXml, ST_LibVersion, 4392032 (288)
         Global_Version.stLibVersion_Tc3_Module, ST_LibVersion, 4183712 (288)
-        Global_Version.stLibVersion_TcUnit, ST_LibVersion, 638743296 (288)
         Global_Version.stLibVersion_TcUnit, ST_LibVersion, 8539872 (288)
+        Global_Version.stLibVersion_TcUnit, ST_LibVersion, 638743296 (288)
 
 .. raw:: html
 
@@ -2045,7 +2045,7 @@ TC_EVENTS
     :header: Symbol, Type, Offset/Size
     :align: center
 
-        TC_EVENTS.LCLSGeneralEventClass, LCLSGeneralEventClass, 671516096 (960)
+        TC_EVENTS.LCLSGeneralEventClass, LCLSGeneralEventClass, 671517120 (960)
 
 
 TC_EVENT_CLASSES
@@ -2055,12 +2055,12 @@ TC_EVENT_CLASSES
     :header: Symbol, Type, Offset/Size
     :align: center
 
-        TC_EVENT_CLASSES.LCLSGeneralEventClass, GUID, 671525760 (128)
-        TC_EVENT_CLASSES.TcGeneralAdsEventClass, GUID, 671525248 (128)
-        TC_EVENT_CLASSES.TcRouterEventClass, GUID, 671525376 (128)
-        TC_EVENT_CLASSES.TcRTimeEventClass, GUID, 671525504 (128)
-        TC_EVENT_CLASSES.TcSystemEventClass, GUID, 671525120 (128)
-        TC_EVENT_CLASSES.Win32EventClass, GUID, 671525632 (128)
+        TC_EVENT_CLASSES.LCLSGeneralEventClass, GUID, 671486784 (128)
+        TC_EVENT_CLASSES.TcGeneralAdsEventClass, GUID, 671486272 (128)
+        TC_EVENT_CLASSES.TcRouterEventClass, GUID, 671486400 (128)
+        TC_EVENT_CLASSES.TcRTimeEventClass, GUID, 671486528 (128)
+        TC_EVENT_CLASSES.TcSystemEventClass, GUID, 671486144 (128)
+        TC_EVENT_CLASSES.Win32EventClass, GUID, 671486656 (128)
 
 
 TwinCAT_LicenseInfoVarList

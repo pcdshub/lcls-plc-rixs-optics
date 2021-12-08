@@ -387,10 +387,10 @@ GVL_PMPS
         fbArbiter2: FB_Arbiter(2);
         {attribute 'pytmc' := 'pv: PLC:RIX:OPTICS:FFO:01'}
         {attribute 'TcLinkTo' := '.q_xFastFaultOut:=TIIB[PMPS_FFO]^Channel 1^Output'}
-        fbFastFaultOutput1: FB_HardwareFFOutput := (bAutoReset := TRUE , i_sNetID:='172.21.92.73.1.1' );
+        fbFastFaultOutput1: FB_HardwareFFOutput := (bAutoReset := TRUE , i_sNetID:='172.21.42.126.1.1' );
         {attribute 'pytmc' := 'pv: PLC:RIX:OPTICS:FFO:02'}
         {attribute 'TcLinkTo' := '.q_xFastFaultOut:=TIIB[PMPS_FFO]^Channel 2^Output'}
-        fbFastFaultOutput2: FB_HardwareFFOutput := (bAutoReset := TRUE, i_sNetID:='172.21.92.73.1.1');
+        fbFastFaultOutput2: FB_HardwareFFOutput := (bAutoReset := TRUE, i_sNetID:='172.21.42.126.1.1');
     	{attribute 'TcLinkTo' := ':=TIIB[PMPS_PRE]^IO Inputs^rPhotonEnergy'}
     	rPhotonEnergy AT%I*: REAL;
     END_VAR
