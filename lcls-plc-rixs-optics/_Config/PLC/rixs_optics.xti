@@ -76,15 +76,15 @@
 			</Format>
 		</DataType>
 		<DataType>
-			<Name GUID="{E26E3237-7981-472A-B3FA-8CFCDFF674F8}" Namespace="lcls_twincat_motion" AutoDeleteType="true">EL5042_Status</Name>
+			<Name GUID="{4ADF6F4C-22C7-4F0A-B3FF-55A0B1FD9B8C}" Namespace="lcls_twincat_motion" AutoDeleteType="true">EL5042_Status</Name>
 			<BitSize>0</BitSize>
 			<BaseType GUID="{FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF}"/>
 			<Hides>
-				<Hide GUID="{C5831385-2546-4046-9890-0C2AD94FCF88}"/>
+				<Hide GUID="{E26E3237-7981-472A-B3FA-8CFCDFF674F8}"/>
 			</Hides>
 		</DataType>
 		<DataType>
-			<Name GUID="{9FE14CE0-D668-4D5C-B880-CBF93FF4FA98}" Namespace="lcls_twincat_motion" AutoDeleteType="true">ST_RenishawAbsEnc</Name>
+			<Name GUID="{24F4528D-13AA-48F5-8430-CCE137D6240E}" Namespace="lcls_twincat_motion" AutoDeleteType="true">ST_RenishawAbsEnc</Name>
 			<Comment>
 				<![CDATA[ Renishaw BiSS-C absolute encoder used with an EL5042]]>
 			</Comment>
@@ -106,7 +106,7 @@
 			</SubItem>
 			<SubItem>
 				<Name>Status</Name>
-				<Type GUID="{E26E3237-7981-472A-B3FA-8CFCDFF674F8}" Namespace="lcls_twincat_motion">EL5042_Status</Type>
+				<Type GUID="{4ADF6F4C-22C7-4F0A-B3FF-55A0B1FD9B8C}" Namespace="lcls_twincat_motion">EL5042_Status</Type>
 				<Comment>
 					<![CDATA[ Status struct placeholder]]>
 				</Comment>
@@ -123,7 +123,7 @@
 				<BitOffs>64</BitOffs>
 			</SubItem>
 			<Hides>
-				<Hide GUID="{2041E690-7EC1-4AD2-8597-389340DD9D1D}"/>
+				<Hide GUID="{9FE14CE0-D668-4D5C-B880-CBF93FF4FA98}"/>
 			</Hides>
 		</DataType>
 		<DataType>
@@ -1311,13 +1311,6 @@ External Setpoint Generation:
 					<Type GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</Type>
 				</Var>
 				<Var>
-					<Name>lcls_twincat_motion.PMPS.LCLS_General.DefaultGlobals.stSys.I_EcatMaster1</Name>
-					<Comment>
-						<![CDATA[ AMS Net ID used for FB_EcatDiag, among others ]]>
-					</Comment>
-					<Type GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</Type>
-				</Var>
-				<Var>
 					<Name>lcls_twincat_optics.GVL_TestStructs.TestPitch_LimitSwitches.diEncCnt</Name>
 					<Comment>
 						<![CDATA[Raw encoder count]]>
@@ -1340,7 +1333,7 @@ External Setpoint Generation:
 					<Comment>
 						<![CDATA[ Encoders]]>
 					</Comment>
-					<Type GUID="{9FE14CE0-D668-4D5C-B880-CBF93FF4FA98}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{24F4528D-13AA-48F5-8430-CCE137D6240E}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -1362,7 +1355,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.stYdwnEnc</Name>
-					<Type GUID="{9FE14CE0-D668-4D5C-B880-CBF93FF4FA98}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{24F4528D-13AA-48F5-8430-CCE137D6240E}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -1384,7 +1377,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.stXupEnc</Name>
-					<Type GUID="{9FE14CE0-D668-4D5C-B880-CBF93FF4FA98}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{24F4528D-13AA-48F5-8430-CCE137D6240E}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -1406,7 +1399,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.stXdwnEnc</Name>
-					<Type GUID="{9FE14CE0-D668-4D5C-B880-CBF93FF4FA98}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{24F4528D-13AA-48F5-8430-CCE137D6240E}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -1600,6 +1593,17 @@ Emergency Stop for MR1K1]]>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
+					<Name>PRG_SP1K1_MONO.bSTOEnable1</Name>
+					<Comment>
+						<![CDATA[ Where is the STO]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.bSTOEnable2</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
 					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.bSTOEnable1</Name>
 					<Comment>
 						<![CDATA[ STO Button]]>
@@ -1615,7 +1619,7 @@ Emergency Stop for MR1K1]]>
 					<Comment>
 						<![CDATA[ Encoders]]>
 					</Comment>
-					<Type GUID="{9FE14CE0-D668-4D5C-B880-CBF93FF4FA98}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{24F4528D-13AA-48F5-8430-CCE137D6240E}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -1637,7 +1641,7 @@ Emergency Stop for MR1K1]]>
 				</Var>
 				<Var>
 					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stYdwnEnc</Name>
-					<Type GUID="{9FE14CE0-D668-4D5C-B880-CBF93FF4FA98}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{24F4528D-13AA-48F5-8430-CCE137D6240E}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -1659,7 +1663,7 @@ Emergency Stop for MR1K1]]>
 				</Var>
 				<Var>
 					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stXupEnc</Name>
-					<Type GUID="{9FE14CE0-D668-4D5C-B880-CBF93FF4FA98}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{24F4528D-13AA-48F5-8430-CCE137D6240E}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -1681,7 +1685,7 @@ Emergency Stop for MR1K1]]>
 				</Var>
 				<Var>
 					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stXdwnEnc</Name>
-					<Type GUID="{9FE14CE0-D668-4D5C-B880-CBF93FF4FA98}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{24F4528D-13AA-48F5-8430-CCE137D6240E}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -1828,17 +1832,6 @@ External Setpoint Generation:
 					</SubVar>
 				</Var>
 				<Var>
-					<Name>PRG_SP1K1_MONO.bSTOEnable1</Name>
-					<Comment>
-						<![CDATA[ Where is the STO]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.bSTOEnable2</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
 					<Name>PRG_SP1K1_MONO.flow_1</Name>
 					<Comment>
 						<![CDATA[Flow Switches]]>
@@ -1847,10 +1840,6 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>PRG_SP1K1_MONO.flow_2</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.pres_1</Name>
 					<Type>INT</Type>
 				</Var>
 				<Var>
@@ -2149,7 +2138,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>PRG_SP1K1_MONO.mpi_upe</Name>
-					<Type GUID="{9FE14CE0-D668-4D5C-B880-CBF93FF4FA98}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{24F4528D-13AA-48F5-8430-CCE137D6240E}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -2171,7 +2160,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>PRG_SP1K1_MONO.gpi_upe</Name>
-					<Type GUID="{9FE14CE0-D668-4D5C-B880-CBF93FF4FA98}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{24F4528D-13AA-48F5-8430-CCE137D6240E}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -2190,6 +2179,10 @@ External Setpoint Generation:
 							<![CDATA[ Encoder zero position (useful for aligned position with gantries)]]>
 						</Comment>
 					</SubVar>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.pres_1</Name>
+					<Type>INT</Type>
 				</Var>
 				<Var>
 					<Name>PRG_SP1K1_MONO.RTD1.bError</Name>
@@ -2904,6 +2897,13 @@ External Setpoint Generation:
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
+					<Name>GVL_M1K1.M1K1_Pitch.diEncCnt</Name>
+					<Comment>
+						<![CDATA[Raw encoder count]]>
+					</Comment>
+					<Type>LINT</Type>
+				</Var>
+				<Var>
 					<Name>GVL_M1K1_BENDER_RTD.nM1K1US_RTD_1</Name>
 					<Comment>
 						<![CDATA[ M1K1 US RTDs]]>
@@ -2917,13 +2917,6 @@ External Setpoint Generation:
 				<Var>
 					<Name>GVL_M1K1_BENDER_RTD.nM1K1US_RTD_3</Name>
 					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_M1K1.M1K1_Pitch.diEncCnt</Name>
-					<Comment>
-						<![CDATA[Raw encoder count]]>
-					</Comment>
-					<Type>LINT</Type>
 				</Var>
 				<Var>
 					<Name>GVL_M1K1_BENDER_RTD.nM1K1DS_RTD_1</Name>
@@ -2948,15 +2941,15 @@ External Setpoint Generation:
 					<Type>INT</Type>
 				</Var>
 				<Var>
+					<Name>GVL_M3K2.nM3K2US_RTD_2</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
 					<Name>GVL_M1K2.M1K2_Pitch.diEncCnt</Name>
 					<Comment>
 						<![CDATA[Raw encoder count]]>
 					</Comment>
 					<Type>LINT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_M3K2.nM3K2US_RTD_2</Name>
-					<Type>INT</Type>
 				</Var>
 				<Var>
 					<Name>GVL_M3K2.nM3K2US_RTD_3</Name>
@@ -3008,12 +3001,16 @@ External Setpoint Generation:
 					<Type>INT</Type>
 				</Var>
 				<Var>
+					<Name>GVL_PMPS.rPhotonEnergy</Name>
+					<Type>REAL</Type>
+				</Var>
+				<Var>
 					<Name>Main.sio_current</Name>
 					<Type>UINT</Type>
 				</Var>
 				<Var>
-					<Name>GVL_PMPS.rPhotonEnergy</Name>
-					<Type>REAL</Type>
+					<Name>Main.sio_load</Name>
+					<Type>UINT</Type>
 				</Var>
 				<Var>
 					<Name>Main.M1.Axis.NcToPlc</Name>
@@ -7768,10 +7765,6 @@ External Setpoint Generation:
 						</Comment>
 					</SubVar>
 				</Var>
-				<Var>
-					<Name>Main.sio_load</Name>
-					<Type>UINT</Type>
-				</Var>
 			</Vars>
 			<Vars VarGrpType="2">
 				<Name>PlcTask Outputs</Name>
@@ -7783,16 +7776,16 @@ External Setpoint Generation:
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>PRG_MR1K1_BEND.bLEDPower02</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
 					<Name>PRG_MR1K1_BEND.fbM1K1PitchControl.fbMotionStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
 					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 				</Var>
 				<Var>
 					<Name>PRG_MR1K1_BEND.fbMotionStage_m16.fbDriveVirtual.MasterAxis.PlcToNc</Name>
 					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K1_BEND.bLEDPower02</Name>
+					<Type>BOOL</Type>
 				</Var>
 				<Var>
 					<Name>PRG_MR1K1_BEND.bLEDPower03</Name>
@@ -7808,6 +7801,10 @@ External Setpoint Generation:
 						<![CDATA[////////////////////////////////////]]>
 					</Comment>
 					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.bLEDPower01</Name>
+					<Type>BOOL</Type>
 				</Var>
 				<Var>
 					<Name>PRG_MR1K2_SWITCH.fbM1K2PitchControl.fbMotionStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
@@ -7840,10 +7837,6 @@ External Setpoint Generation:
 				<Var>
 					<Name>PRG_SP1K1_MONO.fbMotionStage_s_io.fbDriveVirtual.MasterAxis.PlcToNc</Name>
 					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.bLEDPower01</Name>
-					<Type>BOOL</Type>
 				</Var>
 				<Var>
 					<Name>PRG_SP1K1_MONO.bLEDPower02</Name>
@@ -8613,8 +8606,8 @@ External Setpoint Generation:
 			<TaskPouOids>
 				<TaskPouOid Prio="19" OTCID="#x08502004"/>
 				<TaskPouOid Prio="1" OTCID="#x08502001"/>
-				<TaskPouOid Prio="20" OTCID="#x08502003"/>
 				<TaskPouOid Prio="3" OTCID="#x08502002"/>
+				<TaskPouOid Prio="20" OTCID="#x08502003"/>
 			</TaskPouOids>
 		</Instance>
 	</Project>
