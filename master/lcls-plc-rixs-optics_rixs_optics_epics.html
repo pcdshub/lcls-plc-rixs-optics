@@ -67,7 +67,6 @@
 <li class="toctree-l2"><a class="reference internal" href="#lcls-twincat-motion-fb-positionstatemove">lcls_twincat_motion.FB_PositionStateMove</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lcls-twincat-motion-fb-positionstatepmps">lcls_twincat_motion.FB_PositionStatePMPS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lcls-twincat-motion-fb-positionstatepmps-base">lcls_twincat_motion.FB_PositionStatePMPS_Base</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lcls-twincat-motion-pmps-lcls-general-fb-logmessage">lcls_twincat_motion.PMPS.LCLS_General.FB_LogMessage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lcls-twincat-optics-dut-homs">lcls_twincat_optics.DUT_HOMS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lcls-twincat-optics-fb-rmswatch">lcls_twincat_optics.FB_RMSWatch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pmps-fb-arbiter">PMPS.FB_Arbiter</a></li>
@@ -6741,50 +6740,6 @@
 <td><p>$(SYMBOL).bMaintMode</p></td>
 <td><div class="line-block">
 <div class="line">io: output</div>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="lcls-twincat-motion-pmps-lcls-general-fb-logmessage">
-<h2>lcls_twincat_motion.PMPS.LCLS_General.FB_LogMessage<a class="headerlink" href="#lcls-twincat-motion-pmps-lcls-general-fb-logmessage" title="Permalink to this headline"></a></h2>
-<table class="docutils align-center">
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Record</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-<th class="head"><p>Pragma</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>$(PREFIX):Reset</p></td>
-<td><p>bo</p></td>
-<td><p>Rising-edge reset of trip</p></td>
-<td><div class="line-block">
-<div class="line">io: output</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><p>$(PREFIX):Reset_RBV</p></td>
-<td><p>bi</p></td>
-<td><p>Rising-edge reset of trip</p></td>
-<td><div class="line-block">
-<div class="line">io: output</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><p>$(PREFIX):Tripped_RBV</p></td>
-<td><p>bi</p></td>
-<td><p>Log message FB tripped</p></td>
-<td><div class="line-block">
-<div class="line">io: input</div>
 </div>
 </td>
 </tr>
@@ -20587,22 +20542,6 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>$(PREFIX)LCLSGeneral:GlobalLogTrickleTrip_RBV</p></td>
-<td><p>bi</p></td>
-<td><p>Tripped by overall log count</p></td>
-<td><div class="line-block">
-<div class="line">io: input</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><p>$(PREFIX)LCLSGeneral:LogHost</p></td>
-<td><p>waveform</p></td>
-<td><p>The log host IP address</p></td>
-<td><div class="line-block">
-<div class="line">io: output</div>
-</div>
-</td>
-</tr>
 <tr class="row-even"><td><p>$(PREFIX)LCLSGeneral:LogHost</p></td>
 <td><p>waveform</p></td>
 <td><p>The log host IP address</p></td>
@@ -20619,22 +20558,6 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>$(PREFIX)LCLSGeneral:LogHost_RBV</p></td>
-<td><p>waveform</p></td>
-<td><p>The log host IP address</p></td>
-<td><div class="line-block">
-<div class="line">io: output</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><p>$(PREFIX)LCLSGeneral:LogMessageCount_RBV</p></td>
-<td><p>longin</p></td>
-<td><p>Total log messages on the last cycle</p></td>
-<td><div class="line-block">
-<div class="line">io: input</div>
-</div>
-</td>
-</tr>
 <tr class="row-even"><td><p>$(PREFIX)LCLSGeneral:LogMessageCount_RBV</p></td>
 <td><p>longin</p></td>
 <td><p>Total log messages on the last cycle</p></td>
@@ -20645,22 +20568,6 @@
 </tr>
 <tr class="row-odd"><td><p>$(PREFIX)LCLSGeneral:LogPort</p></td>
 <td><p>longout</p></td>
-<td><p>The log host UDP port</p></td>
-<td><div class="line-block">
-<div class="line">io: output</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><p>$(PREFIX)LCLSGeneral:LogPort</p></td>
-<td><p>longout</p></td>
-<td><p>The log host UDP port</p></td>
-<td><div class="line-block">
-<div class="line">io: output</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><p>$(PREFIX)LCLSGeneral:LogPort_RBV</p></td>
-<td><p>longin</p></td>
 <td><p>The log host UDP port</p></td>
 <td><div class="line-block">
 <div class="line">io: output</div>
@@ -20728,65 +20635,6 @@
 <tr class="row-even"><td><p>$(PREFIX)RequestedBP:Veto_RBV</p></td>
 <td><p>waveform</p></td>
 <td><p>PMPS_GVL.stRequestedBeamParameters.aVetoDevices</p></td>
-<td><div class="line-block">
-<div class="line">archive: 1s monitor</div>
-<div class="line">io: input</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><p>$(PREFIX)SafeBeamCnst:Cohort_RBV</p></td>
-<td><p>longin</p></td>
-<td><p>Cohort inc on each arb cycle</p></td>
-<td><div class="line-block">
-<div class="line">archive: 1s monitor</div>
-<div class="line">io: input</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><p>$(PREFIX)SafeBeamCnst:PhotonEnergyRanges_RBV</p></td>
-<td><p>longin</p></td>
-<td><p>Safe beam constant</p></td>
-<td><div class="line-block">
-<div class="line">archive: 1s monitor</div>
-<div class="line">field: EGU eV</div>
-<div class="line">io: input</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><p>$(PREFIX)SafeBeamCnst:Rate_RBV</p></td>
-<td><p>longin</p></td>
-<td><p>Safe beam constant</p></td>
-<td><div class="line-block">
-<div class="line">archive: 1s monitor</div>
-<div class="line">field: EGU Hz</div>
-<div class="line">io: input</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><p>$(PREFIX)SafeBeamCnst:Transmission_RBV</p></td>
-<td><p>ai</p></td>
-<td><p>Safe beam constant</p></td>
-<td><div class="line-block">
-<div class="line">archive: 1s monitor</div>
-<div class="line">field: HOPR 1</div>
-<div class="line">field: LOPR 0</div>
-<div class="line">field: PREC 2</div>
-<div class="line">io: input</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><p>$(PREFIX)SafeBeamCnst:Valid_RBV</p></td>
-<td><p>bi</p></td>
-<td><p>Safe beam constant</p></td>
-<td><div class="line-block">
-<div class="line">archive: 1s monitor</div>
-<div class="line">io: input</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><p>$(PREFIX)SafeBeamCnst:Veto_RBV</p></td>
-<td><p>waveform</p></td>
-<td><p>Safe beam constant</p></td>
 <td><div class="line-block">
 <div class="line">archive: 1s monitor</div>
 <div class="line">io: input</div>
