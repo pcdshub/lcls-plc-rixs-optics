@@ -3684,6 +3684,7 @@ ACT_LRG_Grating_IN();
 ACT_ExitSlitsGap();
 
 END_PROGRAM
+
 ACTION ACT_CALC:
 ///calc
 //Hm1 = 1400000+mr1k1 ben Y up
@@ -3720,14 +3721,17 @@ Hbm3 := TAN(Pm3*1E-6) * Zbm3 + Hm3 - TAN(Pm3*1E-6)*(Zpiv*1E6);
 
 Hb0m3 := TAN(Theta_m3*1E-6)*(Zzos*1E6) + Hbm3 - TAN(Theta_m3*1E-6)*Zbm3;
 END_ACTION
+
 ACTION ACT_ExitSlitsGap:
 // FAULT condition: Hzos -1.0mm &lt;= Hb0m3) AND sl1k2 gap &lt;= 8.0
 ffZeroOrderBeamExitSlits.i_xOK := NOT( (( (Hzos*1E3) - 1) &lt;= Hb0m3) AND ( M22.fPosition &lt;= 8.0));
 ffZeroOrderBeamExitSlits(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
 END_ACTION
+
 ACTION ACT_LRG_Grating_IN:
 bLRG_Grating_IN := ((M9.nEncoderCount/1000) &gt;= 24000) AND ((M9.nEncoderCount/1000) &lt;= 28000);
 END_ACTION
+
 ACTION ACT_ZOS_IN:
 IF GVL_PMPS.rPhotonEnergy &gt;1500 THEN bZOS_IN:= FALSE;
     ELSIF (GVL_PMPS.rPhotonEnergy &gt;1000 AND M24.fPosition&gt;= 8.5) THEN bZOS_IN:= TRUE;
@@ -3736,10 +3740,106 @@ IF GVL_PMPS.rPhotonEnergy &gt;1500 THEN bZOS_IN:= FALSE;
                             ELSE bZOS_IN:= FALSE;
 END_IF
 END_ACTION
+
+METHOD MR1K1_Inserted : BOOL
+VAR_INPUT
+END_VAR
+MR1K1_Inserted := PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_IN]
+                    AND NOT PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_OUT];
+END_METHOD
+
+METHOD SafeBenderRange : BOOL
+VAR_INPUT
+END_VAR
+SafeBenderRange :=  GVL_M1K1_BENDER_Constants.nM1K1bendUS_PMPS_LowerLimit &lt; M17.nEncoderCount AND M17.nEncoderCount &lt; GVL_M1K1_BENDER_Constants.nM1K1bendUS_PMPS_UpperLimit AND
+    GVL_M1K1_BENDER_Constants.nM1K1bendDS_PMPS_LowerLimit &lt; M18.nEncoderCount AND M18.nEncoderCount &lt; GVL_M1K1_BENDER_Constants.nM1K1bendDS_PMPS_UpperLimit;
+END_METHOD
+
+METHOD ZOB_on_Lower_Stopper : BOOL
+VAR_INPUT
+END_VAR
+VAR
+    Pm3 : LREAL;
+    Pm2: LREAL;
+    Pm1: LREAL;
+    Hm1: LREAL;
+    HZos:LREAL;
+    Zbm1: LREAL;
+    Zbm2: LREAL;
+    Zbm3: LREAL;
+    Hbm1: LREAL;
+    Hbm2: LREAL;
+    Hbm3: LREAL;
+    Hb0m3:LREAL;
+    //fixed calc
+    Hm3      : LREAL;
+    Hpiv : LREAL;
+    Theta_m1: LREAL;
+    Theta_m2: LREAL;
+    Theta_m3: LREAL;
+    Delta : LREAL;
+    Ans : LREAL;
+END_VAR
+
+VAR CONSTANT
+    Hi2 :LREAL:=1.4;//m
+    Zi2: LREAL :=731.613;//m
+    Theta0 : LREAL:=0;
+    Zm1 : LREAL:=733.772;//m
+    Zmon : LREAL:=739.622;//m
+    Zpiv : LREAL:= 739.622 ; //m
+    Zzos : LREAL:= 741.422;//m
+END_VAR
+//Hm1 = 1400000+mr1k1 ben Y up
+Hm1:= 1400000+M12.fPosition; //um
+//Pm1 = 18310 - 281 + mr1k1 bend pitch
+Pm1 := 18310 - 281 + Main.M16.fPosition; //urad
+//Hpiv = 1.620305 + 0.001 // m 0.001 is correction from nominal
+Hpiv:= (1.620305 + 0.001)*1E6; //um
+//Pm2 = mono mirror pitch - 90700 urad
+Pm2 := Main.M6.fPosition - 90700;//urad
+//Hm3 = Hpiv + 0.006 m
+Hm3:= Hpiv + (0.006*1E6); //um
+//Pm3 = mono grating pitch - 63300 urad
+Pm3 := Main.M7.fPosition - 63300; //urad
+//Hzos = 1824.3 + st1k1_zos mm
+Hzos:= 1824.3 + M24.fPosition; //mm
+
+
+//urad
+Theta_m1 := 2*Pm1 - Theta0;
+Theta_m2 := 2*Pm2 - Theta_m1;
+Theta_m3 := 2 *Pm3 - 2 * Pm2 + 2* Pm1 - Theta0;
+
+// fix units
+//um
+Zbm1 := (Hm1 - TAN(Pm1)* (Zm1*1E6) - (Hi2*1E6) + TAN(Theta0) *(Zi2*1E6))/(TAN(Theta0) - TAN(Pm1));
+hbm1 := TAN(Pm1)*Zbm1 + Hm1 - TAN(Pm1)*(Zm1*1E6);
+//u?
+Zbm2 := (Hbm1 - TAN(Theta_m1)*Zbm1 - Hpiv + TAN(Pm2)*(Zpiv*1E6))/ (TAN(Pm2) - TAN(Theta_m1));
+Hbm2 := TAN(Pm2)*Zbm2 + Hpiv - TAN(Pm2)*(Zpiv*1E6);
+
+Zbm3 := (Hbm2 - TAN(Theta_m2)*Zbm2 - Hm3 + TAN(Pm3)*(Zpiv*1E6))/ (TAN(Pm3) - TAN(Theta_m2));
+Hbm3 := TAN(Pm3) * Zbm3 + Hm3 - TAN(Pm3)*(Zpiv*1E6);
+
+Hb0m3 := TAN(Theta_m3)*(Zzos*1E6) + Hbm3 - TAN(Theta_m3)*Zbm3;
+
+
+//TRUE if hb0m3(Zzoz) - Hzos &gt; D
+Ans := Hb0m3 - (Hzos*1E3); //um
+IF GVL_PMPS.rPhotonEnergy &lt;550 THEN
+    ZOB_on_Lower_Stopper := Ans &gt; 6*1E3;
+    ELSIF GVL_PMPS.rPhotonEnergy &lt;1000 THEN
+            ZOB_on_Lower_Stopper := Ans &gt;  3.2*1E3;
+    ELSIF GVL_PMPS.rPhotonEnergy &gt;=1000 THEN
+            ZOB_on_Lower_Stopper := Ans &gt;  2.5*1E3;
+END_IF
+END_METHOD
 </pre></div>
 </div>
 <dl class="simple">
 <dt>Related:</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="#gvl-m1k1-bender-constants">GVL_M1K1_BENDER_Constants</a></p></li>
 <li><p><a class="reference internal" href="#gvl-pmps">GVL_PMPS</a></p></li>
 <li><p><a class="reference internal" href="#main">Main</a></p></li>
 </ul>
@@ -3758,7 +3858,7 @@ END_ACTION
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2021, SLAC National Accelerator Laboratory.</p>
+    <p>&#169; Copyright 2022, SLAC National Accelerator Laboratory.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

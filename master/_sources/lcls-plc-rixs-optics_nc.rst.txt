@@ -248,6 +248,10 @@ Axis 6: m_pi
     Enc:Inc:RefSoftSyncMask, #x0000ffff
     Enc:MaxCount, #xffffffff
     Enc:ScaleFactorNumerator, 0.004505
+    Enc:SoftEndMaxControl:Enable, true
+    Enc:SoftEndMaxControl:Range, 155739
+    Enc:SoftEndMinControl:Enable, true
+    Enc:SoftEndMinControl:Range, 123475
     General:UnitName, urad
     Id, 6
     OtherSettings:AllowMotionCmdToSlave, true
@@ -276,6 +280,10 @@ Axis 7: g_pi
     Enc:Inc:RefSoftSyncMask, #x0000ffff
     Enc:MaxCount, #xffffffff
     Enc:ScaleFactorNumerator, 0.0066667
+    Enc:SoftEndMaxControl:Enable, true
+    Enc:SoftEndMaxControl:Range, 176006
+    Enc:SoftEndMinControl:Enable, true
+    Enc:SoftEndMinControl:Range, 123375
     General:UnitName, urad
     Id, 7
     MotionControl:Time, 1
