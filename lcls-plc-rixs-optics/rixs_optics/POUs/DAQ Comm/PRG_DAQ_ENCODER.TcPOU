@@ -4,10 +4,16 @@
     <Declaration><![CDATA[PROGRAM PRG_DAQ_ENCODER
 VAR
     // Inputs
+	{attribute 'pytmc' := '
+		pv: SP1K1:MONO:DAQ:LAST_TRIGGER
+	'}
 	{attribute 'TcLinkTo' := 'TIIB[EVR]^Latch^LatchPos1'}
     iLatchPos AT %I*: ULINT;
 	{attribute 'TcLinkTo' := 'TIIB[EVR]^Latch^LatchNeg1'}
     iLatchNeg AT %I*: ULINT;
+	{attribute 'pytmc' := '
+		pv: SP1K1:MONO:DAQ:ENC_COUNT
+	'}
 	{attribute 'TcLinkTo' := 'TIIB[g_pi_up_dwn_e]^FB Inputs Channel 2^Position'}
     nEncoderCount AT %I*: ULINT;
     bSendToDAQ: BOOL := TRUE;
@@ -23,7 +29,13 @@ VAR
     iMaxTime: ULINT;
     iMinTime: ULINT := 10000000000;
     fTimeInS: LREAL;
+	{attribute 'pytmc' := '
+		pv: SP1K1:MONO:DAQ:TRIG_WIDTH
+	'}
     iTriggerWidth: ULINT;
+	{attribute 'pytmc' := '
+		pv: SP1K1:MONO:DAQ:TRIG_RATE
+	'}
     fTriggerRate: LREAL;
     
     // Internals
@@ -33,11 +45,19 @@ VAR
     fMaxTimeInS: LREAL;
     fMinTimeInS: LREAL := 10000000;
     iTimeSinceLast: ULINT;
+	{attribute 'pytmc' := '
+		pv: SP1K1:MONO:DAQ:UPDATE_COUNT
+	'}
     nUpdateCycles: ULINT;
+	{attribute 'pytmc' := '
+		pv: SP1K1:MONO:DAQ:FRAME_COUNT
+	'}
+    nFrameCount: UINT;
     stTaskInfo: PlcTaskSystemInfo;
     iUnderflowCount: ULINT;
     fUnderflowPercent: LREAL;
     fEncScale: LREAL;
+    fEncScaleDenominator: LREAL;
     
     fbSocketHandler : FB_UDPSocketHandler;
 	fbSocketSend : FB_BufferedSocketSend;
@@ -59,6 +79,7 @@ END_VAR
     <Implementation>
       <ST><![CDATA[IF fEncScale = 0 THEN
     fEncScale := M7.stAxisParameters.fEncScaleFactorNumerator;
+    fEncScaleDenominator := M7.stAxisParameters.fEncScaleFactorDenominator;
 END_IF
 
 fbGetTaskIndex();
@@ -102,17 +123,19 @@ IF bNewTrigger THEN
 	END_IF
         
     // Assemble Packet
+    nFrameCount := ULINT_TO_UINT(nUpdateCycles);
     fbHeader(
-        nFrameCount := ULINT_TO_UINT(nUpdateCycles),
+        nFrameCount := nFrameCount,
         sHardwareID := 'plc-rixs-optics',
         stHeader => payload.header
     );
     fbChannel(
         nEncCount := ULINT_TO_UDINT(nEncoderCount),
         nTiming := ULINT_TO_UDINT(iTimeSincePos),
-        nScale := fEncScale,
+        fScale := fEncScale,
         nError := UDINT_TO_USINT(M7.nErrorId),
         sHardwareID := 'SP1K1:G_PITCH',
+        fScaleDenominator := fEncScaleDenominator,
         stChannel => payload.channel1
     );
     F_AddChannelToHeader(

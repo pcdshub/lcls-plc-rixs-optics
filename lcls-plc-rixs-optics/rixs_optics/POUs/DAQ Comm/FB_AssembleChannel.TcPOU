@@ -8,7 +8,7 @@ VAR_INPUT
     // Latched rising edge timestamp from EL1252-0050 terminal.
     nTiming : ULINT;
     // Scale as reported in DUT_MotionStage.stAxisParameters.fEncScaleFactorNumerator
-    nScale : LREAL;
+    fScale : LREAL;
     // Serial number of the encoder
     sHardwareID : STRING(15);
     // Channel number for the data packet
@@ -17,6 +17,8 @@ VAR_INPUT
     nError : USINT;
     // Selector for acquisition mode (currently unused)
     nMode : USINT;
+    // Scale denominator as reported in DUT_MotionStage.stAxisParameters.fEncScaleFactorDenominator
+    fScaleDenominator: LREAL;
 END_VAR
 VAR_OUTPUT
     // Network-ready encoder channel structure
@@ -29,7 +31,16 @@ END_VAR
     <Implementation>
       <ST><![CDATA[stChannel.count := HOST_TO_BE32(UDINT_TO_DWORD(nEncCount));
 stChannel.timing := HOST_TO_BE32(ULINT_TO_DWORD(nTiming)); //  Truncate to remove the "seconds" bytes.
-stChannel.scale := HOST_TO_BE16(LREAL_TO_WORD(nScale * 1_000_000)); // Send as "nanometers per count" uint (assuming mm scale)
+// Scale may be numerator-only or numerator and denominator
+IF fScaleDenominator = 1 AND fScale < 0 THEN
+    // Old format
+    stChannel.scale := HOST_TO_BE16(LREAL_TO_WORD(fScale * 1_000_000)); // Send as "nanometers per count" uint (assuming mm scale)
+    stChannel.scale_denominator := 0;
+ELSE
+    // New format
+    stChannel.scale := HOST_TO_BE16(LREAL_TO_WORD(fScale));
+    stChannel.scale_denominator := HOST_TO_BE16(LREAL_TO_WORD(fScaleDenominator));
+END_IF
 
 FOR nStringIter := 0 TO 15 DO
     stChannel.hardwareID[nStringIter] := sHardwareID[nStringIter];
