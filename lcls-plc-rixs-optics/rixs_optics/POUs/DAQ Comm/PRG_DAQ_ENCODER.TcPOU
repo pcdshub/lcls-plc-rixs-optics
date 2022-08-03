@@ -26,6 +26,7 @@ VAR
     iTriggerWidth: ULINT;
 	{attribute 'pytmc' := '
 		pv: SP1K1:MONO:DAQ:TRIG_RATE
+        io: i
 	'}
     fTriggerRate: LREAL;
     
@@ -39,6 +40,7 @@ VAR
     nUpdateCycles: ULINT;
 	{attribute 'pytmc' := '
 		pv: SP1K1:MONO:DAQ:FRAME_COUNT
+        io: i
 	'}
     nFrameCount: UINT;
     stTaskInfo: PlcTaskSystemInfo;
@@ -66,10 +68,12 @@ VAR
     // EPICS Diagnostics (reduce data size)
 	{attribute 'pytmc' := '
 		pv: SP1K1:MONO:DAQ:ENC_COUNT
+        io: i
 	'}
     fEpicsEncCount: DINT;
 	{attribute 'pytmc' := '
 		pv: SP1K1:MONO:DAQ:TRIG_WIDTH
+        io: i
 	'}
     fEpicsTrigWidth: DINT;
 END_VAR
