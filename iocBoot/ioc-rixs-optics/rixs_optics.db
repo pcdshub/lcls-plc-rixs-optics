@@ -8,14 +8,6 @@ record(longin, "SP1K1:MONO:DAQ:FRAME_COUNT_RBV") {
   info(archive, "VAL")
 }
 
-record(longout, "SP1K1:MONO:DAQ:FRAME_COUNT") {
-  field(DESC, "PRG_DAQ_ENCODER.nFrameCount")
-  field(DTYP, "asynInt32")
-  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/PRG_DAQ_ENCODER.nFrameCount=")
-  info(autosaveFields_pass0, "VAL")
-  info(archive, "VAL")
-}
-
 record(ai, "SP1K1:MONO:DAQ:TRIG_RATE_RBV") {
   field(DESC, "PRG_DAQ_ENCODER.fTriggerRate")
   field(SCAN, "I/O Intr")
@@ -25,15 +17,6 @@ record(ai, "SP1K1:MONO:DAQ:TRIG_RATE_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_DAQ_ENCODER.fTriggerRate?")
   field(PREC, "3")
   info(autosaveFields_pass0, "PREC")
-  info(archive, "VAL")
-}
-
-record(ao, "SP1K1:MONO:DAQ:TRIG_RATE") {
-  field(DESC, "PRG_DAQ_ENCODER.fTriggerRate")
-  field(DTYP, "asynFloat64")
-  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/PRG_DAQ_ENCODER.fTriggerRate=")
-  field(PREC, "3")
-  info(autosaveFields_pass0, "PREC VAL")
   info(archive, "VAL")
 }
 
@@ -683,14 +666,6 @@ record(longin, "SP1K1:MONO:DAQ:ENC_COUNT_RBV") {
   info(archive, "VAL")
 }
 
-record(longout, "SP1K1:MONO:DAQ:ENC_COUNT") {
-  field(DESC, "PRG_DAQ_ENCODER.fEpicsEncCount")
-  field(DTYP, "asynInt32")
-  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/PRG_DAQ_ENCODER.fEpicsEncCount=")
-  info(autosaveFields_pass0, "VAL")
-  info(archive, "VAL")
-}
-
 record(longin, "SP1K1:MONO:DAQ:TRIG_WIDTH_RBV") {
   field(DESC, "PRG_DAQ_ENCODER.fEpicsTrigWidth")
   field(SCAN, "I/O Intr")
@@ -698,14 +673,6 @@ record(longin, "SP1K1:MONO:DAQ:TRIG_WIDTH_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_DAQ_ENCODER.fEpicsTrigWidth?")
-  info(archive, "VAL")
-}
-
-record(longout, "SP1K1:MONO:DAQ:TRIG_WIDTH") {
-  field(DESC, "PRG_DAQ_ENCODER.fEpicsTrigWidth")
-  field(DTYP, "asynInt32")
-  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/PRG_DAQ_ENCODER.fEpicsTrigWidth=")
-  info(autosaveFields_pass0, "VAL")
   info(archive, "VAL")
 }
 
