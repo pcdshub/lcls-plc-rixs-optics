@@ -279,7 +279,8 @@ Axis 7: g_pi
     Enc:FilterTime:TPos, 0.02
     Enc:Inc:RefSoftSyncMask, #x0000ffff
     Enc:MaxCount, #xffffffff
-    Enc:ScaleFactorNumerator, 0.0066667
+    Enc:ScaleFactorDenominator, 150
+    Enc:ScaleFactorNumerator, 1
     Enc:SoftEndMaxControl:Enable, true
     Enc:SoftEndMaxControl:Range, 176006
     Enc:SoftEndMinControl:Enable, true

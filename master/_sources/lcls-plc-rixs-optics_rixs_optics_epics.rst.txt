@@ -45699,6 +45699,30 @@ Database Records
       - | io: output
 
 
+    * - SP1K1:MONO:DAQ:ENC_COUNT_RBV
+      - longin
+      - PRG_DAQ_ENCODER.fEpicsEncCount
+      - | io: input
+
+
+    * - SP1K1:MONO:DAQ:FRAME_COUNT_RBV
+      - longin
+      - PRG_DAQ_ENCODER.nFrameCount
+      - | io: input
+
+
+    * - SP1K1:MONO:DAQ:TRIG_RATE_RBV
+      - ai
+      - PRG_DAQ_ENCODER.fTriggerRate
+      - | io: input
+
+
+    * - SP1K1:MONO:DAQ:TRIG_WIDTH_RBV
+      - longin
+      - PRG_DAQ_ENCODER.fEpicsTrigWidth
+      - | io: input
+
+
     * - SP1K1:MONO:ENC:G_PI:02
       - ao
       - PRG_SP1K1_MONO.gpi_upeurad

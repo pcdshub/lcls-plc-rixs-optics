@@ -170,7 +170,7 @@
     <span class="n">channel</span><span class="p">:</span> <span class="n">BYTE</span><span class="p">;</span>                      <span class="o">//</span> <span class="mi">1</span>    <span class="mi">28</span>
     <span class="n">error</span><span class="p">:</span> <span class="n">BYTE</span><span class="p">;</span>                        <span class="o">//</span> <span class="mi">1</span>    <span class="mi">29</span>
     <span class="n">mode</span><span class="p">:</span> <span class="n">BYTE</span><span class="p">;</span>                         <span class="o">//</span> <span class="mi">1</span>    <span class="mi">30</span>
-    <span class="n">reserved2</span><span class="p">:</span> <span class="n">WORD</span><span class="p">;</span>                    <span class="o">//</span> <span class="mi">2</span>    <span class="mi">32</span>
+    <span class="n">scale_denominator</span><span class="p">:</span> <span class="n">WORD</span><span class="p">;</span>            <span class="o">//</span> <span class="mi">2</span>    <span class="mi">32</span>
 <span class="n">END_STRUCT</span>
 <span class="n">END_TYPE</span>
 <span class="p">(</span><span class="o">*</span>
@@ -183,7 +183,7 @@
     <span class="n">uint8_t</span>     <span class="n">channel</span><span class="p">;</span>
     <span class="n">uint8_t</span>     <span class="n">error</span><span class="p">;</span>
     <span class="n">uint8_t</span>     <span class="n">mode</span><span class="p">;</span>
-    <span class="n">uint8_t</span>     <span class="n">reserved2</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+    <span class="n">uint16_t</span>     <span class="n">scale_denominator</span><span class="p">;</span> <span class="o">//</span> <span class="n">network</span> <span class="n">byte</span> <span class="n">order</span>
 <span class="p">}</span> <span class="n">encoder_channel_t</span><span class="p">;</span>
 <span class="o">*</span><span class="p">)</span>
 </pre></div>
@@ -1041,7 +1041,7 @@ END_VAR
     <span class="o">//</span> <span class="n">Latched</span> <span class="n">rising</span> <span class="n">edge</span> <span class="n">timestamp</span> <span class="kn">from</span> <span class="nn">EL1252</span><span class="o">-</span><span class="mi">0050</span> <span class="n">terminal</span><span class="o">.</span>
     <span class="n">nTiming</span> <span class="p">:</span> <span class="n">ULINT</span><span class="p">;</span>
     <span class="o">//</span> <span class="n">Scale</span> <span class="k">as</span> <span class="n">reported</span> <span class="ow">in</span> <span class="n">DUT_MotionStage</span><span class="o">.</span><span class="n">stAxisParameters</span><span class="o">.</span><span class="n">fEncScaleFactorNumerator</span>
-    <span class="n">nScale</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+    <span class="n">fScale</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
     <span class="o">//</span> <span class="n">Serial</span> <span class="n">number</span> <span class="n">of</span> <span class="n">the</span> <span class="n">encoder</span>
     <span class="n">sHardwareID</span> <span class="p">:</span> <span class="n">STRING</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span>
     <span class="o">//</span> <span class="n">Channel</span> <span class="n">number</span> <span class="k">for</span> <span class="n">the</span> <span class="n">data</span> <span class="n">packet</span>
@@ -1050,6 +1050,8 @@ END_VAR
     <span class="n">nError</span> <span class="p">:</span> <span class="n">USINT</span><span class="p">;</span>
     <span class="o">//</span> <span class="n">Selector</span> <span class="k">for</span> <span class="n">acquisition</span> <span class="n">mode</span> <span class="p">(</span><span class="n">currently</span> <span class="n">unused</span><span class="p">)</span>
     <span class="n">nMode</span> <span class="p">:</span> <span class="n">USINT</span><span class="p">;</span>
+    <span class="o">//</span> <span class="n">Scale</span> <span class="n">denominator</span> <span class="k">as</span> <span class="n">reported</span> <span class="ow">in</span> <span class="n">DUT_MotionStage</span><span class="o">.</span><span class="n">stAxisParameters</span><span class="o">.</span><span class="n">fEncScaleFactorDenominator</span>
+    <span class="n">fScaleDenominator</span><span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
 <span class="n">END_VAR</span>
 <span class="n">VAR_OUTPUT</span>
     <span class="o">//</span> <span class="n">Network</span><span class="o">-</span><span class="n">ready</span> <span class="n">encoder</span> <span class="n">channel</span> <span class="n">structure</span>
@@ -1060,7 +1062,16 @@ END_VAR
 <span class="n">END_VAR</span>
 <span class="n">stChannel</span><span class="o">.</span><span class="n">count</span> <span class="o">:=</span> <span class="n">HOST_TO_BE32</span><span class="p">(</span><span class="n">UDINT_TO_DWORD</span><span class="p">(</span><span class="n">nEncCount</span><span class="p">));</span>
 <span class="n">stChannel</span><span class="o">.</span><span class="n">timing</span> <span class="o">:=</span> <span class="n">HOST_TO_BE32</span><span class="p">(</span><span class="n">ULINT_TO_DWORD</span><span class="p">(</span><span class="n">nTiming</span><span class="p">));</span> <span class="o">//</span>  <span class="n">Truncate</span> <span class="n">to</span> <span class="n">remove</span> <span class="n">the</span> <span class="s2">&quot;seconds&quot;</span> <span class="nb">bytes</span><span class="o">.</span>
-<span class="n">stChannel</span><span class="o">.</span><span class="n">scale</span> <span class="o">:=</span> <span class="n">HOST_TO_BE16</span><span class="p">(</span><span class="n">LREAL_TO_WORD</span><span class="p">(</span><span class="n">nScale</span> <span class="o">*</span> <span class="mi">1_000_000</span><span class="p">));</span> <span class="o">//</span> <span class="n">Send</span> <span class="k">as</span> <span class="s2">&quot;nanometers per count&quot;</span> <span class="n">uint</span> <span class="p">(</span><span class="n">assuming</span> <span class="n">mm</span> <span class="n">scale</span><span class="p">)</span>
+<span class="o">//</span> <span class="n">Scale</span> <span class="n">may</span> <span class="n">be</span> <span class="n">numerator</span><span class="o">-</span><span class="n">only</span> <span class="ow">or</span> <span class="n">numerator</span> <span class="ow">and</span> <span class="n">denominator</span>
+<span class="n">IF</span> <span class="n">fScaleDenominator</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">AND</span> <span class="n">fScale</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="n">THEN</span>
+    <span class="o">//</span> <span class="n">Old</span> <span class="nb">format</span>
+    <span class="n">stChannel</span><span class="o">.</span><span class="n">scale</span> <span class="o">:=</span> <span class="n">HOST_TO_BE16</span><span class="p">(</span><span class="n">LREAL_TO_WORD</span><span class="p">(</span><span class="n">fScale</span> <span class="o">*</span> <span class="mi">1_000_000</span><span class="p">));</span> <span class="o">//</span> <span class="n">Send</span> <span class="k">as</span> <span class="s2">&quot;nanometers per count&quot;</span> <span class="n">uint</span> <span class="p">(</span><span class="n">assuming</span> <span class="n">mm</span> <span class="n">scale</span><span class="p">)</span>
+    <span class="n">stChannel</span><span class="o">.</span><span class="n">scale_denominator</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">ELSE</span>
+    <span class="o">//</span> <span class="n">New</span> <span class="nb">format</span>
+    <span class="n">stChannel</span><span class="o">.</span><span class="n">scale</span> <span class="o">:=</span> <span class="n">HOST_TO_BE16</span><span class="p">(</span><span class="n">LREAL_TO_WORD</span><span class="p">(</span><span class="n">fScale</span><span class="p">));</span>
+    <span class="n">stChannel</span><span class="o">.</span><span class="n">scale_denominator</span> <span class="o">:=</span> <span class="n">HOST_TO_BE16</span><span class="p">(</span><span class="n">LREAL_TO_WORD</span><span class="p">(</span><span class="n">fScaleDenominator</span><span class="p">));</span>
+<span class="n">END_IF</span>
 
 <span class="n">FOR</span> <span class="n">nStringIter</span> <span class="o">:=</span> <span class="mi">0</span> <span class="n">TO</span> <span class="mi">15</span> <span class="n">DO</span>
     <span class="n">stChannel</span><span class="o">.</span><span class="n">hardwareID</span><span class="p">[</span><span class="n">nStringIter</span><span class="p">]</span> <span class="o">:=</span> <span class="n">sHardwareID</span><span class="p">[</span><span class="n">nStringIter</span><span class="p">];</span>
@@ -1087,7 +1098,7 @@ END_VAR
     <span class="o">//</span> <span class="n">The</span> <span class="n">count</span> <span class="n">of</span> <span class="n">how</span> <span class="n">many</span> <span class="n">frames</span> <span class="n">we</span><span class="s1">&#39;ve sent, e.g. 1 on the first send, 2 on the second...</span>
     <span class="n">nFrameCount</span> <span class="p">:</span> <span class="n">UINT</span><span class="p">;</span>
     <span class="o">//</span> <span class="n">Protocol</span> <span class="n">version</span><span class="o">.</span> <span class="n">This</span> <span class="ow">is</span> <span class="nb">set</span> <span class="k">for</span> <span class="n">you</span> <span class="n">by</span> <span class="n">this</span> <span class="n">function</span> <span class="n">block</span><span class="o">.</span>
-    <span class="n">nMajor</span> <span class="p">:</span> <span class="n">UINT</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">nMajor</span> <span class="p">:</span> <span class="n">UINT</span> <span class="o">:=</span> <span class="mi">2</span><span class="p">;</span>
     <span class="n">nMinor</span> <span class="p">:</span> <span class="n">USINT</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="n">nMicro</span> <span class="p">:</span> <span class="n">USINT</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="o">//</span> <span class="n">Unambiguous</span> <span class="n">identifier</span> <span class="k">for</span> <span class="n">the</span> <span class="n">PLC</span>
@@ -1520,6 +1531,10 @@ END_VAR
     <span class="n">iMinTime</span><span class="p">:</span> <span class="n">ULINT</span> <span class="o">:=</span> <span class="mi">10000000000</span><span class="p">;</span>
     <span class="n">fTimeInS</span><span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
     <span class="n">iTriggerWidth</span><span class="p">:</span> <span class="n">ULINT</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+            <span class="n">pv</span><span class="p">:</span> <span class="n">SP1K1</span><span class="p">:</span><span class="n">MONO</span><span class="p">:</span><span class="n">DAQ</span><span class="p">:</span><span class="n">TRIG_RATE</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+    <span class="s1">&#39;}</span>
     <span class="n">fTriggerRate</span><span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
 
     <span class="o">//</span> <span class="n">Internals</span>
@@ -1530,10 +1545,16 @@ END_VAR
     <span class="n">fMinTimeInS</span><span class="p">:</span> <span class="n">LREAL</span> <span class="o">:=</span> <span class="mi">10000000</span><span class="p">;</span>
     <span class="n">iTimeSinceLast</span><span class="p">:</span> <span class="n">ULINT</span><span class="p">;</span>
     <span class="n">nUpdateCycles</span><span class="p">:</span> <span class="n">ULINT</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+            <span class="n">pv</span><span class="p">:</span> <span class="n">SP1K1</span><span class="p">:</span><span class="n">MONO</span><span class="p">:</span><span class="n">DAQ</span><span class="p">:</span><span class="n">FRAME_COUNT</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">nFrameCount</span><span class="p">:</span> <span class="n">UINT</span><span class="p">;</span>
     <span class="n">stTaskInfo</span><span class="p">:</span> <span class="n">PlcTaskSystemInfo</span><span class="p">;</span>
     <span class="n">iUnderflowCount</span><span class="p">:</span> <span class="n">ULINT</span><span class="p">;</span>
     <span class="n">fUnderflowPercent</span><span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
     <span class="n">fEncScale</span><span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+    <span class="n">fEncScaleDenominator</span><span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
 
     <span class="n">fbSocketHandler</span> <span class="p">:</span> <span class="n">FB_UDPSocketHandler</span><span class="p">;</span>
     <span class="n">fbSocketSend</span> <span class="p">:</span> <span class="n">FB_BufferedSocketSend</span><span class="p">;</span>
@@ -1550,9 +1571,22 @@ END_VAR
     <span class="n">nBusyCycles</span><span class="p">:</span> <span class="n">UINT</span><span class="p">;</span>
     <span class="n">nMaxBusyCycles</span><span class="p">:</span> <span class="n">UINT</span><span class="p">;</span>
     <span class="n">nDroppedFrames</span><span class="p">:</span> <span class="n">UINT</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">EPICS</span> <span class="n">Diagnostics</span> <span class="p">(</span><span class="n">reduce</span> <span class="n">data</span> <span class="n">size</span><span class="p">)</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+            <span class="n">pv</span><span class="p">:</span> <span class="n">SP1K1</span><span class="p">:</span><span class="n">MONO</span><span class="p">:</span><span class="n">DAQ</span><span class="p">:</span><span class="n">ENC_COUNT</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">fEpicsEncCount</span><span class="p">:</span> <span class="n">DINT</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+            <span class="n">pv</span><span class="p">:</span> <span class="n">SP1K1</span><span class="p">:</span><span class="n">MONO</span><span class="p">:</span><span class="n">DAQ</span><span class="p">:</span><span class="n">TRIG_WIDTH</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">fEpicsTrigWidth</span><span class="p">:</span> <span class="n">DINT</span><span class="p">;</span>
 <span class="n">END_VAR</span>
 <span class="n">IF</span> <span class="n">fEncScale</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">THEN</span>
     <span class="n">fEncScale</span> <span class="o">:=</span> <span class="n">M7</span><span class="o">.</span><span class="n">stAxisParameters</span><span class="o">.</span><span class="n">fEncScaleFactorNumerator</span><span class="p">;</span>
+    <span class="n">fEncScaleDenominator</span> <span class="o">:=</span> <span class="n">M7</span><span class="o">.</span><span class="n">stAxisParameters</span><span class="o">.</span><span class="n">fEncScaleFactorDenominator</span><span class="p">;</span>
 <span class="n">END_IF</span>
 
 <span class="n">fbGetTaskIndex</span><span class="p">();</span>
@@ -1596,17 +1630,19 @@ END_VAR
     <span class="n">END_IF</span>
 
     <span class="o">//</span> <span class="n">Assemble</span> <span class="n">Packet</span>
+    <span class="n">nFrameCount</span> <span class="o">:=</span> <span class="n">ULINT_TO_UINT</span><span class="p">(</span><span class="n">nUpdateCycles</span><span class="p">);</span>
     <span class="n">fbHeader</span><span class="p">(</span>
-        <span class="n">nFrameCount</span> <span class="o">:=</span> <span class="n">ULINT_TO_UINT</span><span class="p">(</span><span class="n">nUpdateCycles</span><span class="p">),</span>
+        <span class="n">nFrameCount</span> <span class="o">:=</span> <span class="n">nFrameCount</span><span class="p">,</span>
         <span class="n">sHardwareID</span> <span class="o">:=</span> <span class="s1">&#39;plc-rixs-optics&#39;</span><span class="p">,</span>
         <span class="n">stHeader</span> <span class="o">=&gt;</span> <span class="n">payload</span><span class="o">.</span><span class="n">header</span>
     <span class="p">);</span>
     <span class="n">fbChannel</span><span class="p">(</span>
         <span class="n">nEncCount</span> <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">nEncoderCount</span><span class="p">),</span>
         <span class="n">nTiming</span> <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">iTimeSincePos</span><span class="p">),</span>
-        <span class="n">nScale</span> <span class="o">:=</span> <span class="n">fEncScale</span><span class="p">,</span>
+        <span class="n">fScale</span> <span class="o">:=</span> <span class="n">fEncScale</span><span class="p">,</span>
         <span class="n">nError</span> <span class="o">:=</span> <span class="n">UDINT_TO_USINT</span><span class="p">(</span><span class="n">M7</span><span class="o">.</span><span class="n">nErrorId</span><span class="p">),</span>
         <span class="n">sHardwareID</span> <span class="o">:=</span> <span class="s1">&#39;SP1K1:G_PITCH&#39;</span><span class="p">,</span>
+        <span class="n">fScaleDenominator</span> <span class="o">:=</span> <span class="n">fEncScaleDenominator</span><span class="p">,</span>
         <span class="n">stChannel</span> <span class="o">=&gt;</span> <span class="n">payload</span><span class="o">.</span><span class="n">channel1</span>
     <span class="p">);</span>
     <span class="n">F_AddChannelToHeader</span><span class="p">(</span>
@@ -1651,6 +1687,10 @@ END_VAR
     <span class="n">sRemoteHost</span> <span class="o">:=</span> <span class="n">sTestHost</span><span class="p">,</span>
     <span class="n">nRemotePort</span> <span class="o">:=</span> <span class="mi">5006</span><span class="p">,</span>
 <span class="p">);</span>
+
+<span class="o">//</span> <span class="n">Update</span> <span class="n">EPICS</span><span class="o">-</span><span class="n">only</span> <span class="nb">vars</span>
+<span class="n">fEpicsEncCount</span> <span class="o">:=</span> <span class="n">ULINT_TO_DINT</span><span class="p">(</span><span class="n">nEncoderCount</span><span class="p">);</span>
+<span class="n">fEpicsTrigWidth</span> <span class="o">:=</span> <span class="n">ULINT_TO_DINT</span><span class="p">(</span><span class="n">iTriggerWidth</span><span class="p">);</span>
 
 <span class="n">END_PROGRAM</span>
 </pre></div>
