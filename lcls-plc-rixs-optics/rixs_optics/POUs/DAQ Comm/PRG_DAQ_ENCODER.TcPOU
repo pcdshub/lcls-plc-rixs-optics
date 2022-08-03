@@ -24,6 +24,10 @@ VAR
     iMinTime: ULINT := 10000000000;
     fTimeInS: LREAL;
     iTriggerWidth: ULINT;
+	{attribute 'pytmc' := '
+		pv: SP1K1:MONO:DAQ:TRIG_RATE
+        io: i
+	'}
     fTriggerRate: LREAL;
     
     // Internals
@@ -34,10 +38,16 @@ VAR
     fMinTimeInS: LREAL := 10000000;
     iTimeSinceLast: ULINT;
     nUpdateCycles: ULINT;
+	{attribute 'pytmc' := '
+		pv: SP1K1:MONO:DAQ:FRAME_COUNT
+        io: i
+	'}
+    nFrameCount: UINT;
     stTaskInfo: PlcTaskSystemInfo;
     iUnderflowCount: ULINT;
     fUnderflowPercent: LREAL;
     fEncScale: LREAL;
+    fEncScaleDenominator: LREAL;
     
     fbSocketHandler : FB_UDPSocketHandler;
 	fbSocketSend : FB_BufferedSocketSend;
@@ -54,11 +64,24 @@ VAR
     nBusyCycles: UINT;
     nMaxBusyCycles: UINT;
     nDroppedFrames: UINT;
+    
+    // EPICS Diagnostics (reduce data size)
+	{attribute 'pytmc' := '
+		pv: SP1K1:MONO:DAQ:ENC_COUNT
+        io: i
+	'}
+    fEpicsEncCount: DINT;
+	{attribute 'pytmc' := '
+		pv: SP1K1:MONO:DAQ:TRIG_WIDTH
+        io: i
+	'}
+    fEpicsTrigWidth: DINT;
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[IF fEncScale = 0 THEN
     fEncScale := M7.stAxisParameters.fEncScaleFactorNumerator;
+    fEncScaleDenominator := M7.stAxisParameters.fEncScaleFactorDenominator;
 END_IF
 
 fbGetTaskIndex();
@@ -102,17 +125,19 @@ IF bNewTrigger THEN
 	END_IF
         
     // Assemble Packet
+    nFrameCount := ULINT_TO_UINT(nUpdateCycles);
     fbHeader(
-        nFrameCount := ULINT_TO_UINT(nUpdateCycles),
+        nFrameCount := nFrameCount,
         sHardwareID := 'plc-rixs-optics',
         stHeader => payload.header
     );
     fbChannel(
         nEncCount := ULINT_TO_UDINT(nEncoderCount),
         nTiming := ULINT_TO_UDINT(iTimeSincePos),
-        nScale := fEncScale,
+        fScale := fEncScale,
         nError := UDINT_TO_USINT(M7.nErrorId),
         sHardwareID := 'SP1K1:G_PITCH',
+        fScaleDenominator := fEncScaleDenominator,
         stChannel => payload.channel1
     );
     F_AddChannelToHeader(
@@ -157,6 +182,10 @@ fbSocketSendTest(
     sRemoteHost := sTestHost,
     nRemotePort := 5006,
 );
+
+// Update EPICS-only vars
+fEpicsEncCount := ULINT_TO_DINT(nEncoderCount);
+fEpicsTrigWidth := ULINT_TO_DINT(iTriggerWidth);
 ]]></ST>
     </Implementation>
   </POU>

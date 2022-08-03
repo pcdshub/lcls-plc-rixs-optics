@@ -11,7 +11,7 @@ STRUCT
     channel: BYTE;                      // 1    28
     error: BYTE;                        // 1    29
     mode: BYTE;                         // 1    30
-    reserved2: WORD;                    // 2    32
+    scale_denominator: WORD;            // 2    32
 END_STRUCT
 END_TYPE
 (*
@@ -24,7 +24,7 @@ typedef struct {
     uint8_t     channel;
     uint8_t     error;
     uint8_t     mode;
-    uint8_t     reserved2[2];
+    uint16_t     scale_denominator; // network byte order
 } encoder_channel_t;
 *)]]></Declaration>
   </DUT>
