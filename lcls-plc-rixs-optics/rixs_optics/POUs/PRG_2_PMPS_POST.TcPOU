@@ -46,6 +46,10 @@ fb_vetoArbiter(bVeto:= PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stop
 ff2_ff1_link_optics(
 	io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1,
     i_xOK :=  GVL_PMPS.fbFastFaultOutput2.q_xFastFaultOut);
+	
+//Code for Removing arbitration 
+GVL_PMPS.fbArbiter1.AddRequest(nReqID := 47, stReqBp := PMPS_GVL.cstFullBeam, sDevName := 'rixs-optics');		
+GVL_PMPS.fbArbiter2.AddRequest(nReqID := 48, stReqBp := PMPS_GVL.cstFullBeam, sDevName := 'rixs-optics');	
 
 // Extra FFOs
 ffRIX01.i_xOK := (PMPS_GVL.stCurrentBeamParameters.nTran <=0.1+(0.1*delta)); //0.1
