@@ -159,7 +159,32 @@ VAR
         bMR1K1_Y_ENC_Ready AT %I* : BOOL;
         {attribute 'TcLinkTo' := 'TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 1^Status^TxPDO State'}
         bMR1K1_Y_ENC_TxPDO AT %I* : BOOL;
-
+    
+    // M1K1 Flow Press Sensors
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_M1K1_FLOW_PRESS]^AI Standard Channel 1^Value'}
+    fM1K1_Flow_1 : FB_AnalogInput;
+    {attribute 'pytmc' := '
+		pv: MR1K1:BEND:FLOW:1
+        field: EGU lpm
+        io: i
+    '}   
+    fM1K1_Flow_1_val : LREAL;
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_M1K1_FLOW_PRESS]^AI Standard Channel 2^Value'}
+    fM1K1_Flow_2 : FB_AnalogInput;
+    {attribute 'pytmc' := '
+		pv: MR1K1:BEND:FLOW:2
+        field: EGU lpm
+        io: i
+    '} 
+    fM1K1_Flow_2_val : LREAL; 
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_M1K1_FLOW_PRESS]^AI Standard Channel 3^Value'}
+    fM1K1_Press_1 : FB_AnalogInput;
+    {attribute 'pytmc' := '
+		pv: MR1K1:BEND:PRESS:1
+        field: EGU bar
+        io: i
+    '}      
+    fM1K1_Press_1_val : LREAL;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -249,7 +274,17 @@ nEncRefPitchM1K1 := LREAL_TO_UDINT(ABS(fEncRefPitchM1K1_urad) * fEncLeverArm_mm)
         nMR1K1_Y_ENC_PMPS := nEncCntYupM1K1;
     ELSE
         nMR1K1_Y_ENC_PMPS := 0;
-    END_IF]]></ST>
+    END_IF
+    
+    // LAMP KB Flow Pressure Sensors
+    fM1K1_Flow_1(iTermBits:=12, fTermMax:=5.0427, fTermMin:=0.050472);
+    fM1K1_Flow_1_val := fM1K1_Flow_1.fReal;
+        
+    fM1K1_Flow_2(iTermBits:=12, fTermMax:=5.0427, fTermMin:=0.050472);
+    fM1K1_Flow_2_val := fM1K1_Flow_2.fReal;
+        
+    fM1K1_Press_1(iTermBits:=12, fTermMax:=4.0, fTermMin:=0);
+    fM1K1_Press_1_val := fM1K1_Press_1.fReal;]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
