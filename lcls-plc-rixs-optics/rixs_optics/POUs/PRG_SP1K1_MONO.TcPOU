@@ -193,6 +193,32 @@ VAR
         i_Desc := 'Fault occurs When SP1K1-MONO screw driver motor is not in the out position',
         i_TypeCode := 16#1110);
 	sd_io_e_pmps : LREAL:= 74000.29; 
+    
+        // SP1K1 Flow Press Sensors
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_SP1K1_FLOW_PRESS]^AI Standard Channel 1^Value'}
+    fSP1K1_Flow_1 : FB_AnalogInput;
+    {attribute 'pytmc' := '
+		pv: SP1K1:MONO:FLOW:1
+        field: EGU lpm
+        io: i
+    '}   
+    fSP1K1_Flow_1_val : LREAL;
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_SP1K1_FLOW_PRESS]^AI Standard Channel 2^Value'}
+    fSP1K1_Flow_2 : FB_AnalogInput;
+    {attribute 'pytmc' := '
+		pv: SP1K1:MONO:FLOW:2
+        field: EGU lpm
+        io: i
+    '} 
+    fSP1K1_Flow_2_val : LREAL; 
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_SP1K1_FLOW_PRESS]^AI Standard Channel 3^Value'}
+    fSP1K1_Press_1 : FB_AnalogInput;
+    {attribute 'pytmc' := '
+		pv: SP1K1:MONO:PRESS:1
+        field: EGU bar
+        io: i
+    '}      
+    fSP1K1_Press_1_val : LREAL;
 
 END_VAR
 ]]></Declaration>
@@ -244,7 +270,16 @@ END_IF
 sd_io_FFO(i_xOK := ,
     i_xReset := ,
     i_xAutoReset :=TRUE,
-    io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);]]></ST>
+    io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
+    
+fSP1K1_Flow_1(iTermBits:=12, fTermMax:=5.0427, fTermMin:=0.050472);
+fSP1K1_Flow_1_val := fSP1K1_Flow_1.fReal;
+        
+fSP1K1_Flow_2(iTermBits:=12, fTermMax:=5.0427, fTermMin:=0.050472);
+fSP1K1_Flow_2_val := fSP1K1_Flow_2.fReal;
+        
+fSP1K1_Press_1(iTermBits:=12, fTermMax:=4.0, fTermMin:=0);
+fSP1K1_Press_1_val := fSP1K1_Press_1.fReal;]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

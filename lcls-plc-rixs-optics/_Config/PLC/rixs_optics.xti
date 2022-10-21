@@ -76,15 +76,15 @@
 			</Format>
 		</DataType>
 		<DataType>
-			<Name GUID="{6DDDCA2B-9EFF-442A-BCA2-BDBCB0DBF977}" Namespace="lcls_twincat_motion" AutoDeleteType="true">EL5042_Status</Name>
+			<Name GUID="{1B0859B3-38DF-4028-9C85-809F4841ECE0}" Namespace="lcls_twincat_motion" AutoDeleteType="true">EL5042_Status</Name>
 			<BitSize>0</BitSize>
 			<BaseType GUID="{FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF}"/>
 			<Hides>
-				<Hide GUID="{3A47471E-37EC-4EDA-8EB6-5F40E14BD649}"/>
+				<Hide GUID="{33C0A2CB-4257-4B03-83C3-F2AFEC73044F}"/>
 			</Hides>
 		</DataType>
 		<DataType>
-			<Name GUID="{380F8839-041E-4B34-A148-4B2FA062C026}" Namespace="lcls_twincat_motion" AutoDeleteType="true">ST_RenishawAbsEnc</Name>
+			<Name GUID="{AF779913-237C-4A4A-90FB-A805AD7E7DB3}" Namespace="lcls_twincat_motion" AutoDeleteType="true">ST_RenishawAbsEnc</Name>
 			<Comment>
 				<![CDATA[ Renishaw BiSS-C absolute encoder used with an EL5042]]>
 			</Comment>
@@ -106,7 +106,7 @@
 			</SubItem>
 			<SubItem>
 				<Name>Status</Name>
-				<Type GUID="{6DDDCA2B-9EFF-442A-BCA2-BDBCB0DBF977}" Namespace="lcls_twincat_motion">EL5042_Status</Type>
+				<Type GUID="{1B0859B3-38DF-4028-9C85-809F4841ECE0}" Namespace="lcls_twincat_motion">EL5042_Status</Type>
 				<Comment>
 					<![CDATA[ Status struct placeholder]]>
 				</Comment>
@@ -123,7 +123,7 @@
 				<BitOffs>64</BitOffs>
 			</SubItem>
 			<Hides>
-				<Hide GUID="{8E5F4A19-706E-4004-BE56-EEB2B7D5FF8D}"/>
+				<Hide GUID="{1DC5BE33-A68D-453C-A3BE-94137BFF3B5F}"/>
 			</Hides>
 		</DataType>
 		<DataType>
@@ -1333,7 +1333,7 @@ External Setpoint Generation:
 					<Comment>
 						<![CDATA[ Encoders]]>
 					</Comment>
-					<Type GUID="{380F8839-041E-4B34-A148-4B2FA062C026}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{AF779913-237C-4A4A-90FB-A805AD7E7DB3}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -1355,7 +1355,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.stYdwnEnc</Name>
-					<Type GUID="{380F8839-041E-4B34-A148-4B2FA062C026}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{AF779913-237C-4A4A-90FB-A805AD7E7DB3}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -1377,7 +1377,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.stXupEnc</Name>
-					<Type GUID="{380F8839-041E-4B34-A148-4B2FA062C026}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{AF779913-237C-4A4A-90FB-A805AD7E7DB3}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -1399,7 +1399,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.stXdwnEnc</Name>
-					<Type GUID="{380F8839-041E-4B34-A148-4B2FA062C026}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{AF779913-237C-4A4A-90FB-A805AD7E7DB3}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -1562,6 +1562,27 @@ Emergency Stop for MR1K1]]>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
+					<Name>PRG_MR1K1_BEND.fM1K1_Flow_1.iRaw</Name>
+					<Comment>
+						<![CDATA[ Connect this input to the terminal]]>
+					</Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K1_BEND.fM1K1_Flow_2.iRaw</Name>
+					<Comment>
+						<![CDATA[ Connect this input to the terminal]]>
+					</Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K1_BEND.fM1K1_Press_1.iRaw</Name>
+					<Comment>
+						<![CDATA[ Connect this input to the terminal]]>
+					</Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
 					<Name>PRG_MR1K1_BEND_BENDER.M1K1BENDbSTOEnable2</Name>
 					<Type>BOOL</Type>
 				</Var>
@@ -1615,7 +1636,7 @@ Emergency Stop for MR1K1]]>
 					<Comment>
 						<![CDATA[ Encoders]]>
 					</Comment>
-					<Type GUID="{380F8839-041E-4B34-A148-4B2FA062C026}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{AF779913-237C-4A4A-90FB-A805AD7E7DB3}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -1637,7 +1658,7 @@ Emergency Stop for MR1K1]]>
 				</Var>
 				<Var>
 					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stYdwnEnc</Name>
-					<Type GUID="{380F8839-041E-4B34-A148-4B2FA062C026}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{AF779913-237C-4A4A-90FB-A805AD7E7DB3}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -1659,7 +1680,7 @@ Emergency Stop for MR1K1]]>
 				</Var>
 				<Var>
 					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stXupEnc</Name>
-					<Type GUID="{380F8839-041E-4B34-A148-4B2FA062C026}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{AF779913-237C-4A4A-90FB-A805AD7E7DB3}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -1681,7 +1702,7 @@ Emergency Stop for MR1K1]]>
 				</Var>
 				<Var>
 					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stXdwnEnc</Name>
-					<Type GUID="{380F8839-041E-4B34-A148-4B2FA062C026}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{AF779913-237C-4A4A-90FB-A805AD7E7DB3}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -1836,6 +1857,14 @@ External Setpoint Generation:
 					<Comment>
 						<![CDATA[Flow Switches]]>
 					</Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.flow_2</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.pres_1</Name>
 					<Type>INT</Type>
 				</Var>
 				<Var>
@@ -2134,7 +2163,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>PRG_SP1K1_MONO.mpi_upe</Name>
-					<Type GUID="{380F8839-041E-4B34-A148-4B2FA062C026}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{AF779913-237C-4A4A-90FB-A805AD7E7DB3}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -2156,7 +2185,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>PRG_SP1K1_MONO.gpi_upe</Name>
-					<Type GUID="{380F8839-041E-4B34-A148-4B2FA062C026}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{AF779913-237C-4A4A-90FB-A805AD7E7DB3}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -2175,14 +2204,6 @@ External Setpoint Generation:
 							<![CDATA[ Encoder zero position (useful for aligned position with gantries)]]>
 						</Comment>
 					</SubVar>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.flow_2</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.pres_1</Name>
-					<Type>INT</Type>
 				</Var>
 				<Var>
 					<Name>PRG_SP1K1_MONO.RTD1.bError</Name>
@@ -2310,6 +2331,27 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>PRG_SP1K1_MONO.RTD8.iRaw</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.fSP1K1_Flow_1.iRaw</Name>
+					<Comment>
+						<![CDATA[ Connect this input to the terminal]]>
+					</Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.fSP1K1_Flow_2.iRaw</Name>
+					<Comment>
+						<![CDATA[ Connect this input to the terminal]]>
+					</Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.fSP1K1_Press_1.iRaw</Name>
+					<Comment>
+						<![CDATA[ Connect this input to the terminal]]>
+					</Comment>
 					<Type>INT</Type>
 				</Var>
 				<Var>
@@ -8606,8 +8648,8 @@ External Setpoint Generation:
 			<TaskPouOids>
 				<TaskPouOid Prio="19" OTCID="#x08502004"/>
 				<TaskPouOid Prio="1" OTCID="#x08502001"/>
-				<TaskPouOid Prio="3" OTCID="#x08502002"/>
 				<TaskPouOid Prio="20" OTCID="#x08502003"/>
+				<TaskPouOid Prio="3" OTCID="#x08502002"/>
 			</TaskPouOids>
 		</Instance>
 	</Project>
@@ -8681,14 +8723,14 @@ External Setpoint Generation:
 				<Link VarA="PlcTask Inputs^Main.M23.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^Main.M23.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true"/>
 			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^EL3054_SP1K1_FLOW_PRESS">
+				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.fSP1K1_Flow_1.iRaw" VarB="AI Standard Channel 1^Value" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.fSP1K1_Flow_2.iRaw" VarB="AI Standard Channel 2^Value" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.fSP1K1_Press_1.iRaw" VarB="AI Standard Channel 3^Value" AutoLink="true"/>
+			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL1004-E17">
 				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.bSTOEnable1" VarB="Channel 1^Input" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.bSTOEnable2" VarB="Channel 2^Input" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3054-E12">
-				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.flow_1" VarB="AI Standard Channel 1^Value" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.flow_2" VarB="AI Standard Channel 2^Value" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.pres_1" VarB="AI Standard Channel 3^Value" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3202-E13">
 				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD1.bError" VarB="RTD Inputs Channel 1^Status^Error" AutoLink="true"/>
@@ -8868,6 +8910,11 @@ External Setpoint Generation:
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL1004_M1K1_STO">
 				<Link VarA="PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fbRunHOMS.bSTOEnable1" VarB="Channel 1^Input" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fbRunHOMS.bSTOEnable2" VarB="Channel 2^Input" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL3054_M1K1_FLOW_PRESS">
+				<Link VarA="PlcTask Inputs^PRG_MR1K1_BEND.fM1K1_Flow_1.iRaw" VarB="AI Standard Channel 1^Value" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^PRG_MR1K1_BEND.fM1K1_Flow_2.iRaw" VarB="AI Standard Channel 2^Value" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^PRG_MR1K1_BEND.fM1K1_Press_1.iRaw" VarB="AI Standard Channel 3^Value" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL5042_M1K1_Pitch">
 				<Link VarA="PlcTask Inputs^Main.M16.nRawEncoderULINT" VarB="FB Inputs Channel 1^Position" AutoLink="true"/>
