@@ -16,6 +16,7 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script src="_static/doctr-versions-menu.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -1872,6 +1873,31 @@ END_VAR
         <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 1^Status^TxPDO State&#39;</span><span class="p">}</span>
         <span class="n">bMR1K1_Y_ENC_TxPDO</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span> <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
 
+    <span class="o">//</span> <span class="n">M1K1</span> <span class="n">Flow</span> <span class="n">Press</span> <span class="n">Sensors</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[EL3054_M1K1_FLOW_PRESS]^AI Standard Channel 1^Value&#39;</span><span class="p">}</span>
+    <span class="n">fM1K1_Flow_1</span> <span class="p">:</span> <span class="n">FB_AnalogInput</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+            <span class="n">pv</span><span class="p">:</span> <span class="n">MR1K1</span><span class="p">:</span><span class="n">BEND</span><span class="p">:</span><span class="n">FLOW</span><span class="p">:</span><span class="mi">1</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">lpm</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">fM1K1_Flow_1_val</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[EL3054_M1K1_FLOW_PRESS]^AI Standard Channel 2^Value&#39;</span><span class="p">}</span>
+    <span class="n">fM1K1_Flow_2</span> <span class="p">:</span> <span class="n">FB_AnalogInput</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+            <span class="n">pv</span><span class="p">:</span> <span class="n">MR1K1</span><span class="p">:</span><span class="n">BEND</span><span class="p">:</span><span class="n">FLOW</span><span class="p">:</span><span class="mi">2</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">lpm</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">fM1K1_Flow_2_val</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[EL3054_M1K1_FLOW_PRESS]^AI Standard Channel 3^Value&#39;</span><span class="p">}</span>
+    <span class="n">fM1K1_Press_1</span> <span class="p">:</span> <span class="n">FB_AnalogInput</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+            <span class="n">pv</span><span class="p">:</span> <span class="n">MR1K1</span><span class="p">:</span><span class="n">BEND</span><span class="p">:</span><span class="n">PRESS</span><span class="p">:</span><span class="mi">1</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">bar</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">fM1K1_Press_1_val</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
 <span class="n">END_VAR</span>
 <span class="o">//</span> <span class="n">M1K1</span>
 <span class="n">M1K1</span><span class="o">.</span><span class="n">fbRunHOMS</span><span class="p">(</span><span class="n">stYup</span><span class="o">:=</span><span class="n">M12</span><span class="p">,</span>
@@ -1960,6 +1986,16 @@ END_VAR
     <span class="n">ELSE</span>
         <span class="n">nMR1K1_Y_ENC_PMPS</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="n">END_IF</span>
+
+    <span class="o">//</span> <span class="n">LAMP</span> <span class="n">KB</span> <span class="n">Flow</span> <span class="n">Pressure</span> <span class="n">Sensors</span>
+    <span class="n">fM1K1_Flow_1</span><span class="p">(</span><span class="n">iTermBits</span><span class="o">:=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fTermMax</span><span class="o">:=</span><span class="mf">5.0427</span><span class="p">,</span> <span class="n">fTermMin</span><span class="o">:=</span><span class="mf">0.050472</span><span class="p">);</span>
+    <span class="n">fM1K1_Flow_1_val</span> <span class="o">:=</span> <span class="n">fM1K1_Flow_1</span><span class="o">.</span><span class="n">fReal</span><span class="p">;</span>
+
+    <span class="n">fM1K1_Flow_2</span><span class="p">(</span><span class="n">iTermBits</span><span class="o">:=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fTermMax</span><span class="o">:=</span><span class="mf">5.0427</span><span class="p">,</span> <span class="n">fTermMin</span><span class="o">:=</span><span class="mf">0.050472</span><span class="p">);</span>
+    <span class="n">fM1K1_Flow_2_val</span> <span class="o">:=</span> <span class="n">fM1K1_Flow_2</span><span class="o">.</span><span class="n">fReal</span><span class="p">;</span>
+
+    <span class="n">fM1K1_Press_1</span><span class="p">(</span><span class="n">iTermBits</span><span class="o">:=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fTermMax</span><span class="o">:=</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">fTermMin</span><span class="o">:=</span><span class="mi">0</span><span class="p">);</span>
+    <span class="n">fM1K1_Press_1_val</span> <span class="o">:=</span> <span class="n">fM1K1_Press_1</span><span class="o">.</span><span class="n">fReal</span><span class="p">;</span>
 
 <span class="n">END_PROGRAM</span>
 </pre></div>
@@ -3420,6 +3456,32 @@ END_VAR
         <span class="n">i_TypeCode</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#1110);</span>
     <span class="n">sd_io_e_pmps</span> <span class="p">:</span> <span class="n">LREAL</span><span class="o">:=</span> <span class="mf">74000.29</span><span class="p">;</span>
 
+        <span class="o">//</span> <span class="n">SP1K1</span> <span class="n">Flow</span> <span class="n">Press</span> <span class="n">Sensors</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[EL3054_SP1K1_FLOW_PRESS]^AI Standard Channel 1^Value&#39;</span><span class="p">}</span>
+    <span class="n">fSP1K1_Flow_1</span> <span class="p">:</span> <span class="n">FB_AnalogInput</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+            <span class="n">pv</span><span class="p">:</span> <span class="n">SP1K1</span><span class="p">:</span><span class="n">MONO</span><span class="p">:</span><span class="n">FLOW</span><span class="p">:</span><span class="mi">1</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">lpm</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">fSP1K1_Flow_1_val</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[EL3054_SP1K1_FLOW_PRESS]^AI Standard Channel 2^Value&#39;</span><span class="p">}</span>
+    <span class="n">fSP1K1_Flow_2</span> <span class="p">:</span> <span class="n">FB_AnalogInput</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+            <span class="n">pv</span><span class="p">:</span> <span class="n">SP1K1</span><span class="p">:</span><span class="n">MONO</span><span class="p">:</span><span class="n">FLOW</span><span class="p">:</span><span class="mi">2</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">lpm</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">fSP1K1_Flow_2_val</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[EL3054_SP1K1_FLOW_PRESS]^AI Standard Channel 3^Value&#39;</span><span class="p">}</span>
+    <span class="n">fSP1K1_Press_1</span> <span class="p">:</span> <span class="n">FB_AnalogInput</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+            <span class="n">pv</span><span class="p">:</span> <span class="n">SP1K1</span><span class="p">:</span><span class="n">MONO</span><span class="p">:</span><span class="n">PRESS</span><span class="p">:</span><span class="mi">1</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">bar</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">fSP1K1_Press_1_val</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+
 <span class="n">END_VAR</span>
 <span class="o">//</span> <span class="n">SP1K1</span><span class="o">-</span><span class="n">MONO</span>
 <span class="n">M6</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">bSTOEnable1</span> <span class="n">AND</span> <span class="n">bSTOEnable2</span><span class="p">;</span>
@@ -3469,6 +3531,15 @@ END_VAR
     <span class="n">i_xReset</span> <span class="o">:=</span> <span class="p">,</span>
     <span class="n">i_xAutoReset</span> <span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
     <span class="n">io_fbFFHWO</span> <span class="o">:=</span> <span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbFastFaultOutput1</span><span class="p">);</span>
+
+<span class="n">fSP1K1_Flow_1</span><span class="p">(</span><span class="n">iTermBits</span><span class="o">:=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fTermMax</span><span class="o">:=</span><span class="mf">5.0427</span><span class="p">,</span> <span class="n">fTermMin</span><span class="o">:=</span><span class="mf">0.050472</span><span class="p">);</span>
+<span class="n">fSP1K1_Flow_1_val</span> <span class="o">:=</span> <span class="n">fSP1K1_Flow_1</span><span class="o">.</span><span class="n">fReal</span><span class="p">;</span>
+
+<span class="n">fSP1K1_Flow_2</span><span class="p">(</span><span class="n">iTermBits</span><span class="o">:=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fTermMax</span><span class="o">:=</span><span class="mf">5.0427</span><span class="p">,</span> <span class="n">fTermMin</span><span class="o">:=</span><span class="mf">0.050472</span><span class="p">);</span>
+<span class="n">fSP1K1_Flow_2_val</span> <span class="o">:=</span> <span class="n">fSP1K1_Flow_2</span><span class="o">.</span><span class="n">fReal</span><span class="p">;</span>
+
+<span class="n">fSP1K1_Press_1</span><span class="p">(</span><span class="n">iTermBits</span><span class="o">:=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fTermMax</span><span class="o">:=</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">fTermMin</span><span class="o">:=</span><span class="mi">0</span><span class="p">);</span>
+<span class="n">fSP1K1_Press_1_val</span> <span class="o">:=</span> <span class="n">fSP1K1_Press_1</span><span class="o">.</span><span class="n">fReal</span><span class="p">;</span>
 
 <span class="n">END_PROGRAM</span>
 </pre></div>
