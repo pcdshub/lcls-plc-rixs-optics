@@ -8,7 +8,7 @@ VAR
     iLatchPos AT %I*: ULINT;
 	{attribute 'TcLinkTo' := 'TIIB[EVR]^Latch^LatchNeg1'}
     iLatchNeg AT %I*: ULINT;
-	{attribute 'TcLinkTo' := 'TIIB[g_pi_up_dwn_e]^FB Inputs Channel 2^Position'}
+	{attribute 'TcLinkTo' := 'TIIB[g_pi_up_dwn_e]^FB Inputs Channel 1^Position'}
     nEncoderCount AT %I*: ULINT;
     bSendToDAQ: BOOL := TRUE;
     bSendToTest: BOOL := FALSE;
