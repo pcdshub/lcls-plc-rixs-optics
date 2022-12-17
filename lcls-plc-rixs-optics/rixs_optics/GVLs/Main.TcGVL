@@ -55,8 +55,7 @@
 	
 	(*SP1K1-Mono*)
 	{attribute 'pytmc' := '
-		pv: 
-:M_PI
+		pv: SP1K1:MONO:MMS:M_PI
 	'}
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[m_pi_m]^STM Status^Status^Digital input 1;
                               .bLimitBackwardEnable:=TIIB[m_pi_m]^STM Status^Status^Digital input 2;
