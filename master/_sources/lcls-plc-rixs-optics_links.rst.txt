@@ -650,7 +650,6 @@ Links
         , Enc^Inputs^In^nDataIn1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^m_h_e-g_h_e, FB Inputs Channel 1^Position
         , Enc^Inputs^In^nDataIn1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^m_h_e-g_h_e, FB Inputs Channel 2^Position
         , Enc^Inputs^In^nDataIn1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^s_io_e, FB Inputs Channel 1^Position
-        , Enc^Inputs^In^nDataIn1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_up_dwn_e, FB Inputs Channel 1^Position
         , Enc^Inputs^In^nDataIn1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL5042_M1K1_Yupdwn, FB Inputs Channel 1^Position
         , Enc^Inputs^In^nDataIn1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL5042_M1K1_Yupdwn, FB Inputs Channel 2^Position
         , Enc^Inputs^In^nDataIn1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL5042_M1K1_Xupdwn, FB Inputs Channel 1^Position
@@ -728,12 +727,6 @@ Links
         , Enc^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^s_r, ENC Status compact^Status^Latch C valid
         , Enc^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^s_r, ENC Status compact^Status^Latch extern valid
         , Enc^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^s_r, ENC Status compact^Status^Set counter done
-        , Enc^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_up_dwn_e, FB Inputs Channel 1^Status^Diag
-        , Enc^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_up_dwn_e, FB Inputs Channel 1^Status^Error
-        , Enc^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_up_dwn_e, FB Inputs Channel 1^Status^Input cycle counter
-        , Enc^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_up_dwn_e, FB Inputs Channel 1^Status^Ready
-        , Enc^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_up_dwn_e, FB Inputs Channel 1^Status^TxPDO State
-        , Enc^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_up_dwn_e, FB Inputs Channel 1^Status^Warning
         , Enc^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL5042_M1K1_Yupdwn, FB Inputs Channel 1^Status^Diag
         , Enc^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL5042_M1K1_Yupdwn, FB Inputs Channel 1^Status^Error
         , Enc^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL5042_M1K1_Yupdwn, FB Inputs Channel 1^Status^Input cycle counter
@@ -878,19 +871,19 @@ Links
         , e_dwn^Inputs^In^nComState, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_up_dwn_e, WcState^InputToggle
         , e_dwn^Inputs^In^nComState, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_up_dwn_e, WcState^WcState
         , e_dwn^Inputs^In^nDataIn1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^m_pi_up_dwn_e, FB Inputs Channel 2^Position
-        , e_dwn^Inputs^In^nDataIn1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_up_dwn_e, FB Inputs Channel 2^Position
+        , e_dwn^Inputs^In^nDataIn1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_up_dwn_e, FB Inputs Channel 1^Position
         , e_dwn^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^m_pi_up_dwn_e, FB Inputs Channel 2^Status^Diag
         , e_dwn^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^m_pi_up_dwn_e, FB Inputs Channel 2^Status^Error
         , e_dwn^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^m_pi_up_dwn_e, FB Inputs Channel 2^Status^Input cycle counter
         , e_dwn^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^m_pi_up_dwn_e, FB Inputs Channel 2^Status^Ready
         , e_dwn^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^m_pi_up_dwn_e, FB Inputs Channel 2^Status^TxPDO State
         , e_dwn^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^m_pi_up_dwn_e, FB Inputs Channel 2^Status^Warning
-        , e_dwn^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_up_dwn_e, FB Inputs Channel 2^Status^Diag
-        , e_dwn^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_up_dwn_e, FB Inputs Channel 2^Status^Error
-        , e_dwn^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_up_dwn_e, FB Inputs Channel 2^Status^Input cycle counter
-        , e_dwn^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_up_dwn_e, FB Inputs Channel 2^Status^Ready
-        , e_dwn^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_up_dwn_e, FB Inputs Channel 2^Status^TxPDO State
-        , e_dwn^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_up_dwn_e, FB Inputs Channel 2^Status^Warning
+        , e_dwn^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_up_dwn_e, FB Inputs Channel 1^Status^Diag
+        , e_dwn^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_up_dwn_e, FB Inputs Channel 1^Status^Error
+        , e_dwn^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_up_dwn_e, FB Inputs Channel 1^Status^Input cycle counter
+        , e_dwn^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_up_dwn_e, FB Inputs Channel 1^Status^Ready
+        , e_dwn^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_up_dwn_e, FB Inputs Channel 1^Status^TxPDO State
+        , e_dwn^Inputs^In^nState1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_up_dwn_e, FB Inputs Channel 1^Status^Warning
         , m_pi_e_up^Inputs^In^nComState, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^m_pi_up_dwn_e, WcState^InputToggle
         , m_pi_e_up^Inputs^In^nComState, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^m_pi_up_dwn_e, WcState^WcState
         , m_pi_e_up^Inputs^In^nDataIn1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^m_pi_up_dwn_e, FB Inputs Channel 1^Position
@@ -1065,7 +1058,7 @@ Links
         OutputSrc, PRG_SL1K2_EXIT.bCameraOn, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL2004_SL1K2, Channel 2^Output
         rixs_optics Instance, DaqTask Inputs^PRG_DAQ_ENCODER.iLatchNeg, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^EVR, Latch^LatchNeg1
         rixs_optics Instance, DaqTask Inputs^PRG_DAQ_ENCODER.iLatchPos, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^EVR, Latch^LatchPos1
-        rixs_optics Instance, DaqTask Inputs^PRG_DAQ_ENCODER.nEncoderCount, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_up_dwn_e, FB Inputs Channel 2^Position
+        rixs_optics Instance, DaqTask Inputs^PRG_DAQ_ENCODER.nEncoderCount, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_up_dwn_e, FB Inputs Channel 1^Position
         rixs_optics Instance, PlcTask Inputs^GVL_M1K1.M1K1_Pitch.diEncCnt, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL5042_M1K2_Pitch, FB Inputs Channel 1^Position
         rixs_optics Instance, PlcTask Inputs^GVL_M1K1_BENDER_RTD.nM1K1DS_RTD_1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL3202-0010_M1K1US3_M1K1DS1, RTD Inputs Channel 2^Value
         rixs_optics Instance, PlcTask Inputs^GVL_M1K1_BENDER_RTD.nM1K1DS_RTD_2, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL3202-0010_M1K1DS2_M1K1DS3, RTD Inputs Channel 1^Value
@@ -1212,7 +1205,7 @@ Links
         rixs_optics Instance, PlcTask Inputs^Main.M7.Axis.NcToPlc, TINC^NC-Task 1 SAF^Axes^g_pi, Outputs^ToPlc
         rixs_optics Instance, PlcTask Inputs^Main.M7.bLimitBackwardEnable, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_m, STM Status^Status^Digital input 2
         rixs_optics Instance, PlcTask Inputs^Main.M7.bLimitForwardEnable, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_m, STM Status^Status^Digital input 1
-        rixs_optics Instance, PlcTask Inputs^Main.M7.nRawEncoderULINT, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_up_dwn_e, FB Inputs Channel 2^Position
+        rixs_optics Instance, PlcTask Inputs^Main.M7.nRawEncoderULINT, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_up_dwn_e, FB Inputs Channel 1^Position
         rixs_optics Instance, PlcTask Inputs^Main.M8.Axis.NcToPlc, TINC^NC-Task 1 SAF^Axes^m_h, Outputs^ToPlc
         rixs_optics Instance, PlcTask Inputs^Main.M8.bLimitBackwardEnable, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^m_h_m, STM Status^Status^Digital input 2
         rixs_optics Instance, PlcTask Inputs^Main.M8.bLimitForwardEnable, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^m_h_m, STM Status^Status^Digital input 1

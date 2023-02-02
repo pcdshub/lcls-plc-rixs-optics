@@ -483,7 +483,7 @@ Main
     	'}
     	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[g_pi_m]^STM Status^Status^Digital input 1;
                                   .bLimitBackwardEnable:=TIIB[g_pi_m]^STM Status^Status^Digital input 2;
-                                  .nRawEncoderULINT:=TIIB[g_pi_up_dwn_e]^FB Inputs Channel 2^Position'}
+                                  .nRawEncoderULINT:=TIIB[g_pi_up_dwn_e]^FB Inputs Channel 1^Position'}
     	M7: DUT_MotionStage:=(nEnableMode:=ENUM_StageEnableMode.ALWAYS, fVelocity:=200.0, bPowerSelf:=True); // G_PI, urad
     	{attribute 'pytmc' := '
     		pv: SP1K1:MONO:MMS:M_H
@@ -1501,7 +1501,7 @@ PRG_DAQ_ENCODER
         iLatchPos AT %I*: ULINT;
     	{attribute 'TcLinkTo' := 'TIIB[EVR]^Latch^LatchNeg1'}
         iLatchNeg AT %I*: ULINT;
-    	{attribute 'TcLinkTo' := 'TIIB[g_pi_up_dwn_e]^FB Inputs Channel 2^Position'}
+    	{attribute 'TcLinkTo' := 'TIIB[g_pi_up_dwn_e]^FB Inputs Channel 1^Position'}
         nEncoderCount AT %I*: ULINT;
         bSendToDAQ: BOOL := TRUE;
         bSendToTest: BOOL := FALSE;

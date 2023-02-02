@@ -279,6 +279,7 @@ Axis 7: g_pi
     Enc:FilterTime:TPos, 0.02
     Enc:Inc:RefSoftSyncMask, #x0000ffff
     Enc:MaxCount, #xffffffff
+    Enc:Offset, -260.047
     Enc:ScaleFactorDenominator, 150
     Enc:ScaleFactorNumerator, 1
     Enc:SoftEndMaxControl:Enable, true
@@ -345,9 +346,8 @@ Axis 9: g_h
     Enc:FilterTime:TVelo, 0
     Enc:Inc:RefSoftSyncMask, #x0000ffff
     Enc:MaxCount, #xffffffff
-    Enc:ScaleFactorDenominator, 1000
+    Enc:ScaleFactorDenominator, 200
     Enc:ScaleFactorNumerator, 1
-    Enc:SoftEndMaxControl:Enable, true
     Enc:SoftEndMaxControl:Range, 135400
     General:UnitName, um
     Id, 9
