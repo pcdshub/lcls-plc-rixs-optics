@@ -66,7 +66,7 @@
 	'}
 	{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[g_pi_m]^STM Status^Status^Digital input 1;
                               .bLimitBackwardEnable:=TIIB[g_pi_m]^STM Status^Status^Digital input 2;
-                              .nRawEncoderULINT:=TIIB[g_pi_up_dwn_e]^FB Inputs Channel 2^Position'}
+                              .nRawEncoderULINT:=TIIB[g_pi_up_dwn_e]^FB Inputs Channel 1^Position'}
 	M7: DUT_MotionStage:=(nEnableMode:=ENUM_StageEnableMode.ALWAYS, fVelocity:=200.0, bPowerSelf:=True); // G_PI, urad
 	{attribute 'pytmc' := '
 		pv: SP1K1:MONO:MMS:M_H

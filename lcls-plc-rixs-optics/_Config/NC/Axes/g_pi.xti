@@ -1332,14 +1332,12 @@ External Setpoint Generation:
 			<OtherSettings AllowMotionCmdToSlave="true"/>
 		</AxisPara>
 		<Encoder Name="e_dwn" EncType="29">
-			<EncPara ScaleFactorNumerator="1" ScaleFactorDenominator="150" MaxCount="#xffffffff">
+			<EncPara ScaleFactorNumerator="1" ScaleFactorDenominator="150" Offset="-260.047" MaxCount="#xffffffff">
 				<FilterTime TPos="0.02"/>
 				<SoftEndMinControl Enable="true" Range="123375"/>
 				<SoftEndMaxControl Enable="true" Range="176006"/>
 				<Inc RefSoftSyncMask="#x0000ffff"/>
-				<ParameterChanged>14</ParameterChanged>
-				<ParameterChanged>36</ParameterChanged>
-				<ParameterChanged>35</ParameterChanged>
+				<ParameterChanged>7</ParameterChanged>
 			</EncPara>
 			<Vars VarGrpType="1">
 				<Name>Inputs</Name>
@@ -1475,7 +1473,6 @@ Drive Status 4 (manually linked):
 				<PosDiffControl Time="0.2"/>
 				<PID PosKp="15" PosTn="0.001" PosIOutputLimit="0.0005" PosDOutputLimit="0" PosIDisableWhenMoving="true" PosExtKp="10" PosExtVelo="0.8" DeadBandPosition="0.01"/>
 				<Observer BandWidth="20"/>
-				<ParameterChanged>258</ParameterChanged>
 			</CtrPara>
 		</Controller>
 		<Vars VarGrpType="1" InsertType="1">
@@ -1566,13 +1563,13 @@ External Setpoint Generation:
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_up_dwn_e">
 				<Link VarA="e_dwn^Inputs^In^nComState" VarB="WcState^InputToggle" Size="1" OffsA="1"/>
 				<Link VarA="e_dwn^Inputs^In^nComState" VarB="WcState^WcState"/>
-				<Link VarA="e_dwn^Inputs^In^nDataIn1" VarB="FB Inputs Channel 2^Position"/>
-				<Link VarA="e_dwn^Inputs^In^nState1" VarB="FB Inputs Channel 2^Status^Diag" Size="1" OffsA="12"/>
-				<Link VarA="e_dwn^Inputs^In^nState1" VarB="FB Inputs Channel 2^Status^Error" Size="1" OffsA="1"/>
-				<Link VarA="e_dwn^Inputs^In^nState1" VarB="FB Inputs Channel 2^Status^Input cycle counter" Size="2" OffsA="14"/>
-				<Link VarA="e_dwn^Inputs^In^nState1" VarB="FB Inputs Channel 2^Status^Ready" Size="1" OffsA="2"/>
-				<Link VarA="e_dwn^Inputs^In^nState1" VarB="FB Inputs Channel 2^Status^TxPDO State" Size="1" OffsA="13"/>
-				<Link VarA="e_dwn^Inputs^In^nState1" VarB="FB Inputs Channel 2^Status^Warning"/>
+				<Link VarA="e_dwn^Inputs^In^nDataIn1" VarB="FB Inputs Channel 1^Position"/>
+				<Link VarA="e_dwn^Inputs^In^nState1" VarB="FB Inputs Channel 1^Status^Diag" Size="1" OffsA="12"/>
+				<Link VarA="e_dwn^Inputs^In^nState1" VarB="FB Inputs Channel 1^Status^Error" Size="1" OffsA="1"/>
+				<Link VarA="e_dwn^Inputs^In^nState1" VarB="FB Inputs Channel 1^Status^Input cycle counter" Size="2" OffsA="14"/>
+				<Link VarA="e_dwn^Inputs^In^nState1" VarB="FB Inputs Channel 1^Status^Ready" Size="1" OffsA="2"/>
+				<Link VarA="e_dwn^Inputs^In^nState1" VarB="FB Inputs Channel 1^Status^TxPDO State" Size="1" OffsA="13"/>
+				<Link VarA="e_dwn^Inputs^In^nState1" VarB="FB Inputs Channel 1^Status^Warning"/>
 			</OwnerB>
 		</OwnerA>
 	</Mappings>
