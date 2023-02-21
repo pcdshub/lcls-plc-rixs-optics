@@ -58,6 +58,8 @@ ffRIX02.i_xOK := (PMPS_GVL.stCurrentBeamParameters.nTran <=0.2+(0.2*delta));
 ffRIX02(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);		
 ffRIX05.i_xOK := (PMPS_GVL.stCurrentBeamParameters.nTran <=0.5+(0.5*delta));
 ffRIX05(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);	
+
+GVL_PMPS.rPhotonEnergy := PMPS_GVL.stCurrentBeamParameters.neV;
 ]]></ST>
     </Implementation>
   </POU>
