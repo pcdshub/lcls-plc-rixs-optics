@@ -161,26 +161,26 @@ VAR
         bMR1K1_Y_ENC_TxPDO AT %I* : BOOL;
     
     // M1K1 Flow Press Sensors
-    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_M1K1_FLOW_PRESS]^AI Standard Channel 1^Value'}
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_M1K1_FWM_PRSM]^AI Standard Channel 1^Value'}
     fM1K1_Flow_1 : FB_AnalogInput;
     {attribute 'pytmc' := '
-		pv: MR1K1:BEND:FLOW:1
+		pv: MR1K1:BEND:FWM:1
         field: EGU lpm
         io: i
     '}   
     fM1K1_Flow_1_val : LREAL;
-    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_M1K1_FLOW_PRESS]^AI Standard Channel 2^Value'}
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_M1K1_FWM_PRSM]^AI Standard Channel 2^Value'}
     fM1K1_Flow_2 : FB_AnalogInput;
     {attribute 'pytmc' := '
-		pv: MR1K1:BEND:FLOW:2
+		pv: MR1K1:BEND:FWM:2
         field: EGU lpm
         io: i
     '} 
     fM1K1_Flow_2_val : LREAL; 
-    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_M1K1_FLOW_PRESS]^AI Standard Channel 3^Value'}
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_M1K1_FWM_PRSM]^AI Standard Channel 3^Value'}
     fM1K1_Press_1 : FB_AnalogInput;
     {attribute 'pytmc' := '
-		pv: MR1K1:BEND:PRESS:1
+		pv: MR1K1:BEND:PRSM:1
         field: EGU bar
         io: i
     '}      

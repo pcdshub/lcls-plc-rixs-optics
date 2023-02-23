@@ -13,8 +13,7 @@ VAR_GLOBAL
     {attribute 'pytmc' := 'pv: PLC:RIX:OPTICS:FFO:02'}
     {attribute 'TcLinkTo' := '.q_xFastFaultOut:=TIIB[PMPS_FFO]^Channel 2^Output'}
     fbFastFaultOutput2: FB_HardwareFFOutput := (bAutoReset := TRUE, i_sNetID:='172.21.42.126.1.1');
-	{attribute 'TcLinkTo' := ':=TIIB[PMPS_PRE]^IO Inputs^rPhotonEnergy'}
-	rPhotonEnergy AT%I*: REAL;
+	rPhotonEnergy: REAL;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

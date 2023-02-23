@@ -33,34 +33,6 @@ VAR
 		io: o
 	'}
 	gpi_upeurad: LREAL;
-	
-	
-	(*Flow Switches*)
-	{attribute 'TcLinkTo' := 'TIIB[SP1K1-EL3054-E12]^AI Standard Channel 1^Value'}
-	flow_1 AT %I*: INT;
-	{attribute 'TcLinkTo' := 'TIIB[SP1K1-EL3054-E12]^AI Standard Channel 2^Value'}	
-	flow_2 AT %I*: INT;
-	{attribute 'TcLinkTo' := 'TIIB[SP1K1-EL3054-E12]^AI Standard Channel 3^Value'}		
-	pres_1 AT %I*: INT;
-		
-	{attribute 'pytmc' := '
-		pv:  SP1K1:MONO:FSW:01
-		io: o
-	'}
-	FLOW1 : LREAL := 0.00;
-	
-	{attribute 'pytmc' := '
-		pv:  SP1K1:MONO:FSW:02
-		io: o
-	'}
-	FLOW2 : LREAL := 0.00;
-	
-	{attribute 'pytmc' := '
-		pv:  SP1K1:MONO:P1
-		io: o
-	'}
-	PRES1 : LREAL := 0.00;
-
 
 	(*RTDs*)
 	{attribute 'pytmc' := '
@@ -195,26 +167,26 @@ VAR
 	sd_io_e_pmps : LREAL:= 74000.29; 
     
         // SP1K1 Flow Press Sensors
-    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_SP1K1_FLOW_PRESS]^AI Standard Channel 1^Value'}
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_SP1K1_FWM_PRSM]^AI Standard Channel 1^Value'}
     fSP1K1_Flow_1 : FB_AnalogInput;
     {attribute 'pytmc' := '
-		pv: SP1K1:MONO:FLOW:1
+		pv: SP1K1:MONO:FWM:1
         field: EGU lpm
         io: i
     '}   
     fSP1K1_Flow_1_val : LREAL;
-    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_SP1K1_FLOW_PRESS]^AI Standard Channel 2^Value'}
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_SP1K1_FWM_PRSM]^AI Standard Channel 2^Value'}
     fSP1K1_Flow_2 : FB_AnalogInput;
     {attribute 'pytmc' := '
-		pv: SP1K1:MONO:FLOW:2
+		pv: SP1K1:MONO:FWM:2
         field: EGU lpm
         io: i
     '} 
     fSP1K1_Flow_2_val : LREAL; 
-    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_SP1K1_FLOW_PRESS]^AI Standard Channel 3^Value'}
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_SP1K1_FWM_PRSM]^AI Standard Channel 3^Value'}
     fSP1K1_Press_1 : FB_AnalogInput;
     {attribute 'pytmc' := '
-		pv: SP1K1:MONO:PRESS:1
+		pv: SP1K1:MONO:PRSM:1
         field: EGU bar
         io: i
     '}      
@@ -245,10 +217,7 @@ M11.bLimitForwardEnable := TRUE;
 mpi_upeurad := ULINT_TO_LREAL(mpi_upe.Count)*0.004505;
 gpi_upeurad := ULINT_TO_LREAL(gpi_upe.Count)*0.0066667;
 
-(*Flow Switches and RTDs*)
-FLOW1 := INT_TO_LREAL(flow_1)/32767*4;
-FLOW2 := INT_TO_LREAL(flow_2)/32767*4;
-PRES1 := INT_TO_LREAL(pres_1)/32767*2;
+(*RTDs*)
 RTD1();
 RTD2();
 RTD3();
