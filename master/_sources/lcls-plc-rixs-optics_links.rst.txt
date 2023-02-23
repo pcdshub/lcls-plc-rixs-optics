@@ -1079,7 +1079,6 @@ Links
         rixs_optics Instance, PlcTask Inputs^GVL_M4K2.nM4K2US_RTD_1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2_BENDER^EL3202-0010_M4K2US1_M4K2US2, RTD Inputs Channel 1^Value
         rixs_optics Instance, PlcTask Inputs^GVL_M4K2.nM4K2US_RTD_2, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2_BENDER^EL3202-0010_M4K2US1_M4K2US2, RTD Inputs Channel 2^Value
         rixs_optics Instance, PlcTask Inputs^GVL_M4K2.nM4K2US_RTD_3, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2_BENDER^EL3202-0010_M4K2US3_M4K2DS1, RTD Inputs Channel 1^Value
-        rixs_optics Instance, PlcTask Inputs^GVL_PMPS.rPhotonEnergy, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_PRE, IO Inputs^rPhotonEnergy
         rixs_optics Instance, PlcTask Inputs^Main.M1.Axis.NcToPlc, TINC^NC-Task 1 SAF^Axes^M1K2-Yleft, Outputs^ToPlc
         rixs_optics Instance, PlcTask Inputs^Main.M1.bLimitBackwardEnable, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL7047_M1K2_Yleft, STM Status^Status^Digital input 2
         rixs_optics Instance, PlcTask Inputs^Main.M1.bLimitForwardEnable, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL7047_M1K2_Yleft, STM Status^Status^Digital input 1
@@ -1227,9 +1226,9 @@ Links
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fbRunHOMS.stYupEnc^Count, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL5042_M1K1_Yupdwn, FB Inputs Channel 1^Position
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.bMR1K1_Y_ENC_Ready, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL5042_M1K1_Yupdwn, FB Inputs Channel 1^Status^Ready
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.bMR1K1_Y_ENC_TxPDO, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL5042_M1K1_Yupdwn, FB Inputs Channel 1^Status^TxPDO State
-        rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.fM1K1_Flow_1.iRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL3054_M1K1_FLOW_PRESS, AI Standard Channel 1^Value
-        rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.fM1K1_Flow_2.iRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL3054_M1K1_FLOW_PRESS, AI Standard Channel 2^Value
-        rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.fM1K1_Press_1.iRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL3054_M1K1_FLOW_PRESS, AI Standard Channel 3^Value
+        rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.fM1K1_Flow_1.iRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL3054_M1K1_FWM_PRSM, AI Standard Channel 1^Value
+        rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.fM1K1_Flow_2.iRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL3054_M1K1_FWM_PRSM, AI Standard Channel 2^Value
+        rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.fM1K1_Press_1.iRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL3054_M1K1_FWM_PRSM, AI Standard Channel 3^Value
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND_BENDER.M1K1BENDbSTOEnable1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL1004_M1K1_BENDER_STO, Channel 1^Input
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND_BENDER.M1K1BENDbSTOEnable2, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL1004_M1K1_BENDER_STO, Channel 2^Input
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.bSTOEnable1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL1004_M1K2_STO, Channel 1^Input
@@ -1294,9 +1293,9 @@ Links
         rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.RTD8.iRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3204-E16, RTD Inputs Channel 2^Value
         rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.bSTOEnable1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL1004-E17, Channel 1^Input
         rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.bSTOEnable2, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL1004-E17, Channel 2^Input
-        rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.fSP1K1_Flow_1.iRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^EL3054_SP1K1_FLOW_PRESS, AI Standard Channel 1^Value
-        rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.fSP1K1_Flow_2.iRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^EL3054_SP1K1_FLOW_PRESS, AI Standard Channel 2^Value
-        rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.fSP1K1_Press_1.iRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^EL3054_SP1K1_FLOW_PRESS, AI Standard Channel 3^Value
+        rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.fSP1K1_Flow_1.iRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^EL3054_SP1K1_FWM_PRSM, AI Standard Channel 1^Value
+        rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.fSP1K1_Flow_2.iRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^EL3054_SP1K1_FWM_PRSM, AI Standard Channel 2^Value
+        rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.fSP1K1_Press_1.iRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^EL3054_SP1K1_FWM_PRSM, AI Standard Channel 3^Value
         rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.gpi_upe^Count, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_pi_up_dwn_e, FB Inputs Channel 1^Position
         rixs_optics Instance, PlcTask Inputs^PRG_SP1K1_MONO.mpi_upe^Count, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^m_pi_up_dwn_e, FB Inputs Channel 1^Position
         rixs_optics Instance, PlcTask Outputs^GVL_PMPS.fbFastFaultOutput1.q_xFastFaultOut, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_FFO, Channel 1^Output
