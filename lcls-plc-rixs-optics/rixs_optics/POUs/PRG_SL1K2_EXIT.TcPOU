@@ -122,26 +122,24 @@ IF ( bInit) THEN
 	Main.M23.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
 	
 	// YAG STATES Parameters
-	fbStates.nTransitionAssertionID := 16#E510;
-	fbStates.nUnknownAssertionID := 16#E500;
+	//fbStates.nTransitionAssertionID := 16#E510;
+	//fbStates.nUnknownAssertionID := 16#E500;
+    
 	//Out
 	fbStates.stOut.fPosition := 0;
 	fbStates.stOut.bUseRawCounts := FALSE;
-	fbStates.stOut.nRequestAssertionID := 16#E513;
-	fbStates.stOut.stBeamParams := PMPS_GVL.cstFullBeam;
 	fbStates.stOut.bValid := TRUE;
+    fbStates.stOut.stPMPS.sPmpsState := 'SL1K2:EXIT:YAG-OUT';
 	//Yag1
 	fbStates.stYag1.fPosition := 21;
 	fbStates.stYag1.bUseRawCounts := FALSE;
-	fbStates.stYag1.nRequestAssertionID := 16#E511;
-	fbStates.stYag1.stBeamParams := PMPS_GVL.cstFullBeam;
 	fbStates.stYag1.bValid := TRUE;
+    fbStates.stYag1.stPMPS.sPmpsState := 'SL1K2:EXIT:YAG-YAG1';
 	//Yag2
 	fbStates.stYag2.fPosition := 40;
 	fbStates.stYag2.bUseRawCounts := FALSE;
-	fbStates.stYag2.nRequestAssertionID := 16#E512;
-	fbStates.stYag2.stBeamParams := PMPS_GVL.cstFullBeam;
 	fbStates.stYag2.bValid := TRUE;
+    fbStates.stYag2.stPMPS.sPmpsState := 'SL1K2:EXIT:YAG-YAG2';
 	
 	//Turn on Fan by default
 	bFanOn := TRUE;
@@ -161,8 +159,8 @@ fbYag(stMotionStage:=Main.M23);//in vacuum
 fbStates(
     fbArbiter:=GVL_PMPS.fbArbiter1,
     fbFFHWO:=GVL_PMPS.fbFastFaultOutput1,
-    nTransitionAssertionID:=,
-    nUnknownAssertionID:=,
+    sPmpsDeviceName:='SL1K2:EXIT:YAG',
+    sTransitionKey:='SL1K2:EXIT:YAG-TRANSITION',
     stMotionStage:=Main.M23,
     bEnable:=TRUE,
     stOut:=,
