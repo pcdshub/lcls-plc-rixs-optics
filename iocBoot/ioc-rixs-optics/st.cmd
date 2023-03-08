@@ -4,8 +4,8 @@
 #         Project: lcls-plc-rixs-optics.tsproj
 #        PLC name: rixs_optics (rixs_optics Instance)
 # Generated using: pytmc 2.14.1
-# Project version: endrun18-107-g571f39f
-#    Project hash: 571f39fce4d1bfb58fe5e1e6bc74724668f7ac1b
+# Project version: endrun18-117-g17a0cc0
+#    Project hash: 17a0cc0104d83bf9ab2435c07f11d2e0758059c6
 #     PLC IP/host: 172.21.140.71
 #      PLC Net ID: 172.21.140.71.1.1
 #  ** Production mode IOC **
@@ -678,11 +678,11 @@ dbLoadRecords("caPutLog.db", "IOC=$(IOC)")
 ## TwinCAT task, application, and project information databases ##
 dbLoadRecords("TwinCAT_TaskInfo.db", "PORT=$(ASYN_PORT),PREFIX=PLC:RIX:OPTICS,IDX=3")
 dbLoadRecords("TwinCAT_TaskInfo.db", "PORT=$(ASYN_PORT),PREFIX=PLC:RIX:OPTICS,IDX=1")
-dbLoadRecords("TwinCAT_TaskInfo.db", "PORT=$(ASYN_PORT),PREFIX=PLC:RIX:OPTICS,IDX=4")
 dbLoadRecords("TwinCAT_TaskInfo.db", "PORT=$(ASYN_PORT),PREFIX=PLC:RIX:OPTICS,IDX=2")
+dbLoadRecords("TwinCAT_TaskInfo.db", "PORT=$(ASYN_PORT),PREFIX=PLC:RIX:OPTICS,IDX=4")
 dbLoadRecords("TwinCAT_AppInfo.db", "PORT=$(ASYN_PORT), PREFIX=PLC:RIX:OPTICS")
 
-dbLoadRecords("TwinCAT_Project.db", "PREFIX=PLC:RIX:OPTICS,PROJECT=lcls-plc-rixs-optics.tsproj,HASH=571f39f,VERSION=endrun18-107-g571f39f,PYTMC=2.14.1,PLC_HOST=172.21.140.71")
+dbLoadRecords("TwinCAT_Project.db", "PREFIX=PLC:RIX:OPTICS,PROJECT=lcls-plc-rixs-optics.tsproj,HASH=17a0cc0,VERSION=endrun18-117-g17a0cc0,PYTMC=2.14.1,PLC_HOST=172.21.140.71")
 
 #   LCLS General: * -> 2.7.0 (SLAC)
 dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:RIX:OPTICS,DEPENDENCY=LCLS_General,VERSION=2.7.0,VENDOR=SLAC")
