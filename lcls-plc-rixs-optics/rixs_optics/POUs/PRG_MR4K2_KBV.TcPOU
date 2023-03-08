@@ -3,177 +3,177 @@
   <POU Name="PRG_MR4K2_KBV" Id="{7e6daf24-e900-4d72-bac3-9ab42a2b8418}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_MR4K2_KBV
 VAR
-	// Encoder Arrays/RMS Watch:
-		//MR4K2 X ENC RMS
-		{attribute 'pytmc' := '	pv: MR4K2:KBV:ENC:X'}
-		fbXRMSErrorM4K2 : FB_RMSWatch;
-		fMaxXRMSErrorM4K2 : LREAL;
-		fMinXRMSErrorM4K2 : LREAL;
-		//MR4K2 Y ENC RMS
-		{attribute 'pytmc' := '	pv: MR4K2:KBV:ENC:Y'}
-		fbYRMSErrorM4K2 : FB_RMSWatch;
-		fMaxYRMSErrorM4K2 : LREAL;
-		fMinYRMSErrorM4K2 : LREAL;
-		//MR4K2 rX ENC RMS
-		{attribute 'pytmc' := '	pv: MR4K2:KBV:ENC:PITCH'}
-		fbrXRMSErrorM4K2 : FB_RMSWatch;
-		fMaxrXRMSErrorM4K2 : LREAL;
-		fMinrXRMSErrorM4K2 : LREAL;
-		//MR4K2 US ENC RMS
-		{attribute 'pytmc' := '	pv: MR4K2:KBV:ENC:BEND:US'}
-		fbUSRMSErrorM4K2 : FB_RMSWatch;
-		fMaxUSRMSErrorM4K2 : LREAL;
-		fMinUSRMSErrorM4K2 : LREAL;
-		//MR4K2 DS ENC RMS
-		{attribute 'pytmc' := '	pv: MR4K2:KBV:ENC:BEND:DS'}
-		fbdSRMSErrorM4K2 : FB_RMSWatch;
-		fMaxDSRMSErrorM4K2 : LREAL;
-		fMinDSRMSErrorM4K2 : LREAL;
-		
-	// Encoder Reference Values
-		//MR4K2 X ENC REF
-		{attribute 'pytmc' := '
-			pv: MR4K2:KBV:ENC:X:REF
-			field: EGU cnt
-			io: i
-		'}
-		nEncRefXM4K2 : UDINT;
-		//MR4K2 Y ENC REF
-		{attribute 'pytmc' := '
-			pv: MR4K2:KBV:ENC:Y:REF
-			field: EGU cnt
-			io: i
-		'}
-		nEncRefYM4K2 : UDINT;
-		//MR4K2 rX ENC REF
-		{attribute 'pytmc' := '
-			pv: MR4K2:KBV:ENC:PITCH:REF
-			field: EGU cnt
-			io: i
-		'}
-		nEncRefrXM4K2 : UDINT;
-		//MR4K2 US ENC REF
-		{attribute 'pytmc' := '
-			pv: MR4K2:KBV:ENC:BEND:US:REF
-			field: EGU cnt
-			io: i
-		'}
-		nEncRefUSM4K2 : UDINT;
-		//MR4K2 DS ENC REF
-		{attribute 'pytmc' := '
-			pv: MR4K2:KBV:ENC:BEND:DS:REF
-			field: EGU cnt
-			io: i
-		'}
-		nEncRefDSM4K2 : UDINT;
-		
-	// Encoder raw counts
-		//M4K2 KBV X ENC CNT
-		{attribute 'pytmc' := '
-			pv: MR4K2:KBV:ENC:X:CNT
-			field: EGU cnt
-			io: i
-		'}
-		nEncCntXM4K2 : UDINT;
-		//M4K2 KBV Y ENC CNT
-		{attribute 'pytmc' := '
-			pv: MR4K2:KBV:ENC:Y:CNT
-			field: EGU cnt
-			io: i
-		'}
-		nEncCntYM4K2 : UDINT;
-		//M4K2 KBV rX ENC CNT
-		{attribute 'pytmc' := '
-			pv: MR4K2:KBV:ENC:PITCH:CNT
-			field: EGU cnt
-			io: i
-		'}
-		nEncCntrXM4K2 : UDINT;
-		//M4K2 KBV US ENC CNT
-		{attribute 'pytmc' := '
-			pv: MR4K2:KBV:ENC:BEND:US:CNT
-			field: EGU cnt
-			io: i
-		'}
-		nEncCntUSM4K2 : UDINT;
-		//M4K2 KBV DS ENC CNT
-		{attribute 'pytmc' := '
-			pv: MR4K2:KBV:ENC:BEND:DS:CNT
-			field: EGU cnt
-			io: i
-		'}
-		nEncCntDSM4K2 : UDINT;
-	
-	// MR4K2 Bender RTDs
-		// MR4K2 US RTDs
-		{attribute 'pytmc' := '
-			pv: MR4K2:KBV:RTD:BEND:US:1
-			field: ASLO 0.01
-			field: EGU C
-			io: i
-		'}
-		fM4K2US_RTD_1 : REAL;
-		{attribute 'pytmc' := '
-			pv: MR4K2:KBV:RTD:BEND:US:2
-			field: ASLO 0.01
-			field: EGU C
-			io: i
-		'}
-		fM4K2US_RTD_2 : REAL;
-		{attribute 'pytmc' := '
-			pv: MR4K2:KBV:RTD:BEND:US:3
-			field: ASLO 0.01
-			field: EGU C
-			io: i
-		'}
-		fM4K2US_RTD_3 : REAL;
-	
-		// M4K2 DS RTDs
-		{attribute 'pytmc' := '
-			pv: MR4K2:KBV:RTD:BEND:DS:1
-			field: ASLO 0.01
-			field: EGU C
-			io: i
-		'}
-		fM4K2DS_RTD_1 : REAL;
-		{attribute 'pytmc' := '
-			pv: MR4K2:KBV:RTD:BEND:DS:2
-			field: ASLO 0.01
-			field: EGU C
-			io: i
-		'}
-		fM4K2DS_RTD_2 : REAL;
-		{attribute 'pytmc' := '
-			pv: MR4K2:KBV:RTD:BEND:DS:3
-			field: ASLO 0.01
-			field: EGU C
-			io: i
-		'}
-		fM4K2DS_RTD_3 : REAL;
-	
-	// RTD error bit
-		bM4K2US_RTD_1_Err AT %I*: BOOL;
-		bM4K2US_RTD_2_Err AT %I*: BOOL;
-		bM4K2US_RTD_3_Err AT %I*: BOOL;
-		bM4K2DS_RTD_1_Err AT %I*: BOOL;
-		bM4K2DS_RTD_2_Err AT %I*: BOOL;
-		bM4K2DS_RTD_3_Err AT %I*: BOOL;
-	
-	//Emergency Stop for MR4K2
-		{attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2_BENDER^EL1004_M4K2_STO^Channel 1^Input'}
-		M4K2KBVbSTOEnable1 AT %I* : BOOL;
-		{attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2_BENDER^EL1004_M4K2_STO^Channel 2^Input'}
-		M4K2KBVbSTOEnable2 AT %I* : BOOL;
+    // Encoder Arrays/RMS Watch:
+        //MR4K2 X ENC RMS
+        {attribute 'pytmc' := '	pv: MR4K2:KBV:ENC:X'}
+        fbXRMSErrorM4K2 : FB_RMSWatch;
+        fMaxXRMSErrorM4K2 : LREAL;
+        fMinXRMSErrorM4K2 : LREAL;
+        //MR4K2 Y ENC RMS
+        {attribute 'pytmc' := '	pv: MR4K2:KBV:ENC:Y'}
+        fbYRMSErrorM4K2 : FB_RMSWatch;
+        fMaxYRMSErrorM4K2 : LREAL;
+        fMinYRMSErrorM4K2 : LREAL;
+        //MR4K2 rX ENC RMS
+        {attribute 'pytmc' := '	pv: MR4K2:KBV:ENC:PITCH'}
+        fbrXRMSErrorM4K2 : FB_RMSWatch;
+        fMaxrXRMSErrorM4K2 : LREAL;
+        fMinrXRMSErrorM4K2 : LREAL;
+        //MR4K2 US ENC RMS
+        {attribute 'pytmc' := '	pv: MR4K2:KBV:ENC:BEND:US'}
+        fbUSRMSErrorM4K2 : FB_RMSWatch;
+        fMaxUSRMSErrorM4K2 : LREAL;
+        fMinUSRMSErrorM4K2 : LREAL;
+        //MR4K2 DS ENC RMS
+        {attribute 'pytmc' := '	pv: MR4K2:KBV:ENC:BEND:DS'}
+        fbdSRMSErrorM4K2 : FB_RMSWatch;
+        fMaxDSRMSErrorM4K2 : LREAL;
+        fMinDSRMSErrorM4K2 : LREAL;
 
-(*	
-	// PMPS
-		ffBenderRange : FB_FastFault := (
-			i_xAutoReset := TRUE,
-			i_DevName := 'MR4K2 Bender',
-			i_Desc := 'Benders have moved out of range. Adjust bender to be within limits to clear fault',
-			i_TypeCode := 16#???);
+    // Encoder Reference Values
+        //MR4K2 X ENC REF
+        {attribute 'pytmc' := '
+            pv: MR4K2:KBV:ENC:X:REF
+            field: EGU cnt
+            io: i
+        '}
+        nEncRefXM4K2 : UDINT;
+        //MR4K2 Y ENC REF
+        {attribute 'pytmc' := '
+            pv: MR4K2:KBV:ENC:Y:REF
+            field: EGU cnt
+            io: i
+        '}
+        nEncRefYM4K2 : UDINT;
+        //MR4K2 rX ENC REF
+        {attribute 'pytmc' := '
+            pv: MR4K2:KBV:ENC:PITCH:REF
+            field: EGU cnt
+            io: i
+        '}
+        nEncRefrXM4K2 : UDINT;
+        //MR4K2 US ENC REF
+        {attribute 'pytmc' := '
+            pv: MR4K2:KBV:ENC:BEND:US:REF
+            field: EGU cnt
+            io: i
+        '}
+        nEncRefUSM4K2 : UDINT;
+        //MR4K2 DS ENC REF
+        {attribute 'pytmc' := '
+            pv: MR4K2:KBV:ENC:BEND:DS:REF
+            field: EGU cnt
+            io: i
+        '}
+        nEncRefDSM4K2 : UDINT;
+
+    // Encoder raw counts
+        //M4K2 KBV X ENC CNT
+        {attribute 'pytmc' := '
+            pv: MR4K2:KBV:ENC:X:CNT
+            field: EGU cnt
+            io: i
+        '}
+        nEncCntXM4K2 : UDINT;
+        //M4K2 KBV Y ENC CNT
+        {attribute 'pytmc' := '
+            pv: MR4K2:KBV:ENC:Y:CNT
+            field: EGU cnt
+            io: i
+        '}
+        nEncCntYM4K2 : UDINT;
+        //M4K2 KBV rX ENC CNT
+        {attribute 'pytmc' := '
+            pv: MR4K2:KBV:ENC:PITCH:CNT
+            field: EGU cnt
+            io: i
+        '}
+        nEncCntrXM4K2 : UDINT;
+        //M4K2 KBV US ENC CNT
+        {attribute 'pytmc' := '
+            pv: MR4K2:KBV:ENC:BEND:US:CNT
+            field: EGU cnt
+            io: i
+        '}
+        nEncCntUSM4K2 : UDINT;
+        //M4K2 KBV DS ENC CNT
+        {attribute 'pytmc' := '
+            pv: MR4K2:KBV:ENC:BEND:DS:CNT
+            field: EGU cnt
+            io: i
+        '}
+        nEncCntDSM4K2 : UDINT;
+
+    // MR4K2 Bender RTDs
+        // MR4K2 US RTDs
+        {attribute 'pytmc' := '
+            pv: MR4K2:KBV:RTD:BEND:US:1
+            field: ASLO 0.01
+            field: EGU C
+            io: i
+        '}
+        fM4K2US_RTD_1 : REAL;
+        {attribute 'pytmc' := '
+            pv: MR4K2:KBV:RTD:BEND:US:2
+            field: ASLO 0.01
+            field: EGU C
+            io: i
+        '}
+        fM4K2US_RTD_2 : REAL;
+        {attribute 'pytmc' := '
+            pv: MR4K2:KBV:RTD:BEND:US:3
+            field: ASLO 0.01
+            field: EGU C
+            io: i
+        '}
+        fM4K2US_RTD_3 : REAL;
+
+        // M4K2 DS RTDs
+        {attribute 'pytmc' := '
+            pv: MR4K2:KBV:RTD:BEND:DS:1
+            field: ASLO 0.01
+            field: EGU C
+            io: i
+        '}
+        fM4K2DS_RTD_1 : REAL;
+        {attribute 'pytmc' := '
+            pv: MR4K2:KBV:RTD:BEND:DS:2
+            field: ASLO 0.01
+            field: EGU C
+            io: i
+        '}
+        fM4K2DS_RTD_2 : REAL;
+        {attribute 'pytmc' := '
+            pv: MR4K2:KBV:RTD:BEND:DS:3
+            field: ASLO 0.01
+            field: EGU C
+            io: i
+        '}
+        fM4K2DS_RTD_3 : REAL;
+
+    // RTD error bit
+        bM4K2US_RTD_1_Err AT %I*: BOOL;
+        bM4K2US_RTD_2_Err AT %I*: BOOL;
+        bM4K2US_RTD_3_Err AT %I*: BOOL;
+        bM4K2DS_RTD_1_Err AT %I*: BOOL;
+        bM4K2DS_RTD_2_Err AT %I*: BOOL;
+        bM4K2DS_RTD_3_Err AT %I*: BOOL;
+
+    //Emergency Stop for MR4K2
+        {attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2_BENDER^EL1004_M4K2_STO^Channel 1^Input'}
+        M4K2KBVbSTOEnable1 AT %I* : BOOL;
+        {attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2_BENDER^EL1004_M4K2_STO^Channel 2^Input'}
+        M4K2KBVbSTOEnable2 AT %I* : BOOL;
+
+(*
+    // PMPS
+        ffBenderRange : FB_FastFault := (
+            i_xAutoReset := TRUE,
+            i_DevName := 'MR4K2 Bender',
+            i_Desc := 'Benders have moved out of range. Adjust bender to be within limits to clear fault',
+            i_TypeCode := 16#???);
 *)
-	
+
 END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[//FB_Motion stages for MR4K2 Axes
@@ -187,24 +187,24 @@ fbMotionStageM37(stMotionStage:=M37);
 // Calculate Pitch RMS Error for MR4K2 Axes:
 //MR4K2 X ENC RMS
 fbXRMSErrorM4K2(stMotionStage:=M33,
-					 fMaxRMSError=>fMaxXRMSErrorM4K2,
-					 fMinRMSError=>fMinXRMSErrorM4K2);
+                     fMaxRMSError=>fMaxXRMSErrorM4K2,
+                     fMinRMSError=>fMinXRMSErrorM4K2);
 //MR4K2 X ENC RMS
 fbYRMSErrorM4K2(stMotionStage:=M34,
-					 fMaxRMSError=>fMaxYRMSErrorM4K2,
-					 fMinRMSError=>fMinYRMSErrorM4K2);
+                     fMaxRMSError=>fMaxYRMSErrorM4K2,
+                     fMinRMSError=>fMinYRMSErrorM4K2);
 //MR4K2 rX ENC RMS
 fbrXRMSErrorM4K2(stMotionStage:=M35,
-					 fMaxRMSError=>fMaxrXRMSErrorM4K2,
-					 fMinRMSError=>fMinrXRMSErrorM4K2);
+                     fMaxRMSError=>fMaxrXRMSErrorM4K2,
+                     fMinRMSError=>fMinrXRMSErrorM4K2);
 //MR4K2 US ENC RMS
 fbUSRMSErrorM4K2(stMotionStage:=M36,
-					 fMaxRMSError=>fMaxUSRMSErrorM4K2,
-					 fMinRMSError=>fMinUSRMSErrorM4K2);
+                     fMaxRMSError=>fMaxUSRMSErrorM4K2,
+                     fMinRMSError=>fMinUSRMSErrorM4K2);
 //MR4K2 DS ENC RMS
 fbDSRMSErrorM4K2(stMotionStage:=M37,
-					 fMaxRMSError=>fMaxDSRMSErrorM4K2,
-					 fMinRMSError=>fMinDSRMSErrorM4K2);
+                     fMaxRMSError=>fMaxDSRMSErrorM4K2,
+                     fMinRMSError=>fMinDSRMSErrorM4K2);
 
 //STO for MR4K2 Benders
 M33.bHardwareEnable := M4K2KBVbSTOEnable1 AND M4K2KBVbSTOEnable2;
@@ -253,7 +253,7 @@ M37.bHardwareEnable R= fM4K2DS_RTD_1 > 9000 OR bM4K2DS_RTD_1_Err;
 ffBenderRange.i_xOK :=
     GVL_M4K2.nM4K2US_PMPS_LowerLimit < nEncCntUSM4K2 AND nEncCntUSM4K2 < GVL_M4K2.nM4K2US_PMPS_UpperLimit AND
     GVL_M4K2.nM4K2DS_PMPS_LowerLimit < nEncCntDSM4K2 AND nEncCntUSM4K2 < GVL_M4K2.nM4K2DS_PMPS_UpperLimit;
-ffBenderRange(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1); 
+ffBenderRange(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
 *)]]></ST>
     </Implementation>
   </POU>

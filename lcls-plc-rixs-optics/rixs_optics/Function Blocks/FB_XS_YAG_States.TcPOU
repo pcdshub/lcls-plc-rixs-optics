@@ -3,7 +3,7 @@
   <POU Name="FB_XS_YAG_States" Id="{66ee526f-df02-4197-b798-b0ac2040b845}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_XS_YAG_States EXTENDS FB_PositionStateBase_WithPMPS
 VAR_INPUT
-	    {attribute 'pytmc' := '
+        {attribute 'pytmc' := '
         pv: SET
         io: io
     '}
@@ -16,14 +16,14 @@ VAR_INPUT
     bStatesLock: BOOL;
 END_VAR
 VAR_OUTPUT
-	 {attribute 'pytmc' := '
+     {attribute 'pytmc' := '
         pv: GET
         io: i
     '}
     enumGet: ENUM_XS_YAG_States;
 END_VAR
 VAR
-	 bXSInit: BOOL :=TRUE;
+     bXSInit: BOOL :=TRUE;
 END_VAR
 VAR CONSTANT
     fInDelta: LREAL := 2;

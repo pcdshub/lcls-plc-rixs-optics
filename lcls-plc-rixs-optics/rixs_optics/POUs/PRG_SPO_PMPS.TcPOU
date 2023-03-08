@@ -3,82 +3,82 @@
   <POU Name="PRG_SPO_PMPS" Id="{7e4964d2-574a-4093-8b89-281ef940f53f}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_SPO_PMPS
 VAR
-	// PMPS
+    // PMPS
     ffMR1K1Height : FB_FastFault := (
         i_xAutoReset := TRUE,
         i_DevName := 'MR1K1 Height',
         i_Desc := 'MR1K1 Height is out of Single Point Operation safe range',
-        i_TypeCode := 16#F501);	
+        i_TypeCode := 16#F501);
     ffMR1K1Pitch : FB_FastFault := (
         i_xAutoReset := TRUE,
         i_DevName := 'MR1K1 Pitch',
         i_Desc := 'MR1K1 Pitch is out of Single Point Operation safe range',
-        i_TypeCode := 16#F502);	
-		
+        i_TypeCode := 16#F502);
+
     ffSP1K1MPitch : FB_FastFault := (
         i_xAutoReset := TRUE,
         i_DevName := 'SP1K1 Mirror Pitch',
         i_Desc := 'SP1K1 Mirror Pitch is out of Single Point Operation safe range',
-        i_TypeCode := 16#F503);	
-	ffSP1K1GPitch : FB_FastFault := (
+        i_TypeCode := 16#F503);
+    ffSP1K1GPitch : FB_FastFault := (
         i_xAutoReset := TRUE,
         i_DevName := 'SP1K1 Grating Pitch',
         i_Desc := 'SP1K1 Grating Pitch is out of Single Point Operation safe range',
-        i_TypeCode := 16#F504);	
-	ffSP1K1GHorisontal : FB_FastFault := (
+        i_TypeCode := 16#F504);
+    ffSP1K1GHorisontal : FB_FastFault := (
         i_xAutoReset := TRUE,
         i_DevName := 'SP1K1 Grating horizontal',
         i_Desc := 'SP1K1 horizontal Pitch is out of Single Point Operation safe range',
-        i_TypeCode := 16#F505);		
-	
-	ffZos : FB_FastFault := (
+        i_TypeCode := 16#F505);
+
+    ffZos : FB_FastFault := (
         i_xAutoReset := TRUE,
         i_DevName := 'T1K1 ZOS',
         i_Desc := 'ST1K1 ZOS is out of Single Point Operation safe range',
-        i_TypeCode := 16#F506);	
+        i_TypeCode := 16#F506);
 END_VAR
 VAR CONSTANT
-	nUpperMR1K1Height : UDINT := 32961458; //POS 32911458+ Delta 50000;
-	nLowerMR1K1Height : UDINT := 32861458; //POS 32911458- Delta 50000;
-	
-	nUpperMR1K1Pitch : UDINT := 10114377;// 10093885 + 20491;
-	nLowerMR1K1Pitch : UDINT := 10073393; //10093885 - 20491;
-	
-	nUpperSP1K1MPitch : UDINT := 31769145;// 31758046 + 11098;
-	nLowerSP1K1MPitch : UDINT := 31746947;//31758046 - 11098;
-	
-	nUpperSP1K1MPitch_400 : UDINT := 31285238;
-	nLowerSP1K1MPitch_400 : UDINT := 31263041;
-	
-	nUpperSP1K1MPitch_1000 : UDINT := 31809544;
-	nLowerSP1K1MPitch_1000 : UDINT := 31787347;
-	
-	nUpperSP1K1GPitch_700 : UDINT := 23624881;
-	nUpperSP1K1GPitch_400 : UDINT := 23204883;
-	nUpperSP1K1GPitch_1000 : UDINT := 23564882;
-	
-	nUpperSP1K1GH: UDINT := 40000000;
-	nLowerSP1K1GH: UDINT := 24000000;
-	
-	nZOSLower : UDINT := 22926596; // value still needs to be verified
-	
-	
+    nUpperMR1K1Height : UDINT := 32961458; //POS 32911458+ Delta 50000;
+    nLowerMR1K1Height : UDINT := 32861458; //POS 32911458- Delta 50000;
+
+    nUpperMR1K1Pitch : UDINT := 10114377;// 10093885 + 20491;
+    nLowerMR1K1Pitch : UDINT := 10073393; //10093885 - 20491;
+
+    nUpperSP1K1MPitch : UDINT := 31769145;// 31758046 + 11098;
+    nLowerSP1K1MPitch : UDINT := 31746947;//31758046 - 11098;
+
+    nUpperSP1K1MPitch_400 : UDINT := 31285238;
+    nLowerSP1K1MPitch_400 : UDINT := 31263041;
+
+    nUpperSP1K1MPitch_1000 : UDINT := 31809544;
+    nLowerSP1K1MPitch_1000 : UDINT := 31787347;
+
+    nUpperSP1K1GPitch_700 : UDINT := 23624881;
+    nUpperSP1K1GPitch_400 : UDINT := 23204883;
+    nUpperSP1K1GPitch_1000 : UDINT := 23564882;
+
+    nUpperSP1K1GH: UDINT := 40000000;
+    nLowerSP1K1GH: UDINT := 24000000;
+
+    nZOSLower : UDINT := 22926596; // value still needs to be verified
+
+
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[
 IF (GVL_PMPS.rPhotonEnergy < 715) AND (GVL_PMPS.rPhotonEnergy >685) THEN
-	ffSP1K1MPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M6.nEncoderCount > nLowerSP1K1MPitch) AND (M6.nEncoderCount < nUpperSP1K1MPitch));
-	ffSP1K1GPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M7.nEncoderCount < nUpperSP1K1GPitch_700));
+    ffSP1K1MPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M6.nEncoderCount > nLowerSP1K1MPitch) AND (M6.nEncoderCount < nUpperSP1K1MPitch));
+    ffSP1K1GPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M7.nEncoderCount < nUpperSP1K1GPitch_700));
 ELSIF (GVL_PMPS.rPhotonEnergy < 410) AND (GVL_PMPS.rPhotonEnergy >390) THEN
-	ffSP1K1MPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M6.nEncoderCount > nLowerSP1K1MPitch_400) AND (M6.nEncoderCount < nUpperSP1K1MPitch_400));
-	ffSP1K1GPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M7.nEncoderCount < nUpperSP1K1GPitch_400));
+    ffSP1K1MPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M6.nEncoderCount > nLowerSP1K1MPitch_400) AND (M6.nEncoderCount < nUpperSP1K1MPitch_400));
+    ffSP1K1GPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M7.nEncoderCount < nUpperSP1K1GPitch_400));
 ELSIF (GVL_PMPS.rPhotonEnergy < 1020) AND (GVL_PMPS.rPhotonEnergy >980) THEN
-	ffSP1K1MPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M6.nEncoderCount > nLowerSP1K1MPitch_1000) AND (M6.nEncoderCount < nUpperSP1K1MPitch_1000));
-	ffSP1K1GPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M7.nEncoderCount < nUpperSP1K1GPitch_1000));
-ELSE 
-	ffSP1K1MPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK;
-	ffSP1K1GPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK;
+    ffSP1K1MPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M6.nEncoderCount > nLowerSP1K1MPitch_1000) AND (M6.nEncoderCount < nUpperSP1K1MPitch_1000));
+    ffSP1K1GPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M7.nEncoderCount < nUpperSP1K1GPitch_1000));
+ELSE
+    ffSP1K1MPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK;
+    ffSP1K1GPitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK;
 
 END_IF
 
@@ -89,11 +89,11 @@ ffMR1K1Height(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
 //MR1K1 pitch
 ffMR1K1Pitch.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ( (M16.nEncoderCount > nLowerMR1K1Pitch) AND ( M16.nEncoderCount < nUpperMR1K1Pitch));
 ffMR1K1Pitch(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
-//SP1K1 mirror pitch 
+//SP1K1 mirror pitch
 ffSP1K1MPitch(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
 //SP1K1 grating pitch
 ffSP1K1GPitch(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
-//SP1K1 Grating horizontal 
+//SP1K1 Grating horizontal
 ffSP1K1GHorisontal.i_xOK := PRG_MR1K1_BEND_BENDER.ffBenderRange.i_xOK OR ((M9.nEncoderCount > nLowerSP1K1GH) AND (M9.nEncoderCount < nUpperSP1K1GH));
 ffSP1K1GHorisontal(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
 //ST1K1 ZOS

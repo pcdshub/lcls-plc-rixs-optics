@@ -3,65 +3,65 @@
   <POU Name="PRG_SL1K2_EXIT" Id="{a6ea7919-5ace-4786-88b3-ec4d11838f8d}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_SL1K2_EXIT
 VAR
-	FFO    :    FB_FastFault :=(
+    FFO    :    FB_FastFault :=(
         i_DevName := 'SL1K2-EXIT',
         i_Desc := 'Fault occurs when device is in an usafe state',
         i_TypeCode := 16#E50);
-	fbPitch: FB_MotionStage;
+    fbPitch: FB_MotionStage;
     fbRoll: FB_MotionStage;
     fbVertical: FB_MotionStage;
     fbGap: FB_MotionStage;
-	fbYag: FB_MotionStage;
-	
-	 {attribute 'pytmc' := '
+    fbYag: FB_MotionStage;
+
+     {attribute 'pytmc' := '
         pv: SL1K2:EXIT:YAG:STATE
         io: i
     '}
     fbStates: FB_XS_YAG_States;
-	
-	{attribute 'pytmc' := '
+
+    {attribute 'pytmc' := '
         pv: SL1K2:EXIT:RTD:CRYSTAL_TOP
     '}
     {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3201_SL1K2_1]^RTD^Value;
                               .bError := TIIB[EL3201_SL1K2_1]^RTD^Status^Error;
                               .bUnderrange := TIIB[EL3201_SL1K2_1]^RTD^Status^Underrange;
                               .bOverrange := TIIB[EL3201_SL1K2_1]^RTD^Status^Overrange'}
-    RTD_Crystal_TOP: FB_TempSensor;     
-	{attribute 'pytmc' := '
+    RTD_Crystal_TOP: FB_TempSensor;
+    {attribute 'pytmc' := '
         pv: SL1K2:EXIT:RTD:CRYSTAL_BOTTOM
     '}
     {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3201_SL1K2_2]^RTD^Value;
                               .bError := TIIB[EL3201_SL1K2_2]^RTD^Status^Error;
                               .bUnderrange := TIIB[EL3201_SL1K2_2]^RTD^Status^Underrange;
                               .bOverrange := TIIB[EL3201_SL1K2_2]^RTD^Status^Overrange'}
-    RTD_Crystal_BOTTOM: FB_TempSensor;   
+    RTD_Crystal_BOTTOM: FB_TempSensor;
 
-	{attribute 'pytmc' := '
+    {attribute 'pytmc' := '
         pv: SL1K2:EXIT:RTD:YAG
     '}
     {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3201_SL1K2_3]^RTD^Value;
                               .bError := TIIB[EL3201_SL1K2_3]^RTD^Status^Error;
                               .bUnderrange := TIIB[EL3201_SL1K2_3]^RTD^Status^Underrange;
                               .bOverrange := TIIB[EL3201_SL1K2_3]^RTD^Status^Overrange'}
-    RTD_YAG: FB_TempSensor;    
+    RTD_YAG: FB_TempSensor;
 
-	{attribute 'pytmc' := '
+    {attribute 'pytmc' := '
         pv: SL1K2:EXIT:RTD:HeatSync
     '}
     {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3201_SL1K2_4]^RTD^Value;
                               .bError := TIIB[EL3201_SL1K2_4]^RTD^Status^Error;
                               .bUnderrange := TIIB[EL3201_SL1K2_4]^RTD^Status^Underrange;
                               .bOverrange := TIIB[EL3201_SL1K2_4]^RTD^Status^Overrange'}
-    RTD_HeatSync: FB_TempSensor;      
+    RTD_HeatSync: FB_TempSensor;
 
 
-	{attribute 'pytmc' := '
+    {attribute 'pytmc' := '
         pv: SL1K2:EXIT:FAN:PWR
-		field: ZNAM OFF ;
-		field: ONAM ON ;
+        field: ZNAM OFF ;
+        field: ONAM ON ;
     '}
-	 {attribute 'TcLinkTo' := 'TIIB[EL2004_SL1K2]^Channel 1^Output'}
-	bFanOn AT %Q*:BOOL;  
+     {attribute 'TcLinkTo' := 'TIIB[EL2004_SL1K2]^Channel 1^Output'}
+    bFanOn AT %Q*:BOOL;
 
   {attribute 'pytmc' := '
         pv:  SL1K2:EXIT:LED:PWR
@@ -69,80 +69,80 @@ VAR
         field: ZNAM OFF
         field: ONAM ON
     '}
-	 {attribute 'TcLinkTo' := 'TIIB[EL2004_SL1K2]^Channel 2^Output'}
-    bLEDPower AT %Q*: BOOL;   
-	
-	{attribute 'pytmc' := '
+     {attribute 'TcLinkTo' := 'TIIB[EL2004_SL1K2]^Channel 2^Output'}
+    bLEDPower AT %Q*: BOOL;
+
+    {attribute 'pytmc' := '
         pv: SL1K2:EXIT:CAM
     '}
-	{attribute 'TcLinkTo' := '.iIlluminatorINT := TIIB[EL4004_SL1K2]^AO Outputs Channel 1^Analog output;
+    {attribute 'TcLinkTo' := '.iIlluminatorINT := TIIB[EL4004_SL1K2]^AO Outputs Channel 1^Analog output;
                               .bGigePower := TIIB[EL2004_SL1K2]^Channel 3^Output'}
-    fbGige: FB_PPM_Gige;                 
-	
-	bInit : BOOL:=TRUE;
-	
-	 (*Motion Parameters*)
+    fbGige: FB_PPM_Gige;
+
+    bInit : BOOL:=TRUE;
+
+     (*Motion Parameters*)
     fSmallDelta: LREAL := 0.01;
     fBigDelta: LREAL := 10;
     fMaxVelocity: LREAL := 0.5;
     fHighAccel: LREAL := 0.8;
     fLowAccel: LREAL := 0.1;
-	
+
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[//  init the motion stages parameters
 IF ( bInit) THEN
-	bInit := FALSE;
-	FFO.i_DevName := 'SL1K2-EXIT';
-	//Pitch
+    bInit := FALSE;
+    FFO.i_DevName := 'SL1K2-EXIT';
+    //Pitch
     Main.M19.bHardwareEnable := TRUE;
     Main.M19.bPowerSelf :=TRUE;
     Main.M19.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
-	Main.M19.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+    Main.M19.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
    //Vert
-	Main.M20.bHardwareEnable := TRUE;
+    Main.M20.bHardwareEnable := TRUE;
     Main.M20.bPowerSelf :=TRUE;
     Main.M20.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
-	Main.M20.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
-	//ROLL
-	Main.M21.bHardwareEnable := TRUE;
+    Main.M20.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+    //ROLL
+    Main.M21.bHardwareEnable := TRUE;
     Main.M21.bPowerSelf :=TRUE;
     Main.M21.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
-	Main.M21.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
-	//GAP
-	Main.M22.bHardwareEnable := TRUE;
+    Main.M21.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+    //GAP
+    Main.M22.bHardwareEnable := TRUE;
     Main.M22.bPowerSelf :=TRUE;
     Main.M22.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
-	Main.M22.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
-	//YAG
-	Main.M23.bHardwareEnable := TRUE;
+    Main.M22.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+    //YAG
+    Main.M23.bHardwareEnable := TRUE;
     Main.M23.bPowerSelf :=TRUE;
     Main.M23.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
-	Main.M23.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
-	
-	// YAG STATES Parameters
-	//fbStates.nTransitionAssertionID := 16#E510;
-	//fbStates.nUnknownAssertionID := 16#E500;
-    
-	//Out
-	fbStates.stOut.fPosition := 0;
-	fbStates.stOut.bUseRawCounts := FALSE;
-	fbStates.stOut.bValid := TRUE;
+    Main.M23.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
+
+    // YAG STATES Parameters
+    //fbStates.nTransitionAssertionID := 16#E510;
+    //fbStates.nUnknownAssertionID := 16#E500;
+
+    //Out
+    fbStates.stOut.fPosition := 0;
+    fbStates.stOut.bUseRawCounts := FALSE;
+    fbStates.stOut.bValid := TRUE;
     fbStates.stOut.stPMPS.sPmpsState := 'SL1K2:EXIT:YAG-OUT';
-	//Yag1
-	fbStates.stYag1.fPosition := 21;
-	fbStates.stYag1.bUseRawCounts := FALSE;
-	fbStates.stYag1.bValid := TRUE;
+    //Yag1
+    fbStates.stYag1.fPosition := 21;
+    fbStates.stYag1.bUseRawCounts := FALSE;
+    fbStates.stYag1.bValid := TRUE;
     fbStates.stYag1.stPMPS.sPmpsState := 'SL1K2:EXIT:YAG-YAG1';
-	//Yag2
-	fbStates.stYag2.fPosition := 40;
-	fbStates.stYag2.bUseRawCounts := FALSE;
-	fbStates.stYag2.bValid := TRUE;
+    //Yag2
+    fbStates.stYag2.fPosition := 40;
+    fbStates.stYag2.bUseRawCounts := FALSE;
+    fbStates.stYag2.bValid := TRUE;
     fbStates.stYag2.stPMPS.sPmpsState := 'SL1K2:EXIT:YAG-YAG2';
-	
-	//Turn on Fan by default
-	bFanOn := TRUE;
+
+    //Turn on Fan by default
+    bFanOn := TRUE;
 END_IF
 
 
@@ -169,7 +169,7 @@ fbStates(
 
 //Camera and Ilumination
 fbGige();
-	
+
 //RTDs
 RTD_Crystal_TOP();
 RTD_Crystal_BOTTOM();

@@ -3,76 +3,76 @@
   <POU Name="PRG_MR2K2_FLAT" Id="{10737d82-f8b4-4bdd-a3ad-b4f491fe4b9f}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_MR2K2_FLAT
 VAR
-	// Encoder Arrays/RMS Watch:
-		//MR2K2 X ENC RMS
-		{attribute 'pytmc' := '	pv: MR2K2:FLAT:ENC:X'}
-		fbXRMSErrorM2K2 : FB_RMSWatch;
-		fMaxXRMSErrorM2K2 : LREAL;
-		fMinXRMSErrorM2K2 : LREAL;
-		//MR2K2 Y ENC RMS
-		{attribute 'pytmc' := '	pv: MR2K2:FLAT:ENC:Y'}
-		fbYRMSErrorM2K2 : FB_RMSWatch;
-		fMaxYRMSErrorM2K2 : LREAL;
-		fMinYRMSErrorM2K2 : LREAL;
-		//MR2K2 rX ENC RMS
-		{attribute 'pytmc' := '	pv: MR2K2:FLAT:ENC:PITCH'}
-		fbrXRMSErrorM2K2 : FB_RMSWatch;
-		fMaxrXRMSErrorM2K2 : LREAL;
-		fMinrXRMSErrorM2K2 : LREAL;
+    // Encoder Arrays/RMS Watch:
+        //MR2K2 X ENC RMS
+        {attribute 'pytmc' := '	pv: MR2K2:FLAT:ENC:X'}
+        fbXRMSErrorM2K2 : FB_RMSWatch;
+        fMaxXRMSErrorM2K2 : LREAL;
+        fMinXRMSErrorM2K2 : LREAL;
+        //MR2K2 Y ENC RMS
+        {attribute 'pytmc' := '	pv: MR2K2:FLAT:ENC:Y'}
+        fbYRMSErrorM2K2 : FB_RMSWatch;
+        fMaxYRMSErrorM2K2 : LREAL;
+        fMinYRMSErrorM2K2 : LREAL;
+        //MR2K2 rX ENC RMS
+        {attribute 'pytmc' := '	pv: MR2K2:FLAT:ENC:PITCH'}
+        fbrXRMSErrorM2K2 : FB_RMSWatch;
+        fMaxrXRMSErrorM2K2 : LREAL;
+        fMinrXRMSErrorM2K2 : LREAL;
 
-	// Encoder Reference Values
-		//MR2K2 X ENC REF
-		{attribute 'pytmc' := '
-			pv: MR2K2:FLAT:ENC:X:REF
-			field: EGU cnt
-			io: i
-		'}
-		nEncRefXM2K2 : UDINT;
-		//MR2K2 Y ENC REF
-		{attribute 'pytmc' := '
-			pv: MR2K2:FLAT:ENC:Y:REF
-			field: EGU cnt
-			io: i
-		'}
-		nEncRefYM2K2 : UDINT;
-		//MR2K2 rX ENC REF
-		{attribute 'pytmc' := '
-			pv: MR2K2:FLAT:ENC:PITCH:REF
-			field: EGU cnt
-			io: i
-		'}
-		nEncRefrXM2K2 : UDINT;
+    // Encoder Reference Values
+        //MR2K2 X ENC REF
+        {attribute 'pytmc' := '
+            pv: MR2K2:FLAT:ENC:X:REF
+            field: EGU cnt
+            io: i
+        '}
+        nEncRefXM2K2 : UDINT;
+        //MR2K2 Y ENC REF
+        {attribute 'pytmc' := '
+            pv: MR2K2:FLAT:ENC:Y:REF
+            field: EGU cnt
+            io: i
+        '}
+        nEncRefYM2K2 : UDINT;
+        //MR2K2 rX ENC REF
+        {attribute 'pytmc' := '
+            pv: MR2K2:FLAT:ENC:PITCH:REF
+            field: EGU cnt
+            io: i
+        '}
+        nEncRefrXM2K2 : UDINT;
 
-	// Encoder raw counts
-		//M2K2 FLAT X ENC CNT
-		{attribute 'pytmc' := '
-			pv: MR2K2:FLAT:ENC:X:CNT
-			field: EGU cnt
-			io: i
-		'}
-		nEncCntXM2K2 : UDINT;
-		//M2K2 FLAT Y ENC CNT
-		{attribute 'pytmc' := '
-			pv: MR2K2:FLAT:ENC:Y:CNT
-			field: EGU cnt
-			io: i
-		'}
-		nEncCntYM2K2 : UDINT;
-		//M2K2 FLAT rX ENC CNT
-		{attribute 'pytmc' := '
-			pv: MR2K2:FLAT:ENC:PITCH:CNT
-			field: EGU cnt
-			io: i
-		'}
-		nEncCntrXM2K2 : UDINT;
-	
-	//Emergency Stop for MR2K2 //M2K2 needs an EL1004 term and an ESTOP added, not listed in I/O either
-	
-	{attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 310 (EK1122)^EK1100_MR2K2^EL1004_M2K2_STO^Channel 1^Input'}
-	M2K2FLATbSTOEnable1 AT %I* : BOOL;
-	{attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 310 (EK1122)^EK1100_MR2K2^EL1004_M2K2_STO^Channel 2^Input'}
-	M2K2FLATbSTOEnable2 AT %I* : BOOL;
-	
+    // Encoder raw counts
+        //M2K2 FLAT X ENC CNT
+        {attribute 'pytmc' := '
+            pv: MR2K2:FLAT:ENC:X:CNT
+            field: EGU cnt
+            io: i
+        '}
+        nEncCntXM2K2 : UDINT;
+        //M2K2 FLAT Y ENC CNT
+        {attribute 'pytmc' := '
+            pv: MR2K2:FLAT:ENC:Y:CNT
+            field: EGU cnt
+            io: i
+        '}
+        nEncCntYM2K2 : UDINT;
+        //M2K2 FLAT rX ENC CNT
+        {attribute 'pytmc' := '
+            pv: MR2K2:FLAT:ENC:PITCH:CNT
+            field: EGU cnt
+            io: i
+        '}
+        nEncCntrXM2K2 : UDINT;
+
+    //Emergency Stop for MR2K2 //M2K2 needs an EL1004 term and an ESTOP added, not listed in I/O either
+
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 310 (EK1122)^EK1100_MR2K2^EL1004_M2K2_STO^Channel 1^Input'}
+    M2K2FLATbSTOEnable1 AT %I* : BOOL;
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 310 (EK1122)^EK1100_MR2K2^EL1004_M2K2_STO^Channel 2^Input'}
+    M2K2FLATbSTOEnable2 AT %I* : BOOL;
+
 END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[//FB_Motion stages for MR2K2 Axes
@@ -84,16 +84,16 @@ fbMotionStageM27(stMotionStage:=M27);
 // Calculate Pitch RMS Error for MR2K2 Axes:
 //MR2K2 X ENC RMS
 fbXRMSErrorM2K2(stMotionStage:=M25,
-					 fMaxRMSError=>fMaxXRMSErrorM2K2,
-					 fMinRMSError=>fMinXRMSErrorM2K2);
+                     fMaxRMSError=>fMaxXRMSErrorM2K2,
+                     fMinRMSError=>fMinXRMSErrorM2K2);
 //MR2K2 X ENC RMS
 fbYRMSErrorM2K2(stMotionStage:=M26,
-					 fMaxRMSError=>fMaxYRMSErrorM2K2,
-					 fMinRMSError=>fMinYRMSErrorM2K2);
+                     fMaxRMSError=>fMaxYRMSErrorM2K2,
+                     fMinRMSError=>fMinYRMSErrorM2K2);
 //MR2K2 rX ENC RMS
 fbrXRMSErrorM2K2(stMotionStage:=M27,
-					 fMaxRMSError=>fMaxrXRMSErrorM2K2,
-					 fMinRMSError=>fMinrXRMSErrorM2K2);
+                     fMaxRMSError=>fMaxrXRMSErrorM2K2,
+                     fMinRMSError=>fMinrXRMSErrorM2K2);
 
 //STO for MR2K2 Benders
 M25.bHardwareEnable := M2K2FLATbSTOEnable1 AND M2K2FLATbSTOEnable2;
