@@ -17,13 +17,13 @@ END_VAR
 VAR
     // Input handling
     rtNewData: R_TRIG;
-    
+
     // Data buffer and iteration
     arrBuffer: ARRAY[0..BUFFER_SIZE-1] OF DUT_01_Channel_NW;
     nDataRecvCount: ULINT;
     nDataSentCount: ULINT;
     nIndex: UINT;
-    
+
     // Actually send the data
     fbSocketSend: FB_SocketUdpSendTo;
     bExecuteSend: BOOL;

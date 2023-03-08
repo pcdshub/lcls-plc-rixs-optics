@@ -3,152 +3,152 @@
   <POU Name="PRG_MR1K1_BEND" Id="{f3f12a20-b8bd-4f8a-96c6-66ebb9fb57e3}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_MR1K1_BEND
 VAR
-	{attribute 'TcLinkTo' := '.fbRunHOMS.bSTOEnable1:=TIIB[EL1004_M1K1_STO]^Channel 1^Input;
+    {attribute 'TcLinkTo' := '.fbRunHOMS.bSTOEnable1:=TIIB[EL1004_M1K1_STO]^Channel 1^Input;
                               .fbRunHOMS.bSTOEnable2:=TIIB[EL1004_M1K1_STO]^Channel 2^Input;
-	                          .fbRunHOMS.stYupEnc.Count:=TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 1^Position;
-	                          .fbRunHOMS.stYdwnEnc.Count:=TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 2^Position;
-	                          .fbRunHOMS.stXupEnc.Count:=TIIB[EL5042_M1K1_Xupdwn]^FB Inputs Channel 1^Position;
-	                          .fbRunHOMS.stXdwnEnc.Count:=TIIB[EL5042_M1K1_Xupdwn]^FB Inputs Channel 2^Position'}
-	{attribute 'pytmc' := '
-		pv: MR1K1:BEND
-	'}
-	M1K1 : DUT_HOMS;
+                              .fbRunHOMS.stYupEnc.Count:=TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 1^Position;
+                              .fbRunHOMS.stYdwnEnc.Count:=TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 2^Position;
+                              .fbRunHOMS.stXupEnc.Count:=TIIB[EL5042_M1K1_Xupdwn]^FB Inputs Channel 1^Position;
+                              .fbRunHOMS.stXdwnEnc.Count:=TIIB[EL5042_M1K1_Xupdwn]^FB Inputs Channel 2^Position'}
+    {attribute 'pytmc' := '
+        pv: MR1K1:BEND
+    '}
+    M1K1 : DUT_HOMS;
 
-	// Encoder Arrays/RMS Watch:
-	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:ENC:Y
-	'}
-	fbYRMSErrorM1K1 : FB_RMSWatch;
-	fMaxYRMSErrorM1K1 : LREAL;
-	fMinYRMSErrorM1K1 : LREAL;
+    // Encoder Arrays/RMS Watch:
+    {attribute 'pytmc' := '
+        pv: MR1K1:BEND:ENC:Y
+    '}
+    fbYRMSErrorM1K1 : FB_RMSWatch;
+    fMaxYRMSErrorM1K1 : LREAL;
+    fMinYRMSErrorM1K1 : LREAL;
 
-	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:ENC:X
-	'}
-	fbXRMSErrorM1K1 : FB_RMSWatch;
-	fMaxXRMSErrorM1K1 : LREAL;
-	fMinXRMSErrorM1K1 : LREAL;
+    {attribute 'pytmc' := '
+        pv: MR1K1:BEND:ENC:X
+    '}
+    fbXRMSErrorM1K1 : FB_RMSWatch;
+    fMaxXRMSErrorM1K1 : LREAL;
+    fMinXRMSErrorM1K1 : LREAL;
 
-	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:ENC:PITCH
-	'}
-	fbPitchRMSErrorM1K1 : FB_RMSWatch;
-	fMaxPitchRMSErrorM1K1 : LREAL;
-	fMinPitchRMSErrorM1K1 : LREAL;
+    {attribute 'pytmc' := '
+        pv: MR1K1:BEND:ENC:PITCH
+    '}
+    fbPitchRMSErrorM1K1 : FB_RMSWatch;
+    fMaxPitchRMSErrorM1K1 : LREAL;
+    fMinPitchRMSErrorM1K1 : LREAL;
 
-	// Pitch Control
-	fbM1K1PitchControl : FB_PitchControl;
-	bM1K1PitchDone : BOOL;
-	bM1K1PitchBusy : BOOL;
+    // Pitch Control
+    fbM1K1PitchControl : FB_PitchControl;
+    bM1K1PitchDone : BOOL;
+    bM1K1PitchBusy : BOOL;
 
-	// 3-15-20 Having issues with pitch control on new Axilon systems (M1K2)
-	// Should test on this one to see if common to all new systems
-	// Using stepper only for now
-	fbMotionStage_m16 : FB_MotionStage;
+    // 3-15-20 Having issues with pitch control on new Axilon systems (M1K2)
+    // Should test on this one to see if common to all new systems
+    // Using stepper only for now
+    fbMotionStage_m16 : FB_MotionStage;
 
-	// Raw Encoder Counts
-	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:ENC:YUP:CNT
-		field: EGU cnt
-		io: i
-	'}
-	nEncCntYupM1K1 : UDINT;
-	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:ENC:YDWN:CNT
-		field: EGU cnt
-		io: i
-	'}
-	nEncCntYdwnM1K1 : UDINT;
-	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:ENC:XUP:CNT
-		field: EGU cnt
-		io: i
-	'}
-	nEncCntXupM1K1 : UDINT;
-	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:ENC:XDWN:CNT
-		field: EGU cnt
-		io: i
-	'}
-	nEncCntXdwnM1K1 : UDINT;
-	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:ENC:PITCH:CNT
-		field: EGU cnt
-		io: i
-	'}
-	nEncCntPitchM1K1 : UDINT;
+    // Raw Encoder Counts
+    {attribute 'pytmc' := '
+        pv: MR1K1:BEND:ENC:YUP:CNT
+        field: EGU cnt
+        io: i
+    '}
+    nEncCntYupM1K1 : UDINT;
+    {attribute 'pytmc' := '
+        pv: MR1K1:BEND:ENC:YDWN:CNT
+        field: EGU cnt
+        io: i
+    '}
+    nEncCntYdwnM1K1 : UDINT;
+    {attribute 'pytmc' := '
+        pv: MR1K1:BEND:ENC:XUP:CNT
+        field: EGU cnt
+        io: i
+    '}
+    nEncCntXupM1K1 : UDINT;
+    {attribute 'pytmc' := '
+        pv: MR1K1:BEND:ENC:XDWN:CNT
+        field: EGU cnt
+        io: i
+    '}
+    nEncCntXdwnM1K1 : UDINT;
+    {attribute 'pytmc' := '
+        pv: MR1K1:BEND:ENC:PITCH:CNT
+        field: EGU cnt
+        io: i
+    '}
+    nEncCntPitchM1K1 : UDINT;
 
-	// Encoder Reference Values
-	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:ENC:YUP:REF
-		field: EGU cnt
-		io: i
-	'}
-	nEncRefYupM1K1 : UDINT;
-	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:ENC:YDWN:REF
-		field: EGU cnt
-		io: i
-	'}
-	nEncRefYdwnM1K1 : UDINT;
-	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:ENC:XUP:REF
-		field: EGU cnt
-		io: i
-	'}
-	nEncRefXupM1K1 : UDINT;
-	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:ENC:XDWN:REF
-		field: EGU cnt
-		io: i
-	'}
-	nEncRefXdwnM1K1 : UDINT;
-	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:ENC:PITCH:REF
-		field: EGU cnt
-		io: i
-	'}
-	nEncRefPitchM1K1 : UDINT;
-	mcReadParameterPitchM1K1 : MC_ReadParameter;
-	fEncRefPitchM1K1_urad : LREAL; // Current Pitch encoder offset in urad
+    // Encoder Reference Values
+    {attribute 'pytmc' := '
+        pv: MR1K1:BEND:ENC:YUP:REF
+        field: EGU cnt
+        io: i
+    '}
+    nEncRefYupM1K1 : UDINT;
+    {attribute 'pytmc' := '
+        pv: MR1K1:BEND:ENC:YDWN:REF
+        field: EGU cnt
+        io: i
+    '}
+    nEncRefYdwnM1K1 : UDINT;
+    {attribute 'pytmc' := '
+        pv: MR1K1:BEND:ENC:XUP:REF
+        field: EGU cnt
+        io: i
+    '}
+    nEncRefXupM1K1 : UDINT;
+    {attribute 'pytmc' := '
+        pv: MR1K1:BEND:ENC:XDWN:REF
+        field: EGU cnt
+        io: i
+    '}
+    nEncRefXdwnM1K1 : UDINT;
+    {attribute 'pytmc' := '
+        pv: MR1K1:BEND:ENC:PITCH:REF
+        field: EGU cnt
+        io: i
+    '}
+    nEncRefPitchM1K1 : UDINT;
+    mcReadParameterPitchM1K1 : MC_ReadParameter;
+    fEncRefPitchM1K1_urad : LREAL; // Current Pitch encoder offset in urad
 
-	// Common
-	fEncLeverArm_mm : LREAL := 410.0;
-	
-	// Mirror LEDs
-	{attribute 'pytmc' := '
+    // Common
+    fEncLeverArm_mm : LREAL := 410.0;
+
+    // Mirror LEDs
+    {attribute 'pytmc' := '
         pv: MR1K1:BEND:LED:01:PWR
         io: io
         field: ZNAM OFF
         field: ONAM ON
     '}
-	{attribute 'TcLinkTo' := 'TIIB[EL2024-0010_M1K1_BEND_LED1]^Channel 1^Output'}
+    {attribute 'TcLinkTo' := 'TIIB[EL2024-0010_M1K1_BEND_LED1]^Channel 1^Output'}
     bLEDPower01 AT %Q*: BOOL;
-	
-	{attribute 'pytmc' := '
+
+    {attribute 'pytmc' := '
         pv: MR1K1:BEND:LED:02:PWR
         io: io
         field: ZNAM OFF
         field: ONAM ON
     '}
-	{attribute 'TcLinkTo' := 'TIIB[EL2024-0010_M1K1_BEND_LED1]^Channel 2^Output'}
+    {attribute 'TcLinkTo' := 'TIIB[EL2024-0010_M1K1_BEND_LED1]^Channel 2^Output'}
     bLEDPower02 AT %Q*: BOOL;
-			
-	{attribute 'pytmc' := '
+
+    {attribute 'pytmc' := '
         pv: MR1K1:BEND:LED:03:PWR
         io: io
         field: ZNAM OFF
         field: ONAM ON
     '}
-	{attribute 'TcLinkTo' := 'TIIB[EL2024-0010_M1K1_BEND_LED1]^Channel 3^Output'}
+    {attribute 'TcLinkTo' := 'TIIB[EL2024-0010_M1K1_BEND_LED1]^Channel 3^Output'}
     bLEDPower03 AT %Q*: BOOL;
-	{attribute 'pytmc' := '
+    {attribute 'pytmc' := '
         pv: MR1K1:BEND:LED:04:PWR
         io: io
         field: ZNAM OFF
         field: ONAM ON
     '}
-	{attribute 'TcLinkTo' := 'TIIB[EL2024-0010_M1K1_BEND_LED1]^Channel 4^Output'}
+    {attribute 'TcLinkTo' := 'TIIB[EL2024-0010_M1K1_BEND_LED1]^Channel 4^Output'}
     bLEDPower04 AT %Q*: BOOL;
 
     // MR1K1 Y Encoder for PMPS Veto Device
@@ -159,31 +159,31 @@ VAR
         bMR1K1_Y_ENC_Ready AT %I* : BOOL;
         {attribute 'TcLinkTo' := 'TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 1^Status^TxPDO State'}
         bMR1K1_Y_ENC_TxPDO AT %I* : BOOL;
-    
+
     // M1K1 Flow Press Sensors
     {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_M1K1_FWM_PRSM]^AI Standard Channel 1^Value'}
     fM1K1_Flow_1 : FB_AnalogInput;
     {attribute 'pytmc' := '
-		pv: MR1K1:BEND:FWM:1
+        pv: MR1K1:BEND:FWM:1
         field: EGU lpm
         io: i
-    '}   
+    '}
     fM1K1_Flow_1_val : LREAL;
     {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_M1K1_FWM_PRSM]^AI Standard Channel 2^Value'}
     fM1K1_Flow_2 : FB_AnalogInput;
     {attribute 'pytmc' := '
-		pv: MR1K1:BEND:FWM:2
+        pv: MR1K1:BEND:FWM:2
         field: EGU lpm
         io: i
-    '} 
-    fM1K1_Flow_2_val : LREAL; 
+    '}
+    fM1K1_Flow_2_val : LREAL;
     {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_M1K1_FWM_PRSM]^AI Standard Channel 3^Value'}
     fM1K1_Press_1 : FB_AnalogInput;
     {attribute 'pytmc' := '
-		pv: MR1K1:BEND:PRSM:1
+        pv: MR1K1:BEND:PRSM:1
         field: EGU bar
         io: i
-    '}      
+    '}
     fM1K1_Press_1_val : LREAL;
 END_VAR
 ]]></Declaration>
@@ -194,13 +194,13 @@ M1K1.fbRunHOMS(stYup:=M12,
                stXup:=M14,
                stXdwn:=M15,
                stPitch:=M16,
-	           nYupEncRef:=GVL_M1K1_Constants.nYUP_ENC_REF,
+               nYupEncRef:=GVL_M1K1_Constants.nYUP_ENC_REF,
                nYdwnEncRef:=GVL_M1K1_Constants.nYDWN_ENC_REF,
                nXupEncRef:=GVL_M1K1_Constants.nXUP_ENC_REF,
                nXdwnEncRef:=GVL_M1K1_Constants.nXDWN_ENC_REF,
-			   bExecuteCoupleY:=M1K1.bExecuteCoupleY,
+               bExecuteCoupleY:=M1K1.bExecuteCoupleY,
                bExecuteCoupleX:=M1K1.bExecuteCoupleX,
-			   bExecuteDecoupleY:=M1K1.bExecuteDecoupleY,
+               bExecuteDecoupleY:=M1K1.bExecuteDecoupleY,
                bExecuteDecoupleX:=M1K1.bExecuteDecoupleX,
                bGantryAlreadyCoupledY=>M1K1.bGantryAlreadyCoupledY,
                bGantryAlreadyCoupledX=>M1K1.bGantryAlreadyCoupledX,
@@ -223,27 +223,27 @@ fbMotionStage_m15(stMotionStage:=M15);
 
 // Calculate Pitch RMS Error:
 fbYRMSErrorM1K1(stMotionStage:=M12,
-	            fMaxRMSError=>fMaxYRMSErrorM1K1,
-				fMinRMSError=>fMinYRMSErrorM1K1);
+                fMaxRMSError=>fMaxYRMSErrorM1K1,
+                fMinRMSError=>fMinYRMSErrorM1K1);
 
 fbXRMSErrorM1K1(stMotionStage:=M14,
-	            fMaxRMSError=>fMaxXRMSErrorM1K1,
-				fMinRMSError=>fMinXRMSErrorM1K1);
+                fMaxRMSError=>fMaxXRMSErrorM1K1,
+                fMinRMSError=>fMinXRMSErrorM1K1);
 
 fbPitchRMSErrorM1K1(stMotionStage:=M16,
-	                fMaxRMSError=>fMaxPitchRMSErrorM1K1,
-					fMinRMSError=>fMinPitchRMSErrorM1K1);
+                    fMaxRMSError=>fMaxPitchRMSErrorM1K1,
+                    fMinRMSError=>fMinPitchRMSErrorM1K1);
 
 (*
 // Pitch Control
 fbM1K1PitchControl(Pitch:=GVL_M1K1.M1K1_Pitch,
-				   Stepper:=M16,
-				   lrCurrentSetpoint:=M16.fPosition,
+                   Stepper:=M16,
+                   lrCurrentSetpoint:=M16.fPosition,
                    q_bDone=>bM1K1PitchDone,
                    q_bBusy=>bM1K1PitchBusy);
 // When STO hit, need to reset SP
 IF NOT M16.bHardwareEnable THEN
-	M16.fPosition := M16.stAxisStatus.fActPosition;
+    M16.fPosition := M16.stAxisStatus.fActPosition;
 END_IF
 *)
 // 3-15-20: Having issues with pitch control on new Axilon systems, should test here
@@ -262,10 +262,10 @@ nEncRefYdwnM1K1 := ULINT_TO_UDINT(GVL_M1K1_Constants.nYDWN_ENC_REF);
 nEncRefXupM1K1 := ULINT_TO_UDINT(GVL_M1K1_Constants.nXUP_ENC_REF);
 nEncRefXdwnM1K1 := ULINT_TO_UDINT(GVL_M1K1_Constants.nXDWN_ENC_REF);
 mcReadParameterPitchM1K1(Axis:=M16.Axis,
-	                     Enable:=TRUE,
-				         ParameterNumber:=MC_AxisParameter.AxisEncoderOffset,
-				         ReadMode:=READMODE_CYCLIC,
-				         Value=>fEncRefPitchM1K1_urad);
+                         Enable:=TRUE,
+                         ParameterNumber:=MC_AxisParameter.AxisEncoderOffset,
+                         ReadMode:=READMODE_CYCLIC,
+                         Value=>fEncRefPitchM1K1_urad);
 
 nEncRefPitchM1K1 := LREAL_TO_UDINT(ABS(fEncRefPitchM1K1_urad) * fEncLeverArm_mm);
 
@@ -275,14 +275,14 @@ nEncRefPitchM1K1 := LREAL_TO_UDINT(ABS(fEncRefPitchM1K1_urad) * fEncLeverArm_mm)
     ELSE
         nMR1K1_Y_ENC_PMPS := 0;
     END_IF
-    
+
     // LAMP KB Flow Pressure Sensors
     fM1K1_Flow_1(iTermBits:=12, fTermMax:=5.0427, fTermMin:=0.050472);
     fM1K1_Flow_1_val := fM1K1_Flow_1.fReal;
-        
+
     fM1K1_Flow_2(iTermBits:=12, fTermMax:=5.0427, fTermMin:=0.050472);
     fM1K1_Flow_2_val := fM1K1_Flow_2.fReal;
-        
+
     fM1K1_Press_1(iTermBits:=12, fTermMax:=4.0, fTermMin:=0);
     fM1K1_Press_1_val := fM1K1_Press_1.fReal;]]></ST>
     </Implementation>

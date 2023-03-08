@@ -4,88 +4,88 @@
     <Declaration><![CDATA[PROGRAM PRG_ZeroOrder_PMPS
 VAR
 // PMPS
-	ffZeroOrderBeam : FB_FastFault := (
+    ffZeroOrderBeam : FB_FastFault := (
         i_xAutoReset := TRUE,
         i_DevName := 'Zero Order Beam',
         i_Desc := 'Faults when Zero order beam safe conditions are not met',
-        i_TypeCode := 16#F506);	
-	{attribute 'pytmc' := '
+        i_TypeCode := 16#F506);
+    {attribute 'pytmc' := '
         pv: SIM:SafeBenderRange
         field: ZNAM FALSE
         field: ONAM TRUE
     '}
     bSafeBenderRange : BOOL;
-	
-	{attribute 'pytmc' := '
+
+    {attribute 'pytmc' := '
         pv: SIM:LRG_Grating_IN
         field: ZNAM FALSE
         field: ONAM TRUE
     '}
     bLRG_Grating_IN : BOOL;
-	
-	{attribute 'pytmc' := '
+
+    {attribute 'pytmc' := '
         pv: SIM:ZOS_IN
         field: ZNAM FALSE
         field: ONAM TRUE
     '}
     bZOS_IN : BOOL;
-	
-	{attribute 'pytmc' := '
+
+    {attribute 'pytmc' := '
         pv: SIM:ZOB_on_Lower_Stopper
         field: ZNAM FALSE
         field: ONAM TRUE
     '}
     bZOB_on_Lower_Stopper : BOOL;
-	
-	{attribute 'pytmc' := '
+
+    {attribute 'pytmc' := '
         pv: SIM:MR1K1_Inserted
         field: ZNAM FALSE
         field: ONAM TRUE
     '}
     bMR1K1_Inserted : BOOL;
-	
-	{attribute 'pytmc' := '
+
+    {attribute 'pytmc' := '
         pv: SIM:ZeroOrderBeam
         field: ZNAM FALSE
         field: ONAM TRUE
     '}
     bZeroOrderBeam : BOOL;
-		
 
-	Pm3 : LREAL;
-	Pm2: LREAL;
-	Pm1: LREAL;
-	Hm1: LREAL;
-	HZos:LREAL;
-	Zbm1: LREAL;
-	Zbm2: LREAL;
-	Zbm3: LREAL;
-	Hbm1: LREAL;
-	Hbm2: LREAL;
-	Hbm3: LREAL;
-	Hb0m3:LREAL;
-	//fixed calc
-	Hm3	 : LREAL;
-	Hpiv : LREAL;
-	Theta_m1: LREAL;
-	Theta_m2: LREAL;
-	Theta_m3: LREAL;
-	Delta : LREAL;
-	Ans : LREAL;
-	ffZeroOrderBeamExitSlits : FB_FastFault := (
+
+    Pm3 : LREAL;
+    Pm2: LREAL;
+    Pm1: LREAL;
+    Hm1: LREAL;
+    HZos:LREAL;
+    Zbm1: LREAL;
+    Zbm2: LREAL;
+    Zbm3: LREAL;
+    Hbm1: LREAL;
+    Hbm2: LREAL;
+    Hbm3: LREAL;
+    Hb0m3:LREAL;
+    //fixed calc
+    Hm3	 : LREAL;
+    Hpiv : LREAL;
+    Theta_m1: LREAL;
+    Theta_m2: LREAL;
+    Theta_m3: LREAL;
+    Delta : LREAL;
+    Ans : LREAL;
+    ffZeroOrderBeamExitSlits : FB_FastFault := (
         i_xAutoReset := TRUE,
         i_DevName := 'Zero Order Beam and Exit Slits',
         i_Desc := 'Faults when Zero order beam is aligned and exit slits are closed',
-        i_TypeCode := 16#F506);	
+        i_TypeCode := 16#F506);
 END_VAR
 VAR CONSTANT
-	Hi2 :LREAL:=1.4;//m
-	Zi2: LREAL :=731.613;//m
-	Theta0 : LREAL:=0;
-	Zm1 : LREAL:=733.772;//m
-	Zmon : LREAL:=739.622;//m
-	Zpiv : LREAL:= 739.762 ; //m
-	Zzos : LREAL:= 741.422;//m
+    Hi2 :LREAL:=1.4;//m
+    Zi2: LREAL :=731.613;//m
+    Theta0 : LREAL:=0;
+    Zm1 : LREAL:=733.772;//m
+    Zmon : LREAL:=739.622;//m
+    Zpiv : LREAL:= 739.762 ; //m
+    Zzos : LREAL:= 741.422;//m
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -108,11 +108,11 @@ bMR1K1_Inserted := MR1K1_Inserted();
 //TRUE if hb0m3(Zzoz) - Hzos > D
 Ans := (Hzos*1E3) - Hb0m3; //um
 IF GVL_PMPS.rPhotonEnergy <550 THEN
-	bZeroOrderBeam := Ans > 3*1E3;
-	ELSIF GVL_PMPS.rPhotonEnergy <1000 THEN
-		bZeroOrderBeam := Ans >  2.5*1E3;
-	ELSIF GVL_PMPS.rPhotonEnergy >=1000 THEN
-		bZeroOrderBeam := Ans >  2*1E3;		
+    bZeroOrderBeam := Ans > 3*1E3;
+    ELSIF GVL_PMPS.rPhotonEnergy <1000 THEN
+        bZeroOrderBeam := Ans >  2.5*1E3;
+    ELSIF GVL_PMPS.rPhotonEnergy >=1000 THEN
+        bZeroOrderBeam := Ans >  2*1E3;
 END_IF
 
 //
@@ -126,7 +126,7 @@ ACT_ExitSlitsGap();]]></ST>
         <ST><![CDATA[///calc
 //Hm1 = 1400000+mr1k1 ben Y up
 Hm1:= 1400000+M12.fPosition; //um
-//Pm1 = 18310 - 281 + mr1k1 bend pitch 
+//Pm1 = 18310 - 281 + mr1k1 bend pitch
 Pm1 := 18310 - 281 + Main.M16.fPosition; //urad
 //Hpiv = 1.620305 + 0.001 // m 0.001 is correction from nominal
 Hpiv:= (1.620305 + 0.001)*1E6; //um
@@ -175,10 +175,10 @@ ffZeroOrderBeamExitSlits(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);]]></ST>
     <Action Name="ACT_ZOS_IN" Id="{ea635b1c-413a-4430-b9a8-7a35a57ab8c1}">
       <Implementation>
         <ST><![CDATA[IF GVL_PMPS.rPhotonEnergy >1500 THEN bZOS_IN:= FALSE;
-	ELSIF (GVL_PMPS.rPhotonEnergy >1000 AND M24.fPosition>= 8.5) THEN bZOS_IN:= TRUE;
-		ELSIF (GVL_PMPS.rPhotonEnergy <=1000 AND GVL_PMPS.rPhotonEnergy >550 AND M24.fPosition>= 7.9) THEN bZOS_IN:= TRUE;
-			ELSIF (GVL_PMPS.rPhotonEnergy <=550 AND GVL_PMPS.rPhotonEnergy >200 AND M24.fPosition>= 6.9) THEN bZOS_IN:= TRUE; 
-				ELSE bZOS_IN:= FALSE;
+    ELSIF (GVL_PMPS.rPhotonEnergy >1000 AND M24.fPosition>= 8.5) THEN bZOS_IN:= TRUE;
+        ELSIF (GVL_PMPS.rPhotonEnergy <=1000 AND GVL_PMPS.rPhotonEnergy >550 AND M24.fPosition>= 7.9) THEN bZOS_IN:= TRUE;
+            ELSIF (GVL_PMPS.rPhotonEnergy <=550 AND GVL_PMPS.rPhotonEnergy >200 AND M24.fPosition>= 6.9) THEN bZOS_IN:= TRUE;
+                ELSE bZOS_IN:= FALSE;
 END_IF
 
 ]]></ST>
@@ -190,7 +190,7 @@ VAR_INPUT
 END_VAR
 ]]></Declaration>
       <Implementation>
-        <ST><![CDATA[MR1K1_Inserted := PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_IN] 
+        <ST><![CDATA[MR1K1_Inserted := PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_IN]
                     AND NOT PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_OUT];]]></ST>
       </Implementation>
     </Method>
@@ -209,36 +209,36 @@ END_VAR
 VAR_INPUT
 END_VAR
 VAR
-	Pm3 : LREAL;
-	Pm2: LREAL;
-	Pm1: LREAL;
-	Hm1: LREAL;
-	HZos:LREAL;
-	Zbm1: LREAL;
-	Zbm2: LREAL;
-	Zbm3: LREAL;
-	Hbm1: LREAL;
-	Hbm2: LREAL;
-	Hbm3: LREAL;
-	Hb0m3:LREAL;
-	//fixed calc
-	Hm3	 : LREAL;
-	Hpiv : LREAL;
-	Theta_m1: LREAL;
-	Theta_m2: LREAL;
-	Theta_m3: LREAL;
-	Delta : LREAL;
-	Ans : LREAL;
+    Pm3 : LREAL;
+    Pm2: LREAL;
+    Pm1: LREAL;
+    Hm1: LREAL;
+    HZos:LREAL;
+    Zbm1: LREAL;
+    Zbm2: LREAL;
+    Zbm3: LREAL;
+    Hbm1: LREAL;
+    Hbm2: LREAL;
+    Hbm3: LREAL;
+    Hb0m3:LREAL;
+    //fixed calc
+    Hm3	 : LREAL;
+    Hpiv : LREAL;
+    Theta_m1: LREAL;
+    Theta_m2: LREAL;
+    Theta_m3: LREAL;
+    Delta : LREAL;
+    Ans : LREAL;
 END_VAR
 
 VAR CONSTANT
-	Hi2 :LREAL:=1.4;//m
-	Zi2: LREAL :=731.613;//m
-	Theta0 : LREAL:=0;
-	Zm1 : LREAL:=733.772;//m
-	Zmon : LREAL:=739.622;//m
-	Zpiv : LREAL:= 739.622 ; //m
-	Zzos : LREAL:= 741.422;//m
+    Hi2 :LREAL:=1.4;//m
+    Zi2: LREAL :=731.613;//m
+    Theta0 : LREAL:=0;
+    Zm1 : LREAL:=733.772;//m
+    Zmon : LREAL:=739.622;//m
+    Zpiv : LREAL:= 739.622 ; //m
+    Zzos : LREAL:= 741.422;//m
 END_VAR
 
 ]]></Declaration>
@@ -247,7 +247,7 @@ END_VAR
 
 //Hm1 = 1400000+mr1k1 ben Y up
 Hm1:= 1400000+M12.fPosition; //um
-//Pm1 = 18310 - 281 + mr1k1 bend pitch 
+//Pm1 = 18310 - 281 + mr1k1 bend pitch
 Pm1 := 18310 - 281 + Main.M16.fPosition; //urad
 //Hpiv = 1.620305 + 0.001 // m 0.001 is correction from nominal
 Hpiv:= (1.620305 + 0.001)*1E6; //um
@@ -283,11 +283,11 @@ Hb0m3 := TAN(Theta_m3)*(Zzos*1E6) + Hbm3 - TAN(Theta_m3)*Zbm3;
 //TRUE if hb0m3(Zzoz) - Hzos > D
 Ans := Hb0m3 - (Hzos*1E3); //um
 IF GVL_PMPS.rPhotonEnergy <550 THEN
-	ZOB_on_Lower_Stopper := Ans > 6*1E3;
-	ELSIF GVL_PMPS.rPhotonEnergy <1000 THEN
-		ZOB_on_Lower_Stopper := Ans >  3.2*1E3;
-	ELSIF GVL_PMPS.rPhotonEnergy >=1000 THEN
-		ZOB_on_Lower_Stopper := Ans >  2.5*1E3;		
+    ZOB_on_Lower_Stopper := Ans > 6*1E3;
+    ELSIF GVL_PMPS.rPhotonEnergy <1000 THEN
+        ZOB_on_Lower_Stopper := Ans >  3.2*1E3;
+    ELSIF GVL_PMPS.rPhotonEnergy >=1000 THEN
+        ZOB_on_Lower_Stopper := Ans >  2.5*1E3;
 END_IF
 ]]></ST>
       </Implementation>

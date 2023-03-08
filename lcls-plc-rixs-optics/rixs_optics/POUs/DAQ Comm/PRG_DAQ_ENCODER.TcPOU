@@ -4,11 +4,11 @@
     <Declaration><![CDATA[PROGRAM PRG_DAQ_ENCODER
 VAR
     // Inputs
-	{attribute 'TcLinkTo' := 'TIIB[EVR]^Latch^LatchPos1'}
+    {attribute 'TcLinkTo' := 'TIIB[EVR]^Latch^LatchPos1'}
     iLatchPos AT %I*: ULINT;
-	{attribute 'TcLinkTo' := 'TIIB[EVR]^Latch^LatchNeg1'}
+    {attribute 'TcLinkTo' := 'TIIB[EVR]^Latch^LatchNeg1'}
     iLatchNeg AT %I*: ULINT;
-	{attribute 'TcLinkTo' := 'TIIB[g_pi_up_dwn_e]^FB Inputs Channel 1^Position'}
+    {attribute 'TcLinkTo' := 'TIIB[g_pi_up_dwn_e]^FB Inputs Channel 1^Position'}
     nEncoderCount AT %I*: ULINT;
     bSendToDAQ: BOOL := TRUE;
     bSendToTest: BOOL := FALSE;
@@ -17,19 +17,19 @@ VAR
     bUseHWTriggers: BOOL := TRUE;
     bUseSWTriggers: BOOL := FALSE;
     tSWTriggerDelay: TIME := T#8ms;
-    
+
     // Outputs
     iTimeSincePos: ULINT;
     iMaxTime: ULINT;
     iMinTime: ULINT := 10000000000;
     fTimeInS: LREAL;
     iTriggerWidth: ULINT;
-	{attribute 'pytmc' := '
-		pv: SP1K1:MONO:DAQ:TRIG_RATE
+    {attribute 'pytmc' := '
+        pv: SP1K1:MONO:DAQ:TRIG_RATE
         io: i
-	'}
+    '}
     fTriggerRate: LREAL;
-    
+
     // Internals
     bNewTrigger: BOOL;
     tonSWTrigger: TON;
@@ -38,43 +38,43 @@ VAR
     fMinTimeInS: LREAL := 10000000;
     iTimeSinceLast: ULINT;
     nUpdateCycles: ULINT;
-	{attribute 'pytmc' := '
-		pv: SP1K1:MONO:DAQ:FRAME_COUNT
+    {attribute 'pytmc' := '
+        pv: SP1K1:MONO:DAQ:FRAME_COUNT
         io: i
-	'}
+    '}
     nFrameCount: UINT;
     stTaskInfo: PlcTaskSystemInfo;
     iUnderflowCount: ULINT;
     fUnderflowPercent: LREAL;
     fEncScale: LREAL;
     fEncScaleDenominator: LREAL;
-    
+
     fbSocketHandler : FB_UDPSocketHandler;
-	fbSocketSend : FB_BufferedSocketSend;
+    fbSocketSend : FB_BufferedSocketSend;
     fbSocketHandlerTest : FB_UDPSocketHandler;
     fbSocketSendTest : FB_BufferedSocketSend;
     payload : DUT_01_Channel_NW;
     fbHeader : FB_AssembleHeader := (sHardwareID := 'plc-tst-proto6');
     fbChannel : FB_AssembleChannel := (nChannel := 1);
-    
+
     // Function blocks
     fbGetTaskIndex: GETCURTASKINDEX;
-    
+
     // Temp testing
     nBusyCycles: UINT;
     nMaxBusyCycles: UINT;
     nDroppedFrames: UINT;
-    
+
     // EPICS Diagnostics (reduce data size)
-	{attribute 'pytmc' := '
-		pv: SP1K1:MONO:DAQ:ENC_COUNT
+    {attribute 'pytmc' := '
+        pv: SP1K1:MONO:DAQ:ENC_COUNT
         io: i
-	'}
+    '}
     fEpicsEncCount: DINT;
-	{attribute 'pytmc' := '
-		pv: SP1K1:MONO:DAQ:TRIG_WIDTH
+    {attribute 'pytmc' := '
+        pv: SP1K1:MONO:DAQ:TRIG_WIDTH
         io: i
-	'}
+    '}
     fEpicsTrigWidth: DINT;
 END_VAR
 ]]></Declaration>
@@ -107,9 +107,9 @@ IF bNewTrigger THEN
         iUnderflowCount := iUnderflowCount + 1;
         IF nUpdateCycles > 0 THEN
             fUnderFlowPercent := 100 * ULINT_TO_LREAL(iUnderflowCount) / ULINT_TO_LREAL(nUpdateCycles);
-		END_IF
-	END_IF
-    
+        END_IF
+    END_IF
+
     // Stats
     iMaxTime := MAX(iTimeSincePos, iMaxTime);
     iMinTime := MIN(iTimeSincePos, iMinTime);
@@ -119,11 +119,11 @@ IF bNewTrigger THEN
     iTimeSinceLast := iLatchPos - iPrevLatchPos;
     IF iTimeSinceLast > 0 THEN
         fTriggerRate := 1_000_000_000/ULINT_TO_LREAL(iTimeSinceLast);
-	END_IF
+    END_IF
     IF iLatchNeg > iLatchPos THEN
         iTriggerWidth := iLatchNeg - iLatchPos;
-	END_IF
-        
+    END_IF
+
     // Assemble Packet
     nFrameCount := ULINT_TO_UINT(nUpdateCycles);
     fbHeader(

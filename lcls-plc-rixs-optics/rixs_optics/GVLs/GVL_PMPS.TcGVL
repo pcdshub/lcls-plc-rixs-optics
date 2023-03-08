@@ -3,9 +3,9 @@
   <GVL Name="GVL_PMPS" Id="{44b61d96-5303-46af-ae15-c93941a18a66}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
-	{attribute 'pytmc' := 'pv: PLC:RIX:OPTICS:ARB:01'}
+    {attribute 'pytmc' := 'pv: PLC:RIX:OPTICS:ARB:01'}
     fbArbiter1: FB_Arbiter(1);
-	{attribute 'pytmc' := 'pv: PLC:RIX:OPTICS:ARB:02'}
+    {attribute 'pytmc' := 'pv: PLC:RIX:OPTICS:ARB:02'}
     fbArbiter2: FB_Arbiter(2);
     {attribute 'pytmc' := 'pv: PLC:RIX:OPTICS:FFO:01'}
     {attribute 'TcLinkTo' := '.q_xFastFaultOut:=TIIB[PMPS_FFO]^Channel 1^Output'}
@@ -13,7 +13,7 @@ VAR_GLOBAL
     {attribute 'pytmc' := 'pv: PLC:RIX:OPTICS:FFO:02'}
     {attribute 'TcLinkTo' := '.q_xFastFaultOut:=TIIB[PMPS_FFO]^Channel 2^Output'}
     fbFastFaultOutput2: FB_HardwareFFOutput := (bAutoReset := TRUE, i_sNetID:='172.21.42.126.1.1');
-	rPhotonEnergy: REAL;
+    rPhotonEnergy: REAL;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

@@ -3,124 +3,124 @@
   <POU Name="PRG_MR1K2_SWITCH" Id="{5d1ad344-c9c3-47ff-86fa-37de6eb5129e}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_MR1K2_SWITCH
 VAR
-	{attribute 'TcLinkTo' := '.fbRunHOMS.bSTOEnable1:=TIIB[EL1004_M1K2_STO]^Channel 1^Input;
+    {attribute 'TcLinkTo' := '.fbRunHOMS.bSTOEnable1:=TIIB[EL1004_M1K2_STO]^Channel 1^Input;
                               .fbRunHOMS.bSTOEnable2:=TIIB[EL1004_M1K2_STO]^Channel 2^Input;
-	                          .fbRunHOMS.stYupEnc.Count:=TIIB[EL5042_M1K2_Yleftright]^FB Inputs Channel 1^Position;
-	                          .fbRunHOMS.stYdwnEnc.Count:=TIIB[EL5042_M1K2_Yleftright]^FB Inputs Channel 2^Position;
-	                          .fbRunHOMS.stXupEnc.Count:=TIIB[EL5042_M1K2_Xupdwn]^FB Inputs Channel 1^Position;
-	                          .fbRunHOMS.stXdwnEnc.Count:=TIIB[EL5042_M1K2_Xupdwn]^FB Inputs Channel 2^Position'}
-	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH
-	'}
-	M1K2 : DUT_HOMS;
+                              .fbRunHOMS.stYupEnc.Count:=TIIB[EL5042_M1K2_Yleftright]^FB Inputs Channel 1^Position;
+                              .fbRunHOMS.stYdwnEnc.Count:=TIIB[EL5042_M1K2_Yleftright]^FB Inputs Channel 2^Position;
+                              .fbRunHOMS.stXupEnc.Count:=TIIB[EL5042_M1K2_Xupdwn]^FB Inputs Channel 1^Position;
+                              .fbRunHOMS.stXdwnEnc.Count:=TIIB[EL5042_M1K2_Xupdwn]^FB Inputs Channel 2^Position'}
+    {attribute 'pytmc' := '
+        pv: MR1K2:SWITCH
+    '}
+    M1K2 : DUT_HOMS;
 
-	// Encoder Arrays/RMS Watch:
-	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:ENC:Y
-	'}
-	fbYRMSErrorM1K2 : FB_RMSWatch;
-	fMaxYRMSErrorM1K2 : LREAL;
-	fMinYRMSErrorM1K2 : LREAL;
+    // Encoder Arrays/RMS Watch:
+    {attribute 'pytmc' := '
+        pv: MR1K2:SWITCH:ENC:Y
+    '}
+    fbYRMSErrorM1K2 : FB_RMSWatch;
+    fMaxYRMSErrorM1K2 : LREAL;
+    fMinYRMSErrorM1K2 : LREAL;
 
-	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:ENC:X
-	'}
-	fbXRMSErrorM1K2 : FB_RMSWatch;
-	fMaxXRMSErrorM1K2 : LREAL;
-	fMinXRMSErrorM1K2 : LREAL;
+    {attribute 'pytmc' := '
+        pv: MR1K2:SWITCH:ENC:X
+    '}
+    fbXRMSErrorM1K2 : FB_RMSWatch;
+    fMaxXRMSErrorM1K2 : LREAL;
+    fMinXRMSErrorM1K2 : LREAL;
 
-	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:ENC:PITCH
-	'}
-	fbPitchRMSErrorM1K2 : FB_RMSWatch;
-	fMaxPitchRMSErrorM1K2 : LREAL;
-	fMinPitchRMSErrorM1K2 : LREAL;
+    {attribute 'pytmc' := '
+        pv: MR1K2:SWITCH:ENC:PITCH
+    '}
+    fbPitchRMSErrorM1K2 : FB_RMSWatch;
+    fMaxPitchRMSErrorM1K2 : LREAL;
+    fMinPitchRMSErrorM1K2 : LREAL;
 
-	// Pitch Control
-	fbM1K2PitchControl : FB_PitchControl;
-	bM1K2PitchDone : BOOL;
-	bM1K2PitchBusy : BOOL;
+    // Pitch Control
+    fbM1K2PitchControl : FB_PitchControl;
+    bM1K2PitchDone : BOOL;
+    bM1K2PitchBusy : BOOL;
 
-	// 3-15-20 Having issues with pitch control on new Axilon systems
-	// Using stepper only for now
-	fbMotionStage_m5 : FB_MotionStage;
-	
-	// Roll (Rotation about Z axis) induced from Ygantry:
-	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:ENC:ROLL
-		field: EGU urad
-		io: i
-	'}
-	fYRoll_urad : LREAL; // Roll about Z axis in urad
+    // 3-15-20 Having issues with pitch control on new Axilon systems
+    // Using stepper only for now
+    fbMotionStage_m5 : FB_MotionStage;
 
-	// Raw Encoder Counts
-	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:ENC:YLEFT:CNT
-		field: EGU cnt
-		io: i
-	'}
-	nEncCntYleftM1K2 : UDINT;
-	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:ENC:YRIGHT:CNT
-		field: EGU cnt
-		io: i
-	'}
-	nEncCntYrightM1K2 : UDINT;
-	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:ENC:XUP:CNT
-		field: EGU cnt
-		io: i
-	'}
-	nEncCntXupM1K2 : UDINT;
-	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:ENC:XDWN:CNT
-		field: EGU cnt
-		io: i
-	'}
-	nEncCntXdwnM1K2 : UDINT;
-	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:ENC:PITCH:CNT
-		field: EGU cnt
-		io: i
-	'}
-	nEncCntPitchM1K2 : UDINT;
+    // Roll (Rotation about Z axis) induced from Ygantry:
+    {attribute 'pytmc' := '
+        pv: MR1K2:SWITCH:ENC:ROLL
+        field: EGU urad
+        io: i
+    '}
+    fYRoll_urad : LREAL; // Roll about Z axis in urad
 
-	// Encoder Reference Values
-	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:ENC:YLEFT:REF
-		field: EGU cnt
-		io: i
-	'}
-	nEncRefYleftM1K2 : UDINT;
-	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:ENC:YRIGHT:REF
-		field: EGU cnt
-		io: i
-	'}
-	nEncRefYrightM1K2 : UDINT;
-	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:ENC:XUP:REF
-		field: EGU cnt
-		io: i
-	'}
-	nEncRefXupM1K2 : UDINT;
-	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:ENC:XDWN:REF
-		field: EGU cnt
-		io: i
-	'}
-	nEncRefXdwnM1K2 : UDINT;
-	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:ENC:PITCH:REF
-		field: EGU cnt
-		io: i
-	'}
-	nEncRefPitchM1K2 : UDINT;
-	mcReadParameterPitchM1K2 : MC_ReadParameter;
-	fEncRefPitchM1K2_urad : LREAL; // Current Pitch encoder offset in urad
+    // Raw Encoder Counts
+    {attribute 'pytmc' := '
+        pv: MR1K2:SWITCH:ENC:YLEFT:CNT
+        field: EGU cnt
+        io: i
+    '}
+    nEncCntYleftM1K2 : UDINT;
+    {attribute 'pytmc' := '
+        pv: MR1K2:SWITCH:ENC:YRIGHT:CNT
+        field: EGU cnt
+        io: i
+    '}
+    nEncCntYrightM1K2 : UDINT;
+    {attribute 'pytmc' := '
+        pv: MR1K2:SWITCH:ENC:XUP:CNT
+        field: EGU cnt
+        io: i
+    '}
+    nEncCntXupM1K2 : UDINT;
+    {attribute 'pytmc' := '
+        pv: MR1K2:SWITCH:ENC:XDWN:CNT
+        field: EGU cnt
+        io: i
+    '}
+    nEncCntXdwnM1K2 : UDINT;
+    {attribute 'pytmc' := '
+        pv: MR1K2:SWITCH:ENC:PITCH:CNT
+        field: EGU cnt
+        io: i
+    '}
+    nEncCntPitchM1K2 : UDINT;
 
-	// Common
-	fEncLeverArm_mm : LREAL := 391.0;
+    // Encoder Reference Values
+    {attribute 'pytmc' := '
+        pv: MR1K2:SWITCH:ENC:YLEFT:REF
+        field: EGU cnt
+        io: i
+    '}
+    nEncRefYleftM1K2 : UDINT;
+    {attribute 'pytmc' := '
+        pv: MR1K2:SWITCH:ENC:YRIGHT:REF
+        field: EGU cnt
+        io: i
+    '}
+    nEncRefYrightM1K2 : UDINT;
+    {attribute 'pytmc' := '
+        pv: MR1K2:SWITCH:ENC:XUP:REF
+        field: EGU cnt
+        io: i
+    '}
+    nEncRefXupM1K2 : UDINT;
+    {attribute 'pytmc' := '
+        pv: MR1K2:SWITCH:ENC:XDWN:REF
+        field: EGU cnt
+        io: i
+    '}
+    nEncRefXdwnM1K2 : UDINT;
+    {attribute 'pytmc' := '
+        pv: MR1K2:SWITCH:ENC:PITCH:REF
+        field: EGU cnt
+        io: i
+    '}
+    nEncRefPitchM1K2 : UDINT;
+    mcReadParameterPitchM1K2 : MC_ReadParameter;
+    fEncRefPitchM1K2_urad : LREAL; // Current Pitch encoder offset in urad
+
+    // Common
+    fEncLeverArm_mm : LREAL := 391.0;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -130,13 +130,13 @@ M1K2.fbRunHOMS(stYup:=M1,
                stXup:=M3,
                stXdwn:=M4,
                stPitch:=M5,
-	           nYupEncRef:=GVL_M1K2_Constants.nYLEFT_ENC_REF,
+               nYupEncRef:=GVL_M1K2_Constants.nYLEFT_ENC_REF,
                nYdwnEncRef:=GVL_M1K2_Constants.nYRIGHT_ENC_REF,
                nXupEncRef:=GVL_M1K2_Constants.nXUP_ENC_REF,
                nXdwnEncRef:=GVL_M1K2_Constants.nXDWN_ENC_REF,
-			   bExecuteCoupleY:=M1K2.bExecuteCoupleY,
+               bExecuteCoupleY:=M1K2.bExecuteCoupleY,
                bExecuteCoupleX:=M1K2.bExecuteCoupleX,
-			   bExecuteDecoupleY:=M1K2.bExecuteDecoupleY,
+               bExecuteDecoupleY:=M1K2.bExecuteDecoupleY,
                bExecuteDecoupleX:=M1K2.bExecuteDecoupleX,
                bGantryAlreadyCoupledY=>M1K2.bGantryAlreadyCoupledY,
                bGantryAlreadyCoupledX=>M1K2.bGantryAlreadyCoupledX,
@@ -161,27 +161,27 @@ fbMotionStage_m4(stMotionStage:=M4);
 
 // Calculate Pitch RMS Error:
 fbYRMSErrorM1K2(stMotionStage:=M1,
-	            fMaxRMSError=>fMaxYRMSErrorM1K2,
-				fMinRMSError=>fMinYRMSErrorM1K2);
+                fMaxRMSError=>fMaxYRMSErrorM1K2,
+                fMinRMSError=>fMinYRMSErrorM1K2);
 
 fbXRMSErrorM1K2(stMotionStage:=M3,
-	            fMaxRMSError=>fMaxXRMSErrorM1K2,
-				fMinRMSError=>fMinXRMSErrorM1K2);
+                fMaxRMSError=>fMaxXRMSErrorM1K2,
+                fMinRMSError=>fMinXRMSErrorM1K2);
 
 fbPitchRMSErrorM1K2(stMotionStage:=M5,
-	                fMaxRMSError=>fMaxPitchRMSErrorM1K2,
-					fMinRMSError=>fMinPitchRMSErrorM1K2);
+                    fMaxRMSError=>fMaxPitchRMSErrorM1K2,
+                    fMinRMSError=>fMinPitchRMSErrorM1K2);
 
 (*
 // Pitch Control
 fbM1K2PitchControl(Pitch:=GVL_M1K2.M1K2_Pitch,
-				   Stepper:=M5,
-				   lrCurrentSetpoint:=M5.fPosition,
+                   Stepper:=M5,
+                   lrCurrentSetpoint:=M5.fPosition,
                    q_bDone=>bM1K2PitchDone,
                    q_bBusy=>bM1K2PitchBusy);
 // When STO hit, need to reset SP
 IF NOT M5.bHardwareEnable THEN
-	M5.fPosition := M5.stAxisStatus.fActPosition;
+    M5.fPosition := M5.stAxisStatus.fActPosition;
 END_IF
 *)
 // 3-15-20: Having issues with pitch control on new Axilon systems
@@ -200,10 +200,10 @@ nEncRefYrightM1K2 := ULINT_TO_UDINT(GVL_M1K2_Constants.nYRIGHT_ENC_REF);
 nEncRefXupM1K2 := ULINT_TO_UDINT(GVL_M1K2_Constants.nXUP_ENC_REF);
 nEncRefXdwnM1K2 := ULINT_TO_UDINT(GVL_M1K2_Constants.nXDWN_ENC_REF);
 mcReadParameterPitchM1K2(Axis:=M5.Axis,
-	                     Enable:=TRUE,
-				         ParameterNumber:=MC_AxisParameter.AxisEncoderOffset,
-				         ReadMode:=READMODE_CYCLIC,
-				         Value=>fEncRefPitchM1K2_urad);
+                         Enable:=TRUE,
+                         ParameterNumber:=MC_AxisParameter.AxisEncoderOffset,
+                         ReadMode:=READMODE_CYCLIC,
+                         Value=>fEncRefPitchM1K2_urad);
 
 nEncRefPitchM1K2 := LREAL_TO_UDINT(ABS(fEncRefPitchM1K2_urad) * fEncLeverArm_mm);]]></ST>
     </Implementation>

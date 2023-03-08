@@ -4,60 +4,65 @@
     <Declaration><![CDATA[PROGRAM PRG_2_PMPS_POST
 VAR
     fbArbiterIO: FB_SubSysToArbiter_IO;
-	fb_vetoArbiter: FB_VetoArbiter;
-	ff2_ff1_link_optics: FB_FastFault := (i_xAutoReset := TRUE, i_DevName := 'FF2 to FF1 Link Optics', i_Desc := 'This is virtual FF2 fault, Please see faulting optics devices', i_TypeCode := 16#FFFF);
-	//Extra FFOs
-	ffRIX01 : FB_FastFault := (
+    fb_vetoArbiter: FB_VetoArbiter;
+    ff2_ff1_link_optics: FB_FastFault := (i_xAutoReset := TRUE, i_DevName := 'FF2 to FF1 Link Optics', i_Desc := 'This is virtual FF2 fault, Please see faulting optics devices', i_TypeCode := 16#FFFF);
+    //Extra FFOs
+    ffRIX01 : FB_FastFault := (
         i_xAutoReset := FALSE,
         i_DevName := 'RIX Tran 0.1',
         i_Desc := 'Faults when M1K1 is IN and transmission is above 0.1',
-        i_TypeCode := 16#F509);	
-	ffRIX02 : FB_FastFault := (
+        i_TypeCode := 16#F509);
+    ffRIX02 : FB_FastFault := (
         i_xAutoReset := FALSE,
         i_DevName := 'RIX Tran 0.2',
         i_Desc := 'Faults when M1K1 is IN and transmission is above 0.2',
-        i_TypeCode := 16#F510);	
-	ffRIX05 : FB_FastFault := (
+        i_TypeCode := 16#F510);
+    ffRIX05 : FB_FastFault := (
         i_xAutoReset := FALSE,
         i_DevName := 'RIX Tran 0.5',
         i_Desc := 'Faults when M1K1 is IN and transmission is above 0.5',
-        i_TypeCode := 16#F511);	
-	delta: real:=0.1;
+        i_TypeCode := 16#F511);
+    delta: real:=0.1;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[GVL_PMPS.fbFastFaultOutput1.Execute(i_xVeto := (PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_OUT]) 
+      <ST><![CDATA[MOTION_GVL.fbStandardPMPSDB(
+    io_fbFFHWO:= GVL_PMPS.fbFastFaultOutput1,
+    bEnable:= TRUE,
+    sPLCName:='plc-rixs-optics'
+);
+GVL_PMPS.fbFastFaultOutput1.Execute(i_xVeto := (PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_OUT])
                                              AND (NOT PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_IN]));
-GVL_PMPS.fbFastFaultOutput2.Execute(i_xVeto := (PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_OUT] 
+GVL_PMPS.fbFastFaultOutput2.Execute(i_xVeto := (PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_OUT]
                                         AND NOT PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_IN])
-										 OR PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.ST1K2]);
+                                         OR PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.ST1K2]);
 
 fbArbiterIO(
     Arbiter:=GVL_PMPS.fbArbiter1,
     fbFFHWO:=GVL_PMPS.fbFastFaultOutput1,
-    i_bVeto := PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_OUT] 
+    i_bVeto := PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_OUT]
                AND NOT PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.MR1K1_IN]);
-			   
-fb_vetoArbiter(bVeto:= PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.ST1K2], 
+
+fb_vetoArbiter(bVeto:= PMPS_GVL.stCurrentBeamParameters.aVetoDevices[PMPS.K_Stopper.ST1K2],
                 HigherAuthority := GVL_PMPS.fbArbiter1,
-				LowerAuthority := GVL_PMPS.fbArbiter2,
-                FFO := GVL_PMPS.fbFastFaultOutput2);			   
+                LowerAuthority := GVL_PMPS.fbArbiter2,
+                FFO := GVL_PMPS.fbFastFaultOutput2);
 
 ff2_ff1_link_optics(
-	io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1,
+    io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1,
     i_xOK :=  GVL_PMPS.fbFastFaultOutput2.q_xFastFaultOut);
-	
-//Code for Removing arbitration 
-GVL_PMPS.fbArbiter1.AddRequest(nReqID := 47, stReqBp := PMPS_GVL.cstFullBeam, sDevName := 'rixs-optics');		
-GVL_PMPS.fbArbiter2.AddRequest(nReqID := 48, stReqBp := PMPS_GVL.cstFullBeam, sDevName := 'rixs-optics');	
+
+//Code for Removing arbitration
+GVL_PMPS.fbArbiter1.AddRequest(nReqID := 47, stReqBp := PMPS_GVL.cstFullBeam, sDevName := 'rixs-optics');
+GVL_PMPS.fbArbiter2.AddRequest(nReqID := 48, stReqBp := PMPS_GVL.cstFullBeam, sDevName := 'rixs-optics');
 
 // Extra FFOs
 ffRIX01.i_xOK := (PMPS_GVL.stCurrentBeamParameters.nTran <=0.1+(0.1*delta)); //0.1
 ffRIX01(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
 ffRIX02.i_xOK := (PMPS_GVL.stCurrentBeamParameters.nTran <=0.2+(0.2*delta));
-ffRIX02(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);		
+ffRIX02(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
 ffRIX05.i_xOK := (PMPS_GVL.stCurrentBeamParameters.nTran <=0.5+(0.5*delta));
-ffRIX05(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);	
+ffRIX05(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
 
 GVL_PMPS.rPhotonEnergy := PMPS_GVL.stCurrentBeamParameters.neV;
 ]]></ST>

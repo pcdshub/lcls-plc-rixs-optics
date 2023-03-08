@@ -3,41 +3,41 @@
   <GVL Name="GVL_M3K2" Id="{5370e595-0f6e-4259-88a1-5883bdb06ca4}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL CONSTANT
-	// Encoder reference values in counts = nm
-	// Put encoder reference values for nominal 0 here
-	nM3K2X_ENC_REF : ULINT := 5951195;
-	nM3K2Y_ENC_REF : ULINT := 5857203;
-	nM3K2rY_ENC_REF : ULINT := 39991700;
-	nM3K2US_ENC_REF : ULINT := 1234567; //these numbers
-	nM3K2DS_ENC_REF : ULINT := 1234567;	 //are not real!!
-	
+    // Encoder reference values in counts = nm
+    // Put encoder reference values for nominal 0 here
+    nM3K2X_ENC_REF : ULINT := 5951195;
+    nM3K2Y_ENC_REF : ULINT := 5857203;
+    nM3K2rY_ENC_REF : ULINT := 39991700;
+    nM3K2US_ENC_REF : ULINT := 1234567; //these numbers
+    nM3K2DS_ENC_REF : ULINT := 1234567;	 //are not real!!
+
 (*
-	// PMPS Limits for benders - need to identify these
+    // PMPS Limits for benders - need to identify these
     nM3K2US_PMPS_UpperLimit : ULINT := 21500000;//22100000;
     nM3K2US_PMPS_LowerLimit : ULINT := 20100000;//20900000;
-    
+
     nM3K2DS_PMPS_UpperLimit : ULINT := 21100000;//21800000;
     nM3K2DS_PMPS_LowerLimit : ULINT := 19800000;//20600000;
 *)
 END_VAR
 
 VAR_GLOBAL
-	// M3K2 US RTDs
-	{attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M3K2US1_M3K2US2]^RTD Inputs Channel 1^Value'}
-	nM3K2US_RTD_1 AT %I* : INT;
-	{attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M3K2US1_M3K2US2]^RTD Inputs Channel 2^Value'}
-	nM3K2US_RTD_2 AT %I* : INT;
-	{attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M3K2US3_M3K2DS1]^RTD Inputs Channel 1^Value'}
-	nM3K2US_RTD_3 AT %I* : INT;
+    // M3K2 US RTDs
+    {attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M3K2US1_M3K2US2]^RTD Inputs Channel 1^Value'}
+    nM3K2US_RTD_1 AT %I* : INT;
+    {attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M3K2US1_M3K2US2]^RTD Inputs Channel 2^Value'}
+    nM3K2US_RTD_2 AT %I* : INT;
+    {attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M3K2US3_M3K2DS1]^RTD Inputs Channel 1^Value'}
+    nM3K2US_RTD_3 AT %I* : INT;
 
-	// M3K2 DS RTDs
-	{attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M3K2US3_M3K2DS1]^RTD Inputs Channel 2^Value'}
-	nM3K2DS_RTD_1 AT %I* : INT;
-	{attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M3K2DS2_M3K2DS3]^RTD Inputs Channel 1^Value'}
-	nM3K2DS_RTD_2 AT %I* : INT;
-	{attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M3K2DS2_M3K2DS3]^RTD Inputs Channel 2^Value'}
-	nM3K2DS_RTD_3 AT %I* : INT;
-	
+    // M3K2 DS RTDs
+    {attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M3K2US3_M3K2DS1]^RTD Inputs Channel 2^Value'}
+    nM3K2DS_RTD_1 AT %I* : INT;
+    {attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M3K2DS2_M3K2DS3]^RTD Inputs Channel 1^Value'}
+    nM3K2DS_RTD_2 AT %I* : INT;
+    {attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M3K2DS2_M3K2DS3]^RTD Inputs Channel 2^Value'}
+    nM3K2DS_RTD_3 AT %I* : INT;
+
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

@@ -11,20 +11,20 @@ VAR_INPUT
 END_VAR
 VAR_OUTPUT
     bReady : BOOL;
-	hSocket : T_HSOCKET;
+    hSocket : T_HSOCKET;
 END_VAR
 VAR
     rtReset : R_TRIG;
     tonRetryConnection : TON; // Retry after an hour
-    
+
     fbGetAdapterIP : FB_GetAdaptersInfo := (bExecute := TRUE, sNetID := ''); // Acquire IP of the correct adapter
     fbSocket : FB_ConnectionlessSocket;
-    
-    ctuSocketError : CTU := (PV:=3); 
-    
+
+    ctuSocketError : CTU := (PV:=3);
+
     bSocketEnable : BOOL;
     bAdapterSet : BOOL;
-    
+
     idxPortFind : UDINT;
 END_VAR
 ]]></Declaration>
@@ -53,7 +53,7 @@ END_IF
 rtReset(CLK:=bReset);
 
 IF (rtReset.Q AND fbSocket.bEnable) THEN
-	fbSocket(bEnable:=FALSE);
+    fbSocket(bEnable:=FALSE);
 END_IF
 
 // Disable fbSocket if too many errors occur
@@ -66,9 +66,9 @@ tonRetryConnection(IN:=ctuSocketError.Q,
 bSocketEnable S= tonRetryConnection.Q OR rtReset.Q;
 
 fbSocket(
-	nLocalPort:=nLocalPort,
-	bEnable:=bSocketEnable AND bEnable,
-	nMode:=CONNECT_MODE_ENABLEDBG,
+    nLocalPort:=nLocalPort,
+    bEnable:=bSocketEnable AND bEnable,
+    nMode:=CONNECT_MODE_ENABLEDBG,
 );
 
 bReady := (bAdapterSet AND fbSocket.bEnable AND NOT fbSocket.bError AND
