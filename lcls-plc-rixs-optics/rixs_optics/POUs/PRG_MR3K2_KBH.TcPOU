@@ -164,7 +164,7 @@ VAR
         M3K2KBHbSTOEnable1 AT %I* : BOOL;
         {attribute 'TcLinkTo' := 'TIIB[EL1004_M3K2_STO]^Channel 2^Input'}
         M3K2KBHbSTOEnable2 AT %I* : BOOL;
-    
+
     // MR3K2 Flow Press Sensors
     {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_M3K2_FWM_PRSM]^AI Standard Channel 1^Value'}
     fM3K2_Flow_1 : FB_AnalogInput;
