@@ -164,7 +164,32 @@ VAR
         M4K2KBVbSTOEnable1 AT %I* : BOOL;
         {attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2_BENDER^EL1004_M4K2_STO^Channel 2^Input'}
         M4K2KBVbSTOEnable2 AT %I* : BOOL;
-
+    
+    // MR4K2 Flow Press Sensors
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_M4K2_FWM_PRSM]^AI Standard Channel 1^Value'}
+    fM4K2_Flow_1 : FB_AnalogInput;
+    {attribute 'pytmc' := '
+        pv: MR4K2:KBV:FWM:1
+        field: EGU lpm
+        io: i
+    '}
+    fM4K2_Flow_1_val : LREAL;
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_M4K2_FWM_PRSM]^AI Standard Channel 2^Value'}
+    fM4K2_Flow_2 : FB_AnalogInput;
+    {attribute 'pytmc' := '
+        pv: MR4K2:KBV:FWM:2
+        field: EGU lpm
+        io: i
+    '}
+    fM4K2_Flow_2_val : LREAL;
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_M4K2_FWM_PRSM]^AI Standard Channel 3^Value'}
+    fM4K2_Press_1 : FB_AnalogInput;
+    {attribute 'pytmc' := '
+        pv: MR4K2:KBV:PRSM:1
+        field: EGU bar
+        io: i
+    '}
+    fM4K2_Press_1_val : LREAL;
 (*
     // PMPS
         ffBenderRange : FB_FastFault := (
@@ -247,6 +272,16 @@ bM4K2DS_RTD_3_Err := fM4K2DS_RTD_3 = 0;
 // M4K2 Bender RTD interlocks
 M36.bHardwareEnable R= fM4K2US_RTD_1 > 9000 OR bM4K2US_RTD_1_Err;
 M37.bHardwareEnable R= fM4K2DS_RTD_1 > 9000 OR bM4K2DS_RTD_1_Err;
+
+// MR3K2 Flow Pressure Sensors
+fM4K2_Flow_1(iTermBits:=12, fTermMax:=5.0427, fTermMin:=0.050472);
+fM4K2_Flow_1_val := fM4K2_Flow_1.fReal;
+
+fM4K2_Flow_2(iTermBits:=12, fTermMax:=5.0427, fTermMin:=0.050472);
+fM4K2_Flow_2_val := fM4K2_Flow_2.fReal;
+
+fM4K2_Press_1(iTermBits:=12, fTermMax:=4.0, fTermMin:=0);
+fM4K2_Press_1_val := fM4K2_Press_1.fReal;
 
 (*
 //PMPS

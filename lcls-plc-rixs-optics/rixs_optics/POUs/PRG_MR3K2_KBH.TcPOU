@@ -164,6 +164,32 @@ VAR
         M3K2KBHbSTOEnable1 AT %I* : BOOL;
         {attribute 'TcLinkTo' := 'TIIB[EL1004_M3K2_STO]^Channel 2^Input'}
         M3K2KBHbSTOEnable2 AT %I* : BOOL;
+    
+    // MR3K2 Flow Press Sensors
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_M3K2_FWM_PRSM]^AI Standard Channel 1^Value'}
+    fM3K2_Flow_1 : FB_AnalogInput;
+    {attribute 'pytmc' := '
+        pv: MR3K2:KBH:FWM:1
+        field: EGU lpm
+        io: i
+    '}
+    fM3K2_Flow_1_val : LREAL;
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_M3K2_FWM_PRSM]^AI Standard Channel 2^Value'}
+    fM3K2_Flow_2 : FB_AnalogInput;
+    {attribute 'pytmc' := '
+        pv: MR3K2:KBH:FWM:2
+        field: EGU lpm
+        io: i
+    '}
+    fM3K2_Flow_2_val : LREAL;
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_M3K2_FWM_PRSM]^AI Standard Channel 3^Value'}
+    fM3K2_Press_1 : FB_AnalogInput;
+    {attribute 'pytmc' := '
+        pv: MR3K2:KBH:PRSM:1
+        field: EGU bar
+        io: i
+    '}
+    fM3K2_Press_1_val : LREAL;
 
 (*
     // PMPS
@@ -247,6 +273,16 @@ bM3K2DS_RTD_3_Err := fM3K2DS_RTD_3 = 0;
 // M3K2 Bender RTD interlocks
 M31.bHardwareEnable R= fM3K2US_RTD_1 > 9000 OR bM3K2US_RTD_1_Err;
 M32.bHardwareEnable R= fM3K2DS_RTD_1 > 9000 OR bM3K2DS_RTD_1_Err;
+
+// MR3K2 Flow Pressure Sensors
+fM3K2_Flow_1(iTermBits:=12, fTermMax:=5.0427, fTermMin:=0.050472);
+fM3K2_Flow_1_val := fM3K2_Flow_1.fReal;
+
+fM3K2_Flow_2(iTermBits:=12, fTermMax:=5.0427, fTermMin:=0.050472);
+fM3K2_Flow_2_val := fM3K2_Flow_2.fReal;
+
+fM3K2_Press_1(iTermBits:=12, fTermMax:=4.0, fTermMin:=0);
+fM3K2_Press_1_val := fM3K2_Press_1.fReal;
 
 (*
 //PMPS
