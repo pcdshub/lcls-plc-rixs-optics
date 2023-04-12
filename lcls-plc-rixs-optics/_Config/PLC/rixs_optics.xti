@@ -76,15 +76,15 @@
 			</Format>
 		</DataType>
 		<DataType>
-			<Name GUID="{1947B453-D8EB-4157-B24C-3492B8A7431B}" Namespace="lcls_twincat_motion" AutoDeleteType="true">EL5042_Status</Name>
+			<Name GUID="{3233F331-6E03-49FC-8DBF-73B629717EA6}" Namespace="lcls_twincat_motion" AutoDeleteType="true">EL5042_Status</Name>
 			<BitSize>0</BitSize>
 			<BaseType GUID="{FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF}"/>
 			<Hides>
-				<Hide GUID="{23B966F8-B687-49FE-855D-F7C10FE19184}"/>
+				<Hide GUID="{A922DF99-C574-40A8-878F-D8FFA83D5A94}"/>
 			</Hides>
 		</DataType>
 		<DataType>
-			<Name GUID="{E2D4AEB3-46CC-4160-A3F9-942ABB7B308E}" Namespace="lcls_twincat_motion" AutoDeleteType="true">ST_RenishawAbsEnc</Name>
+			<Name GUID="{A261BEC8-CC96-4516-9BFE-FD6B20E5B39B}" Namespace="lcls_twincat_motion" AutoDeleteType="true">ST_RenishawAbsEnc</Name>
 			<Comment>
 				<![CDATA[ Renishaw BiSS-C absolute encoder used with an EL5042]]>
 			</Comment>
@@ -106,7 +106,7 @@
 			</SubItem>
 			<SubItem>
 				<Name>Status</Name>
-				<Type GUID="{1947B453-D8EB-4157-B24C-3492B8A7431B}" Namespace="lcls_twincat_motion">EL5042_Status</Type>
+				<Type GUID="{3233F331-6E03-49FC-8DBF-73B629717EA6}" Namespace="lcls_twincat_motion">EL5042_Status</Type>
 				<Comment>
 					<![CDATA[ Status struct placeholder]]>
 				</Comment>
@@ -123,308 +123,7 @@
 				<BitOffs>64</BitOffs>
 			</SubItem>
 			<Hides>
-				<Hide GUID="{3EA7AECF-3F19-4F27-BD3E-8BA62247ABA7}"/>
-			</Hides>
-		</DataType>
-		<DataType>
-			<Name GUID="{7E016B85-166E-4B4F-AAC4-ECA8DDD44F13}">ST_PMPS_Attenuator_IO</Name>
-			<BitSize>64</BitSize>
-			<SubItem>
-				<Name>nTran</Name>
-				<Type GUID="{18071995-0000-0000-0000-00000000000D}">REAL</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>0</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>xAttOK</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
-				<BitSize>16</BitSize>
-				<BitOffs>32</BitOffs>
-			</SubItem>
-			<Hides>
-				<Hide GUID="{76269EAC-36F0-4513-B811-3725FD02409A}"/>
-				<Hide GUID="{E96BEA56-6301-4A6A-BF6A-F08340C87594}"/>
-				<Hide GUID="{FE32F9A9-7E7A-413D-8D77-0C99C34D8CD9}"/>
-				<Hide GUID="{D01709AA-9B4A-464A-B4D1-4BF476CFE7DE}"/>
-				<Hide GUID="{D6F0EA12-B425-4603-9C4B-B4FD442416C3}"/>
-				<Hide GUID="{0FF3CAED-DFFA-453E-8BDC-2F6EE7142B14}"/>
-				<Hide GUID="{AC42932A-79BD-4670-8CF2-1DDEA2EE41C7}"/>
-				<Hide GUID="{EE241488-3DC7-4C48-A9D8-BB32379587BC}"/>
-				<Hide GUID="{EE241488-3DC7-4C48-A9D8-BB32379587BC}"/>
-			</Hides>
-		</DataType>
-		<DataType>
-			<Name GUID="{67AC048F-B785-4A4D-B941-B11E2213F502}">ST_PMPS_Aperture_IO</Name>
-			<BitSize>96</BitSize>
-			<SubItem>
-				<Name>Width</Name>
-				<Type GUID="{18071995-0000-0000-0000-00000000000D}">REAL</Type>
-				<Comment>
-					<![CDATA[ distance between horizontal slits (x)]]>
-				</Comment>
-				<BitSize>32</BitSize>
-				<BitOffs>0</BitOffs>
-				<Properties>
-					<Property>
-						<Name>plcAttribute_pytmc</Name>
-						<Value>pv: Width
-            io: i
-            field: EGU mm</Value>
-					</Property>
-				</Properties>
-			</SubItem>
-			<SubItem>
-				<Name>Height</Name>
-				<Type GUID="{18071995-0000-0000-0000-00000000000D}">REAL</Type>
-				<Comment>
-					<![CDATA[ distance between vertical slits (y)]]>
-				</Comment>
-				<BitSize>32</BitSize>
-				<BitOffs>32</BitOffs>
-				<Properties>
-					<Property>
-						<Name>plcAttribute_pytmc</Name>
-						<Value>pv: Height
-            io: i
-            field: EGU mm</Value>
-					</Property>
-				</Properties>
-			</SubItem>
-			<SubItem>
-				<Name>xOK</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
-				<Comment>
-					<![CDATA[ status of aperture, false if error or in motion]]>
-				</Comment>
-				<BitSize>8</BitSize>
-				<BitOffs>64</BitOffs>
-				<Properties>
-					<Property>
-						<Name>plcAttribute_pytmc</Name>
-						<Value>pv: OK
-        io: i</Value>
-					</Property>
-				</Properties>
-			</SubItem>
-		</DataType>
-		<DataType>
-			<Name GUID="{292CD354-C7C0-4A61-AAD0-1C85DD69646B}">ST_BeamParams_IO</Name>
-			<BitSize>1760</BitSize>
-			<SubItem>
-				<Name>nTran</Name>
-				<Type GUID="{18071995-0000-0000-0000-00000000000D}">REAL</Type>
-				<Comment TxtId="">
-					<![CDATA[Requested pre-optic attenuation - 1 is full transmission]]>
-				</Comment>
-				<BitSize>32</BitSize>
-				<BitOffs>0</BitOffs>
-				<Default>
-					<Min>0</Min>
-					<Max>1</Max>
-					<Value>1</Value>
-				</Default>
-				<Properties>
-					<Property>
-						<Name>plcAttribute_pytmc</Name>
-						<Value>pv: Attenuation
-        io: i</Value>
-					</Property>
-				</Properties>
-			</SubItem>
-			<SubItem>
-				<Name>nRate</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
-				<Comment>
-					<![CDATA[ Pulse-rate ]]>
-				</Comment>
-				<BitSize>32</BitSize>
-				<BitOffs>32</BitOffs>
-				<Default>
-					<Value>120</Value>
-				</Default>
-				<Properties>
-					<Property>
-						<Name>plcAttribute_pytmc</Name>
-						<Value>pv: Rate
-        io: i</Value>
-					</Property>
-				</Properties>
-			</SubItem>
-			<SubItem>
-				<Name>neVRange</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000007}">DWORD</Type>
-				<Comment>
-					<![CDATA[ Photon energy ranges ]]>
-				</Comment>
-				<BitSize>32</BitSize>
-				<BitOffs>64</BitOffs>
-				<Default>
-					<Value>4294967295</Value>
-				</Default>
-				<Properties>
-					<Property>
-						<Name>plcAttribute_pytmc</Name>
-						<Value>pv: PhotonEnergy
-        io: i</Value>
-					</Property>
-					<Property>
-						<Name>plcAttribute_displaymode</Name>
-						<Value>binary</Value>
-					</Property>
-				</Properties>
-			</SubItem>
-			<SubItem>
-				<Name>neV</Name>
-				<Type GUID="{18071995-0000-0000-0000-00000000000D}">REAL</Type>
-				<Comment TxtId="">
-					<![CDATA[Current Photon energy as calculated by the arbiter]]>
-				</Comment>
-				<BitSize>32</BitSize>
-				<BitOffs>96</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nBCRange</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000004}">WORD</Type>
-				<BitSize>16</BitSize>
-				<BitOffs>128</BitOffs>
-				<Default>
-					<Min>0</Min>
-					<Max>65535</Max>
-					<Value>0</Value>
-				</Default>
-			</SubItem>
-			<SubItem>
-				<Name>nBeamClass</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>144</BitOffs>
-				<Default>
-					<Min>0</Min>
-					<Value>0</Value>
-				</Default>
-			</SubItem>
-			<SubItem>
-				<Name>nMachineMode</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>152</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>astAttenuators</Name>
-				<Type GUID="{7E016B85-166E-4B4F-AAC4-ECA8DDD44F13}">ST_PMPS_Attenuator_IO</Type>
-				<ArrayInfo>
-					<LBound>1</LBound>
-					<Elements>16</Elements>
-				</ArrayInfo>
-				<Comment>
-					<![CDATA[ Beamline attenuators ]]>
-				</Comment>
-				<BitSize>1024</BitSize>
-				<BitOffs>160</BitOffs>
-				<Properties>
-					<Property>
-						<Name>plcAttribute_pytmc</Name>
-						<Value>pv: AuxAttenuator
-        io: i</Value>
-					</Property>
-				</Properties>
-			</SubItem>
-			<SubItem>
-				<Name>astApertures</Name>
-				<Type GUID="{67AC048F-B785-4A4D-B941-B11E2213F502}">ST_PMPS_Aperture_IO</Type>
-				<ArrayInfo>
-					<LBound>1</LBound>
-					<Elements>4</Elements>
-				</ArrayInfo>
-				<BitSize>384</BitSize>
-				<BitOffs>1184</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>aVetoDevices</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
-				<ArrayInfo>
-					<LBound>1</LBound>
-					<Elements>16</Elements>
-				</ArrayInfo>
-				<Comment>
-					<![CDATA[ Stopper statuses ]]>
-				</Comment>
-				<BitSize>128</BitSize>
-				<BitOffs>1568</BitOffs>
-				<Properties>
-					<Property>
-						<Name>plcAttribute_pytmc</Name>
-						<Value>pv: AuxAttenuator
-        io: i</Value>
-					</Property>
-				</Properties>
-			</SubItem>
-			<SubItem>
-				<Name>xValidToggle</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
-				<Comment>
-					<![CDATA[ Toggle for watchdog]]>
-				</Comment>
-				<BitSize>8</BitSize>
-				<BitOffs>1696</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>xValid</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
-				<Comment>
-					<![CDATA[ Beam parameter set is valid (if readback), or acknowledged (if request)]]>
-				</Comment>
-				<BitSize>8</BitSize>
-				<BitOffs>1704</BitOffs>
-				<Properties>
-					<Property>
-						<Name>plcAttribute_pytmc</Name>
-						<Value>pv: Valid
-        io: i</Value>
-					</Property>
-				</Properties>
-			</SubItem>
-			<SubItem>
-				<Name>nCohortInt</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
-				<Comment>
-					<![CDATA[ Cohort index. Identifies which cohort this BP set was included in arbitration]]>
-				</Comment>
-				<BitSize>32</BitSize>
-				<BitOffs>1728</BitOffs>
-				<Properties>
-					<Property>
-						<Name>plcAttribute_pytmc</Name>
-						<Value>pv: Attenuation
-        io: i</Value>
-					</Property>
-				</Properties>
-			</SubItem>
-			<Hides>
-				<Hide GUID="{ADE62DDD-CAE3-4FE3-BE11-F358D7D0CDD8}"/>
-				<Hide GUID="{729DFDAA-EB68-494E-B247-D86DA3C0AE5E}"/>
-				<Hide GUID="{41059C79-1015-4C2C-AFF4-697A824775D7}"/>
-				<Hide GUID="{80E871EC-0C36-49B0-AD5D-F1F0FB351299}"/>
-				<Hide GUID="{5FC92061-002A-45B0-B954-CD8F28B5CE49}"/>
-				<Hide GUID="{C64C88BE-2BD8-4AC6-ACD6-2A08570B4923}"/>
-				<Hide GUID="{B472A77E-9430-445F-AD24-21E649F6ACD1}"/>
-				<Hide GUID="{559ADF00-CB27-4B7D-8DEA-9DBCF390B12B}"/>
-				<Hide GUID="{E1A510FA-6CE5-40B2-9617-7C29C5B7C692}"/>
-				<Hide GUID="{3F6D5E74-4433-4A11-8ADE-14BBEED361D6}"/>
-				<Hide GUID="{6E597FBD-95E0-4E3A-8361-F15F77CF10FA}"/>
-				<Hide GUID="{5F9FBCD0-8C11-4386-87CB-253F17D55690}"/>
-				<Hide GUID="{5F9FBCD0-8C11-4386-87CB-253F17D55690}"/>
-				<Hide GUID="{F4D82764-2299-4BB7-86C4-99ED0EBA5A76}"/>
-				<Hide GUID="{1E08C18A-0551-4C52-916A-1A7A2B58BA24}"/>
-				<Hide GUID="{1E08C18A-0551-4C52-916A-1A7A2B58BA24}"/>
-				<Hide GUID="{0C6A4924-E177-45F6-9AB0-6F9DB98D3474}"/>
-				<Hide GUID="{7BACB0F9-4BD8-4ADE-B8B1-2D069E1D0190}"/>
-				<Hide GUID="{C338245C-50EC-4E6D-B363-9DA04BB5DFA5}"/>
-				<Hide GUID="{0E623A01-D6F4-41DD-A8F2-FBC77EE11035}"/>
-				<Hide GUID="{B8136069-15B2-4545-8E40-00504F2F580D}"/>
-				<Hide GUID="{4A38F9D3-765E-4C94-9AAB-7EB5DFA13820}"/>
-				<Hide GUID="{C9AB5DB1-1B57-42EF-8E17-FBE97768475C}"/>
-				<Hide GUID="{43851ABC-CF8A-4AF9-A768-E27D209879D8}"/>
+				<Hide GUID="{996F0FF5-73E2-4208-9DD1-C50DA3182AF1}"/>
 			</Hides>
 		</DataType>
 		<DataType>
@@ -1127,6 +826,307 @@ External Setpoint Generation:
 			</Relations>
 		</DataType>
 		<DataType>
+			<Name GUID="{7E016B85-166E-4B4F-AAC4-ECA8DDD44F13}">ST_PMPS_Attenuator_IO</Name>
+			<BitSize>64</BitSize>
+			<SubItem>
+				<Name>nTran</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000D}">REAL</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>xAttOK</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<Hides>
+				<Hide GUID="{76269EAC-36F0-4513-B811-3725FD02409A}"/>
+				<Hide GUID="{E96BEA56-6301-4A6A-BF6A-F08340C87594}"/>
+				<Hide GUID="{FE32F9A9-7E7A-413D-8D77-0C99C34D8CD9}"/>
+				<Hide GUID="{D01709AA-9B4A-464A-B4D1-4BF476CFE7DE}"/>
+				<Hide GUID="{D6F0EA12-B425-4603-9C4B-B4FD442416C3}"/>
+				<Hide GUID="{0FF3CAED-DFFA-453E-8BDC-2F6EE7142B14}"/>
+				<Hide GUID="{AC42932A-79BD-4670-8CF2-1DDEA2EE41C7}"/>
+				<Hide GUID="{EE241488-3DC7-4C48-A9D8-BB32379587BC}"/>
+				<Hide GUID="{EE241488-3DC7-4C48-A9D8-BB32379587BC}"/>
+			</Hides>
+		</DataType>
+		<DataType>
+			<Name GUID="{67AC048F-B785-4A4D-B941-B11E2213F502}">ST_PMPS_Aperture_IO</Name>
+			<BitSize>96</BitSize>
+			<SubItem>
+				<Name>Width</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000D}">REAL</Type>
+				<Comment>
+					<![CDATA[ distance between horizontal slits (x)]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>0</BitOffs>
+				<Properties>
+					<Property>
+						<Name>plcAttribute_pytmc</Name>
+						<Value>pv: Width
+            io: i
+            field: EGU mm</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>Height</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000D}">REAL</Type>
+				<Comment>
+					<![CDATA[ distance between vertical slits (y)]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>32</BitOffs>
+				<Properties>
+					<Property>
+						<Name>plcAttribute_pytmc</Name>
+						<Value>pv: Height
+            io: i
+            field: EGU mm</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>xOK</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<Comment>
+					<![CDATA[ status of aperture, false if error or in motion]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>64</BitOffs>
+				<Properties>
+					<Property>
+						<Name>plcAttribute_pytmc</Name>
+						<Value>pv: OK
+        io: i</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{292CD354-C7C0-4A61-AAD0-1C85DD69646B}">ST_BeamParams_IO</Name>
+			<BitSize>1760</BitSize>
+			<SubItem>
+				<Name>nTran</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000D}">REAL</Type>
+				<Comment TxtId="">
+					<![CDATA[Requested pre-optic attenuation - 1 is full transmission]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>0</BitOffs>
+				<Default>
+					<Min>0</Min>
+					<Max>1</Max>
+					<Value>1</Value>
+				</Default>
+				<Properties>
+					<Property>
+						<Name>plcAttribute_pytmc</Name>
+						<Value>pv: Attenuation
+        io: i</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>nRate</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<Comment>
+					<![CDATA[ Pulse-rate ]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>32</BitOffs>
+				<Default>
+					<Value>120</Value>
+				</Default>
+				<Properties>
+					<Property>
+						<Name>plcAttribute_pytmc</Name>
+						<Value>pv: Rate
+        io: i</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>neVRange</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000007}">DWORD</Type>
+				<Comment>
+					<![CDATA[ Photon energy ranges ]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>64</BitOffs>
+				<Default>
+					<Value>4294967295</Value>
+				</Default>
+				<Properties>
+					<Property>
+						<Name>plcAttribute_pytmc</Name>
+						<Value>pv: PhotonEnergy
+        io: i</Value>
+					</Property>
+					<Property>
+						<Name>plcAttribute_displaymode</Name>
+						<Value>binary</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>neV</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000D}">REAL</Type>
+				<Comment TxtId="">
+					<![CDATA[Current Photon energy as calculated by the arbiter]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nBCRange</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000004}">WORD</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>128</BitOffs>
+				<Default>
+					<Min>0</Min>
+					<Max>65535</Max>
+					<Value>0</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>nBeamClass</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>144</BitOffs>
+				<Default>
+					<Min>0</Min>
+					<Value>0</Value>
+				</Default>
+			</SubItem>
+			<SubItem>
+				<Name>nMachineMode</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>152</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>astAttenuators</Name>
+				<Type GUID="{7E016B85-166E-4B4F-AAC4-ECA8DDD44F13}">ST_PMPS_Attenuator_IO</Type>
+				<ArrayInfo>
+					<LBound>1</LBound>
+					<Elements>16</Elements>
+				</ArrayInfo>
+				<Comment>
+					<![CDATA[ Beamline attenuators ]]>
+				</Comment>
+				<BitSize>1024</BitSize>
+				<BitOffs>160</BitOffs>
+				<Properties>
+					<Property>
+						<Name>plcAttribute_pytmc</Name>
+						<Value>pv: AuxAttenuator
+        io: i</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>astApertures</Name>
+				<Type GUID="{67AC048F-B785-4A4D-B941-B11E2213F502}">ST_PMPS_Aperture_IO</Type>
+				<ArrayInfo>
+					<LBound>1</LBound>
+					<Elements>4</Elements>
+				</ArrayInfo>
+				<BitSize>384</BitSize>
+				<BitOffs>1184</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>aVetoDevices</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<ArrayInfo>
+					<LBound>1</LBound>
+					<Elements>16</Elements>
+				</ArrayInfo>
+				<Comment>
+					<![CDATA[ Stopper statuses ]]>
+				</Comment>
+				<BitSize>128</BitSize>
+				<BitOffs>1568</BitOffs>
+				<Properties>
+					<Property>
+						<Name>plcAttribute_pytmc</Name>
+						<Value>pv: AuxAttenuator
+        io: i</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>xValidToggle</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<Comment>
+					<![CDATA[ Toggle for watchdog]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>1696</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>xValid</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<Comment>
+					<![CDATA[ Beam parameter set is valid (if readback), or acknowledged (if request)]]>
+				</Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>1704</BitOffs>
+				<Properties>
+					<Property>
+						<Name>plcAttribute_pytmc</Name>
+						<Value>pv: Valid
+        io: i</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>nCohortInt</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<Comment>
+					<![CDATA[ Cohort index. Identifies which cohort this BP set was included in arbitration]]>
+				</Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>1728</BitOffs>
+				<Properties>
+					<Property>
+						<Name>plcAttribute_pytmc</Name>
+						<Value>pv: Attenuation
+        io: i</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<Hides>
+				<Hide GUID="{ADE62DDD-CAE3-4FE3-BE11-F358D7D0CDD8}"/>
+				<Hide GUID="{729DFDAA-EB68-494E-B247-D86DA3C0AE5E}"/>
+				<Hide GUID="{41059C79-1015-4C2C-AFF4-697A824775D7}"/>
+				<Hide GUID="{80E871EC-0C36-49B0-AD5D-F1F0FB351299}"/>
+				<Hide GUID="{5FC92061-002A-45B0-B954-CD8F28B5CE49}"/>
+				<Hide GUID="{C64C88BE-2BD8-4AC6-ACD6-2A08570B4923}"/>
+				<Hide GUID="{B472A77E-9430-445F-AD24-21E649F6ACD1}"/>
+				<Hide GUID="{559ADF00-CB27-4B7D-8DEA-9DBCF390B12B}"/>
+				<Hide GUID="{E1A510FA-6CE5-40B2-9617-7C29C5B7C692}"/>
+				<Hide GUID="{3F6D5E74-4433-4A11-8ADE-14BBEED361D6}"/>
+				<Hide GUID="{6E597FBD-95E0-4E3A-8361-F15F77CF10FA}"/>
+				<Hide GUID="{5F9FBCD0-8C11-4386-87CB-253F17D55690}"/>
+				<Hide GUID="{5F9FBCD0-8C11-4386-87CB-253F17D55690}"/>
+				<Hide GUID="{F4D82764-2299-4BB7-86C4-99ED0EBA5A76}"/>
+				<Hide GUID="{1E08C18A-0551-4C52-916A-1A7A2B58BA24}"/>
+				<Hide GUID="{1E08C18A-0551-4C52-916A-1A7A2B58BA24}"/>
+				<Hide GUID="{0C6A4924-E177-45F6-9AB0-6F9DB98D3474}"/>
+				<Hide GUID="{7BACB0F9-4BD8-4ADE-B8B1-2D069E1D0190}"/>
+				<Hide GUID="{C338245C-50EC-4E6D-B363-9DA04BB5DFA5}"/>
+				<Hide GUID="{0E623A01-D6F4-41DD-A8F2-FBC77EE11035}"/>
+				<Hide GUID="{B8136069-15B2-4545-8E40-00504F2F580D}"/>
+				<Hide GUID="{4A38F9D3-765E-4C94-9AAB-7EB5DFA13820}"/>
+				<Hide GUID="{C9AB5DB1-1B57-42EF-8E17-FBE97768475C}"/>
+				<Hide GUID="{43851ABC-CF8A-4AF9-A768-E27D209879D8}"/>
+			</Hides>
+		</DataType>
+		<DataType>
 			<Name GUID="{875D2B22-B7EB-497E-B933-0C004593CCF3}" Namespace="MC" TcBaseType="true" HideType="true" IecDeclaration="DWORD;">PLCTONC_AXIS_REF_CTRL</Name>
 			<BitSize>32</BitSize>
 			<SubItem>
@@ -1377,7 +1377,7 @@ External Setpoint Generation:
 					<Comment>
 						<![CDATA[ Encoders]]>
 					</Comment>
-					<Type GUID="{E2D4AEB3-46CC-4160-A3F9-942ABB7B308E}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{A261BEC8-CC96-4516-9BFE-FD6B20E5B39B}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -1399,7 +1399,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.stYdwnEnc</Name>
-					<Type GUID="{E2D4AEB3-46CC-4160-A3F9-942ABB7B308E}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{A261BEC8-CC96-4516-9BFE-FD6B20E5B39B}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -1421,7 +1421,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.stXupEnc</Name>
-					<Type GUID="{E2D4AEB3-46CC-4160-A3F9-942ABB7B308E}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{A261BEC8-CC96-4516-9BFE-FD6B20E5B39B}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -1443,7 +1443,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.stXdwnEnc</Name>
-					<Type GUID="{E2D4AEB3-46CC-4160-A3F9-942ABB7B308E}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{A261BEC8-CC96-4516-9BFE-FD6B20E5B39B}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -1490,816 +1490,6 @@ External Setpoint Generation:
 						<![CDATA[ Connect to encoder "Position" input]]>
 					</Comment>
 					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K1_BEND.bMR1K1_Y_ENC_Ready</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K1_BEND.bMR1K1_Y_ENC_TxPDO</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K1_BEND_BENDER.M1K1BENDbSTOEnable1</Name>
-					<Comment>
-						<![CDATA[Emergency Stop for MR1K1
-Emergency Stop for MR1K1]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K1_BEND_BENDER.M1K1BENDbSTOEnable2</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K1_BEND.fM1K1_Flow_1.iRaw</Name>
-					<Comment>
-						<![CDATA[ Connect this input to the terminal]]>
-					</Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K1_BEND.fM1K1_Flow_2.iRaw</Name>
-					<Comment>
-						<![CDATA[ Connect this input to the terminal]]>
-					</Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K1_BEND.fM1K1_Press_1.iRaw</Name>
-					<Comment>
-						<![CDATA[ Connect this input to the terminal]]>
-					</Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K1_BEND_BENDER.bM1K1US_RTD_1_Err</Name>
-					<Comment>
-						<![CDATA[ RTD error bit]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K1_BEND_BENDER.bM1K1US_RTD_2_Err</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K1_BEND_BENDER.bM1K1US_RTD_3_Err</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K1_BEND_BENDER.bM1K1DS_RTD_1_Err</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K1_BEND_BENDER.bM1K1DS_RTD_2_Err</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K1_BEND_BENDER.bM1K1DS_RTD_3_Err</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.bSTOEnable1</Name>
-					<Comment>
-						<![CDATA[ STO Button]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.bSTOEnable2</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stYupEnc</Name>
-					<Comment>
-						<![CDATA[ Encoders]]>
-					</Comment>
-					<Type GUID="{E2D4AEB3-46CC-4160-A3F9-942ABB7B308E}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
-					<SubVar>
-						<Name>Count</Name>
-						<Comment>
-							<![CDATA[ Connect to encoder "Position" input]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>Status</Name>
-						<Comment>
-							<![CDATA[ Status struct placeholder]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>Ref</Name>
-						<Comment>
-							<![CDATA[ Encoder zero position (useful for aligned position with gantries)]]>
-						</Comment>
-					</SubVar>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stYdwnEnc</Name>
-					<Type GUID="{E2D4AEB3-46CC-4160-A3F9-942ABB7B308E}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
-					<SubVar>
-						<Name>Count</Name>
-						<Comment>
-							<![CDATA[ Connect to encoder "Position" input]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>Status</Name>
-						<Comment>
-							<![CDATA[ Status struct placeholder]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>Ref</Name>
-						<Comment>
-							<![CDATA[ Encoder zero position (useful for aligned position with gantries)]]>
-						</Comment>
-					</SubVar>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stXupEnc</Name>
-					<Type GUID="{E2D4AEB3-46CC-4160-A3F9-942ABB7B308E}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
-					<SubVar>
-						<Name>Count</Name>
-						<Comment>
-							<![CDATA[ Connect to encoder "Position" input]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>Status</Name>
-						<Comment>
-							<![CDATA[ Status struct placeholder]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>Ref</Name>
-						<Comment>
-							<![CDATA[ Encoder zero position (useful for aligned position with gantries)]]>
-						</Comment>
-					</SubVar>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stXdwnEnc</Name>
-					<Type GUID="{E2D4AEB3-46CC-4160-A3F9-942ABB7B308E}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
-					<SubVar>
-						<Name>Count</Name>
-						<Comment>
-							<![CDATA[ Connect to encoder "Position" input]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>Status</Name>
-						<Comment>
-							<![CDATA[ Status struct placeholder]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>Ref</Name>
-						<Comment>
-							<![CDATA[ Encoder zero position (useful for aligned position with gantries)]]>
-						</Comment>
-					</SubVar>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleY.gantry_diff_limit.PEnc.Count</Name>
-					<Comment>
-						<![CDATA[ Connect to encoder "Position" input]]>
-					</Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleY.gantry_diff_limit.SEnc.Count</Name>
-					<Comment>
-						<![CDATA[ Connect to encoder "Position" input]]>
-					</Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleX.gantry_diff_limit.PEnc.Count</Name>
-					<Comment>
-						<![CDATA[ Connect to encoder "Position" input]]>
-					</Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleX.gantry_diff_limit.SEnc.Count</Name>
-					<Comment>
-						<![CDATA[ Connect to encoder "Position" input]]>
-					</Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.bSTOEnable1</Name>
-					<Comment>
-						<![CDATA[ Where is the STO]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.bSTOEnable2</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.mpi_upe</Name>
-					<Type GUID="{E2D4AEB3-46CC-4160-A3F9-942ABB7B308E}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
-					<SubVar>
-						<Name>Count</Name>
-						<Comment>
-							<![CDATA[ Connect to encoder "Position" input]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>Status</Name>
-						<Comment>
-							<![CDATA[ Status struct placeholder]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>Ref</Name>
-						<Comment>
-							<![CDATA[ Encoder zero position (useful for aligned position with gantries)]]>
-						</Comment>
-					</SubVar>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.gpi_upe</Name>
-					<Type GUID="{E2D4AEB3-46CC-4160-A3F9-942ABB7B308E}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
-					<SubVar>
-						<Name>Count</Name>
-						<Comment>
-							<![CDATA[ Connect to encoder "Position" input]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>Status</Name>
-						<Comment>
-							<![CDATA[ Status struct placeholder]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>Ref</Name>
-						<Comment>
-							<![CDATA[ Encoder zero position (useful for aligned position with gantries)]]>
-						</Comment>
-					</SubVar>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.RTD1.bError</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.RTD1.bUnderrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.RTD1.bOverrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.RTD1.iRaw</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.RTD2.bError</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.RTD2.bUnderrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.RTD2.bOverrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.RTD2.iRaw</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.RTD3.bError</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.RTD3.bUnderrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.RTD3.bOverrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.RTD3.iRaw</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.RTD4.bError</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.RTD4.bUnderrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.RTD4.bOverrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.RTD4.iRaw</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.RTD5.bError</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.RTD5.bUnderrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.RTD5.bOverrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.RTD5.iRaw</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.RTD6.bError</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.RTD6.bUnderrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.RTD6.bOverrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.RTD6.iRaw</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.RTD7.bError</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.RTD7.bUnderrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.RTD7.bOverrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.RTD7.iRaw</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.RTD8.bError</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.RTD8.bUnderrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.RTD8.bOverrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.RTD8.iRaw</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.fSP1K1_Flow_1.iRaw</Name>
-					<Comment>
-						<![CDATA[ Connect this input to the terminal]]>
-					</Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.fSP1K1_Flow_2.iRaw</Name>
-					<Comment>
-						<![CDATA[ Connect this input to the terminal]]>
-					</Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.fSP1K1_Press_1.iRaw</Name>
-					<Comment>
-						<![CDATA[ Connect this input to the terminal]]>
-					</Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.RTD_Crystal_TOP.bError</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.RTD_Crystal_TOP.bUnderrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.RTD_Crystal_TOP.bOverrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.RTD_Crystal_TOP.iRaw</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.bError</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.bUnderrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.bOverrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.iRaw</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.RTD_YAG.bError</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.RTD_YAG.bUnderrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.RTD_YAG.bOverrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.RTD_YAG.iRaw</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.RTD_HeatSync.bError</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.RTD_HeatSync.bUnderrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.RTD_HeatSync.bOverrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.RTD_HeatSync.iRaw</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.fbGige.fbGetIllPercent.iRaw</Name>
-					<Comment>
-						<![CDATA[ Connect this input to the terminal]]>
-					</Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_2_PMPS_POST.fbArbiterIO.i_stCurrentBP</Name>
-					<Type GUID="{292CD354-C7C0-4A61-AAD0-1C85DD69646B}">ST_BeamParams_IO</Type>
-					<SubVar>
-						<Name>nTran</Name>
-						<Comment>
-							<![CDATA[Requested pre-optic attenuation - 1 is full transmission]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>nRate</Name>
-						<Comment>
-							<![CDATA[ Pulse-rate ]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>neVRange</Name>
-						<Comment>
-							<![CDATA[ Photon energy ranges ]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>neV</Name>
-						<Comment>
-							<![CDATA[Current Photon energy as calculated by the arbiter]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>astAttenuators</Name>
-						<Comment>
-							<![CDATA[ Beamline attenuators ]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>astApertures^astApertures[1]^Width</Name>
-						<Comment>
-							<![CDATA[ distance between horizontal slits (x)]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>astApertures^astApertures[1]^Height</Name>
-						<Comment>
-							<![CDATA[ distance between vertical slits (y)]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>astApertures^astApertures[1]^xOK</Name>
-						<Comment>
-							<![CDATA[ status of aperture, false if error or in motion]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>astApertures^astApertures[2]^Width</Name>
-						<Comment>
-							<![CDATA[ distance between horizontal slits (x)]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>astApertures^astApertures[2]^Height</Name>
-						<Comment>
-							<![CDATA[ distance between vertical slits (y)]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>astApertures^astApertures[2]^xOK</Name>
-						<Comment>
-							<![CDATA[ status of aperture, false if error or in motion]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>astApertures^astApertures[3]^Width</Name>
-						<Comment>
-							<![CDATA[ distance between horizontal slits (x)]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>astApertures^astApertures[3]^Height</Name>
-						<Comment>
-							<![CDATA[ distance between vertical slits (y)]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>astApertures^astApertures[3]^xOK</Name>
-						<Comment>
-							<![CDATA[ status of aperture, false if error or in motion]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>astApertures^astApertures[4]^Width</Name>
-						<Comment>
-							<![CDATA[ distance between horizontal slits (x)]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>astApertures^astApertures[4]^Height</Name>
-						<Comment>
-							<![CDATA[ distance between vertical slits (y)]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>astApertures^astApertures[4]^xOK</Name>
-						<Comment>
-							<![CDATA[ status of aperture, false if error or in motion]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>aVetoDevices</Name>
-						<Comment>
-							<![CDATA[ Stopper statuses ]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>xValidToggle</Name>
-						<Comment>
-							<![CDATA[ Toggle for watchdog]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>xValid</Name>
-						<Comment>
-							<![CDATA[ Beam parameter set is valid (if readback), or acknowledged (if request)]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>nCohortInt</Name>
-						<Comment>
-							<![CDATA[ Cohort index. Identifies which cohort this BP set was included in arbitration]]>
-						</Comment>
-					</SubVar>
-				</Var>
-				<Var>
-					<Name>PRG_2_PMPS_POST.fbArbiterIO.xTxPDO_toggle</Name>
-					<Type>BIT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_2_PMPS_POST.fbArbiterIO.xTxPDO_state</Name>
-					<Type>BIT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR2K2_FLAT.M2K2FLATbSTOEnable1</Name>
-					<Comment>
-						<![CDATA[Emergency Stop for MR2K2 //M2K2 needs an EL1004 term and an ESTOP added, not listed in I/O either]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR2K2_FLAT.M2K2FLATbSTOEnable2</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR3K2_KBH.bM3K2US_RTD_1_Err</Name>
-					<Comment>
-						<![CDATA[ RTD error bit]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR3K2_KBH.bM3K2US_RTD_2_Err</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR3K2_KBH.bM3K2US_RTD_3_Err</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR3K2_KBH.bM3K2DS_RTD_1_Err</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR3K2_KBH.bM3K2DS_RTD_2_Err</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR3K2_KBH.bM3K2DS_RTD_3_Err</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR3K2_KBH.M3K2KBHbSTOEnable1</Name>
-					<Comment>
-						<![CDATA[Emergency Stop for MR3K2]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR3K2_KBH.M3K2KBHbSTOEnable2</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR4K2_KBV.bM4K2US_RTD_1_Err</Name>
-					<Comment>
-						<![CDATA[ RTD error bit]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR4K2_KBV.bM4K2US_RTD_2_Err</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR4K2_KBV.bM4K2US_RTD_3_Err</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR4K2_KBV.bM4K2DS_RTD_1_Err</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR4K2_KBV.bM4K2DS_RTD_2_Err</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR4K2_KBV.bM4K2DS_RTD_3_Err</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR4K2_KBV.M4K2KBVbSTOEnable1</Name>
-					<Comment>
-						<![CDATA[Emergency Stop for MR4K2]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR4K2_KBV.M4K2KBVbSTOEnable2</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_M1K1_BENDER_RTD.nM1K1US_RTD_1</Name>
-					<Comment>
-						<![CDATA[ M1K1 US RTDs]]>
-					</Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_M1K1_BENDER_RTD.nM1K1US_RTD_2</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_M1K1_BENDER_RTD.nM1K1US_RTD_3</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_M1K1.M1K1_Pitch.diEncCnt</Name>
-					<Comment>
-						<![CDATA[Raw encoder count]]>
-					</Comment>
-					<Type>LINT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_M1K1_BENDER_RTD.nM1K1DS_RTD_1</Name>
-					<Comment>
-						<![CDATA[ M1K1 DS RTDs]]>
-					</Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_M1K1_BENDER_RTD.nM1K1DS_RTD_2</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_M1K1_BENDER_RTD.nM1K1DS_RTD_3</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_M3K2.nM3K2US_RTD_1</Name>
-					<Comment>
-						<![CDATA[ M3K2 US RTDs]]>
-					</Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_M1K2.M1K2_Pitch.diEncCnt</Name>
-					<Comment>
-						<![CDATA[Raw encoder count]]>
-					</Comment>
-					<Type>LINT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_M3K2.nM3K2US_RTD_2</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_M3K2.nM3K2US_RTD_3</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_M3K2.nM3K2DS_RTD_1</Name>
-					<Comment>
-						<![CDATA[ M3K2 DS RTDs]]>
-					</Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_M3K2.nM3K2DS_RTD_2</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_M3K2.nM3K2DS_RTD_3</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_M4K2.nM4K2US_RTD_1</Name>
-					<Comment>
-						<![CDATA[ M4K2 US RTDs]]>
-					</Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_M4K2.nM4K2US_RTD_2</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_M4K2.nM4K2US_RTD_3</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_M4K2.nM4K2DS_RTD_1</Name>
-					<Comment>
-						<![CDATA[ M4K2 DS RTDs]]>
-					</Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_M4K2.nM4K2DS_RTD_2</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_M4K2.nM4K2DS_RTD_3</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>Main.sio_current</Name>
-					<Type>UINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.sio_load</Name>
-					<Type>UINT</Type>
 				</Var>
 				<Var>
 					<Name>PRG_MR1K1_BEND.fbM1K1PitchControl.fbMotionStage.fbDriveVirtual.MasterAxis.NcToPlc</Name>
@@ -2400,6 +1590,204 @@ External Setpoint Generation:
 					</SubVar>
 				</Var>
 				<Var>
+					<Name>PRG_MR1K1_BEND.bMR1K1_Y_ENC_Ready</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K1_BEND.bMR1K1_Y_ENC_TxPDO</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K1_BEND_BENDER.M1K1BENDbSTOEnable1</Name>
+					<Comment>
+						<![CDATA[Emergency Stop for MR1K1
+Emergency Stop for MR1K1]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K1_BEND_BENDER.M1K1BENDbSTOEnable2</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K1_BEND.fM1K1_Flow_1.iRaw</Name>
+					<Comment>
+						<![CDATA[ Connect this input to the terminal]]>
+					</Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K1_BEND.fM1K1_Flow_2.iRaw</Name>
+					<Comment>
+						<![CDATA[ Connect this input to the terminal]]>
+					</Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K1_BEND.fM1K1_Press_1.iRaw</Name>
+					<Comment>
+						<![CDATA[ Connect this input to the terminal]]>
+					</Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K1_BEND_BENDER.bM1K1US_RTD_1_Err</Name>
+					<Comment>
+						<![CDATA[ RTD error bit]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K1_BEND_BENDER.bM1K1US_RTD_2_Err</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K1_BEND_BENDER.bM1K1US_RTD_3_Err</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K1_BEND_BENDER.bM1K1DS_RTD_1_Err</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K1_BEND_BENDER.bM1K1DS_RTD_2_Err</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K1_BEND_BENDER.bM1K1DS_RTD_3_Err</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.bSTOEnable1</Name>
+					<Comment>
+						<![CDATA[ STO Button]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.bSTOEnable2</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stYupEnc</Name>
+					<Comment>
+						<![CDATA[ Encoders]]>
+					</Comment>
+					<Type GUID="{A261BEC8-CC96-4516-9BFE-FD6B20E5B39B}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<SubVar>
+						<Name>Count</Name>
+						<Comment>
+							<![CDATA[ Connect to encoder "Position" input]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>Status</Name>
+						<Comment>
+							<![CDATA[ Status struct placeholder]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>Ref</Name>
+						<Comment>
+							<![CDATA[ Encoder zero position (useful for aligned position with gantries)]]>
+						</Comment>
+					</SubVar>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stYdwnEnc</Name>
+					<Type GUID="{A261BEC8-CC96-4516-9BFE-FD6B20E5B39B}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<SubVar>
+						<Name>Count</Name>
+						<Comment>
+							<![CDATA[ Connect to encoder "Position" input]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>Status</Name>
+						<Comment>
+							<![CDATA[ Status struct placeholder]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>Ref</Name>
+						<Comment>
+							<![CDATA[ Encoder zero position (useful for aligned position with gantries)]]>
+						</Comment>
+					</SubVar>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stXupEnc</Name>
+					<Type GUID="{A261BEC8-CC96-4516-9BFE-FD6B20E5B39B}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<SubVar>
+						<Name>Count</Name>
+						<Comment>
+							<![CDATA[ Connect to encoder "Position" input]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>Status</Name>
+						<Comment>
+							<![CDATA[ Status struct placeholder]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>Ref</Name>
+						<Comment>
+							<![CDATA[ Encoder zero position (useful for aligned position with gantries)]]>
+						</Comment>
+					</SubVar>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stXdwnEnc</Name>
+					<Type GUID="{A261BEC8-CC96-4516-9BFE-FD6B20E5B39B}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<SubVar>
+						<Name>Count</Name>
+						<Comment>
+							<![CDATA[ Connect to encoder "Position" input]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>Status</Name>
+						<Comment>
+							<![CDATA[ Status struct placeholder]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>Ref</Name>
+						<Comment>
+							<![CDATA[ Encoder zero position (useful for aligned position with gantries)]]>
+						</Comment>
+					</SubVar>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleY.gantry_diff_limit.PEnc.Count</Name>
+					<Comment>
+						<![CDATA[ Connect to encoder "Position" input]]>
+					</Comment>
+					<Type>ULINT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleY.gantry_diff_limit.SEnc.Count</Name>
+					<Comment>
+						<![CDATA[ Connect to encoder "Position" input]]>
+					</Comment>
+					<Type>ULINT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleX.gantry_diff_limit.PEnc.Count</Name>
+					<Comment>
+						<![CDATA[ Connect to encoder "Position" input]]>
+					</Comment>
+					<Type>ULINT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleX.gantry_diff_limit.SEnc.Count</Name>
+					<Comment>
+						<![CDATA[ Connect to encoder "Position" input]]>
+					</Comment>
+					<Type>ULINT</Type>
+				</Var>
+				<Var>
 					<Name>PRG_MR1K2_SWITCH.fbM1K2PitchControl.fbMotionStage.fbDriveVirtual.MasterAxis.NcToPlc</Name>
 					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
@@ -2447,6 +1835,17 @@ External Setpoint Generation:
 ]]>
 						</Comment>
 					</SubVar>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.bSTOEnable1</Name>
+					<Comment>
+						<![CDATA[ Where is the STO]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.bSTOEnable2</Name>
+					<Type>BOOL</Type>
 				</Var>
 				<Var>
 					<Name>PRG_MR1K2_SWITCH.fbMotionStage_m5.fbDriveVirtual.MasterAxis.NcToPlc</Name>
@@ -2792,6 +2191,199 @@ External Setpoint Generation:
 					</SubVar>
 				</Var>
 				<Var>
+					<Name>PRG_SP1K1_MONO.mpi_upe</Name>
+					<Type GUID="{A261BEC8-CC96-4516-9BFE-FD6B20E5B39B}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<SubVar>
+						<Name>Count</Name>
+						<Comment>
+							<![CDATA[ Connect to encoder "Position" input]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>Status</Name>
+						<Comment>
+							<![CDATA[ Status struct placeholder]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>Ref</Name>
+						<Comment>
+							<![CDATA[ Encoder zero position (useful for aligned position with gantries)]]>
+						</Comment>
+					</SubVar>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.gpi_upe</Name>
+					<Type GUID="{A261BEC8-CC96-4516-9BFE-FD6B20E5B39B}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<SubVar>
+						<Name>Count</Name>
+						<Comment>
+							<![CDATA[ Connect to encoder "Position" input]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>Status</Name>
+						<Comment>
+							<![CDATA[ Status struct placeholder]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>Ref</Name>
+						<Comment>
+							<![CDATA[ Encoder zero position (useful for aligned position with gantries)]]>
+						</Comment>
+					</SubVar>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD1.bError</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD1.bUnderrange</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD1.bOverrange</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD1.iRaw</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD2.bError</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD2.bUnderrange</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD2.bOverrange</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD2.iRaw</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD3.bError</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD3.bUnderrange</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD3.bOverrange</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD3.iRaw</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD4.bError</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD4.bUnderrange</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD4.bOverrange</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD4.iRaw</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD5.bError</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD5.bUnderrange</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD5.bOverrange</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD5.iRaw</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD6.bError</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD6.bUnderrange</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD6.bOverrange</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD6.iRaw</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD7.bError</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD7.bUnderrange</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD7.bOverrange</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD7.iRaw</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD8.bError</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD8.bUnderrange</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD8.bOverrange</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD8.iRaw</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.fSP1K1_Flow_1.iRaw</Name>
+					<Comment>
+						<![CDATA[ Connect this input to the terminal]]>
+					</Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.fSP1K1_Flow_2.iRaw</Name>
+					<Comment>
+						<![CDATA[ Connect this input to the terminal]]>
+					</Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.fSP1K1_Press_1.iRaw</Name>
+					<Comment>
+						<![CDATA[ Connect this input to the terminal]]>
+					</Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
 					<Name>PRG_SL1K2_EXIT.fbPitch.fbDriveVirtual.MasterAxis.NcToPlc</Name>
 					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
@@ -3037,6 +2629,77 @@ External Setpoint Generation:
 					</SubVar>
 				</Var>
 				<Var>
+					<Name>PRG_SL1K2_EXIT.RTD_Crystal_TOP.bError</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SL1K2_EXIT.RTD_Crystal_TOP.bUnderrange</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SL1K2_EXIT.RTD_Crystal_TOP.bOverrange</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SL1K2_EXIT.RTD_Crystal_TOP.iRaw</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.bError</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.bUnderrange</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.bOverrange</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.iRaw</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SL1K2_EXIT.RTD_YAG.bError</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SL1K2_EXIT.RTD_YAG.bUnderrange</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SL1K2_EXIT.RTD_YAG.bOverrange</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SL1K2_EXIT.RTD_YAG.iRaw</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SL1K2_EXIT.RTD_HeatSync.bError</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SL1K2_EXIT.RTD_HeatSync.bUnderrange</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SL1K2_EXIT.RTD_HeatSync.bOverrange</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SL1K2_EXIT.RTD_HeatSync.iRaw</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SL1K2_EXIT.fbGige.fbGetIllPercent.iRaw</Name>
+					<Comment>
+						<![CDATA[ Connect this input to the terminal]]>
+					</Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
 					<Name>PRG_ST1K1_ZOS.fbZOS.fbDriveVirtual.MasterAxis.NcToPlc</Name>
 					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
@@ -3084,6 +2747,235 @@ External Setpoint Generation:
 ]]>
 						</Comment>
 					</SubVar>
+				</Var>
+				<Var>
+					<Name>PRG_2_PMPS_POST.fbArbiterIO.i_stCurrentBP</Name>
+					<Type GUID="{292CD354-C7C0-4A61-AAD0-1C85DD69646B}">ST_BeamParams_IO</Type>
+					<SubVar>
+						<Name>nTran</Name>
+						<Comment>
+							<![CDATA[Requested pre-optic attenuation - 1 is full transmission]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>nRate</Name>
+						<Comment>
+							<![CDATA[ Pulse-rate ]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>neVRange</Name>
+						<Comment>
+							<![CDATA[ Photon energy ranges ]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>neV</Name>
+						<Comment>
+							<![CDATA[Current Photon energy as calculated by the arbiter]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>astAttenuators</Name>
+						<Comment>
+							<![CDATA[ Beamline attenuators ]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>astApertures^astApertures[1]^Width</Name>
+						<Comment>
+							<![CDATA[ distance between horizontal slits (x)]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>astApertures^astApertures[1]^Height</Name>
+						<Comment>
+							<![CDATA[ distance between vertical slits (y)]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>astApertures^astApertures[1]^xOK</Name>
+						<Comment>
+							<![CDATA[ status of aperture, false if error or in motion]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>astApertures^astApertures[2]^Width</Name>
+						<Comment>
+							<![CDATA[ distance between horizontal slits (x)]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>astApertures^astApertures[2]^Height</Name>
+						<Comment>
+							<![CDATA[ distance between vertical slits (y)]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>astApertures^astApertures[2]^xOK</Name>
+						<Comment>
+							<![CDATA[ status of aperture, false if error or in motion]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>astApertures^astApertures[3]^Width</Name>
+						<Comment>
+							<![CDATA[ distance between horizontal slits (x)]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>astApertures^astApertures[3]^Height</Name>
+						<Comment>
+							<![CDATA[ distance between vertical slits (y)]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>astApertures^astApertures[3]^xOK</Name>
+						<Comment>
+							<![CDATA[ status of aperture, false if error or in motion]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>astApertures^astApertures[4]^Width</Name>
+						<Comment>
+							<![CDATA[ distance between horizontal slits (x)]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>astApertures^astApertures[4]^Height</Name>
+						<Comment>
+							<![CDATA[ distance between vertical slits (y)]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>astApertures^astApertures[4]^xOK</Name>
+						<Comment>
+							<![CDATA[ status of aperture, false if error or in motion]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>aVetoDevices</Name>
+						<Comment>
+							<![CDATA[ Stopper statuses ]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>xValidToggle</Name>
+						<Comment>
+							<![CDATA[ Toggle for watchdog]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>xValid</Name>
+						<Comment>
+							<![CDATA[ Beam parameter set is valid (if readback), or acknowledged (if request)]]>
+						</Comment>
+					</SubVar>
+					<SubVar>
+						<Name>nCohortInt</Name>
+						<Comment>
+							<![CDATA[ Cohort index. Identifies which cohort this BP set was included in arbitration]]>
+						</Comment>
+					</SubVar>
+				</Var>
+				<Var>
+					<Name>PRG_2_PMPS_POST.fbArbiterIO.xTxPDO_toggle</Name>
+					<Type>BIT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_2_PMPS_POST.fbArbiterIO.xTxPDO_state</Name>
+					<Type>BIT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR2K2_FLAT.M2K2FLATbSTOEnable1</Name>
+					<Comment>
+						<![CDATA[Emergency Stop for MR2K2 //M2K2 needs an EL1004 term and an ESTOP added, not listed in I/O either]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR2K2_FLAT.M2K2FLATbSTOEnable2</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR3K2_KBH.bM3K2US_RTD_1_Err</Name>
+					<Comment>
+						<![CDATA[ RTD error bit]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR3K2_KBH.bM3K2US_RTD_2_Err</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR3K2_KBH.bM3K2US_RTD_3_Err</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR3K2_KBH.bM3K2DS_RTD_1_Err</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR3K2_KBH.bM3K2DS_RTD_2_Err</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR3K2_KBH.bM3K2DS_RTD_3_Err</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR3K2_KBH.M3K2KBHbSTOEnable1</Name>
+					<Comment>
+						<![CDATA[Emergency Stop for MR3K2]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR3K2_KBH.M3K2KBHbSTOEnable2</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR4K2_KBV.bM4K2US_RTD_1_Err</Name>
+					<Comment>
+						<![CDATA[ RTD error bit]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR4K2_KBV.bM4K2US_RTD_2_Err</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR4K2_KBV.bM4K2US_RTD_3_Err</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR4K2_KBV.bM4K2DS_RTD_1_Err</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR4K2_KBV.bM4K2DS_RTD_2_Err</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR4K2_KBV.bM4K2DS_RTD_3_Err</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR4K2_KBV.M4K2KBVbSTOEnable1</Name>
+					<Comment>
+						<![CDATA[Emergency Stop for MR4K2]]>
+					</Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR4K2_KBV.M4K2KBVbSTOEnable2</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>Main.sio_current</Name>
+					<Type>UINT</Type>
 				</Var>
 				<Var>
 					<Name>Main.M1.Axis.NcToPlc</Name>
@@ -7838,9 +7730,125 @@ External Setpoint Generation:
 						</Comment>
 					</SubVar>
 				</Var>
+				<Var>
+					<Name>Main.sio_load</Name>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_M1K1.M1K1_Pitch.diEncCnt</Name>
+					<Comment>
+						<![CDATA[Raw encoder count]]>
+					</Comment>
+					<Type>LINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_M1K1_BENDER_RTD.nM1K1US_RTD_1</Name>
+					<Comment>
+						<![CDATA[ M1K1 US RTDs]]>
+					</Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_M1K1_BENDER_RTD.nM1K1US_RTD_2</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_M1K1_BENDER_RTD.nM1K1US_RTD_3</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_M1K1_BENDER_RTD.nM1K1DS_RTD_1</Name>
+					<Comment>
+						<![CDATA[ M1K1 DS RTDs]]>
+					</Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_M1K1_BENDER_RTD.nM1K1DS_RTD_2</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_M1K1_BENDER_RTD.nM1K1DS_RTD_3</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_M1K2.M1K2_Pitch.diEncCnt</Name>
+					<Comment>
+						<![CDATA[Raw encoder count]]>
+					</Comment>
+					<Type>LINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_M3K2.nM3K2US_RTD_1</Name>
+					<Comment>
+						<![CDATA[ M3K2 US RTDs]]>
+					</Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_M3K2.nM3K2US_RTD_2</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_M3K2.nM3K2US_RTD_3</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_M3K2.nM3K2DS_RTD_1</Name>
+					<Comment>
+						<![CDATA[ M3K2 DS RTDs]]>
+					</Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_M3K2.nM3K2DS_RTD_2</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_M3K2.nM3K2DS_RTD_3</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_M4K2.nM4K2US_RTD_1</Name>
+					<Comment>
+						<![CDATA[ M4K2 US RTDs]]>
+					</Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_M4K2.nM4K2US_RTD_2</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_M4K2.nM4K2US_RTD_3</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_M4K2.nM4K2DS_RTD_1</Name>
+					<Comment>
+						<![CDATA[ M4K2 DS RTDs]]>
+					</Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_M4K2.nM4K2DS_RTD_2</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_M4K2.nM4K2DS_RTD_3</Name>
+					<Type>INT</Type>
+				</Var>
 			</Vars>
 			<Vars VarGrpType="2">
 				<Name>PlcTask Outputs</Name>
+				<Var>
+					<Name>PRG_MR1K1_BEND.fbM1K1PitchControl.fbMotionStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K1_BEND.fbMotionStage_m16.fbDriveVirtual.MasterAxis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
 				<Var>
 					<Name>PRG_MR1K1_BEND.bLEDPower01</Name>
 					<Comment>
@@ -7868,6 +7876,14 @@ External Setpoint Generation:
 					<Type>UDINT</Type>
 				</Var>
 				<Var>
+					<Name>PRG_MR1K2_SWITCH.fbM1K2PitchControl.fbMotionStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K2_SWITCH.fbMotionStage_m5.fbDriveVirtual.MasterAxis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
 					<Name>PRG_SP1K1_MONO.bLEDPower01</Name>
 					<Type>BOOL</Type>
 				</Var>
@@ -7888,6 +7904,50 @@ External Setpoint Generation:
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
+					<Name>PRG_SP1K1_MONO.fbMotionStage_m_pi.fbDriveVirtual.MasterAxis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.fbMotionStage_g_pi.fbDriveVirtual.MasterAxis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.fbMotionStage_m_h.fbDriveVirtual.MasterAxis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.fbMotionStage_g_h.fbDriveVirtual.MasterAxis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.fbMotionStage_s_r.fbDriveVirtual.MasterAxis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.fbMotionStage_s_io.fbDriveVirtual.MasterAxis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SL1K2_EXIT.fbPitch.fbDriveVirtual.MasterAxis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SL1K2_EXIT.fbRoll.fbDriveVirtual.MasterAxis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SL1K2_EXIT.fbVertical.fbDriveVirtual.MasterAxis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SL1K2_EXIT.fbGap.fbDriveVirtual.MasterAxis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SL1K2_EXIT.fbYag.fbDriveVirtual.MasterAxis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
 					<Name>PRG_SL1K2_EXIT.fbGige.iIlluminatorINT</Name>
 					<Type>INT</Type>
 				</Var>
@@ -7901,6 +7961,10 @@ External Setpoint Generation:
 						<![CDATA[ Connect this output to the terminal]]>
 					</Comment>
 					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_ST1K1_ZOS.fbZOS.fbDriveVirtual.MasterAxis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 				</Var>
 				<Var>
 					<Name>PRG_2_PMPS_POST.fbArbiterIO.q_stRequestedBP</Name>
@@ -8031,78 +8095,6 @@ External Setpoint Generation:
 							<![CDATA[ Cohort index. Identifies which cohort this BP set was included in arbitration]]>
 						</Comment>
 					</SubVar>
-				</Var>
-				<Var>
-					<Name>GVL_PMPS.fbFastFaultOutput1.q_xFastFaultOut</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_PMPS.fbFastFaultOutput2.q_xFastFaultOut</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K1_BEND.fbM1K1PitchControl.fbMotionStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K1_BEND.fbMotionStage_m16.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.fbM1K2PitchControl.fbMotionStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.fbMotionStage_m5.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.fbMotionStage_m_pi.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.fbMotionStage_g_pi.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.fbMotionStage_m_h.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.fbMotionStage_g_h.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.fbMotionStage_s_r.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.fbMotionStage_s_io.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.fbPitch.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.fbRoll.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.fbVertical.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.fbGap.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.fbYag.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_ST1K1_ZOS.fbZOS.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 				</Var>
 				<Var>
 					<Name>Main.M1.Axis.PlcToNc</Name>
@@ -8602,6 +8594,14 @@ External Setpoint Generation:
 				<Var>
 					<Name>Main.fbMotionStageM37.fbDriveVirtual.MasterAxis.PlcToNc</Name>
 					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL_PMPS.fbFastFaultOutput1.q_xFastFaultOut</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_PMPS.fbFastFaultOutput2.q_xFastFaultOut</Name>
+					<Type>BOOL</Type>
 				</Var>
 			</Vars>
 			<Vars VarGrpType="8">
