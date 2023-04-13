@@ -223,8 +223,8 @@
     M26 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE); //Y mot
     fbMotionStageM26 : FB_MotionStage;
     {attribute 'pytmc' := 'pv: MR2K2:FLAT:MMS:PITCH'}
-    {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M2K2rX]^STM Status^Status^Digital input 1;
-                              .bLimitBackwardEnable:=TIIB[EL7041_M2K2rX]^STM Status^Status^Digital input 2;
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M2K2rX]^STM Status^Status^Digital input 2;
+                              .bLimitBackwardEnable:=TIIB[EL7041_M2K2rX]^STM Status^Status^Digital input 1;
                               .nRawEncoderULINT:=TIIB[EL5042_M2K2rX]^FB Inputs Channel 1^Position'}
     M27 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE); //Pitch mot
     fbMotionStageM27 : FB_MotionStage;
