@@ -67679,7 +67679,7 @@ Database Records
         | io: input
 
 
-    * - MR3K2:KBH:RTD:BEND:DS:2_RBV
+    * - MR3K2:KBH:RTD:CHIN:R_RBV
       - ai
       - PRG_MR3K2_KBH.fM3K2DS_RTD_2
       - | field: ASLO 0.01
@@ -67711,7 +67711,7 @@ Database Records
         | io: input
 
 
-    * - MR3K2:KBH:RTD:BEND:US:3_RBV
+    * - MR3K2:KBH:RTD:CHIN:L_RBV
       - ai
       - PRG_MR3K2_KBH.fM3K2US_RTD_3
       - | field: ASLO 0.01
@@ -68204,6 +68204,58 @@ Database Records
       - longin
       - PRG_MR4K2_KBV.nEncRefrXM4K2
       - | field: EGU cnt
+        | io: input
+
+
+    * - MR4K2:KBV:RTD:CHIN:L:CONN_RBV
+      - bi
+      - PRG_MR4K2_KBV.nM4K2_Chin_Left_RTD.bConnected
+      - | field: EGU C
+        | field: ONAM Connected
+        | field: ZNAM Disconnected
+        | io: input
+
+
+    * - MR4K2:KBV:RTD:CHIN:L:ERR_RBV
+      - bi
+      - PRG_MR4K2_KBV.nM4K2_Chin_Left_RTD.bError
+      - | field: EGU C
+        | field: ONAM True
+        | field: ZNAM False
+        | io: input
+
+
+    * - MR4K2:KBV:RTD:CHIN:L:TEMP_RBV
+      - ai
+      - PRG_MR4K2_KBV.nM4K2_Chin_Left_RTD.fTemp
+      - | field: EGU C
+        | field: PREC 2
+        | io: input
+
+
+    * - MR4K2:KBV:RTD:CHIN:R:CONN_RBV
+      - bi
+      - PRG_MR4K2_KBV.nM4K2_Chin_Right_RTD.bConnected
+      - | field: EGU C
+        | field: ONAM Connected
+        | field: ZNAM Disconnected
+        | io: input
+
+
+    * - MR4K2:KBV:RTD:CHIN:R:ERR_RBV
+      - bi
+      - PRG_MR4K2_KBV.nM4K2_Chin_Right_RTD.bError
+      - | field: EGU C
+        | field: ONAM True
+        | field: ZNAM False
+        | io: input
+
+
+    * - MR4K2:KBV:RTD:CHIN:R:TEMP_RBV
+      - ai
+      - PRG_MR4K2_KBV.nM4K2_Chin_Right_RTD.fTemp
+      - | field: EGU C
+        | field: PREC 2
         | io: input
 
 
@@ -73414,6 +73466,90 @@ Database Records
         | io: input
 
 
+    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:DATA_RBV
+      - ai
+      - PRG_SP1K1_MONO.fbGpiPosDiffStats.aSignal
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:ALWAYS_CALC_RBV
+      - bi
+      - PRG_SP1K1_MONO.fbGpiPosDiffStats.bAlwaysCalc
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:ALWAYS_CALC
+      - bo
+      - PRG_SP1K1_MONO.fbGpiPosDiffStats.bAlwaysCalc
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:EXECUTE_RBV
+      - bi
+      - PRG_SP1K1_MONO.fbGpiPosDiffStats.bExecute
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:EXECUTE
+      - bo
+      - PRG_SP1K1_MONO.fbGpiPosDiffStats.bExecute
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:RESET_RBV
+      - bi
+      - PRG_SP1K1_MONO.fbGpiPosDiffStats.bReset
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:RESET
+      - bo
+      - PRG_SP1K1_MONO.fbGpiPosDiffStats.bReset
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:VALID_RBV
+      - bi
+      - PRG_SP1K1_MONO.fbGpiPosDiffStats.bValid
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:MAX_RBV
+      - ai
+      - PRG_SP1K1_MONO.fbGpiPosDiffStats.fMax
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:MEAN_RBV
+      - ai
+      - PRG_SP1K1_MONO.fbGpiPosDiffStats.fMean
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:MIN_RBV
+      - ai
+      - PRG_SP1K1_MONO.fbGpiPosDiffStats.fMin
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:RANGE_RBV
+      - ai
+      - PRG_SP1K1_MONO.fbGpiPosDiffStats.fRange
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:STDEV_RBV
+      - ai
+      - PRG_SP1K1_MONO.fbGpiPosDiffStats.fStDev
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:NELM_RBV
+      - longin
+      - PRG_SP1K1_MONO.fbGpiPosDiffStats.nElems
+      - | io: input
+
+
     * - GM:PITCH:fipi_read_RBV
       - ai
       - PRG_SP1K1_MONO.fipi_read
@@ -73456,7 +73592,23 @@ Database Records
       - | io: output
 
 
-    * - SIM:LRG_Grating_IN_RBV
+    * - $(PREFIX)BeamPermitted_RBV
+      - bi
+      - PRG_ZeroOrder_PMPS.bBeamPermitted
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - $(PREFIX)BeamPermitted
+      - bo
+      - PRG_ZeroOrder_PMPS.bBeamPermitted
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - $(PREFIX)LRG_Grating_IN_RBV
       - bi
       - PRG_ZeroOrder_PMPS.bLRG_Grating_IN
       - | field: ONAM TRUE
@@ -73464,7 +73616,7 @@ Database Records
         | io: output
 
 
-    * - SIM:LRG_Grating_IN
+    * - $(PREFIX)LRG_Grating_IN
       - bo
       - PRG_ZeroOrder_PMPS.bLRG_Grating_IN
       - | field: ONAM TRUE
@@ -73472,7 +73624,7 @@ Database Records
         | io: output
 
 
-    * - SIM:MR1K1_Inserted_RBV
+    * - $(PREFIX)MR1K1_Inserted_RBV
       - bi
       - PRG_ZeroOrder_PMPS.bMR1K1_Inserted
       - | field: ONAM TRUE
@@ -73480,7 +73632,7 @@ Database Records
         | io: output
 
 
-    * - SIM:MR1K1_Inserted
+    * - $(PREFIX)MR1K1_Inserted
       - bo
       - PRG_ZeroOrder_PMPS.bMR1K1_Inserted
       - | field: ONAM TRUE
@@ -73488,7 +73640,7 @@ Database Records
         | io: output
 
 
-    * - SIM:SafeBenderRange_RBV
+    * - $(PREFIX)SafeBenderRange_RBV
       - bi
       - PRG_ZeroOrder_PMPS.bSafeBenderRange
       - | field: ONAM TRUE
@@ -73496,7 +73648,7 @@ Database Records
         | io: output
 
 
-    * - SIM:SafeBenderRange
+    * - $(PREFIX)SafeBenderRange
       - bo
       - PRG_ZeroOrder_PMPS.bSafeBenderRange
       - | field: ONAM TRUE
@@ -73504,7 +73656,7 @@ Database Records
         | io: output
 
 
-    * - SIM:ZOB_on_Lower_Stopper_RBV
+    * - :$(PREFIX)ZOB_on_Lower_Stopper_RBV
       - bi
       - PRG_ZeroOrder_PMPS.bZOB_on_Lower_Stopper
       - | field: ONAM TRUE
@@ -73512,7 +73664,7 @@ Database Records
         | io: output
 
 
-    * - SIM:ZOB_on_Lower_Stopper
+    * - :$(PREFIX)ZOB_on_Lower_Stopper
       - bo
       - PRG_ZeroOrder_PMPS.bZOB_on_Lower_Stopper
       - | field: ONAM TRUE
@@ -73520,7 +73672,7 @@ Database Records
         | io: output
 
 
-    * - SIM:ZOS_IN_RBV
+    * - $(PREFIX)ZOS_IN_RBV
       - bi
       - PRG_ZeroOrder_PMPS.bZOS_IN
       - | field: ONAM TRUE
@@ -73528,7 +73680,7 @@ Database Records
         | io: output
 
 
-    * - SIM:ZOS_IN
+    * - $(PREFIX)ZOS_IN
       - bo
       - PRG_ZeroOrder_PMPS.bZOS_IN
       - | field: ONAM TRUE
@@ -73536,19 +73688,23 @@ Database Records
         | io: output
 
 
-    * - SIM:ZeroOrderBeam_RBV
-      - bi
-      - PRG_ZeroOrder_PMPS.bZeroOrderBeam
-      - | field: ONAM TRUE
-        | field: ZNAM FALSE
+    * - $(PREFIX)MachineMode_RBV
+      - longin
+      - PRG_ZeroOrder_PMPS.nMachineMode
+      - | field: ONST SC
+        | field: THST UnInit
+        | field: TWST Misconfig
+        | field: ZRST NC
         | io: output
 
 
-    * - SIM:ZeroOrderBeam
-      - bo
-      - PRG_ZeroOrder_PMPS.bZeroOrderBeam
-      - | field: ONAM TRUE
-        | field: ZNAM FALSE
+    * - $(PREFIX)MachineMode
+      - longout
+      - PRG_ZeroOrder_PMPS.nMachineMode
+      - | field: ONST SC
+        | field: THST UnInit
+        | field: TWST Misconfig
+        | field: ZRST NC
         | io: output
 
 

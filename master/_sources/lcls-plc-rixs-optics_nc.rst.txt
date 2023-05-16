@@ -276,7 +276,8 @@ Axis 7: g_pi
     Dynamic:Deceleration, 2000
     Dynamic:Jerk, 3000
     Enc:EncType, 29
-    Enc:FilterTime:TPos, 0.02
+    Enc:FilterTime:TPos, 0.05
+    Enc:FilterTime:TVelo, 0.1
     Enc:Inc:RefSoftSyncMask, #x0000ffff
     Enc:MaxCount, #xffffffff
     Enc:Offset, -260.047
@@ -293,6 +294,8 @@ Axis 7: g_pi
     PositionAreaControl:Range, 0.05
     TargetPosControl:Range, 0.05
     TargetPosControl:Time, 0.5
+    Velo:FastManual, 200
+    Velo:Maximum, 500
 
 
 
@@ -1070,9 +1073,9 @@ Axis 31: M3K2-BEND-US
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 1e-06
     Enc:SoftEndMaxControl:Enable, true
-    Enc:SoftEndMaxControl:Range, 19.25
+    Enc:SoftEndMaxControl:Range, 16.9
     Enc:SoftEndMinControl:Enable, true
-    Enc:SoftEndMinControl:Range, 13.75
+    Enc:SoftEndMinControl:Range, 9.8
     Id, 31
     OtherSettings:AllowMotionCmdToSlave, true
     Velo:Maximum, 0.1
@@ -1103,9 +1106,9 @@ Axis 32: M3K2-BEND-DS
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 1e-06
     Enc:SoftEndMaxControl:Enable, true
-    Enc:SoftEndMaxControl:Range, 19.75
+    Enc:SoftEndMaxControl:Range, 15.9
     Enc:SoftEndMinControl:Enable, true
-    Enc:SoftEndMinControl:Range, 13.75
+    Enc:SoftEndMinControl:Range, 7.8
     Id, 32
     OtherSettings:AllowMotionCmdToSlave, true
     Velo:Maximum, 0.1
@@ -1237,9 +1240,9 @@ Axis 36: M4K2-BEND-US
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 1e-06
     Enc:SoftEndMaxControl:Enable, true
-    Enc:SoftEndMaxControl:Range, 14.7
+    Enc:SoftEndMaxControl:Range, 15.59
     Enc:SoftEndMinControl:Enable, true
-    Enc:SoftEndMinControl:Range, 5.75
+    Enc:SoftEndMinControl:Range, 8.6
     Id, 36
     OtherSettings:AllowMotionCmdToSlave, true
     Velo:Maximum, 0.04
@@ -1270,9 +1273,9 @@ Axis 37: M4K2-BEND-DS
     Enc:ReferenceSystem, 1
     Enc:ScaleFactorNumerator, 1e-06
     Enc:SoftEndMaxControl:Enable, true
-    Enc:SoftEndMaxControl:Range, 16.55
+    Enc:SoftEndMaxControl:Range, 17.75
     Enc:SoftEndMinControl:Enable, true
-    Enc:SoftEndMinControl:Range, 8
+    Enc:SoftEndMinControl:Range, 8.5
     Id, 37
     OtherSettings:AllowMotionCmdToSlave, true
     Velo:Maximum, 0.1

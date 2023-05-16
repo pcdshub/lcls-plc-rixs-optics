@@ -119,22 +119,6 @@ GVLs
 ----
 
 
-Global_Version
-^^^^^^^^^^^^^^
-
-::
-
-    {attribute 'TcGenerated'}
-    // This function has been automatically generated from the project information.
-    VAR_GLOBAL CONSTANT
-        {attribute 'const_non_replaced'}
-        {attribute 'linkalways'}
-        stLibVersion_rix_optics : ST_LibVersion := (iMajor := 2, iMinor := 2, iBuild := 1, iRevision := 0, sVersion := '2.2.1');
-    END_VAR
-
-
-
-
 GVL_COM_Buffers
 ^^^^^^^^^^^^^^^
 
@@ -710,7 +694,7 @@ Main
         {attribute 'pytmc' := 'pv: MR4K2:KBV:MMS:PITCH'}
         {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M4K2rX]^STM Status^Status^Digital input 1;
                                   .bLimitBackwardEnable:=TIIB[EL7041_M4K2rX]^STM Status^Status^Digital input 2;
-                                  .nRawEncoderULINT:=TIIB[EL5042_M4K2rY]^FB Inputs Channel 1^Position'}
+                                  .nRawEncoderULINT:=TIIB[EL5042_M4K2rX]^FB Inputs Channel 1^Position'}
         M35 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE); //Pitch mot
         fbMotionStageM35 : FB_MotionStage;
         {attribute 'pytmc' := '	pv: MR4K2:KBV:MMS:BEND:US'}
@@ -2663,7 +2647,7 @@ PRG_MR3K2_KBH
             '}
             fM3K2US_RTD_2 : REAL;
             {attribute 'pytmc' := '
-                pv: MR3K2:KBH:RTD:BEND:US:3
+                pv: MR3K2:KBH:RTD:CHIN:L
                 field: ASLO 0.01
                 field: EGU C
                 io: i
@@ -2679,7 +2663,7 @@ PRG_MR3K2_KBH
             '}
             fM3K2DS_RTD_1 : REAL;
             {attribute 'pytmc' := '
-                pv: MR3K2:KBH:RTD:BEND:DS:2
+                pv: MR3K2:KBH:RTD:CHIN:R
                 field: ASLO 0.01
                 field: EGU C
                 io: i
@@ -2959,6 +2943,26 @@ PRG_MR4K2_KBV
                 io: i
             '}
             fM4K2DS_RTD_3 : REAL;
+        {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3204_M4K2_CHIN]^RTD Inputs Channel 1^Value;
+                                  .bUnderrange := TIIB[EL3204_M4K2_CHIN]^RTD Inputs Channel 1^Status^Underrange;
+                                  .bOverrange := TIIB[EL3204_M4K2_CHIN]^RTD Inputs Channel 1^Status^Overrange;
+                                  .bError := TIIB[EL3204_M4K2_CHIN]^RTD Inputs Channel 1^Status^Error'}
+        {attribute 'pytmc' := '
+            pv: MR4K2:KBV:RTD:CHIN:R
+            field: EGU C
+            io: i
+        '}
+        nM4K2_Chin_Right_RTD : FB_TempSensor;
+        {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3204_M4K2_CHIN]^RTD Inputs Channel 2^Value;
+                                  .bUnderrange := TIIB[EL3204_M4K2_CHIN]^RTD Inputs Channel 2^Status^Underrange;
+                                  .bOverrange := TIIB[EL3204_M4K2_CHIN]^RTD Inputs Channel 2^Status^Overrange;
+                                  .bError := TIIB[EL3204_M4K2_CHIN]^RTD Inputs Channel 2^Status^Error'}
+        {attribute 'pytmc' := '
+            pv: MR4K2:KBV:RTD:CHIN:L
+            field: EGU C
+            io: i
+        '}
+        nM4K2_Chin_Left_RTD : FB_TempSensor;
 
         // RTD error bit
             bM4K2US_RTD_1_Err AT %I*: BOOL;
@@ -3055,6 +3059,9 @@ PRG_MR4K2_KBV
     // M4K2 Bender RTD interlocks
     M36.bHardwareEnable R= fM4K2US_RTD_1 > 9000 OR bM4K2US_RTD_1_Err;
     M37.bHardwareEnable R= fM4K2DS_RTD_1 > 9000 OR bM4K2DS_RTD_1_Err;
+
+    nM4K2_Chin_Right_RTD();
+    nM4K2_Chin_Left_RTD();
 
     (*
     //PMPS
@@ -3455,6 +3462,18 @@ PRG_SP1K1_MONO
         '}
         fSP1K1_Press_1_val : LREAL;
 
+        // SP1K1 Grating Mono Vibration Stats
+        fGpiEncoderPosDiff: LREAL;
+        afGpiPosDiffBuffer: ARRAY[1..1000] OF LREAL;
+        afGpiExtraBuffer: ARRAY[1..1000] OF LREAL;
+        fbGpiPosDiffCollect: FB_DataBuffer;
+        {attribute 'pytmc' := '
+            pv: SP1K1:MONO:MMS:G_PI:ENCDIFF
+        '}
+        fbGpiPosDiffStats: FB_BasicStats;
+        fGpiRangeMax: LREAL;
+        rtNewGpiMove: R_TRIG;
+        tonNewGpiMove: TON;
     END_VAR
     // SP1K1-MONO
     M6.bHardwareEnable := bSTOEnable1 AND bSTOEnable2;
@@ -3470,6 +3489,34 @@ PRG_SP1K1_MONO
     fbMotionStage_g_h  (stMotionStage:=M9);
     fbMotionStage_s_io  (stMotionStage:=M10);
     fbMotionStage_s_r  (stMotionStage:=M11);
+
+    fGpiEncoderPosDiff := M7.nEncoderCount - (M7.Axis.NcToPlc.SetPos - M7.stAxisParameters.fEncOffset) * 150;
+    fbGpiPosDiffCollect(
+        bExecute:=TRUE,
+        pInputAdr:=ADR(fGpiEncoderPosDiff),
+        iInputSize:=SIZEOF(fGpiEncoderPosDiff),
+        iElemCount:=1000,
+        pPartialAdr:=ADR(afGpiPosDiffBuffer),
+        pOutputAdr:=ADR(afGpiExtraBuffer),
+    );
+    fbGpiPosDiffStats(
+        aSignal:=afGpiPosDiffBuffer,
+        bAlwaysCalc:=TRUE,
+    );
+    rtNewGpiMove(CLK:=M7.bExecute);
+    tonNewGpiMove(
+        IN:=M7.bExecute,
+        PT:=T#15s,
+    );
+    IF rtNewGpiMove.Q THEN
+        // Reset before a move
+        fGpiRangeMax := 0;
+    ELSIF tonNewGpiMove.Q AND ABS(M7.fPosition - M7.stAxisStatus.fActPosition) > 5 THEN
+        // Update only during moves, not at the start or end
+        fGpiRangeMax := MAX(fGpiRangeMax, fbGpiPosDiffStats.fRange);
+    END_IF
+
+
 
     //S_R with no hardware limit switched
     M11.bLimitBackwardEnable := TRUE;
@@ -3661,46 +3708,57 @@ PRG_ZeroOrder_PMPS
             i_Desc := 'Faults when Zero order beam safe conditions are not met',
             i_TypeCode := 16#F506);
         {attribute 'pytmc' := '
-            pv: SIM:SafeBenderRange
+            pv: @(PREFIX)SafeBenderRange
             field: ZNAM FALSE
             field: ONAM TRUE
         '}
         bSafeBenderRange : BOOL;
 
         {attribute 'pytmc' := '
-            pv: SIM:LRG_Grating_IN
+            pv: @(PREFIX)LRG_Grating_IN
             field: ZNAM FALSE
             field: ONAM TRUE
         '}
         bLRG_Grating_IN : BOOL;
 
         {attribute 'pytmc' := '
-            pv: SIM:ZOS_IN
+            pv: @(PREFIX)ZOS_IN
             field: ZNAM FALSE
             field: ONAM TRUE
         '}
         bZOS_IN : BOOL;
 
         {attribute 'pytmc' := '
-            pv: SIM:ZOB_on_Lower_Stopper
+            pv: :@(PREFIX)ZOB_on_Lower_Stopper
             field: ZNAM FALSE
             field: ONAM TRUE
         '}
         bZOB_on_Lower_Stopper : BOOL;
 
         {attribute 'pytmc' := '
-            pv: SIM:MR1K1_Inserted
+            pv: @(PREFIX)MR1K1_Inserted
             field: ZNAM FALSE
             field: ONAM TRUE
         '}
         bMR1K1_Inserted : BOOL;
 
+
+
         {attribute 'pytmc' := '
-            pv: SIM:ZeroOrderBeam
+            pv: @(PREFIX)MachineMode
+            field: ZRST NC
+            field: ONST SC
+            field: TWST Misconfig
+            field: THST UnInit
+        '}
+        nMachineMode : INT;
+
+        {attribute 'pytmc' := '
+            pv: @(PREFIX)BeamPermitted
             field: ZNAM FALSE
             field: ONAM TRUE
         '}
-        bZeroOrderBeam : BOOL;
+        bBeamPermitted : BOOL;
 
 
         Pm3 : LREAL;
@@ -3737,30 +3795,32 @@ PRG_ZeroOrder_PMPS
         Zmon : LREAL:=739.622;//m
         Zpiv : LREAL:= 739.762 ; //m
         Zzos : LREAL:= 741.422;//m
+        Pm1Offset: LREAL:= 18181;//=18310-129
+        Pm2Offset: LREAL:= -90641;
+        Pm3Offset: LREAL:= -63300;//urad, could depend on the inserted grating
     END_VAR
-    ffZeroOrderBeam.i_xOK := SafeBenderRange() OR (bLRG_Grating_IN AND bZOS_IN AND bZeroOrderBeam AND MR1K1_Inserted());
+    ffZeroOrderBeam.i_xOK := (SafeBenderRange() AND (((PMPS_GVL.stCurrentBeamParameters.nMachineMode =1(*SC*)) AND (PMPS_GVL.stCurrentBeamParameters.nBeamClass <=6)) OR (PMPS_GVL.stCurrentBeamParameters.nMachineMode =0(*NC*))))
+                    OR (bLRG_Grating_IN AND bZOS_IN AND bZOB_on_Lower_Stopper AND MR1K1_Inserted()(*NC or SC Any Beamclass with beam at ZOS*));
     ffZeroOrderBeam(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
-    bZOB_on_Lower_Stopper := ffZeroOrderBeam.i_xOK;
+    bBeamPermitted := ffZeroOrderBeam.i_xOK;
 
     //Diagnostics
     bSafeBenderRange := SafeBenderRange();
-    //bLRG_Grating_IN := LRG_Grating_IN();
-    //bZOS_IN := ZOS_IN();
-    bZOB_on_Lower_Stopper := ZOB_on_Lower_Stopper();
+    nMachineMode := PMPS_GVL.stCurrentBeamParameters.nMachineMode;
     bMR1K1_Inserted := MR1K1_Inserted();
-    //bZeroOrderBeam := ffZeroOrderBeam.i_xOK;
 
 
 
 
-    //TRUE if hb0m3(Zzoz) - Hzos > D
+
+    //TRUE if Hzos - hb0m3(Zzoz)  > D
     Ans := (Hzos*1E3) - Hb0m3; //um
     IF GVL_PMPS.rPhotonEnergy <550 THEN
-        bZeroOrderBeam := Ans > 3*1E3;
+        bZOB_on_Lower_Stopper := Ans > 3*1E3;
         ELSIF GVL_PMPS.rPhotonEnergy <1000 THEN
-            bZeroOrderBeam := Ans >  2.5*1E3;
+            bZOB_on_Lower_Stopper := Ans >  2.5*1E3;
         ELSIF GVL_PMPS.rPhotonEnergy >=1000 THEN
-            bZeroOrderBeam := Ans >  2*1E3;
+            bZOB_on_Lower_Stopper := Ans >  2*1E3;
     END_IF
 
     //
@@ -3775,16 +3835,16 @@ PRG_ZeroOrder_PMPS
     ///calc
     //Hm1 = 1400000+mr1k1 ben Y up
     Hm1:= 1400000+M12.fPosition; //um
-    //Pm1 = 18310 - 281 + mr1k1 bend pitch
-    Pm1 := 18310 - 281 + Main.M16.fPosition; //urad
+    //Pm1 = Pm1Offset + mr1k1 bend pitch
+    Pm1 := Pm1Offset + Main.M16.fPosition; //urad
     //Hpiv = 1.620305 + 0.001 // m 0.001 is correction from nominal
     Hpiv:= (1.620305 + 0.001)*1E6; //um
-    //Pm2 = mono mirror pitch - 90700 urad
-    Pm2 := Main.M6.fPosition - 90700;//urad
+    //Pm2 = mono mirror pitch + Pm2Offset urad
+    Pm2 := Main.M6.fPosition + Pm2Offset;//urad
     //Hm3 = Hpiv + 0.006 m
     Hm3:= Hpiv + (0.006*1E6); //um
-    //Pm3 = mono grating pitch - 63300 urad
-    Pm3 := Main.M7.fPosition - 63300; //urad
+    //Pm3 = mono grating pitch + Pm3Offset urad
+    Pm3 := Main.M7.fPosition + Pm3Offset; //urad
     //Hzos = 1824.3 + st1k1_zos mm
     Hzos:= 1824.3 + M24.fPosition; //mm
 
@@ -3839,87 +3899,6 @@ PRG_ZeroOrder_PMPS
     END_VAR
     SafeBenderRange :=  GVL_M1K1_BENDER_Constants.nM1K1bendUS_PMPS_LowerLimit < M17.nEncoderCount AND M17.nEncoderCount < GVL_M1K1_BENDER_Constants.nM1K1bendUS_PMPS_UpperLimit AND
         GVL_M1K1_BENDER_Constants.nM1K1bendDS_PMPS_LowerLimit < M18.nEncoderCount AND M18.nEncoderCount < GVL_M1K1_BENDER_Constants.nM1K1bendDS_PMPS_UpperLimit;
-    END_METHOD
-
-    METHOD ZOB_on_Lower_Stopper : BOOL
-    VAR_INPUT
-    END_VAR
-    VAR
-        Pm3 : LREAL;
-        Pm2: LREAL;
-        Pm1: LREAL;
-        Hm1: LREAL;
-        HZos:LREAL;
-        Zbm1: LREAL;
-        Zbm2: LREAL;
-        Zbm3: LREAL;
-        Hbm1: LREAL;
-        Hbm2: LREAL;
-        Hbm3: LREAL;
-        Hb0m3:LREAL;
-        //fixed calc
-        Hm3	 : LREAL;
-        Hpiv : LREAL;
-        Theta_m1: LREAL;
-        Theta_m2: LREAL;
-        Theta_m3: LREAL;
-        Delta : LREAL;
-        Ans : LREAL;
-    END_VAR
-
-    VAR CONSTANT
-        Hi2 :LREAL:=1.4;//m
-        Zi2: LREAL :=731.613;//m
-        Theta0 : LREAL:=0;
-        Zm1 : LREAL:=733.772;//m
-        Zmon : LREAL:=739.622;//m
-        Zpiv : LREAL:= 739.622 ; //m
-        Zzos : LREAL:= 741.422;//m
-    END_VAR
-    //Hm1 = 1400000+mr1k1 ben Y up
-    Hm1:= 1400000+M12.fPosition; //um
-    //Pm1 = 18310 - 281 + mr1k1 bend pitch
-    Pm1 := 18310 - 281 + Main.M16.fPosition; //urad
-    //Hpiv = 1.620305 + 0.001 // m 0.001 is correction from nominal
-    Hpiv:= (1.620305 + 0.001)*1E6; //um
-    //Pm2 = mono mirror pitch - 90700 urad
-    Pm2 := Main.M6.fPosition - 90700;//urad
-    //Hm3 = Hpiv + 0.006 m
-    Hm3:= Hpiv + (0.006*1E6); //um
-    //Pm3 = mono grating pitch - 63300 urad
-    Pm3 := Main.M7.fPosition - 63300; //urad
-    //Hzos = 1824.3 + st1k1_zos mm
-    Hzos:= 1824.3 + M24.fPosition; //mm
-
-
-    //urad
-    Theta_m1 := 2*Pm1 - Theta0;
-    Theta_m2 := 2*Pm2 - Theta_m1;
-    Theta_m3 := 2 *Pm3 - 2 * Pm2 + 2* Pm1 - Theta0;
-
-    // fix units
-    //um
-    Zbm1 := (Hm1 - TAN(Pm1)* (Zm1*1E6) - (Hi2*1E6) + TAN(Theta0) *(Zi2*1E6))/(TAN(Theta0) - TAN(Pm1));
-    hbm1 := TAN(Pm1)*Zbm1 + Hm1 - TAN(Pm1)*(Zm1*1E6);
-    //u?
-    Zbm2 := (Hbm1 - TAN(Theta_m1)*Zbm1 - Hpiv + TAN(Pm2)*(Zpiv*1E6))/ (TAN(Pm2) - TAN(Theta_m1));
-    Hbm2 := TAN(Pm2)*Zbm2 + Hpiv - TAN(Pm2)*(Zpiv*1E6);
-
-    Zbm3 := (Hbm2 - TAN(Theta_m2)*Zbm2 - Hm3 + TAN(Pm3)*(Zpiv*1E6))/ (TAN(Pm3) - TAN(Theta_m2));
-    Hbm3 := TAN(Pm3) * Zbm3 + Hm3 - TAN(Pm3)*(Zpiv*1E6);
-
-    Hb0m3 := TAN(Theta_m3)*(Zzos*1E6) + Hbm3 - TAN(Theta_m3)*Zbm3;
-
-
-    //TRUE if hb0m3(Zzoz) - Hzos > D
-    Ans := Hb0m3 - (Hzos*1E3); //um
-    IF GVL_PMPS.rPhotonEnergy <550 THEN
-        ZOB_on_Lower_Stopper := Ans > 6*1E3;
-        ELSIF GVL_PMPS.rPhotonEnergy <1000 THEN
-            ZOB_on_Lower_Stopper := Ans >  3.2*1E3;
-        ELSIF GVL_PMPS.rPhotonEnergy >=1000 THEN
-            ZOB_on_Lower_Stopper := Ans >  2.5*1E3;
-    END_IF
     END_METHOD
 
 

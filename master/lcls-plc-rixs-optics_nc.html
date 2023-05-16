@@ -11,12 +11,12 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
-        <script src="_static/docs-versions-menu.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/docs-versions-menu.js?v=3d6a1aea"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -131,7 +131,7 @@
            <div itemprop="articleBody">
              
   <section id="nc-settings">
-<h1>NC Settings<a class="headerlink" href="#nc-settings" title="Permalink to this heading"></a></h1>
+<h1>NC Settings<a class="headerlink" href="#nc-settings" title="Link to this heading"></a></h1>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Axis ID</p></th>
@@ -262,7 +262,7 @@
 </tbody>
 </table>
 <section id="axis-1-m1k2-yleft">
-<h2>Axis 1: M1K2-Yleft<a class="headerlink" href="#axis-1-m1k2-yleft" title="Permalink to this heading"></a></h2>
+<h2>Axis 1: M1K2-Yleft<a class="headerlink" href="#axis-1-m1k2-yleft" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -349,7 +349,7 @@
 </table>
 </section>
 <section id="axis-2-m1k2-yright">
-<h2>Axis 2: M1K2-Yright<a class="headerlink" href="#axis-2-m1k2-yright" title="Permalink to this heading"></a></h2>
+<h2>Axis 2: M1K2-Yright<a class="headerlink" href="#axis-2-m1k2-yright" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -436,7 +436,7 @@
 </table>
 </section>
 <section id="axis-3-m1k2-xup">
-<h2>Axis 3: M1K2-Xup<a class="headerlink" href="#axis-3-m1k2-xup" title="Permalink to this heading"></a></h2>
+<h2>Axis 3: M1K2-Xup<a class="headerlink" href="#axis-3-m1k2-xup" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -529,7 +529,7 @@
 </table>
 </section>
 <section id="axis-4-m1k2-xdwn">
-<h2>Axis 4: M1K2-Xdwn<a class="headerlink" href="#axis-4-m1k2-xdwn" title="Permalink to this heading"></a></h2>
+<h2>Axis 4: M1K2-Xdwn<a class="headerlink" href="#axis-4-m1k2-xdwn" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -622,7 +622,7 @@
 </table>
 </section>
 <section id="axis-5-m1k2-pitch">
-<h2>Axis 5: M1K2-Pitch<a class="headerlink" href="#axis-5-m1k2-pitch" title="Permalink to this heading"></a></h2>
+<h2>Axis 5: M1K2-Pitch<a class="headerlink" href="#axis-5-m1k2-pitch" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -709,7 +709,7 @@
 </table>
 </section>
 <section id="axis-6-m-pi">
-<h2>Axis 6: m_pi<a class="headerlink" href="#axis-6-m-pi" title="Permalink to this heading"></a></h2>
+<h2>Axis 6: m_pi<a class="headerlink" href="#axis-6-m-pi" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -787,7 +787,7 @@
 </table>
 </section>
 <section id="axis-7-g-pi">
-<h2>Axis 7: g_pi<a class="headerlink" href="#axis-7-g-pi" title="Permalink to this heading"></a></h2>
+<h2>Axis 7: g_pi<a class="headerlink" href="#axis-7-g-pi" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -823,61 +823,70 @@
 <td><p>29</p></td>
 </tr>
 <tr class="row-odd"><td><p>Enc:FilterTime:TPos</p></td>
-<td><p>0.02</p></td>
+<td><p>0.05</p></td>
 </tr>
-<tr class="row-even"><td><p>Enc:Inc:RefSoftSyncMask</p></td>
+<tr class="row-even"><td><p>Enc:FilterTime:TVelo</p></td>
+<td><p>0.1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Enc:Inc:RefSoftSyncMask</p></td>
 <td><p>#x0000ffff</p></td>
 </tr>
-<tr class="row-odd"><td><p>Enc:MaxCount</p></td>
+<tr class="row-even"><td><p>Enc:MaxCount</p></td>
 <td><p>#xffffffff</p></td>
 </tr>
-<tr class="row-even"><td><p>Enc:Offset</p></td>
+<tr class="row-odd"><td><p>Enc:Offset</p></td>
 <td><p>-260.047</p></td>
 </tr>
-<tr class="row-odd"><td><p>Enc:ScaleFactorDenominator</p></td>
+<tr class="row-even"><td><p>Enc:ScaleFactorDenominator</p></td>
 <td><p>150</p></td>
 </tr>
-<tr class="row-even"><td><p>Enc:ScaleFactorNumerator</p></td>
+<tr class="row-odd"><td><p>Enc:ScaleFactorNumerator</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-odd"><td><p>Enc:SoftEndMaxControl:Enable</p></td>
+<tr class="row-even"><td><p>Enc:SoftEndMaxControl:Enable</p></td>
 <td><p>true</p></td>
 </tr>
-<tr class="row-even"><td><p>Enc:SoftEndMaxControl:Range</p></td>
+<tr class="row-odd"><td><p>Enc:SoftEndMaxControl:Range</p></td>
 <td><p>176006</p></td>
 </tr>
-<tr class="row-odd"><td><p>Enc:SoftEndMinControl:Enable</p></td>
+<tr class="row-even"><td><p>Enc:SoftEndMinControl:Enable</p></td>
 <td><p>true</p></td>
 </tr>
-<tr class="row-even"><td><p>Enc:SoftEndMinControl:Range</p></td>
+<tr class="row-odd"><td><p>Enc:SoftEndMinControl:Range</p></td>
 <td><p>123375</p></td>
 </tr>
-<tr class="row-odd"><td><p>General:UnitName</p></td>
+<tr class="row-even"><td><p>General:UnitName</p></td>
 <td><p>urad</p></td>
 </tr>
-<tr class="row-even"><td><p>Id</p></td>
+<tr class="row-odd"><td><p>Id</p></td>
 <td><p>7</p></td>
 </tr>
-<tr class="row-odd"><td><p>MotionControl:Time</p></td>
+<tr class="row-even"><td><p>MotionControl:Time</p></td>
 <td><p>1</p></td>
 </tr>
-<tr class="row-even"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
+<tr class="row-odd"><td><p>OtherSettings:AllowMotionCmdToSlave</p></td>
 <td><p>true</p></td>
 </tr>
-<tr class="row-odd"><td><p>PositionAreaControl:Range</p></td>
+<tr class="row-even"><td><p>PositionAreaControl:Range</p></td>
 <td><p>0.05</p></td>
 </tr>
-<tr class="row-even"><td><p>TargetPosControl:Range</p></td>
+<tr class="row-odd"><td><p>TargetPosControl:Range</p></td>
 <td><p>0.05</p></td>
 </tr>
-<tr class="row-odd"><td><p>TargetPosControl:Time</p></td>
+<tr class="row-even"><td><p>TargetPosControl:Time</p></td>
 <td><p>0.5</p></td>
+</tr>
+<tr class="row-odd"><td><p>Velo:FastManual</p></td>
+<td><p>200</p></td>
+</tr>
+<tr class="row-even"><td><p>Velo:Maximum</p></td>
+<td><p>500</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="axis-8-m-h">
-<h2>Axis 8: m_h<a class="headerlink" href="#axis-8-m-h" title="Permalink to this heading"></a></h2>
+<h2>Axis 8: m_h<a class="headerlink" href="#axis-8-m-h" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -943,7 +952,7 @@
 </table>
 </section>
 <section id="axis-9-g-h">
-<h2>Axis 9: g_h<a class="headerlink" href="#axis-9-g-h" title="Permalink to this heading"></a></h2>
+<h2>Axis 9: g_h<a class="headerlink" href="#axis-9-g-h" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -1018,7 +1027,7 @@
 </table>
 </section>
 <section id="axis-10-s-io">
-<h2>Axis 10: s_io<a class="headerlink" href="#axis-10-s-io" title="Permalink to this heading"></a></h2>
+<h2>Axis 10: s_io<a class="headerlink" href="#axis-10-s-io" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -1078,7 +1087,7 @@
 </table>
 </section>
 <section id="axis-11-s-r">
-<h2>Axis 11: s_r<a class="headerlink" href="#axis-11-s-r" title="Permalink to this heading"></a></h2>
+<h2>Axis 11: s_r<a class="headerlink" href="#axis-11-s-r" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -1138,7 +1147,7 @@
 </table>
 </section>
 <section id="axis-12-m1k1-yup">
-<h2>Axis 12: M1K1-Yup<a class="headerlink" href="#axis-12-m1k1-yup" title="Permalink to this heading"></a></h2>
+<h2>Axis 12: M1K1-Yup<a class="headerlink" href="#axis-12-m1k1-yup" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -1219,7 +1228,7 @@
 </table>
 </section>
 <section id="axis-13-m1k1-ydwn">
-<h2>Axis 13: M1K1-Ydwn<a class="headerlink" href="#axis-13-m1k1-ydwn" title="Permalink to this heading"></a></h2>
+<h2>Axis 13: M1K1-Ydwn<a class="headerlink" href="#axis-13-m1k1-ydwn" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -1288,7 +1297,7 @@
 </table>
 </section>
 <section id="axis-14-m1k1-xup">
-<h2>Axis 14: M1K1-Xup<a class="headerlink" href="#axis-14-m1k1-xup" title="Permalink to this heading"></a></h2>
+<h2>Axis 14: M1K1-Xup<a class="headerlink" href="#axis-14-m1k1-xup" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -1375,7 +1384,7 @@
 </table>
 </section>
 <section id="axis-15-m1k1-xdwn">
-<h2>Axis 15: M1K1-Xdwn<a class="headerlink" href="#axis-15-m1k1-xdwn" title="Permalink to this heading"></a></h2>
+<h2>Axis 15: M1K1-Xdwn<a class="headerlink" href="#axis-15-m1k1-xdwn" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -1450,7 +1459,7 @@
 </table>
 </section>
 <section id="axis-16-m1k1-pitch">
-<h2>Axis 16: M1K1-Pitch<a class="headerlink" href="#axis-16-m1k1-pitch" title="Permalink to this heading"></a></h2>
+<h2>Axis 16: M1K1-Pitch<a class="headerlink" href="#axis-16-m1k1-pitch" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -1531,7 +1540,7 @@
 </table>
 </section>
 <section id="axis-17-m1k1-bend-us">
-<h2>Axis 17: M1K1-BEND-US<a class="headerlink" href="#axis-17-m1k1-bend-us" title="Permalink to this heading"></a></h2>
+<h2>Axis 17: M1K1-BEND-US<a class="headerlink" href="#axis-17-m1k1-bend-us" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -1612,7 +1621,7 @@
 </table>
 </section>
 <section id="axis-18-m1k1-bend-ds">
-<h2>Axis 18: M1K1-BEND-DS<a class="headerlink" href="#axis-18-m1k1-bend-ds" title="Permalink to this heading"></a></h2>
+<h2>Axis 18: M1K1-BEND-DS<a class="headerlink" href="#axis-18-m1k1-bend-ds" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -1690,7 +1699,7 @@
 </table>
 </section>
 <section id="axis-19-sl1k2-pitch-m19">
-<h2>Axis 19: SL1K2-Pitch-M19<a class="headerlink" href="#axis-19-sl1k2-pitch-m19" title="Permalink to this heading"></a></h2>
+<h2>Axis 19: SL1K2-Pitch-M19<a class="headerlink" href="#axis-19-sl1k2-pitch-m19" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -1780,7 +1789,7 @@
 </table>
 </section>
 <section id="axis-20-sl1k2-vert-m20">
-<h2>Axis 20: SL1K2-Vert-M20<a class="headerlink" href="#axis-20-sl1k2-vert-m20" title="Permalink to this heading"></a></h2>
+<h2>Axis 20: SL1K2-Vert-M20<a class="headerlink" href="#axis-20-sl1k2-vert-m20" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -1864,7 +1873,7 @@
 </table>
 </section>
 <section id="axis-21-sl1k2-roll-m21">
-<h2>Axis 21: SL1K2-Roll-M21<a class="headerlink" href="#axis-21-sl1k2-roll-m21" title="Permalink to this heading"></a></h2>
+<h2>Axis 21: SL1K2-Roll-M21<a class="headerlink" href="#axis-21-sl1k2-roll-m21" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -1957,7 +1966,7 @@
 </table>
 </section>
 <section id="axis-22-sl1k2-crystalgap-m22">
-<h2>Axis 22: SL1K2-CrystalGap-M22<a class="headerlink" href="#axis-22-sl1k2-crystalgap-m22" title="Permalink to this heading"></a></h2>
+<h2>Axis 22: SL1K2-CrystalGap-M22<a class="headerlink" href="#axis-22-sl1k2-crystalgap-m22" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -2047,7 +2056,7 @@
 </table>
 </section>
 <section id="axis-23-sl1k2-yag-m23">
-<h2>Axis 23: SL1K2-YAG-M23<a class="headerlink" href="#axis-23-sl1k2-yag-m23" title="Permalink to this heading"></a></h2>
+<h2>Axis 23: SL1K2-YAG-M23<a class="headerlink" href="#axis-23-sl1k2-yag-m23" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -2131,7 +2140,7 @@
 </table>
 </section>
 <section id="axis-24-axis-24-st1k1-zos-mms">
-<h2>Axis 24: Axis 24 ST1K1-ZOS-MMS<a class="headerlink" href="#axis-24-axis-24-st1k1-zos-mms" title="Permalink to this heading"></a></h2>
+<h2>Axis 24: Axis 24 ST1K1-ZOS-MMS<a class="headerlink" href="#axis-24-axis-24-st1k1-zos-mms" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -2212,7 +2221,7 @@
 </table>
 </section>
 <section id="axis-25-m2k2-x">
-<h2>Axis 25: M2K2 X<a class="headerlink" href="#axis-25-m2k2-x" title="Permalink to this heading"></a></h2>
+<h2>Axis 25: M2K2 X<a class="headerlink" href="#axis-25-m2k2-x" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -2296,7 +2305,7 @@
 </table>
 </section>
 <section id="axis-26-m2k2-y">
-<h2>Axis 26: M2K2 Y<a class="headerlink" href="#axis-26-m2k2-y" title="Permalink to this heading"></a></h2>
+<h2>Axis 26: M2K2 Y<a class="headerlink" href="#axis-26-m2k2-y" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -2380,7 +2389,7 @@
 </table>
 </section>
 <section id="axis-27-m2k2-rx">
-<h2>Axis 27: M2K2 rX<a class="headerlink" href="#axis-27-m2k2-rx" title="Permalink to this heading"></a></h2>
+<h2>Axis 27: M2K2 rX<a class="headerlink" href="#axis-27-m2k2-rx" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -2464,7 +2473,7 @@
 </table>
 </section>
 <section id="axis-28-m3k2-x">
-<h2>Axis 28: M3K2 X<a class="headerlink" href="#axis-28-m3k2-x" title="Permalink to this heading"></a></h2>
+<h2>Axis 28: M3K2 X<a class="headerlink" href="#axis-28-m3k2-x" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -2545,7 +2554,7 @@
 </table>
 </section>
 <section id="axis-29-m3k2-y">
-<h2>Axis 29: M3K2 Y<a class="headerlink" href="#axis-29-m3k2-y" title="Permalink to this heading"></a></h2>
+<h2>Axis 29: M3K2 Y<a class="headerlink" href="#axis-29-m3k2-y" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -2629,7 +2638,7 @@
 </table>
 </section>
 <section id="axis-30-m3k2-ry">
-<h2>Axis 30: M3K2 rY<a class="headerlink" href="#axis-30-m3k2-ry" title="Permalink to this heading"></a></h2>
+<h2>Axis 30: M3K2 rY<a class="headerlink" href="#axis-30-m3k2-ry" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -2713,7 +2722,7 @@
 </table>
 </section>
 <section id="axis-31-m3k2-bend-us">
-<h2>Axis 31: M3K2-BEND-US<a class="headerlink" href="#axis-31-m3k2-bend-us" title="Permalink to this heading"></a></h2>
+<h2>Axis 31: M3K2-BEND-US<a class="headerlink" href="#axis-31-m3k2-bend-us" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -2773,13 +2782,13 @@
 <td><p>true</p></td>
 </tr>
 <tr class="row-odd"><td><p>Enc:SoftEndMaxControl:Range</p></td>
-<td><p>19.25</p></td>
+<td><p>16.9</p></td>
 </tr>
 <tr class="row-even"><td><p>Enc:SoftEndMinControl:Enable</p></td>
 <td><p>true</p></td>
 </tr>
 <tr class="row-odd"><td><p>Enc:SoftEndMinControl:Range</p></td>
-<td><p>13.75</p></td>
+<td><p>9.8</p></td>
 </tr>
 <tr class="row-even"><td><p>Id</p></td>
 <td><p>31</p></td>
@@ -2794,7 +2803,7 @@
 </table>
 </section>
 <section id="axis-32-m3k2-bend-ds">
-<h2>Axis 32: M3K2-BEND-DS<a class="headerlink" href="#axis-32-m3k2-bend-ds" title="Permalink to this heading"></a></h2>
+<h2>Axis 32: M3K2-BEND-DS<a class="headerlink" href="#axis-32-m3k2-bend-ds" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -2854,13 +2863,13 @@
 <td><p>true</p></td>
 </tr>
 <tr class="row-odd"><td><p>Enc:SoftEndMaxControl:Range</p></td>
-<td><p>19.75</p></td>
+<td><p>15.9</p></td>
 </tr>
 <tr class="row-even"><td><p>Enc:SoftEndMinControl:Enable</p></td>
 <td><p>true</p></td>
 </tr>
 <tr class="row-odd"><td><p>Enc:SoftEndMinControl:Range</p></td>
-<td><p>13.75</p></td>
+<td><p>7.8</p></td>
 </tr>
 <tr class="row-even"><td><p>Id</p></td>
 <td><p>32</p></td>
@@ -2875,7 +2884,7 @@
 </table>
 </section>
 <section id="axis-33-m4k2-x">
-<h2>Axis 33: M4K2 X<a class="headerlink" href="#axis-33-m4k2-x" title="Permalink to this heading"></a></h2>
+<h2>Axis 33: M4K2 X<a class="headerlink" href="#axis-33-m4k2-x" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -2956,7 +2965,7 @@
 </table>
 </section>
 <section id="axis-34-m4k2-y">
-<h2>Axis 34: M4K2 Y<a class="headerlink" href="#axis-34-m4k2-y" title="Permalink to this heading"></a></h2>
+<h2>Axis 34: M4K2 Y<a class="headerlink" href="#axis-34-m4k2-y" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -3040,7 +3049,7 @@
 </table>
 </section>
 <section id="axis-35-m4k2-rx">
-<h2>Axis 35: M4K2 rX<a class="headerlink" href="#axis-35-m4k2-rx" title="Permalink to this heading"></a></h2>
+<h2>Axis 35: M4K2 rX<a class="headerlink" href="#axis-35-m4k2-rx" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -3124,7 +3133,7 @@
 </table>
 </section>
 <section id="axis-36-m4k2-bend-us">
-<h2>Axis 36: M4K2-BEND-US<a class="headerlink" href="#axis-36-m4k2-bend-us" title="Permalink to this heading"></a></h2>
+<h2>Axis 36: M4K2-BEND-US<a class="headerlink" href="#axis-36-m4k2-bend-us" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -3184,13 +3193,13 @@
 <td><p>true</p></td>
 </tr>
 <tr class="row-odd"><td><p>Enc:SoftEndMaxControl:Range</p></td>
-<td><p>14.7</p></td>
+<td><p>15.59</p></td>
 </tr>
 <tr class="row-even"><td><p>Enc:SoftEndMinControl:Enable</p></td>
 <td><p>true</p></td>
 </tr>
 <tr class="row-odd"><td><p>Enc:SoftEndMinControl:Range</p></td>
-<td><p>5.75</p></td>
+<td><p>8.6</p></td>
 </tr>
 <tr class="row-even"><td><p>Id</p></td>
 <td><p>36</p></td>
@@ -3205,7 +3214,7 @@
 </table>
 </section>
 <section id="axis-37-m4k2-bend-ds">
-<h2>Axis 37: M4K2-BEND-DS<a class="headerlink" href="#axis-37-m4k2-bend-ds" title="Permalink to this heading"></a></h2>
+<h2>Axis 37: M4K2-BEND-DS<a class="headerlink" href="#axis-37-m4k2-bend-ds" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -3265,13 +3274,13 @@
 <td><p>true</p></td>
 </tr>
 <tr class="row-odd"><td><p>Enc:SoftEndMaxControl:Range</p></td>
-<td><p>16.55</p></td>
+<td><p>17.75</p></td>
 </tr>
 <tr class="row-even"><td><p>Enc:SoftEndMinControl:Enable</p></td>
 <td><p>true</p></td>
 </tr>
 <tr class="row-odd"><td><p>Enc:SoftEndMinControl:Range</p></td>
-<td><p>8</p></td>
+<td><p>8.5</p></td>
 </tr>
 <tr class="row-even"><td><p>Id</p></td>
 <td><p>37</p></td>
@@ -3286,7 +3295,7 @@
 </table>
 </section>
 <section id="axis-200-enc-mpi-up">
-<h2>Axis 200: enc_mpi_up<a class="headerlink" href="#axis-200-enc-mpi-up" title="Permalink to this heading"></a></h2>
+<h2>Axis 200: enc_mpi_up<a class="headerlink" href="#axis-200-enc-mpi-up" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -3331,7 +3340,7 @@
 </table>
 </section>
 <section id="axis-201-enc-gpi-up">
-<h2>Axis 201: enc_gpi_up<a class="headerlink" href="#axis-201-enc-gpi-up" title="Permalink to this heading"></a></h2>
+<h2>Axis 201: enc_gpi_up<a class="headerlink" href="#axis-201-enc-gpi-up" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
@@ -3376,7 +3385,7 @@
 </table>
 </section>
 <section id="axis-202-g-h-enc-axis">
-<h2>Axis 202: g_h_enc-axis<a class="headerlink" href="#axis-202-g-h-enc-axis" title="Permalink to this heading"></a></h2>
+<h2>Axis 202: g_h_enc-axis<a class="headerlink" href="#axis-202-g-h-enc-axis" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting</p></th>
