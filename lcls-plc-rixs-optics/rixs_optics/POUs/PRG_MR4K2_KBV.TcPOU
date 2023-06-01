@@ -150,6 +150,26 @@ VAR
             io: i
         '}
         fM4K2DS_RTD_3 : REAL;
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3204_M4K2_CHIN]^RTD Inputs Channel 1^Value;
+                              .bUnderrange := TIIB[EL3204_M4K2_CHIN]^RTD Inputs Channel 1^Status^Underrange;
+                              .bOverrange := TIIB[EL3204_M4K2_CHIN]^RTD Inputs Channel 1^Status^Overrange;
+                              .bError := TIIB[EL3204_M4K2_CHIN]^RTD Inputs Channel 1^Status^Error'}
+    {attribute 'pytmc' := '
+        pv: MR4K2:KBV:RTD:CHIN:R
+        field: EGU C
+        io: i
+    '}
+    nM4K2_Chin_Right_RTD : FB_TempSensor;
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3204_M4K2_CHIN]^RTD Inputs Channel 2^Value;
+                              .bUnderrange := TIIB[EL3204_M4K2_CHIN]^RTD Inputs Channel 2^Status^Underrange;
+                              .bOverrange := TIIB[EL3204_M4K2_CHIN]^RTD Inputs Channel 2^Status^Overrange;
+                              .bError := TIIB[EL3204_M4K2_CHIN]^RTD Inputs Channel 2^Status^Error'}
+    {attribute 'pytmc' := '
+        pv: MR4K2:KBV:RTD:CHIN:L
+        field: EGU C
+        io: i
+    '}
+    nM4K2_Chin_Left_RTD : FB_TempSensor;
 
     // RTD error bit
         bM4K2US_RTD_1_Err AT %I*: BOOL;
@@ -245,8 +265,11 @@ bM4K2DS_RTD_2_Err := fM4K2DS_RTD_2 = 0;
 bM4K2DS_RTD_3_Err := fM4K2DS_RTD_3 = 0;
 
 // M4K2 Bender RTD interlocks
-//M36.bHardwareEnable R= fM4K2US_RTD_1 > 9000 OR bM4K2US_RTD_1_Err;
+M36.bHardwareEnable R= fM4K2US_RTD_1 > 9000 OR bM4K2US_RTD_1_Err;
 M37.bHardwareEnable R= fM4K2DS_RTD_1 > 9000 OR bM4K2DS_RTD_1_Err;
+
+nM4K2_Chin_Right_RTD();
+nM4K2_Chin_Left_RTD();
 
 (*
 //PMPS
