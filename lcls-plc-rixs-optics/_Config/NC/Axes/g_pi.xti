@@ -1326,6 +1326,7 @@ External Setpoint Generation:
 		<AxisPara>
 			<General UnitName="urad"/>
 			<Dynamic Acceleration="2000" Deceleration="2000" Jerk="3000"/>
+			<Velo FastManual="200" Maximum="500"/>
 			<PositionAreaControl Range="0.05"/>
 			<MotionControl Time="1"/>
 			<TargetPosControl Range="0.05" Time="0.5"/>
@@ -1333,7 +1334,7 @@ External Setpoint Generation:
 		</AxisPara>
 		<Encoder Name="e_dwn" EncType="29">
 			<EncPara ScaleFactorNumerator="1" ScaleFactorDenominator="150" Offset="-260.047" MaxCount="#xffffffff">
-				<FilterTime TPos="0.02"/>
+				<FilterTime TPos="0.05" TVelo="0.1"/>
 				<SoftEndMinControl Enable="true" Range="123375"/>
 				<SoftEndMaxControl Enable="true" Range="176006"/>
 				<Inc RefSoftSyncMask="#x0000ffff"/>
@@ -1380,7 +1381,7 @@ External Setpoint Generation:
 		</Encoder>
 		<Drive Name="Drive" DrvType="24">
 			<DrvPara>
-				<Analog VeloReferenz="1479" ScaleFactorActTorque="0.1"/>
+				<Analog VeloReferenz="739.645" ScaleFactorActTorque="0.1"/>
 				<TimeComp TaskDelayCycles="1"/>
 			</DrvPara>
 			<Vars VarGrpType="1">
@@ -1469,9 +1470,9 @@ Drive Status 4 (manually linked):
 			</Vars>
 		</Drive>
 		<Controller Name="Ctrl" CtrType="2">
-			<CtrPara PriorControlFactor="0.8">
+			<CtrPara PriorControlFactor="1">
 				<PosDiffControl Time="0.2"/>
-				<PID PosKp="15" PosTn="0.001" PosIOutputLimit="0.0005" PosDOutputLimit="0" PosIDisableWhenMoving="true" PosExtKp="10" PosExtVelo="0.8" DeadBandPosition="0.01"/>
+				<PID PosKp="15" PosTn="0.001" PosIOutputLimit="0.0005" PosDOutputLimit="0" PosIDisableWhenMoving="true" PosExtKp="8" PosExtVelo="0.0001" DeadBandPosition="0.02"/>
 				<Observer BandWidth="20"/>
 			</CtrPara>
 		</Controller>
