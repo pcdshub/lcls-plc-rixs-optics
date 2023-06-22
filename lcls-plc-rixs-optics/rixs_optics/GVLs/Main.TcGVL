@@ -278,7 +278,7 @@
     {attribute 'pytmc' := 'pv: MR4K2:KBV:MMS:PITCH'}
     {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M4K2rX]^STM Status^Status^Digital input 1;
                               .bLimitBackwardEnable:=TIIB[EL7041_M4K2rX]^STM Status^Status^Digital input 2;
-                              .nRawEncoderULINT:=TIIB[EL5042_M4K2rY]^FB Inputs Channel 1^Position'}
+                              .nRawEncoderULINT:=TIIB[EL5042_M4K2rX]^FB Inputs Channel 1^Position'}
     M35 : DUT_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE); //Pitch mot
     fbMotionStageM35 : FB_MotionStage;
     {attribute 'pytmc' := '	pv: MR4K2:KBV:MMS:BEND:US'}
