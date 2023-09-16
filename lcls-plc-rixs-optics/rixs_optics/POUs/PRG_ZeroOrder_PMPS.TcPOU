@@ -86,11 +86,15 @@ VAR CONSTANT
     Zmon : LREAL:=739.622;//m
     Zpiv : LREAL:= 739.762 ; //m
     Zzos : LREAL:= 741.422;//m
+	Pm1Offset: LREAL:= 18181;//=18310-129
+	Pm2Offset: LREAL:= -90641;
+	Pm3Offset: LREAL:= -63300;//urad, could depend on the inserted grating
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[
-ffZeroOrderBeam.i_xOK := SafeBenderRange() OR (bLRG_Grating_IN AND bZOS_IN AND bZeroOrderBeam AND MR1K1_Inserted());
+ffZeroOrderBeam.i_xOK := (SafeBenderRange() AND (((PMPS_GVL.stCurrentBeamParameters.nMachineMode =1(*SC*)) AND (PMPS_GVL.stCurrentBeamParameters.nBeamClass <=6)) OR (PMPS_GVL.stCurrentBeamParameters.nMachineMode =0(*NC*))))
+				OR (bLRG_Grating_IN AND bZOS_IN AND bZeroOrderBeam AND MR1K1_Inserted()(*NC or SC Any Beamclass with beam at ZOS*));
 ffZeroOrderBeam(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
 bZOB_on_Lower_Stopper := ffZeroOrderBeam.i_xOK;
 
@@ -105,7 +109,7 @@ bMR1K1_Inserted := MR1K1_Inserted();
 
 
 
-//TRUE if hb0m3(Zzoz) - Hzos > D
+//TRUE if Hzos - hb0m3(Zzoz)  > D
 Ans := (Hzos*1E3) - Hb0m3; //um
 IF GVL_PMPS.rPhotonEnergy <550 THEN
     bZeroOrderBeam := Ans > 3*1E3;
@@ -126,16 +130,16 @@ ACT_ExitSlitsGap();]]></ST>
         <ST><![CDATA[///calc
 //Hm1 = 1400000+mr1k1 ben Y up
 Hm1:= 1400000+M12.fPosition; //um
-//Pm1 = 18310 - 281 + mr1k1 bend pitch
-Pm1 := 18310 - 281 + Main.M16.fPosition; //urad
+//Pm1 = Pm1Offset + mr1k1 bend pitch
+Pm1 := Pm1Offset + Main.M16.fPosition; //urad
 //Hpiv = 1.620305 + 0.001 // m 0.001 is correction from nominal
 Hpiv:= (1.620305 + 0.001)*1E6; //um
-//Pm2 = mono mirror pitch - 90700 urad
-Pm2 := Main.M6.fPosition - 90700;//urad
+//Pm2 = mono mirror pitch + Pm2Offset urad
+Pm2 := Main.M6.fPosition + Pm2Offset;//urad
 //Hm3 = Hpiv + 0.006 m
 Hm3:= Hpiv + (0.006*1E6); //um
-//Pm3 = mono grating pitch - 63300 urad
-Pm3 := Main.M7.fPosition - 63300; //urad
+//Pm3 = mono grating pitch + Pm3Offset urad
+Pm3 := Main.M7.fPosition + Pm3Offset; //urad
 //Hzos = 1824.3 + st1k1_zos mm
 Hzos:= 1824.3 + M24.fPosition; //mm
 
