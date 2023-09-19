@@ -2310,6 +2310,33 @@ PRG_MR1K2_SWITCH
 
         // Common
         fEncLeverArm_mm : LREAL := 391.0;
+
+    // MR1K2 Flow Press Sensors
+        {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_M1K2_FWM_PRSM]^AI Standard Channel 1^Value'}
+        fM1K2_Flow_1 : FB_AnalogInput;
+        {attribute 'pytmc' := '
+            pv: MR1K2:SWITCH:FWM:1
+            field: EGU lpm
+            io: i
+        '}
+        fM1K2_Flow_1_val : LREAL;
+        {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_M1K2_FWM_PRSM]^AI Standard Channel 2^Value'}
+        fM1K2_Flow_2 : FB_AnalogInput;
+        {attribute 'pytmc' := '
+            pv: MR1K2:SWITCH:FWM:2
+            field: EGU lpm
+            io: i
+        '}
+        fM1K2_Flow_2_val : LREAL;
+        {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_M1K2_FWM_PRSM]^AI Standard Channel 3^Value'}
+        fM1K2_Press_1 : FB_AnalogInput;
+        {attribute 'pytmc' := '
+            pv: MR1K2:SWITCH:PRSM:1
+            field: EGU bar
+            io: i
+        '}
+        fM1K2_Press_1_val : LREAL;
+
     END_VAR
     // M1K2
     M1K2.fbRunHOMS(stYup:=M1,
@@ -2393,6 +2420,15 @@ PRG_MR1K2_SWITCH
                              Value=>fEncRefPitchM1K2_urad);
 
     nEncRefPitchM1K2 := LREAL_TO_UDINT(ABS(fEncRefPitchM1K2_urad) * fEncLeverArm_mm);
+
+    //FLOW AND PRESSURE SENSOR
+    // MR1K2 Flow Pressure Sensors
+    fM1K2_Flow_1(iTermBits:=15, fTermMax:=5.0427, fTermMin:=0.050472);
+    fM1K2_Flow_1_val := fM1K2_Flow_1.fReal;
+    fM1K2_Flow_2(iTermBits:=15, fTermMax:=5.0427, fTermMin:=0.050472);
+    fM1K2_Flow_2_val := fM1K2_Flow_2.fReal;
+    fM1K2_Press_1(iTermBits:=15, fTermMax:=4.0, fTermMin:=0);
+    fM1K2_Press_1_val := fM1K2_Press_1.fReal;
 
     END_PROGRAM
 
@@ -3549,13 +3585,13 @@ PRG_SP1K1_MONO
         i_xAutoReset :=TRUE,
         io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
 
-    fSP1K1_Flow_1(iTermBits:=12, fTermMax:=5.0427, fTermMin:=0.050472);
+    fSP1K1_Flow_1(iTermBits:=15, fTermMax:=5.0427, fTermMin:=0.050472);
     fSP1K1_Flow_1_val := fSP1K1_Flow_1.fReal;
 
-    fSP1K1_Flow_2(iTermBits:=12, fTermMax:=5.0427, fTermMin:=0.050472);
+    fSP1K1_Flow_2(iTermBits:=15, fTermMax:=5.0427, fTermMin:=0.050472);
     fSP1K1_Flow_2_val := fSP1K1_Flow_2.fReal;
 
-    fSP1K1_Press_1(iTermBits:=12, fTermMax:=4.0, fTermMin:=0);
+    fSP1K1_Press_1(iTermBits:=15, fTermMax:=4.0, fTermMin:=0);
     fSP1K1_Press_1_val := fSP1K1_Press_1.fReal;
 
     END_PROGRAM
@@ -3729,7 +3765,7 @@ PRG_ZeroOrder_PMPS
         bZOS_IN : BOOL;
 
         {attribute 'pytmc' := '
-            pv: :@(PREFIX)ZOB_on_Lower_Stopper
+            pv: @(PREFIX)ZOB_on_Lower_Stopper
             field: ZNAM FALSE
             field: ONAM TRUE
         '}

@@ -67372,6 +67372,27 @@ Database Records
         | io: input
 
 
+    * - MR1K2:SWITCH:FWM:1_RBV
+      - ai
+      - PRG_MR1K2_SWITCH.fM1K2_Flow_1_val
+      - | field: EGU lpm
+        | io: input
+
+
+    * - MR1K2:SWITCH:FWM:2_RBV
+      - ai
+      - PRG_MR1K2_SWITCH.fM1K2_Flow_2_val
+      - | field: EGU lpm
+        | io: input
+
+
+    * - MR1K2:SWITCH:PRSM:1_RBV
+      - ai
+      - PRG_MR1K2_SWITCH.fM1K2_Press_1_val
+      - | field: EGU bar
+        | io: input
+
+
     * - MR1K2:SWITCH:ENC:ROLL_RBV
       - ai
       - PRG_MR1K2_SWITCH.fYRoll_urad
@@ -73656,7 +73677,7 @@ Database Records
         | io: output
 
 
-    * - :$(PREFIX)ZOB_on_Lower_Stopper_RBV
+    * - $(PREFIX)ZOB_on_Lower_Stopper_RBV
       - bi
       - PRG_ZeroOrder_PMPS.bZOB_on_Lower_Stopper
       - | field: ONAM TRUE
@@ -73664,7 +73685,7 @@ Database Records
         | io: output
 
 
-    * - :$(PREFIX)ZOB_on_Lower_Stopper
+    * - $(PREFIX)ZOB_on_Lower_Stopper
       - bo
       - PRG_ZeroOrder_PMPS.bZOB_on_Lower_Stopper
       - | field: ONAM TRUE
