@@ -45,17 +45,17 @@ VAR
     bMR1K1_Inserted : BOOL;
 
 
-	
-	{attribute 'pytmc' := '
+
+    {attribute 'pytmc' := '
         pv: @(PREFIX)MachineMode
         field: ZRST NC
         field: ONST SC
-		field: TWST Misconfig
-		field: THST UnInit
+        field: TWST Misconfig
+        field: THST UnInit
     '}
     nMachineMode : INT;
-	
-	{attribute 'pytmc' := '
+
+    {attribute 'pytmc' := '
         pv: @(PREFIX)BeamPermitted
         field: ZNAM FALSE
         field: ONAM TRUE
@@ -97,15 +97,15 @@ VAR CONSTANT
     Zmon : LREAL:=739.622;//m
     Zpiv : LREAL:= 739.762 ; //m
     Zzos : LREAL:= 741.422;//m
-	Pm1Offset: LREAL:= 18181;//=18310-129
-	Pm2Offset: LREAL:= -90641;
-	Pm3Offset: LREAL:= -63300;//urad, could depend on the inserted grating
+    Pm1Offset: LREAL:= 18181;//=18310-129
+    Pm2Offset: LREAL:= -90641;
+    Pm3Offset: LREAL:= -63300;//urad, could depend on the inserted grating
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[
 ffZeroOrderBeam.i_xOK := (SafeBenderRange() AND (((PMPS_GVL.stCurrentBeamParameters.nMachineMode =1(*SC*)) AND (PMPS_GVL.stCurrentBeamParameters.nBeamClass <=6)) OR (PMPS_GVL.stCurrentBeamParameters.nMachineMode =0(*NC*))))
-				OR (bLRG_Grating_IN AND bZOS_IN AND bZOB_on_Lower_Stopper AND MR1K1_Inserted()(*NC or SC Any Beamclass with beam at ZOS*));
+                OR (bLRG_Grating_IN AND bZOS_IN AND bZOB_on_Lower_Stopper AND MR1K1_Inserted()(*NC or SC Any Beamclass with beam at ZOS*));
 ffZeroOrderBeam(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
 bBeamPermitted := ffZeroOrderBeam.i_xOK;
 
