@@ -81,6 +81,11 @@ VAR
     Theta_m1: LREAL;
     Theta_m2: LREAL;
     Theta_m3: LREAL;
+	{attribute 'pytmc' := '
+        pv: @(PREFIX)Delta
+        field: ZNAM FALSE
+        field: ONAM TRUE
+    '}
     Delta : LREAL;
     Ans : LREAL;
     ffZeroOrderBeamExitSlits : FB_FastFault := (
@@ -104,22 +109,14 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[
-ffZeroOrderBeam.i_xOK := (SafeBenderRange() AND (((PMPS_GVL.stCurrentBeamParameters.nMachineMode =1(*SC*)) AND (PMPS_GVL.stCurrentBeamParameters.nBeamClass <=6)) OR (PMPS_GVL.stCurrentBeamParameters.nMachineMode =0(*NC*))))
-                OR (bLRG_Grating_IN AND bZOS_IN AND bZOB_on_Lower_Stopper AND MR1K1_Inserted()(*NC or SC Any Beamclass with beam at ZOS*));
-ffZeroOrderBeam(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
-bBeamPermitted := ffZeroOrderBeam.i_xOK;
-
 //Diagnostics
 bSafeBenderRange := SafeBenderRange();
 nMachineMode := PMPS_GVL.stCurrentBeamParameters.nMachineMode;
 bMR1K1_Inserted := MR1K1_Inserted();
 
-
-
-
-
 //TRUE if Hzos - hb0m3(Zzoz)  > D
 Ans := (Hzos*1E3) - Hb0m3; //um
+Delta := Ans;
 IF GVL_PMPS.rPhotonEnergy <550 THEN
     bZOB_on_Lower_Stopper := Ans > 3*1E3;
     ELSIF GVL_PMPS.rPhotonEnergy <1000 THEN
@@ -127,6 +124,12 @@ IF GVL_PMPS.rPhotonEnergy <550 THEN
     ELSIF GVL_PMPS.rPhotonEnergy >=1000 THEN
         bZOB_on_Lower_Stopper := Ans >  2*1E3;
 END_IF
+
+
+ffZeroOrderBeam.i_xOK := (SafeBenderRange() AND (((PMPS_GVL.stCurrentBeamParameters.nMachineMode =1(*SC*)) AND (PMPS_GVL.stCurrentBeamParameters.nBeamClass <=6)) OR (PMPS_GVL.stCurrentBeamParameters.nMachineMode =0(*NC*))))
+                OR (bLRG_Grating_IN AND bZOS_IN AND bZOB_on_Lower_Stopper AND MR1K1_Inserted()(*NC or SC Any Beamclass with beam at ZOS*));
+ffZeroOrderBeam(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
+bBeamPermitted := ffZeroOrderBeam.i_xOK;
 
 //
 ACT_CALC();
@@ -182,7 +185,7 @@ ffZeroOrderBeamExitSlits(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);]]></ST>
     </Action>
     <Action Name="ACT_LRG_Grating_IN" Id="{8babb51d-911c-461c-99fc-bb1adfccc9fe}">
       <Implementation>
-        <ST><![CDATA[bLRG_Grating_IN := ((M9.nEncoderCount/1000) >= 24000) AND ((M9.nEncoderCount/1000) <= 28000);]]></ST>
+        <ST><![CDATA[bLRG_Grating_IN := ((M9.nEncoderCount/1000) >= 36000) AND ((M9.nEncoderCount/1000) <= 43000);]]></ST>
       </Implementation>
     </Action>
     <Action Name="ACT_ZOS_IN" Id="{ea635b1c-413a-4430-b9a8-7a35a57ab8c1}">
