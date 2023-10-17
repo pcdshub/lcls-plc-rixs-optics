@@ -277,13 +277,13 @@ nEncRefPitchM1K1 := LREAL_TO_UDINT(ABS(fEncRefPitchM1K1_urad) * fEncLeverArm_mm)
     END_IF
 
     // LAMP KB Flow Pressure Sensors
-    fM1K1_Flow_1(iTermBits:=12, fTermMax:=5.0427, fTermMin:=0.050472);
+    fM1K1_Flow_1(iTermBits:=15, fTermMax:=5.0427, fTermMin:=0.050472);
     fM1K1_Flow_1_val := fM1K1_Flow_1.fReal;
 
-    fM1K1_Flow_2(iTermBits:=12, fTermMax:=5.0427, fTermMin:=0.050472);
+    fM1K1_Flow_2(iTermBits:=15, fTermMax:=5.0427, fTermMin:=0.050472);
     fM1K1_Flow_2_val := fM1K1_Flow_2.fReal;
 
-    fM1K1_Press_1(iTermBits:=12, fTermMax:=4.0, fTermMin:=0);
+    fM1K1_Press_1(iTermBits:=15, fTermMax:=4.0, fTermMin:=0);
     fM1K1_Press_1_val := fM1K1_Press_1.fReal;]]></ST>
     </Implementation>
   </POU>
