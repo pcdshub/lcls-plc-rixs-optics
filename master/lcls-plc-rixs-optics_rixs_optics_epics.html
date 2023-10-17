@@ -60,6 +60,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Data Types</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#fb-xs-yag-states">FB_XS_YAG_States</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lcls2-cc-lib-fb-ppm-gige">lcls2_cc_lib.FB_PPM_Gige</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lcls-general-fb-analoginput">LCLS_General.FB_AnalogInput</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lcls-general-fb-basicstats">LCLS_General.FB_BasicStats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lcls-general-fb-listener">LCLS_General.FB_Listener</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lcls-general-fb-loghandler">LCLS_General.FB_LogHandler</a></li>
@@ -6257,6 +6258,60 @@
 </tbody>
 </table>
 </section>
+<section id="lcls-general-fb-analoginput">
+<h2>LCLS_General.FB_AnalogInput<a class="headerlink" href="#lcls-general-fb-analoginput" title="Link to this heading"></a></h2>
+<table class="docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Record</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Pragma</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>$(PREFIX):OFF</p></td>
+<td><p>ao</p></td>
+<td><p>$(SYMBOL).fOffset</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):OFF_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>$(SYMBOL).fOffset</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):RES</p></td>
+<td><p>ao</p></td>
+<td><p>$(SYMBOL).fResolution</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):RES_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>$(SYMBOL).fResolution</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):VAL_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>$(SYMBOL).fReal</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="lcls-general-fb-basicstats">
 <h2>LCLS_General.FB_BasicStats<a class="headerlink" href="#lcls-general-fb-basicstats" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
@@ -6364,7 +6419,15 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>$(PREFIX):STATS:STDEV_RBV</p></td>
+<tr class="row-even"><td><p>$(PREFIX):STATS:RMS_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>$(SYMBOL).fRMS</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):STATS:STDEV_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>$(SYMBOL).fStDev</p></td>
 <td><div class="line-block">
@@ -6372,7 +6435,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>$(PREFIX):STATS:VALID_RBV</p></td>
+<tr class="row-even"><td><p>$(PREFIX):STATS:VALID_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>$(SYMBOL).bValid</p></td>
 <td><div class="line-block">
@@ -95607,7 +95670,15 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:RANGE_RBV</p></td>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:RMS_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_SP1K1_MONO.fbGpiPosDiffStats.fRMS</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:RANGE_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_SP1K1_MONO.fbGpiPosDiffStats.fRange</p></td>
 <td><div class="line-block">
@@ -95615,7 +95686,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:STDEV_RBV</p></td>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:STDEV_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_SP1K1_MONO.fbGpiPosDiffStats.fStDev</p></td>
 <td><div class="line-block">
@@ -95623,9 +95694,129 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:NELM_RBV</p></td>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:NELM_RBV</p></td>
 <td><p>longin</p></td>
 <td><p>PRG_SP1K1_MONO.fbGpiPosDiffStats.nElems</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:DATA_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_SP1K1_MONO.fbMpiPosDiffStats.aSignal</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:ALWAYS_CALC_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>PRG_SP1K1_MONO.fbMpiPosDiffStats.bAlwaysCalc</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:ALWAYS_CALC</p></td>
+<td><p>bo</p></td>
+<td><p>PRG_SP1K1_MONO.fbMpiPosDiffStats.bAlwaysCalc</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:EXECUTE_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>PRG_SP1K1_MONO.fbMpiPosDiffStats.bExecute</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:EXECUTE</p></td>
+<td><p>bo</p></td>
+<td><p>PRG_SP1K1_MONO.fbMpiPosDiffStats.bExecute</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:RESET_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>PRG_SP1K1_MONO.fbMpiPosDiffStats.bReset</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:RESET</p></td>
+<td><p>bo</p></td>
+<td><p>PRG_SP1K1_MONO.fbMpiPosDiffStats.bReset</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:VALID_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>PRG_SP1K1_MONO.fbMpiPosDiffStats.bValid</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:MAX_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_SP1K1_MONO.fbMpiPosDiffStats.fMax</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:MEAN_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_SP1K1_MONO.fbMpiPosDiffStats.fMean</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:MIN_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_SP1K1_MONO.fbMpiPosDiffStats.fMin</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:RMS_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_SP1K1_MONO.fbMpiPosDiffStats.fRMS</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:RANGE_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_SP1K1_MONO.fbMpiPosDiffStats.fRange</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:STDEV_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_SP1K1_MONO.fbMpiPosDiffStats.fStDev</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:NELM_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>PRG_SP1K1_MONO.fbMpiPosDiffStats.nElems</p></td>
 <td><div class="line-block">
 <div class="line">io: input</div>
 </div>
@@ -95683,6 +95874,26 @@
 <td><p>ao</p></td>
 <td><p>PRG_SP1K1_MONO.mpi_upeurad</p></td>
 <td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX)Delta_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_ZeroOrder_PMPS.Delta</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM TRUE</div>
+<div class="line">field: ZNAM FALSE</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX)Delta</p></td>
+<td><p>ao</p></td>
+<td><p>PRG_ZeroOrder_PMPS.Delta</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM TRUE</div>
+<div class="line">field: ZNAM FALSE</div>
 <div class="line">io: output</div>
 </div>
 </td>

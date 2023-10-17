@@ -4845,7 +4845,49 @@ lcls2_cc_lib.FB_PPM_Gige
         | io: output
 
 
-   
+ 
+LCLS_General.FB_AnalogInput
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. list-table::
+    :header-rows: 1
+    :align: center
+
+    * - Record
+      - Type
+      - Description
+      - Pragma
+    * - $(PREFIX):OFF
+      - ao
+      - $(SYMBOL).fOffset
+      - | io: output
+
+
+    * - $(PREFIX):OFF_RBV
+      - ai
+      - $(SYMBOL).fOffset
+      - | io: output
+
+
+    * - $(PREFIX):RES
+      - ao
+      - $(SYMBOL).fResolution
+      - | io: output
+
+
+    * - $(PREFIX):RES_RBV
+      - ai
+      - $(SYMBOL).fResolution
+      - | io: output
+
+
+    * - $(PREFIX):VAL_RBV
+      - ai
+      - $(SYMBOL).fReal
+      - | io: input
+
+
+  
 LCLS_General.FB_BasicStats
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -4927,6 +4969,12 @@ LCLS_General.FB_BasicStats
       - bi
       - $(SYMBOL).bReset
       - | io: output
+
+
+    * - $(PREFIX):STATS:RMS_RBV
+      - ai
+      - $(SYMBOL).fRMS
+      - | io: input
 
 
     * - $(PREFIX):STATS:STDEV_RBV
@@ -73553,6 +73601,12 @@ Database Records
       - | io: input
 
 
+    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:RMS_RBV
+      - ai
+      - PRG_SP1K1_MONO.fbGpiPosDiffStats.fRMS
+      - | io: input
+
+
     * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:RANGE_RBV
       - ai
       - PRG_SP1K1_MONO.fbGpiPosDiffStats.fRange
@@ -73568,6 +73622,96 @@ Database Records
     * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:NELM_RBV
       - longin
       - PRG_SP1K1_MONO.fbGpiPosDiffStats.nElems
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:DATA_RBV
+      - ai
+      - PRG_SP1K1_MONO.fbMpiPosDiffStats.aSignal
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:ALWAYS_CALC_RBV
+      - bi
+      - PRG_SP1K1_MONO.fbMpiPosDiffStats.bAlwaysCalc
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:ALWAYS_CALC
+      - bo
+      - PRG_SP1K1_MONO.fbMpiPosDiffStats.bAlwaysCalc
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:EXECUTE_RBV
+      - bi
+      - PRG_SP1K1_MONO.fbMpiPosDiffStats.bExecute
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:EXECUTE
+      - bo
+      - PRG_SP1K1_MONO.fbMpiPosDiffStats.bExecute
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:RESET_RBV
+      - bi
+      - PRG_SP1K1_MONO.fbMpiPosDiffStats.bReset
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:RESET
+      - bo
+      - PRG_SP1K1_MONO.fbMpiPosDiffStats.bReset
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:VALID_RBV
+      - bi
+      - PRG_SP1K1_MONO.fbMpiPosDiffStats.bValid
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:MAX_RBV
+      - ai
+      - PRG_SP1K1_MONO.fbMpiPosDiffStats.fMax
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:MEAN_RBV
+      - ai
+      - PRG_SP1K1_MONO.fbMpiPosDiffStats.fMean
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:MIN_RBV
+      - ai
+      - PRG_SP1K1_MONO.fbMpiPosDiffStats.fMin
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:RMS_RBV
+      - ai
+      - PRG_SP1K1_MONO.fbMpiPosDiffStats.fRMS
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:RANGE_RBV
+      - ai
+      - PRG_SP1K1_MONO.fbMpiPosDiffStats.fRange
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:STDEV_RBV
+      - ai
+      - PRG_SP1K1_MONO.fbMpiPosDiffStats.fStDev
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:NELM_RBV
+      - longin
+      - PRG_SP1K1_MONO.fbMpiPosDiffStats.nElems
       - | io: input
 
 
@@ -73611,6 +73755,22 @@ Database Records
       - ao
       - PRG_SP1K1_MONO.mpi_upeurad
       - | io: output
+
+
+    * - $(PREFIX)Delta_RBV
+      - ai
+      - PRG_ZeroOrder_PMPS.Delta
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - $(PREFIX)Delta
+      - ao
+      - PRG_ZeroOrder_PMPS.Delta
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
 
 
     * - $(PREFIX)BeamPermitted_RBV

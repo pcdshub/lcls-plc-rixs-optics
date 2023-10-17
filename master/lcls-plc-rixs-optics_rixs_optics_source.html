@@ -1998,13 +1998,13 @@ END_VAR
     <span class="n">END_IF</span>
 
     <span class="o">//</span> <span class="n">LAMP</span> <span class="n">KB</span> <span class="n">Flow</span> <span class="n">Pressure</span> <span class="n">Sensors</span>
-    <span class="n">fM1K1_Flow_1</span><span class="p">(</span><span class="n">iTermBits</span><span class="o">:=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fTermMax</span><span class="o">:=</span><span class="mf">5.0427</span><span class="p">,</span> <span class="n">fTermMin</span><span class="o">:=</span><span class="mf">0.050472</span><span class="p">);</span>
+    <span class="n">fM1K1_Flow_1</span><span class="p">(</span><span class="n">iTermBits</span><span class="o">:=</span><span class="mi">15</span><span class="p">,</span> <span class="n">fTermMax</span><span class="o">:=</span><span class="mf">5.0427</span><span class="p">,</span> <span class="n">fTermMin</span><span class="o">:=</span><span class="mf">0.050472</span><span class="p">);</span>
     <span class="n">fM1K1_Flow_1_val</span> <span class="o">:=</span> <span class="n">fM1K1_Flow_1</span><span class="o">.</span><span class="n">fReal</span><span class="p">;</span>
 
-    <span class="n">fM1K1_Flow_2</span><span class="p">(</span><span class="n">iTermBits</span><span class="o">:=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fTermMax</span><span class="o">:=</span><span class="mf">5.0427</span><span class="p">,</span> <span class="n">fTermMin</span><span class="o">:=</span><span class="mf">0.050472</span><span class="p">);</span>
+    <span class="n">fM1K1_Flow_2</span><span class="p">(</span><span class="n">iTermBits</span><span class="o">:=</span><span class="mi">15</span><span class="p">,</span> <span class="n">fTermMax</span><span class="o">:=</span><span class="mf">5.0427</span><span class="p">,</span> <span class="n">fTermMin</span><span class="o">:=</span><span class="mf">0.050472</span><span class="p">);</span>
     <span class="n">fM1K1_Flow_2_val</span> <span class="o">:=</span> <span class="n">fM1K1_Flow_2</span><span class="o">.</span><span class="n">fReal</span><span class="p">;</span>
 
-    <span class="n">fM1K1_Press_1</span><span class="p">(</span><span class="n">iTermBits</span><span class="o">:=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fTermMax</span><span class="o">:=</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">fTermMin</span><span class="o">:=</span><span class="mi">0</span><span class="p">);</span>
+    <span class="n">fM1K1_Press_1</span><span class="p">(</span><span class="n">iTermBits</span><span class="o">:=</span><span class="mi">15</span><span class="p">,</span> <span class="n">fTermMax</span><span class="o">:=</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">fTermMin</span><span class="o">:=</span><span class="mi">0</span><span class="p">);</span>
     <span class="n">fM1K1_Press_1_val</span> <span class="o">:=</span> <span class="n">fM1K1_Press_1</span><span class="o">.</span><span class="n">fReal</span><span class="p">;</span>
 
 <span class="n">END_PROGRAM</span>
@@ -3533,6 +3533,16 @@ END_VAR
     <span class="n">fGpiRangeMax</span><span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
     <span class="n">rtNewGpiMove</span><span class="p">:</span> <span class="n">R_TRIG</span><span class="p">;</span>
     <span class="n">tonNewGpiMove</span><span class="p">:</span> <span class="n">TON</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">SP1K1</span> <span class="n">Mirror</span> <span class="n">Pitch</span> <span class="n">Mono</span> <span class="n">Vibration</span> <span class="n">Stats</span>
+    <span class="n">fMpiEncoderPosDiff</span><span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+    <span class="n">afMpiPosDiffBuffer</span><span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1..1000</span><span class="p">]</span> <span class="n">OF</span> <span class="n">LREAL</span><span class="p">;</span>
+    <span class="n">afMpiExtraBuffer</span><span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1..1000</span><span class="p">]</span> <span class="n">OF</span> <span class="n">LREAL</span><span class="p">;</span>
+    <span class="n">fbMpiPosDiffCollect</span><span class="p">:</span> <span class="n">FB_DataBuffer</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">SP1K1</span><span class="p">:</span><span class="n">MONO</span><span class="p">:</span><span class="n">MMS</span><span class="p">:</span><span class="n">M_PI</span><span class="p">:</span><span class="n">ENCDIFF</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">fbMpiPosDiffStats</span><span class="p">:</span> <span class="n">FB_BasicStats</span><span class="p">;</span>
 <span class="n">END_VAR</span>
 <span class="o">//</span> <span class="n">SP1K1</span><span class="o">-</span><span class="n">MONO</span>
 <span class="n">M6</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">bSTOEnable1</span> <span class="n">AND</span> <span class="n">bSTOEnable2</span><span class="p">;</span>
@@ -3575,6 +3585,19 @@ END_VAR
     <span class="n">fGpiRangeMax</span> <span class="o">:=</span> <span class="n">MAX</span><span class="p">(</span><span class="n">fGpiRangeMax</span><span class="p">,</span> <span class="n">fbGpiPosDiffStats</span><span class="o">.</span><span class="n">fRange</span><span class="p">);</span>
 <span class="n">END_IF</span>
 
+<span class="n">fMpiEncoderPosDiff</span> <span class="o">:=</span> <span class="n">M6</span><span class="o">.</span><span class="n">nEncoderCount</span> <span class="o">-</span> <span class="p">(</span><span class="n">M6</span><span class="o">.</span><span class="n">Axis</span><span class="o">.</span><span class="n">NcToPlc</span><span class="o">.</span><span class="n">SetPos</span> <span class="o">-</span> <span class="n">M6</span><span class="o">.</span><span class="n">stAxisParameters</span><span class="o">.</span><span class="n">fEncOffset</span><span class="p">)</span> <span class="o">/</span> <span class="mf">0.004505</span><span class="p">;</span>
+<span class="n">fbMpiPosDiffCollect</span><span class="p">(</span>
+    <span class="n">bExecute</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
+    <span class="n">pInputAdr</span><span class="o">:=</span><span class="n">ADR</span><span class="p">(</span><span class="n">fMpiEncoderPosDiff</span><span class="p">),</span>
+    <span class="n">iInputSize</span><span class="o">:=</span><span class="n">SIZEOF</span><span class="p">(</span><span class="n">fMpiEncoderPosDiff</span><span class="p">),</span>
+    <span class="n">iElemCount</span><span class="o">:=</span><span class="mi">1000</span><span class="p">,</span>
+    <span class="n">pPartialAdr</span><span class="o">:=</span><span class="n">ADR</span><span class="p">(</span><span class="n">afMpiPosDiffBuffer</span><span class="p">),</span>
+    <span class="n">pOutputAdr</span><span class="o">:=</span><span class="n">ADR</span><span class="p">(</span><span class="n">afMpiExtraBuffer</span><span class="p">),</span>
+<span class="p">);</span>
+<span class="n">fbMpiPosDiffStats</span><span class="p">(</span>
+    <span class="n">aSignal</span><span class="o">:=</span><span class="n">afMpiPosDiffBuffer</span><span class="p">,</span>
+    <span class="n">bAlwaysCalc</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
+<span class="p">);</span>
 
 
 <span class="o">//</span><span class="n">S_R</span> <span class="k">with</span> <span class="n">no</span> <span class="n">hardware</span> <span class="n">limit</span> <span class="n">switched</span>
@@ -3838,6 +3861,11 @@ VAR
     Theta_m1: LREAL;
     Theta_m2: LREAL;
     Theta_m3: LREAL;
+    {attribute &#39;pytmc&#39; := &#39;
+        pv: @(PREFIX)Delta
+        field: ZNAM FALSE
+        field: ONAM TRUE
+    &#39;}
     Delta : LREAL;
     Ans : LREAL;
     ffZeroOrderBeamExitSlits : FB_FastFault := (
@@ -3858,22 +3886,14 @@ VAR CONSTANT
     Pm2Offset: LREAL:= -90641;
     Pm3Offset: LREAL:= -63300;//urad, could depend on the inserted grating
 END_VAR
-ffZeroOrderBeam.i_xOK := (SafeBenderRange() AND (((PMPS_GVL.stCurrentBeamParameters.nMachineMode =1(*SC*)) AND (PMPS_GVL.stCurrentBeamParameters.nBeamClass &lt;=6)) OR (PMPS_GVL.stCurrentBeamParameters.nMachineMode =0(*NC*))))
-                OR (bLRG_Grating_IN AND bZOS_IN AND bZOB_on_Lower_Stopper AND MR1K1_Inserted()(*NC or SC Any Beamclass with beam at ZOS*));
-ffZeroOrderBeam(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
-bBeamPermitted := ffZeroOrderBeam.i_xOK;
-
 //Diagnostics
 bSafeBenderRange := SafeBenderRange();
 nMachineMode := PMPS_GVL.stCurrentBeamParameters.nMachineMode;
 bMR1K1_Inserted := MR1K1_Inserted();
 
-
-
-
-
 //TRUE if Hzos - hb0m3(Zzoz)  &gt; D
 Ans := (Hzos*1E3) - Hb0m3; //um
+Delta := Ans;
 IF GVL_PMPS.rPhotonEnergy &lt;550 THEN
     bZOB_on_Lower_Stopper := Ans &gt; 3*1E3;
     ELSIF GVL_PMPS.rPhotonEnergy &lt;1000 THEN
@@ -3881,6 +3901,12 @@ IF GVL_PMPS.rPhotonEnergy &lt;550 THEN
     ELSIF GVL_PMPS.rPhotonEnergy &gt;=1000 THEN
         bZOB_on_Lower_Stopper := Ans &gt;  2*1E3;
 END_IF
+
+
+ffZeroOrderBeam.i_xOK := (SafeBenderRange() AND (((PMPS_GVL.stCurrentBeamParameters.nMachineMode =1(*SC*)) AND (PMPS_GVL.stCurrentBeamParameters.nBeamClass &lt;=6)) OR (PMPS_GVL.stCurrentBeamParameters.nMachineMode =0(*NC*))))
+                OR (bLRG_Grating_IN AND bZOS_IN AND bZOB_on_Lower_Stopper AND MR1K1_Inserted()(*NC or SC Any Beamclass with beam at ZOS*));
+ffZeroOrderBeam(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
+bBeamPermitted := ffZeroOrderBeam.i_xOK;
 
 //
 ACT_CALC();
@@ -3934,7 +3960,7 @@ ffZeroOrderBeamExitSlits(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
 END_ACTION
 
 ACTION ACT_LRG_Grating_IN:
-bLRG_Grating_IN := ((M9.nEncoderCount/1000) &gt;= 24000) AND ((M9.nEncoderCount/1000) &lt;= 28000);
+bLRG_Grating_IN := ((M9.nEncoderCount/1000) &gt;= 36000) AND ((M9.nEncoderCount/1000) &lt;= 43000);
 END_ACTION
 
 ACTION ACT_ZOS_IN:

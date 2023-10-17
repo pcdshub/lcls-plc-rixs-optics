@@ -1975,13 +1975,13 @@ PRG_MR1K1_BEND
         END_IF
 
         // LAMP KB Flow Pressure Sensors
-        fM1K1_Flow_1(iTermBits:=12, fTermMax:=5.0427, fTermMin:=0.050472);
+        fM1K1_Flow_1(iTermBits:=15, fTermMax:=5.0427, fTermMin:=0.050472);
         fM1K1_Flow_1_val := fM1K1_Flow_1.fReal;
 
-        fM1K1_Flow_2(iTermBits:=12, fTermMax:=5.0427, fTermMin:=0.050472);
+        fM1K1_Flow_2(iTermBits:=15, fTermMax:=5.0427, fTermMin:=0.050472);
         fM1K1_Flow_2_val := fM1K1_Flow_2.fReal;
 
-        fM1K1_Press_1(iTermBits:=12, fTermMax:=4.0, fTermMin:=0);
+        fM1K1_Press_1(iTermBits:=15, fTermMax:=4.0, fTermMin:=0);
         fM1K1_Press_1_val := fM1K1_Press_1.fReal;
 
     END_PROGRAM
@@ -3510,6 +3510,16 @@ PRG_SP1K1_MONO
         fGpiRangeMax: LREAL;
         rtNewGpiMove: R_TRIG;
         tonNewGpiMove: TON;
+
+        // SP1K1 Mirror Pitch Mono Vibration Stats
+        fMpiEncoderPosDiff: LREAL;
+        afMpiPosDiffBuffer: ARRAY[1..1000] OF LREAL;
+        afMpiExtraBuffer: ARRAY[1..1000] OF LREAL;
+        fbMpiPosDiffCollect: FB_DataBuffer;
+        {attribute 'pytmc' := '
+            pv: SP1K1:MONO:MMS:M_PI:ENCDIFF
+        '}
+        fbMpiPosDiffStats: FB_BasicStats;
     END_VAR
     // SP1K1-MONO
     M6.bHardwareEnable := bSTOEnable1 AND bSTOEnable2;
@@ -3552,6 +3562,19 @@ PRG_SP1K1_MONO
         fGpiRangeMax := MAX(fGpiRangeMax, fbGpiPosDiffStats.fRange);
     END_IF
 
+    fMpiEncoderPosDiff := M6.nEncoderCount - (M6.Axis.NcToPlc.SetPos - M6.stAxisParameters.fEncOffset) / 0.004505;
+    fbMpiPosDiffCollect(
+        bExecute:=TRUE,
+        pInputAdr:=ADR(fMpiEncoderPosDiff),
+        iInputSize:=SIZEOF(fMpiEncoderPosDiff),
+        iElemCount:=1000,
+        pPartialAdr:=ADR(afMpiPosDiffBuffer),
+        pOutputAdr:=ADR(afMpiExtraBuffer),
+    );
+    fbMpiPosDiffStats(
+        aSignal:=afMpiPosDiffBuffer,
+        bAlwaysCalc:=TRUE,
+    );
 
 
     //S_R with no hardware limit switched
@@ -3815,6 +3838,11 @@ PRG_ZeroOrder_PMPS
         Theta_m1: LREAL;
         Theta_m2: LREAL;
         Theta_m3: LREAL;
+    	{attribute 'pytmc' := '
+            pv: @(PREFIX)Delta
+            field: ZNAM FALSE
+            field: ONAM TRUE
+        '}
         Delta : LREAL;
         Ans : LREAL;
         ffZeroOrderBeamExitSlits : FB_FastFault := (
@@ -3835,22 +3863,14 @@ PRG_ZeroOrder_PMPS
         Pm2Offset: LREAL:= -90641;
         Pm3Offset: LREAL:= -63300;//urad, could depend on the inserted grating
     END_VAR
-    ffZeroOrderBeam.i_xOK := (SafeBenderRange() AND (((PMPS_GVL.stCurrentBeamParameters.nMachineMode =1(*SC*)) AND (PMPS_GVL.stCurrentBeamParameters.nBeamClass <=6)) OR (PMPS_GVL.stCurrentBeamParameters.nMachineMode =0(*NC*))))
-                    OR (bLRG_Grating_IN AND bZOS_IN AND bZOB_on_Lower_Stopper AND MR1K1_Inserted()(*NC or SC Any Beamclass with beam at ZOS*));
-    ffZeroOrderBeam(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
-    bBeamPermitted := ffZeroOrderBeam.i_xOK;
-
     //Diagnostics
     bSafeBenderRange := SafeBenderRange();
     nMachineMode := PMPS_GVL.stCurrentBeamParameters.nMachineMode;
     bMR1K1_Inserted := MR1K1_Inserted();
 
-
-
-
-
     //TRUE if Hzos - hb0m3(Zzoz)  > D
     Ans := (Hzos*1E3) - Hb0m3; //um
+    Delta := Ans;
     IF GVL_PMPS.rPhotonEnergy <550 THEN
         bZOB_on_Lower_Stopper := Ans > 3*1E3;
         ELSIF GVL_PMPS.rPhotonEnergy <1000 THEN
@@ -3858,6 +3878,12 @@ PRG_ZeroOrder_PMPS
         ELSIF GVL_PMPS.rPhotonEnergy >=1000 THEN
             bZOB_on_Lower_Stopper := Ans >  2*1E3;
     END_IF
+
+
+    ffZeroOrderBeam.i_xOK := (SafeBenderRange() AND (((PMPS_GVL.stCurrentBeamParameters.nMachineMode =1(*SC*)) AND (PMPS_GVL.stCurrentBeamParameters.nBeamClass <=6)) OR (PMPS_GVL.stCurrentBeamParameters.nMachineMode =0(*NC*))))
+                    OR (bLRG_Grating_IN AND bZOS_IN AND bZOB_on_Lower_Stopper AND MR1K1_Inserted()(*NC or SC Any Beamclass with beam at ZOS*));
+    ffZeroOrderBeam(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
+    bBeamPermitted := ffZeroOrderBeam.i_xOK;
 
     //
     ACT_CALC();
@@ -3911,7 +3937,7 @@ PRG_ZeroOrder_PMPS
     END_ACTION
 
     ACTION ACT_LRG_Grating_IN:
-    bLRG_Grating_IN := ((M9.nEncoderCount/1000) >= 24000) AND ((M9.nEncoderCount/1000) <= 28000);
+    bLRG_Grating_IN := ((M9.nEncoderCount/1000) >= 36000) AND ((M9.nEncoderCount/1000) <= 43000);
     END_ACTION
 
     ACTION ACT_ZOS_IN:
