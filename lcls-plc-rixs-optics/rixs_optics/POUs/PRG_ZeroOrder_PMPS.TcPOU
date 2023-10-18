@@ -141,19 +141,19 @@ ACT_ExitSlitsGap();]]></ST>
       <Implementation>
         <ST><![CDATA[///calc
 //Hm1 = 1400000+mr1k1 ben Y up
-Hm1:= 1400000+M12.fPosition; //um
+Hm1:= 1400000+M12.stAxisStatus.fActPosition; //um
 //Pm1 = Pm1Offset + mr1k1 bend pitch
-Pm1 := Pm1Offset + Main.M16.fPosition; //urad
+Pm1 := Pm1Offset + Main.M16.stAxisStatus.fActPosition; //urad
 //Hpiv = 1.620305 + 0.001 // m 0.001 is correction from nominal
 Hpiv:= (1.620305 + 0.001)*1E6; //um
 //Pm2 = mono mirror pitch + Pm2Offset urad
-Pm2 := Main.M6.fPosition + Pm2Offset;//urad
+Pm2 := Main.M6.stAxisStatus.fActPosition + Pm2Offset;//urad
 //Hm3 = Hpiv + 0.006 m
 Hm3:= Hpiv + (0.006*1E6); //um
 //Pm3 = mono grating pitch + Pm3Offset urad
-Pm3 := Main.M7.fPosition + Pm3Offset; //urad
+Pm3 := Main.M7.stAxisStatus.fActPosition + Pm3Offset; //urad
 //Hzos = 1824.3 + st1k1_zos mm
-Hzos:= 1824.3 + M24.fPosition; //mm
+Hzos:= 1824.3 + M24.stAxisStatus.fActPosition; //mm
 
 
 //urad
@@ -179,7 +179,7 @@ Hb0m3 := TAN(Theta_m3*1E-6)*(Zzos*1E6) + Hbm3 - TAN(Theta_m3*1E-6)*Zbm3;
     <Action Name="ACT_ExitSlitsGap" Id="{72615217-f71d-41ee-b0dd-e3c54f411832}">
       <Implementation>
         <ST><![CDATA[// FAULT condition: Hzos -1.0mm <= Hb0m3) AND sl1k2 gap <= 8.0
-ffZeroOrderBeamExitSlits.i_xOK := NOT( (( (Hzos*1E3) - 1) <= Hb0m3) AND ( M22.fPosition <= 8.0));
+ffZeroOrderBeamExitSlits.i_xOK := NOT( (( (Hzos*1E3) - 1) <= Hb0m3) AND ( M22.stAxisStatus.fActPosition <= 8.0));
 ffZeroOrderBeamExitSlits(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);]]></ST>
       </Implementation>
     </Action>
@@ -191,9 +191,9 @@ ffZeroOrderBeamExitSlits(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);]]></ST>
     <Action Name="ACT_ZOS_IN" Id="{ea635b1c-413a-4430-b9a8-7a35a57ab8c1}">
       <Implementation>
         <ST><![CDATA[IF GVL_PMPS.rPhotonEnergy >1500 THEN bZOS_IN:= FALSE;
-    ELSIF (GVL_PMPS.rPhotonEnergy >1000 AND M24.fPosition>= 8.5) THEN bZOS_IN:= TRUE;
-        ELSIF (GVL_PMPS.rPhotonEnergy <=1000 AND GVL_PMPS.rPhotonEnergy >550 AND M24.fPosition>= 7.9) THEN bZOS_IN:= TRUE;
-            ELSIF (GVL_PMPS.rPhotonEnergy <=550 AND GVL_PMPS.rPhotonEnergy >200 AND M24.fPosition>= 6.9) THEN bZOS_IN:= TRUE;
+    ELSIF (GVL_PMPS.rPhotonEnergy >1000 AND M24.stAxisStatus.fActPosition>= 8.5) THEN bZOS_IN:= TRUE;
+        ELSIF (GVL_PMPS.rPhotonEnergy <=1000 AND GVL_PMPS.rPhotonEnergy >550 AND M24.stAxisStatus.fActPosition>= 7.9) THEN bZOS_IN:= TRUE;
+            ELSIF (GVL_PMPS.rPhotonEnergy <=550 AND GVL_PMPS.rPhotonEnergy >200 AND M24.stAxisStatus.fActPosition>= 6.9) THEN bZOS_IN:= TRUE;
                 ELSE bZOS_IN:= FALSE;
 END_IF
 
