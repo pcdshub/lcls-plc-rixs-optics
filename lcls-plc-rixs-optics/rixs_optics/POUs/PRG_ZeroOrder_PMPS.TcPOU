@@ -185,7 +185,7 @@ ffZeroOrderBeamExitSlits(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);]]></ST>
     </Action>
     <Action Name="ACT_LRG_Grating_IN" Id="{8babb51d-911c-461c-99fc-bb1adfccc9fe}">
       <Implementation>
-        <ST><![CDATA[bLRG_Grating_IN := ((M9.stAxisStatus.fActPosition) >= 36000) AND ((M9.stAxisStatus.fActPosition/1000) <= 43000);]]></ST>
+        <ST><![CDATA[bLRG_Grating_IN := ((M9.stAxisStatus.fActPosition) >= 36000) AND ((M9.stAxisStatus.fActPosition) <= 43000);]]></ST>
       </Implementation>
     </Action>
     <Action Name="ACT_ZOS_IN" Id="{ea635b1c-413a-4430-b9a8-7a35a57ab8c1}">
