@@ -4845,7 +4845,7 @@ lcls2_cc_lib.FB_PPM_Gige
         | io: output
 
 
- 
+                           
 LCLS_General.FB_AnalogInput
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -5939,7 +5939,7 @@ LCLS_General.ST_PendingEvent
       - | io: input
 
 
-   
+                                                
 lcls_twincat_motion.DUT_MotionStage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -16728,7 +16728,7 @@ lcls_twincat_motion.FB_Standard_PMPSDB
       - | io: output
 
 
-                                                                           
+    
 lcls_twincat_optics.DUT_HOMS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -16743,13 +16743,15 @@ lcls_twincat_optics.DUT_HOMS
     * - $(PREFIX):ALREADY_COUPLED_X_RBV
       - bi
       - $(SYMBOL).bGantryAlreadyCoupledX
-      - | io: input
+      - | field: ZSV MAJOR
+        | io: input
 
 
     * - $(PREFIX):ALREADY_COUPLED_Y_RBV
       - bi
       - $(SYMBOL).bGantryAlreadyCoupledY
-      - | io: input
+      - | field: ZSV MAJOR
+        | io: input
 
 
     * - $(PREFIX):COUPLE_X
@@ -16856,7 +16858,7 @@ lcls_twincat_optics.FB_RMSWatch
       - | io: input
 
 
-                        
+                          
 PMPS.FB_Arbiter
 ^^^^^^^^^^^^^^^
 
@@ -31478,7 +31480,7 @@ ST_BeamParams_IO
       - | io: input
 
 
-  
+   
 ST_LoggingEventInfo
 ^^^^^^^^^^^^^^^^^^^
 
@@ -31586,7 +31588,7 @@ ST_PMPS_Aperture_IO
         | io: input
 
 
-                                                                                                                               
+                                                                                                                                    
 Database Records
 ----------------
 
@@ -66942,13 +66944,15 @@ Database Records
     * - MR1K1:BEND:ALREADY_COUPLED_X_RBV
       - bi
       - PRG_MR1K1_BEND.M1K1.bGantryAlreadyCoupledX
-      - | io: input
+      - | field: ZSV MAJOR
+        | io: input
 
 
     * - MR1K1:BEND:ALREADY_COUPLED_Y_RBV
       - bi
       - PRG_MR1K1_BEND.M1K1.bGantryAlreadyCoupledY
-      - | io: input
+      - | field: ZSV MAJOR
+        | io: input
 
 
     * - MR1K1:BEND:GANTRY_X_RBV
@@ -67397,13 +67401,15 @@ Database Records
     * - MR1K2:SWITCH:ALREADY_COUPLED_X_RBV
       - bi
       - PRG_MR1K2_SWITCH.M1K2.bGantryAlreadyCoupledX
-      - | io: input
+      - | field: ZSV MAJOR
+        | io: input
 
 
     * - MR1K2:SWITCH:ALREADY_COUPLED_Y_RBV
       - bi
       - PRG_MR1K2_SWITCH.M1K2.bGantryAlreadyCoupledY
-      - | io: input
+      - | field: ZSV MAJOR
+        | io: input
 
 
     * - MR1K2:SWITCH:GANTRY_X_RBV
