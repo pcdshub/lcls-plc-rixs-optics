@@ -1,0 +1,829 @@
+Box Hierarchy
+-------------
+
+
+#. **Term 1 (EK1200) [ID: 1]**
+        EK1200-5000 EtherCAT Power supply (2A E-Bus)
+
+    #. PMPS_FFO [ID: 2]
+            EL2202 2Ch. Dig. Output 24V, 0.5A
+
+
+
+    #. Term 3 (EL6070) [ID: 3]
+            EL6070 1Ch. Licensing-Terminal
+
+
+
+    #. EVR [ID: 77]
+            EL1252-0050 2Ch. Fast Dig. Input 5V, 1µs, DC Latch
+
+
+
+    #. PMPS_PRE [ID: 4]
+            EL6695 EtherCAT Bridge terminal (Primary)
+
+
+
+    #. Term 5 (EK1122) [ID: 5]
+            EK1122 2 port EtherCAT junction
+
+        #. **EK1100_M1K2 [ID: 6]**
+                EK1100 EtherCAT Coupler (2A E-Bus)
+
+            #. Term 7 (EL9410) [ID: 7]
+                    EL9410 E-Bus Power Supplier  (Diagnostics)
+
+
+
+            #. EL7047_M1K2_Yleft [ID: 8]
+                    EL7047 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+            #. EL7047_M1K2_Yright [ID: 9]
+                    EL7047 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+            #. EL7047_M1K2_Xup [ID: 10]
+                    EL7047 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+            #. EL7047_M1K2_Xdwn [ID: 11]
+                    EL7047 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+            #. EL7047_M1K2_PitchCoarse [ID: 12]
+                    EL7047 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+            #. EL5042_M1K2_Yleftright [ID: 13]
+                    EL5042 2Ch. BiSS-C Encoder
+
+
+
+            #. EL5042_M1K2_Xupdwn [ID: 14]
+                    EL5042 2Ch. BiSS-C Encoder
+
+
+
+            #. EL5042_M1K2_Pitch [ID: 15]
+                    EL5042 2Ch. BiSS-C Encoder
+
+
+
+            #. EL6001_M1K2_PitchFine [ID: 16]
+                    EL6001 Interface (RS232)
+
+
+
+            #. EL3054_M1K2_FWM_PRSM [ID: 17]
+                    EL3054 4Ch. Ana. Input 4-20mA
+
+
+
+            #. Term 18 (EL3202-0010) [ID: 18]
+                    EL3202-0010 2Ch. Ana. Input PT100 (RTD), High Precision
+
+
+
+            #. Term 19 (EL3202-0010) [ID: 19]
+                    EL3202-0010 2Ch. Ana. Input PT100 (RTD), High Precision
+
+
+
+            #. Term 20 (EL3202-0010) [ID: 20]
+                    EL3202-0010 2Ch. Ana. Input PT100 (RTD), High Precision
+
+
+
+            #. EL1004_M1K2_STO [ID: 44]
+                    EL1004 4Ch. Dig. Input 24V, 3ms
+
+
+
+            #. Term 22 (EL9011) [ID: 22]
+                    EL9011 End Terminal
+
+
+
+
+
+        #. **EK1100_ST1K2_ZOS [ID: 58]**
+                EK1100 EtherCAT Coupler (2A E-Bus)
+
+            #. ST1K1-EL7041 [ID: 59]
+                      ( **SyncUnit=ST1K1** )    EL7041 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+            #. ST1K1-EL5042 [ID: 60]
+                      ( **SyncUnit=ST1K1** )    EL5042 2Ch. BiSS-C Encoder
+
+
+
+            #. ST1K1-EL2008 [ID: 61]
+                      ( **SyncUnit=ST1K1** )    EL2008 8Ch. Dig. Output 24V, 0.5A
+
+
+
+            #. ST1K1-EL9011 [ID: 62]
+                    EL9011 End Terminal
+
+
+
+
+
+        #. **EK1100_MR1K1 [ID: 63]**
+                EK1100 EtherCAT Coupler (2A E-Bus)
+
+            #. Term 64 (EL9410) [ID: 64]
+                    EL9410 E-Bus Power Supplier  (Diagnostics)
+
+
+
+            #. EL7047_M1K1_Yup [ID: 65]
+                    EL7047 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+            #. EL7047_M1K1_Ydwn [ID: 66]
+                    EL7047 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+            #. EL7047_M1K1_Xup [ID: 67]
+                    EL7047 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+            #. EL7047_M1K1_Xdwn [ID: 68]
+                    EL7047 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+            #. EL7047_M1K1_PitchCoarse [ID: 69]
+                    EL7047 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+            #. EL5042_M1K1_Yupdwn [ID: 70]
+                    EL5042 2Ch. BiSS-C Encoder
+
+
+
+            #. EL5042_M1K1_Xupdwn [ID: 71]
+                    EL5042 2Ch. BiSS-C Encoder
+
+
+
+            #. EL5042_M1K1_Pitch [ID: 72]
+                    EL5042 2Ch. BiSS-C Encoder
+
+
+
+            #. EL6001_M1K1_PitchFine [ID: 73]
+                    EL6001 Interface (RS232)
+
+
+
+            #. EL3054_M1K1_FWM_PRSM [ID: 74]
+                    EL3054 4Ch. Ana. Input 4-20mA
+
+
+
+            #. Term 75 (EL3202-0010) [ID: 75]
+                    EL3202-0010 2Ch. Ana. Input PT100 (RTD), High Precision
+
+
+
+            #. Term 76 (EL3202-0010) [ID: 76]
+                    EL3202-0010 2Ch. Ana. Input PT100 (RTD), High Precision
+
+
+
+            #. EL1004_M1K1_STO [ID: 78]
+                    EL1004 4Ch. Dig. Input 24V, 3ms
+
+
+
+            #. Term 101 (EL9011) [ID: 101]
+                    EL9011 End Terminal
+
+
+
+
+
+        #. **EK1100_MR1K1_BEND [ID: 23]**
+                EK1100 EtherCAT Coupler (2A E-Bus)
+
+            #. EL5042_M1K1_BEND_USDS [ID: 43]
+                    EL5042 2Ch. BiSS-C Encoder
+
+
+
+            #. EL9576_M1K1_BEND_US_PWR [ID: 45]
+                    EL9576 Brake chopper terminal
+
+
+
+            #. EL7041_M1K1_BEND_US [ID: 46]
+                    EL7041 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+            #. EL9576_M1K1_BEND_DS_PWR [ID: 47]
+                    EL9576 Brake chopper terminal
+
+
+
+            #. EL7041_M1K1_BEND_DS [ID: 48]
+                    EL7041 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+            #. EL3202-0010_M1K1US1_M1K1US2 [ID: 49]
+                    EL3202-0010 2Ch. Ana. Input PT100 (RTD), High Precision
+
+
+
+            #. EL3202-0010_M1K1US3_M1K1DS1 [ID: 50]
+                    EL3202-0010 2Ch. Ana. Input PT100 (RTD), High Precision
+
+
+
+            #. EL3202-0010_M1K1DS2_M1K1DS3 [ID: 51]
+                    EL3202-0010 2Ch. Ana. Input PT100 (RTD), High Precision
+
+
+
+            #. EL1004_M1K1_BENDER_STO [ID: 53]
+                    EL1004 4Ch. Dig. Input 24V, 3ms
+
+
+
+            #. Term 54 (EL9512) [ID: 54]
+                    EL9512 Power supply terminal 12V
+
+
+
+            #. EL2024-0010_M1K1_BEND_LED1 [ID: 55]
+                    EL2024-0010 4Ch. Dig. Output 12V, 2A
+
+
+
+            #. EL2024-0010_M1K1_BEND_LED2 [ID: 56]
+                    EL2024-0010 4Ch. Dig. Output 12V, 2A
+
+
+
+            #. Term 161 (EL9011) [ID: 161]
+                    EL9011 End Terminal
+
+
+
+
+
+
+
+    #. E5 (EK1122) [ID: 21]
+            EK1122 2 port EtherCAT junction
+
+        #. **SL1K2-EXIT (EK1100) [ID: 125]**
+                EK1100 EtherCAT Coupler (2A E-Bus)
+
+            #. EL7047_SL1K2_PITCH [ID: 126]
+                    EL7047 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+            #. EL7047_SL1K2_VERT [ID: 127]
+                    EL7047 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+            #. EL7047_SL1K2_ROLL [ID: 128]
+                    EL7047 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+            #. EL7047_SL1K2_GAP [ID: 129]
+                    EL7047 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+            #. EL7047_SL1K2_YAG [ID: 130]
+                    EL7047 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+            #. EL5042_SL1K2_PITCH_VERT [ID: 131]
+                    EL5042 2Ch. BiSS-C Encoder
+
+
+
+            #. EL5042_SL1K2_ROLL_GAP [ID: 132]
+                    EL5042 2Ch. BiSS-C Encoder
+
+
+
+            #. EL5042_SL1K2_YAG [ID: 133]
+                    EL5042 2Ch. BiSS-C Encoder
+
+
+
+            #. EL3201_SL1K2_1 [ID: 134]
+                    EL3201 1Ch. Ana. Input PT100 (RTD)
+
+
+
+            #. EL3201_SL1K2_2 [ID: 135]
+                    EL3201 1Ch. Ana. Input PT100 (RTD)
+
+
+
+            #. EL3201_SL1K2_3 [ID: 136]
+                    EL3201 1Ch. Ana. Input PT100 (RTD)
+
+
+
+            #. EL3201_SL1K2_4 [ID: 137]
+                    EL3201 1Ch. Ana. Input PT100 (RTD)
+
+
+
+            #. EL2004_SL1K2 [ID: 138]
+                    EL2004 4Ch. Dig. Output 24V, 0.5A
+
+
+
+            #. EL4004_SL1K2 [ID: 57]
+                    EL4004 4Ch. Ana. Output 0-10V, 12bit
+
+
+
+            #. EL9011_SL1K2 [ID: 162]
+                    EL9011 End Terminal
+
+
+
+
+
+        #. **X1 SP1K1-MONO(EK1100) [ID: 34]**
+                EK1100 EtherCAT Coupler (2A E-Bus)
+
+            #. SP1K1-EL9410-E1 [ID: 24]
+                    EL9410 E-Bus Power Supplier  (Diagnostics)
+
+
+
+            #. m_pi_m [ID: 25]
+                    EL7047 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+            #. g_pi_m [ID: 26]
+                    EL7047 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+            #. m_h_m [ID: 27]
+                    EL7047 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+            #. g_h_m [ID: 28]
+                    EL7047 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+            #. s_io_m [ID: 29]
+                    EL7047 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+            #. s_r [ID: 30]
+                    EL7047 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+            #. m_pi_up_dwn_e [ID: 31]
+                    EL5042 2Ch. BiSS-C Encoder
+
+
+
+            #. g_pi_up_dwn_e [ID: 32]
+                    EL5042 2Ch. BiSS-C Encoder
+
+
+
+            #. m_h_e-g_h_e [ID: 33]
+                    EL5042 2Ch. BiSS-C Encoder
+
+
+
+            #. s_io_e [ID: 35]
+                    EL5042 2Ch. BiSS-C Encoder
+
+
+
+            #. EL3054_SP1K1_FWM_PRSM [ID: 36]
+                    EL3054 4Ch. Ana. Input 4-20mA
+
+
+
+            #. SP1K1-EL3202-E13 [ID: 37]
+                    EL3202-0010 2Ch. Ana. Input PT100 (RTD), High Precision
+
+
+
+            #. SP1K1-EL3202-E14 [ID: 38]
+                    EL3202-0010 2Ch. Ana. Input PT100 (RTD), High Precision
+
+
+
+            #. SP1K1-EL3204-E15 [ID: 39]
+                    EL3204 4Ch. Ana. Input PT100 (RTD)
+
+
+
+            #. SP1K1-EL3204-E16 [ID: 40]
+                    EL3204 4Ch. Ana. Input PT100 (RTD)
+
+
+
+            #. SP1K1-EL1004-E17 [ID: 41]
+                    EL1004 4Ch. Dig. Input 24V, 3ms
+
+
+
+            #. SP1K1-EL9011 [ID: 42]
+                    EL9011 End Terminal
+
+
+
+
+
+        #. **Box 84 (EP2338-0002) [ID: 84]**
+                EP2338-0002 8 Ch. Dig. Input/Output 24V, 0,5A, M12
+
+
+
+
+
+    #. Term 79 (EK1521-0010) [ID: 79]
+            EK1521-0010 1 port EtherCAT junction (FX-SingleMode)
+
+        #. **Term 306 (EK1501-0010) [ID: 306]**
+                EK1501-0010 EtherCAT Coupler (2A E-Bus, FX-SingleMode, ID switch)
+
+            #. Term 307 (EL2202) [ID: 307]
+                    EL2202 2Ch. Dig. Output 24V, 0.5A
+
+
+
+            #. Term 308 (EL6070) [ID: 308]
+                    EL6070 1Ch. Licensing-Terminal
+
+
+
+            #. Term 309 (EL6695) [ID: 309]
+                    EL6695 EtherCAT Bridge terminal (Primary)
+
+
+
+            #. Term 310 (EK1122) [ID: 310]
+                    EK1122 2 port EtherCAT junction
+
+                #. **EK1100_MR2K2 [ID: 80]**
+                        EK1100 EtherCAT Coupler (2A E-Bus)
+
+                    #. EL5042_M2K2X_M2K2Y [ID: 81]
+                              ( **SyncUnit=MR2K2** )    EL5042 2Ch. BiSS-C Encoder
+
+
+
+                    #. EL5042_M2K2rX [ID: 82]
+                              ( **SyncUnit=MR2K2** )    EL5042 2Ch. BiSS-C Encoder
+
+
+
+                    #. Term 83 (EL9221-5000) [ID: 83]
+                              ( **SyncUnit=MR2K2** )    EL9221-5000 Overcurrent protection 24V DC, 1Ch., max. 10A, adjustable
+
+
+
+                    #. EL7041_M2K2X [ID: 85]
+                              ( **SyncUnit=MR2K2** )    EL7041-0052 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+                    #. EL7041_M2K2Y [ID: 86]
+                              ( **SyncUnit=MR2K2** )    EL7041-0052 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+                    #. EL7041_M2K2rX [ID: 87]
+                              ( **SyncUnit=MR2K2** )    EL7041-0052 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+                    #. EL1004_M2K2_STO [ID: 88]
+                              ( **SyncUnit=MR2K2** )    EL1004 4Ch. Dig. Input 24V, 3ms
+
+
+
+                    #. Term 92 (EL9011) [ID: 92]
+                            EL9011 End Terminal
+
+
+
+
+
+                #. **EK1100_MR3K2 [ID: 121]**
+                        EK1100 EtherCAT Coupler (2A E-Bus)
+
+                    #. EL5042_M3K2X_M3K2Y [ID: 122]
+                            EL5042 2Ch. BiSS-C Encoder
+
+
+
+                    #. EL5042_M3K2rY [ID: 123]
+                            EL5042 2Ch. BiSS-C Encoder
+
+
+
+                    #. Term 124 (EL9221-5000) [ID: 124]
+                              ( **SyncUnit=Term 4 (EL9221-5000)** )    EL9221-5000 Overcurrent protection 24V DC, 1Ch., max. 10A, adjustable
+
+
+
+                    #. EL7041_M3K2X [ID: 139]
+                            EL7041-0052 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+                    #. EL7041_M3K2Y [ID: 140]
+                            EL7041-0052 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+                    #. EL7041_M3K2rY [ID: 141]
+                            EL7041-0052 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+                    #. Term 142 (EL9410) [ID: 142]
+                            EL9410 E-Bus Power Supplier  (Diagnostics)
+
+
+
+                    #. Term 143 (EL3204)_RTDs [ID: 143]
+                            EL3204 4Ch. Ana. Input PT100 (RTD)
+
+
+
+                    #. Term 144 (EL3202-0010)_RTDs [ID: 144]
+                            EL3202-0010 2Ch. Ana. Input PT100 (RTD), High Precision
+
+
+
+                    #. EL3054_M3K2_FWM_PRSM [ID: 145]
+                            EL3054 4Ch. Ana. Input 4-20mA
+
+
+
+                    #. Term 147 (EL9011) [ID: 147]
+                            EL9011 End Terminal
+
+
+
+
+
+                #. **EK1100_MR3K2_BENDER [ID: 146]**
+                        EK1100 EtherCAT Coupler (2A E-Bus)
+
+                    #. EL5042_M3K2_BEND_USDS [ID: 148]
+                            EL5042 2Ch. BiSS-C Encoder
+
+
+
+                    #. EL9576_M3K2_BEND_US_PWR [ID: 149]
+                            EL9576 Brake chopper terminal
+
+
+
+                    #. EL7041_M3K2_BEND_US [ID: 150]
+                            EL7041 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+                    #. EL9576_M3K2_BEND_DS_PWR [ID: 151]
+                            EL9576 Brake chopper terminal
+
+
+
+                    #. EL7041_M3K2_BEND_DS [ID: 152]
+                            EL7041 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+                    #. EL3202-0010_M3K2US1_M3K2US2 [ID: 153]
+                            EL3202-0010 2Ch. Ana. Input PT100 (RTD), High Precision
+
+
+
+                    #. EL3202-0010_M3K2US3_M3K2DS1 [ID: 154]
+                            EL3202-0010 2Ch. Ana. Input PT100 (RTD), High Precision
+
+
+
+                    #. EL3202-0010_M3K2DS2_M3K2DS3 [ID: 155]
+                            EL3202-0010 2Ch. Ana. Input PT100 (RTD), High Precision
+
+
+
+                    #. Term 156 (EL3054) [ID: 156]
+                            EL3054 4Ch. Ana. Input 4-20mA
+
+
+
+                    #. EL1004_M3K2_STO [ID: 157]
+                            EL1004 4Ch. Dig. Input 24V, 3ms
+
+
+
+                    #. Term 158 (EL9512) [ID: 158]
+                            EL9512 Power supply terminal 12V
+
+
+
+                    #. EL2024-0010_M3K2_BEND_LED1 [ID: 159]
+                            EL2024-0010 4Ch. Dig. Output 12V, 2A
+
+
+
+                    #. EL2024-0010_M3K2_BEND_LED2 [ID: 160]
+                            EL2024-0010 4Ch. Dig. Output 12V, 2A
+
+
+
+                    #. Term 163 (EL9011) [ID: 163]
+                            EL9011 End Terminal
+
+
+
+
+
+
+
+            #. Term 322 (EK1122) [ID: 322]
+                    EK1122 2 port EtherCAT junction
+
+                #. **EK1100_MR4K2 [ID: 93]**
+                        EK1100 EtherCAT Coupler (2A E-Bus)
+
+                    #. EL5042_M4K2X_M4K2Y [ID: 94]
+                            EL5042 2Ch. BiSS-C Encoder
+
+
+
+                    #. EL5042_M4K2rX [ID: 95]
+                            EL5042 2Ch. BiSS-C Encoder
+
+
+
+                    #. Term 96 (EL9221-5000) [ID: 96]
+                              ( **SyncUnit=Term 4 (EL9221-5000)** )    EL9221-5000 Overcurrent protection 24V DC, 1Ch., max. 10A, adjustable
+
+
+
+                    #. EL7041_M4K2X [ID: 97]
+                            EL7041-0052 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+                    #. EL7041_M4K2Y [ID: 98]
+                            EL7041-0052 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+                    #. EL7041_M4K2rX [ID: 99]
+                            EL7041-0052 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+                    #. Term 100 (EL9410) [ID: 100]
+                            EL9410 E-Bus Power Supplier  (Diagnostics)
+
+
+
+                    #. Term 102 (EL3204)_RTDs [ID: 102]
+                            EL3204 4Ch. Ana. Input PT100 (RTD)
+
+
+
+                    #. Term 103 (EL3202-0010)_RTDs [ID: 103]
+                            EL3202-0010 2Ch. Ana. Input PT100 (RTD), High Precision
+
+
+
+                    #. EL3054_M4K2_FWM_PRSM [ID: 104]
+                            EL3054 4Ch. Ana. Input 4-20mA
+
+
+
+                    #. Term 105 (EL9011) [ID: 105]
+                            EL9011 End Terminal
+
+
+
+
+
+                #. **EK1100_MR4K2_BENDER [ID: 106]**
+                        EK1100 EtherCAT Coupler (2A E-Bus)
+
+                    #. EL5042_M4K2_BEND_USDS [ID: 107]
+                            EL5042 2Ch. BiSS-C Encoder
+
+
+
+                    #. EL9576_M4K2_BEND_US_PWR [ID: 108]
+                            EL9576 Brake chopper terminal
+
+
+
+                    #. EL7041_M4K2_BEND_US [ID: 109]
+                            EL7041 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+                    #. EL9576_M4K2_BEND_DS_PWR [ID: 110]
+                            EL9576 Brake chopper terminal
+
+
+
+                    #. EL7041_M4K2_BEND_DS [ID: 111]
+                            EL7041 1Ch. Stepper motor output stage (50V, 5A)
+
+
+
+                    #. EL3202-0010_M4K2US1_M4K2US2 [ID: 112]
+                            EL3202-0010 2Ch. Ana. Input PT100 (RTD), High Precision
+
+
+
+                    #. EL3202-0010_M4K2US3_M4K2DS1 [ID: 113]
+                            EL3202-0010 2Ch. Ana. Input PT100 (RTD), High Precision
+
+
+
+                    #. EL3204_M4K2_CHIN [ID: 283]
+                            EL3204 4Ch. Ana. Input PT100 (RTD)
+
+
+
+                    #. Term 115 (EL3054) [ID: 115]
+                            EL3054 4Ch. Ana. Input 4-20mA
+
+
+
+                    #. EL1004_M4K2_STO [ID: 116]
+                            EL1004 4Ch. Dig. Input 24V, 3ms
+
+
+
+                    #. Term 117 (EL9512) [ID: 117]
+                            EL9512 Power supply terminal 12V
+
+
+
+                    #. EL2024-0010_M4K2_BEND_LED1 [ID: 118]
+                            EL2024-0010 4Ch. Dig. Output 12V, 2A
+
+
+
+                    #. EL2024-0010_M4K2_BEND_LED2 [ID: 119]
+                            EL2024-0010 4Ch. Dig. Output 12V, 2A
+
+
+
+                    #. Term 120 (EL9011) [ID: 120]
+                            EL9011 End Terminal
+
+
+
+
+
+
+
+
+
+
+
+
+
