@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DUTs &mdash; pcdshub/lcls-plc-rixs-optics  documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/tree.css?v=837a00b9" />
+      <link rel="stylesheet" type="text/css" href="_static/width.css?v=ab210c7a" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -46,7 +50,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="lcls-plc-rixs-optics_pragmas.html">Pragmas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lcls-plc-rixs-optics_nc.html">NC Settings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lcls-plc-rixs-optics_ethercat.html">Box Hierarchy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lcls-plc-rixs-optics_ethercat.html">EtherCAT Terminals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lcls-plc-rixs-optics_boxes.html">Boxes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lcls-plc-rixs-optics_links.html">Links</a></li>
 </ul>
@@ -113,6 +117,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#prg-sp1k1-mono">PRG_SP1K1_MONO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prg-spo-pmps">PRG_SPO_PMPS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prg-st1k1-zos">PRG_ST1K1_ZOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prg-stats">PRG_Stats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#prg-zeroorder-pmps">PRG_ZeroOrder_PMPS</a></li>
 </ul>
 </li>
@@ -676,8 +681,8 @@ END_VAR
     <span class="s1">&#39;}</span>
     <span class="n">M21</span> <span class="p">:</span> <span class="n">DUT_MotionStage</span> <span class="o">:=</span> <span class="p">(</span><span class="n">sName</span><span class="o">:=</span> <span class="s1">&#39;SL1K2:EXIT:MMS:ROLL&#39;</span><span class="p">,</span><span class="n">fVelocity</span> <span class="o">:=</span><span class="mf">0.24</span><span class="p">);</span> <span class="o">//</span> <span class="n">Air</span> <span class="n">Roll</span>
 
-    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable:=TIIB[EL7047_SL1K2_GAP]^STM Status^Status^Digital input 2;</span>
-                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL7047_SL1K2_GAP</span><span class="p">]</span><span class="o">^</span><span class="n">STM</span> <span class="n">Status</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Digital</span> <span class="nb">input</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable:=TIIB[EL7047_SL1K2_GAP]^STM Status^Status^Digital input 1;</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL7047_SL1K2_GAP</span><span class="p">]</span><span class="o">^</span><span class="n">STM</span> <span class="n">Status</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Digital</span> <span class="nb">input</span> <span class="mi">2</span><span class="p">;</span>
                               <span class="o">.</span><span class="n">nRawEncoderULINT</span>      <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">EL5042_SL1K2_ROLL_GAP</span><span class="p">]</span><span class="o">^</span><span class="n">FB</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Position</span><span class="s1">&#39;}</span>
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
         <span class="n">pv</span><span class="p">:</span> <span class="n">SL1K2</span><span class="p">:</span><span class="n">EXIT</span><span class="p">:</span><span class="n">MMS</span><span class="p">:</span><span class="n">GAP</span>
@@ -2538,6 +2543,32 @@ END_VAR
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 310 (EK1122)^EK1100_MR2K2^EL1004_M2K2_STO^Channel 2^Input&#39;</span><span class="p">}</span>
     <span class="n">M2K2FLATbSTOEnable2</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span> <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
 
+    <span class="o">//</span> <span class="n">MR2K2</span> <span class="n">Flow</span> <span class="n">Press</span> <span class="n">Sensors</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[EL3054_MR2K2_FWM_PRSM]^AI Standard Channel 1^Value&#39;</span><span class="p">}</span>
+    <span class="n">fMR2K2_Flow_1</span> <span class="p">:</span> <span class="n">FB_AnalogInput</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">MR2K2</span><span class="p">:</span><span class="n">FLAT</span><span class="p">:</span><span class="n">FWM</span><span class="p">:</span><span class="mi">1</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">lpm</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">fMR2K2_Flow_1_val</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[EL3054_MR2K2_FWM_PRSM]^AI Standard Channel 3^Value&#39;</span><span class="p">}</span>
+    <span class="n">fMR2K2_Flow_2</span> <span class="p">:</span> <span class="n">FB_AnalogInput</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">MR2K2</span><span class="p">:</span><span class="n">FLAT</span><span class="p">:</span><span class="n">FWM</span><span class="p">:</span><span class="mi">2</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">lpm</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">fMR2K2_Flow_2_val</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[EL3054_MR2K2_FWM_PRSM]^AI Standard Channel 2^Value&#39;</span><span class="p">}</span>
+    <span class="n">fMR2K2_Press_1</span> <span class="p">:</span> <span class="n">FB_AnalogInput</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">MR2K2</span><span class="p">:</span><span class="n">FLAT</span><span class="p">:</span><span class="n">PRSM</span><span class="p">:</span><span class="mi">1</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">bar</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">fMR2K2_Press_1_val</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+
 <span class="n">END_VAR</span>
 <span class="o">//</span><span class="n">FB_Motion</span> <span class="n">stages</span> <span class="k">for</span> <span class="n">MR2K2</span> <span class="n">Axes</span>
 <span class="o">//</span><span class="n">MR2K2</span> <span class="n">FLAT</span>
@@ -2573,6 +2604,15 @@ END_VAR
 <span class="n">nEncCntXM2K2</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">M25</span><span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="p">);</span>
 <span class="n">nEncCntYM2K2</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">M26</span><span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="p">);</span>
 <span class="n">nEncCntrXM2K2</span>  <span class="o">:=</span> <span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">M27</span><span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="p">);</span>
+
+<span class="n">fMR2K2_Flow_1</span><span class="p">(</span><span class="n">iTermBits</span><span class="o">:=</span><span class="mi">15</span><span class="p">,</span> <span class="n">fTermMax</span><span class="o">:=</span><span class="mf">5.0427</span><span class="p">,</span> <span class="n">fTermMin</span><span class="o">:=</span><span class="mf">0.050472</span><span class="p">);</span>
+<span class="n">fMR2K2_Flow_1_val</span> <span class="o">:=</span> <span class="n">fMR2K2_Flow_1</span><span class="o">.</span><span class="n">fReal</span><span class="p">;</span>
+
+<span class="n">fMR2K2_Flow_2</span><span class="p">(</span><span class="n">iTermBits</span><span class="o">:=</span><span class="mi">15</span><span class="p">,</span> <span class="n">fTermMax</span><span class="o">:=</span><span class="mf">5.0427</span><span class="p">,</span> <span class="n">fTermMin</span><span class="o">:=</span><span class="mf">0.050472</span><span class="p">);</span>
+<span class="n">fMR2K2_Flow_2_val</span> <span class="o">:=</span> <span class="n">fMR2K2_Flow_2</span><span class="o">.</span><span class="n">fReal</span><span class="p">;</span>
+
+<span class="n">fMR2K2_Press_1</span><span class="p">(</span><span class="n">iTermBits</span><span class="o">:=</span><span class="mi">15</span><span class="p">,</span> <span class="n">fTermMax</span><span class="o">:=</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">fTermMin</span><span class="o">:=</span><span class="mi">0</span><span class="p">);</span>
+<span class="n">fMR2K2_Press_1_val</span> <span class="o">:=</span> <span class="n">fMR2K2_Press_1</span><span class="o">.</span><span class="n">fReal</span><span class="p">;</span>
 
 <span class="n">END_PROGRAM</span>
 </pre></div>
@@ -2750,6 +2790,24 @@ END_VAR
         <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIIB[EL1004_M3K2_STO]^Channel 2^Input&#39;</span><span class="p">}</span>
         <span class="n">M3K2KBHbSTOEnable2</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span> <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
 
+    <span class="o">//</span> <span class="n">MR3K2</span> <span class="n">Flow</span> <span class="n">Sensors</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[EL3054_MR3_4K2_FWM_PRSM]^AI Standard Channel 1^Value&#39;</span><span class="p">}</span>
+    <span class="n">fMR3K2_Flow_1</span> <span class="p">:</span> <span class="n">FB_AnalogInput</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">MR3K2</span><span class="p">:</span><span class="n">KBH</span><span class="p">:</span><span class="n">FWM</span><span class="p">:</span><span class="mi">1</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">lpm</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">fMR3K2_Flow_1_val</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[EL3054_MR3_4K2_FWM_PRSM]^AI Standard Channel 2^Value&#39;</span><span class="p">}</span>
+    <span class="n">fMR3K2_Press_1</span> <span class="p">:</span> <span class="n">FB_AnalogInput</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">MR3K2</span><span class="p">:</span><span class="n">KBH</span><span class="p">:</span><span class="n">PRSM</span><span class="p">:</span><span class="mi">1</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">bar</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">fMR3K2_Press_1_val</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+
 <span class="p">(</span><span class="o">*</span>
     <span class="o">//</span> <span class="n">PMPS</span>
         <span class="n">ffBenderRange</span> <span class="p">:</span> <span class="n">FB_FastFault</span> <span class="o">:=</span> <span class="p">(</span>
@@ -2832,6 +2890,11 @@ END_VAR
 <span class="n">M31</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="n">R</span><span class="o">=</span> <span class="n">fM3K2US_RTD_1</span> <span class="o">&gt;</span> <span class="mi">9000</span> <span class="n">OR</span> <span class="n">bM3K2US_RTD_1_Err</span><span class="p">;</span>
 <span class="n">M32</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="n">R</span><span class="o">=</span> <span class="n">fM3K2DS_RTD_1</span> <span class="o">&gt;</span> <span class="mi">9000</span> <span class="n">OR</span> <span class="n">bM3K2DS_RTD_1_Err</span><span class="p">;</span>
 
+<span class="n">fMR3K2_Flow_1</span><span class="p">(</span><span class="n">iTermBits</span><span class="o">:=</span><span class="mi">15</span><span class="p">,</span> <span class="n">fTermMax</span><span class="o">:=</span><span class="mf">5.0427</span><span class="p">,</span> <span class="n">fTermMin</span><span class="o">:=</span><span class="mf">0.050472</span><span class="p">);</span>
+<span class="n">fMR3K2_Flow_1_val</span> <span class="o">:=</span> <span class="n">fMR3K2_Flow_1</span><span class="o">.</span><span class="n">fReal</span><span class="p">;</span>
+
+<span class="n">fMR3K2_Press_1</span><span class="p">(</span><span class="n">iTermBits</span><span class="o">:=</span><span class="mi">15</span><span class="p">,</span> <span class="n">fTermMax</span><span class="o">:=</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">fTermMin</span><span class="o">:=</span><span class="mi">0</span><span class="p">);</span>
+<span class="n">fMR3K2_Press_1_val</span> <span class="o">:=</span> <span class="n">fMR3K2_Press_1</span><span class="o">.</span><span class="n">fReal</span><span class="p">;</span>
 <span class="p">(</span><span class="o">*</span>
 <span class="o">//</span><span class="n">PMPS</span>
 <span class="n">ffBenderRange</span><span class="o">.</span><span class="n">i_xOK</span> <span class="o">:=</span>
@@ -3037,6 +3100,25 @@ END_VAR
         <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2_BENDER^EL1004_M4K2_STO^Channel 2^Input&#39;</span><span class="p">}</span>
         <span class="n">M4K2KBVbSTOEnable2</span> <span class="n">AT</span> <span class="o">%</span><span class="n">I</span><span class="o">*</span> <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
 
+    <span class="o">//</span> <span class="n">MR4K2</span> <span class="n">Flow</span> <span class="n">Sensors</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[EL3054_MR3_4K2_FWM_PRSM]^AI Standard Channel 3^Value&#39;</span><span class="p">}</span>
+    <span class="n">fMR4K2_Flow_1</span> <span class="p">:</span> <span class="n">FB_AnalogInput</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">MR4K2</span><span class="p">:</span><span class="n">KBV</span><span class="p">:</span><span class="n">FWM</span><span class="p">:</span><span class="mi">1</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">lpm</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">fMR4K2_Flow_1_val</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[EL3054_MR3_4K2_FWM_PRSM]^AI Standard Channel 2^Value&#39;</span><span class="p">}</span>
+    <span class="n">fMR4K2_Press_1</span> <span class="p">:</span> <span class="n">FB_AnalogInput</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">MR4K2</span><span class="p">:</span><span class="n">KBV</span><span class="p">:</span><span class="n">PRSM</span><span class="p">:</span><span class="mi">1</span>
+        <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">bar</span>
+        <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">fMR4K2_Press_1_val</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+
+
 <span class="p">(</span><span class="o">*</span>
     <span class="o">//</span> <span class="n">PMPS</span>
         <span class="n">ffBenderRange</span> <span class="p">:</span> <span class="n">FB_FastFault</span> <span class="o">:=</span> <span class="p">(</span>
@@ -3122,6 +3204,12 @@ END_VAR
 <span class="n">nM4K2_Chin_Right_RTD</span><span class="p">();</span>
 <span class="n">nM4K2_Chin_Left_RTD</span><span class="p">();</span>
 
+<span class="n">fMR4K2_Flow_1</span><span class="p">(</span><span class="n">iTermBits</span><span class="o">:=</span><span class="mi">15</span><span class="p">,</span> <span class="n">fTermMax</span><span class="o">:=</span><span class="mf">5.0427</span><span class="p">,</span> <span class="n">fTermMin</span><span class="o">:=</span><span class="mf">0.050472</span><span class="p">);</span>
+<span class="n">fMR4K2_Flow_1_val</span> <span class="o">:=</span> <span class="n">fMR4K2_Flow_1</span><span class="o">.</span><span class="n">fReal</span><span class="p">;</span>
+
+<span class="n">fMR4K2_Press_1</span><span class="p">(</span><span class="n">iTermBits</span><span class="o">:=</span><span class="mi">15</span><span class="p">,</span> <span class="n">fTermMax</span><span class="o">:=</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">fTermMin</span><span class="o">:=</span><span class="mi">0</span><span class="p">);</span>
+<span class="n">fMR4K2_Press_1_val</span> <span class="o">:=</span> <span class="n">fMR4K2_Press_1</span><span class="o">.</span><span class="n">fReal</span><span class="p">;</span>
+
 <span class="p">(</span><span class="o">*</span>
 <span class="o">//</span><span class="n">PMPS</span>
 <span class="n">ffBenderRange</span><span class="o">.</span><span class="n">i_xOK</span> <span class="o">:=</span>
@@ -3181,19 +3269,19 @@ END_VAR
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
         <span class="n">pv</span><span class="p">:</span> <span class="n">SL1K2</span><span class="p">:</span><span class="n">EXIT</span><span class="p">:</span><span class="n">RTD</span><span class="p">:</span><span class="n">YAG</span>
     <span class="s1">&#39;}</span>
-    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[EL3201_SL1K2_3]^RTD^Value;</span>
-                              <span class="o">.</span><span class="n">bError</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">EL3201_SL1K2_3</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Error</span><span class="p">;</span>
-                              <span class="o">.</span><span class="n">bUnderrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">EL3201_SL1K2_3</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Underrange</span><span class="p">;</span>
-                              <span class="o">.</span><span class="n">bOverrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">EL3201_SL1K2_3</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Overrange</span><span class="s1">&#39;}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[EL3201_SL1K2_4]^RTD^Value;</span>
+                              <span class="o">.</span><span class="n">bError</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">EL3201_SL1K2_4</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Error</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bUnderrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">EL3201_SL1K2_4</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Underrange</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bOverrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">EL3201_SL1K2_4</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Overrange</span><span class="s1">&#39;}</span>
     <span class="n">RTD_YAG</span><span class="p">:</span> <span class="n">FB_TempSensor</span><span class="p">;</span>
 
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
         <span class="n">pv</span><span class="p">:</span> <span class="n">SL1K2</span><span class="p">:</span><span class="n">EXIT</span><span class="p">:</span><span class="n">RTD</span><span class="p">:</span><span class="n">HeatSync</span>
     <span class="s1">&#39;}</span>
-    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[EL3201_SL1K2_4]^RTD^Value;</span>
-                              <span class="o">.</span><span class="n">bError</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">EL3201_SL1K2_4</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Error</span><span class="p">;</span>
-                              <span class="o">.</span><span class="n">bUnderrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">EL3201_SL1K2_4</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Underrange</span><span class="p">;</span>
-                              <span class="o">.</span><span class="n">bOverrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">EL3201_SL1K2_4</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Overrange</span><span class="s1">&#39;}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[EL3201_SL1K2_3]^RTD^Value;</span>
+                              <span class="o">.</span><span class="n">bError</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">EL3201_SL1K2_3</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Error</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bUnderrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">EL3201_SL1K2_3</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Underrange</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">bOverrange</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">EL3201_SL1K2_3</span><span class="p">]</span><span class="o">^</span><span class="n">RTD</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Overrange</span><span class="s1">&#39;}</span>
     <span class="n">RTD_HeatSync</span><span class="p">:</span> <span class="n">FB_TempSensor</span><span class="p">;</span>
 
 
@@ -3220,6 +3308,10 @@ END_VAR
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iIlluminatorINT := TIIB[EL4004_SL1K2]^AO Outputs Channel 1^Analog output;</span>
                               <span class="o">.</span><span class="n">bGigePower</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">EL2004_SL1K2</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">3</span><span class="o">^</span><span class="n">Output</span><span class="s1">&#39;}</span>
     <span class="n">fbGige</span><span class="p">:</span> <span class="n">FB_PPM_Gige</span><span class="p">;</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span><span class="s1">&#39;pv: SL1K2:EXIT:FWM:1&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[EL3052_SL1K2_FWM]^AI Standard Channel 1^Value&#39;</span><span class="p">}</span>
+    <span class="n">fbFlowMeter</span><span class="p">:</span> <span class="n">FB_AnalogInput</span> <span class="o">:=</span> <span class="p">(</span><span class="n">iTermBits</span><span class="o">:=</span><span class="mi">15</span><span class="p">,</span> <span class="n">fTermMax</span><span class="o">:=</span><span class="mi">60</span><span class="p">,</span> <span class="n">fTermMin</span><span class="o">:=</span><span class="mi">0</span><span class="p">);</span>
 
     <span class="n">bInit</span> <span class="p">:</span> <span class="n">BOOL</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">;</span>
 
@@ -3311,10 +3403,13 @@ END_VAR
 <span class="n">fbGige</span><span class="p">();</span>
 
 <span class="o">//</span><span class="n">RTDs</span>
-<span class="n">RTD_Crystal_TOP</span><span class="p">();</span>
-<span class="n">RTD_Crystal_BOTTOM</span><span class="p">();</span>
-<span class="n">RTD_YAG</span><span class="p">();</span>
-<span class="n">RTD_HeatSync</span><span class="p">();</span>
+<span class="n">RTD_Crystal_TOP</span><span class="p">(</span><span class="n">fResolution</span><span class="o">:=</span><span class="mf">0.01</span><span class="p">);</span>
+<span class="n">RTD_Crystal_BOTTOM</span><span class="p">(</span><span class="n">fResolution</span><span class="o">:=</span><span class="mf">0.01</span><span class="p">);</span>
+<span class="n">RTD_YAG</span><span class="p">(</span><span class="n">fResolution</span><span class="o">:=</span><span class="mf">0.01</span><span class="p">);</span>
+<span class="n">RTD_HeatSync</span><span class="p">(</span><span class="n">fResolution</span><span class="o">:=</span><span class="mf">0.01</span><span class="p">);</span>
+
+<span class="o">//</span><span class="n">Cooling</span>
+<span class="n">fbFlowMeter</span><span class="p">();</span>
 
 <span class="n">END_PROGRAM</span>
 </pre></div>
@@ -3521,28 +3616,6 @@ END_VAR
     <span class="s1">&#39;}</span>
     <span class="n">fSP1K1_Press_1_val</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
 
-    <span class="o">//</span> <span class="n">SP1K1</span> <span class="n">Grating</span> <span class="n">Mono</span> <span class="n">Vibration</span> <span class="n">Stats</span>
-    <span class="n">fGpiEncoderPosDiff</span><span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
-    <span class="n">afGpiPosDiffBuffer</span><span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1..1000</span><span class="p">]</span> <span class="n">OF</span> <span class="n">LREAL</span><span class="p">;</span>
-    <span class="n">afGpiExtraBuffer</span><span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1..1000</span><span class="p">]</span> <span class="n">OF</span> <span class="n">LREAL</span><span class="p">;</span>
-    <span class="n">fbGpiPosDiffCollect</span><span class="p">:</span> <span class="n">FB_DataBuffer</span><span class="p">;</span>
-    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
-        <span class="n">pv</span><span class="p">:</span> <span class="n">SP1K1</span><span class="p">:</span><span class="n">MONO</span><span class="p">:</span><span class="n">MMS</span><span class="p">:</span><span class="n">G_PI</span><span class="p">:</span><span class="n">ENCDIFF</span>
-    <span class="s1">&#39;}</span>
-    <span class="n">fbGpiPosDiffStats</span><span class="p">:</span> <span class="n">FB_BasicStats</span><span class="p">;</span>
-    <span class="n">fGpiRangeMax</span><span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
-    <span class="n">rtNewGpiMove</span><span class="p">:</span> <span class="n">R_TRIG</span><span class="p">;</span>
-    <span class="n">tonNewGpiMove</span><span class="p">:</span> <span class="n">TON</span><span class="p">;</span>
-
-    <span class="o">//</span> <span class="n">SP1K1</span> <span class="n">Mirror</span> <span class="n">Pitch</span> <span class="n">Mono</span> <span class="n">Vibration</span> <span class="n">Stats</span>
-    <span class="n">fMpiEncoderPosDiff</span><span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
-    <span class="n">afMpiPosDiffBuffer</span><span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1..1000</span><span class="p">]</span> <span class="n">OF</span> <span class="n">LREAL</span><span class="p">;</span>
-    <span class="n">afMpiExtraBuffer</span><span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1..1000</span><span class="p">]</span> <span class="n">OF</span> <span class="n">LREAL</span><span class="p">;</span>
-    <span class="n">fbMpiPosDiffCollect</span><span class="p">:</span> <span class="n">FB_DataBuffer</span><span class="p">;</span>
-    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
-        <span class="n">pv</span><span class="p">:</span> <span class="n">SP1K1</span><span class="p">:</span><span class="n">MONO</span><span class="p">:</span><span class="n">MMS</span><span class="p">:</span><span class="n">M_PI</span><span class="p">:</span><span class="n">ENCDIFF</span>
-    <span class="s1">&#39;}</span>
-    <span class="n">fbMpiPosDiffStats</span><span class="p">:</span> <span class="n">FB_BasicStats</span><span class="p">;</span>
 <span class="n">END_VAR</span>
 <span class="o">//</span> <span class="n">SP1K1</span><span class="o">-</span><span class="n">MONO</span>
 <span class="n">M6</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">bSTOEnable1</span> <span class="n">AND</span> <span class="n">bSTOEnable2</span><span class="p">;</span>
@@ -3559,45 +3632,8 @@ END_VAR
 <span class="n">fbMotionStage_s_io</span>  <span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M10</span><span class="p">);</span>
 <span class="n">fbMotionStage_s_r</span>  <span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M11</span><span class="p">);</span>
 
-<span class="n">fGpiEncoderPosDiff</span> <span class="o">:=</span> <span class="n">M7</span><span class="o">.</span><span class="n">nEncoderCount</span> <span class="o">-</span> <span class="p">(</span><span class="n">M7</span><span class="o">.</span><span class="n">Axis</span><span class="o">.</span><span class="n">NcToPlc</span><span class="o">.</span><span class="n">SetPos</span> <span class="o">-</span> <span class="n">M7</span><span class="o">.</span><span class="n">stAxisParameters</span><span class="o">.</span><span class="n">fEncOffset</span><span class="p">)</span> <span class="o">*</span> <span class="mi">150</span><span class="p">;</span>
-<span class="n">fbGpiPosDiffCollect</span><span class="p">(</span>
-    <span class="n">bExecute</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
-    <span class="n">pInputAdr</span><span class="o">:=</span><span class="n">ADR</span><span class="p">(</span><span class="n">fGpiEncoderPosDiff</span><span class="p">),</span>
-    <span class="n">iInputSize</span><span class="o">:=</span><span class="n">SIZEOF</span><span class="p">(</span><span class="n">fGpiEncoderPosDiff</span><span class="p">),</span>
-    <span class="n">iElemCount</span><span class="o">:=</span><span class="mi">1000</span><span class="p">,</span>
-    <span class="n">pPartialAdr</span><span class="o">:=</span><span class="n">ADR</span><span class="p">(</span><span class="n">afGpiPosDiffBuffer</span><span class="p">),</span>
-    <span class="n">pOutputAdr</span><span class="o">:=</span><span class="n">ADR</span><span class="p">(</span><span class="n">afGpiExtraBuffer</span><span class="p">),</span>
-<span class="p">);</span>
-<span class="n">fbGpiPosDiffStats</span><span class="p">(</span>
-    <span class="n">aSignal</span><span class="o">:=</span><span class="n">afGpiPosDiffBuffer</span><span class="p">,</span>
-    <span class="n">bAlwaysCalc</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
-<span class="p">);</span>
-<span class="n">rtNewGpiMove</span><span class="p">(</span><span class="n">CLK</span><span class="o">:=</span><span class="n">M7</span><span class="o">.</span><span class="n">bExecute</span><span class="p">);</span>
-<span class="n">tonNewGpiMove</span><span class="p">(</span>
-    <span class="n">IN</span><span class="o">:=</span><span class="n">M7</span><span class="o">.</span><span class="n">bExecute</span><span class="p">,</span>
-    <span class="n">PT</span><span class="o">:=</span><span class="n">T</span><span class="c1">#15s,</span>
-<span class="p">);</span>
-<span class="n">IF</span> <span class="n">rtNewGpiMove</span><span class="o">.</span><span class="n">Q</span> <span class="n">THEN</span>
-    <span class="o">//</span> <span class="n">Reset</span> <span class="n">before</span> <span class="n">a</span> <span class="n">move</span>
-    <span class="n">fGpiRangeMax</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="n">ELSIF</span> <span class="n">tonNewGpiMove</span><span class="o">.</span><span class="n">Q</span> <span class="n">AND</span> <span class="n">ABS</span><span class="p">(</span><span class="n">M7</span><span class="o">.</span><span class="n">fPosition</span> <span class="o">-</span> <span class="n">M7</span><span class="o">.</span><span class="n">stAxisStatus</span><span class="o">.</span><span class="n">fActPosition</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="n">THEN</span>
-    <span class="o">//</span> <span class="n">Update</span> <span class="n">only</span> <span class="n">during</span> <span class="n">moves</span><span class="p">,</span> <span class="ow">not</span> <span class="n">at</span> <span class="n">the</span> <span class="n">start</span> <span class="ow">or</span> <span class="n">end</span>
-    <span class="n">fGpiRangeMax</span> <span class="o">:=</span> <span class="n">MAX</span><span class="p">(</span><span class="n">fGpiRangeMax</span><span class="p">,</span> <span class="n">fbGpiPosDiffStats</span><span class="o">.</span><span class="n">fRange</span><span class="p">);</span>
-<span class="n">END_IF</span>
 
-<span class="n">fMpiEncoderPosDiff</span> <span class="o">:=</span> <span class="n">M6</span><span class="o">.</span><span class="n">nEncoderCount</span> <span class="o">-</span> <span class="p">(</span><span class="n">M6</span><span class="o">.</span><span class="n">Axis</span><span class="o">.</span><span class="n">NcToPlc</span><span class="o">.</span><span class="n">SetPos</span> <span class="o">-</span> <span class="n">M6</span><span class="o">.</span><span class="n">stAxisParameters</span><span class="o">.</span><span class="n">fEncOffset</span><span class="p">)</span> <span class="o">/</span> <span class="mf">0.004505</span><span class="p">;</span>
-<span class="n">fbMpiPosDiffCollect</span><span class="p">(</span>
-    <span class="n">bExecute</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
-    <span class="n">pInputAdr</span><span class="o">:=</span><span class="n">ADR</span><span class="p">(</span><span class="n">fMpiEncoderPosDiff</span><span class="p">),</span>
-    <span class="n">iInputSize</span><span class="o">:=</span><span class="n">SIZEOF</span><span class="p">(</span><span class="n">fMpiEncoderPosDiff</span><span class="p">),</span>
-    <span class="n">iElemCount</span><span class="o">:=</span><span class="mi">1000</span><span class="p">,</span>
-    <span class="n">pPartialAdr</span><span class="o">:=</span><span class="n">ADR</span><span class="p">(</span><span class="n">afMpiPosDiffBuffer</span><span class="p">),</span>
-    <span class="n">pOutputAdr</span><span class="o">:=</span><span class="n">ADR</span><span class="p">(</span><span class="n">afMpiExtraBuffer</span><span class="p">),</span>
-<span class="p">);</span>
-<span class="n">fbMpiPosDiffStats</span><span class="p">(</span>
-    <span class="n">aSignal</span><span class="o">:=</span><span class="n">afMpiPosDiffBuffer</span><span class="p">,</span>
-    <span class="n">bAlwaysCalc</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
-<span class="p">);</span>
+
 
 
 <span class="o">//</span><span class="n">S_R</span> <span class="k">with</span> <span class="n">no</span> <span class="n">hardware</span> <span class="n">limit</span> <span class="n">switched</span>
@@ -3779,6 +3815,80 @@ END_VAR
 </dd>
 </dl>
 </section>
+<section id="prg-stats">
+<h2>PRG_Stats<a class="headerlink" href="#prg-stats" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROGRAM</span> <span class="n">PRG_Stats</span>
+<span class="n">VAR</span>
+    <span class="o">//</span> <span class="n">SP1K1</span> <span class="n">Grating</span> <span class="n">Mono</span> <span class="n">Vibration</span> <span class="n">Stats</span>
+    <span class="n">fGpiEncoderPosDiff</span><span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+    <span class="n">afGpiPosDiffBuffer</span><span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1..10000</span><span class="p">]</span> <span class="n">OF</span> <span class="n">LREAL</span><span class="p">;</span>
+    <span class="n">afGpiExtraBuffer</span><span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1..10000</span><span class="p">]</span> <span class="n">OF</span> <span class="n">LREAL</span><span class="p">;</span>
+    <span class="n">fbGpiPosDiffCollect</span><span class="p">:</span> <span class="n">FB_DataBuffer</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">SP1K1</span><span class="p">:</span><span class="n">MONO</span><span class="p">:</span><span class="n">MMS</span><span class="p">:</span><span class="n">G_PI</span><span class="p">:</span><span class="n">ENCDIFF</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">fbGpiPosDiffStats</span><span class="p">:</span> <span class="n">FB_BasicStats</span><span class="p">;</span>
+
+    <span class="n">fGpiRangeMax</span><span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+    <span class="n">rtNewGpiMove</span><span class="p">:</span> <span class="n">R_TRIG</span><span class="p">;</span>
+    <span class="n">tonNewGpiMove</span><span class="p">:</span> <span class="n">TON</span><span class="p">;</span>
+
+
+    <span class="o">//</span> <span class="n">SP1K1</span> <span class="n">Mirror</span> <span class="n">Pitch</span> <span class="n">Mono</span> <span class="n">Vibration</span> <span class="n">Stats</span>
+    <span class="n">fMpiEncoderPosDiff</span><span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+    <span class="n">afMpiPosDiffBuffer</span><span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1..10000</span><span class="p">]</span> <span class="n">OF</span> <span class="n">LREAL</span><span class="p">;</span>
+    <span class="n">afMpiExtraBuffer</span><span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1..10000</span><span class="p">]</span> <span class="n">OF</span> <span class="n">LREAL</span><span class="p">;</span>
+    <span class="n">fbMpiPosDiffCollect</span><span class="p">:</span> <span class="n">FB_DataBuffer</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">SP1K1</span><span class="p">:</span><span class="n">MONO</span><span class="p">:</span><span class="n">MMS</span><span class="p">:</span><span class="n">M_PI</span><span class="p">:</span><span class="n">ENCDIFF</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">fbMpiPosDiffStats</span><span class="p">:</span> <span class="n">FB_BasicStats</span><span class="p">;</span>
+<span class="n">END_VAR</span>
+<span class="n">IF</span> <span class="n">rtNewGpiMove</span><span class="o">.</span><span class="n">Q</span> <span class="n">THEN</span>
+    <span class="o">//</span> <span class="n">Reset</span> <span class="n">before</span> <span class="n">a</span> <span class="n">move</span>
+    <span class="n">fGpiRangeMax</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">ELSIF</span> <span class="n">tonNewGpiMove</span><span class="o">.</span><span class="n">Q</span> <span class="n">AND</span> <span class="n">ABS</span><span class="p">(</span><span class="n">M7</span><span class="o">.</span><span class="n">fPosition</span> <span class="o">-</span> <span class="n">M7</span><span class="o">.</span><span class="n">stAxisStatus</span><span class="o">.</span><span class="n">fActPosition</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="n">THEN</span>
+    <span class="o">//</span> <span class="n">Update</span> <span class="n">only</span> <span class="n">during</span> <span class="n">moves</span><span class="p">,</span> <span class="ow">not</span> <span class="n">at</span> <span class="n">the</span> <span class="n">start</span> <span class="ow">or</span> <span class="n">end</span>
+    <span class="n">fGpiRangeMax</span> <span class="o">:=</span> <span class="n">MAX</span><span class="p">(</span><span class="n">fGpiRangeMax</span><span class="p">,</span> <span class="n">fbGpiPosDiffStats</span><span class="o">.</span><span class="n">fRange</span><span class="p">);</span>
+<span class="n">END_IF</span>
+
+<span class="n">fGpiEncoderPosDiff</span> <span class="o">:=</span> <span class="n">M7</span><span class="o">.</span><span class="n">nEncoderCount</span> <span class="o">-</span> <span class="p">(</span><span class="n">M7</span><span class="o">.</span><span class="n">Axis</span><span class="o">.</span><span class="n">NcToPlc</span><span class="o">.</span><span class="n">SetPos</span> <span class="o">-</span> <span class="n">M7</span><span class="o">.</span><span class="n">stAxisParameters</span><span class="o">.</span><span class="n">fEncOffset</span><span class="p">)</span> <span class="o">*</span> <span class="mi">150</span><span class="p">;</span>
+<span class="n">fbGpiPosDiffCollect</span><span class="p">(</span>
+    <span class="n">bExecute</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
+    <span class="n">pInputAdr</span><span class="o">:=</span><span class="n">ADR</span><span class="p">(</span><span class="n">fGpiEncoderPosDiff</span><span class="p">),</span>
+    <span class="n">iInputSize</span><span class="o">:=</span><span class="n">SIZEOF</span><span class="p">(</span><span class="n">fGpiEncoderPosDiff</span><span class="p">),</span>
+    <span class="n">iElemCount</span><span class="o">:=</span><span class="mi">10000</span><span class="p">,</span>
+    <span class="n">pPartialAdr</span><span class="o">:=</span><span class="n">ADR</span><span class="p">(</span><span class="n">afGpiPosDiffBuffer</span><span class="p">),</span>
+    <span class="n">pOutputAdr</span><span class="o">:=</span><span class="n">ADR</span><span class="p">(</span><span class="n">afGpiExtraBuffer</span><span class="p">),</span>
+<span class="p">);</span>
+<span class="n">fbGpiPosDiffStats</span><span class="p">(</span>
+    <span class="n">aSignal</span><span class="o">:=</span><span class="n">afGpiPosDiffBuffer</span><span class="p">,</span>
+    <span class="n">bAlwaysCalc</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
+<span class="p">);</span>
+<span class="n">rtNewGpiMove</span><span class="p">(</span><span class="n">CLK</span><span class="o">:=</span><span class="n">M7</span><span class="o">.</span><span class="n">bExecute</span><span class="p">);</span>
+<span class="n">tonNewGpiMove</span><span class="p">(</span>
+    <span class="n">IN</span><span class="o">:=</span><span class="n">M7</span><span class="o">.</span><span class="n">bExecute</span><span class="p">,</span>
+    <span class="n">PT</span><span class="o">:=</span><span class="n">T</span><span class="c1">#15s,</span>
+<span class="p">);</span>
+
+<span class="p">(</span><span class="o">*</span><span class="n">fMpiEncoderPosDiff</span> <span class="o">:=</span> <span class="n">M6</span><span class="o">.</span><span class="n">nEncoderCount</span> <span class="o">-</span> <span class="p">(</span><span class="n">M6</span><span class="o">.</span><span class="n">Axis</span><span class="o">.</span><span class="n">NcToPlc</span><span class="o">.</span><span class="n">SetPos</span> <span class="o">-</span> <span class="n">M6</span><span class="o">.</span><span class="n">stAxisParameters</span><span class="o">.</span><span class="n">fEncOffset</span><span class="p">)</span> <span class="o">/</span> <span class="mf">0.004505</span><span class="p">;</span>
+<span class="n">fbMpiPosDiffCollect</span><span class="p">(</span>
+    <span class="n">bExecute</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
+    <span class="n">pInputAdr</span><span class="o">:=</span><span class="n">ADR</span><span class="p">(</span><span class="n">fMpiEncoderPosDiff</span><span class="p">),</span>
+    <span class="n">iInputSize</span><span class="o">:=</span><span class="n">SIZEOF</span><span class="p">(</span><span class="n">fMpiEncoderPosDiff</span><span class="p">),</span>
+    <span class="n">iElemCount</span><span class="o">:=</span><span class="mi">1000</span><span class="p">,</span>
+    <span class="n">pPartialAdr</span><span class="o">:=</span><span class="n">ADR</span><span class="p">(</span><span class="n">afMpiPosDiffBuffer</span><span class="p">),</span>
+    <span class="n">pOutputAdr</span><span class="o">:=</span><span class="n">ADR</span><span class="p">(</span><span class="n">afMpiExtraBuffer</span><span class="p">),</span>
+<span class="p">);</span>
+<span class="n">fbMpiPosDiffStats</span><span class="p">(</span>
+    <span class="n">aSignal</span><span class="o">:=</span><span class="n">afMpiPosDiffBuffer</span><span class="p">,</span>
+    <span class="n">bAlwaysCalc</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
+<span class="p">);</span><span class="o">*</span><span class="p">)</span>
+
+<span class="n">END_PROGRAM</span>
+</pre></div>
+</div>
+</section>
 <section id="prg-zeroorder-pmps">
 <h2>PRG_ZeroOrder_PMPS<a class="headerlink" href="#prg-zeroorder-pmps" title="Link to this heading"></a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>PROGRAM PRG_ZeroOrder_PMPS
@@ -3882,8 +3992,8 @@ VAR CONSTANT
     Zmon : LREAL:=739.622;//m
     Zpiv : LREAL:= 739.762 ; //m
     Zzos : LREAL:= 741.422;//m
-    Pm1Offset: LREAL:= 18181;//=18310-129
-    Pm2Offset: LREAL:= -90641;
+    Pm1Offset: LREAL:= 18081.1;
+    Pm2Offset: LREAL:= -90603;
     Pm3Offset: LREAL:= -63300;//urad, could depend on the inserted grating
 END_VAR
 //Diagnostics
@@ -3922,8 +4032,8 @@ ACTION ACT_CALC:
 Hm1:= 1400000+M12.stAxisStatus.fActPosition; //um
 //Pm1 = Pm1Offset + mr1k1 bend pitch
 Pm1 := Pm1Offset + Main.M16.stAxisStatus.fActPosition; //urad
-//Hpiv = 1.620305 + 0.001 // m 0.001 is correction from nominal
-Hpiv:= (1.620305 + 0.001)*1E6; //um
+//Hpiv = 1.625427 is correction from nominal
+Hpiv:= (1.625247)*1E6; //um
 //Pm2 = mono mirror pitch + Pm2Offset urad
 Pm2 := Main.M6.stAxisStatus.fActPosition + Pm2Offset;//urad
 //Hm3 = Hpiv + 0.006 m
@@ -4008,7 +4118,7 @@ END_METHOD
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, SLAC National Accelerator Laboratory.</p>
+    <p>&#169; Copyright 2024, SLAC National Accelerator Laboratory.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

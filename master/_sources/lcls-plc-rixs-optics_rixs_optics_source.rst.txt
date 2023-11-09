@@ -600,8 +600,8 @@ Main
         '}
         M21 : DUT_MotionStage := (sName:= 'SL1K2:EXIT:MMS:ROLL',fVelocity :=0.24); // Air Roll
 
-        {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_GAP]^STM Status^Status^Digital input 2;
-                                  .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_GAP]^STM Status^Status^Digital input 1;
+        {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_GAP]^STM Status^Status^Digital input 1;
+                                  .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_GAP]^STM Status^Status^Digital input 2;
                                   .nRawEncoderULINT      := TIIB[EL5042_SL1K2_ROLL_GAP]^FB Inputs Channel 2^Position'}
         {attribute 'pytmc' := '
             pv: SL1K2:EXIT:MMS:GAP
@@ -2515,6 +2515,32 @@ PRG_MR2K2_FLAT
         {attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 310 (EK1122)^EK1100_MR2K2^EL1004_M2K2_STO^Channel 2^Input'}
         M2K2FLATbSTOEnable2 AT %I* : BOOL;
 
+        // MR2K2 Flow Press Sensors
+        {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_MR2K2_FWM_PRSM]^AI Standard Channel 1^Value'}
+        fMR2K2_Flow_1 : FB_AnalogInput;
+        {attribute 'pytmc' := '
+            pv: MR2K2:FLAT:FWM:1
+            field: EGU lpm
+            io: i
+        '}
+        fMR2K2_Flow_1_val : LREAL;
+        {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_MR2K2_FWM_PRSM]^AI Standard Channel 3^Value'}
+        fMR2K2_Flow_2 : FB_AnalogInput;
+        {attribute 'pytmc' := '
+            pv: MR2K2:FLAT:FWM:2
+            field: EGU lpm
+            io: i
+        '}
+        fMR2K2_Flow_2_val : LREAL;
+        {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_MR2K2_FWM_PRSM]^AI Standard Channel 2^Value'}
+        fMR2K2_Press_1 : FB_AnalogInput;
+        {attribute 'pytmc' := '
+            pv: MR2K2:FLAT:PRSM:1
+            field: EGU bar
+            io: i
+        '}
+        fMR2K2_Press_1_val : LREAL;
+
     END_VAR
     //FB_Motion stages for MR2K2 Axes
     //MR2K2 FLAT
@@ -2550,6 +2576,15 @@ PRG_MR2K2_FLAT
     nEncCntXM2K2  := ULINT_TO_UDINT(M25.nRawEncoderULINT);
     nEncCntYM2K2  := ULINT_TO_UDINT(M26.nRawEncoderULINT);
     nEncCntrXM2K2  := ULINT_TO_UDINT(M27.nRawEncoderULINT);
+
+    fMR2K2_Flow_1(iTermBits:=15, fTermMax:=5.0427, fTermMin:=0.050472);
+    fMR2K2_Flow_1_val := fMR2K2_Flow_1.fReal;
+
+    fMR2K2_Flow_2(iTermBits:=15, fTermMax:=5.0427, fTermMin:=0.050472);
+    fMR2K2_Flow_2_val := fMR2K2_Flow_2.fReal;
+
+    fMR2K2_Press_1(iTermBits:=15, fTermMax:=4.0, fTermMin:=0);
+    fMR2K2_Press_1_val := fMR2K2_Press_1.fReal;
 
     END_PROGRAM
 
@@ -2727,6 +2762,24 @@ PRG_MR3K2_KBH
             {attribute 'TcLinkTo' := 'TIIB[EL1004_M3K2_STO]^Channel 2^Input'}
             M3K2KBHbSTOEnable2 AT %I* : BOOL;
 
+        // MR3K2 Flow Sensors
+        {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_MR3_4K2_FWM_PRSM]^AI Standard Channel 1^Value'}
+        fMR3K2_Flow_1 : FB_AnalogInput;
+        {attribute 'pytmc' := '
+            pv: MR3K2:KBH:FWM:1
+            field: EGU lpm
+            io: i
+        '}
+        fMR3K2_Flow_1_val : LREAL;
+        {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_MR3_4K2_FWM_PRSM]^AI Standard Channel 2^Value'}
+        fMR3K2_Press_1 : FB_AnalogInput;
+        {attribute 'pytmc' := '
+            pv: MR3K2:KBH:PRSM:1
+            field: EGU bar
+            io: i
+        '}
+        fMR3K2_Press_1_val : LREAL;
+
     (*
         // PMPS
             ffBenderRange : FB_FastFault := (
@@ -2809,6 +2862,11 @@ PRG_MR3K2_KBH
     M31.bHardwareEnable R= fM3K2US_RTD_1 > 9000 OR bM3K2US_RTD_1_Err;
     M32.bHardwareEnable R= fM3K2DS_RTD_1 > 9000 OR bM3K2DS_RTD_1_Err;
 
+    fMR3K2_Flow_1(iTermBits:=15, fTermMax:=5.0427, fTermMin:=0.050472);
+    fMR3K2_Flow_1_val := fMR3K2_Flow_1.fReal;
+
+    fMR3K2_Press_1(iTermBits:=15, fTermMax:=4.0, fTermMin:=0);
+    fMR3K2_Press_1_val := fMR3K2_Press_1.fReal;
     (*
     //PMPS
     ffBenderRange.i_xOK :=
@@ -3014,6 +3072,25 @@ PRG_MR4K2_KBV
             {attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2_BENDER^EL1004_M4K2_STO^Channel 2^Input'}
             M4K2KBVbSTOEnable2 AT %I* : BOOL;
 
+        // MR4K2 Flow Sensors
+        {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_MR3_4K2_FWM_PRSM]^AI Standard Channel 3^Value'}
+        fMR4K2_Flow_1 : FB_AnalogInput;
+        {attribute 'pytmc' := '
+            pv: MR4K2:KBV:FWM:1
+            field: EGU lpm
+            io: i
+        '}
+        fMR4K2_Flow_1_val : LREAL;
+        {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_MR3_4K2_FWM_PRSM]^AI Standard Channel 2^Value'}
+        fMR4K2_Press_1 : FB_AnalogInput;
+        {attribute 'pytmc' := '
+            pv: MR4K2:KBV:PRSM:1
+            field: EGU bar
+            io: i
+        '}
+        fMR4K2_Press_1_val : LREAL;
+
+
     (*
         // PMPS
             ffBenderRange : FB_FastFault := (
@@ -3099,6 +3176,12 @@ PRG_MR4K2_KBV
     nM4K2_Chin_Right_RTD();
     nM4K2_Chin_Left_RTD();
 
+    fMR4K2_Flow_1(iTermBits:=15, fTermMax:=5.0427, fTermMin:=0.050472);
+    fMR4K2_Flow_1_val := fMR4K2_Flow_1.fReal;
+
+    fMR4K2_Press_1(iTermBits:=15, fTermMax:=4.0, fTermMin:=0);
+    fMR4K2_Press_1_val := fMR4K2_Press_1.fReal;
+
     (*
     //PMPS
     ffBenderRange.i_xOK :=
@@ -3158,19 +3241,19 @@ PRG_SL1K2_EXIT
         {attribute 'pytmc' := '
             pv: SL1K2:EXIT:RTD:YAG
         '}
-        {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3201_SL1K2_3]^RTD^Value;
-                                  .bError := TIIB[EL3201_SL1K2_3]^RTD^Status^Error;
-                                  .bUnderrange := TIIB[EL3201_SL1K2_3]^RTD^Status^Underrange;
-                                  .bOverrange := TIIB[EL3201_SL1K2_3]^RTD^Status^Overrange'}
+        {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3201_SL1K2_4]^RTD^Value;
+                                  .bError := TIIB[EL3201_SL1K2_4]^RTD^Status^Error;
+                                  .bUnderrange := TIIB[EL3201_SL1K2_4]^RTD^Status^Underrange;
+                                  .bOverrange := TIIB[EL3201_SL1K2_4]^RTD^Status^Overrange'}
         RTD_YAG: FB_TempSensor;
 
         {attribute 'pytmc' := '
             pv: SL1K2:EXIT:RTD:HeatSync
         '}
-        {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3201_SL1K2_4]^RTD^Value;
-                                  .bError := TIIB[EL3201_SL1K2_4]^RTD^Status^Error;
-                                  .bUnderrange := TIIB[EL3201_SL1K2_4]^RTD^Status^Underrange;
-                                  .bOverrange := TIIB[EL3201_SL1K2_4]^RTD^Status^Overrange'}
+        {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3201_SL1K2_3]^RTD^Value;
+                                  .bError := TIIB[EL3201_SL1K2_3]^RTD^Status^Error;
+                                  .bUnderrange := TIIB[EL3201_SL1K2_3]^RTD^Status^Underrange;
+                                  .bOverrange := TIIB[EL3201_SL1K2_3]^RTD^Status^Overrange'}
         RTD_HeatSync: FB_TempSensor;
 
 
@@ -3197,6 +3280,10 @@ PRG_SL1K2_EXIT
         {attribute 'TcLinkTo' := '.iIlluminatorINT := TIIB[EL4004_SL1K2]^AO Outputs Channel 1^Analog output;
                                   .bGigePower := TIIB[EL2004_SL1K2]^Channel 3^Output'}
         fbGige: FB_PPM_Gige;
+
+        {attribute 'pytmc' :='pv: SL1K2:EXIT:FWM:1'}
+        {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3052_SL1K2_FWM]^AI Standard Channel 1^Value'}
+        fbFlowMeter: FB_AnalogInput := (iTermBits:=15, fTermMax:=60, fTermMin:=0);
 
         bInit : BOOL:=TRUE;
 
@@ -3288,10 +3375,13 @@ PRG_SL1K2_EXIT
     fbGige();
 
     //RTDs
-    RTD_Crystal_TOP();
-    RTD_Crystal_BOTTOM();
-    RTD_YAG();
-    RTD_HeatSync();
+    RTD_Crystal_TOP(fResolution:=0.01);
+    RTD_Crystal_BOTTOM(fResolution:=0.01);
+    RTD_YAG(fResolution:=0.01);
+    RTD_HeatSync(fResolution:=0.01);
+
+    //Cooling
+    fbFlowMeter();
 
     END_PROGRAM
 
@@ -3498,28 +3588,6 @@ PRG_SP1K1_MONO
         '}
         fSP1K1_Press_1_val : LREAL;
 
-        // SP1K1 Grating Mono Vibration Stats
-        fGpiEncoderPosDiff: LREAL;
-        afGpiPosDiffBuffer: ARRAY[1..1000] OF LREAL;
-        afGpiExtraBuffer: ARRAY[1..1000] OF LREAL;
-        fbGpiPosDiffCollect: FB_DataBuffer;
-        {attribute 'pytmc' := '
-            pv: SP1K1:MONO:MMS:G_PI:ENCDIFF
-        '}
-        fbGpiPosDiffStats: FB_BasicStats;
-        fGpiRangeMax: LREAL;
-        rtNewGpiMove: R_TRIG;
-        tonNewGpiMove: TON;
-
-        // SP1K1 Mirror Pitch Mono Vibration Stats
-        fMpiEncoderPosDiff: LREAL;
-        afMpiPosDiffBuffer: ARRAY[1..1000] OF LREAL;
-        afMpiExtraBuffer: ARRAY[1..1000] OF LREAL;
-        fbMpiPosDiffCollect: FB_DataBuffer;
-        {attribute 'pytmc' := '
-            pv: SP1K1:MONO:MMS:M_PI:ENCDIFF
-        '}
-        fbMpiPosDiffStats: FB_BasicStats;
     END_VAR
     // SP1K1-MONO
     M6.bHardwareEnable := bSTOEnable1 AND bSTOEnable2;
@@ -3536,45 +3604,8 @@ PRG_SP1K1_MONO
     fbMotionStage_s_io  (stMotionStage:=M10);
     fbMotionStage_s_r  (stMotionStage:=M11);
 
-    fGpiEncoderPosDiff := M7.nEncoderCount - (M7.Axis.NcToPlc.SetPos - M7.stAxisParameters.fEncOffset) * 150;
-    fbGpiPosDiffCollect(
-        bExecute:=TRUE,
-        pInputAdr:=ADR(fGpiEncoderPosDiff),
-        iInputSize:=SIZEOF(fGpiEncoderPosDiff),
-        iElemCount:=1000,
-        pPartialAdr:=ADR(afGpiPosDiffBuffer),
-        pOutputAdr:=ADR(afGpiExtraBuffer),
-    );
-    fbGpiPosDiffStats(
-        aSignal:=afGpiPosDiffBuffer,
-        bAlwaysCalc:=TRUE,
-    );
-    rtNewGpiMove(CLK:=M7.bExecute);
-    tonNewGpiMove(
-        IN:=M7.bExecute,
-        PT:=T#15s,
-    );
-    IF rtNewGpiMove.Q THEN
-        // Reset before a move
-        fGpiRangeMax := 0;
-    ELSIF tonNewGpiMove.Q AND ABS(M7.fPosition - M7.stAxisStatus.fActPosition) > 5 THEN
-        // Update only during moves, not at the start or end
-        fGpiRangeMax := MAX(fGpiRangeMax, fbGpiPosDiffStats.fRange);
-    END_IF
 
-    fMpiEncoderPosDiff := M6.nEncoderCount - (M6.Axis.NcToPlc.SetPos - M6.stAxisParameters.fEncOffset) / 0.004505;
-    fbMpiPosDiffCollect(
-        bExecute:=TRUE,
-        pInputAdr:=ADR(fMpiEncoderPosDiff),
-        iInputSize:=SIZEOF(fMpiEncoderPosDiff),
-        iElemCount:=1000,
-        pPartialAdr:=ADR(afMpiPosDiffBuffer),
-        pOutputAdr:=ADR(afMpiExtraBuffer),
-    );
-    fbMpiPosDiffStats(
-        aSignal:=afMpiPosDiffBuffer,
-        bAlwaysCalc:=TRUE,
-    );
+
 
 
     //S_R with no hardware limit switched
@@ -3753,6 +3784,84 @@ Related:
     * `Main`_
 
 
+PRG_Stats
+^^^^^^^^^
+
+::
+
+    PROGRAM PRG_Stats
+    VAR
+        // SP1K1 Grating Mono Vibration Stats
+        fGpiEncoderPosDiff: LREAL;
+        afGpiPosDiffBuffer: ARRAY[1..10000] OF LREAL;
+        afGpiExtraBuffer: ARRAY[1..10000] OF LREAL;
+        fbGpiPosDiffCollect: FB_DataBuffer;
+        {attribute 'pytmc' := '
+            pv: SP1K1:MONO:MMS:G_PI:ENCDIFF
+        '}
+        fbGpiPosDiffStats: FB_BasicStats;
+
+        fGpiRangeMax: LREAL;
+        rtNewGpiMove: R_TRIG;
+        tonNewGpiMove: TON;
+
+
+        // SP1K1 Mirror Pitch Mono Vibration Stats
+        fMpiEncoderPosDiff: LREAL;
+        afMpiPosDiffBuffer: ARRAY[1..10000] OF LREAL;
+        afMpiExtraBuffer: ARRAY[1..10000] OF LREAL;
+        fbMpiPosDiffCollect: FB_DataBuffer;
+        {attribute 'pytmc' := '
+            pv: SP1K1:MONO:MMS:M_PI:ENCDIFF
+        '}
+        fbMpiPosDiffStats: FB_BasicStats;
+    END_VAR
+    IF rtNewGpiMove.Q THEN
+        // Reset before a move
+        fGpiRangeMax := 0;
+    ELSIF tonNewGpiMove.Q AND ABS(M7.fPosition - M7.stAxisStatus.fActPosition) > 5 THEN
+        // Update only during moves, not at the start or end
+        fGpiRangeMax := MAX(fGpiRangeMax, fbGpiPosDiffStats.fRange);
+    END_IF
+
+    fGpiEncoderPosDiff := M7.nEncoderCount - (M7.Axis.NcToPlc.SetPos - M7.stAxisParameters.fEncOffset) * 150;
+    fbGpiPosDiffCollect(
+        bExecute:=TRUE,
+        pInputAdr:=ADR(fGpiEncoderPosDiff),
+        iInputSize:=SIZEOF(fGpiEncoderPosDiff),
+        iElemCount:=10000,
+        pPartialAdr:=ADR(afGpiPosDiffBuffer),
+        pOutputAdr:=ADR(afGpiExtraBuffer),
+    );
+    fbGpiPosDiffStats(
+        aSignal:=afGpiPosDiffBuffer,
+        bAlwaysCalc:=TRUE,
+    );
+    rtNewGpiMove(CLK:=M7.bExecute);
+    tonNewGpiMove(
+        IN:=M7.bExecute,
+        PT:=T#15s,
+    );
+
+    (*fMpiEncoderPosDiff := M6.nEncoderCount - (M6.Axis.NcToPlc.SetPos - M6.stAxisParameters.fEncOffset) / 0.004505;
+    fbMpiPosDiffCollect(
+        bExecute:=TRUE,
+        pInputAdr:=ADR(fMpiEncoderPosDiff),
+        iInputSize:=SIZEOF(fMpiEncoderPosDiff),
+        iElemCount:=1000,
+        pPartialAdr:=ADR(afMpiPosDiffBuffer),
+        pOutputAdr:=ADR(afMpiExtraBuffer),
+    );
+    fbMpiPosDiffStats(
+        aSignal:=afMpiPosDiffBuffer,
+        bAlwaysCalc:=TRUE,
+    );*)
+
+    END_PROGRAM
+
+
+
+
 PRG_ZeroOrder_PMPS
 ^^^^^^^^^^^^^^^^^^
 
@@ -3859,8 +3968,8 @@ PRG_ZeroOrder_PMPS
         Zmon : LREAL:=739.622;//m
         Zpiv : LREAL:= 739.762 ; //m
         Zzos : LREAL:= 741.422;//m
-        Pm1Offset: LREAL:= 18181;//=18310-129
-        Pm2Offset: LREAL:= -90641;
+        Pm1Offset: LREAL:= 18081.1;
+        Pm2Offset: LREAL:= -90603;
         Pm3Offset: LREAL:= -63300;//urad, could depend on the inserted grating
     END_VAR
     //Diagnostics
@@ -3899,8 +4008,8 @@ PRG_ZeroOrder_PMPS
     Hm1:= 1400000+M12.stAxisStatus.fActPosition; //um
     //Pm1 = Pm1Offset + mr1k1 bend pitch
     Pm1 := Pm1Offset + Main.M16.stAxisStatus.fActPosition; //urad
-    //Hpiv = 1.620305 + 0.001 // m 0.001 is correction from nominal
-    Hpiv:= (1.620305 + 0.001)*1E6; //um
+    //Hpiv = 1.625427 is correction from nominal
+    Hpiv:= (1.625247)*1E6; //um
     //Pm2 = mono mirror pitch + Pm2Offset urad
     Pm2 := Main.M6.stAxisStatus.fActPosition + Pm2Offset;//urad
     //Hm3 = Hpiv + 0.006 m

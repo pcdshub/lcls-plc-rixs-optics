@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Data Types &mdash; pcdshub/lcls-plc-rixs-optics  documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/tree.css?v=837a00b9" />
+      <link rel="stylesheet" type="text/css" href="_static/width.css?v=ab210c7a" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -47,7 +51,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="lcls-plc-rixs-optics_pragmas.html">Pragmas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lcls-plc-rixs-optics_nc.html">NC Settings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lcls-plc-rixs-optics_ethercat.html">Box Hierarchy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lcls-plc-rixs-optics_ethercat.html">EtherCAT Terminals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lcls-plc-rixs-optics_boxes.html">Boxes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lcls-plc-rixs-optics_links.html">Links</a></li>
 </ul>
@@ -88059,7 +88063,34 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR2K2:FLAT:ENC:X:ACTPOSARRAY_RBV</p></td>
+<tr class="row-odd"><td><p>MR2K2:FLAT:FWM:1_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_MR2K2_FLAT.fMR2K2_Flow_1_val</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU lpm</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR2K2:FLAT:FWM:2_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_MR2K2_FLAT.fMR2K2_Flow_2_val</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU lpm</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR2K2:FLAT:PRSM:1_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_MR2K2_FLAT.fMR2K2_Press_1_val</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU bar</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR2K2:FLAT:ENC:X:ACTPOSARRAY_RBV</p></td>
 <td><p>waveform</p></td>
 <td><p>PRG_MR2K2_FLAT.fbXRMSErrorM2K2.aEncActPos</p></td>
 <td><div class="line-block">
@@ -88067,7 +88098,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR2K2:FLAT:ENC:X:SETPOSARRAY_RBV</p></td>
+<tr class="row-odd"><td><p>MR2K2:FLAT:ENC:X:SETPOSARRAY_RBV</p></td>
 <td><p>waveform</p></td>
 <td><p>PRG_MR2K2_FLAT.fbXRMSErrorM2K2.aEncSetPos</p></td>
 <td><div class="line-block">
@@ -88075,7 +88106,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR2K2:FLAT:ENC:X:RMS_RBV</p></td>
+<tr class="row-even"><td><p>MR2K2:FLAT:ENC:X:RMS_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR2K2_FLAT.fbXRMSErrorM2K2.fCurrRMSError</p></td>
 <td><div class="line-block">
@@ -88083,7 +88114,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR2K2:FLAT:ENC:X:MEAN_RBV</p></td>
+<tr class="row-odd"><td><p>MR2K2:FLAT:ENC:X:MEAN_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR2K2_FLAT.fbXRMSErrorM2K2.fEncMean</p></td>
 <td><div class="line-block">
@@ -88091,7 +88122,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR2K2:FLAT:ENC:X:STDEV_RBV</p></td>
+<tr class="row-even"><td><p>MR2K2:FLAT:ENC:X:STDEV_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR2K2_FLAT.fbXRMSErrorM2K2.fEncStDev</p></td>
 <td><div class="line-block">
@@ -88099,7 +88130,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR2K2:FLAT:ENC:Y:ACTPOSARRAY_RBV</p></td>
+<tr class="row-odd"><td><p>MR2K2:FLAT:ENC:Y:ACTPOSARRAY_RBV</p></td>
 <td><p>waveform</p></td>
 <td><p>PRG_MR2K2_FLAT.fbYRMSErrorM2K2.aEncActPos</p></td>
 <td><div class="line-block">
@@ -88107,7 +88138,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR2K2:FLAT:ENC:Y:SETPOSARRAY_RBV</p></td>
+<tr class="row-even"><td><p>MR2K2:FLAT:ENC:Y:SETPOSARRAY_RBV</p></td>
 <td><p>waveform</p></td>
 <td><p>PRG_MR2K2_FLAT.fbYRMSErrorM2K2.aEncSetPos</p></td>
 <td><div class="line-block">
@@ -88115,7 +88146,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR2K2:FLAT:ENC:Y:RMS_RBV</p></td>
+<tr class="row-odd"><td><p>MR2K2:FLAT:ENC:Y:RMS_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR2K2_FLAT.fbYRMSErrorM2K2.fCurrRMSError</p></td>
 <td><div class="line-block">
@@ -88123,7 +88154,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR2K2:FLAT:ENC:Y:MEAN_RBV</p></td>
+<tr class="row-even"><td><p>MR2K2:FLAT:ENC:Y:MEAN_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR2K2_FLAT.fbYRMSErrorM2K2.fEncMean</p></td>
 <td><div class="line-block">
@@ -88131,7 +88162,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR2K2:FLAT:ENC:Y:STDEV_RBV</p></td>
+<tr class="row-odd"><td><p>MR2K2:FLAT:ENC:Y:STDEV_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR2K2_FLAT.fbYRMSErrorM2K2.fEncStDev</p></td>
 <td><div class="line-block">
@@ -88139,7 +88170,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR2K2:FLAT:ENC:PITCH:ACTPOSARRAY_RBV</p></td>
+<tr class="row-even"><td><p>MR2K2:FLAT:ENC:PITCH:ACTPOSARRAY_RBV</p></td>
 <td><p>waveform</p></td>
 <td><p>PRG_MR2K2_FLAT.fbrXRMSErrorM2K2.aEncActPos</p></td>
 <td><div class="line-block">
@@ -88147,7 +88178,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR2K2:FLAT:ENC:PITCH:SETPOSARRAY_RBV</p></td>
+<tr class="row-odd"><td><p>MR2K2:FLAT:ENC:PITCH:SETPOSARRAY_RBV</p></td>
 <td><p>waveform</p></td>
 <td><p>PRG_MR2K2_FLAT.fbrXRMSErrorM2K2.aEncSetPos</p></td>
 <td><div class="line-block">
@@ -88155,7 +88186,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR2K2:FLAT:ENC:PITCH:RMS_RBV</p></td>
+<tr class="row-even"><td><p>MR2K2:FLAT:ENC:PITCH:RMS_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR2K2_FLAT.fbrXRMSErrorM2K2.fCurrRMSError</p></td>
 <td><div class="line-block">
@@ -88163,7 +88194,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR2K2:FLAT:ENC:PITCH:MEAN_RBV</p></td>
+<tr class="row-odd"><td><p>MR2K2:FLAT:ENC:PITCH:MEAN_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR2K2_FLAT.fbrXRMSErrorM2K2.fEncMean</p></td>
 <td><div class="line-block">
@@ -88171,7 +88202,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR2K2:FLAT:ENC:PITCH:STDEV_RBV</p></td>
+<tr class="row-even"><td><p>MR2K2:FLAT:ENC:PITCH:STDEV_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR2K2_FLAT.fbrXRMSErrorM2K2.fEncStDev</p></td>
 <td><div class="line-block">
@@ -88179,7 +88210,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR2K2:FLAT:ENC:X:CNT_RBV</p></td>
+<tr class="row-odd"><td><p>MR2K2:FLAT:ENC:X:CNT_RBV</p></td>
 <td><p>longin</p></td>
 <td><p>PRG_MR2K2_FLAT.nEncCntXM2K2</p></td>
 <td><div class="line-block">
@@ -88188,7 +88219,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR2K2:FLAT:ENC:Y:CNT_RBV</p></td>
+<tr class="row-even"><td><p>MR2K2:FLAT:ENC:Y:CNT_RBV</p></td>
 <td><p>longin</p></td>
 <td><p>PRG_MR2K2_FLAT.nEncCntYM2K2</p></td>
 <td><div class="line-block">
@@ -88197,7 +88228,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR2K2:FLAT:ENC:PITCH:CNT_RBV</p></td>
+<tr class="row-odd"><td><p>MR2K2:FLAT:ENC:PITCH:CNT_RBV</p></td>
 <td><p>longin</p></td>
 <td><p>PRG_MR2K2_FLAT.nEncCntrXM2K2</p></td>
 <td><div class="line-block">
@@ -88206,7 +88237,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR2K2:FLAT:ENC:X:REF_RBV</p></td>
+<tr class="row-even"><td><p>MR2K2:FLAT:ENC:X:REF_RBV</p></td>
 <td><p>longin</p></td>
 <td><p>PRG_MR2K2_FLAT.nEncRefXM2K2</p></td>
 <td><div class="line-block">
@@ -88215,7 +88246,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR2K2:FLAT:ENC:Y:REF_RBV</p></td>
+<tr class="row-odd"><td><p>MR2K2:FLAT:ENC:Y:REF_RBV</p></td>
 <td><p>longin</p></td>
 <td><p>PRG_MR2K2_FLAT.nEncRefYM2K2</p></td>
 <td><div class="line-block">
@@ -88224,7 +88255,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR2K2:FLAT:ENC:PITCH:REF_RBV</p></td>
+<tr class="row-even"><td><p>MR2K2:FLAT:ENC:PITCH:REF_RBV</p></td>
 <td><p>longin</p></td>
 <td><p>PRG_MR2K2_FLAT.nEncRefrXM2K2</p></td>
 <td><div class="line-block">
@@ -88233,7 +88264,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR3K2:KBH:RTD:BEND:DS:1_RBV</p></td>
+<tr class="row-odd"><td><p>MR3K2:KBH:RTD:BEND:DS:1_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR3K2_KBH.fM3K2DS_RTD_1</p></td>
 <td><div class="line-block">
@@ -88243,7 +88274,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR3K2:KBH:RTD:CHIN:R_RBV</p></td>
+<tr class="row-even"><td><p>MR3K2:KBH:RTD:CHIN:R_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR3K2_KBH.fM3K2DS_RTD_2</p></td>
 <td><div class="line-block">
@@ -88253,7 +88284,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR3K2:KBH:RTD:BEND:DS:3_RBV</p></td>
+<tr class="row-odd"><td><p>MR3K2:KBH:RTD:BEND:DS:3_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR3K2_KBH.fM3K2DS_RTD_3</p></td>
 <td><div class="line-block">
@@ -88263,7 +88294,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR3K2:KBH:RTD:BEND:US:1_RBV</p></td>
+<tr class="row-even"><td><p>MR3K2:KBH:RTD:BEND:US:1_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR3K2_KBH.fM3K2US_RTD_1</p></td>
 <td><div class="line-block">
@@ -88273,7 +88304,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR3K2:KBH:RTD:BEND:US:2_RBV</p></td>
+<tr class="row-odd"><td><p>MR3K2:KBH:RTD:BEND:US:2_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR3K2_KBH.fM3K2US_RTD_2</p></td>
 <td><div class="line-block">
@@ -88283,7 +88314,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR3K2:KBH:RTD:CHIN:L_RBV</p></td>
+<tr class="row-even"><td><p>MR3K2:KBH:RTD:CHIN:L_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR3K2_KBH.fM3K2US_RTD_3</p></td>
 <td><div class="line-block">
@@ -88293,7 +88324,25 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR3K2:KBH:ENC:BEND:US:ACTPOSARRAY_RBV</p></td>
+<tr class="row-odd"><td><p>MR3K2:KBH:FWM:1_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_MR3K2_KBH.fMR3K2_Flow_1_val</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU lpm</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR3K2:KBH:PRSM:1_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_MR3K2_KBH.fMR3K2_Press_1_val</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU bar</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR3K2:KBH:ENC:BEND:US:ACTPOSARRAY_RBV</p></td>
 <td><p>waveform</p></td>
 <td><p>PRG_MR3K2_KBH.fbUSRMSErrorM3K2.aEncActPos</p></td>
 <td><div class="line-block">
@@ -88301,7 +88350,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR3K2:KBH:ENC:BEND:US:SETPOSARRAY_RBV</p></td>
+<tr class="row-even"><td><p>MR3K2:KBH:ENC:BEND:US:SETPOSARRAY_RBV</p></td>
 <td><p>waveform</p></td>
 <td><p>PRG_MR3K2_KBH.fbUSRMSErrorM3K2.aEncSetPos</p></td>
 <td><div class="line-block">
@@ -88309,7 +88358,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR3K2:KBH:ENC:BEND:US:RMS_RBV</p></td>
+<tr class="row-odd"><td><p>MR3K2:KBH:ENC:BEND:US:RMS_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR3K2_KBH.fbUSRMSErrorM3K2.fCurrRMSError</p></td>
 <td><div class="line-block">
@@ -88317,7 +88366,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR3K2:KBH:ENC:BEND:US:MEAN_RBV</p></td>
+<tr class="row-even"><td><p>MR3K2:KBH:ENC:BEND:US:MEAN_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR3K2_KBH.fbUSRMSErrorM3K2.fEncMean</p></td>
 <td><div class="line-block">
@@ -88325,7 +88374,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR3K2:KBH:ENC:BEND:US:STDEV_RBV</p></td>
+<tr class="row-odd"><td><p>MR3K2:KBH:ENC:BEND:US:STDEV_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR3K2_KBH.fbUSRMSErrorM3K2.fEncStDev</p></td>
 <td><div class="line-block">
@@ -88333,7 +88382,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR3K2:KBH:ENC:X:ACTPOSARRAY_RBV</p></td>
+<tr class="row-even"><td><p>MR3K2:KBH:ENC:X:ACTPOSARRAY_RBV</p></td>
 <td><p>waveform</p></td>
 <td><p>PRG_MR3K2_KBH.fbXRMSErrorM3K2.aEncActPos</p></td>
 <td><div class="line-block">
@@ -88341,7 +88390,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR3K2:KBH:ENC:X:SETPOSARRAY_RBV</p></td>
+<tr class="row-odd"><td><p>MR3K2:KBH:ENC:X:SETPOSARRAY_RBV</p></td>
 <td><p>waveform</p></td>
 <td><p>PRG_MR3K2_KBH.fbXRMSErrorM3K2.aEncSetPos</p></td>
 <td><div class="line-block">
@@ -88349,7 +88398,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR3K2:KBH:ENC:X:RMS_RBV</p></td>
+<tr class="row-even"><td><p>MR3K2:KBH:ENC:X:RMS_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR3K2_KBH.fbXRMSErrorM3K2.fCurrRMSError</p></td>
 <td><div class="line-block">
@@ -88357,7 +88406,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR3K2:KBH:ENC:X:MEAN_RBV</p></td>
+<tr class="row-odd"><td><p>MR3K2:KBH:ENC:X:MEAN_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR3K2_KBH.fbXRMSErrorM3K2.fEncMean</p></td>
 <td><div class="line-block">
@@ -88365,7 +88414,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR3K2:KBH:ENC:X:STDEV_RBV</p></td>
+<tr class="row-even"><td><p>MR3K2:KBH:ENC:X:STDEV_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR3K2_KBH.fbXRMSErrorM3K2.fEncStDev</p></td>
 <td><div class="line-block">
@@ -88373,7 +88422,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR3K2:KBH:ENC:Y:ACTPOSARRAY_RBV</p></td>
+<tr class="row-odd"><td><p>MR3K2:KBH:ENC:Y:ACTPOSARRAY_RBV</p></td>
 <td><p>waveform</p></td>
 <td><p>PRG_MR3K2_KBH.fbYRMSErrorM3K2.aEncActPos</p></td>
 <td><div class="line-block">
@@ -88381,7 +88430,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR3K2:KBH:ENC:Y:SETPOSARRAY_RBV</p></td>
+<tr class="row-even"><td><p>MR3K2:KBH:ENC:Y:SETPOSARRAY_RBV</p></td>
 <td><p>waveform</p></td>
 <td><p>PRG_MR3K2_KBH.fbYRMSErrorM3K2.aEncSetPos</p></td>
 <td><div class="line-block">
@@ -88389,7 +88438,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR3K2:KBH:ENC:Y:RMS_RBV</p></td>
+<tr class="row-odd"><td><p>MR3K2:KBH:ENC:Y:RMS_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR3K2_KBH.fbYRMSErrorM3K2.fCurrRMSError</p></td>
 <td><div class="line-block">
@@ -88397,7 +88446,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR3K2:KBH:ENC:Y:MEAN_RBV</p></td>
+<tr class="row-even"><td><p>MR3K2:KBH:ENC:Y:MEAN_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR3K2_KBH.fbYRMSErrorM3K2.fEncMean</p></td>
 <td><div class="line-block">
@@ -88405,7 +88454,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR3K2:KBH:ENC:Y:STDEV_RBV</p></td>
+<tr class="row-odd"><td><p>MR3K2:KBH:ENC:Y:STDEV_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR3K2_KBH.fbYRMSErrorM3K2.fEncStDev</p></td>
 <td><div class="line-block">
@@ -88413,7 +88462,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR3K2:KBH:ENC:BEND:DS:ACTPOSARRAY_RBV</p></td>
+<tr class="row-even"><td><p>MR3K2:KBH:ENC:BEND:DS:ACTPOSARRAY_RBV</p></td>
 <td><p>waveform</p></td>
 <td><p>PRG_MR3K2_KBH.fbdSRMSErrorM3K2.aEncActPos</p></td>
 <td><div class="line-block">
@@ -88421,7 +88470,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR3K2:KBH:ENC:BEND:DS:SETPOSARRAY_RBV</p></td>
+<tr class="row-odd"><td><p>MR3K2:KBH:ENC:BEND:DS:SETPOSARRAY_RBV</p></td>
 <td><p>waveform</p></td>
 <td><p>PRG_MR3K2_KBH.fbdSRMSErrorM3K2.aEncSetPos</p></td>
 <td><div class="line-block">
@@ -88429,7 +88478,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR3K2:KBH:ENC:BEND:DS:RMS_RBV</p></td>
+<tr class="row-even"><td><p>MR3K2:KBH:ENC:BEND:DS:RMS_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR3K2_KBH.fbdSRMSErrorM3K2.fCurrRMSError</p></td>
 <td><div class="line-block">
@@ -88437,7 +88486,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR3K2:KBH:ENC:BEND:DS:MEAN_RBV</p></td>
+<tr class="row-odd"><td><p>MR3K2:KBH:ENC:BEND:DS:MEAN_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR3K2_KBH.fbdSRMSErrorM3K2.fEncMean</p></td>
 <td><div class="line-block">
@@ -88445,7 +88494,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR3K2:KBH:ENC:BEND:DS:STDEV_RBV</p></td>
+<tr class="row-even"><td><p>MR3K2:KBH:ENC:BEND:DS:STDEV_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR3K2_KBH.fbdSRMSErrorM3K2.fEncStDev</p></td>
 <td><div class="line-block">
@@ -88453,7 +88502,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR3K2:KBH:ENC:PITCH:ACTPOSARRAY_RBV</p></td>
+<tr class="row-odd"><td><p>MR3K2:KBH:ENC:PITCH:ACTPOSARRAY_RBV</p></td>
 <td><p>waveform</p></td>
 <td><p>PRG_MR3K2_KBH.fbrYRMSErrorM3K2.aEncActPos</p></td>
 <td><div class="line-block">
@@ -88461,7 +88510,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR3K2:KBH:ENC:PITCH:SETPOSARRAY_RBV</p></td>
+<tr class="row-even"><td><p>MR3K2:KBH:ENC:PITCH:SETPOSARRAY_RBV</p></td>
 <td><p>waveform</p></td>
 <td><p>PRG_MR3K2_KBH.fbrYRMSErrorM3K2.aEncSetPos</p></td>
 <td><div class="line-block">
@@ -88469,7 +88518,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR3K2:KBH:ENC:PITCH:RMS_RBV</p></td>
+<tr class="row-odd"><td><p>MR3K2:KBH:ENC:PITCH:RMS_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR3K2_KBH.fbrYRMSErrorM3K2.fCurrRMSError</p></td>
 <td><div class="line-block">
@@ -88477,7 +88526,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR3K2:KBH:ENC:PITCH:MEAN_RBV</p></td>
+<tr class="row-even"><td><p>MR3K2:KBH:ENC:PITCH:MEAN_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR3K2_KBH.fbrYRMSErrorM3K2.fEncMean</p></td>
 <td><div class="line-block">
@@ -88485,7 +88534,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR3K2:KBH:ENC:PITCH:STDEV_RBV</p></td>
+<tr class="row-odd"><td><p>MR3K2:KBH:ENC:PITCH:STDEV_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR3K2_KBH.fbrYRMSErrorM3K2.fEncStDev</p></td>
 <td><div class="line-block">
@@ -88493,7 +88542,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR3K2:KBH:ENC:BEND:DS:CNT_RBV</p></td>
+<tr class="row-even"><td><p>MR3K2:KBH:ENC:BEND:DS:CNT_RBV</p></td>
 <td><p>longin</p></td>
 <td><p>PRG_MR3K2_KBH.nEncCntDSM3K2</p></td>
 <td><div class="line-block">
@@ -88502,7 +88551,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR3K2:KBH:ENC:BEND:US:CNT_RBV</p></td>
+<tr class="row-odd"><td><p>MR3K2:KBH:ENC:BEND:US:CNT_RBV</p></td>
 <td><p>longin</p></td>
 <td><p>PRG_MR3K2_KBH.nEncCntUSM3K2</p></td>
 <td><div class="line-block">
@@ -88511,7 +88560,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR3K2:KBH:ENC:X:CNT_RBV</p></td>
+<tr class="row-even"><td><p>MR3K2:KBH:ENC:X:CNT_RBV</p></td>
 <td><p>longin</p></td>
 <td><p>PRG_MR3K2_KBH.nEncCntXM3K2</p></td>
 <td><div class="line-block">
@@ -88520,7 +88569,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR3K2:KBH:ENC:Y:CNT_RBV</p></td>
+<tr class="row-odd"><td><p>MR3K2:KBH:ENC:Y:CNT_RBV</p></td>
 <td><p>longin</p></td>
 <td><p>PRG_MR3K2_KBH.nEncCntYM3K2</p></td>
 <td><div class="line-block">
@@ -88529,7 +88578,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR3K2:KBH:ENC:PITCH:CNT_RBV</p></td>
+<tr class="row-even"><td><p>MR3K2:KBH:ENC:PITCH:CNT_RBV</p></td>
 <td><p>longin</p></td>
 <td><p>PRG_MR3K2_KBH.nEncCntrYM3K2</p></td>
 <td><div class="line-block">
@@ -88538,7 +88587,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR3K2:KBH:ENC:BEND:DS:REF_RBV</p></td>
+<tr class="row-odd"><td><p>MR3K2:KBH:ENC:BEND:DS:REF_RBV</p></td>
 <td><p>longin</p></td>
 <td><p>PRG_MR3K2_KBH.nEncRefDSM3K2</p></td>
 <td><div class="line-block">
@@ -88547,7 +88596,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR3K2:KBH:ENC:BEND:US:REF_RBV</p></td>
+<tr class="row-even"><td><p>MR3K2:KBH:ENC:BEND:US:REF_RBV</p></td>
 <td><p>longin</p></td>
 <td><p>PRG_MR3K2_KBH.nEncRefUSM3K2</p></td>
 <td><div class="line-block">
@@ -88556,7 +88605,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR3K2:KBH:ENC:X:REF_RBV</p></td>
+<tr class="row-odd"><td><p>MR3K2:KBH:ENC:X:REF_RBV</p></td>
 <td><p>longin</p></td>
 <td><p>PRG_MR3K2_KBH.nEncRefXM3K2</p></td>
 <td><div class="line-block">
@@ -88565,7 +88614,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR3K2:KBH:ENC:Y:REF_RBV</p></td>
+<tr class="row-even"><td><p>MR3K2:KBH:ENC:Y:REF_RBV</p></td>
 <td><p>longin</p></td>
 <td><p>PRG_MR3K2_KBH.nEncRefYM3K2</p></td>
 <td><div class="line-block">
@@ -88574,7 +88623,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR3K2:KBH:ENC:PITCH:REF_RBV</p></td>
+<tr class="row-odd"><td><p>MR3K2:KBH:ENC:PITCH:REF_RBV</p></td>
 <td><p>longin</p></td>
 <td><p>PRG_MR3K2_KBH.nEncRefrYM3K2</p></td>
 <td><div class="line-block">
@@ -88583,7 +88632,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR4K2:KBV:RTD:BEND:DS:1_RBV</p></td>
+<tr class="row-even"><td><p>MR4K2:KBV:RTD:BEND:DS:1_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR4K2_KBV.fM4K2DS_RTD_1</p></td>
 <td><div class="line-block">
@@ -88593,7 +88642,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR4K2:KBV:RTD:BEND:DS:2_RBV</p></td>
+<tr class="row-odd"><td><p>MR4K2:KBV:RTD:BEND:DS:2_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR4K2_KBV.fM4K2DS_RTD_2</p></td>
 <td><div class="line-block">
@@ -88603,7 +88652,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR4K2:KBV:RTD:BEND:DS:3_RBV</p></td>
+<tr class="row-even"><td><p>MR4K2:KBV:RTD:BEND:DS:3_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR4K2_KBV.fM4K2DS_RTD_3</p></td>
 <td><div class="line-block">
@@ -88613,7 +88662,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR4K2:KBV:RTD:BEND:US:1_RBV</p></td>
+<tr class="row-odd"><td><p>MR4K2:KBV:RTD:BEND:US:1_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR4K2_KBV.fM4K2US_RTD_1</p></td>
 <td><div class="line-block">
@@ -88623,7 +88672,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR4K2:KBV:RTD:BEND:US:2_RBV</p></td>
+<tr class="row-even"><td><p>MR4K2:KBV:RTD:BEND:US:2_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR4K2_KBV.fM4K2US_RTD_2</p></td>
 <td><div class="line-block">
@@ -88633,7 +88682,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR4K2:KBV:RTD:BEND:US:3_RBV</p></td>
+<tr class="row-odd"><td><p>MR4K2:KBV:RTD:BEND:US:3_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR4K2_KBV.fM4K2US_RTD_3</p></td>
 <td><div class="line-block">
@@ -88643,7 +88692,25 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR4K2:KBV:ENC:BEND:US:ACTPOSARRAY_RBV</p></td>
+<tr class="row-even"><td><p>MR4K2:KBV:FWM:1_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_MR4K2_KBV.fMR4K2_Flow_1_val</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU lpm</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR4K2:KBV:PRSM:1_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_MR4K2_KBV.fMR4K2_Press_1_val</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU bar</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR4K2:KBV:ENC:BEND:US:ACTPOSARRAY_RBV</p></td>
 <td><p>waveform</p></td>
 <td><p>PRG_MR4K2_KBV.fbUSRMSErrorM4K2.aEncActPos</p></td>
 <td><div class="line-block">
@@ -88651,7 +88718,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR4K2:KBV:ENC:BEND:US:SETPOSARRAY_RBV</p></td>
+<tr class="row-odd"><td><p>MR4K2:KBV:ENC:BEND:US:SETPOSARRAY_RBV</p></td>
 <td><p>waveform</p></td>
 <td><p>PRG_MR4K2_KBV.fbUSRMSErrorM4K2.aEncSetPos</p></td>
 <td><div class="line-block">
@@ -88659,7 +88726,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR4K2:KBV:ENC:BEND:US:RMS_RBV</p></td>
+<tr class="row-even"><td><p>MR4K2:KBV:ENC:BEND:US:RMS_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR4K2_KBV.fbUSRMSErrorM4K2.fCurrRMSError</p></td>
 <td><div class="line-block">
@@ -88667,7 +88734,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR4K2:KBV:ENC:BEND:US:MEAN_RBV</p></td>
+<tr class="row-odd"><td><p>MR4K2:KBV:ENC:BEND:US:MEAN_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR4K2_KBV.fbUSRMSErrorM4K2.fEncMean</p></td>
 <td><div class="line-block">
@@ -88675,7 +88742,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR4K2:KBV:ENC:BEND:US:STDEV_RBV</p></td>
+<tr class="row-even"><td><p>MR4K2:KBV:ENC:BEND:US:STDEV_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR4K2_KBV.fbUSRMSErrorM4K2.fEncStDev</p></td>
 <td><div class="line-block">
@@ -88683,7 +88750,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR4K2:KBV:ENC:X:ACTPOSARRAY_RBV</p></td>
+<tr class="row-odd"><td><p>MR4K2:KBV:ENC:X:ACTPOSARRAY_RBV</p></td>
 <td><p>waveform</p></td>
 <td><p>PRG_MR4K2_KBV.fbXRMSErrorM4K2.aEncActPos</p></td>
 <td><div class="line-block">
@@ -88691,7 +88758,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR4K2:KBV:ENC:X:SETPOSARRAY_RBV</p></td>
+<tr class="row-even"><td><p>MR4K2:KBV:ENC:X:SETPOSARRAY_RBV</p></td>
 <td><p>waveform</p></td>
 <td><p>PRG_MR4K2_KBV.fbXRMSErrorM4K2.aEncSetPos</p></td>
 <td><div class="line-block">
@@ -88699,7 +88766,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR4K2:KBV:ENC:X:RMS_RBV</p></td>
+<tr class="row-odd"><td><p>MR4K2:KBV:ENC:X:RMS_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR4K2_KBV.fbXRMSErrorM4K2.fCurrRMSError</p></td>
 <td><div class="line-block">
@@ -88707,7 +88774,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR4K2:KBV:ENC:X:MEAN_RBV</p></td>
+<tr class="row-even"><td><p>MR4K2:KBV:ENC:X:MEAN_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR4K2_KBV.fbXRMSErrorM4K2.fEncMean</p></td>
 <td><div class="line-block">
@@ -88715,7 +88782,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR4K2:KBV:ENC:X:STDEV_RBV</p></td>
+<tr class="row-odd"><td><p>MR4K2:KBV:ENC:X:STDEV_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR4K2_KBV.fbXRMSErrorM4K2.fEncStDev</p></td>
 <td><div class="line-block">
@@ -88723,7 +88790,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR4K2:KBV:ENC:Y:ACTPOSARRAY_RBV</p></td>
+<tr class="row-even"><td><p>MR4K2:KBV:ENC:Y:ACTPOSARRAY_RBV</p></td>
 <td><p>waveform</p></td>
 <td><p>PRG_MR4K2_KBV.fbYRMSErrorM4K2.aEncActPos</p></td>
 <td><div class="line-block">
@@ -88731,7 +88798,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR4K2:KBV:ENC:Y:SETPOSARRAY_RBV</p></td>
+<tr class="row-odd"><td><p>MR4K2:KBV:ENC:Y:SETPOSARRAY_RBV</p></td>
 <td><p>waveform</p></td>
 <td><p>PRG_MR4K2_KBV.fbYRMSErrorM4K2.aEncSetPos</p></td>
 <td><div class="line-block">
@@ -88739,7 +88806,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR4K2:KBV:ENC:Y:RMS_RBV</p></td>
+<tr class="row-even"><td><p>MR4K2:KBV:ENC:Y:RMS_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR4K2_KBV.fbYRMSErrorM4K2.fCurrRMSError</p></td>
 <td><div class="line-block">
@@ -88747,7 +88814,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR4K2:KBV:ENC:Y:MEAN_RBV</p></td>
+<tr class="row-odd"><td><p>MR4K2:KBV:ENC:Y:MEAN_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR4K2_KBV.fbYRMSErrorM4K2.fEncMean</p></td>
 <td><div class="line-block">
@@ -88755,7 +88822,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR4K2:KBV:ENC:Y:STDEV_RBV</p></td>
+<tr class="row-even"><td><p>MR4K2:KBV:ENC:Y:STDEV_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR4K2_KBV.fbYRMSErrorM4K2.fEncStDev</p></td>
 <td><div class="line-block">
@@ -88763,7 +88830,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR4K2:KBV:ENC:BEND:DS:ACTPOSARRAY_RBV</p></td>
+<tr class="row-odd"><td><p>MR4K2:KBV:ENC:BEND:DS:ACTPOSARRAY_RBV</p></td>
 <td><p>waveform</p></td>
 <td><p>PRG_MR4K2_KBV.fbdSRMSErrorM4K2.aEncActPos</p></td>
 <td><div class="line-block">
@@ -88771,7 +88838,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR4K2:KBV:ENC:BEND:DS:SETPOSARRAY_RBV</p></td>
+<tr class="row-even"><td><p>MR4K2:KBV:ENC:BEND:DS:SETPOSARRAY_RBV</p></td>
 <td><p>waveform</p></td>
 <td><p>PRG_MR4K2_KBV.fbdSRMSErrorM4K2.aEncSetPos</p></td>
 <td><div class="line-block">
@@ -88779,7 +88846,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR4K2:KBV:ENC:BEND:DS:RMS_RBV</p></td>
+<tr class="row-odd"><td><p>MR4K2:KBV:ENC:BEND:DS:RMS_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR4K2_KBV.fbdSRMSErrorM4K2.fCurrRMSError</p></td>
 <td><div class="line-block">
@@ -88787,7 +88854,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR4K2:KBV:ENC:BEND:DS:MEAN_RBV</p></td>
+<tr class="row-even"><td><p>MR4K2:KBV:ENC:BEND:DS:MEAN_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR4K2_KBV.fbdSRMSErrorM4K2.fEncMean</p></td>
 <td><div class="line-block">
@@ -88795,7 +88862,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR4K2:KBV:ENC:BEND:DS:STDEV_RBV</p></td>
+<tr class="row-odd"><td><p>MR4K2:KBV:ENC:BEND:DS:STDEV_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR4K2_KBV.fbdSRMSErrorM4K2.fEncStDev</p></td>
 <td><div class="line-block">
@@ -88803,7 +88870,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR4K2:KBV:ENC:PITCH:ACTPOSARRAY_RBV</p></td>
+<tr class="row-even"><td><p>MR4K2:KBV:ENC:PITCH:ACTPOSARRAY_RBV</p></td>
 <td><p>waveform</p></td>
 <td><p>PRG_MR4K2_KBV.fbrXRMSErrorM4K2.aEncActPos</p></td>
 <td><div class="line-block">
@@ -88811,7 +88878,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR4K2:KBV:ENC:PITCH:SETPOSARRAY_RBV</p></td>
+<tr class="row-odd"><td><p>MR4K2:KBV:ENC:PITCH:SETPOSARRAY_RBV</p></td>
 <td><p>waveform</p></td>
 <td><p>PRG_MR4K2_KBV.fbrXRMSErrorM4K2.aEncSetPos</p></td>
 <td><div class="line-block">
@@ -88819,7 +88886,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR4K2:KBV:ENC:PITCH:RMS_RBV</p></td>
+<tr class="row-even"><td><p>MR4K2:KBV:ENC:PITCH:RMS_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR4K2_KBV.fbrXRMSErrorM4K2.fCurrRMSError</p></td>
 <td><div class="line-block">
@@ -88827,7 +88894,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR4K2:KBV:ENC:PITCH:MEAN_RBV</p></td>
+<tr class="row-odd"><td><p>MR4K2:KBV:ENC:PITCH:MEAN_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR4K2_KBV.fbrXRMSErrorM4K2.fEncMean</p></td>
 <td><div class="line-block">
@@ -88835,7 +88902,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR4K2:KBV:ENC:PITCH:STDEV_RBV</p></td>
+<tr class="row-even"><td><p>MR4K2:KBV:ENC:PITCH:STDEV_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR4K2_KBV.fbrXRMSErrorM4K2.fEncStDev</p></td>
 <td><div class="line-block">
@@ -88843,7 +88910,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR4K2:KBV:ENC:BEND:DS:CNT_RBV</p></td>
+<tr class="row-odd"><td><p>MR4K2:KBV:ENC:BEND:DS:CNT_RBV</p></td>
 <td><p>longin</p></td>
 <td><p>PRG_MR4K2_KBV.nEncCntDSM4K2</p></td>
 <td><div class="line-block">
@@ -88852,7 +88919,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR4K2:KBV:ENC:BEND:US:CNT_RBV</p></td>
+<tr class="row-even"><td><p>MR4K2:KBV:ENC:BEND:US:CNT_RBV</p></td>
 <td><p>longin</p></td>
 <td><p>PRG_MR4K2_KBV.nEncCntUSM4K2</p></td>
 <td><div class="line-block">
@@ -88861,7 +88928,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR4K2:KBV:ENC:X:CNT_RBV</p></td>
+<tr class="row-odd"><td><p>MR4K2:KBV:ENC:X:CNT_RBV</p></td>
 <td><p>longin</p></td>
 <td><p>PRG_MR4K2_KBV.nEncCntXM4K2</p></td>
 <td><div class="line-block">
@@ -88870,7 +88937,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR4K2:KBV:ENC:Y:CNT_RBV</p></td>
+<tr class="row-even"><td><p>MR4K2:KBV:ENC:Y:CNT_RBV</p></td>
 <td><p>longin</p></td>
 <td><p>PRG_MR4K2_KBV.nEncCntYM4K2</p></td>
 <td><div class="line-block">
@@ -88879,7 +88946,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR4K2:KBV:ENC:PITCH:CNT_RBV</p></td>
+<tr class="row-odd"><td><p>MR4K2:KBV:ENC:PITCH:CNT_RBV</p></td>
 <td><p>longin</p></td>
 <td><p>PRG_MR4K2_KBV.nEncCntrXM4K2</p></td>
 <td><div class="line-block">
@@ -88888,7 +88955,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR4K2:KBV:ENC:BEND:DS:REF_RBV</p></td>
+<tr class="row-even"><td><p>MR4K2:KBV:ENC:BEND:DS:REF_RBV</p></td>
 <td><p>longin</p></td>
 <td><p>PRG_MR4K2_KBV.nEncRefDSM4K2</p></td>
 <td><div class="line-block">
@@ -88897,7 +88964,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR4K2:KBV:ENC:BEND:US:REF_RBV</p></td>
+<tr class="row-odd"><td><p>MR4K2:KBV:ENC:BEND:US:REF_RBV</p></td>
 <td><p>longin</p></td>
 <td><p>PRG_MR4K2_KBV.nEncRefUSM4K2</p></td>
 <td><div class="line-block">
@@ -88906,7 +88973,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR4K2:KBV:ENC:X:REF_RBV</p></td>
+<tr class="row-even"><td><p>MR4K2:KBV:ENC:X:REF_RBV</p></td>
 <td><p>longin</p></td>
 <td><p>PRG_MR4K2_KBV.nEncRefXM4K2</p></td>
 <td><div class="line-block">
@@ -88915,7 +88982,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR4K2:KBV:ENC:Y:REF_RBV</p></td>
+<tr class="row-odd"><td><p>MR4K2:KBV:ENC:Y:REF_RBV</p></td>
 <td><p>longin</p></td>
 <td><p>PRG_MR4K2_KBV.nEncRefYM4K2</p></td>
 <td><div class="line-block">
@@ -88924,7 +88991,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR4K2:KBV:ENC:PITCH:REF_RBV</p></td>
+<tr class="row-even"><td><p>MR4K2:KBV:ENC:PITCH:REF_RBV</p></td>
 <td><p>longin</p></td>
 <td><p>PRG_MR4K2_KBV.nEncRefrXM4K2</p></td>
 <td><div class="line-block">
@@ -88933,7 +89000,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR4K2:KBV:RTD:CHIN:L:CONN_RBV</p></td>
+<tr class="row-odd"><td><p>MR4K2:KBV:RTD:CHIN:L:CONN_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>PRG_MR4K2_KBV.nM4K2_Chin_Left_RTD.bConnected</p></td>
 <td><div class="line-block">
@@ -88944,7 +89011,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR4K2:KBV:RTD:CHIN:L:ERR_RBV</p></td>
+<tr class="row-even"><td><p>MR4K2:KBV:RTD:CHIN:L:ERR_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>PRG_MR4K2_KBV.nM4K2_Chin_Left_RTD.bError</p></td>
 <td><div class="line-block">
@@ -88955,7 +89022,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR4K2:KBV:RTD:CHIN:L:TEMP_RBV</p></td>
+<tr class="row-odd"><td><p>MR4K2:KBV:RTD:CHIN:L:TEMP_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR4K2_KBV.nM4K2_Chin_Left_RTD.fTemp</p></td>
 <td><div class="line-block">
@@ -88965,7 +89032,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR4K2:KBV:RTD:CHIN:R:CONN_RBV</p></td>
+<tr class="row-even"><td><p>MR4K2:KBV:RTD:CHIN:R:CONN_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>PRG_MR4K2_KBV.nM4K2_Chin_Right_RTD.bConnected</p></td>
 <td><div class="line-block">
@@ -88976,7 +89043,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR4K2:KBV:RTD:CHIN:R:ERR_RBV</p></td>
+<tr class="row-odd"><td><p>MR4K2:KBV:RTD:CHIN:R:ERR_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>PRG_MR4K2_KBV.nM4K2_Chin_Right_RTD.bError</p></td>
 <td><div class="line-block">
@@ -88987,7 +89054,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR4K2:KBV:RTD:CHIN:R:TEMP_RBV</p></td>
+<tr class="row-even"><td><p>MR4K2:KBV:RTD:CHIN:R:TEMP_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR4K2_KBV.nM4K2_Chin_Right_RTD.fTemp</p></td>
 <td><div class="line-block">
@@ -88997,7 +89064,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>SL1K2:EXIT:RTD:CRYSTAL_BOTTOM:CONN_RBV</p></td>
+<tr class="row-odd"><td><p>SL1K2:EXIT:RTD:CRYSTAL_BOTTOM:CONN_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.bConnected</p></td>
 <td><div class="line-block">
@@ -89007,7 +89074,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>SL1K2:EXIT:RTD:CRYSTAL_BOTTOM:ERR_RBV</p></td>
+<tr class="row-even"><td><p>SL1K2:EXIT:RTD:CRYSTAL_BOTTOM:ERR_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.bError</p></td>
 <td><div class="line-block">
@@ -89017,7 +89084,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>SL1K2:EXIT:RTD:CRYSTAL_BOTTOM:TEMP_RBV</p></td>
+<tr class="row-odd"><td><p>SL1K2:EXIT:RTD:CRYSTAL_BOTTOM:TEMP_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.fTemp</p></td>
 <td><div class="line-block">
@@ -89027,7 +89094,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>SL1K2:EXIT:RTD:CRYSTAL_TOP:CONN_RBV</p></td>
+<tr class="row-even"><td><p>SL1K2:EXIT:RTD:CRYSTAL_TOP:CONN_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>PRG_SL1K2_EXIT.RTD_Crystal_TOP.bConnected</p></td>
 <td><div class="line-block">
@@ -89037,7 +89104,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>SL1K2:EXIT:RTD:CRYSTAL_TOP:ERR_RBV</p></td>
+<tr class="row-odd"><td><p>SL1K2:EXIT:RTD:CRYSTAL_TOP:ERR_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>PRG_SL1K2_EXIT.RTD_Crystal_TOP.bError</p></td>
 <td><div class="line-block">
@@ -89047,7 +89114,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>SL1K2:EXIT:RTD:CRYSTAL_TOP:TEMP_RBV</p></td>
+<tr class="row-even"><td><p>SL1K2:EXIT:RTD:CRYSTAL_TOP:TEMP_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_SL1K2_EXIT.RTD_Crystal_TOP.fTemp</p></td>
 <td><div class="line-block">
@@ -89057,7 +89124,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>SL1K2:EXIT:RTD:HeatSync:CONN_RBV</p></td>
+<tr class="row-odd"><td><p>SL1K2:EXIT:RTD:HeatSync:CONN_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>PRG_SL1K2_EXIT.RTD_HeatSync.bConnected</p></td>
 <td><div class="line-block">
@@ -89067,7 +89134,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>SL1K2:EXIT:RTD:HeatSync:ERR_RBV</p></td>
+<tr class="row-even"><td><p>SL1K2:EXIT:RTD:HeatSync:ERR_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>PRG_SL1K2_EXIT.RTD_HeatSync.bError</p></td>
 <td><div class="line-block">
@@ -89077,7 +89144,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>SL1K2:EXIT:RTD:HeatSync:TEMP_RBV</p></td>
+<tr class="row-odd"><td><p>SL1K2:EXIT:RTD:HeatSync:TEMP_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_SL1K2_EXIT.RTD_HeatSync.fTemp</p></td>
 <td><div class="line-block">
@@ -89087,7 +89154,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>SL1K2:EXIT:RTD:YAG:CONN_RBV</p></td>
+<tr class="row-even"><td><p>SL1K2:EXIT:RTD:YAG:CONN_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>PRG_SL1K2_EXIT.RTD_YAG.bConnected</p></td>
 <td><div class="line-block">
@@ -89097,7 +89164,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>SL1K2:EXIT:RTD:YAG:ERR_RBV</p></td>
+<tr class="row-odd"><td><p>SL1K2:EXIT:RTD:YAG:ERR_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>PRG_SL1K2_EXIT.RTD_YAG.bError</p></td>
 <td><div class="line-block">
@@ -89107,7 +89174,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>SL1K2:EXIT:RTD:YAG:TEMP_RBV</p></td>
+<tr class="row-even"><td><p>SL1K2:EXIT:RTD:YAG:TEMP_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_SL1K2_EXIT.RTD_YAG.fTemp</p></td>
 <td><div class="line-block">
@@ -89117,7 +89184,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>SL1K2:EXIT:FAN:PWR_RBV</p></td>
+<tr class="row-odd"><td><p>SL1K2:EXIT:FAN:PWR_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>PRG_SL1K2_EXIT.bFanOn</p></td>
 <td><div class="line-block">
@@ -89127,7 +89194,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>SL1K2:EXIT:FAN:PWR</p></td>
+<tr class="row-even"><td><p>SL1K2:EXIT:FAN:PWR</p></td>
 <td><p>bo</p></td>
 <td><p>PRG_SL1K2_EXIT.bFanOn</p></td>
 <td><div class="line-block">
@@ -89137,7 +89204,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>SL1K2:EXIT:LED:PWR_RBV</p></td>
+<tr class="row-odd"><td><p>SL1K2:EXIT:LED:PWR_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>PRG_SL1K2_EXIT.bLEDPower</p></td>
 <td><div class="line-block">
@@ -89147,12 +89214,52 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>SL1K2:EXIT:LED:PWR</p></td>
+<tr class="row-even"><td><p>SL1K2:EXIT:LED:PWR</p></td>
 <td><p>bo</p></td>
 <td><p>PRG_SL1K2_EXIT.bLEDPower</p></td>
 <td><div class="line-block">
 <div class="line">field: ONAM ON</div>
 <div class="line">field: ZNAM OFF</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:FWM:1:OFF_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_SL1K2_EXIT.fbFlowMeter.fOffset</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SL1K2:EXIT:FWM:1:OFF</p></td>
+<td><p>ao</p></td>
+<td><p>PRG_SL1K2_EXIT.fbFlowMeter.fOffset</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:FWM:1:VAL_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_SL1K2_EXIT.fbFlowMeter.fReal</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SL1K2:EXIT:FWM:1:RES_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_SL1K2_EXIT.fbFlowMeter.fResolution</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:FWM:1:RES</p></td>
+<td><p>ao</p></td>
+<td><p>PRG_SL1K2_EXIT.fbFlowMeter.fResolution</p></td>
+<td><div class="line-block">
 <div class="line">io: output</div>
 </div>
 </td>
@@ -95588,246 +95695,6 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:DATA_RBV</p></td>
-<td><p>ai</p></td>
-<td><p>PRG_SP1K1_MONO.fbGpiPosDiffStats.aSignal</p></td>
-<td><div class="line-block">
-<div class="line">io: input</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:ALWAYS_CALC_RBV</p></td>
-<td><p>bi</p></td>
-<td><p>PRG_SP1K1_MONO.fbGpiPosDiffStats.bAlwaysCalc</p></td>
-<td><div class="line-block">
-<div class="line">io: output</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:ALWAYS_CALC</p></td>
-<td><p>bo</p></td>
-<td><p>PRG_SP1K1_MONO.fbGpiPosDiffStats.bAlwaysCalc</p></td>
-<td><div class="line-block">
-<div class="line">io: output</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:EXECUTE_RBV</p></td>
-<td><p>bi</p></td>
-<td><p>PRG_SP1K1_MONO.fbGpiPosDiffStats.bExecute</p></td>
-<td><div class="line-block">
-<div class="line">io: output</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:EXECUTE</p></td>
-<td><p>bo</p></td>
-<td><p>PRG_SP1K1_MONO.fbGpiPosDiffStats.bExecute</p></td>
-<td><div class="line-block">
-<div class="line">io: output</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:RESET_RBV</p></td>
-<td><p>bi</p></td>
-<td><p>PRG_SP1K1_MONO.fbGpiPosDiffStats.bReset</p></td>
-<td><div class="line-block">
-<div class="line">io: output</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:RESET</p></td>
-<td><p>bo</p></td>
-<td><p>PRG_SP1K1_MONO.fbGpiPosDiffStats.bReset</p></td>
-<td><div class="line-block">
-<div class="line">io: output</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:VALID_RBV</p></td>
-<td><p>bi</p></td>
-<td><p>PRG_SP1K1_MONO.fbGpiPosDiffStats.bValid</p></td>
-<td><div class="line-block">
-<div class="line">io: input</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:MAX_RBV</p></td>
-<td><p>ai</p></td>
-<td><p>PRG_SP1K1_MONO.fbGpiPosDiffStats.fMax</p></td>
-<td><div class="line-block">
-<div class="line">io: input</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:MEAN_RBV</p></td>
-<td><p>ai</p></td>
-<td><p>PRG_SP1K1_MONO.fbGpiPosDiffStats.fMean</p></td>
-<td><div class="line-block">
-<div class="line">io: input</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:MIN_RBV</p></td>
-<td><p>ai</p></td>
-<td><p>PRG_SP1K1_MONO.fbGpiPosDiffStats.fMin</p></td>
-<td><div class="line-block">
-<div class="line">io: input</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:RMS_RBV</p></td>
-<td><p>ai</p></td>
-<td><p>PRG_SP1K1_MONO.fbGpiPosDiffStats.fRMS</p></td>
-<td><div class="line-block">
-<div class="line">io: input</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:RANGE_RBV</p></td>
-<td><p>ai</p></td>
-<td><p>PRG_SP1K1_MONO.fbGpiPosDiffStats.fRange</p></td>
-<td><div class="line-block">
-<div class="line">io: input</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:STDEV_RBV</p></td>
-<td><p>ai</p></td>
-<td><p>PRG_SP1K1_MONO.fbGpiPosDiffStats.fStDev</p></td>
-<td><div class="line-block">
-<div class="line">io: input</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:NELM_RBV</p></td>
-<td><p>longin</p></td>
-<td><p>PRG_SP1K1_MONO.fbGpiPosDiffStats.nElems</p></td>
-<td><div class="line-block">
-<div class="line">io: input</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:DATA_RBV</p></td>
-<td><p>ai</p></td>
-<td><p>PRG_SP1K1_MONO.fbMpiPosDiffStats.aSignal</p></td>
-<td><div class="line-block">
-<div class="line">io: input</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:ALWAYS_CALC_RBV</p></td>
-<td><p>bi</p></td>
-<td><p>PRG_SP1K1_MONO.fbMpiPosDiffStats.bAlwaysCalc</p></td>
-<td><div class="line-block">
-<div class="line">io: output</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:ALWAYS_CALC</p></td>
-<td><p>bo</p></td>
-<td><p>PRG_SP1K1_MONO.fbMpiPosDiffStats.bAlwaysCalc</p></td>
-<td><div class="line-block">
-<div class="line">io: output</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:EXECUTE_RBV</p></td>
-<td><p>bi</p></td>
-<td><p>PRG_SP1K1_MONO.fbMpiPosDiffStats.bExecute</p></td>
-<td><div class="line-block">
-<div class="line">io: output</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:EXECUTE</p></td>
-<td><p>bo</p></td>
-<td><p>PRG_SP1K1_MONO.fbMpiPosDiffStats.bExecute</p></td>
-<td><div class="line-block">
-<div class="line">io: output</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:RESET_RBV</p></td>
-<td><p>bi</p></td>
-<td><p>PRG_SP1K1_MONO.fbMpiPosDiffStats.bReset</p></td>
-<td><div class="line-block">
-<div class="line">io: output</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:RESET</p></td>
-<td><p>bo</p></td>
-<td><p>PRG_SP1K1_MONO.fbMpiPosDiffStats.bReset</p></td>
-<td><div class="line-block">
-<div class="line">io: output</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:VALID_RBV</p></td>
-<td><p>bi</p></td>
-<td><p>PRG_SP1K1_MONO.fbMpiPosDiffStats.bValid</p></td>
-<td><div class="line-block">
-<div class="line">io: input</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:MAX_RBV</p></td>
-<td><p>ai</p></td>
-<td><p>PRG_SP1K1_MONO.fbMpiPosDiffStats.fMax</p></td>
-<td><div class="line-block">
-<div class="line">io: input</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:MEAN_RBV</p></td>
-<td><p>ai</p></td>
-<td><p>PRG_SP1K1_MONO.fbMpiPosDiffStats.fMean</p></td>
-<td><div class="line-block">
-<div class="line">io: input</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:MIN_RBV</p></td>
-<td><p>ai</p></td>
-<td><p>PRG_SP1K1_MONO.fbMpiPosDiffStats.fMin</p></td>
-<td><div class="line-block">
-<div class="line">io: input</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:RMS_RBV</p></td>
-<td><p>ai</p></td>
-<td><p>PRG_SP1K1_MONO.fbMpiPosDiffStats.fRMS</p></td>
-<td><div class="line-block">
-<div class="line">io: input</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:RANGE_RBV</p></td>
-<td><p>ai</p></td>
-<td><p>PRG_SP1K1_MONO.fbMpiPosDiffStats.fRange</p></td>
-<td><div class="line-block">
-<div class="line">io: input</div>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:STDEV_RBV</p></td>
-<td><p>ai</p></td>
-<td><p>PRG_SP1K1_MONO.fbMpiPosDiffStats.fStDev</p></td>
-<td><div class="line-block">
-<div class="line">io: input</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:NELM_RBV</p></td>
-<td><p>longin</p></td>
-<td><p>PRG_SP1K1_MONO.fbMpiPosDiffStats.nElems</p></td>
-<td><div class="line-block">
-<div class="line">io: input</div>
-</div>
-</td>
-</tr>
 <tr class="row-even"><td><p>GM:PITCH:fipi_read_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_SP1K1_MONO.fipi_read</p></td>
@@ -95881,6 +95748,246 @@
 <td><p>PRG_SP1K1_MONO.mpi_upeurad</p></td>
 <td><div class="line-block">
 <div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:DATA_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_Stats.fbGpiPosDiffStats.aSignal</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:ALWAYS_CALC_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>PRG_Stats.fbGpiPosDiffStats.bAlwaysCalc</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:ALWAYS_CALC</p></td>
+<td><p>bo</p></td>
+<td><p>PRG_Stats.fbGpiPosDiffStats.bAlwaysCalc</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:EXECUTE_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>PRG_Stats.fbGpiPosDiffStats.bExecute</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:EXECUTE</p></td>
+<td><p>bo</p></td>
+<td><p>PRG_Stats.fbGpiPosDiffStats.bExecute</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:RESET_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>PRG_Stats.fbGpiPosDiffStats.bReset</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:RESET</p></td>
+<td><p>bo</p></td>
+<td><p>PRG_Stats.fbGpiPosDiffStats.bReset</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:VALID_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>PRG_Stats.fbGpiPosDiffStats.bValid</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:MAX_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_Stats.fbGpiPosDiffStats.fMax</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:MEAN_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_Stats.fbGpiPosDiffStats.fMean</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:MIN_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_Stats.fbGpiPosDiffStats.fMin</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:RMS_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_Stats.fbGpiPosDiffStats.fRMS</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:RANGE_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_Stats.fbGpiPosDiffStats.fRange</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:STDEV_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_Stats.fbGpiPosDiffStats.fStDev</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:NELM_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>PRG_Stats.fbGpiPosDiffStats.nElems</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:DATA_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_Stats.fbMpiPosDiffStats.aSignal</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:ALWAYS_CALC_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>PRG_Stats.fbMpiPosDiffStats.bAlwaysCalc</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:ALWAYS_CALC</p></td>
+<td><p>bo</p></td>
+<td><p>PRG_Stats.fbMpiPosDiffStats.bAlwaysCalc</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:EXECUTE_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>PRG_Stats.fbMpiPosDiffStats.bExecute</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:EXECUTE</p></td>
+<td><p>bo</p></td>
+<td><p>PRG_Stats.fbMpiPosDiffStats.bExecute</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:RESET_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>PRG_Stats.fbMpiPosDiffStats.bReset</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:RESET</p></td>
+<td><p>bo</p></td>
+<td><p>PRG_Stats.fbMpiPosDiffStats.bReset</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:VALID_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>PRG_Stats.fbMpiPosDiffStats.bValid</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:MAX_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_Stats.fbMpiPosDiffStats.fMax</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:MEAN_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_Stats.fbMpiPosDiffStats.fMean</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:MIN_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_Stats.fbMpiPosDiffStats.fMin</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:RMS_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_Stats.fbMpiPosDiffStats.fRMS</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:RANGE_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_Stats.fbMpiPosDiffStats.fRange</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:STDEV_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_Stats.fbMpiPosDiffStats.fStDev</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:NELM_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>PRG_Stats.fbMpiPosDiffStats.nElems</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
 </div>
 </td>
 </tr>
@@ -96063,7 +96170,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, SLAC National Accelerator Laboratory.</p>
+    <p>&#169; Copyright 2024, SLAC National Accelerator Laboratory.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

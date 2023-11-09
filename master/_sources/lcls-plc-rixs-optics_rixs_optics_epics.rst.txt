@@ -67614,6 +67614,27 @@ Database Records
         | io: input
 
 
+    * - MR2K2:FLAT:FWM:1_RBV
+      - ai
+      - PRG_MR2K2_FLAT.fMR2K2_Flow_1_val
+      - | field: EGU lpm
+        | io: input
+
+
+    * - MR2K2:FLAT:FWM:2_RBV
+      - ai
+      - PRG_MR2K2_FLAT.fMR2K2_Flow_2_val
+      - | field: EGU lpm
+        | io: input
+
+
+    * - MR2K2:FLAT:PRSM:1_RBV
+      - ai
+      - PRG_MR2K2_FLAT.fMR2K2_Press_1_val
+      - | field: EGU bar
+        | io: input
+
+
     * - MR2K2:FLAT:ENC:X:ACTPOSARRAY_RBV
       - waveform
       - PRG_MR2K2_FLAT.fbXRMSErrorM2K2.aEncActPos
@@ -67791,6 +67812,20 @@ Database Records
       - PRG_MR3K2_KBH.fM3K2US_RTD_3
       - | field: ASLO 0.01
         | field: EGU C
+        | io: input
+
+
+    * - MR3K2:KBH:FWM:1_RBV
+      - ai
+      - PRG_MR3K2_KBH.fMR3K2_Flow_1_val
+      - | field: EGU lpm
+        | io: input
+
+
+    * - MR3K2:KBH:PRSM:1_RBV
+      - ai
+      - PRG_MR3K2_KBH.fMR3K2_Press_1_val
+      - | field: EGU bar
         | io: input
 
 
@@ -68059,6 +68094,20 @@ Database Records
       - PRG_MR4K2_KBV.fM4K2US_RTD_3
       - | field: ASLO 0.01
         | field: EGU C
+        | io: input
+
+
+    * - MR4K2:KBV:FWM:1_RBV
+      - ai
+      - PRG_MR4K2_KBV.fMR4K2_Flow_1_val
+      - | field: EGU lpm
+        | io: input
+
+
+    * - MR4K2:KBV:PRSM:1_RBV
+      - ai
+      - PRG_MR4K2_KBV.fMR4K2_Press_1_val
+      - | field: EGU bar
         | io: input
 
 
@@ -68460,6 +68509,36 @@ Database Records
       - | field: ONAM ON
         | field: ZNAM OFF
         | io: output
+
+
+    * - SL1K2:EXIT:FWM:1:OFF_RBV
+      - ai
+      - PRG_SL1K2_EXIT.fbFlowMeter.fOffset
+      - | io: output
+
+
+    * - SL1K2:EXIT:FWM:1:OFF
+      - ao
+      - PRG_SL1K2_EXIT.fbFlowMeter.fOffset
+      - | io: output
+
+
+    * - SL1K2:EXIT:FWM:1:VAL_RBV
+      - ai
+      - PRG_SL1K2_EXIT.fbFlowMeter.fReal
+      - | io: input
+
+
+    * - SL1K2:EXIT:FWM:1:RES_RBV
+      - ai
+      - PRG_SL1K2_EXIT.fbFlowMeter.fResolution
+      - | io: output
+
+
+    * - SL1K2:EXIT:FWM:1:RES
+      - ao
+      - PRG_SL1K2_EXIT.fbFlowMeter.fResolution
+      - | io: output
 
 
     * - SL1K2:EXIT:CAM:PWR_RBV
@@ -73541,186 +73620,6 @@ Database Records
         | io: input
 
 
-    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:DATA_RBV
-      - ai
-      - PRG_SP1K1_MONO.fbGpiPosDiffStats.aSignal
-      - | io: input
-
-
-    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:ALWAYS_CALC_RBV
-      - bi
-      - PRG_SP1K1_MONO.fbGpiPosDiffStats.bAlwaysCalc
-      - | io: output
-
-
-    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:ALWAYS_CALC
-      - bo
-      - PRG_SP1K1_MONO.fbGpiPosDiffStats.bAlwaysCalc
-      - | io: output
-
-
-    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:EXECUTE_RBV
-      - bi
-      - PRG_SP1K1_MONO.fbGpiPosDiffStats.bExecute
-      - | io: output
-
-
-    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:EXECUTE
-      - bo
-      - PRG_SP1K1_MONO.fbGpiPosDiffStats.bExecute
-      - | io: output
-
-
-    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:RESET_RBV
-      - bi
-      - PRG_SP1K1_MONO.fbGpiPosDiffStats.bReset
-      - | io: output
-
-
-    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:RESET
-      - bo
-      - PRG_SP1K1_MONO.fbGpiPosDiffStats.bReset
-      - | io: output
-
-
-    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:VALID_RBV
-      - bi
-      - PRG_SP1K1_MONO.fbGpiPosDiffStats.bValid
-      - | io: input
-
-
-    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:MAX_RBV
-      - ai
-      - PRG_SP1K1_MONO.fbGpiPosDiffStats.fMax
-      - | io: input
-
-
-    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:MEAN_RBV
-      - ai
-      - PRG_SP1K1_MONO.fbGpiPosDiffStats.fMean
-      - | io: input
-
-
-    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:MIN_RBV
-      - ai
-      - PRG_SP1K1_MONO.fbGpiPosDiffStats.fMin
-      - | io: input
-
-
-    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:RMS_RBV
-      - ai
-      - PRG_SP1K1_MONO.fbGpiPosDiffStats.fRMS
-      - | io: input
-
-
-    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:RANGE_RBV
-      - ai
-      - PRG_SP1K1_MONO.fbGpiPosDiffStats.fRange
-      - | io: input
-
-
-    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:STDEV_RBV
-      - ai
-      - PRG_SP1K1_MONO.fbGpiPosDiffStats.fStDev
-      - | io: input
-
-
-    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:NELM_RBV
-      - longin
-      - PRG_SP1K1_MONO.fbGpiPosDiffStats.nElems
-      - | io: input
-
-
-    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:DATA_RBV
-      - ai
-      - PRG_SP1K1_MONO.fbMpiPosDiffStats.aSignal
-      - | io: input
-
-
-    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:ALWAYS_CALC_RBV
-      - bi
-      - PRG_SP1K1_MONO.fbMpiPosDiffStats.bAlwaysCalc
-      - | io: output
-
-
-    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:ALWAYS_CALC
-      - bo
-      - PRG_SP1K1_MONO.fbMpiPosDiffStats.bAlwaysCalc
-      - | io: output
-
-
-    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:EXECUTE_RBV
-      - bi
-      - PRG_SP1K1_MONO.fbMpiPosDiffStats.bExecute
-      - | io: output
-
-
-    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:EXECUTE
-      - bo
-      - PRG_SP1K1_MONO.fbMpiPosDiffStats.bExecute
-      - | io: output
-
-
-    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:RESET_RBV
-      - bi
-      - PRG_SP1K1_MONO.fbMpiPosDiffStats.bReset
-      - | io: output
-
-
-    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:RESET
-      - bo
-      - PRG_SP1K1_MONO.fbMpiPosDiffStats.bReset
-      - | io: output
-
-
-    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:VALID_RBV
-      - bi
-      - PRG_SP1K1_MONO.fbMpiPosDiffStats.bValid
-      - | io: input
-
-
-    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:MAX_RBV
-      - ai
-      - PRG_SP1K1_MONO.fbMpiPosDiffStats.fMax
-      - | io: input
-
-
-    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:MEAN_RBV
-      - ai
-      - PRG_SP1K1_MONO.fbMpiPosDiffStats.fMean
-      - | io: input
-
-
-    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:MIN_RBV
-      - ai
-      - PRG_SP1K1_MONO.fbMpiPosDiffStats.fMin
-      - | io: input
-
-
-    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:RMS_RBV
-      - ai
-      - PRG_SP1K1_MONO.fbMpiPosDiffStats.fRMS
-      - | io: input
-
-
-    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:RANGE_RBV
-      - ai
-      - PRG_SP1K1_MONO.fbMpiPosDiffStats.fRange
-      - | io: input
-
-
-    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:STDEV_RBV
-      - ai
-      - PRG_SP1K1_MONO.fbMpiPosDiffStats.fStDev
-      - | io: input
-
-
-    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:NELM_RBV
-      - longin
-      - PRG_SP1K1_MONO.fbMpiPosDiffStats.nElems
-      - | io: input
-
-
     * - GM:PITCH:fipi_read_RBV
       - ai
       - PRG_SP1K1_MONO.fipi_read
@@ -73761,6 +73660,186 @@ Database Records
       - ao
       - PRG_SP1K1_MONO.mpi_upeurad
       - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:DATA_RBV
+      - ai
+      - PRG_Stats.fbGpiPosDiffStats.aSignal
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:ALWAYS_CALC_RBV
+      - bi
+      - PRG_Stats.fbGpiPosDiffStats.bAlwaysCalc
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:ALWAYS_CALC
+      - bo
+      - PRG_Stats.fbGpiPosDiffStats.bAlwaysCalc
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:EXECUTE_RBV
+      - bi
+      - PRG_Stats.fbGpiPosDiffStats.bExecute
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:EXECUTE
+      - bo
+      - PRG_Stats.fbGpiPosDiffStats.bExecute
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:RESET_RBV
+      - bi
+      - PRG_Stats.fbGpiPosDiffStats.bReset
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:RESET
+      - bo
+      - PRG_Stats.fbGpiPosDiffStats.bReset
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:VALID_RBV
+      - bi
+      - PRG_Stats.fbGpiPosDiffStats.bValid
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:MAX_RBV
+      - ai
+      - PRG_Stats.fbGpiPosDiffStats.fMax
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:MEAN_RBV
+      - ai
+      - PRG_Stats.fbGpiPosDiffStats.fMean
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:MIN_RBV
+      - ai
+      - PRG_Stats.fbGpiPosDiffStats.fMin
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:RMS_RBV
+      - ai
+      - PRG_Stats.fbGpiPosDiffStats.fRMS
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:RANGE_RBV
+      - ai
+      - PRG_Stats.fbGpiPosDiffStats.fRange
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:STDEV_RBV
+      - ai
+      - PRG_Stats.fbGpiPosDiffStats.fStDev
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:NELM_RBV
+      - longin
+      - PRG_Stats.fbGpiPosDiffStats.nElems
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:DATA_RBV
+      - ai
+      - PRG_Stats.fbMpiPosDiffStats.aSignal
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:ALWAYS_CALC_RBV
+      - bi
+      - PRG_Stats.fbMpiPosDiffStats.bAlwaysCalc
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:ALWAYS_CALC
+      - bo
+      - PRG_Stats.fbMpiPosDiffStats.bAlwaysCalc
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:EXECUTE_RBV
+      - bi
+      - PRG_Stats.fbMpiPosDiffStats.bExecute
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:EXECUTE
+      - bo
+      - PRG_Stats.fbMpiPosDiffStats.bExecute
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:RESET_RBV
+      - bi
+      - PRG_Stats.fbMpiPosDiffStats.bReset
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:RESET
+      - bo
+      - PRG_Stats.fbMpiPosDiffStats.bReset
+      - | io: output
+
+
+    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:VALID_RBV
+      - bi
+      - PRG_Stats.fbMpiPosDiffStats.bValid
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:MAX_RBV
+      - ai
+      - PRG_Stats.fbMpiPosDiffStats.fMax
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:MEAN_RBV
+      - ai
+      - PRG_Stats.fbMpiPosDiffStats.fMean
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:MIN_RBV
+      - ai
+      - PRG_Stats.fbMpiPosDiffStats.fMin
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:RMS_RBV
+      - ai
+      - PRG_Stats.fbMpiPosDiffStats.fRMS
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:RANGE_RBV
+      - ai
+      - PRG_Stats.fbMpiPosDiffStats.fRange
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:STDEV_RBV
+      - ai
+      - PRG_Stats.fbMpiPosDiffStats.fStDev
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:NELM_RBV
+      - longin
+      - PRG_Stats.fbMpiPosDiffStats.nElems
+      - | io: input
 
 
     * - $(PREFIX)Delta_RBV

@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Links &mdash; pcdshub/lcls-plc-rixs-optics  documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/tree.css?v=837a00b9" />
+      <link rel="stylesheet" type="text/css" href="_static/width.css?v=ab210c7a" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -47,7 +51,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="lcls-plc-rixs-optics_pragmas.html">Pragmas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lcls-plc-rixs-optics_nc.html">NC Settings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lcls-plc-rixs-optics_ethercat.html">Box Hierarchy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lcls-plc-rixs-optics_ethercat.html">EtherCAT Terminals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lcls-plc-rixs-optics_boxes.html">Boxes</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Links</a></li>
 </ul>
@@ -5692,12 +5696,12 @@
 <tr class="row-even"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^Main.M22.bLimitBackwardEnable</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL7047_SL1K2_GAP</p></td>
-<td><p>STM Status^Status^Digital input 1</p></td>
+<td><p>STM Status^Status^Digital input 2</p></td>
 </tr>
 <tr class="row-odd"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^Main.M22.bLimitForwardEnable</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL7047_SL1K2_GAP</p></td>
-<td><p>STM Status^Status^Digital input 2</p></td>
+<td><p>STM Status^Status^Digital input 1</p></td>
 </tr>
 <tr class="row-even"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^Main.M22.nRawEncoderULINT</p></td>
@@ -6050,29 +6054,19 @@
 <td><p>STM Status^Status^Digital input 1</p></td>
 </tr>
 <tr class="row-even"><td><p>rixs_optics Instance</p></td>
-<td><p>PlcTask Inputs^Main.M6.Axis.NcToPlc</p></td>
-<td><p>TINC^NC-Task 1 SAF^Axes^m_pi</p></td>
-<td><p>Outputs^ToPlc</p></td>
-</tr>
-<tr class="row-odd"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^Main.M6.bLimitBackwardEnable</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^m_pi_m</p></td>
 <td><p>STM Status^Status^Digital input 2</p></td>
 </tr>
-<tr class="row-even"><td><p>rixs_optics Instance</p></td>
+<tr class="row-odd"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^Main.M6.bLimitForwardEnable</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^m_pi_m</p></td>
 <td><p>STM Status^Status^Digital input 1</p></td>
 </tr>
-<tr class="row-odd"><td><p>rixs_optics Instance</p></td>
+<tr class="row-even"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^Main.M6.nRawEncoderULINT</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^m_pi_up_dwn_e</p></td>
 <td><p>FB Inputs Channel 2^Position</p></td>
-</tr>
-<tr class="row-even"><td><p>rixs_optics Instance</p></td>
-<td><p>PlcTask Inputs^Main.M7.Axis.NcToPlc</p></td>
-<td><p>TINC^NC-Task 1 SAF^Axes^g_pi</p></td>
-<td><p>Outputs^ToPlc</p></td>
 </tr>
 <tr class="row-odd"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^Main.M7.bLimitBackwardEnable</p></td>
@@ -6275,144 +6269,184 @@
 <td><p>Channel 2^Input</p></td>
 </tr>
 <tr class="row-odd"><td><p>rixs_optics Instance</p></td>
+<td><p>PlcTask Inputs^PRG_MR2K2_FLAT.fMR2K2_Flow_1.iRaw</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 310 (EK1122)^EK1100_MR2K2^EL3054_MR2K2_FWM_PRSM</p></td>
+<td><p>AI Standard Channel 1^Value</p></td>
+</tr>
+<tr class="row-even"><td><p>rixs_optics Instance</p></td>
+<td><p>PlcTask Inputs^PRG_MR2K2_FLAT.fMR2K2_Flow_2.iRaw</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 310 (EK1122)^EK1100_MR2K2^EL3054_MR2K2_FWM_PRSM</p></td>
+<td><p>AI Standard Channel 3^Value</p></td>
+</tr>
+<tr class="row-odd"><td><p>rixs_optics Instance</p></td>
+<td><p>PlcTask Inputs^PRG_MR2K2_FLAT.fMR2K2_Press_1.iRaw</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 310 (EK1122)^EK1100_MR2K2^EL3054_MR2K2_FWM_PRSM</p></td>
+<td><p>AI Standard Channel 2^Value</p></td>
+</tr>
+<tr class="row-even"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^PRG_MR3K2_KBH.M3K2KBHbSTOEnable1</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 310 (EK1122)^EK1100_MR3K2_BENDER^EL1004_M3K2_STO</p></td>
 <td><p>Channel 1^Input</p></td>
 </tr>
-<tr class="row-even"><td><p>rixs_optics Instance</p></td>
+<tr class="row-odd"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^PRG_MR3K2_KBH.M3K2KBHbSTOEnable2</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 310 (EK1122)^EK1100_MR3K2_BENDER^EL1004_M3K2_STO</p></td>
 <td><p>Channel 2^Input</p></td>
 </tr>
+<tr class="row-even"><td><p>rixs_optics Instance</p></td>
+<td><p>PlcTask Inputs^PRG_MR3K2_KBH.fMR3K2_Flow_1.iRaw</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2^EL3054_MR3_4K2_FWM_PRSM</p></td>
+<td><p>AI Standard Channel 1^Value</p></td>
+</tr>
 <tr class="row-odd"><td><p>rixs_optics Instance</p></td>
+<td><p>PlcTask Inputs^PRG_MR3K2_KBH.fMR3K2_Press_1.iRaw</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2^EL3054_MR3_4K2_FWM_PRSM</p></td>
+<td><p>AI Standard Channel 2^Value</p></td>
+</tr>
+<tr class="row-even"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^PRG_MR4K2_KBV.M4K2KBVbSTOEnable1</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2_BENDER^EL1004_M4K2_STO</p></td>
 <td><p>Channel 1^Input</p></td>
 </tr>
-<tr class="row-even"><td><p>rixs_optics Instance</p></td>
+<tr class="row-odd"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^PRG_MR4K2_KBV.M4K2KBVbSTOEnable2</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2_BENDER^EL1004_M4K2_STO</p></td>
 <td><p>Channel 2^Input</p></td>
 </tr>
+<tr class="row-even"><td><p>rixs_optics Instance</p></td>
+<td><p>PlcTask Inputs^PRG_MR4K2_KBV.fMR4K2_Flow_1.iRaw</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2^EL3054_MR3_4K2_FWM_PRSM</p></td>
+<td><p>AI Standard Channel 3^Value</p></td>
+</tr>
 <tr class="row-odd"><td><p>rixs_optics Instance</p></td>
+<td><p>PlcTask Inputs^PRG_MR4K2_KBV.fMR4K2_Press_1.iRaw</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2^EL3054_MR3_4K2_FWM_PRSM</p></td>
+<td><p>AI Standard Channel 2^Value</p></td>
+</tr>
+<tr class="row-even"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^PRG_MR4K2_KBV.nM4K2_Chin_Left_RTD.bError</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2_BENDER^EL3204_M4K2_CHIN</p></td>
 <td><p>RTD Inputs Channel 2^Status^Error</p></td>
 </tr>
-<tr class="row-even"><td><p>rixs_optics Instance</p></td>
+<tr class="row-odd"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^PRG_MR4K2_KBV.nM4K2_Chin_Left_RTD.bOverrange</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2_BENDER^EL3204_M4K2_CHIN</p></td>
 <td><p>RTD Inputs Channel 2^Status^Overrange</p></td>
 </tr>
-<tr class="row-odd"><td><p>rixs_optics Instance</p></td>
+<tr class="row-even"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^PRG_MR4K2_KBV.nM4K2_Chin_Left_RTD.bUnderrange</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2_BENDER^EL3204_M4K2_CHIN</p></td>
 <td><p>RTD Inputs Channel 2^Status^Underrange</p></td>
 </tr>
-<tr class="row-even"><td><p>rixs_optics Instance</p></td>
+<tr class="row-odd"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^PRG_MR4K2_KBV.nM4K2_Chin_Left_RTD.iRaw</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2_BENDER^EL3204_M4K2_CHIN</p></td>
 <td><p>RTD Inputs Channel 2^Value</p></td>
 </tr>
-<tr class="row-odd"><td><p>rixs_optics Instance</p></td>
+<tr class="row-even"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^PRG_MR4K2_KBV.nM4K2_Chin_Right_RTD.bError</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2_BENDER^EL3204_M4K2_CHIN</p></td>
 <td><p>RTD Inputs Channel 1^Status^Error</p></td>
 </tr>
-<tr class="row-even"><td><p>rixs_optics Instance</p></td>
+<tr class="row-odd"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^PRG_MR4K2_KBV.nM4K2_Chin_Right_RTD.bOverrange</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2_BENDER^EL3204_M4K2_CHIN</p></td>
 <td><p>RTD Inputs Channel 1^Status^Overrange</p></td>
 </tr>
-<tr class="row-odd"><td><p>rixs_optics Instance</p></td>
+<tr class="row-even"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^PRG_MR4K2_KBV.nM4K2_Chin_Right_RTD.bUnderrange</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2_BENDER^EL3204_M4K2_CHIN</p></td>
 <td><p>RTD Inputs Channel 1^Status^Underrange</p></td>
 </tr>
-<tr class="row-even"><td><p>rixs_optics Instance</p></td>
+<tr class="row-odd"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^PRG_MR4K2_KBV.nM4K2_Chin_Right_RTD.iRaw</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2_BENDER^EL3204_M4K2_CHIN</p></td>
 <td><p>RTD Inputs Channel 1^Value</p></td>
 </tr>
-<tr class="row-odd"><td><p>rixs_optics Instance</p></td>
+<tr class="row-even"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.bError</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_2</p></td>
 <td><p>RTD^Status^Error</p></td>
 </tr>
-<tr class="row-even"><td><p>rixs_optics Instance</p></td>
+<tr class="row-odd"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.bOverrange</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_2</p></td>
 <td><p>RTD^Status^Overrange</p></td>
 </tr>
-<tr class="row-odd"><td><p>rixs_optics Instance</p></td>
+<tr class="row-even"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.bUnderrange</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_2</p></td>
 <td><p>RTD^Status^Underrange</p></td>
 </tr>
-<tr class="row-even"><td><p>rixs_optics Instance</p></td>
+<tr class="row-odd"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.iRaw</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_2</p></td>
 <td><p>RTD^Value</p></td>
 </tr>
-<tr class="row-odd"><td><p>rixs_optics Instance</p></td>
+<tr class="row-even"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^PRG_SL1K2_EXIT.RTD_Crystal_TOP.bError</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_1</p></td>
 <td><p>RTD^Status^Error</p></td>
 </tr>
-<tr class="row-even"><td><p>rixs_optics Instance</p></td>
+<tr class="row-odd"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^PRG_SL1K2_EXIT.RTD_Crystal_TOP.bOverrange</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_1</p></td>
 <td><p>RTD^Status^Overrange</p></td>
 </tr>
-<tr class="row-odd"><td><p>rixs_optics Instance</p></td>
+<tr class="row-even"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^PRG_SL1K2_EXIT.RTD_Crystal_TOP.bUnderrange</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_1</p></td>
 <td><p>RTD^Status^Underrange</p></td>
 </tr>
-<tr class="row-even"><td><p>rixs_optics Instance</p></td>
+<tr class="row-odd"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^PRG_SL1K2_EXIT.RTD_Crystal_TOP.iRaw</p></td>
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_1</p></td>
 <td><p>RTD^Value</p></td>
 </tr>
-<tr class="row-odd"><td><p>rixs_optics Instance</p></td>
+<tr class="row-even"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^PRG_SL1K2_EXIT.RTD_HeatSync.bError</p></td>
-<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_4</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_3</p></td>
 <td><p>RTD^Status^Error</p></td>
 </tr>
-<tr class="row-even"><td><p>rixs_optics Instance</p></td>
+<tr class="row-odd"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^PRG_SL1K2_EXIT.RTD_HeatSync.bOverrange</p></td>
-<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_4</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_3</p></td>
 <td><p>RTD^Status^Overrange</p></td>
 </tr>
-<tr class="row-odd"><td><p>rixs_optics Instance</p></td>
+<tr class="row-even"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^PRG_SL1K2_EXIT.RTD_HeatSync.bUnderrange</p></td>
-<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_4</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_3</p></td>
 <td><p>RTD^Status^Underrange</p></td>
 </tr>
-<tr class="row-even"><td><p>rixs_optics Instance</p></td>
+<tr class="row-odd"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^PRG_SL1K2_EXIT.RTD_HeatSync.iRaw</p></td>
-<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_4</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_3</p></td>
 <td><p>RTD^Value</p></td>
 </tr>
-<tr class="row-odd"><td><p>rixs_optics Instance</p></td>
+<tr class="row-even"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^PRG_SL1K2_EXIT.RTD_YAG.bError</p></td>
-<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_3</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_4</p></td>
 <td><p>RTD^Status^Error</p></td>
 </tr>
-<tr class="row-even"><td><p>rixs_optics Instance</p></td>
+<tr class="row-odd"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^PRG_SL1K2_EXIT.RTD_YAG.bOverrange</p></td>
-<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_3</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_4</p></td>
 <td><p>RTD^Status^Overrange</p></td>
 </tr>
-<tr class="row-odd"><td><p>rixs_optics Instance</p></td>
+<tr class="row-even"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^PRG_SL1K2_EXIT.RTD_YAG.bUnderrange</p></td>
-<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_3</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_4</p></td>
 <td><p>RTD^Status^Underrange</p></td>
 </tr>
-<tr class="row-even"><td><p>rixs_optics Instance</p></td>
+<tr class="row-odd"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^PRG_SL1K2_EXIT.RTD_YAG.iRaw</p></td>
-<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_3</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_4</p></td>
 <td><p>RTD^Value</p></td>
+</tr>
+<tr class="row-even"><td><p>rixs_optics Instance</p></td>
+<td><p>PlcTask Inputs^PRG_SL1K2_EXIT.fbFlowMeter.iRaw</p></td>
+<td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3052_SL1K2_FWM</p></td>
+<td><p>AI Standard Channel 1^Value</p></td>
 </tr>
 <tr class="row-odd"><td><p>rixs_optics Instance</p></td>
 <td><p>PlcTask Inputs^PRG_SP1K1_MONO.RTD1.bError</p></td>
@@ -7104,6 +7138,16 @@
 <td><p>TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL6001_M1K2_PitchFine</p></td>
 <td><p>COM Outputs^Data Out 9</p></td>
 </tr>
+<tr class="row-odd"><td><p>rixs_optics Instance</p></td>
+<td><p>StatsTask Inputs^Main.M6.Axis.NcToPlc</p></td>
+<td><p>TINC^NC-Task 1 SAF^Axes^m_pi</p></td>
+<td><p>Outputs^ToPlc</p></td>
+</tr>
+<tr class="row-even"><td><p>rixs_optics Instance</p></td>
+<td><p>StatsTask Inputs^Main.M7.Axis.NcToPlc</p></td>
+<td><p>TINC^NC-Task 1 SAF^Axes^g_pi</p></td>
+<td><p>Outputs^ToPlc</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -7119,7 +7163,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, SLAC National Accelerator Laboratory.</p>
+    <p>&#169; Copyright 2024, SLAC National Accelerator Laboratory.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
