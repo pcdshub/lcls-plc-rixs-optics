@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="PRG_ZeroOrder_PMPS" Id="{91b5156c-1864-44ab-9bf4-9660205ee3fe}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_ZeroOrder_PMPS
 VAR
@@ -102,8 +102,8 @@ VAR CONSTANT
     Zmon : LREAL:=739.622;//m
     Zpiv : LREAL:= 739.762 ; //m
     Zzos : LREAL:= 741.422;//m
-    Pm1Offset: LREAL:= 18181;//=18310-129
-    Pm2Offset: LREAL:= -90641;
+    Pm1Offset: LREAL:= 18081.1;
+    Pm2Offset: LREAL:= -90603;
     Pm3Offset: LREAL:= -63300;//urad, could depend on the inserted grating
 END_VAR
 ]]></Declaration>
@@ -144,8 +144,8 @@ ACT_ExitSlitsGap();]]></ST>
 Hm1:= 1400000+M12.stAxisStatus.fActPosition; //um
 //Pm1 = Pm1Offset + mr1k1 bend pitch
 Pm1 := Pm1Offset + Main.M16.stAxisStatus.fActPosition; //urad
-//Hpiv = 1.620305 + 0.001 // m 0.001 is correction from nominal
-Hpiv:= (1.620305 + 0.001)*1E6; //um
+//Hpiv = 1.625427 is correction from nominal
+Hpiv:= (1.625247)*1E6; //um
 //Pm2 = mono mirror pitch + Pm2Offset urad
 Pm2 := Main.M6.stAxisStatus.fActPosition + Pm2Offset;//urad
 //Hm3 = Hpiv + 0.006 m
