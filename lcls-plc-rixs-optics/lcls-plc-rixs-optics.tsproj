@@ -1,7 +1,13 @@
 <?xml version="1.0"?>
 <TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.35" TcVersionFixed="true">
-	<Project ProjectGUID="{75FBD16C-F3E0-4C8C-BD86-632AC3A408E9}" TargetNetId="172.21.140.71.1.1" RelativeTargetNetId="true" RelativeIpAddresses="true" ShowHideConfigurations="#x306">
+	<Project ProjectGUID="{75FBD16C-F3E0-4C8C-BD86-632AC3A408E9}" TargetNetId="172.21.140.71.1.1" Target64Bit="true" RelativeTargetNetId="true" RelativeIpAddresses="true" ShowHideConfigurations="#x306">
 		<System>
+			<Settings MaxCpus="4" NonWinCpus="3">
+				<Cpu/>
+				<Cpu CpuId="1"/>
+				<Cpu CpuId="2"/>
+				<Cpu CpuId="3"/>
+			</Settings>
 			<Licenses CacheOrCheckLicensesOnStartup="true">
 				<Target BkhfOrder="00359217">
 					<ManualSelect>{BF78CFC7-2E63-42C3-8C07-BB6C346BFB8B}</ManualSelect>
@@ -16,7 +22,7 @@
 				</Target>
 			</Licenses>
 			<Tasks>
-				<Task Id="3" Priority="20" CycleTime="100000" AmsPort="350" DisableFpExceptions="true" AdtTasks="true">
+				<Task Id="3" Priority="20" CycleTime="100000" AmsPort="350" Affinity="#x00000002" DisableFpExceptions="true" AdtTasks="true">
 					<Name>PlcTask</Name>
 				</Task>
 				<Task Id="6" Priority="3" CycleTime="10000" AmsPort="351" AdtTasks="true">
@@ -25,7 +31,7 @@
 				<Task Id="7" Priority="1" CycleTime="20000" AmsPort="352" AdtTasks="true">
 					<Name>SerialIO</Name>
 				</Task>
-				<Task Id="8" Priority="19" CycleTime="10000" AmsPort="353" AdtTasks="true">
+				<Task Id="8" Priority="19" CycleTime="10000" AmsPort="353" Affinity="#x00000008" AdtTasks="true">
 					<Name>DaqTask</Name>
 				</Task>
 			</Tasks>
