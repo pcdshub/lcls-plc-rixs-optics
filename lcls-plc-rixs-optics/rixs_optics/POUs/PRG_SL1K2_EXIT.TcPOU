@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="PRG_SL1K2_EXIT" Id="{a6ea7919-5ace-4786-88b3-ec4d11838f8d}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_SL1K2_EXIT
 VAR
@@ -39,19 +39,19 @@ VAR
     {attribute 'pytmc' := '
         pv: SL1K2:EXIT:RTD:YAG
     '}
-    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3201_SL1K2_3]^RTD^Value;
-                              .bError := TIIB[EL3201_SL1K2_3]^RTD^Status^Error;
-                              .bUnderrange := TIIB[EL3201_SL1K2_3]^RTD^Status^Underrange;
-                              .bOverrange := TIIB[EL3201_SL1K2_3]^RTD^Status^Overrange'}
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3201_SL1K2_4]^RTD^Value;
+                              .bError := TIIB[EL3201_SL1K2_4]^RTD^Status^Error;
+                              .bUnderrange := TIIB[EL3201_SL1K2_4]^RTD^Status^Underrange;
+                              .bOverrange := TIIB[EL3201_SL1K2_4]^RTD^Status^Overrange'}
     RTD_YAG: FB_TempSensor;
 
     {attribute 'pytmc' := '
         pv: SL1K2:EXIT:RTD:HeatSync
     '}
-    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3201_SL1K2_4]^RTD^Value;
-                              .bError := TIIB[EL3201_SL1K2_4]^RTD^Status^Error;
-                              .bUnderrange := TIIB[EL3201_SL1K2_4]^RTD^Status^Underrange;
-                              .bOverrange := TIIB[EL3201_SL1K2_4]^RTD^Status^Overrange'}
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3201_SL1K2_3]^RTD^Value;
+                              .bError := TIIB[EL3201_SL1K2_3]^RTD^Status^Error;
+                              .bUnderrange := TIIB[EL3201_SL1K2_3]^RTD^Status^Underrange;
+                              .bOverrange := TIIB[EL3201_SL1K2_3]^RTD^Status^Overrange'}
     RTD_HeatSync: FB_TempSensor;
 
 
@@ -171,10 +171,10 @@ fbStates(
 fbGige();
 
 //RTDs
-RTD_Crystal_TOP();
-RTD_Crystal_BOTTOM();
-RTD_YAG();
-RTD_HeatSync();]]></ST>
+RTD_Crystal_TOP(fResolution:=0.01);
+RTD_Crystal_BOTTOM(fResolution:=0.01);
+RTD_YAG(fResolution:=0.01);
+RTD_HeatSync(fResolution:=0.01);]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
