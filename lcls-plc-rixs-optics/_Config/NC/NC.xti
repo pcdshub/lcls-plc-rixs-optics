@@ -1363,7 +1363,7 @@ External Setpoint Generation:
 		<Axis Id="19" CreateSymbols="true" AxisType="1" AxisFolder="SL1K2">
 			<Name>SL1K2-Pitch-M19</Name>
 			<AxisPara>
-				<General UnitName="mrad"/>
+				<General UnitName="Degree"/>
 				<Dynamic Acceleration="0.836849" Deceleration="0.836849" Jerk="2.80127"/>
 				<Velo SlowManual="1" FastManual="2" Maximum="0.25"/>
 				<TargetPosControl Range="0.001"/>
@@ -1371,8 +1371,8 @@ External Setpoint Generation:
 			</AxisPara>
 			<Encoder Name="Enc" EncType="29">
 				<EncPara ScaleFactorNumerator="7.1573649e-08" Offset="-2.626" MaxCount="#xffffffff">
-					<SoftEndMinControl Enable="true" Range="-3.7"/>
-					<SoftEndMaxControl Enable="true" Range="3"/>
+					<SoftEndMinControl Enable="true" Range="-1.9"/>
+					<SoftEndMaxControl Enable="true" Range="1.9"/>
 					<Inc RefSoftSyncMask="#x0000ffff"/>
 				</EncPara>
 				<Vars VarGrpType="1">
@@ -1513,8 +1513,8 @@ External Setpoint Generation:
 			</AxisPara>
 			<Encoder Name="Enc" EncType="29">
 				<EncPara ScaleFactorNumerator="1e-06" Offset="-9.6565" MaxCount="#xffffffff">
-					<SoftEndMinControl Enable="true" Range="-4.15"/>
-					<SoftEndMaxControl Enable="true" Range="3.15"/>
+					<SoftEndMinControl Enable="true" Range="-5"/>
+					<SoftEndMaxControl Enable="true" Range="5"/>
 					<Inc RefSoftSyncMask="#x0000ffff"/>
 				</EncPara>
 				<Vars VarGrpType="1">
@@ -1647,7 +1647,7 @@ External Setpoint Generation:
 		<Axis Id="21" CreateSymbols="true" AxisType="1" AxisFolder="SL1K2">
 			<Name>SL1K2-Roll-M21</Name>
 			<AxisPara>
-				<General UnitName="mrad"/>
+				<General UnitName="Degree"/>
 				<Dynamic Acceleration="1.83017" Deceleration="1.83017" Jerk="6.09002"/>
 				<Velo SlowManual="0.3" FastManual="1" Maximum="0.55"/>
 				<PositionAreaControl Range="0.2"/>
@@ -1656,8 +1656,8 @@ External Setpoint Generation:
 			</AxisPara>
 			<Encoder Name="Enc" EncType="29">
 				<EncPara ScaleFactorNumerator="1.54151668e-07" Offset="-5.269" MaxCount="#xffffffff">
-					<SoftEndMinControl Enable="true" Range="-4.82"/>
-					<SoftEndMaxControl Enable="true" Range="6.22"/>
+					<SoftEndMinControl Enable="true" Range="-4.7"/>
+					<SoftEndMaxControl Enable="true" Range="4.7"/>
 					<Inc RefSoftSyncMask="#x0000ffff"/>
 				</EncPara>
 				<Vars VarGrpType="1">
@@ -1799,7 +1799,7 @@ External Setpoint Generation:
 			<Encoder Name="Enc" EncType="29">
 				<EncPara ScaleFactorNumerator="1e-06" Offset="-20.3002" MaxCount="#xffffffff">
 					<SoftEndMinControl Enable="true" Range="0.02"/>
-					<SoftEndMaxControl Enable="true" Range="8.65"/>
+					<SoftEndMaxControl Enable="true" Range="11"/>
 					<Inc RefSoftSyncMask="#x0000ffff"/>
 				</EncPara>
 				<Vars VarGrpType="1">
@@ -1942,8 +1942,8 @@ External Setpoint Generation:
 			</AxisPara>
 			<Encoder Name="Enc" EncType="29">
 				<EncPara ScaleFactorNumerator="1e-06" Offset="-13.8017" MaxCount="#xffffffff">
-					<SoftEndMinControl Enable="true" Range="-0.59"/>
-					<SoftEndMaxControl Enable="true" Range="41.6"/>
+					<SoftEndMinControl Enable="true"/>
+					<SoftEndMaxControl Enable="true" Range="45"/>
 					<Inc RefSoftSyncMask="#x0000ffff"/>
 				</EncPara>
 				<Vars VarGrpType="1">
