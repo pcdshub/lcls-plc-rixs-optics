@@ -1349,7 +1349,7 @@ External Setpoint Generation:
 		</DataType>
 	</DataTypes>
 	<Project GUID="{85BF455D-934D-415A-B04C-6D4CDD9FF10E}" Name="rixs_optics" PrjFilePath="..\..\rixs_optics\rixs_optics.plcproj" TmcFilePath="..\..\rixs_optics\rixs_optics.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="rixs_optics\rixs_optics.tmc" TmcHash="{432AC2A7-146C-EE3C-3B7D-A9B77B958C1D}">
+		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="rixs_optics\rixs_optics.tmc" TmcHash="{BE74D994-8405-B176-63D0-EECA3F3D4747}">
 			<Name>rixs_optics Instance</Name>
 			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 			<Vars VarGrpType="1">
@@ -4311,16 +4311,16 @@ Emergency Stop for MR1K1]]></Comment>
 				<Link VarA="PlcTask Inputs^PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.iRaw" VarB="RTD^Value" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_3">
-				<Link VarA="PlcTask Inputs^PRG_SL1K2_EXIT.RTD_YAG.bError" VarB="RTD^Status^Error" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_SL1K2_EXIT.RTD_YAG.bOverrange" VarB="RTD^Status^Overrange" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_SL1K2_EXIT.RTD_YAG.bUnderrange" VarB="RTD^Status^Underrange" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_SL1K2_EXIT.RTD_YAG.iRaw" VarB="RTD^Value" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_4">
 				<Link VarA="PlcTask Inputs^PRG_SL1K2_EXIT.RTD_HeatSync.bError" VarB="RTD^Status^Error" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^PRG_SL1K2_EXIT.RTD_HeatSync.bOverrange" VarB="RTD^Status^Overrange" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^PRG_SL1K2_EXIT.RTD_HeatSync.bUnderrange" VarB="RTD^Status^Underrange" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^PRG_SL1K2_EXIT.RTD_HeatSync.iRaw" VarB="RTD^Value" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_4">
+				<Link VarA="PlcTask Inputs^PRG_SL1K2_EXIT.RTD_YAG.bError" VarB="RTD^Status^Error" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^PRG_SL1K2_EXIT.RTD_YAG.bOverrange" VarB="RTD^Status^Overrange" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^PRG_SL1K2_EXIT.RTD_YAG.bUnderrange" VarB="RTD^Status^Underrange" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^PRG_SL1K2_EXIT.RTD_YAG.iRaw" VarB="RTD^Value" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL4004_SL1K2">
 				<Link VarA="PlcTask Outputs^PRG_SL1K2_EXIT.fbGige.iIlluminatorINT" VarB="AO Outputs Channel 1^Analog output" AutoLink="true"/>

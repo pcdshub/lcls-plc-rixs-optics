@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <GVL Name="Main" Id="{70c05a97-6edf-41f6-937c-0e62f3a09f50}">
     <Declaration><![CDATA[VAR_GLOBAL
 (*
@@ -184,8 +184,8 @@
     '}
     M21 : DUT_MotionStage := (sName:= 'SL1K2:EXIT:MMS:ROLL',fVelocity :=0.24); // Air Roll
 
-    {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_GAP]^STM Status^Status^Digital input 2;
-                              .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_GAP]^STM Status^Status^Digital input 1;
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_GAP]^STM Status^Status^Digital input 1;
+                              .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_GAP]^STM Status^Status^Digital input 2;
                               .nRawEncoderULINT      := TIIB[EL5042_SL1K2_ROLL_GAP]^FB Inputs Channel 2^Position'}
     {attribute 'pytmc' := '
         pv: SL1K2:EXIT:MMS:GAP
