@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass" Hash="{C3E2DF4B-9CE9-E69A-84A0-456E54356917}" GeneratedBy="TwinCAT XAE Plc">
+<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass" Hash="{F9825191-0373-9D57-A64E-D40E8DBA0AD2}" GeneratedBy="TwinCAT XAE Plc">
   <DataTypes>
     <DataType>
       <Name Namespace="Tc2_SerialCom">ComSerialLineMode_t</Name>
@@ -72319,7 +72319,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="InputDst" CreateSymbols="true">0</AreaNo>
           <Name>SerialIO Inputs</Name>
           <ContextId>0</ContextId>
-          <ByteSize>164036608</ByteSize>
+          <ByteSize>163971072</ByteSize>
           <Symbol>
             <Name>GVL_SerialIO.Serial_stComIn_M1K2</Name>
             <Comment>Better have your inputs and outputs!
@@ -72342,7 +72342,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="OutputSrc" CreateSymbols="true">1</AreaNo>
           <Name>SerialIO Outputs</Name>
           <ContextId>0</ContextId>
-          <ByteSize>164036608</ByteSize>
+          <ByteSize>163971072</ByteSize>
           <Symbol>
             <Name>GVL_SerialIO.Serial_stComOut_M1K2</Name>
             <BitSize>192</BitSize>
@@ -72363,7 +72363,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="Internal" CreateSymbols="true">3</AreaNo>
           <Name>SerialIO Internal</Name>
           <ContextId>0</ContextId>
-          <ByteSize>164036608</ByteSize>
+          <ByteSize>163971072</ByteSize>
           <Symbol>
             <Name>P_Serial_Com.fbSerialLineControl_EL6001_M1K2</Name>
             <BitSize>10752</BitSize>
@@ -72461,7 +72461,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="Internal" CreateSymbols="true">19</AreaNo>
           <Name>PiezoDriver Internal</Name>
           <ContextId>1</ContextId>
-          <ByteSize>164036608</ByteSize>
+          <ByteSize>163971072</ByteSize>
           <Symbol>
             <Name>PiezoSerial.fbE621SerialDriver_M1K2</Name>
             <Comment>PI Serial</Comment>
@@ -72558,7 +72558,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="InputDst" CreateSymbols="true">32</AreaNo>
           <Name>DaqTask Inputs</Name>
           <ContextId>2</ContextId>
-          <ByteSize>164036608</ByteSize>
+          <ByteSize>163971072</ByteSize>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.iLatchPos</Name>
             <Comment> Inputs</Comment>
@@ -72613,7 +72613,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="Internal" CreateSymbols="true">35</AreaNo>
           <Name>DaqTask Internal</Name>
           <ContextId>2</ContextId>
-          <ByteSize>164036608</ByteSize>
+          <ByteSize>163971072</ByteSize>
           <Symbol>
             <Name>GVL_Logger.sIpTidbit</Name>
             <BitSize>56</BitSize>
@@ -73128,7 +73128,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="InputDst" CreateSymbols="true">48</AreaNo>
           <Name>PlcTask Inputs</Name>
           <ContextId>3</ContextId>
-          <ByteSize>164036608</ByteSize>
+          <ByteSize>163971072</ByteSize>
           <Symbol>
             <Name>lcls_twincat_optics.GVL_TestStructs.TestPitch_LimitSwitches.diEncCnt</Name>
             <Comment>Raw encoder count</Comment>
@@ -81064,7 +81064,7 @@ Emergency Stop for MR1K1</Comment>
           <AreaNo AreaType="OutputSrc" CreateSymbols="true">49</AreaNo>
           <Name>PlcTask Outputs</Name>
           <ContextId>3</ContextId>
-          <ByteSize>164036608</ByteSize>
+          <ByteSize>163971072</ByteSize>
           <Symbol>
             <Name>PRG_MR1K1_BEND.fbM1K1PitchControl.fbMotionStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
             <BitSize>1024</BitSize>
@@ -83176,7 +83176,7 @@ Emergency Stop for MR1K1</Comment>
           <AreaNo AreaType="Internal" CreateSymbols="true">51</AreaNo>
           <Name>PlcTask Internal</Name>
           <ContextId>3</ContextId>
-          <ByteSize>164036608</ByteSize>
+          <ByteSize>163971072</ByteSize>
           <Symbol>
             <Name>DefaultGlobals.stSys</Name>
             <Comment>Included for you</Comment>
@@ -96598,7 +96598,7 @@ M4K2 KBV X ENC CNT</Comment>
           <AreaNo AreaType="RetainSrc" CreateSymbols="true">52</AreaNo>
           <Name>PlcTask Retains</Name>
           <ContextId>3</ContextId>
-          <ByteSize>164036608</ByteSize>
+          <ByteSize>163971072</ByteSize>
           <Symbol>
             <Name>PMPS_GVL.SuccessfulPreemption</Name>
             <Comment> Any time BPTM applies a new BP request which is confirmed</Comment>
@@ -96678,7 +96678,7 @@ M4K2 KBV X ENC CNT</Comment>
         </Property>
         <Property>
           <Name>ChangeDate</Name>
-          <Value>2024-01-12T13:41:56</Value>
+          <Value>2024-01-16T11:06:07</Value>
         </Property>
         <Property>
           <Name>GeneratedCodeSize</Name>
