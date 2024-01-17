@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="PRG_MR2K2_FLAT" Id="{10737d82-f8b4-4bdd-a3ad-b4f491fe4b9f}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_MR2K2_FLAT
 VAR
@@ -73,6 +73,32 @@ VAR
     {attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 310 (EK1122)^EK1100_MR2K2^EL1004_M2K2_STO^Channel 2^Input'}
     M2K2FLATbSTOEnable2 AT %I* : BOOL;
 
+    // MR2K2 Flow Press Sensors
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_MR2K2_FWM_PRSM]^AI Standard Channel 1^Value'}
+    fMR2K2_Flow_1 : FB_AnalogInput;
+    {attribute 'pytmc' := '
+        pv: MR2K2:FLAT:FWM:1
+        field: EGU lpm
+        io: i
+    '}
+    fMR2K2_Flow_1_val : LREAL;
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_MR2K2_FWM_PRSM]^AI Standard Channel 3^Value'}
+    fMR2K2_Flow_2 : FB_AnalogInput;
+    {attribute 'pytmc' := '
+        pv: MR2K2:FLAT:FWM:2
+        field: EGU lpm
+        io: i
+    '}
+    fMR2K2_Flow_2_val : LREAL;
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_MR2K2_FWM_PRSM]^AI Standard Channel 2^Value'}
+    fMR2K2_Press_1 : FB_AnalogInput;
+    {attribute 'pytmc' := '
+        pv: MR2K2:FLAT:PRSM:1
+        field: EGU bar
+        io: i
+    '}
+    fMR2K2_Press_1_val : LREAL;
+
 END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[//FB_Motion stages for MR2K2 Axes
@@ -108,7 +134,16 @@ nEncRefrXM2K2  := ULINT_TO_UDINT(GVL_M2K2.nM2K2rX_ENC_REF);
 // M2K2 Bender Encoder Count Values For Epics
 nEncCntXM2K2  := ULINT_TO_UDINT(M25.nRawEncoderULINT);
 nEncCntYM2K2  := ULINT_TO_UDINT(M26.nRawEncoderULINT);
-nEncCntrXM2K2  := ULINT_TO_UDINT(M27.nRawEncoderULINT);]]></ST>
+nEncCntrXM2K2  := ULINT_TO_UDINT(M27.nRawEncoderULINT);
+
+fMR2K2_Flow_1(iTermBits:=15, fTermMax:=5.0427, fTermMin:=0.050472);
+fMR2K2_Flow_1_val := fMR2K2_Flow_1.fReal;
+
+fMR2K2_Flow_2(iTermBits:=15, fTermMax:=5.0427, fTermMin:=0.050472);
+fMR2K2_Flow_2_val := fMR2K2_Flow_2.fReal;
+
+fMR2K2_Press_1(iTermBits:=15, fTermMax:=4.0, fTermMin:=0);
+fMR2K2_Press_1_val := fMR2K2_Press_1.fReal;]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
