@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass" Hash="{7D8C9981-8D57-1462-860A-2F0C2571705D}" GeneratedBy="TwinCAT XAE Plc">
+<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass" Hash="{B84F8694-6679-14A7-53B9-D28E1E05082C}" GeneratedBy="TwinCAT XAE Plc">
   <DataTypes>
     <DataType>
       <Name Namespace="Tc2_SerialCom">ComSerialLineMode_t</Name>
@@ -72319,7 +72319,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="InputDst" CreateSymbols="true">0</AreaNo>
           <Name>SerialIO Inputs</Name>
           <ContextId>0</ContextId>
-          <ByteSize>163971072</ByteSize>
+          <ByteSize>164036608</ByteSize>
           <Symbol>
             <Name>GVL_SerialIO.Serial_stComIn_M1K2</Name>
             <Comment>Better have your inputs and outputs!
@@ -72342,7 +72342,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="OutputSrc" CreateSymbols="true">1</AreaNo>
           <Name>SerialIO Outputs</Name>
           <ContextId>0</ContextId>
-          <ByteSize>163971072</ByteSize>
+          <ByteSize>164036608</ByteSize>
           <Symbol>
             <Name>GVL_SerialIO.Serial_stComOut_M1K2</Name>
             <BitSize>192</BitSize>
@@ -72363,7 +72363,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="Internal" CreateSymbols="true">3</AreaNo>
           <Name>SerialIO Internal</Name>
           <ContextId>0</ContextId>
-          <ByteSize>163971072</ByteSize>
+          <ByteSize>164036608</ByteSize>
           <Symbol>
             <Name>P_Serial_Com.fbSerialLineControl_EL6001_M1K2</Name>
             <BitSize>10752</BitSize>
@@ -72461,7 +72461,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="Internal" CreateSymbols="true">19</AreaNo>
           <Name>PiezoDriver Internal</Name>
           <ContextId>1</ContextId>
-          <ByteSize>163971072</ByteSize>
+          <ByteSize>164036608</ByteSize>
           <Symbol>
             <Name>PiezoSerial.fbE621SerialDriver_M1K2</Name>
             <Comment>PI Serial</Comment>
@@ -72558,7 +72558,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="InputDst" CreateSymbols="true">32</AreaNo>
           <Name>DaqTask Inputs</Name>
           <ContextId>2</ContextId>
-          <ByteSize>163971072</ByteSize>
+          <ByteSize>164036608</ByteSize>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.iLatchPos</Name>
             <Comment> Inputs</Comment>
@@ -72613,7 +72613,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="Internal" CreateSymbols="true">35</AreaNo>
           <Name>DaqTask Internal</Name>
           <ContextId>2</ContextId>
-          <ByteSize>163971072</ByteSize>
+          <ByteSize>164036608</ByteSize>
           <Symbol>
             <Name>GVL_Logger.sIpTidbit</Name>
             <BitSize>56</BitSize>
@@ -73128,7 +73128,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="InputDst" CreateSymbols="true">48</AreaNo>
           <Name>PlcTask Inputs</Name>
           <ContextId>3</ContextId>
-          <ByteSize>163971072</ByteSize>
+          <ByteSize>164036608</ByteSize>
           <Symbol>
             <Name>lcls_twincat_optics.GVL_TestStructs.TestPitch_LimitSwitches.diEncCnt</Name>
             <Comment>Raw encoder count</Comment>
@@ -81098,12 +81098,64 @@ Emergency Stop for MR1K1</Comment>
             </Properties>
             <BitOffs>1302782592</BitOffs>
           </Symbol>
+          <Symbol>
+            <Name>PRG_MR3K2_KBH.fMR3K2_Flow_1.iRaw</Name>
+            <Comment> Connect this input to the terminal</Comment>
+            <BitSize>16</BitSize>
+            <BaseType>INT</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1310995072</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR3K2_KBH.fMR3K2_Press_1.iRaw</Name>
+            <Comment> Connect this input to the terminal</Comment>
+            <BitSize>16</BitSize>
+            <BaseType>INT</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1310995648</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR4K2_KBV.fMR4K2_Flow_1.iRaw</Name>
+            <Comment> Connect this input to the terminal</Comment>
+            <BitSize>16</BitSize>
+            <BaseType>INT</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1310996224</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR4K2_KBV.fMR4K2_Press_1.iRaw</Name>
+            <Comment> Connect this input to the terminal</Comment>
+            <BitSize>16</BitSize>
+            <BaseType>INT</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1310996800</BitOffs>
+          </Symbol>
         </DataArea>
         <DataArea>
           <AreaNo AreaType="OutputSrc" CreateSymbols="true">49</AreaNo>
           <Name>PlcTask Outputs</Name>
           <ContextId>3</ContextId>
-          <ByteSize>163971072</ByteSize>
+          <ByteSize>164036608</ByteSize>
           <Symbol>
             <Name>PRG_MR1K1_BEND.fbM1K1PitchControl.fbMotionStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
             <BitSize>1024</BitSize>
@@ -83215,7 +83267,7 @@ Emergency Stop for MR1K1</Comment>
           <AreaNo AreaType="Internal" CreateSymbols="true">51</AreaNo>
           <Name>PlcTask Internal</Name>
           <ContextId>3</ContextId>
-          <ByteSize>163971072</ByteSize>
+          <ByteSize>164036608</ByteSize>
           <Symbol>
             <Name>DefaultGlobals.stSys</Name>
             <Comment>Included for you</Comment>
@@ -96717,12 +96769,126 @@ M4K2 KBV X ENC CNT</Comment>
             </Properties>
             <BitOffs>1302845632</BitOffs>
           </Symbol>
+          <Symbol>
+            <Name>PRG_MR3K2_KBH.fMR3K2_Flow_1</Name>
+            <Comment> MR3K2 Flow Sensors</Comment>
+            <BitSize>512</BitSize>
+            <BaseType Namespace="LCLS_General">FB_AnalogInput</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcLinkTo</Name>
+                <Value>.iRaw := TIIB[EL3054_MR3_4K2_FWM_PRSM]^AI Standard Channel 1^Value</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1310995008</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR3K2_KBH.fMR3K2_Flow_1_val</Name>
+            <BitSize>64</BitSize>
+            <BaseType>LREAL</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+        pv: MR3K2:KBH:FWM:1
+        field: EGU lpm
+        io: i
+    </Value>
+              </Property>
+            </Properties>
+            <BitOffs>1310995520</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR3K2_KBH.fMR3K2_Press_1</Name>
+            <BitSize>512</BitSize>
+            <BaseType Namespace="LCLS_General">FB_AnalogInput</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcLinkTo</Name>
+                <Value>.iRaw := TIIB[EL3054_MR3_4K2_FWM_PRSM]^AI Standard Channel 2^Value</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1310995584</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR3K2_KBH.fMR3K2_Press_1_val</Name>
+            <BitSize>64</BitSize>
+            <BaseType>LREAL</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+        pv: MR3K2:KBH:PRSM:1
+        field: EGU bar
+        io: i
+    </Value>
+              </Property>
+            </Properties>
+            <BitOffs>1310996096</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR4K2_KBV.fMR4K2_Flow_1</Name>
+            <Comment> MR4K2 Flow Sensors</Comment>
+            <BitSize>512</BitSize>
+            <BaseType Namespace="LCLS_General">FB_AnalogInput</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcLinkTo</Name>
+                <Value>.iRaw := TIIB[EL3054_MR3_4K2_FWM_PRSM]^AI Standard Channel 3^Value</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1310996160</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR4K2_KBV.fMR4K2_Flow_1_val</Name>
+            <BitSize>64</BitSize>
+            <BaseType>LREAL</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+        pv: MR4K2:KBV:FWM:1
+        field: EGU lpm
+        io: i
+    </Value>
+              </Property>
+            </Properties>
+            <BitOffs>1310996672</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR4K2_KBV.fMR4K2_Press_1</Name>
+            <BitSize>512</BitSize>
+            <BaseType Namespace="LCLS_General">FB_AnalogInput</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcLinkTo</Name>
+                <Value>.iRaw := TIIB[EL3054_MR3_4K2_FWM_PRSM]^AI Standard Channel 2^Value</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1310996736</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR4K2_KBV.fMR4K2_Press_1_val</Name>
+            <BitSize>64</BitSize>
+            <BaseType>LREAL</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+        pv: MR4K2:KBV:PRSM:1
+        field: EGU bar
+        io: i
+    </Value>
+              </Property>
+            </Properties>
+            <BitOffs>1310997248</BitOffs>
+          </Symbol>
         </DataArea>
         <DataArea>
           <AreaNo AreaType="RetainSrc" CreateSymbols="true">52</AreaNo>
           <Name>PlcTask Retains</Name>
           <ContextId>3</ContextId>
-          <ByteSize>163971072</ByteSize>
+          <ByteSize>164036608</ByteSize>
           <Symbol>
             <Name>PMPS_GVL.SuccessfulPreemption</Name>
             <Comment> Any time BPTM applies a new BP request which is confirmed</Comment>
@@ -96802,7 +96968,7 @@ M4K2 KBV X ENC CNT</Comment>
         </Property>
         <Property>
           <Name>ChangeDate</Name>
-          <Value>2024-01-17T14:03:45</Value>
+          <Value>2024-01-17T14:36:43</Value>
         </Property>
         <Property>
           <Name>GeneratedCodeSize</Name>

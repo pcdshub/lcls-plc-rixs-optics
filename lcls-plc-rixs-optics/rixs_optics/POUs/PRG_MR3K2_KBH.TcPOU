@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="PRG_MR3K2_KBH" Id="{316fd8b6-1288-4e79-bc69-1e585cb80ef5}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_MR3K2_KBH
 VAR
@@ -165,6 +165,24 @@ VAR
         {attribute 'TcLinkTo' := 'TIIB[EL1004_M3K2_STO]^Channel 2^Input'}
         M3K2KBHbSTOEnable2 AT %I* : BOOL;
 
+    // MR3K2 Flow Sensors
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_MR3_4K2_FWM_PRSM]^AI Standard Channel 1^Value'}
+    fMR3K2_Flow_1 : FB_AnalogInput;
+    {attribute 'pytmc' := '
+        pv: MR3K2:KBH:FWM:1
+        field: EGU lpm
+        io: i
+    '}
+    fMR3K2_Flow_1_val : LREAL;
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_MR3_4K2_FWM_PRSM]^AI Standard Channel 2^Value'}
+    fMR3K2_Press_1 : FB_AnalogInput;
+    {attribute 'pytmc' := '
+        pv: MR3K2:KBH:PRSM:1
+        field: EGU bar
+        io: i
+    '}
+    fMR3K2_Press_1_val : LREAL;
+
 (*
     // PMPS
         ffBenderRange : FB_FastFault := (
@@ -248,6 +266,11 @@ bM3K2DS_RTD_3_Err := fM3K2DS_RTD_3 = 0;
 M31.bHardwareEnable R= fM3K2US_RTD_1 > 9000 OR bM3K2US_RTD_1_Err;
 M32.bHardwareEnable R= fM3K2DS_RTD_1 > 9000 OR bM3K2DS_RTD_1_Err;
 
+fMR3K2_Flow_1(iTermBits:=15, fTermMax:=5.0427, fTermMin:=0.050472);
+fMR3K2_Flow_1_val := fMR3K2_Flow_1.fReal;
+
+fMR3K2_Press_1(iTermBits:=15, fTermMax:=4.0, fTermMin:=0);
+fMR3K2_Press_1_val := fMR3K2_Press_1.fReal;
 (*
 //PMPS
 ffBenderRange.i_xOK :=
