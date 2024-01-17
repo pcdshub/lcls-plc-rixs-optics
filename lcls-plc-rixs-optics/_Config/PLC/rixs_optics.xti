@@ -1349,7 +1349,7 @@ External Setpoint Generation:
 		</DataType>
 	</DataTypes>
 	<Project GUID="{85BF455D-934D-415A-B04C-6D4CDD9FF10E}" Name="rixs_optics" PrjFilePath="..\..\rixs_optics\rixs_optics.plcproj" TmcFilePath="..\..\rixs_optics\rixs_optics.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="rixs_optics\rixs_optics.tmc" TmcHash="{BE74D994-8405-B176-63D0-EECA3F3D4747}">
+		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="rixs_optics\rixs_optics.tmc" TmcHash="{F9825191-0373-9D57-A64E-D40E8DBA0AD2}">
 			<Name>rixs_optics Instance</Name>
 			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 			<Vars VarGrpType="1">
@@ -1842,6 +1842,11 @@ Emergency Stop for MR1K1]]></Comment>
 				</Var>
 				<Var>
 					<Name>PRG_SL1K2_EXIT.fbGige.fbGetIllPercent.iRaw</Name>
+					<Comment><![CDATA[ Connect this input to the terminal]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SL1K2_EXIT.fbFlowMeter.iRaw</Name>
 					<Comment><![CDATA[ Connect this input to the terminal]]></Comment>
 					<Type>INT</Type>
 				</Var>
@@ -4298,6 +4303,9 @@ Emergency Stop for MR1K1]]></Comment>
 				<Link VarA="PlcTask Outputs^PRG_SL1K2_EXIT.bLEDPower" VarB="Channel 2^Output" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Outputs^PRG_SL1K2_EXIT.fbGige.bGigePower" VarB="Channel 3^Output" AutoLink="true" Size="1"/>
 			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3052_SL1K2_FWM">
+				<Link VarA="PlcTask Inputs^PRG_SL1K2_EXIT.fbFlowMeter.iRaw" VarB="AI Standard Channel 1^Value" AutoLink="true"/>
+			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_1">
 				<Link VarA="PlcTask Inputs^PRG_SL1K2_EXIT.RTD_Crystal_TOP.bError" VarB="RTD^Status^Error" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^PRG_SL1K2_EXIT.RTD_Crystal_TOP.bOverrange" VarB="RTD^Status^Overrange" AutoLink="true" Size="1"/>
@@ -4337,8 +4345,8 @@ Emergency Stop for MR1K1]]></Comment>
 				<Link VarA="PlcTask Inputs^Main.M23.nRawEncoderULINT" VarB="FB Inputs Channel 1^Position" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL7047_SL1K2_GAP">
-				<Link VarA="PlcTask Inputs^Main.M22.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^Main.M22.bLimitForwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^Main.M22.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^Main.M22.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL7047_SL1K2_PITCH">
 				<Link VarA="PlcTask Inputs^Main.M19.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
