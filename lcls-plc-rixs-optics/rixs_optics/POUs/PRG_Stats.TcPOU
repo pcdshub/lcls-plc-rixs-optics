@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="PRG_Stats" Id="{5b50d104-4857-43bf-bc63-e1797ec364ef}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_Stats
+VAR
+    // SP1K1 Grating Mono Vibration Stats
+    fGpiEncoderPosDiff: LREAL;
+    afGpiPosDiffBuffer: ARRAY[1..10000] OF LREAL;
+    afGpiExtraBuffer: ARRAY[1..10000] OF LREAL;
+    fbGpiPosDiffCollect: FB_DataBuffer;
+    {attribute 'pytmc' := '
+        pv: SP1K1:MONO:MMS:G_PI:ENCDIFF
+    '}
+    fbGpiPosDiffStats: FB_BasicStats;
+
+    fGpiRangeMax: LREAL;
+    rtNewGpiMove: R_TRIG;
+    tonNewGpiMove: TON;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF rtNewGpiMove.Q THEN
+    // Reset before a move
+    fGpiRangeMax := 0;
+ELSIF tonNewGpiMove.Q AND ABS(M7.fPosition - M7.stAxisStatus.fActPosition) > 5 THEN
+    // Update only during moves, not at the start or end
+    fGpiRangeMax := MAX(fGpiRangeMax, fbGpiPosDiffStats.fRange);
+END_IF
+
+fGpiEncoderPosDiff := M7.nEncoderCount - (M7.Axis.NcToPlc.SetPos - M7.stAxisParameters.fEncOffset) * 150;
+fbGpiPosDiffCollect(
+    bExecute:=TRUE,
+    pInputAdr:=ADR(fGpiEncoderPosDiff),
+    iInputSize:=SIZEOF(fGpiEncoderPosDiff),
+    iElemCount:=1000,
+    pPartialAdr:=ADR(afGpiPosDiffBuffer),
+    pOutputAdr:=ADR(afGpiExtraBuffer),
+);
+fbGpiPosDiffStats(
+    aSignal:=afGpiPosDiffBuffer,
+    bAlwaysCalc:=TRUE,
+);
+rtNewGpiMove(CLK:=M7.bExecute);
+tonNewGpiMove(
+    IN:=M7.bExecute,
+    PT:=T#15s,
+);
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -54,43 +54,6 @@
 			</SubItem>
 		</DataType>
 		<DataType>
-			<Name GUID="{4B0DBBA4-11EF-DC4A-BF0D-C44F27183D05}" Namespace="lcls_twincat_motion" AutoDeleteType="true">EL5042_Status</Name>
-			<BitSize>0</BitSize>
-			<BaseType GUID="{FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF}"/>
-		</DataType>
-		<DataType>
-			<Name GUID="{E7D8BF8B-2549-C401-85F6-34B274CA315B}" Namespace="lcls_twincat_motion" AutoDeleteType="true">ST_RenishawAbsEnc</Name>
-			<Comment><![CDATA[ Renishaw BiSS-C absolute encoder used with an EL5042]]></Comment>
-			<BitSize>128</BitSize>
-			<SubItem>
-				<Name>Count</Name>
-				<Type GUID="{18071995-0000-0000-0000-00000000000B}">ULINT</Type>
-				<Comment><![CDATA[ Connect to encoder "Position" input]]></Comment>
-				<BitSize>64</BitSize>
-				<BitOffs>0</BitOffs>
-				<Properties>
-					<Property>
-						<Name>TcAddressType</Name>
-						<Value>Input</Value>
-					</Property>
-				</Properties>
-			</SubItem>
-			<SubItem>
-				<Name>Status</Name>
-				<Type GUID="{4B0DBBA4-11EF-DC4A-BF0D-C44F27183D05}" Namespace="lcls_twincat_motion">EL5042_Status</Type>
-				<Comment><![CDATA[ Status struct placeholder]]></Comment>
-				<BitSize>0</BitSize>
-				<BitOffs>64</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>Ref</Name>
-				<Type GUID="{18071995-0000-0000-0000-00000000000B}">ULINT</Type>
-				<Comment><![CDATA[ Encoder zero position (useful for aligned position with gantries)]]></Comment>
-				<BitSize>64</BitSize>
-				<BitOffs>64</BitOffs>
-			</SubItem>
-		</DataType>
-		<DataType>
 			<Name GUID="{CBC83B73-B816-4597-A9E5-2B03263CA131}" Namespace="MC" TcBaseType="true" HideType="true" IecDeclaration="DWORD;">NCTOPLC_AXIS_REF_STATE</Name>
 			<BitSize>32</BitSize>
 			<SubItem>
@@ -884,6 +847,43 @@ External Setpoint Generation:
 			</Relations>
 		</DataType>
 		<DataType>
+			<Name GUID="{4B0DBBA4-11EF-DC4A-BF0D-C44F27183D05}" Namespace="lcls_twincat_motion" AutoDeleteType="true">EL5042_Status</Name>
+			<BitSize>0</BitSize>
+			<BaseType GUID="{FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF}"/>
+		</DataType>
+		<DataType>
+			<Name GUID="{E7D8BF8B-2549-C401-85F6-34B274CA315B}" Namespace="lcls_twincat_motion" AutoDeleteType="true">ST_RenishawAbsEnc</Name>
+			<Comment><![CDATA[ Renishaw BiSS-C absolute encoder used with an EL5042]]></Comment>
+			<BitSize>128</BitSize>
+			<SubItem>
+				<Name>Count</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000B}">ULINT</Type>
+				<Comment><![CDATA[ Connect to encoder "Position" input]]></Comment>
+				<BitSize>64</BitSize>
+				<BitOffs>0</BitOffs>
+				<Properties>
+					<Property>
+						<Name>TcAddressType</Name>
+						<Value>Input</Value>
+					</Property>
+				</Properties>
+			</SubItem>
+			<SubItem>
+				<Name>Status</Name>
+				<Type GUID="{4B0DBBA4-11EF-DC4A-BF0D-C44F27183D05}" Namespace="lcls_twincat_motion">EL5042_Status</Type>
+				<Comment><![CDATA[ Status struct placeholder]]></Comment>
+				<BitSize>0</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Ref</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000B}">ULINT</Type>
+				<Comment><![CDATA[ Encoder zero position (useful for aligned position with gantries)]]></Comment>
+				<BitSize>64</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
 			<Name GUID="{7E016B85-166E-4B4F-AAC4-ECA8DDD44F13}">ST_PMPS_Attenuator_IO</Name>
 			<BitSize>64</BitSize>
 			<SubItem>
@@ -1349,7 +1349,7 @@ External Setpoint Generation:
 		</DataType>
 	</DataTypes>
 	<Project GUID="{85BF455D-934D-415A-B04C-6D4CDD9FF10E}" Name="rixs_optics" PrjFilePath="..\..\rixs_optics\rixs_optics.plcproj" TmcFilePath="..\..\rixs_optics\rixs_optics.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="rixs_optics\rixs_optics.tmc" TmcHash="{B84F8694-6679-14A7-53B9-D28E1E05082C}">
+		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="rixs_optics\rixs_optics.tmc" TmcHash="{916A7B6C-B4EB-3A58-E441-28321EF7D007}">
 			<Name>rixs_optics Instance</Name>
 			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 			<Vars VarGrpType="1">
@@ -1368,7 +1368,14 @@ External Setpoint Generation:
 					<Type GUID="{64E6921B-16B3-48BF-80E0-352129E45D23}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
 				</Var>
 			</Vars>
-			<Vars VarGrpType="1" ContextId="2" AreaNo="32">
+			<Vars VarGrpType="1" ContextId="1" AreaNo="16">
+				<Name>StatsTask Inputs</Name>
+				<Var>
+					<Name>Main.M7.Axis.NcToPlc</Name>
+					<Type GUID="{25521FAA-EA5F-4C7F-8864-BBCCDACD2E98}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+				</Var>
+			</Vars>
+			<Vars VarGrpType="1" ContextId="3" AreaNo="48">
 				<Name>DaqTask Inputs</Name>
 				<Var>
 					<Name>PRG_DAQ_ENCODER.iLatchPos</Name>
@@ -1384,7 +1391,7 @@ External Setpoint Generation:
 					<Type>ULINT</Type>
 				</Var>
 			</Vars>
-			<Vars VarGrpType="1" ContextId="3" AreaNo="48">
+			<Vars VarGrpType="1" ContextId="4" AreaNo="64">
 				<Name>PlcTask Inputs</Name>
 				<Var>
 					<Name>lcls_twincat_optics.GVL_TestStructs.TestPitch_LimitSwitches.diEncCnt</Name>
@@ -1934,6 +1941,16 @@ Emergency Stop for MR1K1]]></Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
+					<Name>PRG_MR3K2_KBH.fMR3K2_Flow_1.iRaw</Name>
+					<Comment><![CDATA[ Connect this input to the terminal]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR3K2_KBH.fMR3K2_Press_1.iRaw</Name>
+					<Comment><![CDATA[ Connect this input to the terminal]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
 					<Name>PRG_MR4K2_KBV.nM4K2_Chin_Right_RTD.bError</Name>
 					<Type>BOOL</Type>
 				</Var>
@@ -1993,6 +2010,16 @@ Emergency Stop for MR1K1]]></Comment>
 				<Var>
 					<Name>GVL_M1K1_BENDER_RTD.nM1K1US_RTD_1</Name>
 					<Comment><![CDATA[ M1K1 US RTDs]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR4K2_KBV.fMR4K2_Flow_1.iRaw</Name>
+					<Comment><![CDATA[ Connect this input to the terminal]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR4K2_KBV.fMR4K2_Press_1.iRaw</Name>
+					<Comment><![CDATA[ Connect this input to the terminal]]></Comment>
 					<Type>INT</Type>
 				</Var>
 				<Var>
@@ -2331,10 +2358,6 @@ Emergency Stop for MR1K1]]></Comment>
 					<Name>Main.M6.nRawEncoderINT</Name>
 					<Comment><![CDATA[ Raw encoder IO for INT (LVDT)]]></Comment>
 					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>Main.M7.Axis.NcToPlc</Name>
-					<Type GUID="{25521FAA-EA5F-4C7F-8864-BBCCDACD2E98}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 				</Var>
 				<Var>
 					<Name>Main.M7.bLimitForwardEnable</Name>
@@ -3621,28 +3644,8 @@ Emergency Stop for MR1K1]]></Comment>
 					<Name>Main.sio_load</Name>
 					<Type>UINT</Type>
 				</Var>
-				<Var>
-					<Name>PRG_MR3K2_KBH.fMR3K2_Flow_1.iRaw</Name>
-					<Comment><![CDATA[ Connect this input to the terminal]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR3K2_KBH.fMR3K2_Press_1.iRaw</Name>
-					<Comment><![CDATA[ Connect this input to the terminal]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR4K2_KBV.fMR4K2_Flow_1.iRaw</Name>
-					<Comment><![CDATA[ Connect this input to the terminal]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR4K2_KBV.fMR4K2_Press_1.iRaw</Name>
-					<Comment><![CDATA[ Connect this input to the terminal]]></Comment>
-					<Type>INT</Type>
-				</Var>
 			</Vars>
-			<Vars VarGrpType="2" ContextId="3" AreaNo="49">
+			<Vars VarGrpType="2" ContextId="4" AreaNo="65">
 				<Name>PlcTask Outputs</Name>
 				<Var>
 					<Name>PRG_MR1K1_BEND.fbM1K1PitchControl.fbMotionStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
@@ -4201,7 +4204,7 @@ Emergency Stop for MR1K1]]></Comment>
 					<Type GUID="{96B75FEB-2D84-43BE-A3EC-D9A681F27D52}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 				</Var>
 			</Vars>
-			<Vars VarGrpType="8" ContextId="3" AreaNo="52">
+			<Vars VarGrpType="8" ContextId="4" AreaNo="68">
 				<Name>PlcTask Retains</Name>
 				<Var>
 					<Name>PMPS_GVL.SuccessfulPreemption</Name>
@@ -4292,6 +4295,15 @@ Emergency Stop for MR1K1]]></Comment>
 				</Context>
 				<Context>
 					<Id NeedCalleeCall="true">1</Id>
+					<Name>StatsTask</Name>
+					<ManualConfig>
+						<OTCID>#x02010090</OTCID>
+					</ManualConfig>
+					<Priority>2</Priority>
+					<CycleTime>2000000</CycleTime>
+				</Context>
+				<Context>
+					<Id NeedCalleeCall="true">2</Id>
 					<Name>PiezoDriver</Name>
 					<ManualConfig>
 						<OTCID>#x02010060</OTCID>
@@ -4300,7 +4312,7 @@ Emergency Stop for MR1K1]]></Comment>
 					<CycleTime>1000000</CycleTime>
 				</Context>
 				<Context>
-					<Id NeedCalleeCall="true">2</Id>
+					<Id NeedCalleeCall="true">3</Id>
 					<Name>DaqTask</Name>
 					<ManualConfig>
 						<OTCID>#x02010080</OTCID>
@@ -4309,7 +4321,7 @@ Emergency Stop for MR1K1]]></Comment>
 					<CycleTime>1000000</CycleTime>
 				</Context>
 				<Context>
-					<Id NeedCalleeCall="true">3</Id>
+					<Id NeedCalleeCall="true">4</Id>
 					<Name>PlcTask</Name>
 					<ManualConfig>
 						<OTCID>#x02010030</OTCID>
@@ -4320,6 +4332,7 @@ Emergency Stop for MR1K1]]></Comment>
 			</Contexts>
 			<TaskPouOids>
 				<TaskPouOid Prio="1" OTCID="#x08502001"/>
+				<TaskPouOid Prio="2" OTCID="#x08502005"/>
 				<TaskPouOid Prio="3" OTCID="#x08502002"/>
 				<TaskPouOid Prio="19" OTCID="#x08502003"/>
 				<TaskPouOid Prio="20" OTCID="#x08502004"/>
@@ -4936,8 +4949,8 @@ Emergency Stop for MR1K1]]></Comment>
 				<Link VarA="PlcTask Outputs^Main.M9.Axis.PlcToNc" VarB="Inputs^FromPlc"/>
 			</OwnerB>
 			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^g_pi">
-				<Link VarA="PlcTask Inputs^Main.M7.Axis.NcToPlc" VarB="Outputs^ToPlc"/>
 				<Link VarA="PlcTask Outputs^Main.M7.Axis.PlcToNc" VarB="Inputs^FromPlc"/>
+				<Link VarA="StatsTask Inputs^Main.M7.Axis.NcToPlc" VarB="Outputs^ToPlc"/>
 			</OwnerB>
 			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^m_h">
 				<Link VarA="PlcTask Inputs^Main.M8.Axis.NcToPlc" VarB="Outputs^ToPlc"/>
