@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="PRG_MR4K2_KBV" Id="{7e6daf24-e900-4d72-bac3-9ab42a2b8418}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_MR4K2_KBV
 VAR
@@ -185,6 +185,25 @@ VAR
         {attribute 'TcLinkTo' := 'TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2_BENDER^EL1004_M4K2_STO^Channel 2^Input'}
         M4K2KBVbSTOEnable2 AT %I* : BOOL;
 
+    // MR4K2 Flow Sensors
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_MR3_4K2_FWM_PRSM]^AI Standard Channel 3^Value'}
+    fMR4K2_Flow_1 : FB_AnalogInput;
+    {attribute 'pytmc' := '
+        pv: MR4K2:KBV:FWM:1
+        field: EGU lpm
+        io: i
+    '}
+    fMR4K2_Flow_1_val : LREAL;
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3054_MR3_4K2_FWM_PRSM]^AI Standard Channel 2^Value'}
+    fMR4K2_Press_1 : FB_AnalogInput;
+    {attribute 'pytmc' := '
+        pv: MR4K2:KBV:PRSM:1
+        field: EGU bar
+        io: i
+    '}
+    fMR4K2_Press_1_val : LREAL;
+
+
 (*
     // PMPS
         ffBenderRange : FB_FastFault := (
@@ -270,6 +289,12 @@ M37.bHardwareEnable R= fM4K2DS_RTD_1 > 9000 OR bM4K2DS_RTD_1_Err;
 
 nM4K2_Chin_Right_RTD();
 nM4K2_Chin_Left_RTD();
+
+fMR4K2_Flow_1(iTermBits:=15, fTermMax:=5.0427, fTermMin:=0.050472);
+fMR4K2_Flow_1_val := fMR4K2_Flow_1.fReal;
+
+fMR4K2_Press_1(iTermBits:=15, fTermMax:=4.0, fTermMin:=0);
+fMR4K2_Press_1_val := fMR4K2_Press_1.fReal;
 
 (*
 //PMPS

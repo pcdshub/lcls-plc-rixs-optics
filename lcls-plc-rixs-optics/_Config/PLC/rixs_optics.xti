@@ -1349,7 +1349,7 @@ External Setpoint Generation:
 		</DataType>
 	</DataTypes>
 	<Project GUID="{85BF455D-934D-415A-B04C-6D4CDD9FF10E}" Name="rixs_optics" PrjFilePath="..\..\rixs_optics\rixs_optics.plcproj" TmcFilePath="..\..\rixs_optics\rixs_optics.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="rixs_optics\rixs_optics.tmc" TmcHash="{F9825191-0373-9D57-A64E-D40E8DBA0AD2}">
+		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="rixs_optics\rixs_optics.tmc" TmcHash="{B84F8694-6679-14A7-53B9-D28E1E05082C}">
 			<Name>rixs_optics Instance</Name>
 			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 			<Vars VarGrpType="1">
@@ -1883,6 +1883,21 @@ Emergency Stop for MR1K1]]></Comment>
 				<Var>
 					<Name>PRG_MR3K2_KBH.bM3K2US_RTD_2_Err</Name>
 					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR2K2_FLAT.fMR2K2_Flow_1.iRaw</Name>
+					<Comment><![CDATA[ Connect this input to the terminal]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR2K2_FLAT.fMR2K2_Flow_2.iRaw</Name>
+					<Comment><![CDATA[ Connect this input to the terminal]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR2K2_FLAT.fMR2K2_Press_1.iRaw</Name>
+					<Comment><![CDATA[ Connect this input to the terminal]]></Comment>
+					<Type>INT</Type>
 				</Var>
 				<Var>
 					<Name>PRG_MR3K2_KBH.bM3K2US_RTD_3_Err</Name>
@@ -3606,6 +3621,26 @@ Emergency Stop for MR1K1]]></Comment>
 					<Name>Main.sio_load</Name>
 					<Type>UINT</Type>
 				</Var>
+				<Var>
+					<Name>PRG_MR3K2_KBH.fMR3K2_Flow_1.iRaw</Name>
+					<Comment><![CDATA[ Connect this input to the terminal]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR3K2_KBH.fMR3K2_Press_1.iRaw</Name>
+					<Comment><![CDATA[ Connect this input to the terminal]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR4K2_KBV.fMR4K2_Flow_1.iRaw</Name>
+					<Comment><![CDATA[ Connect this input to the terminal]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR4K2_KBV.fMR4K2_Press_1.iRaw</Name>
+					<Comment><![CDATA[ Connect this input to the terminal]]></Comment>
+					<Type>INT</Type>
+				</Var>
 			</Vars>
 			<Vars VarGrpType="2" ContextId="3" AreaNo="49">
 				<Name>PlcTask Outputs</Name>
@@ -4642,6 +4677,11 @@ Emergency Stop for MR1K1]]></Comment>
 				<Link VarA="PlcTask Inputs^PRG_MR2K2_FLAT.M2K2FLATbSTOEnable1" VarB="Channel 1^Input" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^PRG_MR2K2_FLAT.M2K2FLATbSTOEnable2" VarB="Channel 2^Input" AutoLink="true" Size="1"/>
 			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 310 (EK1122)^EK1100_MR2K2^EL3054_MR2K2_FWM_PRSM">
+				<Link VarA="PlcTask Inputs^PRG_MR2K2_FLAT.fMR2K2_Flow_1.iRaw" VarB="AI Standard Channel 1^Value" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^PRG_MR2K2_FLAT.fMR2K2_Flow_2.iRaw" VarB="AI Standard Channel 3^Value" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^PRG_MR2K2_FLAT.fMR2K2_Press_1.iRaw" VarB="AI Standard Channel 2^Value" AutoLink="true"/>
+			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 310 (EK1122)^EK1100_MR2K2^EL5042_M2K2X_M2K2Y">
 				<Link VarA="PlcTask Inputs^Main.M25.nRawEncoderULINT" VarB="FB Inputs Channel 1^Position" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^Main.M26.nRawEncoderULINT" VarB="FB Inputs Channel 2^Position" AutoLink="true"/>
@@ -4707,6 +4747,12 @@ Emergency Stop for MR1K1]]></Comment>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 310 (EK1122)^EK1100_MR3K2_BENDER^EL7041_M3K2_BEND_US">
 				<Link VarA="PlcTask Inputs^Main.M31.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^Main.M31.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2^EL3054_MR3_4K2_FWM_PRSM">
+				<Link VarA="PlcTask Inputs^PRG_MR3K2_KBH.fMR3K2_Flow_1.iRaw" VarB="AI Standard Channel 1^Value" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^PRG_MR3K2_KBH.fMR3K2_Press_1.iRaw" VarB="AI Standard Channel 2^Value" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^PRG_MR4K2_KBV.fMR4K2_Flow_1.iRaw" VarB="AI Standard Channel 3^Value" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^PRG_MR4K2_KBV.fMR4K2_Press_1.iRaw" VarB="AI Standard Channel 2^Value" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 79 (EK1521-0010)^Term 306 (EK1501-0010)^Term 322 (EK1122)^EK1100_MR4K2^EL5042_M4K2X_M4K2Y">
 				<Link VarA="PlcTask Inputs^Main.M33.nRawEncoderULINT" VarB="FB Inputs Channel 1^Position" AutoLink="true"/>
