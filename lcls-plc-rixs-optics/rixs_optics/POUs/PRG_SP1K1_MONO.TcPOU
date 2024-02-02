@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="PRG_SP1K1_MONO" Id="{397aec28-b6d3-4c1c-afed-2cc3b34939d3}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_SP1K1_MONO
 VAR
@@ -192,28 +192,6 @@ VAR
     '}
     fSP1K1_Press_1_val : LREAL;
 
-    // SP1K1 Grating Mono Vibration Stats
-    fGpiEncoderPosDiff: LREAL;
-    afGpiPosDiffBuffer: ARRAY[1..1000] OF LREAL;
-    afGpiExtraBuffer: ARRAY[1..1000] OF LREAL;
-    fbGpiPosDiffCollect: FB_DataBuffer;
-    {attribute 'pytmc' := '
-        pv: SP1K1:MONO:MMS:G_PI:ENCDIFF
-    '}
-    fbGpiPosDiffStats: FB_BasicStats;
-    fGpiRangeMax: LREAL;
-    rtNewGpiMove: R_TRIG;
-    tonNewGpiMove: TON;
-
-    // SP1K1 Mirror Pitch Mono Vibration Stats
-    fMpiEncoderPosDiff: LREAL;
-    afMpiPosDiffBuffer: ARRAY[1..1000] OF LREAL;
-    afMpiExtraBuffer: ARRAY[1..1000] OF LREAL;
-    fbMpiPosDiffCollect: FB_DataBuffer;
-    {attribute 'pytmc' := '
-        pv: SP1K1:MONO:MMS:M_PI:ENCDIFF
-    '}
-    fbMpiPosDiffStats: FB_BasicStats;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -232,45 +210,8 @@ fbMotionStage_g_h  (stMotionStage:=M9);
 fbMotionStage_s_io  (stMotionStage:=M10);
 fbMotionStage_s_r  (stMotionStage:=M11);
 
-fGpiEncoderPosDiff := M7.nEncoderCount - (M7.Axis.NcToPlc.SetPos - M7.stAxisParameters.fEncOffset) * 150;
-fbGpiPosDiffCollect(
-    bExecute:=TRUE,
-    pInputAdr:=ADR(fGpiEncoderPosDiff),
-    iInputSize:=SIZEOF(fGpiEncoderPosDiff),
-    iElemCount:=1000,
-    pPartialAdr:=ADR(afGpiPosDiffBuffer),
-    pOutputAdr:=ADR(afGpiExtraBuffer),
-);
-fbGpiPosDiffStats(
-    aSignal:=afGpiPosDiffBuffer,
-    bAlwaysCalc:=TRUE,
-);
-rtNewGpiMove(CLK:=M7.bExecute);
-tonNewGpiMove(
-    IN:=M7.bExecute,
-    PT:=T#15s,
-);
-IF rtNewGpiMove.Q THEN
-    // Reset before a move
-    fGpiRangeMax := 0;
-ELSIF tonNewGpiMove.Q AND ABS(M7.fPosition - M7.stAxisStatus.fActPosition) > 5 THEN
-    // Update only during moves, not at the start or end
-    fGpiRangeMax := MAX(fGpiRangeMax, fbGpiPosDiffStats.fRange);
-END_IF
 
-fMpiEncoderPosDiff := M6.nEncoderCount - (M6.Axis.NcToPlc.SetPos - M6.stAxisParameters.fEncOffset) / 0.004505;
-fbMpiPosDiffCollect(
-    bExecute:=TRUE,
-    pInputAdr:=ADR(fMpiEncoderPosDiff),
-    iInputSize:=SIZEOF(fMpiEncoderPosDiff),
-    iElemCount:=1000,
-    pPartialAdr:=ADR(afMpiPosDiffBuffer),
-    pOutputAdr:=ADR(afMpiExtraBuffer),
-);
-fbMpiPosDiffStats(
-    aSignal:=afMpiPosDiffBuffer,
-    bAlwaysCalc:=TRUE,
-);
+
 
 
 //S_R with no hardware limit switched

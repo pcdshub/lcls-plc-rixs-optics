@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <Task Name="StatsTask" Id="{005b7d03-6645-431f-be1b-0d0221b9f2d5}">
+    <!--CycleTime in micro seconds.-->
+    <CycleTime>2000</CycleTime>
+    <Priority>2</Priority>
+    <PouCall>
+      <Name>PRG_Stats</Name>
+    </PouCall>
+    <TaskFBGuid>{05afe09e-8a2a-4617-ad9e-f6287fa29cc5}</TaskFBGuid>
+    <Fb_init>{535a1bfa-4291-4ec8-b84f-28964878bc65}</Fb_init>
+    <Fb_exit>{bc52925d-e508-440e-8f5a-96ee4d72d41c}</Fb_exit>
+    <CycleUpdate>{b2582ce0-d1e1-4850-8ac3-45c6ef7cf569}</CycleUpdate>
+    <PostCycleUpdate>{045b1103-7505-476d-aacb-94b3b8de9f43}</PostCycleUpdate>
+  </Task>
+</TcPlcObject>
