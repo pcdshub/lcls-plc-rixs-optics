@@ -16,6 +16,17 @@ VAR
     fGpiRangeMax: LREAL;
     rtNewGpiMove: R_TRIG;
     tonNewGpiMove: TON;
+
+
+    // SP1K1 Mirror Pitch Mono Vibration Stats
+    fMpiEncoderPosDiff: LREAL;
+    afMpiPosDiffBuffer: ARRAY[1..10000] OF LREAL;
+    afMpiExtraBuffer: ARRAY[1..10000] OF LREAL;
+    fbMpiPosDiffCollect: FB_DataBuffer;
+    {attribute 'pytmc' := '
+        pv: SP1K1:MONO:MMS:M_PI:ENCDIFF
+    '}
+    fbMpiPosDiffStats: FB_BasicStats;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -32,7 +43,7 @@ fbGpiPosDiffCollect(
     bExecute:=TRUE,
     pInputAdr:=ADR(fGpiEncoderPosDiff),
     iInputSize:=SIZEOF(fGpiEncoderPosDiff),
-    iElemCount:=1000,
+    iElemCount:=10000,
     pPartialAdr:=ADR(afGpiPosDiffBuffer),
     pOutputAdr:=ADR(afGpiExtraBuffer),
 );
@@ -45,6 +56,20 @@ tonNewGpiMove(
     IN:=M7.bExecute,
     PT:=T#15s,
 );
+
+(*fMpiEncoderPosDiff := M6.nEncoderCount - (M6.Axis.NcToPlc.SetPos - M6.stAxisParameters.fEncOffset) / 0.004505;
+fbMpiPosDiffCollect(
+    bExecute:=TRUE,
+    pInputAdr:=ADR(fMpiEncoderPosDiff),
+    iInputSize:=SIZEOF(fMpiEncoderPosDiff),
+    iElemCount:=1000,
+    pPartialAdr:=ADR(afMpiPosDiffBuffer),
+    pOutputAdr:=ADR(afMpiExtraBuffer),
+);
+fbMpiPosDiffStats(
+    aSignal:=afMpiPosDiffBuffer,
+    bAlwaysCalc:=TRUE,
+);*)
 ]]></ST>
     </Implementation>
   </POU>

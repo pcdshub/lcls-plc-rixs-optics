@@ -192,18 +192,6 @@ VAR
     '}
     fSP1K1_Press_1_val : LREAL;
 
-
-
-
-    // SP1K1 Mirror Pitch Mono Vibration Stats
-    fMpiEncoderPosDiff: LREAL;
-    afMpiPosDiffBuffer: ARRAY[1..1000] OF LREAL;
-    afMpiExtraBuffer: ARRAY[1..1000] OF LREAL;
-    fbMpiPosDiffCollect: FB_DataBuffer;
-    {attribute 'pytmc' := '
-        pv: SP1K1:MONO:MMS:M_PI:ENCDIFF
-    '}
-    fbMpiPosDiffStats: FB_BasicStats;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -223,19 +211,7 @@ fbMotionStage_s_io  (stMotionStage:=M10);
 fbMotionStage_s_r  (stMotionStage:=M11);
 
 
-fMpiEncoderPosDiff := M6.nEncoderCount - (M6.Axis.NcToPlc.SetPos - M6.stAxisParameters.fEncOffset) / 0.004505;
-fbMpiPosDiffCollect(
-    bExecute:=TRUE,
-    pInputAdr:=ADR(fMpiEncoderPosDiff),
-    iInputSize:=SIZEOF(fMpiEncoderPosDiff),
-    iElemCount:=1000,
-    pPartialAdr:=ADR(afMpiPosDiffBuffer),
-    pOutputAdr:=ADR(afMpiExtraBuffer),
-);
-fbMpiPosDiffStats(
-    aSignal:=afMpiPosDiffBuffer,
-    bAlwaysCalc:=TRUE,
-);
+
 
 
 //S_R with no hardware limit switched

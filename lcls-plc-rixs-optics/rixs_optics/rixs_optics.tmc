@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass" Hash="{916A7B6C-B4EB-3A58-E441-28321EF7D007}" GeneratedBy="TwinCAT XAE Plc">
+<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass" Hash="{AF746F3C-18E1-BB13-C597-9DE0DD4AE3BE}" GeneratedBy="TwinCAT XAE Plc">
   <DataTypes>
     <DataType>
       <Name Namespace="Tc2_SerialCom">ComSerialLineMode_t</Name>
@@ -72326,7 +72326,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="InputDst" CreateSymbols="true">0</AreaNo>
           <Name>SerialIO Inputs</Name>
           <ContextId>0</ContextId>
-          <ByteSize>164233216</ByteSize>
+          <ByteSize>164364288</ByteSize>
           <Symbol>
             <Name>GVL_SerialIO.Serial_stComIn_M1K2</Name>
             <Comment>Better have your inputs and outputs!
@@ -72349,7 +72349,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="OutputSrc" CreateSymbols="true">1</AreaNo>
           <Name>SerialIO Outputs</Name>
           <ContextId>0</ContextId>
-          <ByteSize>164233216</ByteSize>
+          <ByteSize>164364288</ByteSize>
           <Symbol>
             <Name>GVL_SerialIO.Serial_stComOut_M1K2</Name>
             <BitSize>192</BitSize>
@@ -72370,7 +72370,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="Internal" CreateSymbols="true">3</AreaNo>
           <Name>SerialIO Internal</Name>
           <ContextId>0</ContextId>
-          <ByteSize>164233216</ByteSize>
+          <ByteSize>164364288</ByteSize>
           <Symbol>
             <Name>P_Serial_Com.fbSerialLineControl_EL6001_M1K2</Name>
             <BitSize>10752</BitSize>
@@ -72468,7 +72468,19 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="InputDst" CreateSymbols="true">16</AreaNo>
           <Name>StatsTask Inputs</Name>
           <ContextId>1</ContextId>
-          <ByteSize>164233216</ByteSize>
+          <ByteSize>164364288</ByteSize>
+          <Symbol>
+            <Name>Main.M6.Axis.NcToPlc</Name>
+            <BitSize>2048</BitSize>
+            <BaseType GUID="{25521FAA-EA5F-4C7F-8864-BBCCDACD2E98}">NCTOPLC_AXIS_REF</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1295891392</BitOffs>
+          </Symbol>
           <Symbol>
             <Name>Main.M7.Axis.NcToPlc</Name>
             <BitSize>2048</BitSize>
@@ -72486,7 +72498,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="Internal" CreateSymbols="true">19</AreaNo>
           <Name>StatsTask Internal</Name>
           <ContextId>1</ContextId>
-          <ByteSize>164233216</ByteSize>
+          <ByteSize>164364288</ByteSize>
           <Symbol>
             <Name>PRG_Stats.fGpiEncoderPosDiff</Name>
             <Comment> SP1K1 Grating Mono Vibration Stats</Comment>
@@ -72531,6 +72543,44 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
             <BitSize>256</BitSize>
             <BaseType Namespace="Tc2_Standard">TON</BaseType>
             <BitOffs>1271777536</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>Main.M6</Name>
+            <Comment> M_PI, urad</Comment>
+            <BitSize>21184</BitSize>
+            <BaseType Namespace="lcls_twincat_motion">DUT_MotionStage</BaseType>
+            <Default>
+              <SubItem>
+                <Name>.nEnableMode</Name>
+                <EnumText>ENUM_StageEnableMode.ALWAYS</EnumText>
+              </SubItem>
+              <SubItem>
+                <Name>.fVelocity</Name>
+                <Value>200</Value>
+              </SubItem>
+              <SubItem>
+                <Name>.bPowerSelf</Name>
+                <Bool>true</Bool>
+              </SubItem>
+            </Default>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+        pv: SP1K1:MONO:MMS:M_PI
+    </Value>
+              </Property>
+              <Property>
+                <Name>TcLinkTo</Name>
+                <Value>.bLimitForwardEnable:=TIIB[m_pi_m]^STM Status^Status^Digital input 1;
+                              .bLimitBackwardEnable:=TIIB[m_pi_m]^STM Status^Status^Digital input 2;
+                              .nRawEncoderULINT:=TIIB[m_pi_up_dwn_e]^FB Inputs Channel 2^Position</Value>
+              </Property>
+              <Property>
+                <Name>TcVarGlobal</Name>
+              </Property>
+            </Properties>
+            <BitOffs>1295890304</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M7</Name>
@@ -72627,7 +72677,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
               <LBound>1</LBound>
               <Elements>10000</Elements>
             </ArrayInfo>
-            <BitOffs>1311032128</BitOffs>
+            <BitOffs>1310820160</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_Stats.afGpiExtraBuffer</Name>
@@ -72637,14 +72687,14 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
               <LBound>1</LBound>
               <Elements>10000</Elements>
             </ArrayInfo>
-            <BitOffs>1311672128</BitOffs>
+            <BitOffs>1311460160</BitOffs>
           </Symbol>
         </DataArea>
         <DataArea>
           <AreaNo AreaType="Internal" CreateSymbols="true">35</AreaNo>
           <Name>PiezoDriver Internal</Name>
           <ContextId>2</ContextId>
-          <ByteSize>164233216</ByteSize>
+          <ByteSize>164364288</ByteSize>
           <Symbol>
             <Name>PiezoSerial.fbE621SerialDriver_M1K2</Name>
             <Comment>PI Serial</Comment>
@@ -72741,7 +72791,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="InputDst" CreateSymbols="true">48</AreaNo>
           <Name>DaqTask Inputs</Name>
           <ContextId>3</ContextId>
-          <ByteSize>164233216</ByteSize>
+          <ByteSize>164364288</ByteSize>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.iLatchPos</Name>
             <Comment> Inputs</Comment>
@@ -72796,7 +72846,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="Internal" CreateSymbols="true">51</AreaNo>
           <Name>DaqTask Internal</Name>
           <ContextId>3</ContextId>
-          <ByteSize>164233216</ByteSize>
+          <ByteSize>164364288</ByteSize>
           <Symbol>
             <Name>GVL_Logger.sIpTidbit</Name>
             <BitSize>56</BitSize>
@@ -73273,7 +73323,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="InputDst" CreateSymbols="true">64</AreaNo>
           <Name>PlcTask Inputs</Name>
           <ContextId>4</ContextId>
-          <ByteSize>164233216</ByteSize>
+          <ByteSize>164364288</ByteSize>
           <Symbol>
             <Name>lcls_twincat_optics.GVL_TestStructs.TestPitch_LimitSwitches.diEncCnt</Name>
             <Comment>Raw encoder count</Comment>
@@ -76475,18 +76525,6 @@ Emergency Stop for MR1K1</Comment>
               </Property>
             </Properties>
             <BitOffs>1295878288</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>Main.M6.Axis.NcToPlc</Name>
-            <BitSize>2048</BitSize>
-            <BaseType GUID="{25521FAA-EA5F-4C7F-8864-BBCCDACD2E98}">NCTOPLC_AXIS_REF</BaseType>
-            <Properties>
-              <Property>
-                <Name>TcAddressType</Name>
-                <Value>Input</Value>
-              </Property>
-            </Properties>
-            <BitOffs>1295891392</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Main.M6.bLimitForwardEnable</Name>
@@ -81288,7 +81326,7 @@ Emergency Stop for MR1K1</Comment>
           <AreaNo AreaType="OutputSrc" CreateSymbols="true">65</AreaNo>
           <Name>PlcTask Outputs</Name>
           <ContextId>4</ContextId>
-          <ByteSize>164233216</ByteSize>
+          <ByteSize>164364288</ByteSize>
           <Symbol>
             <Name>PRG_MR1K1_BEND.fbM1K1PitchControl.fbMotionStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
             <BitSize>1024</BitSize>
@@ -83400,7 +83438,7 @@ Emergency Stop for MR1K1</Comment>
           <AreaNo AreaType="Internal" CreateSymbols="true">67</AreaNo>
           <Name>PlcTask Internal</Name>
           <ContextId>4</ContextId>
-          <ByteSize>164233216</ByteSize>
+          <ByteSize>164364288</ByteSize>
           <Symbol>
             <Name>DefaultGlobals.stSys</Name>
             <Comment>Included for you</Comment>
@@ -90519,6 +90557,33 @@ Emergency Stop for MR1K1</Comment>
             <BitOffs>1265833152</BitOffs>
           </Symbol>
           <Symbol>
+            <Name>PRG_Stats.fMpiEncoderPosDiff</Name>
+            <Comment> SP1K1 Mirror Pitch Mono Vibration Stats</Comment>
+            <BitSize>64</BitSize>
+            <BaseType>LREAL</BaseType>
+            <BitOffs>1271647744</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_Stats.fbMpiPosDiffCollect</Name>
+            <BitSize>448</BitSize>
+            <BaseType Namespace="LCLS_General">FB_DataBuffer</BaseType>
+            <BitOffs>1271711808</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_Stats.fbMpiPosDiffStats</Name>
+            <BitSize>1152</BitSize>
+            <BaseType Namespace="LCLS_General">FB_BasicStats</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+        pv: SP1K1:MONO:MMS:M_PI:ENCDIFF
+    </Value>
+              </Property>
+            </Properties>
+            <BitOffs>1271712256</BitOffs>
+          </Symbol>
+          <Symbol>
             <Name>PRG_MR1K1_BEND.M1K1</Name>
             <BitSize>23552</BitSize>
             <BaseType Namespace="lcls_twincat_optics">DUT_HOMS</BaseType>
@@ -91998,53 +92063,6 @@ M1K1 BEND US ENC CNT</Comment>
               </Property>
             </Properties>
             <BitOffs>1284218688</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>PRG_SP1K1_MONO.fMpiEncoderPosDiff</Name>
-            <Comment> SP1K1 Mirror Pitch Mono Vibration Stats</Comment>
-            <BitSize>64</BitSize>
-            <BaseType>LREAL</BaseType>
-            <BitOffs>1284218752</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>PRG_SP1K1_MONO.afMpiPosDiffBuffer</Name>
-            <BitSize>64000</BitSize>
-            <BaseType>LREAL</BaseType>
-            <ArrayInfo>
-              <LBound>1</LBound>
-              <Elements>1000</Elements>
-            </ArrayInfo>
-            <BitOffs>1284218816</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>PRG_SP1K1_MONO.afMpiExtraBuffer</Name>
-            <BitSize>64000</BitSize>
-            <BaseType>LREAL</BaseType>
-            <ArrayInfo>
-              <LBound>1</LBound>
-              <Elements>1000</Elements>
-            </ArrayInfo>
-            <BitOffs>1284282816</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>PRG_SP1K1_MONO.fbMpiPosDiffCollect</Name>
-            <BitSize>448</BitSize>
-            <BaseType Namespace="LCLS_General">FB_DataBuffer</BaseType>
-            <BitOffs>1284346816</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>PRG_SP1K1_MONO.fbMpiPosDiffStats</Name>
-            <BitSize>1152</BitSize>
-            <BaseType Namespace="LCLS_General">FB_BasicStats</BaseType>
-            <Properties>
-              <Property>
-                <Name>pytmc</Name>
-                <Value>
-        pv: SP1K1:MONO:MMS:M_PI:ENCDIFF
-    </Value>
-              </Property>
-            </Properties>
-            <BitOffs>1284347264</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_SL1K2_EXIT.FFO</Name>
@@ -94873,44 +94891,6 @@ M4K2 KBV X ENC CNT</Comment>
             <BitOffs>1295869120</BitOffs>
           </Symbol>
           <Symbol>
-            <Name>Main.M6</Name>
-            <Comment> M_PI, urad</Comment>
-            <BitSize>21184</BitSize>
-            <BaseType Namespace="lcls_twincat_motion">DUT_MotionStage</BaseType>
-            <Default>
-              <SubItem>
-                <Name>.nEnableMode</Name>
-                <EnumText>ENUM_StageEnableMode.ALWAYS</EnumText>
-              </SubItem>
-              <SubItem>
-                <Name>.fVelocity</Name>
-                <Value>200</Value>
-              </SubItem>
-              <SubItem>
-                <Name>.bPowerSelf</Name>
-                <Bool>true</Bool>
-              </SubItem>
-            </Default>
-            <Properties>
-              <Property>
-                <Name>pytmc</Name>
-                <Value>
-        pv: SP1K1:MONO:MMS:M_PI
-    </Value>
-              </Property>
-              <Property>
-                <Name>TcLinkTo</Name>
-                <Value>.bLimitForwardEnable:=TIIB[m_pi_m]^STM Status^Status^Digital input 1;
-                              .bLimitBackwardEnable:=TIIB[m_pi_m]^STM Status^Status^Digital input 2;
-                              .nRawEncoderULINT:=TIIB[m_pi_up_dwn_e]^FB Inputs Channel 2^Position</Value>
-              </Property>
-              <Property>
-                <Name>TcVarGlobal</Name>
-              </Property>
-            </Properties>
-            <BitOffs>1295890304</BitOffs>
-          </Symbol>
-          <Symbol>
             <Name>Main.M8</Name>
             <Comment> M_H, um</Comment>
             <BitSize>21184</BitSize>
@@ -96951,12 +96931,32 @@ M4K2 KBV X ENC CNT</Comment>
             </Properties>
             <BitOffs>1302861376</BitOffs>
           </Symbol>
+          <Symbol>
+            <Name>PRG_Stats.afMpiPosDiffBuffer</Name>
+            <BitSize>640000</BitSize>
+            <BaseType>LREAL</BaseType>
+            <ArrayInfo>
+              <LBound>1</LBound>
+              <Elements>10000</Elements>
+            </ArrayInfo>
+            <BitOffs>1312312128</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_Stats.afMpiExtraBuffer</Name>
+            <BitSize>640000</BitSize>
+            <BaseType>LREAL</BaseType>
+            <ArrayInfo>
+              <LBound>1</LBound>
+              <Elements>10000</Elements>
+            </ArrayInfo>
+            <BitOffs>1313594368</BitOffs>
+          </Symbol>
         </DataArea>
         <DataArea>
           <AreaNo AreaType="RetainSrc" CreateSymbols="true">68</AreaNo>
           <Name>PlcTask Retains</Name>
           <ContextId>4</ContextId>
-          <ByteSize>164233216</ByteSize>
+          <ByteSize>164364288</ByteSize>
           <Symbol>
             <Name>PMPS_GVL.SuccessfulPreemption</Name>
             <Comment> Any time BPTM applies a new BP request which is confirmed</Comment>
@@ -97036,7 +97036,7 @@ M4K2 KBV X ENC CNT</Comment>
         </Property>
         <Property>
           <Name>ChangeDate</Name>
-          <Value>2024-01-30T11:21:31</Value>
+          <Value>2024-01-30T13:39:53</Value>
         </Property>
         <Property>
           <Name>GeneratedCodeSize</Name>
@@ -97044,7 +97044,7 @@ M4K2 KBV X ENC CNT</Comment>
         </Property>
         <Property>
           <Name>GlobalDataSize</Name>
-          <Value>162648064</Value>
+          <Value>162791424</Value>
         </Property>
       </Properties>
     </Module>
