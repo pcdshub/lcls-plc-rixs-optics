@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass" Hash="{D63D7E12-56AF-1AB1-BC80-3163170A85A6}" GeneratedBy="TwinCAT XAE Plc">
+<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass" Hash="{59E3669E-D1DA-ED54-7F83-ABBB45EA4F77}" GeneratedBy="TwinCAT XAE Plc">
   <DataTypes>
     <DataType>
       <Name Namespace="Tc2_SerialCom">ComSerialLineMode_t</Name>
@@ -60027,6 +60027,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
             <Name>pytmc</Name>
             <Value>
         pv: FWM:1
+        autosave_pass0: HIGH HIHI LOW LOLO
         field: EGU lpm
         field: HIGH 2.3
         field: HIHI 3.0
@@ -60050,6 +60051,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <Property>
             <Name>pytmc</Name>
             <Value>
+        autosave_pass0: LOW
         pv: PRSM:1
         field: EGU bar
         field: LOW 0.1
@@ -60095,6 +60097,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
             <Name>pytmc</Name>
             <Value>
         pv: FWM:2
+        autosave_pass0: HIGH HIHI LOW LOLO
         field: EGU lpm
         field: HIGH 2.3
         field: HIHI 3.0
@@ -91485,9 +91488,9 @@ MR3K2 X ENC REF</Comment>
               <Property>
                 <Name>TcLinkTo</Name>
                 <Value>.fbFlow_1.iRaw := TIIB[EL3054_MR2K2_FWM_PRSM]^AI Standard Channel 1^Value;
-   							  .fbFlow_2.iRaw := TIIB[EL3054_MR2K2_FWM_PRSM]^AI Standard Channel 3^Value;
-		                      .fbPress_1.iRaw := TIIB[EL3054_MR2K2_FWM_PRSM]^AI Standard Channel 2^Value
-	</Value>
+                                 .fbFlow_2.iRaw := TIIB[EL3054_MR2K2_FWM_PRSM]^AI Standard Channel 3^Value;
+                              .fbPress_1.iRaw := TIIB[EL3054_MR2K2_FWM_PRSM]^AI Standard Channel 2^Value
+    </Value>
               </Property>
               <Property>
                 <Name>pytmc</Name>
@@ -91910,8 +91913,8 @@ MR4K2 X ENC REF</Comment>
               <Property>
                 <Name>TcLinkTo</Name>
                 <Value>.fbFlow_1.iRaw := TIIB[EL3054_MR3_4K2_FWM_PRSM]^AI Standard Channel 1^Value;
-		                      .fbPress_1.iRaw := TIIB[EL3054_MR3_4K2_FWM_PRSM]^AI Standard Channel 2^Value
-	</Value>
+                              .fbPress_1.iRaw := TIIB[EL3054_MR3_4K2_FWM_PRSM]^AI Standard Channel 2^Value
+    </Value>
               </Property>
               <Property>
                 <Name>pytmc</Name>
@@ -92355,15 +92358,15 @@ M4K2 KBV X ENC CNT</Comment>
           </Symbol>
           <Symbol>
             <Name>PRG_MR4K2_KBV.fbCoolingPanel</Name>
-            <Comment> MR4K2 Flow Sensors	</Comment>
+            <Comment> MR4K2 Flow Sensors</Comment>
             <BitSize>1216</BitSize>
             <BaseType Namespace="lcls_twincat_optics_nrw">FB_Axilon_Cooling_1f1p</BaseType>
             <Properties>
               <Property>
                 <Name>TcLinkTo</Name>
                 <Value>.fbFlow_1.iRaw := TIIB[EL3054_MR3_4K2_FWM_PRSM]^AI Standard Channel 3^Value;
-		                      .fbPress_1.iRaw := TIIB[EL3054_MR3_4K2_FWM_PRSM]^AI Standard Channel 2^Value
-	</Value>
+                              .fbPress_1.iRaw := TIIB[EL3054_MR3_4K2_FWM_PRSM]^AI Standard Channel 2^Value
+    </Value>
               </Property>
               <Property>
                 <Name>pytmc</Name>
@@ -95380,7 +95383,7 @@ M4K2 KBV X ENC CNT</Comment>
         </Property>
         <Property>
           <Name>ChangeDate</Name>
-          <Value>2024-02-05T16:47:57</Value>
+          <Value>2024-02-05T17:55:20</Value>
         </Property>
         <Property>
           <Name>GeneratedCodeSize</Name>
