@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass" Hash="{59E3669E-D1DA-ED54-7F83-ABBB45EA4F77}" GeneratedBy="TwinCAT XAE Plc">
+<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass" Hash="{09BF2CD2-8525-B6F1-2E3E-E7CCEA6380AC}" GeneratedBy="TwinCAT XAE Plc">
   <DataTypes>
     <DataType>
       <Name Namespace="Tc2_SerialCom">ComSerialLineMode_t</Name>
@@ -60027,12 +60027,15 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
             <Name>pytmc</Name>
             <Value>
         pv: FWM:1
-        autosave_pass0: HIGH HIHI LOW LOLO
         field: EGU lpm
         field: HIGH 2.3
         field: HIHI 3.0
         field: LOW 1.7
         field: LOLO 1.5
+		field: LSV MINOR
+		field: LLSV MAJOR
+		field: HSV MINOR
+		field: HHSV MAJOR
         io: i
     </Value>
           </Property>
@@ -60051,10 +60054,10 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <Property>
             <Name>pytmc</Name>
             <Value>
-        autosave_pass0: LOW
         pv: PRSM:1
         field: EGU bar
         field: LOW 0.1
+		field: LSV MAJOR
         io: i
     </Value>
           </Property>
@@ -60097,12 +60100,15 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
             <Name>pytmc</Name>
             <Value>
         pv: FWM:2
-        autosave_pass0: HIGH HIHI LOW LOLO
         field: EGU lpm
         field: HIGH 2.3
         field: HIHI 3.0
         field: LOW 1.7
         field: LOLO 1.5
+		field: LSV MINOR
+		field: LLSV MAJOR
+		field: HSV MINOR
+		field: HHSV MAJOR
         io: i
     </Value>
           </Property>
@@ -95383,7 +95389,7 @@ M4K2 KBV X ENC CNT</Comment>
         </Property>
         <Property>
           <Name>ChangeDate</Name>
-          <Value>2024-02-05T17:55:20</Value>
+          <Value>2024-02-07T16:41:13</Value>
         </Property>
         <Property>
           <Name>GeneratedCodeSize</Name>
