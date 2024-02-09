@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="FB_AssembleChannel" Id="{5ef2e007-6efe-4b71-ad1b-59044bb806ba}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_AssembleChannel
 VAR_INPUT
-    // Raw count from the encoder, taken from DUT_MotionStage.nEncoderCount
+    // Raw count from the encoder, taken from ST_MotionStage.nEncoderCount
     nEncCount : UDINT;
     // Latched rising edge timestamp from EL1252-0050 terminal.
     nTiming : ULINT;
-    // Scale as reported in DUT_MotionStage.stAxisParameters.fEncScaleFactorNumerator
+    // Scale as reported in ST_MotionStage.stAxisParameters.fEncScaleFactorNumerator
     fScale : LREAL;
     // Serial number of the encoder
     sHardwareID : STRING(15);
@@ -17,7 +17,7 @@ VAR_INPUT
     nError : USINT;
     // Selector for acquisition mode (currently unused)
     nMode : USINT;
-    // Scale denominator as reported in DUT_MotionStage.stAxisParameters.fEncScaleFactorDenominator
+    // Scale denominator as reported in ST_MotionStage.stAxisParameters.fEncScaleFactorDenominator
     fScaleDenominator: LREAL;
 END_VAR
 VAR_OUTPUT
