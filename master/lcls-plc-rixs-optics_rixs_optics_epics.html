@@ -18,7 +18,7 @@
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="_static/docs-versions-menu.js?v=3d6a1aea"></script>
     <script src="_static/js/theme.js"></script>
@@ -79,6 +79,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#lcls-twincat-motion-fb-positionstatepmps">lcls_twincat_motion.FB_PositionStatePMPS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lcls-twincat-motion-fb-positionstatepmps-base">lcls_twincat_motion.FB_PositionStatePMPS_Base</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lcls-twincat-motion-fb-standard-pmpsdb">lcls_twincat_motion.FB_Standard_PMPSDB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lcls-twincat-motion-st-axisparametersetexposed">lcls_twincat_motion.ST_AxisParameterSetExposed</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lcls-twincat-motion-st-motionstage">lcls_twincat_motion.ST_MotionStage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lcls-twincat-motion-st-positionstate">lcls_twincat_motion.ST_PositionState</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lcls-twincat-optics-dut-homs">lcls_twincat_optics.DUT_HOMS</a></li>
@@ -6111,6 +6112,116 @@
 </tbody>
 </table>
 </section>
+<section id="lcls-twincat-motion-st-axisparametersetexposed">
+<h2>lcls_twincat_motion.ST_AxisParameterSetExposed<a class="headerlink" href="#lcls-twincat-motion-st-axisparametersetexposed" title="Link to this heading"></a></h2>
+<table class="docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Record</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Pragma</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>$(PREFIX):EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="lcls-twincat-motion-st-motionstage">
 <h2>lcls_twincat_motion.ST_MotionStage<a class="headerlink" href="#lcls-twincat-motion-st-motionstage" title="Link to this heading"></a></h2>
 <table class="docutils align-center">
@@ -6122,6 +6233,102 @@
 </tr>
 </thead>
 <tbody>
+<tr class="row-even"><td><p>$(PREFIX):PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
 <tr class="row-even"><td><p>$(PREFIX):PLC:bError_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>TRUE if we are in an error state</p></td>
@@ -53802,6 +54009,102 @@
 </div>
 </td>
 </tr>
+<tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:YLEFT:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K2:SWITCH:MMS:YLEFT:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:YLEFT:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K2:SWITCH:MMS:YLEFT:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:YLEFT:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K2:SWITCH:MMS:YLEFT:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:YLEFT:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K2:SWITCH:MMS:YLEFT:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:YLEFT:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K2:SWITCH:MMS:YLEFT:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:YLEFT:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K2:SWITCH:MMS:YLEFT:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
 <tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:YLEFT:PLC:stEPSB:bEPS_OK_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>check if nFlags are all true</p></td>
@@ -54022,6 +54325,102 @@
 <td><div class="line-block">
 <div class="line">io: input</div>
 <div class="line">update: 100hz notify</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:SD_V:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:SD_V:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:SD_V:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:SD_V:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:SD_V:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:SD_V:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:SD_V:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:SD_V:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:SD_V:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:SD_V:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:SD_V:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:SD_V:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
 </div>
 </td>
 </tr>
@@ -54248,6 +54647,102 @@
 </div>
 </td>
 </tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:SD_ROT:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:SD_ROT:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:SD_ROT:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:SD_ROT:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:SD_ROT:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:SD_ROT:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:SD_ROT:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:SD_ROT:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:SD_ROT:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:SD_ROT:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:SD_ROT:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:SD_ROT:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
 <tr class="row-odd"><td><p>SP1K1:MONO:MMS:SD_ROT:PLC:stEPSB:bEPS_OK_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>check if nFlags are all true</p></td>
@@ -54468,6 +54963,102 @@
 <td><div class="line-block">
 <div class="line">io: input</div>
 <div class="line">update: 100hz notify</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:YUP:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:YUP:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:YUP:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:YUP:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:YUP:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:YUP:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:YUP:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:YUP:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:YUP:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:YUP:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:YUP:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:YUP:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
 </div>
 </td>
 </tr>
@@ -54694,6 +55285,102 @@
 </div>
 </td>
 </tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:YDWN:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:YDWN:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:YDWN:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:YDWN:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:YDWN:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:YDWN:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:YDWN:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:YDWN:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:YDWN:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:YDWN:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:YDWN:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:YDWN:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
 <tr class="row-odd"><td><p>MR1K1:BEND:MMS:YDWN:PLC:stEPSB:bEPS_OK_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>check if nFlags are all true</p></td>
@@ -54914,6 +55601,102 @@
 <td><div class="line-block">
 <div class="line">io: input</div>
 <div class="line">update: 100hz notify</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:XUP:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:XUP:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:XUP:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:XUP:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:XUP:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:XUP:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:XUP:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:XUP:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:XUP:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:XUP:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:XUP:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:XUP:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
 </div>
 </td>
 </tr>
@@ -55140,6 +55923,102 @@
 </div>
 </td>
 </tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:XDWN:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:XDWN:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:XDWN:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:XDWN:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:XDWN:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:XDWN:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:XDWN:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:XDWN:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:XDWN:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:XDWN:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:XDWN:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:XDWN:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
 <tr class="row-odd"><td><p>MR1K1:BEND:MMS:XDWN:PLC:stEPSB:bEPS_OK_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>check if nFlags are all true</p></td>
@@ -55360,6 +56239,102 @@
 <td><div class="line-block">
 <div class="line">io: input</div>
 <div class="line">update: 100hz notify</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:PITCH:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:PITCH:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:PITCH:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:PITCH:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:PITCH:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:PITCH:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:PITCH:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:PITCH:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:PITCH:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:PITCH:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:PITCH:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:PITCH:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
 </div>
 </td>
 </tr>
@@ -55586,6 +56561,102 @@
 </div>
 </td>
 </tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:US:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:US:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:US:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:US:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:US:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:US:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:US:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:US:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:US:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:US:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:US:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:US:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
 <tr class="row-odd"><td><p>MR1K1:BEND:MMS:US:PLC:stEPSB:bEPS_OK_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>check if nFlags are all true</p></td>
@@ -55806,6 +56877,102 @@
 <td><div class="line-block">
 <div class="line">io: input</div>
 <div class="line">update: 100hz notify</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:DS:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:DS:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:DS:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:DS:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:DS:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:DS:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:DS:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:DS:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:DS:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:DS:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:DS:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:DS:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
 </div>
 </td>
 </tr>
@@ -56032,6 +57199,102 @@
 </div>
 </td>
 </tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:MMS:PITCH:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SL1K2:EXIT:MMS:PITCH:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:MMS:PITCH:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SL1K2:EXIT:MMS:PITCH:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:MMS:PITCH:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SL1K2:EXIT:MMS:PITCH:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:MMS:PITCH:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SL1K2:EXIT:MMS:PITCH:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:MMS:PITCH:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SL1K2:EXIT:MMS:PITCH:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:MMS:PITCH:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SL1K2:EXIT:MMS:PITCH:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
 <tr class="row-odd"><td><p>SL1K2:EXIT:MMS:PITCH:PLC:stEPSB:bEPS_OK_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>check if nFlags are all true</p></td>
@@ -56252,6 +57515,102 @@
 <td><div class="line-block">
 <div class="line">io: input</div>
 <div class="line">update: 100hz notify</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:YRIGHT:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K2:SWITCH:MMS:YRIGHT:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:YRIGHT:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K2:SWITCH:MMS:YRIGHT:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:YRIGHT:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K2:SWITCH:MMS:YRIGHT:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:YRIGHT:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K2:SWITCH:MMS:YRIGHT:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:YRIGHT:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K2:SWITCH:MMS:YRIGHT:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:YRIGHT:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K2:SWITCH:MMS:YRIGHT:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
 </div>
 </td>
 </tr>
@@ -56478,6 +57837,102 @@
 </div>
 </td>
 </tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:MMS:VERT:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SL1K2:EXIT:MMS:VERT:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:MMS:VERT:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SL1K2:EXIT:MMS:VERT:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:MMS:VERT:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SL1K2:EXIT:MMS:VERT:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:MMS:VERT:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SL1K2:EXIT:MMS:VERT:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:MMS:VERT:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SL1K2:EXIT:MMS:VERT:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:MMS:VERT:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SL1K2:EXIT:MMS:VERT:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
 <tr class="row-odd"><td><p>SL1K2:EXIT:MMS:VERT:PLC:stEPSB:bEPS_OK_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>check if nFlags are all true</p></td>
@@ -56698,6 +58153,102 @@
 <td><div class="line-block">
 <div class="line">io: input</div>
 <div class="line">update: 100hz notify</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:MMS:ROLL:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SL1K2:EXIT:MMS:ROLL:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:MMS:ROLL:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SL1K2:EXIT:MMS:ROLL:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:MMS:ROLL:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SL1K2:EXIT:MMS:ROLL:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:MMS:ROLL:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SL1K2:EXIT:MMS:ROLL:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:MMS:ROLL:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SL1K2:EXIT:MMS:ROLL:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:MMS:ROLL:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SL1K2:EXIT:MMS:ROLL:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
 </div>
 </td>
 </tr>
@@ -56924,6 +58475,102 @@
 </div>
 </td>
 </tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:MMS:GAP:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SL1K2:EXIT:MMS:GAP:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:MMS:GAP:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SL1K2:EXIT:MMS:GAP:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:MMS:GAP:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SL1K2:EXIT:MMS:GAP:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:MMS:GAP:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SL1K2:EXIT:MMS:GAP:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:MMS:GAP:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SL1K2:EXIT:MMS:GAP:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:MMS:GAP:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SL1K2:EXIT:MMS:GAP:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
 <tr class="row-odd"><td><p>SL1K2:EXIT:MMS:GAP:PLC:stEPSB:bEPS_OK_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>check if nFlags are all true</p></td>
@@ -57144,6 +58791,102 @@
 <td><div class="line-block">
 <div class="line">io: input</div>
 <div class="line">update: 100hz notify</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:MMS:YAG:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SL1K2:EXIT:MMS:YAG:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:MMS:YAG:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SL1K2:EXIT:MMS:YAG:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:MMS:YAG:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SL1K2:EXIT:MMS:YAG:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:MMS:YAG:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SL1K2:EXIT:MMS:YAG:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:MMS:YAG:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SL1K2:EXIT:MMS:YAG:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SL1K2:EXIT:MMS:YAG:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SL1K2:EXIT:MMS:YAG:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
 </div>
 </td>
 </tr>
@@ -57370,6 +59113,102 @@
 </div>
 </td>
 </tr>
+<tr class="row-odd"><td><p>ST1K1:ZOS:MMS:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>ST1K1:ZOS:MMS:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>ST1K1:ZOS:MMS:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>ST1K1:ZOS:MMS:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>ST1K1:ZOS:MMS:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>ST1K1:ZOS:MMS:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>ST1K1:ZOS:MMS:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>ST1K1:ZOS:MMS:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>ST1K1:ZOS:MMS:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>ST1K1:ZOS:MMS:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>ST1K1:ZOS:MMS:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>ST1K1:ZOS:MMS:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
 <tr class="row-odd"><td><p>ST1K1:ZOS:MMS:PLC:stEPSB:bEPS_OK_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>check if nFlags are all true</p></td>
@@ -57590,6 +59429,102 @@
 <td><div class="line-block">
 <div class="line">io: input</div>
 <div class="line">update: 100hz notify</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR2K2:FLAT:MMS:X:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR2K2:FLAT:MMS:X:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR2K2:FLAT:MMS:X:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR2K2:FLAT:MMS:X:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR2K2:FLAT:MMS:X:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR2K2:FLAT:MMS:X:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR2K2:FLAT:MMS:X:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR2K2:FLAT:MMS:X:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR2K2:FLAT:MMS:X:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR2K2:FLAT:MMS:X:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR2K2:FLAT:MMS:X:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR2K2:FLAT:MMS:X:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
 </div>
 </td>
 </tr>
@@ -57816,6 +59751,102 @@
 </div>
 </td>
 </tr>
+<tr class="row-odd"><td><p>MR2K2:FLAT:MMS:Y:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR2K2:FLAT:MMS:Y:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR2K2:FLAT:MMS:Y:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR2K2:FLAT:MMS:Y:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR2K2:FLAT:MMS:Y:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR2K2:FLAT:MMS:Y:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR2K2:FLAT:MMS:Y:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR2K2:FLAT:MMS:Y:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR2K2:FLAT:MMS:Y:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR2K2:FLAT:MMS:Y:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR2K2:FLAT:MMS:Y:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR2K2:FLAT:MMS:Y:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
 <tr class="row-odd"><td><p>MR2K2:FLAT:MMS:Y:PLC:stEPSB:bEPS_OK_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>check if nFlags are all true</p></td>
@@ -58036,6 +60067,102 @@
 <td><div class="line-block">
 <div class="line">io: input</div>
 <div class="line">update: 100hz notify</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR2K2:FLAT:MMS:PITCH:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR2K2:FLAT:MMS:PITCH:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR2K2:FLAT:MMS:PITCH:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR2K2:FLAT:MMS:PITCH:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR2K2:FLAT:MMS:PITCH:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR2K2:FLAT:MMS:PITCH:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR2K2:FLAT:MMS:PITCH:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR2K2:FLAT:MMS:PITCH:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR2K2:FLAT:MMS:PITCH:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR2K2:FLAT:MMS:PITCH:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR2K2:FLAT:MMS:PITCH:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR2K2:FLAT:MMS:PITCH:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
 </div>
 </td>
 </tr>
@@ -58262,6 +60389,102 @@
 </div>
 </td>
 </tr>
+<tr class="row-odd"><td><p>MR3K2:KBH:MMS:X:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR3K2:KBH:MMS:X:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR3K2:KBH:MMS:X:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR3K2:KBH:MMS:X:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR3K2:KBH:MMS:X:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR3K2:KBH:MMS:X:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR3K2:KBH:MMS:X:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR3K2:KBH:MMS:X:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR3K2:KBH:MMS:X:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR3K2:KBH:MMS:X:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR3K2:KBH:MMS:X:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR3K2:KBH:MMS:X:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
 <tr class="row-odd"><td><p>MR3K2:KBH:MMS:X:PLC:stEPSB:bEPS_OK_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>check if nFlags are all true</p></td>
@@ -58482,6 +60705,102 @@
 <td><div class="line-block">
 <div class="line">io: input</div>
 <div class="line">update: 100hz notify</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR3K2:KBH:MMS:Y:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR3K2:KBH:MMS:Y:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR3K2:KBH:MMS:Y:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR3K2:KBH:MMS:Y:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR3K2:KBH:MMS:Y:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR3K2:KBH:MMS:Y:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR3K2:KBH:MMS:Y:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR3K2:KBH:MMS:Y:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR3K2:KBH:MMS:Y:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR3K2:KBH:MMS:Y:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR3K2:KBH:MMS:Y:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR3K2:KBH:MMS:Y:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
 </div>
 </td>
 </tr>
@@ -58708,6 +61027,102 @@
 </div>
 </td>
 </tr>
+<tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:XUP:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K2:SWITCH:MMS:XUP:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:XUP:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K2:SWITCH:MMS:XUP:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:XUP:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K2:SWITCH:MMS:XUP:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:XUP:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K2:SWITCH:MMS:XUP:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:XUP:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K2:SWITCH:MMS:XUP:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:XUP:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K2:SWITCH:MMS:XUP:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
 <tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:XUP:PLC:stEPSB:bEPS_OK_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>check if nFlags are all true</p></td>
@@ -58928,6 +61343,102 @@
 <td><div class="line-block">
 <div class="line">io: input</div>
 <div class="line">update: 100hz notify</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR3K2:KBH:MMS:PITCH:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR3K2:KBH:MMS:PITCH:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR3K2:KBH:MMS:PITCH:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR3K2:KBH:MMS:PITCH:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR3K2:KBH:MMS:PITCH:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR3K2:KBH:MMS:PITCH:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR3K2:KBH:MMS:PITCH:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR3K2:KBH:MMS:PITCH:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR3K2:KBH:MMS:PITCH:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR3K2:KBH:MMS:PITCH:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR3K2:KBH:MMS:PITCH:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR3K2:KBH:MMS:PITCH:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
 </div>
 </td>
 </tr>
@@ -59154,6 +61665,102 @@
 </div>
 </td>
 </tr>
+<tr class="row-odd"><td><p>MR3K2:KBH:MMS:BEND:US:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR3K2:KBH:MMS:BEND:US:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR3K2:KBH:MMS:BEND:US:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR3K2:KBH:MMS:BEND:US:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR3K2:KBH:MMS:BEND:US:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR3K2:KBH:MMS:BEND:US:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR3K2:KBH:MMS:BEND:US:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR3K2:KBH:MMS:BEND:US:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR3K2:KBH:MMS:BEND:US:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR3K2:KBH:MMS:BEND:US:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR3K2:KBH:MMS:BEND:US:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR3K2:KBH:MMS:BEND:US:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
 <tr class="row-odd"><td><p>MR3K2:KBH:MMS:BEND:US:PLC:stEPSB:bEPS_OK_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>check if nFlags are all true</p></td>
@@ -59374,6 +61981,102 @@
 <td><div class="line-block">
 <div class="line">io: input</div>
 <div class="line">update: 100hz notify</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR3K2:KBH:MMS:BEND:DS:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR3K2:KBH:MMS:BEND:DS:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR3K2:KBH:MMS:BEND:DS:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR3K2:KBH:MMS:BEND:DS:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR3K2:KBH:MMS:BEND:DS:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR3K2:KBH:MMS:BEND:DS:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR3K2:KBH:MMS:BEND:DS:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR3K2:KBH:MMS:BEND:DS:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR3K2:KBH:MMS:BEND:DS:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR3K2:KBH:MMS:BEND:DS:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR3K2:KBH:MMS:BEND:DS:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR3K2:KBH:MMS:BEND:DS:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
 </div>
 </td>
 </tr>
@@ -59600,6 +62303,102 @@
 </div>
 </td>
 </tr>
+<tr class="row-odd"><td><p>MR4K2:KBV:MMS:X:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR4K2:KBV:MMS:X:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR4K2:KBV:MMS:X:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR4K2:KBV:MMS:X:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR4K2:KBV:MMS:X:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR4K2:KBV:MMS:X:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR4K2:KBV:MMS:X:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR4K2:KBV:MMS:X:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR4K2:KBV:MMS:X:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR4K2:KBV:MMS:X:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR4K2:KBV:MMS:X:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR4K2:KBV:MMS:X:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
 <tr class="row-odd"><td><p>MR4K2:KBV:MMS:X:PLC:stEPSB:bEPS_OK_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>check if nFlags are all true</p></td>
@@ -59820,6 +62619,102 @@
 <td><div class="line-block">
 <div class="line">io: input</div>
 <div class="line">update: 100hz notify</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR4K2:KBV:MMS:Y:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR4K2:KBV:MMS:Y:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR4K2:KBV:MMS:Y:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR4K2:KBV:MMS:Y:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR4K2:KBV:MMS:Y:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR4K2:KBV:MMS:Y:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR4K2:KBV:MMS:Y:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR4K2:KBV:MMS:Y:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR4K2:KBV:MMS:Y:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR4K2:KBV:MMS:Y:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR4K2:KBV:MMS:Y:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR4K2:KBV:MMS:Y:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
 </div>
 </td>
 </tr>
@@ -60046,6 +62941,102 @@
 </div>
 </td>
 </tr>
+<tr class="row-odd"><td><p>MR4K2:KBV:MMS:PITCH:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR4K2:KBV:MMS:PITCH:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR4K2:KBV:MMS:PITCH:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR4K2:KBV:MMS:PITCH:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR4K2:KBV:MMS:PITCH:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR4K2:KBV:MMS:PITCH:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR4K2:KBV:MMS:PITCH:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR4K2:KBV:MMS:PITCH:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR4K2:KBV:MMS:PITCH:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR4K2:KBV:MMS:PITCH:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR4K2:KBV:MMS:PITCH:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR4K2:KBV:MMS:PITCH:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
 <tr class="row-odd"><td><p>MR4K2:KBV:MMS:PITCH:PLC:stEPSB:bEPS_OK_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>check if nFlags are all true</p></td>
@@ -60266,6 +63257,102 @@
 <td><div class="line-block">
 <div class="line">io: input</div>
 <div class="line">update: 100hz notify</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR4K2:KBV:MMS:BEND:US:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR4K2:KBV:MMS:BEND:US:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR4K2:KBV:MMS:BEND:US:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR4K2:KBV:MMS:BEND:US:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR4K2:KBV:MMS:BEND:US:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR4K2:KBV:MMS:BEND:US:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR4K2:KBV:MMS:BEND:US:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR4K2:KBV:MMS:BEND:US:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR4K2:KBV:MMS:BEND:US:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR4K2:KBV:MMS:BEND:US:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR4K2:KBV:MMS:BEND:US:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR4K2:KBV:MMS:BEND:US:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
 </div>
 </td>
 </tr>
@@ -60492,6 +63579,102 @@
 </div>
 </td>
 </tr>
+<tr class="row-odd"><td><p>MR4K2:KBV:MMS:BEND:DS:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR4K2:KBV:MMS:BEND:DS:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR4K2:KBV:MMS:BEND:DS:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR4K2:KBV:MMS:BEND:DS:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR4K2:KBV:MMS:BEND:DS:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR4K2:KBV:MMS:BEND:DS:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR4K2:KBV:MMS:BEND:DS:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR4K2:KBV:MMS:BEND:DS:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR4K2:KBV:MMS:BEND:DS:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR4K2:KBV:MMS:BEND:DS:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR4K2:KBV:MMS:BEND:DS:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR4K2:KBV:MMS:BEND:DS:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
 <tr class="row-odd"><td><p>MR4K2:KBV:MMS:BEND:DS:PLC:stEPSB:bEPS_OK_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>check if nFlags are all true</p></td>
@@ -60712,6 +63895,102 @@
 <td><div class="line-block">
 <div class="line">io: input</div>
 <div class="line">update: 100hz notify</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:XDWN:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K2:SWITCH:MMS:XDWN:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:XDWN:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K2:SWITCH:MMS:XDWN:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:XDWN:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K2:SWITCH:MMS:XDWN:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:XDWN:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K2:SWITCH:MMS:XDWN:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:XDWN:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K2:SWITCH:MMS:XDWN:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:XDWN:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K2:SWITCH:MMS:XDWN:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
 </div>
 </td>
 </tr>
@@ -60938,6 +64217,102 @@
 </div>
 </td>
 </tr>
+<tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:PITCH:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K2:SWITCH:MMS:PITCH:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:PITCH:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K2:SWITCH:MMS:PITCH:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:PITCH:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K2:SWITCH:MMS:PITCH:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:PITCH:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K2:SWITCH:MMS:PITCH:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:PITCH:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K2:SWITCH:MMS:PITCH:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:PITCH:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K2:SWITCH:MMS:PITCH:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
 <tr class="row-odd"><td><p>MR1K2:SWITCH:MMS:PITCH:PLC:stEPSB:bEPS_OK_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>check if nFlags are all true</p></td>
@@ -61158,6 +64533,102 @@
 <td><div class="line-block">
 <div class="line">io: input</div>
 <div class="line">update: 100hz notify</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_PI:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_PI:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_PI:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_PI:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_PI:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_PI:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_PI:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_PI:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_PI:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_PI:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_PI:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_PI:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
 </div>
 </td>
 </tr>
@@ -61384,6 +64855,102 @@
 </div>
 </td>
 </tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:G_PI:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:G_PI:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:G_PI:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:G_PI:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:G_PI:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:G_PI:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:G_PI:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:G_PI:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:G_PI:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:G_PI:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:G_PI:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:G_PI:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
 <tr class="row-odd"><td><p>SP1K1:MONO:MMS:G_PI:PLC:stEPSB:bEPS_OK_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>check if nFlags are all true</p></td>
@@ -61607,6 +65174,102 @@
 </div>
 </td>
 </tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_H:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_H:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_H:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_H:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_H:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_H:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_H:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_H:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_H:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_H:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_H:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:M_H:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
 <tr class="row-odd"><td><p>SP1K1:MONO:MMS:M_H:PLC:stEPSB:bEPS_OK_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>check if nFlags are all true</p></td>
@@ -61827,6 +65490,102 @@
 <td><div class="line-block">
 <div class="line">io: input</div>
 <div class="line">update: 100hz notify</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:G_H:PLC:AxisPar:PosLagEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if position lag monitor (also known as stall monitor) is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:G_H:PLC:AxisPar:SLimMaxEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static maximum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:G_H:PLC:AxisPar:SLimMinEn_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>TRUE if controller static minimum limit is enabled.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:G_H:PLC:AxisPar:MaxAccel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of increase in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:G_H:PLC:AxisPar:PosLagVal_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum magnitude of position lag in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:G_H:PLC:AxisPar:PosLagTime_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum allowable duration outside of maximum position lag value in seconds.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:G_H:PLC:AxisPar:MaxDecel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum rate of decrease in speed of the axis in EU/s^2.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:G_H:PLC:AxisPar:EncOffset_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder offset in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:G_H:PLC:AxisPar:EncScaling_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Encoder scaling numerator / denominator in EU/COUNT.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:G_H:PLC:AxisPar:SLimMax_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:MMS:G_H:PLC:AxisPar:SLimMin_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Minimum commandable position of the axis in EU.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:MMS:G_H:PLC:AxisPar:MaxVel_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>Maximum commandable speed of the axis in EU/s.</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
 </div>
 </td>
 </tr>
@@ -66419,7 +70178,97 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>SP1K1:MONO:RTD:02:CONN_RBV</p></td>
+<tr class="row-even"><td><p>SP1K1:MONO:RTD:10:CONN_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>PRG_SP1K1_MONO.RTD10.bConnected</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM Connected</div>
+<div class="line">field: ZNAM Disconnected</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:RTD:10:ERR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>PRG_SP1K1_MONO.RTD10.bError</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM True</div>
+<div class="line">field: ZNAM False</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:RTD:10:TEMP_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_SP1K1_MONO.RTD10.fTemp</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU C</div>
+<div class="line">field: PREC 2</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:RTD:11:CONN_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>PRG_SP1K1_MONO.RTD11.bConnected</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM Connected</div>
+<div class="line">field: ZNAM Disconnected</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:RTD:11:ERR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>PRG_SP1K1_MONO.RTD11.bError</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM True</div>
+<div class="line">field: ZNAM False</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:RTD:11:TEMP_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_SP1K1_MONO.RTD11.fTemp</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU C</div>
+<div class="line">field: PREC 2</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:RTD:12:CONN_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>PRG_SP1K1_MONO.RTD12.bConnected</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM Connected</div>
+<div class="line">field: ZNAM Disconnected</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:RTD:12:ERR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>PRG_SP1K1_MONO.RTD12.bError</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM True</div>
+<div class="line">field: ZNAM False</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:RTD:12:TEMP_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_SP1K1_MONO.RTD12.fTemp</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU C</div>
+<div class="line">field: PREC 2</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:RTD:02:CONN_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>PRG_SP1K1_MONO.RTD2.bConnected</p></td>
 <td><div class="line-block">
@@ -66429,7 +70278,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>SP1K1:MONO:RTD:02:ERR_RBV</p></td>
+<tr class="row-even"><td><p>SP1K1:MONO:RTD:02:ERR_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>PRG_SP1K1_MONO.RTD2.bError</p></td>
 <td><div class="line-block">
@@ -66439,7 +70288,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>SP1K1:MONO:RTD:02:TEMP_RBV</p></td>
+<tr class="row-odd"><td><p>SP1K1:MONO:RTD:02:TEMP_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_SP1K1_MONO.RTD2.fTemp</p></td>
 <td><div class="line-block">
@@ -66449,7 +70298,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>SP1K1:MONO:RTD:03:CONN_RBV</p></td>
+<tr class="row-even"><td><p>SP1K1:MONO:RTD:03:CONN_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>PRG_SP1K1_MONO.RTD3.bConnected</p></td>
 <td><div class="line-block">
@@ -66459,7 +70308,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>SP1K1:MONO:RTD:03:ERR_RBV</p></td>
+<tr class="row-odd"><td><p>SP1K1:MONO:RTD:03:ERR_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>PRG_SP1K1_MONO.RTD3.bError</p></td>
 <td><div class="line-block">
@@ -66469,7 +70318,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>SP1K1:MONO:RTD:03:TEMP_RBV</p></td>
+<tr class="row-even"><td><p>SP1K1:MONO:RTD:03:TEMP_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_SP1K1_MONO.RTD3.fTemp</p></td>
 <td><div class="line-block">
@@ -66479,7 +70328,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>SP1K1:MONO:RTD:04:CONN_RBV</p></td>
+<tr class="row-odd"><td><p>SP1K1:MONO:RTD:04:CONN_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>PRG_SP1K1_MONO.RTD4.bConnected</p></td>
 <td><div class="line-block">
@@ -66489,7 +70338,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>SP1K1:MONO:RTD:04:ERR_RBV</p></td>
+<tr class="row-even"><td><p>SP1K1:MONO:RTD:04:ERR_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>PRG_SP1K1_MONO.RTD4.bError</p></td>
 <td><div class="line-block">
@@ -66499,7 +70348,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>SP1K1:MONO:RTD:04:TEMP_RBV</p></td>
+<tr class="row-odd"><td><p>SP1K1:MONO:RTD:04:TEMP_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_SP1K1_MONO.RTD4.fTemp</p></td>
 <td><div class="line-block">
@@ -66509,7 +70358,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>SP1K1:MONO:RTD:05:CONN_RBV</p></td>
+<tr class="row-even"><td><p>SP1K1:MONO:RTD:05:CONN_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>PRG_SP1K1_MONO.RTD5.bConnected</p></td>
 <td><div class="line-block">
@@ -66519,7 +70368,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>SP1K1:MONO:RTD:05:ERR_RBV</p></td>
+<tr class="row-odd"><td><p>SP1K1:MONO:RTD:05:ERR_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>PRG_SP1K1_MONO.RTD5.bError</p></td>
 <td><div class="line-block">
@@ -66529,7 +70378,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>SP1K1:MONO:RTD:05:TEMP_RBV</p></td>
+<tr class="row-even"><td><p>SP1K1:MONO:RTD:05:TEMP_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_SP1K1_MONO.RTD5.fTemp</p></td>
 <td><div class="line-block">
@@ -66539,7 +70388,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>SP1K1:MONO:RTD:06:CONN_RBV</p></td>
+<tr class="row-odd"><td><p>SP1K1:MONO:RTD:06:CONN_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>PRG_SP1K1_MONO.RTD6.bConnected</p></td>
 <td><div class="line-block">
@@ -66549,7 +70398,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>SP1K1:MONO:RTD:06:ERR_RBV</p></td>
+<tr class="row-even"><td><p>SP1K1:MONO:RTD:06:ERR_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>PRG_SP1K1_MONO.RTD6.bError</p></td>
 <td><div class="line-block">
@@ -66559,7 +70408,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>SP1K1:MONO:RTD:06:TEMP_RBV</p></td>
+<tr class="row-odd"><td><p>SP1K1:MONO:RTD:06:TEMP_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_SP1K1_MONO.RTD6.fTemp</p></td>
 <td><div class="line-block">
@@ -66569,7 +70418,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>SP1K1:MONO:RTD:07:CONN_RBV</p></td>
+<tr class="row-even"><td><p>SP1K1:MONO:RTD:07:CONN_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>PRG_SP1K1_MONO.RTD7.bConnected</p></td>
 <td><div class="line-block">
@@ -66579,7 +70428,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>SP1K1:MONO:RTD:07:ERR_RBV</p></td>
+<tr class="row-odd"><td><p>SP1K1:MONO:RTD:07:ERR_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>PRG_SP1K1_MONO.RTD7.bError</p></td>
 <td><div class="line-block">
@@ -66589,7 +70438,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>SP1K1:MONO:RTD:07:TEMP_RBV</p></td>
+<tr class="row-even"><td><p>SP1K1:MONO:RTD:07:TEMP_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_SP1K1_MONO.RTD7.fTemp</p></td>
 <td><div class="line-block">
@@ -66599,7 +70448,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>SP1K1:MONO:RTD:08:CONN_RBV</p></td>
+<tr class="row-odd"><td><p>SP1K1:MONO:RTD:08:CONN_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>PRG_SP1K1_MONO.RTD8.bConnected</p></td>
 <td><div class="line-block">
@@ -66609,7 +70458,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>SP1K1:MONO:RTD:08:ERR_RBV</p></td>
+<tr class="row-even"><td><p>SP1K1:MONO:RTD:08:ERR_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>PRG_SP1K1_MONO.RTD8.bError</p></td>
 <td><div class="line-block">
@@ -66619,9 +70468,39 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>SP1K1:MONO:RTD:08:TEMP_RBV</p></td>
+<tr class="row-odd"><td><p>SP1K1:MONO:RTD:08:TEMP_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_SP1K1_MONO.RTD8.fTemp</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU C</div>
+<div class="line">field: PREC 2</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:RTD:09:CONN_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>PRG_SP1K1_MONO.RTD9.bConnected</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM Connected</div>
+<div class="line">field: ZNAM Disconnected</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SP1K1:MONO:RTD:09:ERR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>PRG_SP1K1_MONO.RTD9.bError</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM True</div>
+<div class="line">field: ZNAM False</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SP1K1:MONO:RTD:09:TEMP_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_SP1K1_MONO.RTD9.fTemp</p></td>
 <td><div class="line-block">
 <div class="line">field: EGU C</div>
 <div class="line">field: PREC 2</div>

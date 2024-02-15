@@ -4650,7 +4650,91 @@ lcls_twincat_motion.FB_Standard_PMPSDB
       - | io: output
 
 
-    
+   
+lcls_twincat_motion.ST_AxisParameterSetExposed
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. list-table::
+    :header-rows: 1
+    :align: center
+
+    * - Record
+      - Type
+      - Description
+      - Pragma
+    * - $(PREFIX):EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - $(PREFIX):EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - $(PREFIX):MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - $(PREFIX):MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - $(PREFIX):MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
+
+
+    * - $(PREFIX):PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - $(PREFIX):PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - $(PREFIX):PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - $(PREFIX):SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - $(PREFIX):SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - $(PREFIX):SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - $(PREFIX):SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+  
 lcls_twincat_motion.ST_MotionStage
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -4662,6 +4746,78 @@ lcls_twincat_motion.ST_MotionStage
       - Type
       - Description
       - Pragma
+    * - $(PREFIX):PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - $(PREFIX):PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - $(PREFIX):PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - $(PREFIX):PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - $(PREFIX):PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
+
+
+    * - $(PREFIX):PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - $(PREFIX):PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - $(PREFIX):PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - $(PREFIX):PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - $(PREFIX):PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - $(PREFIX):PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - $(PREFIX):PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
     * - $(PREFIX):PLC:bError_RBV
       - bi
       - TRUE if we are in an error state
@@ -40773,6 +40929,78 @@ Database Records
         | update: 100hz notify
 
 
+    * - MR1K2:SWITCH:MMS:YLEFT:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:YLEFT:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:YLEFT:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:YLEFT:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:YLEFT:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:YLEFT:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:YLEFT:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:YLEFT:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:YLEFT:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:YLEFT:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:YLEFT:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:YLEFT:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
+
+
     * - MR1K2:SWITCH:MMS:YLEFT:PLC:stEPSB:bEPS_OK_RBV
       - bi
       - check if nFlags are all true
@@ -40942,6 +41170,78 @@ Database Records
       - Message to identify the error state
       - | io: input
         | update: 100hz notify
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_V:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
 
 
     * - SP1K1:MONO:MMS:SD_V:PLC:stEPSB:bEPS_OK_RBV
@@ -41115,6 +41415,78 @@ Database Records
         | update: 100hz notify
 
 
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:SD_ROT:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
+
+
     * - SP1K1:MONO:MMS:SD_ROT:PLC:stEPSB:bEPS_OK_RBV
       - bi
       - check if nFlags are all true
@@ -41284,6 +41656,78 @@ Database Records
       - Message to identify the error state
       - | io: input
         | update: 100hz notify
+
+
+    * - MR1K1:BEND:MMS:YUP:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:YUP:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:YUP:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:YUP:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:YUP:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:YUP:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:YUP:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:YUP:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:YUP:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:YUP:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:YUP:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:YUP:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
 
 
     * - MR1K1:BEND:MMS:YUP:PLC:stEPSB:bEPS_OK_RBV
@@ -41457,6 +41901,78 @@ Database Records
         | update: 100hz notify
 
 
+    * - MR1K1:BEND:MMS:YDWN:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:YDWN:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:YDWN:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:YDWN:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:YDWN:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:YDWN:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:YDWN:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:YDWN:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:YDWN:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:YDWN:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:YDWN:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:YDWN:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
+
+
     * - MR1K1:BEND:MMS:YDWN:PLC:stEPSB:bEPS_OK_RBV
       - bi
       - check if nFlags are all true
@@ -41626,6 +42142,78 @@ Database Records
       - Message to identify the error state
       - | io: input
         | update: 100hz notify
+
+
+    * - MR1K1:BEND:MMS:XUP:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:XUP:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:XUP:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:XUP:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:XUP:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:XUP:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:XUP:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:XUP:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:XUP:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:XUP:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:XUP:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:XUP:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
 
 
     * - MR1K1:BEND:MMS:XUP:PLC:stEPSB:bEPS_OK_RBV
@@ -41799,6 +42387,78 @@ Database Records
         | update: 100hz notify
 
 
+    * - MR1K1:BEND:MMS:XDWN:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:XDWN:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:XDWN:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:XDWN:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:XDWN:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:XDWN:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:XDWN:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:XDWN:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:XDWN:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:XDWN:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:XDWN:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:XDWN:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
+
+
     * - MR1K1:BEND:MMS:XDWN:PLC:stEPSB:bEPS_OK_RBV
       - bi
       - check if nFlags are all true
@@ -41968,6 +42628,78 @@ Database Records
       - Message to identify the error state
       - | io: input
         | update: 100hz notify
+
+
+    * - MR1K1:BEND:MMS:PITCH:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:PITCH:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:PITCH:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:PITCH:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:PITCH:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:PITCH:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:PITCH:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:PITCH:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:PITCH:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:PITCH:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:PITCH:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:PITCH:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
 
 
     * - MR1K1:BEND:MMS:PITCH:PLC:stEPSB:bEPS_OK_RBV
@@ -42141,6 +42873,78 @@ Database Records
         | update: 100hz notify
 
 
+    * - MR1K1:BEND:MMS:US:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:US:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
+
+
     * - MR1K1:BEND:MMS:US:PLC:stEPSB:bEPS_OK_RBV
       - bi
       - check if nFlags are all true
@@ -42310,6 +43114,78 @@ Database Records
       - Message to identify the error state
       - | io: input
         | update: 100hz notify
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR1K1:BEND:MMS:DS:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
 
 
     * - MR1K1:BEND:MMS:DS:PLC:stEPSB:bEPS_OK_RBV
@@ -42483,6 +43359,78 @@ Database Records
         | update: 100hz notify
 
 
+    * - SL1K2:EXIT:MMS:PITCH:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:PITCH:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:PITCH:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:PITCH:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:PITCH:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:PITCH:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:PITCH:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:PITCH:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:PITCH:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:PITCH:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:PITCH:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:PITCH:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
+
+
     * - SL1K2:EXIT:MMS:PITCH:PLC:stEPSB:bEPS_OK_RBV
       - bi
       - check if nFlags are all true
@@ -42652,6 +43600,78 @@ Database Records
       - Message to identify the error state
       - | io: input
         | update: 100hz notify
+
+
+    * - MR1K2:SWITCH:MMS:YRIGHT:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:YRIGHT:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:YRIGHT:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:YRIGHT:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:YRIGHT:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:YRIGHT:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:YRIGHT:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:YRIGHT:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:YRIGHT:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:YRIGHT:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:YRIGHT:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:YRIGHT:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
 
 
     * - MR1K2:SWITCH:MMS:YRIGHT:PLC:stEPSB:bEPS_OK_RBV
@@ -42825,6 +43845,78 @@ Database Records
         | update: 100hz notify
 
 
+    * - SL1K2:EXIT:MMS:VERT:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:VERT:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:VERT:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:VERT:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:VERT:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:VERT:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:VERT:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:VERT:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:VERT:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:VERT:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:VERT:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:VERT:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
+
+
     * - SL1K2:EXIT:MMS:VERT:PLC:stEPSB:bEPS_OK_RBV
       - bi
       - check if nFlags are all true
@@ -42994,6 +44086,78 @@ Database Records
       - Message to identify the error state
       - | io: input
         | update: 100hz notify
+
+
+    * - SL1K2:EXIT:MMS:ROLL:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:ROLL:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:ROLL:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:ROLL:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:ROLL:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:ROLL:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:ROLL:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:ROLL:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:ROLL:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:ROLL:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:ROLL:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:ROLL:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
 
 
     * - SL1K2:EXIT:MMS:ROLL:PLC:stEPSB:bEPS_OK_RBV
@@ -43167,6 +44331,78 @@ Database Records
         | update: 100hz notify
 
 
+    * - SL1K2:EXIT:MMS:GAP:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:GAP:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:GAP:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:GAP:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:GAP:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:GAP:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:GAP:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:GAP:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:GAP:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:GAP:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:GAP:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:GAP:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
+
+
     * - SL1K2:EXIT:MMS:GAP:PLC:stEPSB:bEPS_OK_RBV
       - bi
       - check if nFlags are all true
@@ -43336,6 +44572,78 @@ Database Records
       - Message to identify the error state
       - | io: input
         | update: 100hz notify
+
+
+    * - SL1K2:EXIT:MMS:YAG:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:YAG:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:YAG:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:YAG:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:YAG:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:YAG:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:YAG:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:YAG:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:YAG:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:YAG:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:YAG:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - SL1K2:EXIT:MMS:YAG:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
 
 
     * - SL1K2:EXIT:MMS:YAG:PLC:stEPSB:bEPS_OK_RBV
@@ -43509,6 +44817,78 @@ Database Records
         | update: 100hz notify
 
 
+    * - ST1K1:ZOS:MMS:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - ST1K1:ZOS:MMS:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - ST1K1:ZOS:MMS:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - ST1K1:ZOS:MMS:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - ST1K1:ZOS:MMS:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - ST1K1:ZOS:MMS:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - ST1K1:ZOS:MMS:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - ST1K1:ZOS:MMS:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - ST1K1:ZOS:MMS:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - ST1K1:ZOS:MMS:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - ST1K1:ZOS:MMS:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - ST1K1:ZOS:MMS:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
+
+
     * - ST1K1:ZOS:MMS:PLC:stEPSB:bEPS_OK_RBV
       - bi
       - check if nFlags are all true
@@ -43678,6 +45058,78 @@ Database Records
       - Message to identify the error state
       - | io: input
         | update: 100hz notify
+
+
+    * - MR2K2:FLAT:MMS:X:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:X:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:X:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:X:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:X:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:X:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:X:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:X:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:X:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:X:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:X:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:X:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
 
 
     * - MR2K2:FLAT:MMS:X:PLC:stEPSB:bEPS_OK_RBV
@@ -43851,6 +45303,78 @@ Database Records
         | update: 100hz notify
 
 
+    * - MR2K2:FLAT:MMS:Y:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:Y:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:Y:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:Y:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:Y:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:Y:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:Y:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:Y:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:Y:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:Y:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:Y:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:Y:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
+
+
     * - MR2K2:FLAT:MMS:Y:PLC:stEPSB:bEPS_OK_RBV
       - bi
       - check if nFlags are all true
@@ -44020,6 +45544,78 @@ Database Records
       - Message to identify the error state
       - | io: input
         | update: 100hz notify
+
+
+    * - MR2K2:FLAT:MMS:PITCH:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:PITCH:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:PITCH:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:PITCH:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:PITCH:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:PITCH:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:PITCH:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:PITCH:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:PITCH:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:PITCH:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:PITCH:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR2K2:FLAT:MMS:PITCH:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
 
 
     * - MR2K2:FLAT:MMS:PITCH:PLC:stEPSB:bEPS_OK_RBV
@@ -44193,6 +45789,78 @@ Database Records
         | update: 100hz notify
 
 
+    * - MR3K2:KBH:MMS:X:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:X:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:X:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:X:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:X:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:X:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:X:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:X:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:X:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:X:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:X:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:X:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
+
+
     * - MR3K2:KBH:MMS:X:PLC:stEPSB:bEPS_OK_RBV
       - bi
       - check if nFlags are all true
@@ -44362,6 +46030,78 @@ Database Records
       - Message to identify the error state
       - | io: input
         | update: 100hz notify
+
+
+    * - MR3K2:KBH:MMS:Y:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:Y:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:Y:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:Y:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:Y:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:Y:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:Y:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:Y:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:Y:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:Y:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:Y:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:Y:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
 
 
     * - MR3K2:KBH:MMS:Y:PLC:stEPSB:bEPS_OK_RBV
@@ -44535,6 +46275,78 @@ Database Records
         | update: 100hz notify
 
 
+    * - MR1K2:SWITCH:MMS:XUP:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:XUP:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:XUP:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:XUP:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:XUP:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:XUP:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:XUP:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:XUP:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:XUP:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:XUP:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:XUP:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:XUP:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
+
+
     * - MR1K2:SWITCH:MMS:XUP:PLC:stEPSB:bEPS_OK_RBV
       - bi
       - check if nFlags are all true
@@ -44704,6 +46516,78 @@ Database Records
       - Message to identify the error state
       - | io: input
         | update: 100hz notify
+
+
+    * - MR3K2:KBH:MMS:PITCH:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:PITCH:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:PITCH:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:PITCH:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:PITCH:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:PITCH:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:PITCH:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:PITCH:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:PITCH:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:PITCH:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:PITCH:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:PITCH:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
 
 
     * - MR3K2:KBH:MMS:PITCH:PLC:stEPSB:bEPS_OK_RBV
@@ -44877,6 +46761,78 @@ Database Records
         | update: 100hz notify
 
 
+    * - MR3K2:KBH:MMS:BEND:US:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:BEND:US:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:BEND:US:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:BEND:US:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:BEND:US:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:BEND:US:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:BEND:US:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:BEND:US:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:BEND:US:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:BEND:US:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:BEND:US:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:BEND:US:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
+
+
     * - MR3K2:KBH:MMS:BEND:US:PLC:stEPSB:bEPS_OK_RBV
       - bi
       - check if nFlags are all true
@@ -45046,6 +47002,78 @@ Database Records
       - Message to identify the error state
       - | io: input
         | update: 100hz notify
+
+
+    * - MR3K2:KBH:MMS:BEND:DS:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:BEND:DS:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:BEND:DS:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:BEND:DS:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:BEND:DS:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:BEND:DS:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:BEND:DS:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:BEND:DS:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:BEND:DS:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:BEND:DS:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:BEND:DS:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR3K2:KBH:MMS:BEND:DS:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
 
 
     * - MR3K2:KBH:MMS:BEND:DS:PLC:stEPSB:bEPS_OK_RBV
@@ -45219,6 +47247,78 @@ Database Records
         | update: 100hz notify
 
 
+    * - MR4K2:KBV:MMS:X:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:X:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:X:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:X:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:X:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:X:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:X:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:X:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:X:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:X:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:X:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:X:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
+
+
     * - MR4K2:KBV:MMS:X:PLC:stEPSB:bEPS_OK_RBV
       - bi
       - check if nFlags are all true
@@ -45388,6 +47488,78 @@ Database Records
       - Message to identify the error state
       - | io: input
         | update: 100hz notify
+
+
+    * - MR4K2:KBV:MMS:Y:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:Y:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:Y:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:Y:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:Y:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:Y:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:Y:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:Y:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:Y:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:Y:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:Y:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:Y:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
 
 
     * - MR4K2:KBV:MMS:Y:PLC:stEPSB:bEPS_OK_RBV
@@ -45561,6 +47733,78 @@ Database Records
         | update: 100hz notify
 
 
+    * - MR4K2:KBV:MMS:PITCH:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:PITCH:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:PITCH:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:PITCH:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:PITCH:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:PITCH:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:PITCH:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:PITCH:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:PITCH:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:PITCH:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:PITCH:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:PITCH:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
+
+
     * - MR4K2:KBV:MMS:PITCH:PLC:stEPSB:bEPS_OK_RBV
       - bi
       - check if nFlags are all true
@@ -45730,6 +47974,78 @@ Database Records
       - Message to identify the error state
       - | io: input
         | update: 100hz notify
+
+
+    * - MR4K2:KBV:MMS:BEND:US:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:BEND:US:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:BEND:US:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:BEND:US:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:BEND:US:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:BEND:US:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:BEND:US:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:BEND:US:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:BEND:US:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:BEND:US:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:BEND:US:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:BEND:US:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
 
 
     * - MR4K2:KBV:MMS:BEND:US:PLC:stEPSB:bEPS_OK_RBV
@@ -45903,6 +48219,78 @@ Database Records
         | update: 100hz notify
 
 
+    * - MR4K2:KBV:MMS:BEND:DS:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:BEND:DS:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:BEND:DS:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:BEND:DS:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:BEND:DS:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:BEND:DS:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:BEND:DS:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:BEND:DS:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:BEND:DS:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:BEND:DS:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:BEND:DS:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR4K2:KBV:MMS:BEND:DS:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
+
+
     * - MR4K2:KBV:MMS:BEND:DS:PLC:stEPSB:bEPS_OK_RBV
       - bi
       - check if nFlags are all true
@@ -46072,6 +48460,78 @@ Database Records
       - Message to identify the error state
       - | io: input
         | update: 100hz notify
+
+
+    * - MR1K2:SWITCH:MMS:XDWN:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:XDWN:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:XDWN:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:XDWN:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:XDWN:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:XDWN:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:XDWN:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:XDWN:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:XDWN:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:XDWN:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:XDWN:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:XDWN:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
 
 
     * - MR1K2:SWITCH:MMS:XDWN:PLC:stEPSB:bEPS_OK_RBV
@@ -46245,6 +48705,78 @@ Database Records
         | update: 100hz notify
 
 
+    * - MR1K2:SWITCH:MMS:PITCH:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:PITCH:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:PITCH:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:PITCH:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:PITCH:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:PITCH:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:PITCH:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:PITCH:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:PITCH:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:PITCH:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:PITCH:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - MR1K2:SWITCH:MMS:PITCH:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
+
+
     * - MR1K2:SWITCH:MMS:PITCH:PLC:stEPSB:bEPS_OK_RBV
       - bi
       - check if nFlags are all true
@@ -46414,6 +48946,78 @@ Database Records
       - Message to identify the error state
       - | io: input
         | update: 100hz notify
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_PI:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
 
 
     * - SP1K1:MONO:MMS:M_PI:PLC:stEPSB:bEPS_OK_RBV
@@ -46587,6 +49191,78 @@ Database Records
         | update: 100hz notify
 
 
+    * - SP1K1:MONO:MMS:G_PI:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_PI:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
+
+
     * - SP1K1:MONO:MMS:G_PI:PLC:stEPSB:bEPS_OK_RBV
       - bi
       - check if nFlags are all true
@@ -46758,6 +49434,78 @@ Database Records
         | update: 100hz notify
 
 
+    * - SP1K1:MONO:MMS:M_H:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:M_H:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
+
+
     * - SP1K1:MONO:MMS:M_H:PLC:stEPSB:bEPS_OK_RBV
       - bi
       - check if nFlags are all true
@@ -46927,6 +49675,78 @@ Database Records
       - Message to identify the error state
       - | io: input
         | update: 100hz notify
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:AxisPar:PosLagEn_RBV
+      - longin
+      - TRUE if position lag monitor (also known as stall monitor) is enabled.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:AxisPar:SLimMaxEn_RBV
+      - longin
+      - TRUE if controller static maximum limit is enabled.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:AxisPar:SLimMinEn_RBV
+      - longin
+      - TRUE if controller static minimum limit is enabled.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:AxisPar:MaxAccel_RBV
+      - ai
+      - Maximum rate of increase in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:AxisPar:PosLagVal_RBV
+      - ai
+      - Maximum magnitude of position lag in EU.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:AxisPar:PosLagTime_RBV
+      - ai
+      - Maximum allowable duration outside of maximum position lag value in seconds.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:AxisPar:MaxDecel_RBV
+      - ai
+      - Maximum rate of decrease in speed of the axis in EU/s^2.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:AxisPar:EncOffset_RBV
+      - ai
+      - Encoder offset in EU.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:AxisPar:EncScaling_RBV
+      - ai
+      - Encoder scaling numerator / denominator in EU/COUNT.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:AxisPar:SLimMax_RBV
+      - ai
+      - Maximum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:AxisPar:SLimMin_RBV
+      - ai
+      - Minimum commandable position of the axis in EU.
+      - | io: input
+
+
+    * - SP1K1:MONO:MMS:G_H:PLC:AxisPar:MaxVel_RBV
+      - ai
+      - Maximum commandable speed of the axis in EU/s.
+      - | io: input
 
 
     * - SP1K1:MONO:MMS:G_H:PLC:stEPSB:bEPS_OK_RBV
@@ -50504,6 +53324,78 @@ Database Records
         | io: input
 
 
+    * - SP1K1:MONO:RTD:10:CONN_RBV
+      - bi
+      - PRG_SP1K1_MONO.RTD10.bConnected
+      - | field: ONAM Connected
+        | field: ZNAM Disconnected
+        | io: input
+
+
+    * - SP1K1:MONO:RTD:10:ERR_RBV
+      - bi
+      - PRG_SP1K1_MONO.RTD10.bError
+      - | field: ONAM True
+        | field: ZNAM False
+        | io: input
+
+
+    * - SP1K1:MONO:RTD:10:TEMP_RBV
+      - ai
+      - PRG_SP1K1_MONO.RTD10.fTemp
+      - | field: EGU C
+        | field: PREC 2
+        | io: input
+
+
+    * - SP1K1:MONO:RTD:11:CONN_RBV
+      - bi
+      - PRG_SP1K1_MONO.RTD11.bConnected
+      - | field: ONAM Connected
+        | field: ZNAM Disconnected
+        | io: input
+
+
+    * - SP1K1:MONO:RTD:11:ERR_RBV
+      - bi
+      - PRG_SP1K1_MONO.RTD11.bError
+      - | field: ONAM True
+        | field: ZNAM False
+        | io: input
+
+
+    * - SP1K1:MONO:RTD:11:TEMP_RBV
+      - ai
+      - PRG_SP1K1_MONO.RTD11.fTemp
+      - | field: EGU C
+        | field: PREC 2
+        | io: input
+
+
+    * - SP1K1:MONO:RTD:12:CONN_RBV
+      - bi
+      - PRG_SP1K1_MONO.RTD12.bConnected
+      - | field: ONAM Connected
+        | field: ZNAM Disconnected
+        | io: input
+
+
+    * - SP1K1:MONO:RTD:12:ERR_RBV
+      - bi
+      - PRG_SP1K1_MONO.RTD12.bError
+      - | field: ONAM True
+        | field: ZNAM False
+        | io: input
+
+
+    * - SP1K1:MONO:RTD:12:TEMP_RBV
+      - ai
+      - PRG_SP1K1_MONO.RTD12.fTemp
+      - | field: EGU C
+        | field: PREC 2
+        | io: input
+
+
     * - SP1K1:MONO:RTD:02:CONN_RBV
       - bi
       - PRG_SP1K1_MONO.RTD2.bConnected
@@ -50667,6 +53559,30 @@ Database Records
     * - SP1K1:MONO:RTD:08:TEMP_RBV
       - ai
       - PRG_SP1K1_MONO.RTD8.fTemp
+      - | field: EGU C
+        | field: PREC 2
+        | io: input
+
+
+    * - SP1K1:MONO:RTD:09:CONN_RBV
+      - bi
+      - PRG_SP1K1_MONO.RTD9.bConnected
+      - | field: ONAM Connected
+        | field: ZNAM Disconnected
+        | io: input
+
+
+    * - SP1K1:MONO:RTD:09:ERR_RBV
+      - bi
+      - PRG_SP1K1_MONO.RTD9.bError
+      - | field: ONAM True
+        | field: ZNAM False
+        | io: input
+
+
+    * - SP1K1:MONO:RTD:09:TEMP_RBV
+      - ai
+      - PRG_SP1K1_MONO.RTD9.fTemp
       - | field: EGU C
         | field: PREC 2
         | io: input

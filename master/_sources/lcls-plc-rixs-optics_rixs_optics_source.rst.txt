@@ -444,9 +444,9 @@ Main
         '}
         M2 : ST_MotionStage := (fVelocity:=100.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=True); // M1K2 Yright
         fbMotionStage_m2 : FB_MotionStage;
-
         {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K2_Xup]^STM Status^Status^Digital input 1;
-                                  .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Xup]^STM Status^Status^Digital input 2'}
+                                  .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Xup]^STM Status^Status^Digital input 2;
+                                   .nRawEncoderULINT:=TIIB[EL5042_M1K2_Xupdwn]^FB Inputs Channel 1^Position'}
         {attribute 'pytmc' := '
             pv: MR1K2:SWITCH:MMS:XUP
         '}
@@ -454,7 +454,8 @@ Main
         fbMotionStage_m3 : FB_MotionStage;
 
         {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K2_Xdwn]^STM Status^Status^Digital input 1;
-                                  .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Xdwn]^STM Status^Status^Digital input 2'}
+                                  .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Xdwn]^STM Status^Status^Digital input 2;
+                                  .nRawEncoderULINT:=TIIB[EL5042_M1K2_Xupdwn]^FB Inputs Channel 1^Position'}
         {attribute 'pytmc' := '
             pv: MR1K2:SWITCH:MMS:XDWN
         '}
@@ -515,17 +516,17 @@ Main
         // need to fix Axis IDs for IOC to work
         // For now just want functional PLC project
         // Motors
-        {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K1_Yup]^STM Status^Status^Digital input 1;
-                                  .bLimitBackwardEnable:=TIIB[EL7047_M1K1_Ydwn]^STM Status^Status^Digital input 2;
+
+        {attribute 'TcLinkTo' := '.bLimitBackwardEnable:=TIIB[EL7047_M1K1_Ydwn]^STM Status^Status^Digital input 2;
+                                  .bLimitForwardEnable:=TIIB[EL7047_M1K1_Ydwn]^STM Status^Status^Digital input 1;
                                   .nRawEncoderULINT:=TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 1^Position'}
         {attribute 'pytmc' := '
             pv: MR1K1:BEND:MMS:YUP
         '}
         M12 : ST_MotionStage := (fVelocity:=100.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=True); // M1K1 Yup
         fbMotionStage_m12 : FB_MotionStage;
-
         {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K1_Ydwn]^STM Status^Status^Digital input 1;
-                                  .bLimitBackwardEnable:=TIIB[EL7047_M1K1_Ydwn]^STM Status^Status^Digital input 2'}
+                            .bLimitBackwardEnable:=TIIB[EL7047_M1K1_Ydwn]^STM Status^Status^Digital input 2'}
         {attribute 'pytmc' := '
             pv: MR1K1:BEND:MMS:YDWN
         '}
@@ -554,7 +555,7 @@ Main
         {attribute 'pytmc' := '
             pv: MR1K1:BEND:MMS:PITCH
         '}
-        M16 : ST_MotionStage := (fVelocity:=30.0, nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=True); // M1K1 Pitch Stepper
+        M16 : ST_MotionStage := (fVelocity:=30.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=True); // M1K1 Pitch Stepper
 
         {attribute 'TcLinkTo' := '.bLimitBackwardEnable:=TIIB[EL7041_M1K1_BEND_US]^STM Status^Status^Digital input 2;
                                   .nRawEncoderULINT    := TIIB[EL5042_M1K1_BEND_USDS]^FB Inputs Channel 1^Position'}
@@ -608,8 +609,8 @@ Main
         '}
         M22 : ST_MotionStage := (sName:= 'SL1K2:EXIT:MMS:GAP',fVelocity :=0.1); // GAP
 
-        {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_YAG]^STM Status^Status^Digital input 1;
-                                  .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_YAG]^STM Status^Status^Digital input 2;
+        {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_YAG]^STM Status^Status^Digital input 2;
+                                  .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_YAG]^STM Status^Status^Digital input 1;
                                   .nRawEncoderULINT      := TIIB[EL5042_SL1K2_YAG]^FB Inputs Channel 1^Position'}
         {attribute 'pytmc' := '
             pv: SL1K2:EXIT:MMS:YAG
@@ -3382,82 +3383,114 @@ PRG_SP1K1_MONO
             pv: SP1K1:MONO:RTD:01
             io: o
         '}
-         {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 1^Value;
-                                  .bError := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 1^Status^Error;
-                                  .bUnderrange := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 1^Status^Underrange;
-                                  .bOverrange := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 1^Status^Overrange'}
+         {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EP3204-0002-EP2]^RTD RTDInputs Channel 1^Value;
+                                  .bError := TIIB[SP1K1-EP3204-0002-EP2]^RTD RTDInputs Channel 1^Status^Error;
+                                  .bUnderrange := TIIB[SP1K1-EP3204-0002-EP2]^RTD RTDInputs Channel 1^Status^Underrange;
+                                  .bOverrange := TIIB[SP1K1-EP3204-0002-EP2]^RTD RTDInputs Channel 1^Status^Overrange'}
         RTD1 : FB_TempSensor;
 
         {attribute 'pytmc' := '
             pv: SP1K1:MONO:RTD:02
             io: o
         '}
-        {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 2^Value;
-                                  .bError := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 2^Status^Error;
-                                  .bUnderrange := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 2^Status^Underrange;
-                                  .bOverrange := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 2^Status^Overrange'}
+        {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EP3204-0002-EP2]^RTD RTDInputs Channel 2^Value;
+                                  .bError := TIIB[SP1K1-EP3204-0002-EP2]^RTD RTDInputs Channel 2^Status^Error;
+                                  .bUnderrange := TIIB[SP1K1-EP3204-0002-EP2]^RTD RTDInputs Channel 2^Status^Underrange;
+                                  .bOverrange := TIIB[SP1K1-EP3204-0002-EP2]^RTD RTDInputs Channel 2^Status^Overrange'}
         RTD2 : FB_TempSensor;
-
-        {attribute 'pytmc' := '
+            {attribute 'pytmc' := '
             pv: SP1K1:MONO:RTD:03
             io: o
         '}
-         {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 1^Value;
-                                  .bError := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 1^Status^Error;
-                                  .bUnderrange := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 1^Status^Underrange;
-                                  .bOverrange := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 1^Status^Overrange'}
-        RTD3 :FB_TempSensor;
-
-        {attribute 'pytmc' := '
+         {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EP3204-0002-EP2]^RTD RTDInputs Channel 3^Value;
+                                  .bError := TIIB[SP1K1-EP3204-0002-EP2]^RTD RTDInputs Channel 3^Status^Error;
+                                  .bUnderrange := TIIB[SP1K1-EP3204-0002-EP2]^RTD RTDInputs Channel 3^Status^Underrange;
+                                  .bOverrange := TIIB[SP1K1-EP3204-0002-EP2]^RTD RTDInputs Channel 3^Status^Overrange'}
+        RTD3 : FB_TempSensor;
+            {attribute 'pytmc' := '
             pv: SP1K1:MONO:RTD:04
             io: o
         '}
-        {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 2^Value;
-                                  .bError := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 2^Status^Error;
-                                  .bUnderrange := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 2^Status^Underrange;
-                                  .bOverrange := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 2^Status^Overrange'}
+         {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EP3204-0002-EP2]^RTD RTDInputs Channel 4^Value;
+                                  .bError := TIIB[SP1K1-EP3204-0002-EP2]^RTD RTDInputs Channel 4^Status^Error;
+                                  .bUnderrange := TIIB[SP1K1-EP3204-0002-EP2]^RTD RTDInputs Channel 4^Status^Underrange;
+                                  .bOverrange := TIIB[SP1K1-EP3204-0002-EP2]^RTD RTDInputs Channel 4^Status^Overrange'}
         RTD4 : FB_TempSensor;
 
-            {attribute 'pytmc' := '
+        {attribute 'pytmc' := '
             pv: SP1K1:MONO:RTD:05
             io: o
         '}
-        {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 1^Value;
+         {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 1^Value;
                                   .bError := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 1^Status^Error;
                                   .bUnderrange := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 1^Status^Underrange;
                                   .bOverrange := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 1^Status^Overrange'}
-        RTD5 : FB_TempSensor;
+        RTD5 :FB_TempSensor;
 
         {attribute 'pytmc' := '
             pv: SP1K1:MONO:RTD:06
             io: o
         '}
-        {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 2^Value;
+         {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 2^Value;
                                   .bError := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 2^Status^Error;
                                   .bUnderrange := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 2^Status^Underrange;
                                   .bOverrange := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 2^Status^Overrange'}
-        RTD6 : FB_TempSensor;
+        RTD6 :FB_TempSensor;
 
         {attribute 'pytmc' := '
             pv: SP1K1:MONO:RTD:07
             io: o
         '}
-        {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 1^Value;
-                                  .bError := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 1^Status^Error;
-                                  .bUnderrange := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 1^Status^Underrange;
-                                  .bOverrange := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 1^Status^Overrange'}
-        RTD7 : FB_TempSensor;
-
+         {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 3^Value;
+                                  .bError := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 3^Status^Error;
+                                  .bUnderrange := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 3^Status^Underrange;
+                                  .bOverrange := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 3^Status^Overrange'}
+        RTD7 :FB_TempSensor;
         {attribute 'pytmc' := '
             pv: SP1K1:MONO:RTD:08
             io: o
         '}
-        {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 2^Value;
+         {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 4^Value;
+                                  .bError := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 4^Status^Error;
+                                  .bUnderrange := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 4^Status^Underrange;
+                                  .bOverrange := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 4^Status^Overrange'}
+        RTD8 :FB_TempSensor;
+        {attribute 'pytmc' := '
+            pv: SP1K1:MONO:RTD:09
+            io: o
+        '}
+         {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 1^Value;
+                                  .bError := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 1^Status^Error;
+                                  .bUnderrange := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 1^Status^Underrange;
+                                  .bOverrange := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 1^Status^Overrange'}
+        RTD9 :FB_TempSensor;
+            {attribute 'pytmc' := '
+            pv: SP1K1:MONO:RTD:10
+            io: o
+        '}
+         {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 2^Value;
                                   .bError := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 2^Status^Error;
                                   .bUnderrange := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 2^Status^Underrange;
                                   .bOverrange := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 2^Status^Overrange'}
-        RTD8 :FB_TempSensor;
-
+        RTD10 :FB_TempSensor;
+            {attribute 'pytmc' := '
+            pv: SP1K1:MONO:RTD:11
+            io: o
+        '}
+         {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 3^Value;
+                                  .bError := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 3^Status^Error;
+                                  .bUnderrange := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 3^Status^Underrange;
+                                  .bOverrange := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 3^Status^Overrange'}
+        RTD11 :FB_TempSensor;
+        {attribute 'pytmc' := '
+            pv: SP1K1:MONO:RTD:12
+            io: o
+        '}
+         {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 4^Value;
+                                  .bError := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 4^Status^Error;
+                                  .bUnderrange := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 4^Status^Underrange;
+                                  .bOverrange := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 4^Status^Overrange'}
+        RTD12 :FB_TempSensor;
 
 
 
@@ -3563,15 +3596,18 @@ PRG_SP1K1_MONO
     gpi_upeurad := ULINT_TO_LREAL(gpi_upe.Count)*0.0066667;
 
     (*RTDs*)
-    RTD1();
-    RTD2();
-    RTD3();
-    RTD4();
+    RTD1(fResolution:=0.01);
+    RTD2(fResolution:=0.01);
+    RTD3(fResolution:=0.01);
+    RTD4(fResolution:=0.01);
     RTD5();
     RTD6();
     RTD7();
     RTD8();
-
+    RTD9();
+    RTD10();
+    RTD11();
+    RTD12();
     //Evaluate the encoder reading for the screw driver encoder. Fast fault when it is not out.
     // i.e. encoder value must be greater than the out position (75000.29 - 1000u)
     IF( M10.Axis.NcToPlc.ActPos < sd_io_e_pmps) THEN
@@ -3740,8 +3776,8 @@ PRG_Stats
     VAR
         // SP1K1 Grating Mono Vibration Stats
         fGpiEncoderPosDiff: LREAL;
-        afGpiPosDiffBuffer: ARRAY[1..10000] OF LREAL;
-        afGpiExtraBuffer: ARRAY[1..10000] OF LREAL;
+        afGpiPosDiffBuffer: ARRAY[1..1000] OF LREAL;
+        afGpiExtraBuffer: ARRAY[1..1000] OF LREAL;
         fbGpiPosDiffCollect: FB_DataBuffer;
         {attribute 'pytmc' := '
             pv: SP1K1:MONO:MMS:G_PI:ENCDIFF
@@ -3776,7 +3812,7 @@ PRG_Stats
         bExecute:=TRUE,
         pInputAdr:=ADR(fGpiEncoderPosDiff),
         iInputSize:=SIZEOF(fGpiEncoderPosDiff),
-        iElemCount:=10000,
+        iElemCount:=1000,
         pPartialAdr:=ADR(afGpiPosDiffBuffer),
         pOutputAdr:=ADR(afGpiExtraBuffer),
     );

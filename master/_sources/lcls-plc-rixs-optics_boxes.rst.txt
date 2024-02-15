@@ -5530,140 +5530,6 @@ PDO AI Compact Channel 4 (Index #x1a07, Flags #x0010, SyncMan )
    </details>
 
 
-SP1K1-EL3202-E13
-^^^^^^^^^^^^^^^^
-
-
-.. raw:: html
-
-   <details>
-        <summary>EtherCAT (2 PDOs)</summary>
-
-.. csv-table:: Basic Settings
-    :header: Name, Data
-    :align: center
-
-    Name, SP1K1-EL3202-E13
-    ID, 37
-        BootStrapData, 0010f400f410f400
-        SyncMan, 001080002600010001000000800080008000001026010000
-        SyncMan, 801080002200010002000000800080008000801022010000
-        SyncMan, 001100000400000003000000000000000000001104000000
-        SyncMan, 801108002000010004000000000000000800801120010000
-        Fmmu, 0000000000000000801100010100000002000000000000000000000000000000
-        Fmmu, 00000000000000000d0800010100000003000000000000000000000000000000
-        CoeProfile, 20976521
-        CoeProfile, 20976521
-
-
-
-PDO RTD Inputs Channel 1 (Index #x1a00, Flags #x0011, SyncMan 3)
-
-.. csv-table::
-    :header: Name, Comment, BitLen, Index, Type
-    :align: center
-
-        "Status__Underrange", "", , "#x6000", "BIT"
-        "Status__Overrange", "", , "#x6000", "BIT"
-        "Status__Limit 1", "", , "#x6000", "BIT2"
-        "Status__Limit 2", "", , "#x6000", "BIT2"
-        "Status__Error", "", , "#x6000", "BIT"
-        "None", "", , "", "ARRAY [0..6] OF BIT"
-        "Status__TxPDO State", "", , "#x1800", "BIT"
-        "Status__TxPDO Toggle", "", , "#x1800", "BIT"
-        "Value", "", , "#x6000", "INT"
-
-
-
-PDO RTD Inputs Channel 2 (Index #x1a01, Flags #x0011, SyncMan 3)
-
-.. csv-table::
-    :header: Name, Comment, BitLen, Index, Type
-    :align: center
-
-        "Status__Underrange", "", , "#x6010", "BIT"
-        "Status__Overrange", "", , "#x6010", "BIT"
-        "Status__Limit 1", "", , "#x6010", "BIT2"
-        "Status__Limit 2", "", , "#x6010", "BIT2"
-        "Status__Error", "", , "#x6010", "BIT"
-        "None", "", , "", "ARRAY [0..6] OF BIT"
-        "Status__TxPDO State", "", , "#x1801", "BIT"
-        "Status__TxPDO Toggle", "", , "#x1801", "BIT"
-        "Value", "", , "#x6010", "INT"
-
-
-.. raw:: html
-
-   </details>
-
-
-SP1K1-EL3202-E14
-^^^^^^^^^^^^^^^^
-
-
-.. raw:: html
-
-   <details>
-        <summary>EtherCAT (2 PDOs)</summary>
-
-.. csv-table:: Basic Settings
-    :header: Name, Data
-    :align: center
-
-    Name, SP1K1-EL3202-E14
-    ID, 38
-        BootStrapData, 0010f400f410f400
-        SyncMan, 001080002600010001000000800080008000001026010000
-        SyncMan, 801080002200010002000000800080008000801022010000
-        SyncMan, 001100000400000003000000000000000000001104000000
-        SyncMan, 801108002000010004000000000000000800801120010000
-        Fmmu, 0000000000000000801100010100000002000000000000000000000000000000
-        Fmmu, 00000000000000000d0800010100000003000000000000000000000000000000
-        CoeProfile, 20976521
-        CoeProfile, 20976521
-
-
-
-PDO RTD Inputs Channel 1 (Index #x1a00, Flags #x0011, SyncMan 3)
-
-.. csv-table::
-    :header: Name, Comment, BitLen, Index, Type
-    :align: center
-
-        "Status__Underrange", "", , "#x6000", "BIT"
-        "Status__Overrange", "", , "#x6000", "BIT"
-        "Status__Limit 1", "", , "#x6000", "BIT2"
-        "Status__Limit 2", "", , "#x6000", "BIT2"
-        "Status__Error", "", , "#x6000", "BIT"
-        "None", "", , "", "ARRAY [0..6] OF BIT"
-        "Status__TxPDO State", "", , "#x1800", "BIT"
-        "Status__TxPDO Toggle", "", , "#x1800", "BIT"
-        "Value", "", , "#x6000", "INT"
-
-
-
-PDO RTD Inputs Channel 2 (Index #x1a01, Flags #x0011, SyncMan 3)
-
-.. csv-table::
-    :header: Name, Comment, BitLen, Index, Type
-    :align: center
-
-        "Status__Underrange", "", , "#x6010", "BIT"
-        "Status__Overrange", "", , "#x6010", "BIT"
-        "Status__Limit 1", "", , "#x6010", "BIT2"
-        "Status__Limit 2", "", , "#x6010", "BIT2"
-        "Status__Error", "", , "#x6010", "BIT"
-        "None", "", , "", "ARRAY [0..6] OF BIT"
-        "Status__TxPDO State", "", , "#x1801", "BIT"
-        "Status__TxPDO Toggle", "", , "#x1801", "BIT"
-        "Value", "", , "#x6010", "INT"
-
-
-.. raw:: html
-
-   </details>
-
-
 SP1K1-EL3204-E15
 ^^^^^^^^^^^^^^^^
 
@@ -20612,6 +20478,115 @@ PDO AI Compact Channel 2 (Index #x1a03, Flags #x0010, SyncMan )
     :align: center
 
         "Value", "", , "#x6010", "INT"
+
+
+.. raw:: html
+
+   </details>
+
+
+SP1K1-EP3204-0002-EP2
+^^^^^^^^^^^^^^^^^^^^^
+
+
+.. raw:: html
+
+   <details>
+        <summary>EtherCAT (4 PDOs)</summary>
+
+.. csv-table:: Basic Settings
+    :header: Name, Data
+    :align: center
+
+    Name, SP1K1-EP3204-0002-EP2
+    ID, 248
+        BootStrapData, 0010f400f410f400
+        SyncMan, 001080002600010001000000800080008000001026010000
+        SyncMan, 801080002200010002000000800080008000801022010000
+        SyncMan, 001100000400000003000000000000000000001104000000
+        SyncMan, 801110002000010004000000000000001000801120010000
+        Fmmu, 0000000000000000801100010100000002000000000000000000000000000000
+        Fmmu, 00000000000000000d0800010100000003000000000000000000000000000000
+        CoeProfile, 20976521
+        CoeProfile, 20976521
+        CoeProfile, 20976521
+        CoeProfile, 20976521
+
+
+
+PDO RTD RTDInputs Channel 1 (Index #x1a00, Flags #x0010, SyncMan 3)
+
+.. csv-table::
+    :header: Name, Comment, BitLen, Index, Type
+    :align: center
+
+        "Status__Underrange", "Set if the measurement or data range is exceeded", , "#x6000", "BIT"
+        "Status__Overrange", "Set if the measurement or data range is exceeded", , "#x6000", "BIT"
+        "Status__Limit 1", "Bit0: Value is less than or equal to limit 1 Bit1: Value is greater than or equal to limit 1", , "#x6000", "BIT2"
+        "Status__Limit 2", "Bit0: Value is less than or equal to limit 2 Bit1: Value is greater than or equal to limit 2", , "#x6000", "BIT2"
+        "Status__Error", "Set when over- or underrange occured", , "#x6000", "BIT"
+        "None", "", , "", "ARRAY [0..5] OF BIT"
+        "Status__Sync error", "", , "#x6000", "BIT"
+        "Status__TxPDO State", "", , "#x1800", "BIT"
+        "Status__TxPDO Toggle", "", , "#x1800", "BIT"
+        "Value", "", , "#x6000", "INT"
+
+
+
+PDO RTD RTDInputs Channel 2 (Index #x1a01, Flags #x0010, SyncMan 3)
+
+.. csv-table::
+    :header: Name, Comment, BitLen, Index, Type
+    :align: center
+
+        "Status__Underrange", "Set if the measurement or data range is exceeded", , "#x6010", "BIT"
+        "Status__Overrange", "Set if the measurement or data range is exceeded", , "#x6010", "BIT"
+        "Status__Limit 1", "Bit0: Value is less than or equal to limit 1 Bit1: Value is greater than or equal to limit 1", , "#x6010", "BIT2"
+        "Status__Limit 2", "Bit0: Value is less than or equal to limit 2 Bit1: Value is greater than or equal to limit 2", , "#x6010", "BIT2"
+        "Status__Error", "Set when over- or underrange occured", , "#x6010", "BIT"
+        "None", "", , "", "ARRAY [0..5] OF BIT"
+        "Status__Sync error", "", , "#x6010", "BIT"
+        "Status__TxPDO State", "", , "#x1801", "BIT"
+        "Status__TxPDO Toggle", "", , "#x1801", "BIT"
+        "Value", "", , "#x6010", "INT"
+
+
+
+PDO RTD RTDInputs Channel 3 (Index #x1a02, Flags #x0010, SyncMan 3)
+
+.. csv-table::
+    :header: Name, Comment, BitLen, Index, Type
+    :align: center
+
+        "Status__Underrange", "Set if the measurement or data range is exceeded", , "#x6020", "BIT"
+        "Status__Overrange", "Set if the measurement or data range is exceeded", , "#x6020", "BIT"
+        "Status__Limit 1", "Bit0: Value is less than or equal to limit 1 Bit1: Value is greater than or equal to limit 1", , "#x6020", "BIT2"
+        "Status__Limit 2", "Bit0: Value is less than or equal to limit 2 Bit1: Value is greater than or equal to limit 2", , "#x6020", "BIT2"
+        "Status__Error", "Set when over- or underrange occured", , "#x6020", "BIT"
+        "None", "", , "", "ARRAY [0..5] OF BIT"
+        "Status__Sync error", "", , "#x6020", "BIT"
+        "Status__TxPDO State", "", , "#x1802", "BIT"
+        "Status__TxPDO Toggle", "", , "#x1802", "BIT"
+        "Value", "", , "#x6020", "INT"
+
+
+
+PDO RTD RTDInputs Channel 4 (Index #x1a03, Flags #x0010, SyncMan 3)
+
+.. csv-table::
+    :header: Name, Comment, BitLen, Index, Type
+    :align: center
+
+        "Status__Underrange", "Set if the measurement or data range is exceeded", , "#x6030", "BIT"
+        "Status__Overrange", "Set if the measurement or data range is exceeded", , "#x6030", "BIT"
+        "Status__Limit 1", "Bit0: Value is less than or equal to limit 1 Bit1: Value is greater than or equal to limit 1", , "#x6030", "BIT2"
+        "Status__Limit 2", "Bit0: Value is less than or equal to limit 2 Bit1: Value is greater than or equal to limit 2", , "#x6030", "BIT2"
+        "Status__Error", "Set when over- or underrange occured", , "#x6030", "BIT"
+        "None", "", , "", "ARRAY [0..5] OF BIT"
+        "Status__Sync error", "", , "#x6030", "BIT"
+        "Status__TxPDO State", "", , "#x1803", "BIT"
+        "Status__TxPDO Toggle", "", , "#x1803", "BIT"
+        "Value", "", , "#x6030", "INT"
 
 
 .. raw:: html
