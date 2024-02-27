@@ -222,10 +222,10 @@ mpi_upeurad := ULINT_TO_LREAL(mpi_upe.Count)*0.004505;
 gpi_upeurad := ULINT_TO_LREAL(gpi_upe.Count)*0.0066667;
 
 (*RTDs*)
-RTD1();
-RTD2();
-RTD3();
-RTD4();
+RTD1(fResolution:=0.01);
+RTD2(fResolution:=0.01);
+RTD3(fResolution:=0.01);
+RTD4(fResolution:=0.01);
 RTD5();
 RTD6();
 RTD7();
