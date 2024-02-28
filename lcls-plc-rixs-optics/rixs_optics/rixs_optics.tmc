@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass" Hash="{28463369-1E78-9975-DB5E-D0683DE89341}" GeneratedBy="TwinCAT XAE Plc">
+<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass" Hash="{C85B3384-5678-5727-ADC1-FE3E8545C97D}" GeneratedBy="TwinCAT XAE Plc">
   <DataTypes>
     <DataType>
       <Name Namespace="Tc2_SerialCom">ComSerialLineMode_t</Name>
@@ -93114,7 +93114,9 @@ M4K2 KBV X ENC CNT</Comment>
             <Properties>
               <Property>
                 <Name>TcLinkTo</Name>
-                <Value>.nRawEncoderULINT:=TIIB[EL5042_M1K2_Xupdwn]^FB Inputs Channel 1^Position</Value>
+                <Value>.bLimitForwardEnable:=TIIB[EL7047_M1K2_Xup]^STM Status^Status^Digital input 1;
+						      .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Xup]^STM Status^Status^Digital input 2;
+						 	  .nRawEncoderULINT:=TIIB[EL5042_M1K2_Xupdwn]^FB Inputs Channel 1^Position</Value>
               </Property>
               <Property>
                 <Name>pytmc</Name>
@@ -93161,7 +93163,9 @@ M4K2 KBV X ENC CNT</Comment>
             <Properties>
               <Property>
                 <Name>TcLinkTo</Name>
-                <Value>.nRawEncoderULINT:=TIIB[EL5042_M1K2_Xupdwn]^FB Inputs Channel 1^Position</Value>
+                <Value>.bLimitForwardEnable:=TIIB[EL7047_M1K2_Xdwn]^STM Status^Status^Digital input 1;
+                              .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Xdwn]^STM Status^Status^Digital input 2;
+							  .nRawEncoderULINT:=TIIB[EL5042_M1K2_Xupdwn]^FB Inputs Channel 1^Position</Value>
               </Property>
               <Property>
                 <Name>pytmc</Name>
@@ -95387,7 +95391,7 @@ M4K2 KBV X ENC CNT</Comment>
         </Property>
         <Property>
           <Name>ChangeDate</Name>
-          <Value>2024-02-27T16:51:26</Value>
+          <Value>2024-02-28T13:23:07</Value>
         </Property>
         <Property>
           <Name>GeneratedCodeSize</Name>
