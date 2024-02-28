@@ -1320,14 +1320,15 @@ External Setpoint Generation:
 		<AxisPara>
 			<General UnitName="urad"/>
 			<Dynamic Acceleration="2000" Deceleration="2000" Jerk="3000"/>
+			<Velo Maximum="200"/>
 			<TargetPosControl Range="0.05" Time="0.5"/>
 			<OtherSettings AllowMotionCmdToSlave="true"/>
 		</AxisPara>
 		<Encoder Name="e_dwn" EncType="29">
 			<EncPara ScaleFactorNumerator="0.004505" MaxCount="#xffffffff">
 				<FilterTime TPos="0.02"/>
-				<SoftEndMinControl Enable="true" Range="123475"/>
-				<SoftEndMaxControl Enable="true" Range="155739"/>
+				<SoftEndMinControl Enable="true" Range="133475"/>
+				<SoftEndMaxControl Range="147461"/>
 				<Inc RefSoftSyncMask="#x0000ffff"/>
 			</EncPara>
 			<Vars VarGrpType="1">
@@ -1437,7 +1438,7 @@ External Setpoint Generation:
 		</Drive>
 		<Controller Name="Ctrl" CtrType="3">
 			<CtrPara PriorControlFactor="0.8">
-				<PosDiffControl Range="100" Time="0.2"/>
+				<PosDiffControl Range="15" Time="0.2"/>
 				<PID PosKp="10" PosTn="1e-05" PosIOutputLimit="0.0005" PosDOutputLimit="0" PosIDisableWhenMoving="true" DeadBandPosition="0.01"/>
 				<Observer BandWidth="20"/>
 			</CtrPara>

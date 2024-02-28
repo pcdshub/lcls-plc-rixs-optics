@@ -28,17 +28,14 @@
     '}
     M2 : ST_MotionStage := (fVelocity:=100.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=True); // M1K2 Yright
     fbMotionStage_m2 : FB_MotionStage;
-
-    {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K2_Xup]^STM Status^Status^Digital input 1;
-                              .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Xup]^STM Status^Status^Digital input 2'}
+    {attribute 'TcLinkTo' := '.nRawEncoderULINT:=TIIB[EL5042_M1K2_Xupdwn]^FB Inputs Channel 1^Position'}
     {attribute 'pytmc' := '
         pv: MR1K2:SWITCH:MMS:XUP
     '}
     M3 : ST_MotionStage := (fVelocity:=150.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=True); // M1K2 Xup
     fbMotionStage_m3 : FB_MotionStage;
 
-    {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K2_Xdwn]^STM Status^Status^Digital input 1;
-                              .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Xdwn]^STM Status^Status^Digital input 2'}
+    {attribute 'TcLinkTo' := '.nRawEncoderULINT:=TIIB[EL5042_M1K2_Xupdwn]^FB Inputs Channel 1^Position'}
     {attribute 'pytmc' := '
         pv: MR1K2:SWITCH:MMS:XDWN
     '}
