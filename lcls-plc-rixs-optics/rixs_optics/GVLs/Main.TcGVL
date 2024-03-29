@@ -101,17 +101,17 @@
     // need to fix Axis IDs for IOC to work
     // For now just want functional PLC project
     // Motors
-    {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K1_Yup]^STM Status^Status^Digital input 1;
-                              .bLimitBackwardEnable:=TIIB[EL7047_M1K1_Ydwn]^STM Status^Status^Digital input 2;
+
+    {attribute 'TcLinkTo' := '.bLimitBackwardEnable:=TIIB[EL7047_M1K1_Ydwn]^STM Status^Status^Digital input 2;
+                              .bLimitForwardEnable:=TIIB[EL7047_M1K1_Ydwn]^STM Status^Status^Digital input 1;
                               .nRawEncoderULINT:=TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 1^Position'}
     {attribute 'pytmc' := '
         pv: MR1K1:BEND:MMS:YUP
     '}
     M12 : ST_MotionStage := (fVelocity:=100.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=True); // M1K1 Yup
     fbMotionStage_m12 : FB_MotionStage;
-
     {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K1_Ydwn]^STM Status^Status^Digital input 1;
-                              .bLimitBackwardEnable:=TIIB[EL7047_M1K1_Ydwn]^STM Status^Status^Digital input 2'}
+                        .bLimitBackwardEnable:=TIIB[EL7047_M1K1_Ydwn]^STM Status^Status^Digital input 2'}
     {attribute 'pytmc' := '
         pv: MR1K1:BEND:MMS:YDWN
     '}

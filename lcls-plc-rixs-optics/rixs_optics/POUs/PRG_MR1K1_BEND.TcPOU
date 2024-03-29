@@ -1,10 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="PRG_MR1K1_BEND" Id="{f3f12a20-b8bd-4f8a-96c6-66ebb9fb57e3}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_MR1K1_BEND
 VAR
-    {attribute 'TcLinkTo' := '.fbRunHOMS.bSTOEnable1:=TIIB[EL1004_M1K1_STO]^Channel 1^Input;
-                              .fbRunHOMS.bSTOEnable2:=TIIB[EL1004_M1K1_STO]^Channel 2^Input;
+    {attribute 'TcLinkTo' := '
                               .fbRunHOMS.stYupEnc.Count:=TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 1^Position;
                               .fbRunHOMS.stYdwnEnc.Count:=TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 2^Position;
                               .fbRunHOMS.stXupEnc.Count:=TIIB[EL5042_M1K1_Xupdwn]^FB Inputs Channel 1^Position;
@@ -284,7 +283,11 @@ nEncRefPitchM1K1 := LREAL_TO_UDINT(ABS(fEncRefPitchM1K1_urad) * fEncLeverArm_mm)
     fM1K1_Flow_2_val := fM1K1_Flow_2.fReal;
 
     fM1K1_Press_1(iTermBits:=15, fTermMax:=4.0, fTermMin:=0);
-    fM1K1_Press_1_val := fM1K1_Press_1.fReal;]]></ST>
+    fM1K1_Press_1_val := fM1K1_Press_1.fReal;
+
+
+
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
