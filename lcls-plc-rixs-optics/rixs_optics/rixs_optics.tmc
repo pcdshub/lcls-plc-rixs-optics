@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass" Hash="{82D15D0F-784A-EDEC-0951-8604808142FF}" GeneratedBy="TwinCAT XAE Plc">
+<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass" Hash="{64BADEED-7A46-6999-26C7-6F1A919E5DB8}" GeneratedBy="TwinCAT XAE Plc">
   <DataTypes>
     <DataType>
       <Name Namespace="Tc2_SerialCom">ComSerialLineMode_t</Name>
@@ -72250,7 +72250,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="InputDst" CreateSymbols="true">0</AreaNo>
           <Name>SerialIO Inputs</Name>
           <ContextId>0</ContextId>
-          <ByteSize>164298752</ByteSize>
+          <ByteSize>164233216</ByteSize>
           <Symbol>
             <Name>GVL_SerialIO.Serial_stComIn_M1K2</Name>
             <Comment>Better have your inputs and outputs!
@@ -72273,7 +72273,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="OutputSrc" CreateSymbols="true">1</AreaNo>
           <Name>SerialIO Outputs</Name>
           <ContextId>0</ContextId>
-          <ByteSize>164298752</ByteSize>
+          <ByteSize>164233216</ByteSize>
           <Symbol>
             <Name>GVL_SerialIO.Serial_stComOut_M1K2</Name>
             <BitSize>192</BitSize>
@@ -72294,7 +72294,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="Internal" CreateSymbols="true">3</AreaNo>
           <Name>SerialIO Internal</Name>
           <ContextId>0</ContextId>
-          <ByteSize>164298752</ByteSize>
+          <ByteSize>164233216</ByteSize>
           <Symbol>
             <Name>P_Serial_Com.fbSerialLineControl_EL6001_M1K2</Name>
             <BitSize>10752</BitSize>
@@ -72392,7 +72392,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="InputDst" CreateSymbols="true">16</AreaNo>
           <Name>StatsTask Inputs</Name>
           <ContextId>1</ContextId>
-          <ByteSize>164298752</ByteSize>
+          <ByteSize>164233216</ByteSize>
           <Symbol>
             <Name>Main.M7.Axis.NcToPlc</Name>
             <BitSize>2048</BitSize>
@@ -72410,7 +72410,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="Internal" CreateSymbols="true">19</AreaNo>
           <Name>StatsTask Internal</Name>
           <ContextId>1</ContextId>
-          <ByteSize>164298752</ByteSize>
+          <ByteSize>164233216</ByteSize>
           <Symbol>
             <Name>PRG_Stats.fGpiEncoderPosDiff</Name>
             <Comment> SP1K1 Grating Mono Vibration Stats</Comment>
@@ -72568,13 +72568,13 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="Internal" CreateSymbols="true">35</AreaNo>
           <Name>PiezoDriver Internal</Name>
           <ContextId>2</ContextId>
-          <ByteSize>164298752</ByteSize>
+          <ByteSize>164233216</ByteSize>
           <Symbol>
             <Name>PiezoSerial.fbE621SerialDriver_M1K2</Name>
             <Comment>PI Serial</Comment>
             <BitSize>112640</BitSize>
             <BaseType Namespace="lcls_twincat_optics">FB_PI_E621_SerialDriver</BaseType>
-            <BitOffs>1264933760</BitOffs>
+            <BitOffs>1265714560</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_M1K2.M1K2_Pitch</Name>
@@ -72665,7 +72665,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="InputDst" CreateSymbols="true">48</AreaNo>
           <Name>DaqTask Inputs</Name>
           <ContextId>3</ContextId>
-          <ByteSize>164298752</ByteSize>
+          <ByteSize>164233216</ByteSize>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.iLatchPos</Name>
             <Comment> Inputs</Comment>
@@ -72681,7 +72681,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1265050560</BitOffs>
+            <BitOffs>1264934464</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.iLatchNeg</Name>
@@ -72697,7 +72697,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1265050624</BitOffs>
+            <BitOffs>1264934528</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.nEncoderCount</Name>
@@ -72713,14 +72713,14 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1265050688</BitOffs>
+            <BitOffs>1264934592</BitOffs>
           </Symbol>
         </DataArea>
         <DataArea>
           <AreaNo AreaType="Internal" CreateSymbols="true">51</AreaNo>
           <Name>DaqTask Internal</Name>
           <ContextId>3</ContextId>
-          <ByteSize>164298752</ByteSize>
+          <ByteSize>164233216</ByteSize>
           <Symbol>
             <Name>GVL_Logger.sIpTidbit</Name>
             <BitSize>56</BitSize>
@@ -72882,14 +72882,14 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
             <Default>
               <String>172.21.140.21</String>
             </Default>
-            <BitOffs>1265050752</BitOffs>
+            <BitOffs>1264934656</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.bNewTrigger</Name>
             <Comment> Internals</Comment>
             <BitSize>8</BitSize>
             <BaseType>BOOL</BaseType>
-            <BitOffs>1265051400</BitOffs>
+            <BitOffs>1264935304</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.nFrameCount</Name>
@@ -72904,7 +72904,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
     </Value>
               </Property>
             </Properties>
-            <BitOffs>1265051408</BitOffs>
+            <BitOffs>1264935312</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.tSWTriggerDelay</Name>
@@ -72913,20 +72913,20 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
             <Default>
               <DateTime>T#8ms</DateTime>
             </Default>
-            <BitOffs>1265051424</BitOffs>
+            <BitOffs>1264935328</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.iTimeSincePos</Name>
             <Comment> Outputs</Comment>
             <BitSize>64</BitSize>
             <BaseType>ULINT</BaseType>
-            <BitOffs>1265051456</BitOffs>
+            <BitOffs>1264935360</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.iMaxTime</Name>
             <BitSize>64</BitSize>
             <BaseType>ULINT</BaseType>
-            <BitOffs>1265051520</BitOffs>
+            <BitOffs>1264935424</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.iMinTime</Name>
@@ -72935,19 +72935,19 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
             <Default>
               <Value>10000000000</Value>
             </Default>
-            <BitOffs>1265051584</BitOffs>
+            <BitOffs>1264935488</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fTimeInS</Name>
             <BitSize>64</BitSize>
             <BaseType>LREAL</BaseType>
-            <BitOffs>1265051648</BitOffs>
+            <BitOffs>1264935552</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.iTriggerWidth</Name>
             <BitSize>64</BitSize>
             <BaseType>ULINT</BaseType>
-            <BitOffs>1265051712</BitOffs>
+            <BitOffs>1264935616</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fTriggerRate</Name>
@@ -72962,25 +72962,25 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
     </Value>
               </Property>
             </Properties>
-            <BitOffs>1265051776</BitOffs>
+            <BitOffs>1264935680</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.tonSWTrigger</Name>
             <BitSize>256</BitSize>
             <BaseType Namespace="Tc2_Standard">TON</BaseType>
-            <BitOffs>1265051840</BitOffs>
+            <BitOffs>1264935744</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.iPrevLatchPos</Name>
             <BitSize>64</BitSize>
             <BaseType>ULINT</BaseType>
-            <BitOffs>1265052096</BitOffs>
+            <BitOffs>1264936000</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fMaxTimeInS</Name>
             <BitSize>64</BitSize>
             <BaseType>LREAL</BaseType>
-            <BitOffs>1265052160</BitOffs>
+            <BitOffs>1264936064</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fMinTimeInS</Name>
@@ -72989,79 +72989,79 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
             <Default>
               <Value>10000000</Value>
             </Default>
-            <BitOffs>1265052224</BitOffs>
+            <BitOffs>1264936128</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.iTimeSinceLast</Name>
             <BitSize>64</BitSize>
             <BaseType>ULINT</BaseType>
-            <BitOffs>1265052288</BitOffs>
+            <BitOffs>1264936192</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.nUpdateCycles</Name>
             <BitSize>64</BitSize>
             <BaseType>ULINT</BaseType>
-            <BitOffs>1265052352</BitOffs>
+            <BitOffs>1264936256</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.stTaskInfo</Name>
             <BitSize>1024</BitSize>
             <BaseType GUID="{56294066-FFF7-46F3-8206-FA06A30B13BA}">PlcTaskSystemInfo</BaseType>
-            <BitOffs>1265052416</BitOffs>
+            <BitOffs>1264936320</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.iUnderflowCount</Name>
             <BitSize>64</BitSize>
             <BaseType>ULINT</BaseType>
-            <BitOffs>1265053440</BitOffs>
+            <BitOffs>1264937344</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fUnderflowPercent</Name>
             <BitSize>64</BitSize>
             <BaseType>LREAL</BaseType>
-            <BitOffs>1265053504</BitOffs>
+            <BitOffs>1264937408</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fEncScale</Name>
             <BitSize>64</BitSize>
             <BaseType>LREAL</BaseType>
-            <BitOffs>1265053568</BitOffs>
+            <BitOffs>1264937472</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fEncScaleDenominator</Name>
             <BitSize>64</BitSize>
             <BaseType>LREAL</BaseType>
-            <BitOffs>1265053632</BitOffs>
+            <BitOffs>1264937536</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fbSocketHandler</Name>
             <BitSize>110592</BitSize>
             <BaseType>FB_UDPSocketHandler</BaseType>
-            <BitOffs>1265053696</BitOffs>
+            <BitOffs>1264937600</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fbSocketSend</Name>
             <BitSize>275200</BitSize>
             <BaseType>FB_BufferedSocketSend</BaseType>
-            <BitOffs>1265164288</BitOffs>
+            <BitOffs>1265048192</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fbSocketHandlerTest</Name>
             <BitSize>110592</BitSize>
             <BaseType>FB_UDPSocketHandler</BaseType>
-            <BitOffs>1265439488</BitOffs>
+            <BitOffs>1265323392</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fbSocketSendTest</Name>
             <BitSize>275200</BitSize>
             <BaseType>FB_BufferedSocketSend</BaseType>
-            <BitOffs>1265550080</BitOffs>
+            <BitOffs>1265433984</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.payload</Name>
             <BitSize>512</BitSize>
             <BaseType>DUT_01_Channel_NW</BaseType>
-            <BitOffs>1265825280</BitOffs>
+            <BitOffs>1265709184</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fbHeader</Name>
@@ -73073,7 +73073,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <String>plc-tst-proto6</String>
               </SubItem>
             </Default>
-            <BitOffs>1265825792</BitOffs>
+            <BitOffs>1265709696</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fbChannel</Name>
@@ -73085,14 +73085,14 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>1</Value>
               </SubItem>
             </Default>
-            <BitOffs>1265826368</BitOffs>
+            <BitOffs>1265710272</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fbGetTaskIndex</Name>
             <Comment> Function blocks</Comment>
             <BitSize>256</BitSize>
             <BaseType Namespace="Tc2_System">GETCURTASKINDEX</BaseType>
-            <BitOffs>1265827200</BitOffs>
+            <BitOffs>1265711104</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fEpicsEncCount</Name>
@@ -73108,7 +73108,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
     </Value>
               </Property>
             </Properties>
-            <BitOffs>1265827520</BitOffs>
+            <BitOffs>1265711424</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fEpicsTrigWidth</Name>
@@ -73123,7 +73123,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
     </Value>
               </Property>
             </Properties>
-            <BitOffs>1265827552</BitOffs>
+            <BitOffs>1265711456</BitOffs>
           </Symbol>
           <Symbol>
             <Name>TwinCAT_SystemInfoVarList._TaskInfo</Name>
@@ -73197,7 +73197,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="InputDst" CreateSymbols="true">64</AreaNo>
           <Name>PlcTask Inputs</Name>
           <ContextId>4</ContextId>
-          <ByteSize>164298752</ByteSize>
+          <ByteSize>164233216</ByteSize>
           <Symbol>
             <Name>lcls_twincat_optics.GVL_TestStructs.TestPitch_LimitSwitches.diEncCnt</Name>
             <Comment>Raw encoder count</Comment>
@@ -80102,7 +80102,7 @@ Emergency Stop for MR1K1</Comment>
           <AreaNo AreaType="OutputSrc" CreateSymbols="true">65</AreaNo>
           <Name>PlcTask Outputs</Name>
           <ContextId>4</ContextId>
-          <ByteSize>164298752</ByteSize>
+          <ByteSize>164233216</ByteSize>
           <Symbol>
             <Name>PRG_MR1K1_BEND.fbM1K1PitchControl.fbMotionStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
             <BitSize>1024</BitSize>
@@ -81844,7 +81844,7 @@ Emergency Stop for MR1K1</Comment>
           <AreaNo AreaType="Internal" CreateSymbols="true">67</AreaNo>
           <Name>PlcTask Internal</Name>
           <ContextId>4</ContextId>
-          <ByteSize>164298752</ByteSize>
+          <ByteSize>164233216</ByteSize>
           <Symbol>
             <Name>DefaultGlobals.stSys</Name>
             <Comment>Included for you</Comment>
@@ -88964,10 +88964,41 @@ Emergency Stop for MR1K1</Comment>
             <BitOffs>1264816704</BitOffs>
           </Symbol>
           <Symbol>
+            <Name>PRG_DAQ_ENCODER.nBusyCycles</Name>
+            <Comment> Temp testing</Comment>
+            <BitSize>16</BitSize>
+            <BaseType>UINT</BaseType>
+            <BitOffs>1265711360</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_DAQ_ENCODER.nMaxBusyCycles</Name>
+            <BitSize>16</BitSize>
+            <BaseType>UINT</BaseType>
+            <BitOffs>1265711376</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_DAQ_ENCODER.nDroppedFrames</Name>
+            <BitSize>16</BitSize>
+            <BaseType>UINT</BaseType>
+            <BitOffs>1265711392</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.bM1K1PitchDone</Name>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
+            <BitOffs>1265711408</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.bM1K1PitchBusy</Name>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
+            <BitOffs>1265711416</BitOffs>
+          </Symbol>
+          <Symbol>
             <Name>PiezoSerial.rtInitParams_M1K2</Name>
             <BitSize>128</BitSize>
             <BaseType Namespace="Tc2_Standard">R_TRIG</BaseType>
-            <BitOffs>1265046400</BitOffs>
+            <BitOffs>1265827200</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PiezoSerial.tonTimeoutRst_M1K2</Name>
@@ -88980,38 +89011,7 @@ Emergency Stop for MR1K1</Comment>
                 <DateTime>T#2S</DateTime>
               </SubItem>
             </Default>
-            <BitOffs>1265046528</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>PRG_DAQ_ENCODER.nBusyCycles</Name>
-            <Comment> Temp testing</Comment>
-            <BitSize>16</BitSize>
-            <BaseType>UINT</BaseType>
-            <BitOffs>1265827456</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>PRG_DAQ_ENCODER.nMaxBusyCycles</Name>
-            <BitSize>16</BitSize>
-            <BaseType>UINT</BaseType>
-            <BitOffs>1265827472</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>PRG_DAQ_ENCODER.nDroppedFrames</Name>
-            <BitSize>16</BitSize>
-            <BaseType>UINT</BaseType>
-            <BitOffs>1265827488</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>PRG_MR1K1_BEND.bM1K1PitchDone</Name>
-            <BitSize>8</BitSize>
-            <BaseType>BOOL</BaseType>
-            <BitOffs>1265827504</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>PRG_MR1K1_BEND.bM1K1PitchBusy</Name>
-            <BitSize>8</BitSize>
-            <BaseType>BOOL</BaseType>
-            <BitOffs>1265827512</BitOffs>
+            <BitOffs>1265827328</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_1_PlcTask.fbLogHandler</Name>
@@ -93427,8 +93427,8 @@ M4K2 KBV X ENC CNT</Comment>
               <Property>
                 <Name>TcLinkTo</Name>
                 <Value>.bLimitBackwardEnable:=TIIB[EL7047_M1K1_Ydwn]^STM Status^Status^Digital input 2;
-							  .bLimitForwardEnable:=TIIB[EL7047_M1K1_Ydwn]^STM Status^Status^Digital input 1;
-							  .nRawEncoderULINT:=TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 1^Position</Value>
+                              .bLimitForwardEnable:=TIIB[EL7047_M1K1_Ydwn]^STM Status^Status^Digital input 1;
+                              .nRawEncoderULINT:=TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 1^Position</Value>
               </Property>
               <Property>
                 <Name>pytmc</Name>
@@ -93476,7 +93476,7 @@ M4K2 KBV X ENC CNT</Comment>
               <Property>
                 <Name>TcLinkTo</Name>
                 <Value>.bLimitForwardEnable:=TIIB[EL7047_M1K1_Ydwn]^STM Status^Status^Digital input 1;
-						.bLimitBackwardEnable:=TIIB[EL7047_M1K1_Ydwn]^STM Status^Status^Digital input 2</Value>
+                        .bLimitBackwardEnable:=TIIB[EL7047_M1K1_Ydwn]^STM Status^Status^Digital input 2</Value>
               </Property>
               <Property>
                 <Name>pytmc</Name>
@@ -95305,7 +95305,7 @@ M4K2 KBV X ENC CNT</Comment>
           <AreaNo AreaType="RetainSrc" CreateSymbols="true">68</AreaNo>
           <Name>PlcTask Retains</Name>
           <ContextId>4</ContextId>
-          <ByteSize>164298752</ByteSize>
+          <ByteSize>164233216</ByteSize>
           <Symbol>
             <Name>PMPS_GVL.SuccessfulPreemption</Name>
             <Comment> Any time BPTM applies a new BP request which is confirmed</Comment>
@@ -95385,7 +95385,7 @@ M4K2 KBV X ENC CNT</Comment>
         </Property>
         <Property>
           <Name>ChangeDate</Name>
-          <Value>2024-03-27T14:34:04</Value>
+          <Value>2024-04-01T10:07:17</Value>
         </Property>
         <Property>
           <Name>GeneratedCodeSize</Name>
