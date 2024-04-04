@@ -194,8 +194,8 @@
     '}
     M22 : ST_MotionStage := (sName:= 'SL1K2:EXIT:MMS:GAP',fVelocity :=0.1); // GAP
 
-    {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_YAG]^STM Status^Status^Digital input 1;
-                              .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_YAG]^STM Status^Status^Digital input 2;
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_YAG]^STM Status^Status^Digital input 2;
+                              .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_YAG]^STM Status^Status^Digital input 1;
                               .nRawEncoderULINT      := TIIB[EL5042_SL1K2_YAG]^FB Inputs Channel 1^Position'}
     {attribute 'pytmc' := '
         pv: SL1K2:EXIT:MMS:YAG
