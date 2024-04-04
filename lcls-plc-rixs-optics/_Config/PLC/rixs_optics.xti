@@ -1349,7 +1349,7 @@ External Setpoint Generation:
 		</DataType>
 	</DataTypes>
 	<Project GUID="{85BF455D-934D-415A-B04C-6D4CDD9FF10E}" Name="rixs_optics" PrjFilePath="..\..\rixs_optics\rixs_optics.plcproj" TmcFilePath="..\..\rixs_optics\rixs_optics.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="rixs_optics\rixs_optics.tmc" TmcHash="{64BADEED-7A46-6999-26C7-6F1A919E5DB8}">
+		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="rixs_optics\rixs_optics.tmc" TmcHash="{99BC765F-962C-CB1C-018B-126FBB19E481}">
 			<Name>rixs_optics Instance</Name>
 			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 			<Vars VarGrpType="1">
@@ -1746,6 +1746,70 @@ Emergency Stop for MR1K1]]></Comment>
 				</Var>
 				<Var>
 					<Name>PRG_SP1K1_MONO.RTD8.iRaw</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD9.bError</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD9.bUnderrange</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD9.bOverrange</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD9.iRaw</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD10.bError</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD10.bUnderrange</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD10.bOverrange</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD10.iRaw</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD11.bError</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD11.bUnderrange</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD11.bOverrange</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD11.iRaw</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD12.bError</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD12.bUnderrange</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD12.bOverrange</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.RTD12.iRaw</Name>
 					<Type>INT</Type>
 				</Var>
 				<Var>
@@ -4409,8 +4473,8 @@ Emergency Stop for MR1K1]]></Comment>
 				<Link VarA="PlcTask Inputs^Main.M20.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL7047_SL1K2_YAG">
-				<Link VarA="PlcTask Inputs^Main.M23.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^Main.M23.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^Main.M23.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^Main.M23.bLimitForwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^EL3054_SP1K1_FWM_PRSM">
 				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.fSP1K1_Flow_1.iRaw" VarB="AI Standard Channel 1^Value" AutoLink="true"/>
@@ -4450,16 +4514,32 @@ Emergency Stop for MR1K1]]></Comment>
 				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD6.bOverrange" VarB="RTD Inputs Channel 2^Status^Overrange" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD6.bUnderrange" VarB="RTD Inputs Channel 2^Status^Underrange" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD6.iRaw" VarB="RTD Inputs Channel 2^Value" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD7.bError" VarB="RTD Inputs Channel 3^Status^Error" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD7.bOverrange" VarB="RTD Inputs Channel 3^Status^Overrange" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD7.bUnderrange" VarB="RTD Inputs Channel 3^Status^Underrange" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD7.iRaw" VarB="RTD Inputs Channel 3^Value" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD8.bError" VarB="RTD Inputs Channel 4^Status^Error" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD8.bOverrange" VarB="RTD Inputs Channel 4^Status^Overrange" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD8.bUnderrange" VarB="RTD Inputs Channel 4^Status^Underrange" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD8.iRaw" VarB="RTD Inputs Channel 4^Value" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^SP1K1-EL3204-E16">
-				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD7.bError" VarB="RTD Inputs Channel 1^Status^Error" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD7.bOverrange" VarB="RTD Inputs Channel 1^Status^Overrange" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD7.bUnderrange" VarB="RTD Inputs Channel 1^Status^Underrange" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD7.iRaw" VarB="RTD Inputs Channel 1^Value" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD8.bError" VarB="RTD Inputs Channel 2^Status^Error" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD8.bOverrange" VarB="RTD Inputs Channel 2^Status^Overrange" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD8.bUnderrange" VarB="RTD Inputs Channel 2^Status^Underrange" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD8.iRaw" VarB="RTD Inputs Channel 2^Value" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD10.bError" VarB="RTD Inputs Channel 2^Status^Error" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD10.bOverrange" VarB="RTD Inputs Channel 2^Status^Overrange" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD10.bUnderrange" VarB="RTD Inputs Channel 2^Status^Underrange" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD10.iRaw" VarB="RTD Inputs Channel 2^Value" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD11.bError" VarB="RTD Inputs Channel 3^Status^Error" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD11.bOverrange" VarB="RTD Inputs Channel 3^Status^Overrange" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD11.bUnderrange" VarB="RTD Inputs Channel 3^Status^Underrange" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD11.iRaw" VarB="RTD Inputs Channel 3^Value" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD12.bError" VarB="RTD Inputs Channel 4^Status^Error" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD12.bOverrange" VarB="RTD Inputs Channel 4^Status^Overrange" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD12.bUnderrange" VarB="RTD Inputs Channel 4^Status^Underrange" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD12.iRaw" VarB="RTD Inputs Channel 4^Value" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD9.bError" VarB="RTD Inputs Channel 1^Status^Error" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD9.bOverrange" VarB="RTD Inputs Channel 1^Status^Overrange" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD9.bUnderrange" VarB="RTD Inputs Channel 1^Status^Underrange" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^PRG_SP1K1_MONO.RTD9.iRaw" VarB="RTD Inputs Channel 1^Value" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^X1 SP1K1-MONO(EK1100)^g_h_m">
 				<Link VarA="PlcTask Inputs^Main.M9.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>

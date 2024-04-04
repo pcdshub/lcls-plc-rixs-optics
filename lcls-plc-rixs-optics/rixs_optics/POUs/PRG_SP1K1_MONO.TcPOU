@@ -262,7 +262,10 @@ RTD5();
 RTD6();
 RTD7();
 RTD8();
-
+RTD9();
+RTD10();
+RTD11();
+RTD12();
 //Evaluate the encoder reading for the screw driver encoder. Fast fault when it is not out.
 // i.e. encoder value must be greater than the out position (75000.29 - 1000u)
 IF( M10.Axis.NcToPlc.ActPos < sd_io_e_pmps) THEN
