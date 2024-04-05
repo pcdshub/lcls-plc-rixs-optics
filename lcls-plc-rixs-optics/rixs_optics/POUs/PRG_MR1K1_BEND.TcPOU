@@ -3,7 +3,8 @@
   <POU Name="PRG_MR1K1_BEND" Id="{f3f12a20-b8bd-4f8a-96c6-66ebb9fb57e3}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_MR1K1_BEND
 VAR
-    {attribute 'TcLinkTo' := '
+    {attribute 'TcLinkTo' := '.fbRunHOMS.bSTOEnable1:=TIIB[EL1004_M1K1_STO]^Channel 1^Input;
+                              .fbRunHOMS.bSTOEnable2:=TIIB[EL1004_M1K1_STO]^Channel 2^Input;
                               .fbRunHOMS.stYupEnc.Count:=TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 1^Position;
                               .fbRunHOMS.stYdwnEnc.Count:=TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 2^Position;
                               .fbRunHOMS.stXupEnc.Count:=TIIB[EL5042_M1K1_Xupdwn]^FB Inputs Channel 1^Position;
