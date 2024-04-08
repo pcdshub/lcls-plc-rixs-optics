@@ -28,9 +28,9 @@
     '}
     M2 : ST_MotionStage := (fVelocity:=100.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=True); // M1K2 Yright
     fbMotionStage_m2 : FB_MotionStage;
-
     {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K2_Xup]^STM Status^Status^Digital input 1;
-                              .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Xup]^STM Status^Status^Digital input 2'}
+                              .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Xup]^STM Status^Status^Digital input 2;
+                               .nRawEncoderULINT:=TIIB[EL5042_M1K2_Xupdwn]^FB Inputs Channel 1^Position'}
     {attribute 'pytmc' := '
         pv: MR1K2:SWITCH:MMS:XUP
     '}
@@ -38,7 +38,8 @@
     fbMotionStage_m3 : FB_MotionStage;
 
     {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K2_Xdwn]^STM Status^Status^Digital input 1;
-                              .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Xdwn]^STM Status^Status^Digital input 2'}
+                              .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Xdwn]^STM Status^Status^Digital input 2;
+                              .nRawEncoderULINT:=TIIB[EL5042_M1K2_Xupdwn]^FB Inputs Channel 1^Position'}
     {attribute 'pytmc' := '
         pv: MR1K2:SWITCH:MMS:XDWN
     '}
@@ -99,17 +100,17 @@
     // need to fix Axis IDs for IOC to work
     // For now just want functional PLC project
     // Motors
-    {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K1_Yup]^STM Status^Status^Digital input 1;
-                              .bLimitBackwardEnable:=TIIB[EL7047_M1K1_Ydwn]^STM Status^Status^Digital input 2;
+
+    {attribute 'TcLinkTo' := '.bLimitBackwardEnable:=TIIB[EL7047_M1K1_Ydwn]^STM Status^Status^Digital input 2;
+                              .bLimitForwardEnable:=TIIB[EL7047_M1K1_Ydwn]^STM Status^Status^Digital input 1;
                               .nRawEncoderULINT:=TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 1^Position'}
     {attribute 'pytmc' := '
         pv: MR1K1:BEND:MMS:YUP
     '}
     M12 : ST_MotionStage := (fVelocity:=100.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=True); // M1K1 Yup
     fbMotionStage_m12 : FB_MotionStage;
-
     {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K1_Ydwn]^STM Status^Status^Digital input 1;
-                              .bLimitBackwardEnable:=TIIB[EL7047_M1K1_Ydwn]^STM Status^Status^Digital input 2'}
+                        .bLimitBackwardEnable:=TIIB[EL7047_M1K1_Ydwn]^STM Status^Status^Digital input 2'}
     {attribute 'pytmc' := '
         pv: MR1K1:BEND:MMS:YDWN
     '}
@@ -192,8 +193,8 @@
     '}
     M22 : ST_MotionStage := (sName:= 'SL1K2:EXIT:MMS:GAP',fVelocity :=0.1); // GAP
 
-    {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_YAG]^STM Status^Status^Digital input 1;
-                              .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_YAG]^STM Status^Status^Digital input 2;
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_SL1K2_YAG]^STM Status^Status^Digital input 2;
+                              .bLimitBackwardEnable:=TIIB[EL7047_SL1K2_YAG]^STM Status^Status^Digital input 1;
                               .nRawEncoderULINT      := TIIB[EL5042_SL1K2_YAG]^FB Inputs Channel 1^Position'}
     {attribute 'pytmc' := '
         pv: SL1K2:EXIT:MMS:YAG

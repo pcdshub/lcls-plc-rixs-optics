@@ -1316,7 +1316,7 @@ External Setpoint Generation:
 		</DataType>
 	</DataTypes>
 	<Axis Id="35" CreateSymbols="true" AxisType="1" AxisFolder="M4K2">
-		<Name>__FILENAME__</Name>
+		<Name>M4K2 rX</Name>
 		<AxisPara>
 			<General UnitName="urad"/>
 			<Dynamic AccelerationMaximum="200" DecelerationMaximum="200" Acceleration="200" Deceleration="200" DelayTime="0.008"/>
@@ -1325,8 +1325,8 @@ External Setpoint Generation:
 		</AxisPara>
 		<Encoder Name="Enc" EncType="29">
 			<EncPara ScaleFactorNumerator="0.002571" Offset="-130236.02" MaxCount="#xffffffff" ReferenceSystem="1">
-				<SoftEndMinControl Enable="true" Range="-955"/>
-				<SoftEndMaxControl Enable="true" Range="605"/>
+				<SoftEndMinControl Enable="true" Range="-900"/>
+				<SoftEndMaxControl Enable="true" Range="875"/>
 				<Inc RefSoftSyncMask="#x0000ffff"/>
 			</EncPara>
 			<Vars VarGrpType="1">

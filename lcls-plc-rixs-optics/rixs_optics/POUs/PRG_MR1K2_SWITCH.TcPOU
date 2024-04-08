@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="PRG_MR1K2_SWITCH" Id="{5d1ad344-c9c3-47ff-86fa-37de6eb5129e}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_MR1K2_SWITCH
 VAR
@@ -241,8 +241,7 @@ fM1K2_Flow_1_val := fM1K2_Flow_1.fReal;
 fM1K2_Flow_2(iTermBits:=15, fTermMax:=5.0427, fTermMin:=0.050472);
 fM1K2_Flow_2_val := fM1K2_Flow_2.fReal;
 fM1K2_Press_1(iTermBits:=15, fTermMax:=4.0, fTermMin:=0);
-fM1K2_Press_1_val := fM1K2_Press_1.fReal;
-]]></ST>
+fM1K2_Press_1_val := fM1K2_Press_1.fReal;]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="PRG_MR1K1_BEND" Id="{f3f12a20-b8bd-4f8a-96c6-66ebb9fb57e3}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_MR1K1_BEND
 VAR
@@ -284,7 +284,11 @@ nEncRefPitchM1K1 := LREAL_TO_UDINT(ABS(fEncRefPitchM1K1_urad) * fEncLeverArm_mm)
     fM1K1_Flow_2_val := fM1K1_Flow_2.fReal;
 
     fM1K1_Press_1(iTermBits:=15, fTermMax:=4.0, fTermMin:=0);
-    fM1K1_Press_1_val := fM1K1_Press_1.fReal;]]></ST>
+    fM1K1_Press_1_val := fM1K1_Press_1.fReal;
+
+
+
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

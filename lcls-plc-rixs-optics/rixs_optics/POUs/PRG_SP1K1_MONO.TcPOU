@@ -54,8 +54,7 @@ VAR
                               .bUnderrange := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 2^Status^Underrange;
                               .bOverrange := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 2^Status^Overrange'}
     RTD2 : FB_TempSensor;
-
-    {attribute 'pytmc' := '
+        {attribute 'pytmc' := '
         pv: SP1K1:MONO:RTD:03
         io: o
     '}
@@ -63,58 +62,91 @@ VAR
                               .bError := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 1^Status^Error;
                               .bUnderrange := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 1^Status^Underrange;
                               .bOverrange := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 1^Status^Overrange'}
-    RTD3 :FB_TempSensor;
-
-    {attribute 'pytmc' := '
+    RTD3 : FB_TempSensor;
+        {attribute 'pytmc' := '
         pv: SP1K1:MONO:RTD:04
         io: o
     '}
-    {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 2^Value;
+     {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 2^Value;
                               .bError := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 2^Status^Error;
                               .bUnderrange := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 2^Status^Underrange;
                               .bOverrange := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 2^Status^Overrange'}
     RTD4 : FB_TempSensor;
 
-        {attribute 'pytmc' := '
+    {attribute 'pytmc' := '
         pv: SP1K1:MONO:RTD:05
         io: o
     '}
-    {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 1^Value;
+     {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 1^Value;
                               .bError := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 1^Status^Error;
                               .bUnderrange := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 1^Status^Underrange;
                               .bOverrange := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 1^Status^Overrange'}
-    RTD5 : FB_TempSensor;
+    RTD5 :FB_TempSensor;
 
     {attribute 'pytmc' := '
         pv: SP1K1:MONO:RTD:06
         io: o
     '}
-    {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 2^Value;
+     {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 2^Value;
                               .bError := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 2^Status^Error;
                               .bUnderrange := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 2^Status^Underrange;
                               .bOverrange := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 2^Status^Overrange'}
-    RTD6 : FB_TempSensor;
+    RTD6 :FB_TempSensor;
 
     {attribute 'pytmc' := '
         pv: SP1K1:MONO:RTD:07
         io: o
     '}
-    {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 1^Value;
-                              .bError := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 1^Status^Error;
-                              .bUnderrange := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 1^Status^Underrange;
-                              .bOverrange := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 1^Status^Overrange'}
-    RTD7 : FB_TempSensor;
-
+     {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 3^Value;
+                              .bError := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 3^Status^Error;
+                              .bUnderrange := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 3^Status^Underrange;
+                              .bOverrange := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 3^Status^Overrange'}
+    RTD7 :FB_TempSensor;
     {attribute 'pytmc' := '
         pv: SP1K1:MONO:RTD:08
         io: o
     '}
-    {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 2^Value;
+     {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 4^Value;
+                              .bError := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 4^Status^Error;
+                              .bUnderrange := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 4^Status^Underrange;
+                              .bOverrange := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 4^Status^Overrange'}
+    RTD8 :FB_TempSensor;
+    {attribute 'pytmc' := '
+        pv: SP1K1:MONO:RTD:09
+        io: o
+    '}
+     {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 1^Value;
+                              .bError := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 1^Status^Error;
+                              .bUnderrange := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 1^Status^Underrange;
+                              .bOverrange := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 1^Status^Overrange'}
+    RTD9 :FB_TempSensor;
+        {attribute 'pytmc' := '
+        pv: SP1K1:MONO:RTD:10
+        io: o
+    '}
+     {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 2^Value;
                               .bError := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 2^Status^Error;
                               .bUnderrange := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 2^Status^Underrange;
                               .bOverrange := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 2^Status^Overrange'}
-    RTD8 :FB_TempSensor;
-
+    RTD10 :FB_TempSensor;
+        {attribute 'pytmc' := '
+        pv: SP1K1:MONO:RTD:11
+        io: o
+    '}
+     {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 3^Value;
+                              .bError := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 3^Status^Error;
+                              .bUnderrange := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 3^Status^Underrange;
+                              .bOverrange := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 3^Status^Overrange'}
+    RTD11 :FB_TempSensor;
+    {attribute 'pytmc' := '
+        pv: SP1K1:MONO:RTD:12
+        io: o
+    '}
+     {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 4^Value;
+                              .bError := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 4^Status^Error;
+                              .bUnderrange := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 4^Status^Underrange;
+                              .bOverrange := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 4^Status^Overrange'}
+    RTD12 :FB_TempSensor;
 
 
 
@@ -222,15 +254,18 @@ mpi_upeurad := ULINT_TO_LREAL(mpi_upe.Count)*0.004505;
 gpi_upeurad := ULINT_TO_LREAL(gpi_upe.Count)*0.0066667;
 
 (*RTDs*)
-RTD1();
-RTD2();
-RTD3();
-RTD4();
+RTD1(fResolution:=0.01);
+RTD2(fResolution:=0.01);
+RTD3(fResolution:=0.01);
+RTD4(fResolution:=0.01);
 RTD5();
 RTD6();
 RTD7();
 RTD8();
-
+RTD9();
+RTD10();
+RTD11();
+RTD12();
 //Evaluate the encoder reading for the screw driver encoder. Fast fault when it is not out.
 // i.e. encoder value must be greater than the out position (75000.29 - 1000u)
 IF( M10.Axis.NcToPlc.ActPos < sd_io_e_pmps) THEN
@@ -252,7 +287,8 @@ fSP1K1_Flow_2(iTermBits:=15, fTermMax:=5.0427, fTermMin:=0.050472);
 fSP1K1_Flow_2_val := fSP1K1_Flow_2.fReal;
 
 fSP1K1_Press_1(iTermBits:=15, fTermMax:=4.0, fTermMin:=0);
-fSP1K1_Press_1_val := fSP1K1_Press_1.fReal;]]></ST>
+fSP1K1_Press_1_val := fSP1K1_Press_1.fReal;
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
