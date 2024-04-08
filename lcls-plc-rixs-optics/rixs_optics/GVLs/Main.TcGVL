@@ -46,9 +46,8 @@
     M4 : ST_MotionStage := (fVelocity:=150.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=True); // M1K2 Xdwn
     fbMotionStage_m4 : FB_MotionStage;
 
-    //{attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K2_PitchCoarse]^STM Status^Status^Digital input 1;
-    //                          .bLimitBackwardEnable:=TIIB[EL7047_M1K2_PitchCoarse]^STM Status^Status^Digital input 2'}
-    //disabled per Alireze and Matt Seaberg after hardstop re-alignment. 2-28-2024
+    {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K2_PitchCoarse]^STM Status^Status^Digital input 1;
+                              .bLimitBackwardEnable:=TIIB[EL7047_M1K2_PitchCoarse]^STM Status^Status^Digital input 2'}
     {attribute 'pytmc' := '
         pv: MR1K2:SWITCH:MMS:PITCH
     '}
