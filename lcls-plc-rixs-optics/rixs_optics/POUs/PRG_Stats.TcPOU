@@ -5,8 +5,8 @@
 VAR
     // SP1K1 Grating Mono Vibration Stats
     fGpiEncoderPosDiff: LREAL;
-    afGpiPosDiffBuffer: ARRAY[1..10000] OF LREAL;
-    afGpiExtraBuffer: ARRAY[1..10000] OF LREAL;
+    afGpiPosDiffBuffer: ARRAY[1..1000] OF LREAL;
+    afGpiExtraBuffer: ARRAY[1..1000] OF LREAL;
     fbGpiPosDiffCollect: FB_DataBuffer;
     {attribute 'pytmc' := '
         pv: SP1K1:MONO:MMS:G_PI:ENCDIFF
@@ -43,7 +43,7 @@ fbGpiPosDiffCollect(
     bExecute:=TRUE,
     pInputAdr:=ADR(fGpiEncoderPosDiff),
     iInputSize:=SIZEOF(fGpiEncoderPosDiff),
-    iElemCount:=10000,
+    iElemCount:=1000,
     pPartialAdr:=ADR(afGpiPosDiffBuffer),
     pOutputAdr:=ADR(afGpiExtraBuffer),
 );
