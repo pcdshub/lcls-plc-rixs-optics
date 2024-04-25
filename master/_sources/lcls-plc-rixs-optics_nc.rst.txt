@@ -653,17 +653,19 @@ Axis 19: SL1K2-Pitch-M19
     Enc:EncType, 29
     Enc:Inc:RefSoftSyncMask, #x0000ffff
     Enc:MaxCount, #xffffffff
-    Enc:Offset, -2.626
-    Enc:ScaleFactorNumerator, 7.1573649e-08
+    Enc:Offset, -0.266
+    Enc:ScaleFactorNumerator, 7.2519e-09
     Enc:SoftEndMaxControl:Enable, true
-    Enc:SoftEndMaxControl:Range, 1.9
+    Enc:SoftEndMaxControl:Range, 0.19
     Enc:SoftEndMinControl:Enable, true
-    Enc:SoftEndMinControl:Range, -1.9
+    Enc:SoftEndMinControl:Range, -0.19
     General:UnitName, Degree
     Id, 19
     OtherSettings:AllowMotionCmdToSlave, true
     OtherSettings:PulseDistanceNeg, 0.5
     OtherSettings:PulseDistancePos, 0.5
+    PEHControl:Time, 10
+    PositionAreaControl:Range, 0.01
     TargetPosControl:Range, 0.001
     Velo:FastManual, 2
     Velo:Maximum, 0.25
@@ -755,26 +757,27 @@ Axis 22: SL1K2-CrystalGap-M22
     AxisFolder, SL1K2
     AxisType, 1
     CreateSymbols, true
-    Dynamic:Acceleration, 0.0966002
-    Dynamic:Deceleration, 0.0966002
-    Dynamic:Jerk, 0.101984
+    Dynamic:Acceleration, 90
+    Dynamic:Deceleration, 200
+    Dynamic:Jerk, 200
     Enc:EncType, 29
     Enc:Inc:RefSoftSyncMask, #x0000ffff
     Enc:MaxCount, #xffffffff
-    Enc:Offset, -20.3002
-    Enc:ScaleFactorNumerator, 1e-06
+    Enc:Offset, -20225.2
+    Enc:ScaleFactorNumerator, 0.001
     Enc:SoftEndMaxControl:Enable, true
-    Enc:SoftEndMaxControl:Range, 11
+    Enc:SoftEndMaxControl:Range, 11000
     Enc:SoftEndMinControl:Enable, true
-    Enc:SoftEndMinControl:Range, 0.02
+    Enc:SoftEndMinControl:Range, 20
+    General:UnitName, um
     Id, 22
     OtherSettings:AllowMotionCmdToSlave, true
     OtherSettings:PulseDistanceNeg, 0.05
     OtherSettings:PulseDistancePos, 0.05
-    PositionAreaControl:Range, 0.01
-    TargetPosControl:Range, 0.0001
+    TargetPosControl:Range, 0.05
+    TargetPosControl:Time, 0.1
     Velo:FastManual, 0.2
-    Velo:Maximum, 0.15
+    Velo:Maximum, 150
     Velo:SlowManual, 0.075
 
 
