@@ -253,8 +253,8 @@ GVL_M1K2_Constants
     VAR_GLOBAL CONSTANT
         // Encoder reference values in counts = nm
         // Enc reference values after alignment 3-13-20
-        nYLEFT_ENC_REF : ULINT := 96270560;
-        nYRIGHT_ENC_REF : ULINT := 98728200;
+        nYLEFT_ENC_REF : ULINT := 99171678;
+        nYRIGHT_ENC_REF : ULINT := 101371326;
         nXUP_ENC_REF : ULINT := 19501048;
         nXDWN_ENC_REF : ULINT := 20872028;
 
@@ -430,7 +430,8 @@ Main
         (*MR1K2*)
         // Motors
         {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K2_Yleft]^STM Status^Status^Digital input 1;
-                                  .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Yleft]^STM Status^Status^Digital input 2'}
+                                  .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Yleft]^STM Status^Status^Digital input 2;
+                                  .nRawEncoderULINT:=TIIB[EL5042_M1K2_Yleftright]^FB Inputs Channel 1^Position'}
         {attribute 'pytmc' := '
             pv: MR1K2:SWITCH:MMS:YLEFT
         '}
@@ -438,7 +439,8 @@ Main
         fbMotionStage_m1 : FB_MotionStage;
 
         {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K2_Yright]^STM Status^Status^Digital input 1;
-                                  .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Yright]^STM Status^Status^Digital input 2'}
+                                  .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Yright]^STM Status^Status^Digital input 2;
+                                  .nRawEncoderULINT:=TIIB[EL5042_M1K2_Yleftright]^FB Inputs Channel 2^Position'}
         {attribute 'pytmc' := '
             pv: MR1K2:SWITCH:MMS:YRIGHT
         '}
@@ -2362,6 +2364,10 @@ PRG_MR1K2_SWITCH
     M2.bExecute := FALSE; // M1K2-Yright
     M4.bExecute := FALSE; // M1K2-Xdwn
 
+    //Forcing limit switches for M1K2 pitch as the limit switches are no longer installed per ME they aren't able to install them precisely
+    M5.bLimitBackwardEnable := TRUE;
+    M5.bLimitForwardEnable := TRUE;
+
     // Convert nCurrGantry to um (smaller number) to read out in epics
     M1K2.fCurrGantryY_um := LINT_TO_REAL(M1K2.nCurrGantryY) / 1000.0;
     M1K2.fCurrGantryX_um := LINT_TO_REAL(M1K2.nCurrGantryX) / 1000.0;
@@ -3269,7 +3275,7 @@ PRG_SL1K2_EXIT
         Main.M22.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
         //YAG
         Main.M23.bHardwareEnable := TRUE;
-        Main.M23.bPowerSelf :=TRUE;
+        Main.M23.bPowerSelf :=FALSE;
         Main.M23.nBrakeMode := ENUM_StageBrakeMode.NO_BRAKE;
         Main.M23.nEnableMode := ENUM_StageEnableMode.DURING_MOTION;
 
@@ -3303,6 +3309,8 @@ PRG_SL1K2_EXIT
     fbPitch(stMotionStage:=Main.M19);//in Air
     fbRoll(stMotionStage:=Main.M20);//in Air
     fbVertical(stMotionStage:=Main.M21);//in Air
+
+    Main.M22.bLimitBackwardEnable := TRUE;
     fbGap(stMotionStage:=Main.M22);//in vacuum
     fbYag(stMotionStage:=Main.M23);//in vacuum
 
@@ -4023,8 +4031,8 @@ PRG_ZeroOrder_PMPS
     END_ACTION
 
     ACTION ACT_ExitSlitsGap:
-    // FAULT condition: Hzos -1.0mm <= Hb0m3) AND sl1k2 gap <= 8.0
-    ffZeroOrderBeamExitSlits.i_xOK := NOT( (( (Hzos*1E3) - 1) <= Hb0m3) AND ( M22.stAxisStatus.fActPosition <= 8.0));
+    // FAULT condition: Hzos -1.0mm <= Hb0m3) AND sl1k2 gap <= 8.0 mm
+    ffZeroOrderBeamExitSlits.i_xOK := NOT( (( (Hzos*1E3) - 1) <= Hb0m3) AND ( M22.stAxisStatus.fActPosition <= 8000(*um*)));
     ffZeroOrderBeamExitSlits(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
     END_ACTION
 

@@ -358,8 +358,8 @@
 <span class="n">VAR_GLOBAL</span> <span class="n">CONSTANT</span>
     <span class="o">//</span> <span class="n">Encoder</span> <span class="n">reference</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">counts</span> <span class="o">=</span> <span class="n">nm</span>
     <span class="o">//</span> <span class="n">Enc</span> <span class="n">reference</span> <span class="n">values</span> <span class="n">after</span> <span class="n">alignment</span> <span class="mi">3</span><span class="o">-</span><span class="mi">13</span><span class="o">-</span><span class="mi">20</span>
-    <span class="n">nYLEFT_ENC_REF</span> <span class="p">:</span> <span class="n">ULINT</span> <span class="o">:=</span> <span class="mi">96270560</span><span class="p">;</span>
-    <span class="n">nYRIGHT_ENC_REF</span> <span class="p">:</span> <span class="n">ULINT</span> <span class="o">:=</span> <span class="mi">98728200</span><span class="p">;</span>
+    <span class="n">nYLEFT_ENC_REF</span> <span class="p">:</span> <span class="n">ULINT</span> <span class="o">:=</span> <span class="mi">99171678</span><span class="p">;</span>
+    <span class="n">nYRIGHT_ENC_REF</span> <span class="p">:</span> <span class="n">ULINT</span> <span class="o">:=</span> <span class="mi">101371326</span><span class="p">;</span>
     <span class="n">nXUP_ENC_REF</span> <span class="p">:</span> <span class="n">ULINT</span> <span class="o">:=</span> <span class="mi">19501048</span><span class="p">;</span>
     <span class="n">nXDWN_ENC_REF</span> <span class="p">:</span> <span class="n">ULINT</span> <span class="o">:=</span> <span class="mi">20872028</span><span class="p">;</span>
 
@@ -511,7 +511,8 @@ END_VAR
     <span class="p">(</span><span class="o">*</span><span class="n">MR1K2</span><span class="o">*</span><span class="p">)</span>
     <span class="o">//</span> <span class="n">Motors</span>
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable:=TIIB[EL7047_M1K2_Yleft]^STM Status^Status^Digital input 1;</span>
-                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL7047_M1K2_Yleft</span><span class="p">]</span><span class="o">^</span><span class="n">STM</span> <span class="n">Status</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Digital</span> <span class="nb">input</span> <span class="mi">2</span><span class="s1">&#39;}</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL7047_M1K2_Yleft</span><span class="p">]</span><span class="o">^</span><span class="n">STM</span> <span class="n">Status</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Digital</span> <span class="nb">input</span> <span class="mi">2</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL5042_M1K2_Yleftright</span><span class="p">]</span><span class="o">^</span><span class="n">FB</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Position</span><span class="s1">&#39;}</span>
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
         <span class="n">pv</span><span class="p">:</span> <span class="n">MR1K2</span><span class="p">:</span><span class="n">SWITCH</span><span class="p">:</span><span class="n">MMS</span><span class="p">:</span><span class="n">YLEFT</span>
     <span class="s1">&#39;}</span>
@@ -519,7 +520,8 @@ END_VAR
     <span class="n">fbMotionStage_m1</span> <span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
 
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable:=TIIB[EL7047_M1K2_Yright]^STM Status^Status^Digital input 1;</span>
-                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL7047_M1K2_Yright</span><span class="p">]</span><span class="o">^</span><span class="n">STM</span> <span class="n">Status</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Digital</span> <span class="nb">input</span> <span class="mi">2</span><span class="s1">&#39;}</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL7047_M1K2_Yright</span><span class="p">]</span><span class="o">^</span><span class="n">STM</span> <span class="n">Status</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Digital</span> <span class="nb">input</span> <span class="mi">2</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL5042_M1K2_Yleftright</span><span class="p">]</span><span class="o">^</span><span class="n">FB</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">2</span><span class="o">^</span><span class="n">Position</span><span class="s1">&#39;}</span>
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
         <span class="n">pv</span><span class="p">:</span> <span class="n">MR1K2</span><span class="p">:</span><span class="n">SWITCH</span><span class="p">:</span><span class="n">MMS</span><span class="p">:</span><span class="n">YRIGHT</span>
     <span class="s1">&#39;}</span>
@@ -2390,6 +2392,10 @@ END_VAR
 <span class="n">M2</span><span class="o">.</span><span class="n">bExecute</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span> <span class="o">//</span> <span class="n">M1K2</span><span class="o">-</span><span class="n">Yright</span>
 <span class="n">M4</span><span class="o">.</span><span class="n">bExecute</span> <span class="o">:=</span> <span class="n">FALSE</span><span class="p">;</span> <span class="o">//</span> <span class="n">M1K2</span><span class="o">-</span><span class="n">Xdwn</span>
 
+<span class="o">//</span><span class="n">Forcing</span> <span class="n">limit</span> <span class="n">switches</span> <span class="k">for</span> <span class="n">M1K2</span> <span class="n">pitch</span> <span class="k">as</span> <span class="n">the</span> <span class="n">limit</span> <span class="n">switches</span> <span class="n">are</span> <span class="n">no</span> <span class="n">longer</span> <span class="n">installed</span> <span class="n">per</span> <span class="n">ME</span> <span class="n">they</span> <span class="n">aren</span><span class="s1">&#39;t able to install them precisely</span>
+<span class="n">M5</span><span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+<span class="n">M5</span><span class="o">.</span><span class="n">bLimitForwardEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
+
 <span class="o">//</span> <span class="n">Convert</span> <span class="n">nCurrGantry</span> <span class="n">to</span> <span class="n">um</span> <span class="p">(</span><span class="n">smaller</span> <span class="n">number</span><span class="p">)</span> <span class="n">to</span> <span class="n">read</span> <span class="n">out</span> <span class="ow">in</span> <span class="n">epics</span>
 <span class="n">M1K2</span><span class="o">.</span><span class="n">fCurrGantryY_um</span> <span class="o">:=</span> <span class="n">LINT_TO_REAL</span><span class="p">(</span><span class="n">M1K2</span><span class="o">.</span><span class="n">nCurrGantryY</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1000.0</span><span class="p">;</span>
 <span class="n">M1K2</span><span class="o">.</span><span class="n">fCurrGantryX_um</span> <span class="o">:=</span> <span class="n">LINT_TO_REAL</span><span class="p">(</span><span class="n">M1K2</span><span class="o">.</span><span class="n">nCurrGantryX</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1000.0</span><span class="p">;</span>
@@ -3297,7 +3303,7 @@ END_VAR
     <span class="n">Main</span><span class="o">.</span><span class="n">M22</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
     <span class="o">//</span><span class="n">YAG</span>
     <span class="n">Main</span><span class="o">.</span><span class="n">M23</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
-    <span class="n">Main</span><span class="o">.</span><span class="n">M23</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span><span class="n">TRUE</span><span class="p">;</span>
+    <span class="n">Main</span><span class="o">.</span><span class="n">M23</span><span class="o">.</span><span class="n">bPowerSelf</span> <span class="o">:=</span><span class="n">FALSE</span><span class="p">;</span>
     <span class="n">Main</span><span class="o">.</span><span class="n">M23</span><span class="o">.</span><span class="n">nBrakeMode</span> <span class="o">:=</span> <span class="n">ENUM_StageBrakeMode</span><span class="o">.</span><span class="n">NO_BRAKE</span><span class="p">;</span>
     <span class="n">Main</span><span class="o">.</span><span class="n">M23</span><span class="o">.</span><span class="n">nEnableMode</span> <span class="o">:=</span> <span class="n">ENUM_StageEnableMode</span><span class="o">.</span><span class="n">DURING_MOTION</span><span class="p">;</span>
 
@@ -3331,6 +3337,8 @@ END_VAR
 <span class="n">fbPitch</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M19</span><span class="p">);</span><span class="o">//</span><span class="ow">in</span> <span class="n">Air</span>
 <span class="n">fbRoll</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M20</span><span class="p">);</span><span class="o">//</span><span class="ow">in</span> <span class="n">Air</span>
 <span class="n">fbVertical</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M21</span><span class="p">);</span><span class="o">//</span><span class="ow">in</span> <span class="n">Air</span>
+
+<span class="n">Main</span><span class="o">.</span><span class="n">M22</span><span class="o">.</span><span class="n">bLimitBackwardEnable</span> <span class="o">:=</span> <span class="n">TRUE</span><span class="p">;</span>
 <span class="n">fbGap</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M22</span><span class="p">);</span><span class="o">//</span><span class="ow">in</span> <span class="n">vacuum</span>
 <span class="n">fbYag</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M23</span><span class="p">);</span><span class="o">//</span><span class="ow">in</span> <span class="n">vacuum</span>
 
@@ -4047,8 +4055,8 @@ Hb0m3 := TAN(Theta_m3*1E-6)*(Zzos*1E6) + Hbm3 - TAN(Theta_m3*1E-6)*Zbm3;
 END_ACTION
 
 ACTION ACT_ExitSlitsGap:
-// FAULT condition: Hzos -1.0mm &lt;= Hb0m3) AND sl1k2 gap &lt;= 8.0
-ffZeroOrderBeamExitSlits.i_xOK := NOT( (( (Hzos*1E3) - 1) &lt;= Hb0m3) AND ( M22.stAxisStatus.fActPosition &lt;= 8.0));
+// FAULT condition: Hzos -1.0mm &lt;= Hb0m3) AND sl1k2 gap &lt;= 8.0 mm
+ffZeroOrderBeamExitSlits.i_xOK := NOT( (( (Hzos*1E3) - 1) &lt;= Hb0m3) AND ( M22.stAxisStatus.fActPosition &lt;= 8000(*um*)));
 ffZeroOrderBeamExitSlits(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
 END_ACTION
 
