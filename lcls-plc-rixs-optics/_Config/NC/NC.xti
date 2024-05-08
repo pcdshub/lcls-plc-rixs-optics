@@ -1366,13 +1366,15 @@ External Setpoint Generation:
 				<General UnitName="Degree"/>
 				<Dynamic Acceleration="0.836849" Deceleration="0.836849" Jerk="2.80127"/>
 				<Velo SlowManual="1" FastManual="2" Maximum="0.25"/>
+				<PositionAreaControl Range="0.01"/>
 				<TargetPosControl Range="0.001"/>
+				<PEHControl Time="10"/>
 				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.5" PulseDistanceNeg="0.5"/>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="29">
-				<EncPara ScaleFactorNumerator="7.1573649e-08" Offset="-2.626" MaxCount="#xffffffff">
-					<SoftEndMinControl Range="-1.9"/>
-					<SoftEndMaxControl Range="1.9"/>
+				<EncPara ScaleFactorNumerator="7.2519e-09" Offset="-0.266" MaxCount="#xffffffff">
+					<SoftEndMinControl Enable="true" Range="-0.19"/>
+					<SoftEndMaxControl Enable="true" Range="0.19"/>
 					<Inc RefSoftSyncMask="#x0000ffff"/>
 				</EncPara>
 				<Vars VarGrpType="1">
@@ -1790,16 +1792,17 @@ External Setpoint Generation:
 		<Axis Id="22" CreateSymbols="true" AxisType="1" AxisFolder="SL1K2">
 			<Name>SL1K2-CrystalGap-M22</Name>
 			<AxisPara>
-				<Dynamic Acceleration="0.0966002" Deceleration="0.0966002" Jerk="0.101984"/>
-				<Velo SlowManual="0.075" FastManual="0.2" Maximum="0.15"/>
-				<PositionAreaControl Range="0.01"/>
-				<TargetPosControl Range="0.0001"/>
+				<General UnitName="um"/>
+				<Dynamic Acceleration="90" Deceleration="90" Jerk="100"/>
+				<Velo SlowManual="0.075" FastManual="0.2" Maximum="150"/>
+				<PositionAreaControl Range="10"/>
+				<TargetPosControl Range="0.1"/>
 				<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="0.05" PulseDistanceNeg="0.05"/>
 			</AxisPara>
 			<Encoder Name="Enc" EncType="29">
-				<EncPara ScaleFactorNumerator="1e-06" Offset="-20.3002" MaxCount="#xffffffff">
-					<SoftEndMinControl Enable="true" Range="0.02"/>
-					<SoftEndMaxControl Enable="true" Range="11"/>
+				<EncPara ScaleFactorNumerator="0.001" Offset="-20375.2" MaxCount="#xffffffff">
+					<SoftEndMinControl Enable="true" Range="20"/>
+					<SoftEndMaxControl Enable="true" Range="11000"/>
 					<Inc RefSoftSyncMask="#x0000ffff"/>
 				</EncPara>
 				<Vars VarGrpType="1">
@@ -1837,7 +1840,7 @@ External Setpoint Generation:
 			</Encoder>
 			<Drive Name="Drive" DrvType="24">
 				<DrvPara>
-					<Analog VeloReferenz="0.88888" ScaleFactorActTorque="0.1"/>
+					<Analog VeloReferenz="800" ScaleFactorActTorque="0.1"/>
 					<TimeComp TaskDelayCycles="1"/>
 				</DrvPara>
 				<Vars VarGrpType="1">
@@ -1909,7 +1912,7 @@ External Setpoint Generation:
 			</Drive>
 			<Controller Name="Ctrl" CtrType="2">
 				<CtrPara PriorControlFactor="1">
-					<PosDiffControl Range="0.015"/>
+					<PosDiffControl Range="1"/>
 					<PID PosKp="7" PosTv="0.2" PosTd="1" PosExtKp="150" PosExtVelo="1" AccKa="1" DeadBandPosition="5e-05"/>
 					<AutoOffset Range="0.1"/>
 					<Observer BandWidth="20"/>
