@@ -174,6 +174,10 @@ M1K2.fbRunHOMS(stYup:=M1,
 M2.bExecute := FALSE; // M1K2-Yright
 M4.bExecute := FALSE; // M1K2-Xdwn
 
+//Forcing limit switches for M1K2 pitch as the limit switches are no longer installed per ME they aren't able to install them precisely
+M5.bLimitBackwardEnable := TRUE;
+M5.bLimitForwardEnable := TRUE;
+
 // Convert nCurrGantry to um (smaller number) to read out in epics
 M1K2.fCurrGantryY_um := LINT_TO_REAL(M1K2.nCurrGantryY) / 1000.0;
 M1K2.fCurrGantryX_um := LINT_TO_REAL(M1K2.nCurrGantryX) / 1000.0;
