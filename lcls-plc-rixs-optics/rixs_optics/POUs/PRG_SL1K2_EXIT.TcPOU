@@ -11,7 +11,12 @@ VAR
     fbRoll: FB_MotionStage;
     fbVertical: FB_MotionStage;
     fbGap: FB_MotionStage;
+    fbGapOpenLoop: FB_MotionStage;
     fbYag: FB_MotionStage;
+
+    ftGapAtLowLim: F_TRIG;
+    fGapLowLimTrigPos: LREAL;
+    fMovePastGapLimit: LREAL := -40; //um
 
      {attribute 'pytmc' := '
         pv: SL1K2:EXIT:YAG:STATE
@@ -149,13 +154,27 @@ IF ( bInit) THEN
     bFanOn := TRUE;
 END_IF
 
-
+// The M22 axis has a lower limit switch. Unfortunately, this limit switch is triggering
+// at 60 um. The axis needs to move to at leat 20um. After consulting ME, the limit switch can
+// travel a maximum of 400um before we hit it. Therefore, we wanted a way to still use the
+// limit switch but still be able to move to at least 20um. Therefore, once the limit switch
+// is hit, we save the current position that the stepper open loop NC axis thinks it is at.
+// Then we allow it to move at most 40 more um as measured by numbe of steps taken. Then
+// we trigger the backward limit enable to false on the actual M22 stepper axis. If we ever
+// open up the exit slits and somebody repositions the limit switch, this logic and the
+// open loop axis can be removed.
+ftGapAtLowLim(CLK:=Main.M22_OpenLoop.bLimitBackwardEnable);
+IF ftGapAtLowLim.Q THEN
+    fGapLowLimTrigPos := Main.M22_OpenLoop.Axis.NcToPlc.ActPos;
+END_IF
+Main.M22.bLimitBackwardEnable := fGapLowLimTrigPos - Main.M22_OpenLoop.Axis.NcToPlc.ActPos > fMovePastGapLimit;
 
 // Instantiate Function block for all the motion
 fbPitch(stMotionStage:=Main.M19);//in Air
 fbRoll(stMotionStage:=Main.M20);//in Air
 fbVertical(stMotionStage:=Main.M21);//in Air
 fbGap(stMotionStage:=Main.M22);//in vacuum
+fbGapOpenLoop(stMotionStage:=Main.M22_OpenLoop);
 fbYag(stMotionStage:=Main.M23);//in vacuum
 
 
