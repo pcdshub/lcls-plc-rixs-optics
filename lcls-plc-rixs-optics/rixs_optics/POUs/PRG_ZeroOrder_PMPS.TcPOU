@@ -178,8 +178,8 @@ Hb0m3 := TAN(Theta_m3*1E-6)*(Zzos*1E6) + Hbm3 - TAN(Theta_m3*1E-6)*Zbm3;
     </Action>
     <Action Name="ACT_ExitSlitsGap" Id="{72615217-f71d-41ee-b0dd-e3c54f411832}">
       <Implementation>
-        <ST><![CDATA[// FAULT condition: Hzos -1.0mm <= Hb0m3) AND sl1k2 gap <= 8.0
-ffZeroOrderBeamExitSlits.i_xOK := NOT( (( (Hzos*1E3) - 1) <= Hb0m3) AND ( M22.stAxisStatus.fActPosition <= 8.0));
+        <ST><![CDATA[// FAULT condition: Hzos -1.0mm <= Hb0m3) AND sl1k2 gap <= 8.0 mm
+ffZeroOrderBeamExitSlits.i_xOK := NOT( (( (Hzos*1E3) - 1) <= Hb0m3) AND ( M22.stAxisStatus.fActPosition <= 8000(*um*)));
 ffZeroOrderBeamExitSlits(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);]]></ST>
       </Implementation>
     </Action>
