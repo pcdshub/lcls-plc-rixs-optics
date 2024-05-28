@@ -155,6 +155,8 @@ END_IF
 fbPitch(stMotionStage:=Main.M19);//in Air
 fbRoll(stMotionStage:=Main.M20);//in Air
 fbVertical(stMotionStage:=Main.M21);//in Air
+
+Main.M22.bLimitBackwardEnable := TRUE;
 fbGap(stMotionStage:=Main.M22);//in vacuum
 fbYag(stMotionStage:=Main.M23);//in vacuum
 
