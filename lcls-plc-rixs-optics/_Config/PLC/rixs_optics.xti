@@ -1349,7 +1349,7 @@ External Setpoint Generation:
 		</DataType>
 	</DataTypes>
 	<Project GUID="{85BF455D-934D-415A-B04C-6D4CDD9FF10E}" Name="rixs_optics" PrjFilePath="..\..\rixs_optics\rixs_optics.plcproj" TmcFilePath="..\..\rixs_optics\rixs_optics.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="rixs_optics\rixs_optics.tmc" TmcHash="{1AFA741A-E8B4-D8B9-3A94-DCF5929F7E04}">
+		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="rixs_optics\rixs_optics.tmc" TmcHash="{1F8C3305-EC58-3C0D-C596-57AC03B5AA1C}">
 			<Name>rixs_optics Instance</Name>
 			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 			<Vars VarGrpType="1">
@@ -4609,6 +4609,8 @@ Emergency Stop for MR1K1]]></Comment>
 				<Link VarA="PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stXupEnc^Count" VarB="FB Inputs Channel 1^Position" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL5042_M1K2_Yleftright">
+				<Link VarA="PlcTask Inputs^Main.M1.nRawEncoderULINT" VarB="FB Inputs Channel 1^Position" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^Main.M2.nRawEncoderULINT" VarB="FB Inputs Channel 2^Position" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stYdwnEnc^Count" VarB="FB Inputs Channel 2^Position" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stYupEnc^Count" VarB="FB Inputs Channel 1^Position" AutoLink="true"/>
 			</OwnerB>
