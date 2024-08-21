@@ -14,7 +14,8 @@
     (*MR1K2*)
     // Motors
     {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K2_Yleft]^STM Status^Status^Digital input 1;
-                              .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Yleft]^STM Status^Status^Digital input 2'}
+                              .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Yleft]^STM Status^Status^Digital input 2;
+                              .nRawEncoderULINT:=TIIB[EL5042_M1K2_Yleftright]^FB Inputs Channel 1^Position'}
     {attribute 'pytmc' := '
         pv: MR1K2:SWITCH:MMS:YLEFT
     '}
@@ -22,7 +23,8 @@
     fbMotionStage_m1 : FB_MotionStage;
 
     {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K2_Yright]^STM Status^Status^Digital input 1;
-                              .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Yright]^STM Status^Status^Digital input 2'}
+                              .bLimitBackwardEnable:=TIIB[EL7047_M1K2_Yright]^STM Status^Status^Digital input 2;
+                              .nRawEncoderULINT:=TIIB[EL5042_M1K2_Yleftright]^FB Inputs Channel 2^Position'}
     {attribute 'pytmc' := '
         pv: MR1K2:SWITCH:MMS:YRIGHT
     '}
