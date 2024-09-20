@@ -21,6 +21,24 @@ VAR_GLOBAL
         bValid:=TRUE,
         bUseRawCounts:=TRUE
     );
+        stDefaultKBX : ST_PositionState := (
+        fDelta:=5,
+        fVelocity:=0.2,
+        fAccel:=100,
+        fDecel:=100,
+        bMoveOk:=TRUE,
+        bValid:=TRUE,
+        bUseRawCounts:=TRUE
+    );
+        stDefaultKBY : ST_PositionState := (
+        fDelta:=5,
+        fVelocity:=0.2,
+        fAccel:=10,
+        fDecel:=10,
+        bMoveOk:=TRUE,
+        bValid:=TRUE,
+        bUseRawCounts:=TRUE
+    );
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
