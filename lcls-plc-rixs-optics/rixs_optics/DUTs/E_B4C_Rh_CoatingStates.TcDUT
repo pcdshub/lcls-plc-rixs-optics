@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <DUT Name="E_B4C_Rh_CoatingStates" Id="{5c47e943-9d1b-4a02-b245-b8684b0fb105}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+TYPE E_B4C_Rh_CoatingStates :
+(
+    Unknown := 0,
+    B4C := 1,
+    Rh := 2,
+    OUT := 3
+) UINT;
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

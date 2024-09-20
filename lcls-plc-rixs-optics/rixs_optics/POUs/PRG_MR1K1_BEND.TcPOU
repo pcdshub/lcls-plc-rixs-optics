@@ -185,6 +185,27 @@ VAR
         io: i
     '}
     fM1K1_Press_1_val : LREAL;
+
+    {attribute 'pytmc' := 'pv: MR1K1:BEND:COATING'}
+    fbCoatingStates: FB_PositionStatePMPS2D;
+    {attribute 'pytmc' := '
+      pv: MR1K1:BEND:COATING:STATE:SET
+      io: io
+    '}
+    eStateSet: E_B4C_Rh_CoatingStates;
+    {attribute 'pytmc' := '
+      pv: MR1K1:BEND:COATING:STATE:GET
+      io: i
+    '}
+    eStateGet: E_B4C_Rh_CoatingStates;
+    fbYSetup: FB_StateSetupHelper;
+    fbXSetup: FB_StateSetupHelper;
+
+    astCoatingStatesY: ARRAY[1..GeneralConstants.MAX_STATES] OF ST_PositionState;
+    astCoatingStatesX: ARRAY[1..GeneralConstants.MAX_STATES] OF ST_PositionState;
+
+
+
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -286,8 +307,44 @@ nEncRefPitchM1K1 := LREAL_TO_UDINT(ABS(fEncRefPitchM1K1_urad) * fEncLeverArm_mm)
     fM1K1_Press_1(iTermBits:=15, fTermMax:=4.0, fTermMin:=0);
     fM1K1_Press_1_val := fM1K1_Press_1.fReal;
 
+fbYSetup(stPositionState:=GVL_States.stDefaultOffsetY, bSetDefault:=TRUE);
+fbXSetup(stPositionState:=GVL_States.stDefaultOffsetX, bSetDefault:=TRUE);
 
-
+fbYSetup(stPositionState:=astCoatingStatesY[E_B4C_Rh_CoatingStates.B4C],
+    sName:='B4C',
+    sPmpsState:='MR1K1:BEND-B4C',
+    nEncoderCount:=
+);
+fbXSetup(stPositionState:=astCoatingStatesX[E_B4C_Rh_CoatingStates.B4C],
+    sName:='B4C',
+    sPmpsState:='MR1K1:BEND-B4C',
+    nEncoderCount:=19829700
+);
+fbYSetup(stPositionState:=astCoatingStatesY[E_B4C_Rh_CoatingStates.OUT],
+    sName:='OUT',
+    sPmpsState:='MR1K1:BEND-OUT',
+    nEncoderCount:=13412630
+);
+// Out position determined soley by X Axis
+fbXSetup(stPositionState:=astCoatingStatesX[E_B4C_Rh_CoatingStates.OUT],
+    sName:='OUT',
+    sPmpsState:='MR1K1:BEND-OUT',
+    nEncoderCount:=ULINT_TO_UDINT(M14.nRawEncoderULINT)
+);
+fbCoatingStates(
+    stMotionStage1:=Main.M12,
+    stMotionStage2:=Main.M14,
+    astPositionState1:=astCoatingStatesY,
+    astPositionState2:=astCoatingStatesX,
+    eEnumSet:=eStateSet,
+    eEnumGet:=eStateGet,
+    fbFFHWO:=GVL_PMPS.fbFastFaultOutput1,
+    fbArbiter:=GVL_PMPS.fbArbiter1,
+    bEnableMotion:=TRUE,
+    bEnableBeamParams:=TRUE,
+    sDeviceName:='MR1K1:BEND',
+    sTransitionKey:='MR1K1:BEND-TRANSITION',
+);
 ]]></ST>
     </Implementation>
   </POU>
