@@ -185,7 +185,7 @@ VAR
         io: i
     '}
     fM1K1_Press_1_val : LREAL;
-
+(*
     {attribute 'pytmc' := 'pv: MR1K1:BEND:COATING'}
     fbCoatingStates: FB_PositionStatePMPS2D;
     {attribute 'pytmc' := '
@@ -204,7 +204,7 @@ VAR
     astCoatingStatesY: ARRAY[1..GeneralConstants.MAX_STATES] OF ST_PositionState;
     astCoatingStatesX: ARRAY[1..GeneralConstants.MAX_STATES] OF ST_PositionState;
 
-
+*)
 
 END_VAR
 ]]></Declaration>
@@ -306,7 +306,7 @@ nEncRefPitchM1K1 := LREAL_TO_UDINT(ABS(fEncRefPitchM1K1_urad) * fEncLeverArm_mm)
 
     fM1K1_Press_1(iTermBits:=15, fTermMax:=4.0, fTermMin:=0);
     fM1K1_Press_1_val := fM1K1_Press_1.fReal;
-
+(*
 fbYSetup(stPositionState:=GVL_States.stDefaultOffsetY, bSetDefault:=TRUE);
 fbXSetup(stPositionState:=GVL_States.stDefaultOffsetX, bSetDefault:=TRUE);
 
@@ -345,7 +345,7 @@ fbCoatingStates(
     sDeviceName:='MR1K1:BEND',
     sTransitionKey:='MR1K1:BEND-TRANSITION',
 );
-]]></ST>
+*)]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

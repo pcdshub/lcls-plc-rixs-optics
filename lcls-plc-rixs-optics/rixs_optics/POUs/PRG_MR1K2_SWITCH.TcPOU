@@ -163,6 +163,7 @@ VAR
     fbYSetup: FB_StateSetupHelper;
 
     astCoatingStatesY: ARRAY[1..GeneralConstants.MAX_STATES] OF ST_PositionState;
+
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -267,13 +268,13 @@ fbYSetup(stPositionState:=GVL_States.stDefaultOffsetY, bSetDefault:=TRUE);
 fbYSetup(stPositionState:=astCoatingStatesY[E_B4C_Rh_CoatingStates.B4C],
     sName:='B4C',
     sPmpsState:='MR1K2:SWITCH-B4C',
-    nEncoderCount:=,
+    nEncoderCount:=91672358,
     fDelta:=5000
 );
 fbYSetup(stPositionState:=astCoatingStatesY[E_B4C_Rh_CoatingStates.Rh],
     sName:='Rh',
     sPmpsState:='MR1K2:SWITCH-RHODIUM',
-    nEncoderCount:=,
+    nEncoderCount:=106672361,
     fDelta:=5000
 );
 fbCoatingStates(
@@ -288,6 +289,7 @@ fbCoatingStates(
     sDeviceName:='MR1K2:SWITCH',
     sTransitionKey:='MR1K2:SWITCH-TRANSITION',
 );
+
 ]]></ST>
     </Implementation>
   </POU>

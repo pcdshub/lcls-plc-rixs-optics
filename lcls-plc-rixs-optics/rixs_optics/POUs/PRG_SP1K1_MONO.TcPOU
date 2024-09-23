@@ -233,8 +233,9 @@ VAR
         bValid:=TRUE,
         bUseRawCounts:=TRUE
     );
+
     {attribute 'pytmc' := 'pv: SP1K1:MONO:GRATING'}
-    fbCoatingStates: FB_PositionStatePMPS1D;
+    fbGratingStates: FB_PositionStatePMPS1D;
     {attribute 'pytmc' := '
       pv: SP1K1:MONO:GRATING:STATE:SET
       io: io
@@ -319,40 +320,40 @@ fbGHSetup(stPositionState:=stDefaultGH, bSetDefault:=TRUE);
 fbGHSetup(stPositionState:=astGratingStates[E_Grating_States.LRG],
     sName:='LRG',
     sPmpsState:='SP1K1:MONO-LRG',
-    nEncoderCount:=,
+    nEncoderCount:=7599807,
 );
 
 fbGHSetup(stPositionState:=astGratingStates[E_Grating_States.Unruled],
     sName:='UNRULED',
     sPmpsState:='SP1K1:MONO-UNRULED',
-    nEncoderCount:=,
+    nEncoderCount:=10000269,
 );
 
 fbGHSetup(stPositionState:=astGratingStates[E_Grating_States.YAG],
     sName:='YAG',
     sPmpsState:='SP1K1:MONO-YAG',
-    nEncoderCount:=,
+    nEncoderCount:=16000506,
 );
 
 fbGHSetup(stPositionState:=astGratingStates[E_Grating_States.MEG],
     sName:='MEG',
     sPmpsState:='SP1K1:MONO-MEG',
-    nEncoderCount:=,
+    nEncoderCount:=25420841,
 );
 
 fbGHSetup(stPositionState:=astGratingStates[E_Grating_States.HEG],
     sName:='HEG',
     sPmpsState:='SP1K1:MONO-HEG',
-    nEncoderCount:=,
+    nEncoderCount:=42600635,
 );
 
 fbGHSetup(stPositionState:=astGratingStates[E_Grating_States.LEG],
     sName:='LEG',
     sPmpsState:='SP1K1:MONO-LEG',
-    nEncoderCount:=,
+    nEncoderCount:=59802448,
 );
 
-fbCoatingStates(
+fbGratingStates(
     stMotionStage:=Main.M9,
     astPositionState:=astGratingStates,
     eEnumSet:=eStateSet,
@@ -362,7 +363,7 @@ fbCoatingStates(
     bEnableMotion:=TRUE,
     bEnableBeamParams:=TRUE,
     sDeviceName:='SP1K1:MONO',
-    sTransitionKey:='SP1K1:MONO-TRANSITION',
+    sTransitionKey:='SP1K1:MONO-TRANSITION'
 );
 ]]></ST>
     </Implementation>
