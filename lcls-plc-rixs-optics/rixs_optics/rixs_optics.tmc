@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass" Hash="{6F7A53A0-C2D9-A16A-9BED-F44FF998AD64}" GeneratedBy="TwinCAT XAE Plc">
+<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass" Hash="{C148670C-B896-ACAA-DBAC-169C1BF0BF81}" GeneratedBy="TwinCAT XAE Plc">
   <DataTypes>
     <DataType>
       <Name Namespace="Tc2_SerialCom">ComSerialLineMode_t</Name>
@@ -27352,6 +27352,34 @@ contributing fast faults, unless the FFO is currently vetoed.
         <Property>
           <Name>PouType</Name>
           <Value>FunctionBlock</Value>
+        </Property>
+      </Properties>
+    </DataType>
+    <DataType>
+      <Name>E_MR1K1_States</Name>
+      <BitSize>16</BitSize>
+      <BaseType>UINT</BaseType>
+      <EnumInfo>
+        <Text>Unknown</Text>
+        <Enum>0</Enum>
+      </EnumInfo>
+      <EnumInfo>
+        <Text>B4C</Text>
+        <Enum>1</Enum>
+      </EnumInfo>
+      <EnumInfo>
+        <Text>OUT</Text>
+        <Enum>2</Enum>
+      </EnumInfo>
+      <Properties>
+        <Property>
+          <Name>qualified_only</Name>
+        </Property>
+        <Property>
+          <Name>strict</Name>
+        </Property>
+        <Property>
+          <Name>generate_implicit_init_function</Name>
         </Property>
       </Properties>
     </DataType>
@@ -72244,10 +72272,6 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
         <Text>Rh</Text>
         <Enum>2</Enum>
       </EnumInfo>
-      <EnumInfo>
-        <Text>OUT</Text>
-        <Enum>3</Enum>
-      </EnumInfo>
       <Properties>
         <Property>
           <Name>qualified_only</Name>
@@ -81525,6 +81549,339 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
       </Properties>
     </DataType>
     <DataType>
+      <Name Namespace="lcls_twincat_motion">FB_PositionStatePMPS2D</Name>
+      <BitSize>1541440</BitSize>
+      <SubItem>
+        <Name>stMotionStage1</Name>
+        <Type Namespace="lcls_twincat_motion" ReferenceTo="true">ST_MotionStage</Type>
+        <Comment> The 1st motor to move</Comment>
+        <BitSize>64</BitSize>
+        <BitOffs>64</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>stMotionStage2</Name>
+        <Type Namespace="lcls_twincat_motion" ReferenceTo="true">ST_MotionStage</Type>
+        <Comment> The 2nd motor to move</Comment>
+        <BitSize>64</BitSize>
+        <BitOffs>128</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>astPositionState1</Name>
+        <Type Namespace="lcls_twincat_motion">ST_PositionState</Type>
+        <ArrayInfo ReferenceTo="true">
+          <LBound>1</LBound>
+          <Elements>15</Elements>
+        </ArrayInfo>
+        <Comment> All possible position states for motor 1, including unused/invalid states.</Comment>
+        <BitSize>64</BitSize>
+        <BitOffs>192</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+          <Property>
+            <Name>pytmc</Name>
+            <Value>
+        pv: STATE:M1
+        io: io
+        expand: :%.2d
+    </Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>astPositionState2</Name>
+        <Type Namespace="lcls_twincat_motion">ST_PositionState</Type>
+        <ArrayInfo ReferenceTo="true">
+          <LBound>1</LBound>
+          <Elements>15</Elements>
+        </ArrayInfo>
+        <Comment> All possible position states for motor 2, including unused/invalid states.</Comment>
+        <BitSize>64</BitSize>
+        <BitOffs>256</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+          <Property>
+            <Name>pytmc</Name>
+            <Value>
+        pv: STATE:M2
+        io: io
+        expand: :%.2d
+    </Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>eEnumSet</Name>
+        <Type ReferenceTo="true">UINT</Type>
+        <Comment> Set this to a nonzero value to request a new move. It will be reset to zero every cycle. This should be hooked up to a user's EPICS enum input.</Comment>
+        <BitSize>64</BitSize>
+        <BitOffs>320</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>eEnumGet</Name>
+        <Type ReferenceTo="true">UINT</Type>
+        <Comment> The current state index, or zero if we are not at a state. This should be hooked up to a user's EPICS enum output.</Comment>
+        <BitSize>64</BitSize>
+        <BitOffs>384</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>fbFFHWO</Name>
+        <Type Namespace="PMPS" ReferenceTo="true">FB_HardwareFFOutput</Type>
+        <Comment> The fast fault output to fault to.</Comment>
+        <BitSize>64</BitSize>
+        <BitOffs>448</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>fbArbiter</Name>
+        <Type Namespace="PMPS" ReferenceTo="true">FB_Arbiter</Type>
+        <Comment> The arbiter to request beam conditions from.</Comment>
+        <BitSize>64</BitSize>
+        <BitOffs>512</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>bEnableMotion</Name>
+        <Type>BOOL</Type>
+        <Comment> Set this to TRUE to enable input state moves, or FALSE to disable them.</Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>576</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>bEnableBeamParams</Name>
+        <Type>BOOL</Type>
+        <Comment> Set this to TRUE to enable beam parameter checks, or FALSE to disable them.</Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>584</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>bEnablePositionLimits</Name>
+        <Type>BOOL</Type>
+        <Comment> Set this to TRUE to enable position limit checks, or FALSE to disable them.</Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>592</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>sDeviceName</Name>
+        <Type>STRING(80)</Type>
+        <Comment> The name of the device for use in the PMPS DB lookup and diagnostic screens.</Comment>
+        <BitSize>648</BitSize>
+        <BitOffs>600</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>sTransitionKey</Name>
+        <Type>STRING(80)</Type>
+        <Comment> The name of the transition state in the PMPS database.</Comment>
+        <BitSize>648</BitSize>
+        <BitOffs>1248</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>stEpicsToPlc</Name>
+        <Type Namespace="lcls_twincat_motion">ST_StateEpicsToPlc</Type>
+        <Comment> Normal EPICS inputs, gathered into a single struct
+ PMPS EPICS inputs, gathered into a single struct</Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>1904</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+          <Property>
+            <Name>pytmc</Name>
+            <Value>pv: STATE</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>stPMPSEpicsToPlc</Name>
+        <Type Namespace="lcls_twincat_motion">ST_StatePMPSEpicsToPlc</Type>
+        <BitSize>16</BitSize>
+        <BitOffs>1936</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+          <Property>
+            <Name>pytmc</Name>
+            <Value>pv: STATE</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>bReadDBNow</Name>
+        <Type>BOOL</Type>
+        <Comment> Set this to TRUE to re-read the loaded database immediately (useful for debug)</Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>1952</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>stPlcToEpics</Name>
+        <Type Namespace="lcls_twincat_motion">ST_StatePlcToEpics</Type>
+        <Comment> Normal EPICS outputs, gathered into a single struct</Comment>
+        <BitSize>768</BitSize>
+        <BitOffs>1984</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+          <Property>
+            <Name>pytmc</Name>
+            <Value>pv: STATE</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>stPMPSPlcToEpics</Name>
+        <Type Namespace="lcls_twincat_motion">ST_StatePMPSPlcToEpics</Type>
+        <Comment> PMPS EPICS outputs, gathered into a single struct</Comment>
+        <BitSize>2496</BitSize>
+        <BitOffs>2752</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+          <Property>
+            <Name>pytmc</Name>
+            <Value>pv: STATE</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>stDbStateParams</Name>
+        <Type Namespace="PMPS">ST_DbStateParams</Type>
+        <Comment> The PMPS database lookup associated with the current position state.</Comment>
+        <BitSize>2496</BitSize>
+        <BitOffs>5248</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>fbCore</Name>
+        <Type Namespace="lcls_twincat_motion">FB_PositionStateND_Core</Type>
+        <BitSize>609536</BitSize>
+        <BitOffs>7744</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>fbPMPSCore</Name>
+        <Type Namespace="lcls_twincat_motion">FB_PositionStatePMPSND_Core</Type>
+        <BitSize>682240</BitSize>
+        <BitOffs>617280</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>astMotionStageMax</Name>
+        <Type Namespace="lcls_twincat_motion">ST_MotionStage</Type>
+        <ArrayInfo>
+          <LBound>1</LBound>
+          <Elements>3</Elements>
+        </ArrayInfo>
+        <BitSize>77760</BitSize>
+        <BitOffs>1299520</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>astPositionStateMax</Name>
+        <Type Namespace="lcls_twincat_motion">ST_PositionState</Type>
+        <ArrayInfo Level="0">
+          <LBound>1</LBound>
+          <Elements>3</Elements>
+        </ArrayInfo>
+        <ArrayInfo Level="1">
+          <LBound>1</LBound>
+          <Elements>15</Elements>
+        </ArrayInfo>
+        <BitSize>164160</BitSize>
+        <BitOffs>1377280</BitOffs>
+      </SubItem>
+      <Properties>
+        <Property>
+          <Name>PouType</Name>
+          <Value>FunctionBlock</Value>
+        </Property>
+      </Properties>
+    </DataType>
+    <DataType>
       <Name Namespace="lcls_twincat_motion">FB_PositionStatePMPS1D</Name>
       <BitSize>1541312</BitSize>
       <SubItem>
@@ -89985,6 +90342,345 @@ Emergency Stop for MR1K1</Comment>
             <BitOffs>1304133520</BitOffs>
           </Symbol>
           <Symbol>
+            <Name>PRG_MR1K1_BEND.fbCoatingStates.astMotionStageMax[1].Axis.NcToPlc</Name>
+            <BitSize>2048</BitSize>
+            <BaseType GUID="{25521FAA-EA5F-4C7F-8864-BBCCDACD2E98}">NCTOPLC_AXIS_REF</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1317361024</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.fbCoatingStates.astMotionStageMax[1].bLimitForwardEnable</Name>
+            <Comment> NC Forward Limit Switch: TRUE if ok to move</Comment>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1317368960</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.fbCoatingStates.astMotionStageMax[1].bLimitBackwardEnable</Name>
+            <Comment> NC Backward Limit Switch: TRUE if ok to move</Comment>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1317368968</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.fbCoatingStates.astMotionStageMax[1].bHome</Name>
+            <Comment> NO Home Switch: TRUE if at home</Comment>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1317368976</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.fbCoatingStates.astMotionStageMax[1].bHardwareEnable</Name>
+            <Comment> NC STO Input: TRUE if ok to move</Comment>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+        pv: PLC:bHardwareEnable
+        io: i
+        field: ZNAM FALSE
+        field: ONAM TRUE
+        field: DESC TRUE if STO not hit
+    </Value>
+              </Property>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1317368992</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.fbCoatingStates.astMotionStageMax[1].nRawEncoderULINT</Name>
+            <Comment> Raw encoder IO for ULINT (Biss-C)</Comment>
+            <BitSize>64</BitSize>
+            <BaseType>ULINT</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1317369024</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.fbCoatingStates.astMotionStageMax[1].nRawEncoderUINT</Name>
+            <Comment> Raw encoder IO for UINT (Relative Encoders)</Comment>
+            <BitSize>16</BitSize>
+            <BaseType>UINT</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1317369088</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.fbCoatingStates.astMotionStageMax[1].nRawEncoderINT</Name>
+            <Comment> Raw encoder IO for INT (LVDT)</Comment>
+            <BitSize>16</BitSize>
+            <BaseType>INT</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1317369104</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.fbCoatingStates.astMotionStageMax[2].Axis.NcToPlc</Name>
+            <BitSize>2048</BitSize>
+            <BaseType GUID="{25521FAA-EA5F-4C7F-8864-BBCCDACD2E98}">NCTOPLC_AXIS_REF</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1317386944</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.fbCoatingStates.astMotionStageMax[2].bLimitForwardEnable</Name>
+            <Comment> NC Forward Limit Switch: TRUE if ok to move</Comment>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1317394880</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.fbCoatingStates.astMotionStageMax[2].bLimitBackwardEnable</Name>
+            <Comment> NC Backward Limit Switch: TRUE if ok to move</Comment>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1317394888</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.fbCoatingStates.astMotionStageMax[2].bHome</Name>
+            <Comment> NO Home Switch: TRUE if at home</Comment>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1317394896</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.fbCoatingStates.astMotionStageMax[2].bHardwareEnable</Name>
+            <Comment> NC STO Input: TRUE if ok to move</Comment>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+        pv: PLC:bHardwareEnable
+        io: i
+        field: ZNAM FALSE
+        field: ONAM TRUE
+        field: DESC TRUE if STO not hit
+    </Value>
+              </Property>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1317394912</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.fbCoatingStates.astMotionStageMax[2].nRawEncoderULINT</Name>
+            <Comment> Raw encoder IO for ULINT (Biss-C)</Comment>
+            <BitSize>64</BitSize>
+            <BaseType>ULINT</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1317394944</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.fbCoatingStates.astMotionStageMax[2].nRawEncoderUINT</Name>
+            <Comment> Raw encoder IO for UINT (Relative Encoders)</Comment>
+            <BitSize>16</BitSize>
+            <BaseType>UINT</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1317395008</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.fbCoatingStates.astMotionStageMax[2].nRawEncoderINT</Name>
+            <Comment> Raw encoder IO for INT (LVDT)</Comment>
+            <BitSize>16</BitSize>
+            <BaseType>INT</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1317395024</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.fbCoatingStates.astMotionStageMax[3].Axis.NcToPlc</Name>
+            <BitSize>2048</BitSize>
+            <BaseType GUID="{25521FAA-EA5F-4C7F-8864-BBCCDACD2E98}">NCTOPLC_AXIS_REF</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1317412864</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.fbCoatingStates.astMotionStageMax[3].bLimitForwardEnable</Name>
+            <Comment> NC Forward Limit Switch: TRUE if ok to move</Comment>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1317420800</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.fbCoatingStates.astMotionStageMax[3].bLimitBackwardEnable</Name>
+            <Comment> NC Backward Limit Switch: TRUE if ok to move</Comment>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1317420808</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.fbCoatingStates.astMotionStageMax[3].bHome</Name>
+            <Comment> NO Home Switch: TRUE if at home</Comment>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1317420816</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.fbCoatingStates.astMotionStageMax[3].bHardwareEnable</Name>
+            <Comment> NC STO Input: TRUE if ok to move</Comment>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+        pv: PLC:bHardwareEnable
+        io: i
+        field: ZNAM FALSE
+        field: ONAM TRUE
+        field: DESC TRUE if STO not hit
+    </Value>
+              </Property>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1317420832</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.fbCoatingStates.astMotionStageMax[3].nRawEncoderULINT</Name>
+            <Comment> Raw encoder IO for ULINT (Biss-C)</Comment>
+            <BitSize>64</BitSize>
+            <BaseType>ULINT</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1317420864</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.fbCoatingStates.astMotionStageMax[3].nRawEncoderUINT</Name>
+            <Comment> Raw encoder IO for UINT (Relative Encoders)</Comment>
+            <BitSize>16</BitSize>
+            <BaseType>UINT</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1317420928</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.fbCoatingStates.astMotionStageMax[3].nRawEncoderINT</Name>
+            <Comment> Raw encoder IO for INT (LVDT)</Comment>
+            <BitSize>16</BitSize>
+            <BaseType>INT</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1317420944</BitOffs>
+          </Symbol>
+          <Symbol>
             <Name>PRG_MR1K2_SWITCH.fbCoatingStates.astMotionStageMax[1].Axis.NcToPlc</Name>
             <BitSize>2048</BitSize>
             <BaseType GUID="{25521FAA-EA5F-4C7F-8864-BBCCDACD2E98}">NCTOPLC_AXIS_REF</BaseType>
@@ -92403,6 +93099,81 @@ Emergency Stop for MR1K1</Comment>
               </Property>
             </Properties>
             <BitOffs>1303807680</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.fbCoatingStates.astMotionStageMax[1].Axis.PlcToNc</Name>
+            <BitSize>1024</BitSize>
+            <BaseType GUID="{96B75FEB-2D84-43BE-A3EC-D9A681F27D52}">PLCTONC_AXIS_REF</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Output</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1317360000</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.fbCoatingStates.astMotionStageMax[1].bBrakeRelease</Name>
+            <Comment> NC Brake Output: TRUE to release brake</Comment>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Output</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1317368984</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.fbCoatingStates.astMotionStageMax[2].Axis.PlcToNc</Name>
+            <BitSize>1024</BitSize>
+            <BaseType GUID="{96B75FEB-2D84-43BE-A3EC-D9A681F27D52}">PLCTONC_AXIS_REF</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Output</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1317385920</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.fbCoatingStates.astMotionStageMax[2].bBrakeRelease</Name>
+            <Comment> NC Brake Output: TRUE to release brake</Comment>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Output</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1317394904</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.fbCoatingStates.astMotionStageMax[3].Axis.PlcToNc</Name>
+            <BitSize>1024</BitSize>
+            <BaseType GUID="{96B75FEB-2D84-43BE-A3EC-D9A681F27D52}">PLCTONC_AXIS_REF</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Output</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1317411840</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.fbCoatingStates.astMotionStageMax[3].bBrakeRelease</Name>
+            <Comment> NC Brake Output: TRUE to release brake</Comment>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Output</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1317420824</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K2_SWITCH.fbCoatingStates.astMotionStageMax[1].Axis.PlcToNc</Name>
@@ -98357,6 +99128,36 @@ Emergency Stop for MR1K1</Comment>
               </Property>
             </Properties>
             <BitOffs>633593344</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.eStateSet</Name>
+            <BitSize>16</BitSize>
+            <BaseType>E_MR1K1_States</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+      pv: MR1K1:BEND:COATING:STATE:SET
+      io: io
+    </Value>
+              </Property>
+            </Properties>
+            <BitOffs>634550864</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.eStateGet</Name>
+            <BitSize>16</BitSize>
+            <BaseType>E_MR1K1_States</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+      pv: MR1K1:BEND:COATING:STATE:GET
+      io: i
+    </Value>
+              </Property>
+            </Properties>
+            <BitOffs>634550880</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Global_Version.stLibVersion_lcls_twincat_motion</Name>
@@ -106612,6 +107413,38 @@ M4K2 KBV X ENC CNT</Comment>
             <BitOffs>1311930688</BitOffs>
           </Symbol>
           <Symbol>
+            <Name>PRG_MR1K1_BEND.fbYSetup</Name>
+            <BitSize>92352</BitSize>
+            <BaseType Namespace="lcls_twincat_motion">FB_StateSetupHelper</BaseType>
+            <BitOffs>1312414272</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.fbXSetup</Name>
+            <BitSize>92352</BitSize>
+            <BaseType Namespace="lcls_twincat_motion">FB_StateSetupHelper</BaseType>
+            <BitOffs>1312506624</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.astCoatingStatesY</Name>
+            <BitSize>54720</BitSize>
+            <BaseType Namespace="lcls_twincat_motion">ST_PositionState</BaseType>
+            <ArrayInfo>
+              <LBound>1</LBound>
+              <Elements>15</Elements>
+            </ArrayInfo>
+            <BitOffs>1312598976</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.astCoatingStatesX</Name>
+            <BitSize>54720</BitSize>
+            <BaseType Namespace="lcls_twincat_motion">ST_PositionState</BaseType>
+            <ArrayInfo>
+              <LBound>1</LBound>
+              <Elements>15</Elements>
+            </ArrayInfo>
+            <BitOffs>1312653696</BitOffs>
+          </Symbol>
+          <Symbol>
             <Name>PRG_MR1K2_SWITCH.fbYSetup</Name>
             <BitSize>92352</BitSize>
             <BaseType Namespace="lcls_twincat_motion">FB_StateSetupHelper</BaseType>
@@ -106678,6 +107511,18 @@ M4K2 KBV X ENC CNT</Comment>
               <Elements>15</Elements>
             </ArrayInfo>
             <BitOffs>1315739584</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.fbCoatingStates</Name>
+            <BitSize>1541440</BitSize>
+            <BaseType Namespace="lcls_twincat_motion">FB_PositionStatePMPS2D</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>pv: MR1K1:BEND:COATING</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1316060416</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K2_SWITCH.fbCoatingStates</Name>
@@ -106794,15 +107639,15 @@ M4K2 KBV X ENC CNT</Comment>
         </Property>
         <Property>
           <Name>ChangeDate</Name>
-          <Value>2024-09-23T15:39:50</Value>
+          <Value>2024-09-24T14:37:08</Value>
         </Property>
         <Property>
           <Name>GeneratedCodeSize</Name>
-          <Value>1081344</Value>
+          <Value>1089536</Value>
         </Property>
         <Property>
           <Name>GlobalDataSize</Name>
-          <Value>163110912</Value>
+          <Value>163340288</Value>
         </Property>
       </Properties>
     </Module>
