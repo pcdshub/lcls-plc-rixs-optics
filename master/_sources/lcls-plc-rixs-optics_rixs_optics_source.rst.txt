@@ -97,6 +97,64 @@ DUT_Header_NW
 
 
 
+E_B4C_Rh_CoatingStates
+^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    {attribute 'qualified_only'}
+    {attribute 'strict'}
+    TYPE E_B4C_Rh_CoatingStates :
+    (
+        Unknown := 0,
+        B4C := 1,
+        Rh := 2
+    ) UINT;
+    END_TYPE
+
+
+
+
+E_Grating_States
+^^^^^^^^^^^^^^^^
+
+::
+
+    {attribute 'qualified_only'}
+    {attribute 'strict'}
+    TYPE E_Grating_States :
+    (
+        Unknown := 0,
+        LRG := 1,
+        Unruled := 2,
+        YAG := 3,
+        MEG := 4,
+        HEG := 5,
+        LEG := 6
+    ) UINT;
+    END_TYPE
+
+
+
+
+E_MR1K1_States
+^^^^^^^^^^^^^^
+
+::
+
+    {attribute 'qualified_only'}
+    {attribute 'strict'}
+    TYPE E_MR1K1_States :
+    (
+        Unknown := 0,
+        B4C := 1,
+        OUT := 2
+    ) UINT;
+    END_TYPE
+
+
+
+
 ENUM_XS_YAG_States
 ^^^^^^^^^^^^^^^^^^
 
@@ -412,6 +470,54 @@ GVL_SerialIO
 
 
 
+GVL_States
+^^^^^^^^^^
+
+::
+
+    {attribute 'qualified_only'}
+    VAR_GLOBAL
+        stDefaultOffsetY : ST_PositionState := (
+            fDelta:=2000,
+            fVelocity:=100,
+            fAccel:=5050,
+            fDecel:=5050,
+            bMoveOk:=TRUE,
+            bValid:=TRUE,
+            bUseRawCounts:=TRUE
+        );
+            stDefaultOffsetX : ST_PositionState := (
+            fDelta:=10000,
+            fVelocity:=150,
+            fAccel:=1000,
+            fDecel:=1000,
+            bMoveOk:=TRUE,
+            bValid:=TRUE,
+            bUseRawCounts:=TRUE
+        );
+            stDefaultKBX : ST_PositionState := (
+            fDelta:=5,
+            fVelocity:=0.2,
+            fAccel:=100,
+            fDecel:=100,
+            bMoveOk:=TRUE,
+            bValid:=TRUE,
+            bUseRawCounts:=TRUE
+        );
+            stDefaultKBY : ST_PositionState := (
+            fDelta:=5,
+            fVelocity:=0.2,
+            fAccel:=10,
+            fDecel:=10,
+            bMoveOk:=TRUE,
+            bValid:=TRUE,
+            bUseRawCounts:=TRUE
+        );
+    END_VAR
+
+
+
+
 Main
 ^^^^
 
@@ -536,7 +642,8 @@ Main
         fbMotionStage_m13 : FB_MotionStage;
 
         {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K1_Xup]^STM Status^Status^Digital input 1;
-                                  .bLimitBackwardEnable:=TIIB[EL7047_M1K1_Xup]^STM Status^Status^Digital input 2'}
+                                  .bLimitBackwardEnable:=TIIB[EL7047_M1K1_Xup]^STM Status^Status^Digital input 2;
+                                  .nRawEncoderULINT:=TIIB[EL5042_M1K1_Xupdwn]^FB Inputs Channel 1^Position'}
         {attribute 'pytmc' := '
             pv: MR1K1:BEND:MMS:XUP
         '}
@@ -1888,6 +1995,25 @@ PRG_MR1K1_BEND
             io: i
         '}
         fM1K1_Press_1_val : LREAL;
+
+        {attribute 'pytmc' := 'pv: MR1K1:BEND:COATING'}
+        fbCoatingStates: FB_PositionStatePMPS2D;
+        {attribute 'pytmc' := '
+          pv: MR1K1:BEND:COATING:STATE:SET
+          io: io
+        '}
+        eStateSet: E_MR1K1_States;
+        {attribute 'pytmc' := '
+          pv: MR1K1:BEND:COATING:STATE:GET
+          io: i
+        '}
+        eStateGet: E_MR1K1_States;
+        fbYSetup: FB_StateSetupHelper;
+        fbXSetup: FB_StateSetupHelper;
+
+        astCoatingStatesY: ARRAY[1..GeneralConstants.MAX_STATES] OF ST_PositionState;
+        astCoatingStatesX: ARRAY[1..GeneralConstants.MAX_STATES] OF ST_PositionState;
+
     END_VAR
     // M1K1
     M1K1.fbRunHOMS(stYup:=M12,
@@ -1987,12 +2113,56 @@ PRG_MR1K1_BEND
         fM1K1_Press_1(iTermBits:=15, fTermMax:=4.0, fTermMin:=0);
         fM1K1_Press_1_val := fM1K1_Press_1.fReal;
 
+    fbYSetup(stPositionState:=GVL_States.stDefaultOffsetY, bSetDefault:=TRUE);
+    fbXSetup(stPositionState:=GVL_States.stDefaultOffsetX, bSetDefault:=TRUE);
+
+    fbYSetup(stPositionState:=astCoatingStatesY[E_MR1K1_States.B4C],
+        sName:='B4C',
+        sPmpsState:='MR1K1:BEND-B4C',
+        nEncoderCount:=31911452
+    );
+    fbXSetup(stPositionState:=astCoatingStatesX[E_MR1K1_States.B4C],
+        sName:='B4C',
+        sPmpsState:='MR1K1:BEND-B4C',
+        nEncoderCount:=19829647
+    );
+    fbYSetup(stPositionState:=astCoatingStatesY[E_MR1K1_States.OUT],
+        sName:='OUT',
+        sPmpsState:='MR1K1:BEND-OUT',
+        nEncoderCount:=13412630,
+        fDelta:=50
+    );
+    // Out position determined solely by Y Axis
+    fbXSetup(stPositionState:=astCoatingStatesX[E_MR1K1_States.OUT],
+        sName:='OUT',
+        sPmpsState:='MR1K1:BEND-OUT',
+        nEncoderCount:=ULINT_TO_UDINT(M14.nRawEncoderULINT)
+    );
+    fbCoatingStates(
+        stMotionStage1:=Main.M12,
+        stMotionStage2:=Main.M14,
+        astPositionState1:=astCoatingStatesY,
+        astPositionState2:=astCoatingStatesX,
+        eEnumSet:=eStateSet,
+        eEnumGet:=eStateGet,
+        fbFFHWO:=GVL_PMPS.fbFastFaultOutput1,
+        fbArbiter:=GVL_PMPS.fbArbiter1,
+        bEnableMotion:=TRUE,
+        bEnableBeamParams:=TRUE,
+        sDeviceName:='MR1K1:BEND',
+        sTransitionKey:='MR1K1:BEND-TRANSITION',
+    );
+
     END_PROGRAM
 
 
 Related:
+    * `E_MR1K1_States`_
     * `GVL_M1K1`_
     * `GVL_M1K1_Constants`_
+    * `GVL_PMPS`_
+    * `GVL_States`_
+    * `Main`_
 
 
 PRG_MR1K1_BEND_BENDER
@@ -2340,6 +2510,22 @@ PRG_MR1K2_SWITCH
         '}
         fM1K2_Press_1_val : LREAL;
 
+        {attribute 'pytmc' := 'pv: MR1K2:SWITCH:COATING'}
+        fbCoatingStates: FB_PositionStatePMPS1D;
+        {attribute 'pytmc' := '
+          pv: MR1K2:SWITCH:COATING:STATE:SET
+          io: io
+        '}
+        eStateSet: E_B4C_Rh_CoatingStates;
+        {attribute 'pytmc' := '
+          pv: MR1K2:SWITCH:COATING:STATE:GET
+          io: i
+        '}
+        eStateGet: E_B4C_Rh_CoatingStates;
+        fbYSetup: FB_StateSetupHelper;
+
+        astCoatingStatesY: ARRAY[1..GeneralConstants.MAX_STATES] OF ST_PositionState;
+
     END_VAR
     // M1K2
     M1K2.fbRunHOMS(stYup:=M1,
@@ -2437,12 +2623,43 @@ PRG_MR1K2_SWITCH
     fM1K2_Press_1(iTermBits:=15, fTermMax:=4.0, fTermMin:=0);
     fM1K2_Press_1_val := fM1K2_Press_1.fReal;
 
+    fbYSetup(stPositionState:=GVL_States.stDefaultOffsetY, bSetDefault:=TRUE);
+
+    fbYSetup(stPositionState:=astCoatingStatesY[E_B4C_Rh_CoatingStates.B4C],
+        sName:='B4C',
+        sPmpsState:='MR1K2:SWITCH-B4C',
+        nEncoderCount:=91672358,
+        fDelta:=5000
+    );
+    fbYSetup(stPositionState:=astCoatingStatesY[E_B4C_Rh_CoatingStates.Rh],
+        sName:='Rh',
+        sPmpsState:='MR1K2:SWITCH-RHODIUM',
+        nEncoderCount:=106672361,
+        fDelta:=5000
+    );
+    fbCoatingStates(
+        stMotionStage:=Main.M1,
+        astPositionState:=astCoatingStatesY,
+        eEnumSet:=eStateSet,
+        eEnumGet:=eStateGet,
+        fbFFHWO:=GVL_PMPS.fbFastFaultOutput1,
+        fbArbiter:=GVL_PMPS.fbArbiter1,
+        bEnableMotion:=TRUE,
+        bEnableBeamParams:=TRUE,
+        sDeviceName:='MR1K2:SWITCH',
+        sTransitionKey:='MR1K2:SWITCH-TRANSITION',
+    );
+
     END_PROGRAM
 
 
 Related:
+    * `E_B4C_Rh_CoatingStates`_
     * `GVL_M1K2`_
     * `GVL_M1K2_Constants`_
+    * `GVL_PMPS`_
+    * `GVL_States`_
+    * `Main`_
 
 
 PRG_MR2K2_FLAT
@@ -2529,6 +2746,7 @@ PRG_MR2K2_FLAT
             pv: MR2K2:FLAT
         '}
         fbCoolingPanel : FB_Axilon_Cooling_2f1p;
+
     END_VAR
     //FB_Motion stages for MR2K2 Axes
     //MR2K2 FLAT
@@ -3576,6 +3794,32 @@ PRG_SP1K1_MONO
         '}
         fSP1K1_Press_1_val : LREAL;
 
+         stDefaultGH : ST_PositionState := (
+            fDelta:=2000,
+            fVelocity:=875.0,
+            fAccel:=6923,
+            fDecel:=6923,
+            bMoveOk:=TRUE,
+            bValid:=TRUE,
+            bUseRawCounts:=TRUE
+        );
+
+        {attribute 'pytmc' := 'pv: SP1K1:MONO:GRATING'}
+        fbGratingStates: FB_PositionStatePMPS1D;
+        {attribute 'pytmc' := '
+          pv: SP1K1:MONO:GRATING:STATE:SET
+          io: io
+        '}
+        eStateSet: E_Grating_States;
+        {attribute 'pytmc' := '
+          pv: SP1K1:MONO:GRATING:STATE:GET
+          io: i
+        '}
+        eStateGet: E_Grating_States;
+        fbGHSetup: FB_StateSetupHelper;
+
+        astGratingStates: ARRAY[1..GeneralConstants.MAX_STATES] OF ST_PositionState;
+
     END_VAR
     // SP1K1-MONO
     M6.bHardwareEnable := bSTOEnable1 AND bSTOEnable2;
@@ -3639,11 +3883,64 @@ PRG_SP1K1_MONO
     fSP1K1_Press_1(iTermBits:=15, fTermMax:=4.0, fTermMin:=0);
     fSP1K1_Press_1_val := fSP1K1_Press_1.fReal;
 
+    fbGHSetup(stPositionState:=stDefaultGH, bSetDefault:=TRUE);
+
+    fbGHSetup(stPositionState:=astGratingStates[E_Grating_States.LRG],
+        sName:='LRG',
+        sPmpsState:='SP1K1:MONO-LRG',
+        nEncoderCount:=7599807,
+    );
+
+    fbGHSetup(stPositionState:=astGratingStates[E_Grating_States.Unruled],
+        sName:='UNRULED',
+        sPmpsState:='SP1K1:MONO-UNRULED',
+        nEncoderCount:=10000269,
+    );
+
+    fbGHSetup(stPositionState:=astGratingStates[E_Grating_States.YAG],
+        sName:='YAG',
+        sPmpsState:='SP1K1:MONO-YAG',
+        nEncoderCount:=16000506,
+    );
+
+    fbGHSetup(stPositionState:=astGratingStates[E_Grating_States.MEG],
+        sName:='MEG',
+        sPmpsState:='SP1K1:MONO-MEG',
+        nEncoderCount:=25420841,
+    );
+
+    fbGHSetup(stPositionState:=astGratingStates[E_Grating_States.HEG],
+        sName:='HEG',
+        sPmpsState:='SP1K1:MONO-HEG',
+        nEncoderCount:=42600635,
+    );
+
+    fbGHSetup(stPositionState:=astGratingStates[E_Grating_States.LEG],
+        sName:='LEG',
+        sPmpsState:='SP1K1:MONO-LEG',
+        nEncoderCount:=59802448,
+    );
+
+    fbGratingStates(
+        stMotionStage:=Main.M9,
+        astPositionState:=astGratingStates,
+        eEnumSet:=eStateSet,
+        eEnumGet:=eStateGet,
+        fbFFHWO:=GVL_PMPS.fbFastFaultOutput1,
+        fbArbiter:=GVL_PMPS.fbArbiter1,
+        bEnableMotion:=TRUE,
+        bEnableBeamParams:=TRUE,
+        sDeviceName:='SP1K1:MONO',
+        sTransitionKey:='SP1K1:MONO-TRANSITION'
+    );
+
     END_PROGRAM
 
 
 Related:
+    * `E_Grating_States`_
     * `GVL_PMPS`_
+    * `Main`_
 
 
 PRG_SPO_PMPS

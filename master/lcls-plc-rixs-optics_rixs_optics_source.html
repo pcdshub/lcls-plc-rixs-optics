@@ -66,6 +66,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#dut-01-channel-nw">DUT_01_Channel_NW</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#dut-channel-nw">DUT_Channel_NW</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#dut-header-nw">DUT_Header_NW</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#e-b4c-rh-coatingstates">E_B4C_Rh_CoatingStates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#e-grating-states">E_Grating_States</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#e-mr1k1-states">E_MR1K1_States</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#enum-xs-yag-states">ENUM_XS_YAG_States</a></li>
 </ul>
 </li>
@@ -82,6 +85,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#gvl-m4k2">GVL_M4K2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gvl-pmps">GVL_PMPS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gvl-serialio">GVL_SerialIO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gvl-states">GVL_States</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#main">Main</a></li>
 </ul>
 </li>
@@ -231,6 +235,52 @@
     <span class="n">uint8_t</span>     <span class="n">reserved3</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
 <span class="p">}</span> <span class="n">encoder_header_t</span><span class="p">;</span>
 <span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="e-b4c-rh-coatingstates">
+<h2>E_B4C_Rh_CoatingStates<a class="headerlink" href="#e-b4c-rh-coatingstates" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;qualified_only&#39;</span><span class="p">}</span>
+<span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;strict&#39;</span><span class="p">}</span>
+<span class="n">TYPE</span> <span class="n">E_B4C_Rh_CoatingStates</span> <span class="p">:</span>
+<span class="p">(</span>
+    <span class="n">Unknown</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">B4C</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">Rh</span> <span class="o">:=</span> <span class="mi">2</span>
+<span class="p">)</span> <span class="n">UINT</span><span class="p">;</span>
+<span class="n">END_TYPE</span>
+</pre></div>
+</div>
+</section>
+<section id="e-grating-states">
+<h2>E_Grating_States<a class="headerlink" href="#e-grating-states" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;qualified_only&#39;</span><span class="p">}</span>
+<span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;strict&#39;</span><span class="p">}</span>
+<span class="n">TYPE</span> <span class="n">E_Grating_States</span> <span class="p">:</span>
+<span class="p">(</span>
+    <span class="n">Unknown</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">LRG</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">Unruled</span> <span class="o">:=</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="n">YAG</span> <span class="o">:=</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="n">MEG</span> <span class="o">:=</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="n">HEG</span> <span class="o">:=</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="n">LEG</span> <span class="o">:=</span> <span class="mi">6</span>
+<span class="p">)</span> <span class="n">UINT</span><span class="p">;</span>
+<span class="n">END_TYPE</span>
+</pre></div>
+</div>
+</section>
+<section id="e-mr1k1-states">
+<h2>E_MR1K1_States<a class="headerlink" href="#e-mr1k1-states" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;qualified_only&#39;</span><span class="p">}</span>
+<span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;strict&#39;</span><span class="p">}</span>
+<span class="n">TYPE</span> <span class="n">E_MR1K1_States</span> <span class="p">:</span>
+<span class="p">(</span>
+    <span class="n">Unknown</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">B4C</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">OUT</span> <span class="o">:=</span> <span class="mi">2</span>
+<span class="p">)</span> <span class="n">UINT</span><span class="p">;</span>
+<span class="n">END_TYPE</span>
 </pre></div>
 </div>
 </section>
@@ -496,6 +546,50 @@ END_VAR
 </pre></div>
 </div>
 </section>
+<section id="gvl-states">
+<h2>GVL_States<a class="headerlink" href="#gvl-states" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;qualified_only&#39;</span><span class="p">}</span>
+<span class="n">VAR_GLOBAL</span>
+    <span class="n">stDefaultOffsetY</span> <span class="p">:</span> <span class="n">ST_PositionState</span> <span class="o">:=</span> <span class="p">(</span>
+        <span class="n">fDelta</span><span class="o">:=</span><span class="mi">2000</span><span class="p">,</span>
+        <span class="n">fVelocity</span><span class="o">:=</span><span class="mi">100</span><span class="p">,</span>
+        <span class="n">fAccel</span><span class="o">:=</span><span class="mi">5050</span><span class="p">,</span>
+        <span class="n">fDecel</span><span class="o">:=</span><span class="mi">5050</span><span class="p">,</span>
+        <span class="n">bMoveOk</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
+        <span class="n">bValid</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
+        <span class="n">bUseRawCounts</span><span class="o">:=</span><span class="n">TRUE</span>
+    <span class="p">);</span>
+        <span class="n">stDefaultOffsetX</span> <span class="p">:</span> <span class="n">ST_PositionState</span> <span class="o">:=</span> <span class="p">(</span>
+        <span class="n">fDelta</span><span class="o">:=</span><span class="mi">10000</span><span class="p">,</span>
+        <span class="n">fVelocity</span><span class="o">:=</span><span class="mi">150</span><span class="p">,</span>
+        <span class="n">fAccel</span><span class="o">:=</span><span class="mi">1000</span><span class="p">,</span>
+        <span class="n">fDecel</span><span class="o">:=</span><span class="mi">1000</span><span class="p">,</span>
+        <span class="n">bMoveOk</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
+        <span class="n">bValid</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
+        <span class="n">bUseRawCounts</span><span class="o">:=</span><span class="n">TRUE</span>
+    <span class="p">);</span>
+        <span class="n">stDefaultKBX</span> <span class="p">:</span> <span class="n">ST_PositionState</span> <span class="o">:=</span> <span class="p">(</span>
+        <span class="n">fDelta</span><span class="o">:=</span><span class="mi">5</span><span class="p">,</span>
+        <span class="n">fVelocity</span><span class="o">:=</span><span class="mf">0.2</span><span class="p">,</span>
+        <span class="n">fAccel</span><span class="o">:=</span><span class="mi">100</span><span class="p">,</span>
+        <span class="n">fDecel</span><span class="o">:=</span><span class="mi">100</span><span class="p">,</span>
+        <span class="n">bMoveOk</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
+        <span class="n">bValid</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
+        <span class="n">bUseRawCounts</span><span class="o">:=</span><span class="n">TRUE</span>
+    <span class="p">);</span>
+        <span class="n">stDefaultKBY</span> <span class="p">:</span> <span class="n">ST_PositionState</span> <span class="o">:=</span> <span class="p">(</span>
+        <span class="n">fDelta</span><span class="o">:=</span><span class="mi">5</span><span class="p">,</span>
+        <span class="n">fVelocity</span><span class="o">:=</span><span class="mf">0.2</span><span class="p">,</span>
+        <span class="n">fAccel</span><span class="o">:=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">fDecel</span><span class="o">:=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">bMoveOk</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
+        <span class="n">bValid</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
+        <span class="n">bUseRawCounts</span><span class="o">:=</span><span class="n">TRUE</span>
+    <span class="p">);</span>
+<span class="n">END_VAR</span>
+</pre></div>
+</div>
+</section>
 <section id="main">
 <h2>Main<a class="headerlink" href="#main" title="Link to this heading"></a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">VAR_GLOBAL</span>
@@ -617,7 +711,8 @@ END_VAR
     <span class="n">fbMotionStage_m13</span> <span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
 
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.bLimitForwardEnable:=TIIB[EL7047_M1K1_Xup]^STM Status^Status^Digital input 1;</span>
-                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL7047_M1K1_Xup</span><span class="p">]</span><span class="o">^</span><span class="n">STM</span> <span class="n">Status</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Digital</span> <span class="nb">input</span> <span class="mi">2</span><span class="s1">&#39;}</span>
+                              <span class="o">.</span><span class="n">bLimitBackwardEnable</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL7047_M1K1_Xup</span><span class="p">]</span><span class="o">^</span><span class="n">STM</span> <span class="n">Status</span><span class="o">^</span><span class="n">Status</span><span class="o">^</span><span class="n">Digital</span> <span class="nb">input</span> <span class="mi">2</span><span class="p">;</span>
+                              <span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="o">:=</span><span class="n">TIIB</span><span class="p">[</span><span class="n">EL5042_M1K1_Xupdwn</span><span class="p">]</span><span class="o">^</span><span class="n">FB</span> <span class="n">Inputs</span> <span class="n">Channel</span> <span class="mi">1</span><span class="o">^</span><span class="n">Position</span><span class="s1">&#39;}</span>
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
         <span class="n">pv</span><span class="p">:</span> <span class="n">MR1K1</span><span class="p">:</span><span class="n">BEND</span><span class="p">:</span><span class="n">MMS</span><span class="p">:</span><span class="n">XUP</span>
     <span class="s1">&#39;}</span>
@@ -1916,6 +2011,25 @@ END_VAR
         <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
     <span class="s1">&#39;}</span>
     <span class="n">fM1K1_Press_1_val</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MR1K1:BEND:COATING&#39;</span><span class="p">}</span>
+    <span class="n">fbCoatingStates</span><span class="p">:</span> <span class="n">FB_PositionStatePMPS2D</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+      <span class="n">pv</span><span class="p">:</span> <span class="n">MR1K1</span><span class="p">:</span><span class="n">BEND</span><span class="p">:</span><span class="n">COATING</span><span class="p">:</span><span class="n">STATE</span><span class="p">:</span><span class="n">SET</span>
+      <span class="n">io</span><span class="p">:</span> <span class="n">io</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">eStateSet</span><span class="p">:</span> <span class="n">E_MR1K1_States</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+      <span class="n">pv</span><span class="p">:</span> <span class="n">MR1K1</span><span class="p">:</span><span class="n">BEND</span><span class="p">:</span><span class="n">COATING</span><span class="p">:</span><span class="n">STATE</span><span class="p">:</span><span class="n">GET</span>
+      <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">eStateGet</span><span class="p">:</span> <span class="n">E_MR1K1_States</span><span class="p">;</span>
+    <span class="n">fbYSetup</span><span class="p">:</span> <span class="n">FB_StateSetupHelper</span><span class="p">;</span>
+    <span class="n">fbXSetup</span><span class="p">:</span> <span class="n">FB_StateSetupHelper</span><span class="p">;</span>
+
+    <span class="n">astCoatingStatesY</span><span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1.</span><span class="o">.</span><span class="n">GeneralConstants</span><span class="o">.</span><span class="n">MAX_STATES</span><span class="p">]</span> <span class="n">OF</span> <span class="n">ST_PositionState</span><span class="p">;</span>
+    <span class="n">astCoatingStatesX</span><span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1.</span><span class="o">.</span><span class="n">GeneralConstants</span><span class="o">.</span><span class="n">MAX_STATES</span><span class="p">]</span> <span class="n">OF</span> <span class="n">ST_PositionState</span><span class="p">;</span>
+
 <span class="n">END_VAR</span>
 <span class="o">//</span> <span class="n">M1K1</span>
 <span class="n">M1K1</span><span class="o">.</span><span class="n">fbRunHOMS</span><span class="p">(</span><span class="n">stYup</span><span class="o">:=</span><span class="n">M12</span><span class="p">,</span>
@@ -2015,13 +2129,57 @@ END_VAR
     <span class="n">fM1K1_Press_1</span><span class="p">(</span><span class="n">iTermBits</span><span class="o">:=</span><span class="mi">15</span><span class="p">,</span> <span class="n">fTermMax</span><span class="o">:=</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">fTermMin</span><span class="o">:=</span><span class="mi">0</span><span class="p">);</span>
     <span class="n">fM1K1_Press_1_val</span> <span class="o">:=</span> <span class="n">fM1K1_Press_1</span><span class="o">.</span><span class="n">fReal</span><span class="p">;</span>
 
+<span class="n">fbYSetup</span><span class="p">(</span><span class="n">stPositionState</span><span class="o">:=</span><span class="n">GVL_States</span><span class="o">.</span><span class="n">stDefaultOffsetY</span><span class="p">,</span> <span class="n">bSetDefault</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">);</span>
+<span class="n">fbXSetup</span><span class="p">(</span><span class="n">stPositionState</span><span class="o">:=</span><span class="n">GVL_States</span><span class="o">.</span><span class="n">stDefaultOffsetX</span><span class="p">,</span> <span class="n">bSetDefault</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">);</span>
+
+<span class="n">fbYSetup</span><span class="p">(</span><span class="n">stPositionState</span><span class="o">:=</span><span class="n">astCoatingStatesY</span><span class="p">[</span><span class="n">E_MR1K1_States</span><span class="o">.</span><span class="n">B4C</span><span class="p">],</span>
+    <span class="n">sName</span><span class="o">:=</span><span class="s1">&#39;B4C&#39;</span><span class="p">,</span>
+    <span class="n">sPmpsState</span><span class="o">:=</span><span class="s1">&#39;MR1K1:BEND-B4C&#39;</span><span class="p">,</span>
+    <span class="n">nEncoderCount</span><span class="o">:=</span><span class="mi">31911452</span>
+<span class="p">);</span>
+<span class="n">fbXSetup</span><span class="p">(</span><span class="n">stPositionState</span><span class="o">:=</span><span class="n">astCoatingStatesX</span><span class="p">[</span><span class="n">E_MR1K1_States</span><span class="o">.</span><span class="n">B4C</span><span class="p">],</span>
+    <span class="n">sName</span><span class="o">:=</span><span class="s1">&#39;B4C&#39;</span><span class="p">,</span>
+    <span class="n">sPmpsState</span><span class="o">:=</span><span class="s1">&#39;MR1K1:BEND-B4C&#39;</span><span class="p">,</span>
+    <span class="n">nEncoderCount</span><span class="o">:=</span><span class="mi">19829647</span>
+<span class="p">);</span>
+<span class="n">fbYSetup</span><span class="p">(</span><span class="n">stPositionState</span><span class="o">:=</span><span class="n">astCoatingStatesY</span><span class="p">[</span><span class="n">E_MR1K1_States</span><span class="o">.</span><span class="n">OUT</span><span class="p">],</span>
+    <span class="n">sName</span><span class="o">:=</span><span class="s1">&#39;OUT&#39;</span><span class="p">,</span>
+    <span class="n">sPmpsState</span><span class="o">:=</span><span class="s1">&#39;MR1K1:BEND-OUT&#39;</span><span class="p">,</span>
+    <span class="n">nEncoderCount</span><span class="o">:=</span><span class="mi">13412630</span><span class="p">,</span>
+    <span class="n">fDelta</span><span class="o">:=</span><span class="mi">50</span>
+<span class="p">);</span>
+<span class="o">//</span> <span class="n">Out</span> <span class="n">position</span> <span class="n">determined</span> <span class="n">solely</span> <span class="n">by</span> <span class="n">Y</span> <span class="n">Axis</span>
+<span class="n">fbXSetup</span><span class="p">(</span><span class="n">stPositionState</span><span class="o">:=</span><span class="n">astCoatingStatesX</span><span class="p">[</span><span class="n">E_MR1K1_States</span><span class="o">.</span><span class="n">OUT</span><span class="p">],</span>
+    <span class="n">sName</span><span class="o">:=</span><span class="s1">&#39;OUT&#39;</span><span class="p">,</span>
+    <span class="n">sPmpsState</span><span class="o">:=</span><span class="s1">&#39;MR1K1:BEND-OUT&#39;</span><span class="p">,</span>
+    <span class="n">nEncoderCount</span><span class="o">:=</span><span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="n">M14</span><span class="o">.</span><span class="n">nRawEncoderULINT</span><span class="p">)</span>
+<span class="p">);</span>
+<span class="n">fbCoatingStates</span><span class="p">(</span>
+    <span class="n">stMotionStage1</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M12</span><span class="p">,</span>
+    <span class="n">stMotionStage2</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M14</span><span class="p">,</span>
+    <span class="n">astPositionState1</span><span class="o">:=</span><span class="n">astCoatingStatesY</span><span class="p">,</span>
+    <span class="n">astPositionState2</span><span class="o">:=</span><span class="n">astCoatingStatesX</span><span class="p">,</span>
+    <span class="n">eEnumSet</span><span class="o">:=</span><span class="n">eStateSet</span><span class="p">,</span>
+    <span class="n">eEnumGet</span><span class="o">:=</span><span class="n">eStateGet</span><span class="p">,</span>
+    <span class="n">fbFFHWO</span><span class="o">:=</span><span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbFastFaultOutput1</span><span class="p">,</span>
+    <span class="n">fbArbiter</span><span class="o">:=</span><span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbArbiter1</span><span class="p">,</span>
+    <span class="n">bEnableMotion</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
+    <span class="n">bEnableBeamParams</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
+    <span class="n">sDeviceName</span><span class="o">:=</span><span class="s1">&#39;MR1K1:BEND&#39;</span><span class="p">,</span>
+    <span class="n">sTransitionKey</span><span class="o">:=</span><span class="s1">&#39;MR1K1:BEND-TRANSITION&#39;</span><span class="p">,</span>
+<span class="p">);</span>
+
 <span class="n">END_PROGRAM</span>
 </pre></div>
 </div>
 <dl class="simple">
 <dt>Related:</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="#e-mr1k1-states">E_MR1K1_States</a></p></li>
 <li><p><a class="reference internal" href="#gvl-m1k1">GVL_M1K1</a></p></li>
 <li><p><a class="reference internal" href="#gvl-m1k1-constants">GVL_M1K1_Constants</a></p></li>
+<li><p><a class="reference internal" href="#gvl-pmps">GVL_PMPS</a></p></li>
+<li><p><a class="reference internal" href="#gvl-states">GVL_States</a></p></li>
+<li><p><a class="reference internal" href="#main">Main</a></p></li>
 </ul>
 </dd>
 </dl>
@@ -2368,6 +2526,22 @@ END_VAR
     <span class="s1">&#39;}</span>
     <span class="n">fM1K2_Press_1_val</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
 
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MR1K2:SWITCH:COATING&#39;</span><span class="p">}</span>
+    <span class="n">fbCoatingStates</span><span class="p">:</span> <span class="n">FB_PositionStatePMPS1D</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+      <span class="n">pv</span><span class="p">:</span> <span class="n">MR1K2</span><span class="p">:</span><span class="n">SWITCH</span><span class="p">:</span><span class="n">COATING</span><span class="p">:</span><span class="n">STATE</span><span class="p">:</span><span class="n">SET</span>
+      <span class="n">io</span><span class="p">:</span> <span class="n">io</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">eStateSet</span><span class="p">:</span> <span class="n">E_B4C_Rh_CoatingStates</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+      <span class="n">pv</span><span class="p">:</span> <span class="n">MR1K2</span><span class="p">:</span><span class="n">SWITCH</span><span class="p">:</span><span class="n">COATING</span><span class="p">:</span><span class="n">STATE</span><span class="p">:</span><span class="n">GET</span>
+      <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">eStateGet</span><span class="p">:</span> <span class="n">E_B4C_Rh_CoatingStates</span><span class="p">;</span>
+    <span class="n">fbYSetup</span><span class="p">:</span> <span class="n">FB_StateSetupHelper</span><span class="p">;</span>
+
+    <span class="n">astCoatingStatesY</span><span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1.</span><span class="o">.</span><span class="n">GeneralConstants</span><span class="o">.</span><span class="n">MAX_STATES</span><span class="p">]</span> <span class="n">OF</span> <span class="n">ST_PositionState</span><span class="p">;</span>
+
 <span class="n">END_VAR</span>
 <span class="o">//</span> <span class="n">M1K2</span>
 <span class="n">M1K2</span><span class="o">.</span><span class="n">fbRunHOMS</span><span class="p">(</span><span class="n">stYup</span><span class="o">:=</span><span class="n">M1</span><span class="p">,</span>
@@ -2465,13 +2639,44 @@ END_VAR
 <span class="n">fM1K2_Press_1</span><span class="p">(</span><span class="n">iTermBits</span><span class="o">:=</span><span class="mi">15</span><span class="p">,</span> <span class="n">fTermMax</span><span class="o">:=</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">fTermMin</span><span class="o">:=</span><span class="mi">0</span><span class="p">);</span>
 <span class="n">fM1K2_Press_1_val</span> <span class="o">:=</span> <span class="n">fM1K2_Press_1</span><span class="o">.</span><span class="n">fReal</span><span class="p">;</span>
 
+<span class="n">fbYSetup</span><span class="p">(</span><span class="n">stPositionState</span><span class="o">:=</span><span class="n">GVL_States</span><span class="o">.</span><span class="n">stDefaultOffsetY</span><span class="p">,</span> <span class="n">bSetDefault</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">);</span>
+
+<span class="n">fbYSetup</span><span class="p">(</span><span class="n">stPositionState</span><span class="o">:=</span><span class="n">astCoatingStatesY</span><span class="p">[</span><span class="n">E_B4C_Rh_CoatingStates</span><span class="o">.</span><span class="n">B4C</span><span class="p">],</span>
+    <span class="n">sName</span><span class="o">:=</span><span class="s1">&#39;B4C&#39;</span><span class="p">,</span>
+    <span class="n">sPmpsState</span><span class="o">:=</span><span class="s1">&#39;MR1K2:SWITCH-B4C&#39;</span><span class="p">,</span>
+    <span class="n">nEncoderCount</span><span class="o">:=</span><span class="mi">91672358</span><span class="p">,</span>
+    <span class="n">fDelta</span><span class="o">:=</span><span class="mi">5000</span>
+<span class="p">);</span>
+<span class="n">fbYSetup</span><span class="p">(</span><span class="n">stPositionState</span><span class="o">:=</span><span class="n">astCoatingStatesY</span><span class="p">[</span><span class="n">E_B4C_Rh_CoatingStates</span><span class="o">.</span><span class="n">Rh</span><span class="p">],</span>
+    <span class="n">sName</span><span class="o">:=</span><span class="s1">&#39;Rh&#39;</span><span class="p">,</span>
+    <span class="n">sPmpsState</span><span class="o">:=</span><span class="s1">&#39;MR1K2:SWITCH-RHODIUM&#39;</span><span class="p">,</span>
+    <span class="n">nEncoderCount</span><span class="o">:=</span><span class="mi">106672361</span><span class="p">,</span>
+    <span class="n">fDelta</span><span class="o">:=</span><span class="mi">5000</span>
+<span class="p">);</span>
+<span class="n">fbCoatingStates</span><span class="p">(</span>
+    <span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M1</span><span class="p">,</span>
+    <span class="n">astPositionState</span><span class="o">:=</span><span class="n">astCoatingStatesY</span><span class="p">,</span>
+    <span class="n">eEnumSet</span><span class="o">:=</span><span class="n">eStateSet</span><span class="p">,</span>
+    <span class="n">eEnumGet</span><span class="o">:=</span><span class="n">eStateGet</span><span class="p">,</span>
+    <span class="n">fbFFHWO</span><span class="o">:=</span><span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbFastFaultOutput1</span><span class="p">,</span>
+    <span class="n">fbArbiter</span><span class="o">:=</span><span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbArbiter1</span><span class="p">,</span>
+    <span class="n">bEnableMotion</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
+    <span class="n">bEnableBeamParams</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
+    <span class="n">sDeviceName</span><span class="o">:=</span><span class="s1">&#39;MR1K2:SWITCH&#39;</span><span class="p">,</span>
+    <span class="n">sTransitionKey</span><span class="o">:=</span><span class="s1">&#39;MR1K2:SWITCH-TRANSITION&#39;</span><span class="p">,</span>
+<span class="p">);</span>
+
 <span class="n">END_PROGRAM</span>
 </pre></div>
 </div>
 <dl class="simple">
 <dt>Related:</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="#e-b4c-rh-coatingstates">E_B4C_Rh_CoatingStates</a></p></li>
 <li><p><a class="reference internal" href="#gvl-m1k2">GVL_M1K2</a></p></li>
 <li><p><a class="reference internal" href="#gvl-m1k2-constants">GVL_M1K2_Constants</a></p></li>
+<li><p><a class="reference internal" href="#gvl-pmps">GVL_PMPS</a></p></li>
+<li><p><a class="reference internal" href="#gvl-states">GVL_States</a></p></li>
+<li><p><a class="reference internal" href="#main">Main</a></p></li>
 </ul>
 </dd>
 </dl>
@@ -2557,6 +2762,7 @@ END_VAR
         <span class="n">pv</span><span class="p">:</span> <span class="n">MR2K2</span><span class="p">:</span><span class="n">FLAT</span>
     <span class="s1">&#39;}</span>
     <span class="n">fbCoolingPanel</span> <span class="p">:</span> <span class="n">FB_Axilon_Cooling_2f1p</span><span class="p">;</span>
+
 <span class="n">END_VAR</span>
 <span class="o">//</span><span class="n">FB_Motion</span> <span class="n">stages</span> <span class="k">for</span> <span class="n">MR2K2</span> <span class="n">Axes</span>
 <span class="o">//</span><span class="n">MR2K2</span> <span class="n">FLAT</span>
@@ -3604,6 +3810,32 @@ END_VAR
     <span class="s1">&#39;}</span>
     <span class="n">fSP1K1_Press_1_val</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
 
+     <span class="n">stDefaultGH</span> <span class="p">:</span> <span class="n">ST_PositionState</span> <span class="o">:=</span> <span class="p">(</span>
+        <span class="n">fDelta</span><span class="o">:=</span><span class="mi">2000</span><span class="p">,</span>
+        <span class="n">fVelocity</span><span class="o">:=</span><span class="mf">875.0</span><span class="p">,</span>
+        <span class="n">fAccel</span><span class="o">:=</span><span class="mi">6923</span><span class="p">,</span>
+        <span class="n">fDecel</span><span class="o">:=</span><span class="mi">6923</span><span class="p">,</span>
+        <span class="n">bMoveOk</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
+        <span class="n">bValid</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
+        <span class="n">bUseRawCounts</span><span class="o">:=</span><span class="n">TRUE</span>
+    <span class="p">);</span>
+
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: SP1K1:MONO:GRATING&#39;</span><span class="p">}</span>
+    <span class="n">fbGratingStates</span><span class="p">:</span> <span class="n">FB_PositionStatePMPS1D</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+      <span class="n">pv</span><span class="p">:</span> <span class="n">SP1K1</span><span class="p">:</span><span class="n">MONO</span><span class="p">:</span><span class="n">GRATING</span><span class="p">:</span><span class="n">STATE</span><span class="p">:</span><span class="n">SET</span>
+      <span class="n">io</span><span class="p">:</span> <span class="n">io</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">eStateSet</span><span class="p">:</span> <span class="n">E_Grating_States</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+      <span class="n">pv</span><span class="p">:</span> <span class="n">SP1K1</span><span class="p">:</span><span class="n">MONO</span><span class="p">:</span><span class="n">GRATING</span><span class="p">:</span><span class="n">STATE</span><span class="p">:</span><span class="n">GET</span>
+      <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">eStateGet</span><span class="p">:</span> <span class="n">E_Grating_States</span><span class="p">;</span>
+    <span class="n">fbGHSetup</span><span class="p">:</span> <span class="n">FB_StateSetupHelper</span><span class="p">;</span>
+
+    <span class="n">astGratingStates</span><span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1.</span><span class="o">.</span><span class="n">GeneralConstants</span><span class="o">.</span><span class="n">MAX_STATES</span><span class="p">]</span> <span class="n">OF</span> <span class="n">ST_PositionState</span><span class="p">;</span>
+
 <span class="n">END_VAR</span>
 <span class="o">//</span> <span class="n">SP1K1</span><span class="o">-</span><span class="n">MONO</span>
 <span class="n">M6</span><span class="o">.</span><span class="n">bHardwareEnable</span> <span class="o">:=</span> <span class="n">bSTOEnable1</span> <span class="n">AND</span> <span class="n">bSTOEnable2</span><span class="p">;</span>
@@ -3667,12 +3899,65 @@ END_VAR
 <span class="n">fSP1K1_Press_1</span><span class="p">(</span><span class="n">iTermBits</span><span class="o">:=</span><span class="mi">15</span><span class="p">,</span> <span class="n">fTermMax</span><span class="o">:=</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">fTermMin</span><span class="o">:=</span><span class="mi">0</span><span class="p">);</span>
 <span class="n">fSP1K1_Press_1_val</span> <span class="o">:=</span> <span class="n">fSP1K1_Press_1</span><span class="o">.</span><span class="n">fReal</span><span class="p">;</span>
 
+<span class="n">fbGHSetup</span><span class="p">(</span><span class="n">stPositionState</span><span class="o">:=</span><span class="n">stDefaultGH</span><span class="p">,</span> <span class="n">bSetDefault</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">);</span>
+
+<span class="n">fbGHSetup</span><span class="p">(</span><span class="n">stPositionState</span><span class="o">:=</span><span class="n">astGratingStates</span><span class="p">[</span><span class="n">E_Grating_States</span><span class="o">.</span><span class="n">LRG</span><span class="p">],</span>
+    <span class="n">sName</span><span class="o">:=</span><span class="s1">&#39;LRG&#39;</span><span class="p">,</span>
+    <span class="n">sPmpsState</span><span class="o">:=</span><span class="s1">&#39;SP1K1:MONO-LRG&#39;</span><span class="p">,</span>
+    <span class="n">nEncoderCount</span><span class="o">:=</span><span class="mi">7599807</span><span class="p">,</span>
+<span class="p">);</span>
+
+<span class="n">fbGHSetup</span><span class="p">(</span><span class="n">stPositionState</span><span class="o">:=</span><span class="n">astGratingStates</span><span class="p">[</span><span class="n">E_Grating_States</span><span class="o">.</span><span class="n">Unruled</span><span class="p">],</span>
+    <span class="n">sName</span><span class="o">:=</span><span class="s1">&#39;UNRULED&#39;</span><span class="p">,</span>
+    <span class="n">sPmpsState</span><span class="o">:=</span><span class="s1">&#39;SP1K1:MONO-UNRULED&#39;</span><span class="p">,</span>
+    <span class="n">nEncoderCount</span><span class="o">:=</span><span class="mi">10000269</span><span class="p">,</span>
+<span class="p">);</span>
+
+<span class="n">fbGHSetup</span><span class="p">(</span><span class="n">stPositionState</span><span class="o">:=</span><span class="n">astGratingStates</span><span class="p">[</span><span class="n">E_Grating_States</span><span class="o">.</span><span class="n">YAG</span><span class="p">],</span>
+    <span class="n">sName</span><span class="o">:=</span><span class="s1">&#39;YAG&#39;</span><span class="p">,</span>
+    <span class="n">sPmpsState</span><span class="o">:=</span><span class="s1">&#39;SP1K1:MONO-YAG&#39;</span><span class="p">,</span>
+    <span class="n">nEncoderCount</span><span class="o">:=</span><span class="mi">16000506</span><span class="p">,</span>
+<span class="p">);</span>
+
+<span class="n">fbGHSetup</span><span class="p">(</span><span class="n">stPositionState</span><span class="o">:=</span><span class="n">astGratingStates</span><span class="p">[</span><span class="n">E_Grating_States</span><span class="o">.</span><span class="n">MEG</span><span class="p">],</span>
+    <span class="n">sName</span><span class="o">:=</span><span class="s1">&#39;MEG&#39;</span><span class="p">,</span>
+    <span class="n">sPmpsState</span><span class="o">:=</span><span class="s1">&#39;SP1K1:MONO-MEG&#39;</span><span class="p">,</span>
+    <span class="n">nEncoderCount</span><span class="o">:=</span><span class="mi">25420841</span><span class="p">,</span>
+<span class="p">);</span>
+
+<span class="n">fbGHSetup</span><span class="p">(</span><span class="n">stPositionState</span><span class="o">:=</span><span class="n">astGratingStates</span><span class="p">[</span><span class="n">E_Grating_States</span><span class="o">.</span><span class="n">HEG</span><span class="p">],</span>
+    <span class="n">sName</span><span class="o">:=</span><span class="s1">&#39;HEG&#39;</span><span class="p">,</span>
+    <span class="n">sPmpsState</span><span class="o">:=</span><span class="s1">&#39;SP1K1:MONO-HEG&#39;</span><span class="p">,</span>
+    <span class="n">nEncoderCount</span><span class="o">:=</span><span class="mi">42600635</span><span class="p">,</span>
+<span class="p">);</span>
+
+<span class="n">fbGHSetup</span><span class="p">(</span><span class="n">stPositionState</span><span class="o">:=</span><span class="n">astGratingStates</span><span class="p">[</span><span class="n">E_Grating_States</span><span class="o">.</span><span class="n">LEG</span><span class="p">],</span>
+    <span class="n">sName</span><span class="o">:=</span><span class="s1">&#39;LEG&#39;</span><span class="p">,</span>
+    <span class="n">sPmpsState</span><span class="o">:=</span><span class="s1">&#39;SP1K1:MONO-LEG&#39;</span><span class="p">,</span>
+    <span class="n">nEncoderCount</span><span class="o">:=</span><span class="mi">59802448</span><span class="p">,</span>
+<span class="p">);</span>
+
+<span class="n">fbGratingStates</span><span class="p">(</span>
+    <span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M9</span><span class="p">,</span>
+    <span class="n">astPositionState</span><span class="o">:=</span><span class="n">astGratingStates</span><span class="p">,</span>
+    <span class="n">eEnumSet</span><span class="o">:=</span><span class="n">eStateSet</span><span class="p">,</span>
+    <span class="n">eEnumGet</span><span class="o">:=</span><span class="n">eStateGet</span><span class="p">,</span>
+    <span class="n">fbFFHWO</span><span class="o">:=</span><span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbFastFaultOutput1</span><span class="p">,</span>
+    <span class="n">fbArbiter</span><span class="o">:=</span><span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbArbiter1</span><span class="p">,</span>
+    <span class="n">bEnableMotion</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
+    <span class="n">bEnableBeamParams</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
+    <span class="n">sDeviceName</span><span class="o">:=</span><span class="s1">&#39;SP1K1:MONO&#39;</span><span class="p">,</span>
+    <span class="n">sTransitionKey</span><span class="o">:=</span><span class="s1">&#39;SP1K1:MONO-TRANSITION&#39;</span>
+<span class="p">);</span>
+
 <span class="n">END_PROGRAM</span>
 </pre></div>
 </div>
 <dl class="simple">
 <dt>Related:</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="#e-grating-states">E_Grating_States</a></p></li>
 <li><p><a class="reference internal" href="#gvl-pmps">GVL_PMPS</a></p></li>
+<li><p><a class="reference internal" href="#main">Main</a></p></li>
 </ul>
 </dd>
 </dl>
