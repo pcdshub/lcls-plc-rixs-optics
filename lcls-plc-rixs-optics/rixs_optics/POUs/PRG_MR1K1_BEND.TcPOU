@@ -321,9 +321,10 @@ fbXSetup(stPositionState:=astCoatingStatesX[E_MR1K1_States.B4C],
 fbYSetup(stPositionState:=astCoatingStatesY[E_MR1K1_States.OUT],
     sName:='OUT',
     sPmpsState:='MR1K1:BEND-OUT',
-    nEncoderCount:=13412630
+    nEncoderCount:=13412630,
+    fDelta:=50
 );
-// Out position determined soley by X Axis
+// Out position determined solely by Y Axis
 fbXSetup(stPositionState:=astCoatingStatesX[E_MR1K1_States.OUT],
     sName:='OUT',
     sPmpsState:='MR1K1:BEND-OUT',
