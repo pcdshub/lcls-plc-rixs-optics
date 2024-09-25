@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <DUT Name="E_Grating_States" Id="{9f270b52-cc4a-47bb-a119-bc8968008079}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+TYPE E_Grating_States :
+(
+    Unknown := 0,
+    LRG := 1,
+    Unruled := 2,
+    YAG := 3,
+    MEG := 4,
+    HEG := 5,
+    LEG := 6
+) UINT;
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

@@ -148,6 +148,22 @@ VAR
     '}
     fM1K2_Press_1_val : LREAL;
 
+    {attribute 'pytmc' := 'pv: MR1K2:SWITCH:COATING'}
+    fbCoatingStates: FB_PositionStatePMPS1D;
+    {attribute 'pytmc' := '
+      pv: MR1K2:SWITCH:COATING:STATE:SET
+      io: io
+    '}
+    eStateSet: E_B4C_Rh_CoatingStates;
+    {attribute 'pytmc' := '
+      pv: MR1K2:SWITCH:COATING:STATE:GET
+      io: i
+    '}
+    eStateGet: E_B4C_Rh_CoatingStates;
+    fbYSetup: FB_StateSetupHelper;
+
+    astCoatingStatesY: ARRAY[1..GeneralConstants.MAX_STATES] OF ST_PositionState;
+
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -245,7 +261,36 @@ fM1K2_Flow_1_val := fM1K2_Flow_1.fReal;
 fM1K2_Flow_2(iTermBits:=15, fTermMax:=5.0427, fTermMin:=0.050472);
 fM1K2_Flow_2_val := fM1K2_Flow_2.fReal;
 fM1K2_Press_1(iTermBits:=15, fTermMax:=4.0, fTermMin:=0);
-fM1K2_Press_1_val := fM1K2_Press_1.fReal;]]></ST>
+fM1K2_Press_1_val := fM1K2_Press_1.fReal;
+
+fbYSetup(stPositionState:=GVL_States.stDefaultOffsetY, bSetDefault:=TRUE);
+
+fbYSetup(stPositionState:=astCoatingStatesY[E_B4C_Rh_CoatingStates.B4C],
+    sName:='B4C',
+    sPmpsState:='MR1K2:SWITCH-B4C',
+    nEncoderCount:=91672358,
+    fDelta:=5000
+);
+fbYSetup(stPositionState:=astCoatingStatesY[E_B4C_Rh_CoatingStates.Rh],
+    sName:='Rh',
+    sPmpsState:='MR1K2:SWITCH-RHODIUM',
+    nEncoderCount:=106672361,
+    fDelta:=5000
+);
+fbCoatingStates(
+    stMotionStage:=Main.M1,
+    astPositionState:=astCoatingStatesY,
+    eEnumSet:=eStateSet,
+    eEnumGet:=eStateGet,
+    fbFFHWO:=GVL_PMPS.fbFastFaultOutput1,
+    fbArbiter:=GVL_PMPS.fbArbiter1,
+    bEnableMotion:=TRUE,
+    bEnableBeamParams:=TRUE,
+    sDeviceName:='MR1K2:SWITCH',
+    sTransitionKey:='MR1K2:SWITCH-TRANSITION',
+);
+
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

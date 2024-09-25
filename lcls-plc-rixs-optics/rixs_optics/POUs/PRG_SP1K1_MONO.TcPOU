@@ -224,6 +224,32 @@ VAR
     '}
     fSP1K1_Press_1_val : LREAL;
 
+     stDefaultGH : ST_PositionState := (
+        fDelta:=2000,
+        fVelocity:=875.0,
+        fAccel:=6923,
+        fDecel:=6923,
+        bMoveOk:=TRUE,
+        bValid:=TRUE,
+        bUseRawCounts:=TRUE
+    );
+
+    {attribute 'pytmc' := 'pv: SP1K1:MONO:GRATING'}
+    fbGratingStates: FB_PositionStatePMPS1D;
+    {attribute 'pytmc' := '
+      pv: SP1K1:MONO:GRATING:STATE:SET
+      io: io
+    '}
+    eStateSet: E_Grating_States;
+    {attribute 'pytmc' := '
+      pv: SP1K1:MONO:GRATING:STATE:GET
+      io: i
+    '}
+    eStateGet: E_Grating_States;
+    fbGHSetup: FB_StateSetupHelper;
+
+    astGratingStates: ARRAY[1..GeneralConstants.MAX_STATES] OF ST_PositionState;
+
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -288,6 +314,57 @@ fSP1K1_Flow_2_val := fSP1K1_Flow_2.fReal;
 
 fSP1K1_Press_1(iTermBits:=15, fTermMax:=4.0, fTermMin:=0);
 fSP1K1_Press_1_val := fSP1K1_Press_1.fReal;
+
+fbGHSetup(stPositionState:=stDefaultGH, bSetDefault:=TRUE);
+
+fbGHSetup(stPositionState:=astGratingStates[E_Grating_States.LRG],
+    sName:='LRG',
+    sPmpsState:='SP1K1:MONO-LRG',
+    nEncoderCount:=7599807,
+);
+
+fbGHSetup(stPositionState:=astGratingStates[E_Grating_States.Unruled],
+    sName:='UNRULED',
+    sPmpsState:='SP1K1:MONO-UNRULED',
+    nEncoderCount:=10000269,
+);
+
+fbGHSetup(stPositionState:=astGratingStates[E_Grating_States.YAG],
+    sName:='YAG',
+    sPmpsState:='SP1K1:MONO-YAG',
+    nEncoderCount:=16000506,
+);
+
+fbGHSetup(stPositionState:=astGratingStates[E_Grating_States.MEG],
+    sName:='MEG',
+    sPmpsState:='SP1K1:MONO-MEG',
+    nEncoderCount:=25420841,
+);
+
+fbGHSetup(stPositionState:=astGratingStates[E_Grating_States.HEG],
+    sName:='HEG',
+    sPmpsState:='SP1K1:MONO-HEG',
+    nEncoderCount:=42600635,
+);
+
+fbGHSetup(stPositionState:=astGratingStates[E_Grating_States.LEG],
+    sName:='LEG',
+    sPmpsState:='SP1K1:MONO-LEG',
+    nEncoderCount:=59802448,
+);
+
+fbGratingStates(
+    stMotionStage:=Main.M9,
+    astPositionState:=astGratingStates,
+    eEnumSet:=eStateSet,
+    eEnumGet:=eStateGet,
+    fbFFHWO:=GVL_PMPS.fbFastFaultOutput1,
+    fbArbiter:=GVL_PMPS.fbArbiter1,
+    bEnableMotion:=TRUE,
+    bEnableBeamParams:=TRUE,
+    sDeviceName:='SP1K1:MONO',
+    sTransitionKey:='SP1K1:MONO-TRANSITION'
+);
 ]]></ST>
     </Implementation>
   </POU>

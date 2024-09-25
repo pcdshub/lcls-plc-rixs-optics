@@ -80,6 +80,7 @@ VAR
         pv: MR2K2:FLAT
     '}
     fbCoolingPanel : FB_Axilon_Cooling_2f1p;
+
 END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[//FB_Motion stages for MR2K2 Axes
@@ -118,7 +119,8 @@ nEncCntYM2K2  := ULINT_TO_UDINT(M26.nRawEncoderULINT);
 nEncCntrXM2K2  := ULINT_TO_UDINT(M27.nRawEncoderULINT);
 
 // Axilon Cooling Panel
-fbCoolingPanel();]]></ST>
+fbCoolingPanel();
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

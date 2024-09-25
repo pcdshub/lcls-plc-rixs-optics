@@ -26,6 +26,15 @@
     <Compile Include="DUTs\ENUM_XS_YAG_States.TcDUT">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DUTs\E_B4C_Rh_CoatingStates.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\E_MR1K1_States.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\E_Grating_States.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Function Blocks\FB_XS_YAG_States.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -67,6 +76,10 @@
     </Compile>
     <Compile Include="GVLs\GVL_SerialIO.TcGVL">
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GVLs\GVL_States.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
     </Compile>
     <Compile Include="GVLs\Main.TcGVL">
       <SubType>Code</SubType>
@@ -253,7 +266,7 @@
     </PlaceholderReference>
   </ItemGroup>
   <ItemGroup>
-    <LibraryReference Include="lcls-twincat-motion,4.0.8,SLAC">
+    <LibraryReference Include="lcls-twincat-motion,4.1.1,SLAC">
       <Namespace>lcls_twincat_motion</Namespace>
     </LibraryReference>
   </ItemGroup>
@@ -262,7 +275,7 @@
       <Resolution>LCLS General, 2.10.0 (SLAC)</Resolution>
     </PlaceholderResolution>
     <PlaceholderResolution Include="lcls-twincat-motion">
-      <Resolution>lcls-twincat-motion, 4.0.8 (SLAC)</Resolution>
+      <Resolution>lcls-twincat-motion, 4.1.1 (SLAC)</Resolution>
     </PlaceholderResolution>
     <PlaceholderResolution Include="lcls-twincat-optics">
       <Resolution>lcls-twincat-optics, 0.7.0 (SLAC)</Resolution>
