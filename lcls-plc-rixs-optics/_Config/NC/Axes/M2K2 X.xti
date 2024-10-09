@@ -1319,11 +1319,11 @@ External Setpoint Generation:
 		<Name>__FILENAME__</Name>
 		<AxisPara>
 			<Dynamic AccelerationMaximum="100" DecelerationMaximum="100" Acceleration="100" Deceleration="100" DelayTime="0.008"/>
-			<Velo Maximum="20"/>
+			<Velo Maximum="0.35"/>
 			<OtherSettings AllowMotionCmdToSlave="true"/>
 		</AxisPara>
 		<Encoder Name="Enc" EncType="29">
-			<EncPara ScaleFactorNumerator="5e-06" Offset="30.3574" Inverse="true" MaxCount="#xffffffff" ReferenceSystem="1">
+			<EncPara ScaleFactorNumerator="5e-06" Offset="-21444.48" MaxCount="#xffffffff" ReferenceSystem="1">
 				<SoftEndMinControl Enable="true" Range="-12.5"/>
 				<SoftEndMaxControl Enable="true" Range="12.5"/>
 				<Inc RefSoftSyncMask="#x0000ffff"/>
