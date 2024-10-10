@@ -180,6 +180,21 @@ VAR
             i_Desc := 'Benders have moved out of range. Adjust bender to be within limits to clear fault',
             i_TypeCode := 16#???);
 *)
+    {attribute 'pytmc' := 'pv: MR3K2:KBH:COATING'}
+    fbCoatingStates: FB_PositionStatePMPS1D;
+    {attribute 'pytmc' := '
+      pv: MR3K2:KBH:COATING:STATE:SET
+      io: io
+    '}
+    eStateSet: E_B4C_Rh_CoatingStates;
+    {attribute 'pytmc' := '
+      pv: MR3K2:KBH:COATING:STATE:GET
+      io: i
+    '}
+    eStateGet: E_B4C_Rh_CoatingStates;
+    fbYSetup: FB_StateSetupHelper;
+
+    astCoatingStatesY: ARRAY[1..GeneralConstants.MAX_STATES] OF ST_PositionState;
 
 END_VAR]]></Declaration>
     <Implementation>
@@ -263,7 +278,33 @@ ffBenderRange.i_xOK :=
     GVL_M3K2.nM3K2US_PMPS_LowerLimit < nEncCntUSM3K2 AND nEncCntUSM3K2 < GVL_M3K2.nM3K2US_PMPS_UpperLimit AND
     GVL_M3K2.nM3K2DS_PMPS_LowerLimit < nEncCntDSM3K2 AND nEncCntUSM3K2 < GVL_M3K2.nM3K2DS_PMPS_UpperLimit;
 ffBenderRange(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
-*)]]></ST>
+*)
+fbYSetup(stPositionState:=GVL_States.stDefaultKBY, bSetDefault:=TRUE);
+
+fbYSetup(stPositionState:=astCoatingStatesY[E_B4C_Rh_CoatingStates.B4C],
+    sName:='B4C',
+    sPmpsState:='MR3K2:KBH-B4C',
+    nEncoderCount:=6357520,
+    fDelta:=5
+);
+fbYSetup(stPositionState:=astCoatingStatesY[E_B4C_Rh_CoatingStates.Rh],
+    sName:='Rh',
+    sPmpsState:='MR3K2:KBH-RHODIUM',
+    nEncoderCount:=3857540,
+    fDelta:=2.5
+);
+fbCoatingStates(
+    stMotionStage:=Main.M29,
+    astPositionState:=astCoatingStatesY,
+    eEnumSet:=eStateSet,
+    eEnumGet:=eStateGet,
+    fbFFHWO:=GVL_PMPS.fbFastFaultOutput2,
+    fbArbiter:=GVL_PMPS.fbArbiter2,
+    bEnableMotion:=TRUE,
+    bEnableBeamParams:=TRUE,
+    sDeviceName:='MR3K2:KBH',
+    sTransitionKey:='MR3K2:KBH-TRANSITION',
+);]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

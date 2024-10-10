@@ -229,6 +229,12 @@
     <PlaceholderReference Include="PMPS">
       <DefaultResolution>PMPS, * (SLAC - LCLS)</DefaultResolution>
       <Namespace>PMPS</Namespace>
+      <Parameters>
+        <Parameter ListName="PMPS_PARAM">
+          <Key>MAX_FAST_FAULTS</Key>
+          <Value>65</Value>
+        </Parameter>
+      </Parameters>
     </PlaceholderReference>
     <PlaceholderReference Include="Tc2_MC2">
       <DefaultResolution>Tc2_MC2, * (Beckhoff Automation GmbH)</DefaultResolution>

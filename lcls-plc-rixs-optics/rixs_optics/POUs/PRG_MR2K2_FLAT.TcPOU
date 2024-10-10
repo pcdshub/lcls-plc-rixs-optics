@@ -81,6 +81,22 @@ VAR
     '}
     fbCoolingPanel : FB_Axilon_Cooling_2f1p;
 
+    {attribute 'pytmc' := 'pv: MR2K2:FLAT:COATING'}
+    fbCoatingStates: FB_PositionStatePMPS1D;
+    {attribute 'pytmc' := '
+      pv: MR2K2:FLAT:COATING:STATE:SET
+      io: io
+    '}
+    eStateSet: E_B4C_Rh_CoatingStates;
+    {attribute 'pytmc' := '
+      pv: MR2K2:FLAT:COATING:STATE:GET
+      io: i
+    '}
+    eStateGet: E_B4C_Rh_CoatingStates;
+    fbXSetup: FB_StateSetupHelper;
+
+    astCoatingStatesX: ARRAY[1..GeneralConstants.MAX_STATES] OF ST_PositionState;
+
 END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[//FB_Motion stages for MR2K2 Axes
@@ -120,6 +136,34 @@ nEncCntrXM2K2  := ULINT_TO_UDINT(M27.nRawEncoderULINT);
 
 // Axilon Cooling Panel
 fbCoolingPanel();
+
+fbXSetup(stPositionState:=GVL_States.stDefaultKBX, bSetDefault:=TRUE);
+
+fbXSetup(stPositionState:=astCoatingStatesX[E_B4C_Rh_CoatingStates.B4C],
+    sName:='B4C',
+    sPmpsState:='MR2K2:FLAT-B4C',
+    nEncoderCount:=ULINT_TO_UDINT(18446744073704980246),
+    fDelta:=5
+);
+fbXSetup(stPositionState:=astCoatingStatesX[E_B4C_Rh_CoatingStates.Rh],
+    sName:='Rh',
+    sPmpsState:='MR2K2:FLAT-RHODIUM',
+    nEncoderCount:=ULINT_TO_UDINT(18446744073701980417),
+    fDelta:=5
+);
+fbCoatingStates(
+    stMotionStage:=Main.M25,
+    astPositionState:=astCoatingStatesX,
+    eEnumSet:=eStateSet,
+    eEnumGet:=eStateGet,
+    fbFFHWO:=GVL_PMPS.fbFastFaultOutput2,
+    fbArbiter:=GVL_PMPS.fbArbiter2,
+    bEnableMotion:=TRUE,
+    bEnableBeamParams:=TRUE,
+    sDeviceName:='MR2K2:FLAT',
+    sTransitionKey:='MR2K2:FLAT-TRANSITION',
+);
+
 ]]></ST>
     </Implementation>
   </POU>
