@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
@@ -6,21 +8,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DUTs &mdash; pcdshub/lcls-plc-rixs-optics  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/tree.css?v=837a00b9" />
       <link rel="stylesheet" type="text/css" href="_static/width.css?v=ab210c7a" />
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="_static/docs-versions-menu.js?v=3d6a1aea"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/docs-versions-menu.js?v=3d6a1aea"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -570,7 +568,7 @@ END_VAR
     <span class="p">);</span>
         <span class="n">stDefaultKBX</span> <span class="p">:</span> <span class="n">ST_PositionState</span> <span class="o">:=</span> <span class="p">(</span>
         <span class="n">fDelta</span><span class="o">:=</span><span class="mi">5</span><span class="p">,</span>
-        <span class="n">fVelocity</span><span class="o">:=</span><span class="mf">0.2</span><span class="p">,</span>
+        <span class="n">fVelocity</span><span class="o">:=</span><span class="mf">0.3</span><span class="p">,</span>
         <span class="n">fAccel</span><span class="o">:=</span><span class="mi">100</span><span class="p">,</span>
         <span class="n">fDecel</span><span class="o">:=</span><span class="mi">100</span><span class="p">,</span>
         <span class="n">bMoveOk</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
@@ -579,7 +577,7 @@ END_VAR
     <span class="p">);</span>
         <span class="n">stDefaultKBY</span> <span class="p">:</span> <span class="n">ST_PositionState</span> <span class="o">:=</span> <span class="p">(</span>
         <span class="n">fDelta</span><span class="o">:=</span><span class="mi">5</span><span class="p">,</span>
-        <span class="n">fVelocity</span><span class="o">:=</span><span class="mf">0.2</span><span class="p">,</span>
+        <span class="n">fVelocity</span><span class="o">:=</span><span class="mf">0.3</span><span class="p">,</span>
         <span class="n">fAccel</span><span class="o">:=</span><span class="mi">10</span><span class="p">,</span>
         <span class="n">fDecel</span><span class="o">:=</span><span class="mi">10</span><span class="p">,</span>
         <span class="n">bMoveOk</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
@@ -2763,6 +2761,22 @@ END_VAR
     <span class="s1">&#39;}</span>
     <span class="n">fbCoolingPanel</span> <span class="p">:</span> <span class="n">FB_Axilon_Cooling_2f1p</span><span class="p">;</span>
 
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MR2K2:FLAT:COATING&#39;</span><span class="p">}</span>
+    <span class="n">fbCoatingStates</span><span class="p">:</span> <span class="n">FB_PositionStatePMPS1D</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+      <span class="n">pv</span><span class="p">:</span> <span class="n">MR2K2</span><span class="p">:</span><span class="n">FLAT</span><span class="p">:</span><span class="n">COATING</span><span class="p">:</span><span class="n">STATE</span><span class="p">:</span><span class="n">SET</span>
+      <span class="n">io</span><span class="p">:</span> <span class="n">io</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">eStateSet</span><span class="p">:</span> <span class="n">E_B4C_Rh_CoatingStates</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+      <span class="n">pv</span><span class="p">:</span> <span class="n">MR2K2</span><span class="p">:</span><span class="n">FLAT</span><span class="p">:</span><span class="n">COATING</span><span class="p">:</span><span class="n">STATE</span><span class="p">:</span><span class="n">GET</span>
+      <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">eStateGet</span><span class="p">:</span> <span class="n">E_B4C_Rh_CoatingStates</span><span class="p">;</span>
+    <span class="n">fbXSetup</span><span class="p">:</span> <span class="n">FB_StateSetupHelper</span><span class="p">;</span>
+
+    <span class="n">astCoatingStatesX</span><span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1.</span><span class="o">.</span><span class="n">GeneralConstants</span><span class="o">.</span><span class="n">MAX_STATES</span><span class="p">]</span> <span class="n">OF</span> <span class="n">ST_PositionState</span><span class="p">;</span>
+
 <span class="n">END_VAR</span>
 <span class="o">//</span><span class="n">FB_Motion</span> <span class="n">stages</span> <span class="k">for</span> <span class="n">MR2K2</span> <span class="n">Axes</span>
 <span class="o">//</span><span class="n">MR2K2</span> <span class="n">FLAT</span>
@@ -2802,12 +2816,43 @@ END_VAR
 <span class="o">//</span> <span class="n">Axilon</span> <span class="n">Cooling</span> <span class="n">Panel</span>
 <span class="n">fbCoolingPanel</span><span class="p">();</span>
 
+<span class="n">fbXSetup</span><span class="p">(</span><span class="n">stPositionState</span><span class="o">:=</span><span class="n">GVL_States</span><span class="o">.</span><span class="n">stDefaultKBX</span><span class="p">,</span> <span class="n">bSetDefault</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">);</span>
+
+<span class="n">fbXSetup</span><span class="p">(</span><span class="n">stPositionState</span><span class="o">:=</span><span class="n">astCoatingStatesX</span><span class="p">[</span><span class="n">E_B4C_Rh_CoatingStates</span><span class="o">.</span><span class="n">B4C</span><span class="p">],</span>
+    <span class="n">sName</span><span class="o">:=</span><span class="s1">&#39;B4C&#39;</span><span class="p">,</span>
+    <span class="n">sPmpsState</span><span class="o">:=</span><span class="s1">&#39;MR2K2:FLAT-B4C&#39;</span><span class="p">,</span>
+    <span class="n">nEncoderCount</span><span class="o">:=</span><span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="mi">18446744073704980246</span><span class="p">),</span>
+    <span class="n">fDelta</span><span class="o">:=</span><span class="mi">5</span>
+<span class="p">);</span>
+<span class="n">fbXSetup</span><span class="p">(</span><span class="n">stPositionState</span><span class="o">:=</span><span class="n">astCoatingStatesX</span><span class="p">[</span><span class="n">E_B4C_Rh_CoatingStates</span><span class="o">.</span><span class="n">Rh</span><span class="p">],</span>
+    <span class="n">sName</span><span class="o">:=</span><span class="s1">&#39;Rh&#39;</span><span class="p">,</span>
+    <span class="n">sPmpsState</span><span class="o">:=</span><span class="s1">&#39;MR2K2:FLAT-RHODIUM&#39;</span><span class="p">,</span>
+    <span class="n">nEncoderCount</span><span class="o">:=</span><span class="n">ULINT_TO_UDINT</span><span class="p">(</span><span class="mi">18446744073701980417</span><span class="p">),</span>
+    <span class="n">fDelta</span><span class="o">:=</span><span class="mi">5</span>
+<span class="p">);</span>
+<span class="n">fbCoatingStates</span><span class="p">(</span>
+    <span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M25</span><span class="p">,</span>
+    <span class="n">astPositionState</span><span class="o">:=</span><span class="n">astCoatingStatesX</span><span class="p">,</span>
+    <span class="n">eEnumSet</span><span class="o">:=</span><span class="n">eStateSet</span><span class="p">,</span>
+    <span class="n">eEnumGet</span><span class="o">:=</span><span class="n">eStateGet</span><span class="p">,</span>
+    <span class="n">fbFFHWO</span><span class="o">:=</span><span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbFastFaultOutput2</span><span class="p">,</span>
+    <span class="n">fbArbiter</span><span class="o">:=</span><span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbArbiter2</span><span class="p">,</span>
+    <span class="n">bEnableMotion</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
+    <span class="n">bEnableBeamParams</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
+    <span class="n">sDeviceName</span><span class="o">:=</span><span class="s1">&#39;MR2K2:FLAT&#39;</span><span class="p">,</span>
+    <span class="n">sTransitionKey</span><span class="o">:=</span><span class="s1">&#39;MR2K2:FLAT-TRANSITION&#39;</span><span class="p">,</span>
+<span class="p">);</span>
+
 <span class="n">END_PROGRAM</span>
 </pre></div>
 </div>
 <dl class="simple">
 <dt>Related:</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="#e-b4c-rh-coatingstates">E_B4C_Rh_CoatingStates</a></p></li>
 <li><p><a class="reference internal" href="#gvl-m2k2">GVL_M2K2</a></p></li>
+<li><p><a class="reference internal" href="#gvl-pmps">GVL_PMPS</a></p></li>
+<li><p><a class="reference internal" href="#gvl-states">GVL_States</a></p></li>
+<li><p><a class="reference internal" href="#main">Main</a></p></li>
 </ul>
 </dd>
 </dl>
@@ -2993,6 +3038,21 @@ END_VAR
             <span class="n">i_Desc</span> <span class="o">:=</span> <span class="s1">&#39;Benders have moved out of range. Adjust bender to be within limits to clear fault&#39;</span><span class="p">,</span>
             <span class="n">i_TypeCode</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#???);</span>
 <span class="o">*</span><span class="p">)</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MR3K2:KBH:COATING&#39;</span><span class="p">}</span>
+    <span class="n">fbCoatingStates</span><span class="p">:</span> <span class="n">FB_PositionStatePMPS1D</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+      <span class="n">pv</span><span class="p">:</span> <span class="n">MR3K2</span><span class="p">:</span><span class="n">KBH</span><span class="p">:</span><span class="n">COATING</span><span class="p">:</span><span class="n">STATE</span><span class="p">:</span><span class="n">SET</span>
+      <span class="n">io</span><span class="p">:</span> <span class="n">io</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">eStateSet</span><span class="p">:</span> <span class="n">E_B4C_Rh_CoatingStates</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+      <span class="n">pv</span><span class="p">:</span> <span class="n">MR3K2</span><span class="p">:</span><span class="n">KBH</span><span class="p">:</span><span class="n">COATING</span><span class="p">:</span><span class="n">STATE</span><span class="p">:</span><span class="n">GET</span>
+      <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">eStateGet</span><span class="p">:</span> <span class="n">E_B4C_Rh_CoatingStates</span><span class="p">;</span>
+    <span class="n">fbYSetup</span><span class="p">:</span> <span class="n">FB_StateSetupHelper</span><span class="p">;</span>
+
+    <span class="n">astCoatingStatesY</span><span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1.</span><span class="o">.</span><span class="n">GeneralConstants</span><span class="o">.</span><span class="n">MAX_STATES</span><span class="p">]</span> <span class="n">OF</span> <span class="n">ST_PositionState</span><span class="p">;</span>
 
 <span class="n">END_VAR</span>
 <span class="o">//</span><span class="n">FB_Motion</span> <span class="n">stages</span> <span class="k">for</span> <span class="n">MR3K2</span> <span class="n">Axes</span>
@@ -3076,14 +3136,43 @@ END_VAR
     <span class="n">GVL_M3K2</span><span class="o">.</span><span class="n">nM3K2DS_PMPS_LowerLimit</span> <span class="o">&lt;</span> <span class="n">nEncCntDSM3K2</span> <span class="n">AND</span> <span class="n">nEncCntUSM3K2</span> <span class="o">&lt;</span> <span class="n">GVL_M3K2</span><span class="o">.</span><span class="n">nM3K2DS_PMPS_UpperLimit</span><span class="p">;</span>
 <span class="n">ffBenderRange</span><span class="p">(</span><span class="n">io_fbFFHWO</span> <span class="o">:=</span> <span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbFastFaultOutput1</span><span class="p">);</span>
 <span class="o">*</span><span class="p">)</span>
+<span class="n">fbYSetup</span><span class="p">(</span><span class="n">stPositionState</span><span class="o">:=</span><span class="n">GVL_States</span><span class="o">.</span><span class="n">stDefaultKBY</span><span class="p">,</span> <span class="n">bSetDefault</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">);</span>
+
+<span class="n">fbYSetup</span><span class="p">(</span><span class="n">stPositionState</span><span class="o">:=</span><span class="n">astCoatingStatesY</span><span class="p">[</span><span class="n">E_B4C_Rh_CoatingStates</span><span class="o">.</span><span class="n">B4C</span><span class="p">],</span>
+    <span class="n">sName</span><span class="o">:=</span><span class="s1">&#39;B4C&#39;</span><span class="p">,</span>
+    <span class="n">sPmpsState</span><span class="o">:=</span><span class="s1">&#39;MR3K2:KBH-B4C&#39;</span><span class="p">,</span>
+    <span class="n">nEncoderCount</span><span class="o">:=</span><span class="mi">6357520</span><span class="p">,</span>
+    <span class="n">fDelta</span><span class="o">:=</span><span class="mi">5</span>
+<span class="p">);</span>
+<span class="n">fbYSetup</span><span class="p">(</span><span class="n">stPositionState</span><span class="o">:=</span><span class="n">astCoatingStatesY</span><span class="p">[</span><span class="n">E_B4C_Rh_CoatingStates</span><span class="o">.</span><span class="n">Rh</span><span class="p">],</span>
+    <span class="n">sName</span><span class="o">:=</span><span class="s1">&#39;Rh&#39;</span><span class="p">,</span>
+    <span class="n">sPmpsState</span><span class="o">:=</span><span class="s1">&#39;MR3K2:KBH-RHODIUM&#39;</span><span class="p">,</span>
+    <span class="n">nEncoderCount</span><span class="o">:=</span><span class="mi">3857540</span><span class="p">,</span>
+    <span class="n">fDelta</span><span class="o">:=</span><span class="mf">2.5</span>
+<span class="p">);</span>
+<span class="n">fbCoatingStates</span><span class="p">(</span>
+    <span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M29</span><span class="p">,</span>
+    <span class="n">astPositionState</span><span class="o">:=</span><span class="n">astCoatingStatesY</span><span class="p">,</span>
+    <span class="n">eEnumSet</span><span class="o">:=</span><span class="n">eStateSet</span><span class="p">,</span>
+    <span class="n">eEnumGet</span><span class="o">:=</span><span class="n">eStateGet</span><span class="p">,</span>
+    <span class="n">fbFFHWO</span><span class="o">:=</span><span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbFastFaultOutput2</span><span class="p">,</span>
+    <span class="n">fbArbiter</span><span class="o">:=</span><span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbArbiter2</span><span class="p">,</span>
+    <span class="n">bEnableMotion</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
+    <span class="n">bEnableBeamParams</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
+    <span class="n">sDeviceName</span><span class="o">:=</span><span class="s1">&#39;MR3K2:KBH&#39;</span><span class="p">,</span>
+    <span class="n">sTransitionKey</span><span class="o">:=</span><span class="s1">&#39;MR3K2:KBH-TRANSITION&#39;</span><span class="p">,</span>
+<span class="p">);</span>
 
 <span class="n">END_PROGRAM</span>
 </pre></div>
 </div>
 <dl class="simple">
 <dt>Related:</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="#e-b4c-rh-coatingstates">E_B4C_Rh_CoatingStates</a></p></li>
 <li><p><a class="reference internal" href="#gvl-m3k2">GVL_M3K2</a></p></li>
 <li><p><a class="reference internal" href="#gvl-pmps">GVL_PMPS</a></p></li>
+<li><p><a class="reference internal" href="#gvl-states">GVL_States</a></p></li>
+<li><p><a class="reference internal" href="#main">Main</a></p></li>
 </ul>
 </dd>
 </dl>
@@ -3291,6 +3380,21 @@ END_VAR
             <span class="n">i_Desc</span> <span class="o">:=</span> <span class="s1">&#39;Benders have moved out of range. Adjust bender to be within limits to clear fault&#39;</span><span class="p">,</span>
             <span class="n">i_TypeCode</span> <span class="o">:=</span> <span class="mi">16</span><span class="c1">#???);</span>
 <span class="o">*</span><span class="p">)</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;pv: MR4K2:KBV:COATING&#39;</span><span class="p">}</span>
+    <span class="n">fbCoatingStates</span><span class="p">:</span> <span class="n">FB_PositionStatePMPS1D</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+      <span class="n">pv</span><span class="p">:</span> <span class="n">MR4K2</span><span class="p">:</span><span class="n">KBV</span><span class="p">:</span><span class="n">COATING</span><span class="p">:</span><span class="n">STATE</span><span class="p">:</span><span class="n">SET</span>
+      <span class="n">io</span><span class="p">:</span> <span class="n">io</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">eStateSet</span><span class="p">:</span> <span class="n">E_B4C_Rh_CoatingStates</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+      <span class="n">pv</span><span class="p">:</span> <span class="n">MR4K2</span><span class="p">:</span><span class="n">KBV</span><span class="p">:</span><span class="n">COATING</span><span class="p">:</span><span class="n">STATE</span><span class="p">:</span><span class="n">GET</span>
+      <span class="n">io</span><span class="p">:</span> <span class="n">i</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">eStateGet</span><span class="p">:</span> <span class="n">E_B4C_Rh_CoatingStates</span><span class="p">;</span>
+    <span class="n">fbXSetup</span><span class="p">:</span> <span class="n">FB_StateSetupHelper</span><span class="p">;</span>
+
+    <span class="n">astCoatingStatesX</span><span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1.</span><span class="o">.</span><span class="n">GeneralConstants</span><span class="o">.</span><span class="n">MAX_STATES</span><span class="p">]</span> <span class="n">OF</span> <span class="n">ST_PositionState</span><span class="p">;</span>
 
 <span class="n">END_VAR</span>
 <span class="o">//</span><span class="n">FB_Motion</span> <span class="n">stages</span> <span class="k">for</span> <span class="n">MR4K2</span> <span class="n">Axes</span>
@@ -3377,14 +3481,43 @@ END_VAR
     <span class="n">GVL_M4K2</span><span class="o">.</span><span class="n">nM4K2DS_PMPS_LowerLimit</span> <span class="o">&lt;</span> <span class="n">nEncCntDSM4K2</span> <span class="n">AND</span> <span class="n">nEncCntUSM4K2</span> <span class="o">&lt;</span> <span class="n">GVL_M4K2</span><span class="o">.</span><span class="n">nM4K2DS_PMPS_UpperLimit</span><span class="p">;</span>
 <span class="n">ffBenderRange</span><span class="p">(</span><span class="n">io_fbFFHWO</span> <span class="o">:=</span> <span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbFastFaultOutput1</span><span class="p">);</span>
 <span class="o">*</span><span class="p">)</span>
+<span class="n">fbXSetup</span><span class="p">(</span><span class="n">stPositionState</span><span class="o">:=</span><span class="n">GVL_States</span><span class="o">.</span><span class="n">stDefaultKBX</span><span class="p">,</span> <span class="n">bSetDefault</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">);</span>
+
+<span class="n">fbXSetup</span><span class="p">(</span><span class="n">stPositionState</span><span class="o">:=</span><span class="n">astCoatingStatesX</span><span class="p">[</span><span class="n">E_B4C_Rh_CoatingStates</span><span class="o">.</span><span class="n">B4C</span><span class="p">],</span>
+    <span class="n">sName</span><span class="o">:=</span><span class="s1">&#39;B4C&#39;</span><span class="p">,</span>
+    <span class="n">sPmpsState</span><span class="o">:=</span><span class="s1">&#39;MR4K2:KBV-B4C&#39;</span><span class="p">,</span>
+    <span class="n">nEncoderCount</span><span class="o">:=</span><span class="mi">5824240</span><span class="p">,</span>
+    <span class="n">fDelta</span><span class="o">:=</span><span class="mi">5</span>
+<span class="p">);</span>
+<span class="n">fbXSetup</span><span class="p">(</span><span class="n">stPositionState</span><span class="o">:=</span><span class="n">astCoatingStatesX</span><span class="p">[</span><span class="n">E_B4C_Rh_CoatingStates</span><span class="o">.</span><span class="n">Rh</span><span class="p">],</span>
+    <span class="n">sName</span><span class="o">:=</span><span class="s1">&#39;Rh&#39;</span><span class="p">,</span>
+    <span class="n">sPmpsState</span><span class="o">:=</span><span class="s1">&#39;MR4K2:KBV-RHODIUM&#39;</span><span class="p">,</span>
+    <span class="n">nEncoderCount</span><span class="o">:=</span><span class="mi">3524222</span><span class="p">,</span>
+    <span class="n">fDelta</span><span class="o">:=</span><span class="mf">1.5</span>
+<span class="p">);</span>
+<span class="n">fbCoatingStates</span><span class="p">(</span>
+    <span class="n">stMotionStage</span><span class="o">:=</span><span class="n">Main</span><span class="o">.</span><span class="n">M33</span><span class="p">,</span>
+    <span class="n">astPositionState</span><span class="o">:=</span><span class="n">astCoatingStatesX</span><span class="p">,</span>
+    <span class="n">eEnumSet</span><span class="o">:=</span><span class="n">eStateSet</span><span class="p">,</span>
+    <span class="n">eEnumGet</span><span class="o">:=</span><span class="n">eStateGet</span><span class="p">,</span>
+    <span class="n">fbFFHWO</span><span class="o">:=</span><span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbFastFaultOutput2</span><span class="p">,</span>
+    <span class="n">fbArbiter</span><span class="o">:=</span><span class="n">GVL_PMPS</span><span class="o">.</span><span class="n">fbArbiter2</span><span class="p">,</span>
+    <span class="n">bEnableMotion</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
+    <span class="n">bEnableBeamParams</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
+    <span class="n">sDeviceName</span><span class="o">:=</span><span class="s1">&#39;MR4K2:KBV&#39;</span><span class="p">,</span>
+    <span class="n">sTransitionKey</span><span class="o">:=</span><span class="s1">&#39;MR4K2:KBV-TRANSITION&#39;</span><span class="p">,</span>
+<span class="p">);</span>
 
 <span class="n">END_PROGRAM</span>
 </pre></div>
 </div>
 <dl class="simple">
 <dt>Related:</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="#e-b4c-rh-coatingstates">E_B4C_Rh_CoatingStates</a></p></li>
 <li><p><a class="reference internal" href="#gvl-m4k2">GVL_M4K2</a></p></li>
 <li><p><a class="reference internal" href="#gvl-pmps">GVL_PMPS</a></p></li>
+<li><p><a class="reference internal" href="#gvl-states">GVL_States</a></p></li>
+<li><p><a class="reference internal" href="#main">Main</a></p></li>
 </ul>
 </dd>
 </dl>
