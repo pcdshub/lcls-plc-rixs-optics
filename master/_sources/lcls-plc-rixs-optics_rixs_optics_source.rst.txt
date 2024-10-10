@@ -497,7 +497,7 @@ GVL_States
         );
             stDefaultKBX : ST_PositionState := (
             fDelta:=5,
-            fVelocity:=0.2,
+            fVelocity:=0.3,
             fAccel:=100,
             fDecel:=100,
             bMoveOk:=TRUE,
@@ -506,7 +506,7 @@ GVL_States
         );
             stDefaultKBY : ST_PositionState := (
             fDelta:=5,
-            fVelocity:=0.2,
+            fVelocity:=0.3,
             fAccel:=10,
             fDecel:=10,
             bMoveOk:=TRUE,
@@ -541,7 +541,7 @@ Main
         {attribute 'pytmc' := '
             pv: MR1K2:SWITCH:MMS:YLEFT
         '}
-        M1 : ST_MotionStage := (fVelocity:=100.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=True); // M1K2 Yleft
+        M1 : ST_MotionStage := (fVelocity:=100.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=False); // M1K2 Yleft
         fbMotionStage_m1 : FB_MotionStage;
 
         {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K2_Yright]^STM Status^Status^Digital input 1;
@@ -606,7 +606,7 @@ Main
         {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[g_h_m]^STM Status^Status^Digital input 1;
                                   .bLimitBackwardEnable:=TIIB[g_h_m]^STM Status^Status^Digital input 2;
                                   .nRawEncoderULINT:=TIIB[m_h_e-g_h_e]^FB Inputs Channel 2^Position'}
-        M9: ST_MotionStage:=(nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, fVelocity:=1000.0, bPowerSelf:=True); // G_H, um
+        M9: ST_MotionStage:=(nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, fVelocity:=1000.0, bPowerSelf:=False); // G_H, um
         {attribute 'pytmc' := '
             pv: SP1K1:MONO:MMS:SD_V
         '}
@@ -631,7 +631,7 @@ Main
         {attribute 'pytmc' := '
             pv: MR1K1:BEND:MMS:YUP
         '}
-        M12 : ST_MotionStage := (fVelocity:=100.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=True); // M1K1 Yup
+        M12 : ST_MotionStage := (fVelocity:=100.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=False); // M1K1 Yup
         fbMotionStage_m12 : FB_MotionStage;
         {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K1_Ydwn]^STM Status^Status^Digital input 1;
                             .bLimitBackwardEnable:=TIIB[EL7047_M1K1_Ydwn]^STM Status^Status^Digital input 2'}
@@ -647,7 +647,7 @@ Main
         {attribute 'pytmc' := '
             pv: MR1K1:BEND:MMS:XUP
         '}
-        M14 : ST_MotionStage := (fVelocity:=150.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=True); // M1K1 Xup
+        M14 : ST_MotionStage := (fVelocity:=150.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=False); // M1K1 Xup
         fbMotionStage_m14 : FB_MotionStage;
 
         {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7047_M1K1_Xdwn]^STM Status^Status^Digital input 1;
@@ -740,7 +740,7 @@ Main
         {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M2K2X]^STM Status^Status^Digital input 1;
                                   .bLimitBackwardEnable:=TIIB[EL7041_M2K2X]^STM Status^Status^Digital input 2;
                                   .nRawEncoderULINT:=TIIB[EL5042_M2K2X_M2K2Y]^FB Inputs Channel 1^Position'}
-        M25 : ST_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE); //X mot
+        M25 : ST_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=FALSE); //X mot
            fbMotionStageM25 : FB_MotionStage;
         {attribute 'pytmc' := 'pv: MR2K2:FLAT:MMS:Y'}
         {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M2K2Y]^STM Status^Status^Digital input 1;
@@ -766,7 +766,7 @@ Main
         {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M3K2Y]^STM Status^Status^Digital input 1;
                                   .bLimitBackwardEnable:=TIIB[EL7041_M3K2Y]^STM Status^Status^Digital input 2;
                                   .nRawEncoderULINT:=TIIB[EL5042_M3K2X_M3K2Y]^FB Inputs Channel 2^Position'}
-        M29 : ST_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE); //Y mot
+        M29 : ST_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=FALSE); //Y mot
         fbMotionStageM29 : FB_MotionStage;
         {attribute 'pytmc' := 'pv: MR3K2:KBH:MMS:PITCH'}
         {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M3K2rY]^STM Status^Status^Digital input 1;
@@ -793,7 +793,7 @@ Main
         {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M4K2X]^STM Status^Status^Digital input 1;
                                   .bLimitBackwardEnable:=TIIB[EL7041_M4K2X]^STM Status^Status^Digital input 2;
                                   .nRawEncoderULINT:=TIIB[EL5042_M4K2X_M4K2Y]^FB Inputs Channel 1^Position'}
-        M33 : ST_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE); //X mot
+        M33 : ST_MotionStage := (nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=FALSE); //X mot
         fbMotionStageM33 : FB_MotionStage;
         {attribute 'pytmc' := 'pv: MR4K2:KBV:MMS:Y'}
         {attribute 'TcLinkTo' := '.bLimitForwardEnable:=TIIB[EL7041_M4K2Y]^STM Status^Status^Digital input 1;
@@ -2747,6 +2747,22 @@ PRG_MR2K2_FLAT
         '}
         fbCoolingPanel : FB_Axilon_Cooling_2f1p;
 
+        {attribute 'pytmc' := 'pv: MR2K2:FLAT:COATING'}
+        fbCoatingStates: FB_PositionStatePMPS1D;
+        {attribute 'pytmc' := '
+          pv: MR2K2:FLAT:COATING:STATE:SET
+          io: io
+        '}
+        eStateSet: E_B4C_Rh_CoatingStates;
+        {attribute 'pytmc' := '
+          pv: MR2K2:FLAT:COATING:STATE:GET
+          io: i
+        '}
+        eStateGet: E_B4C_Rh_CoatingStates;
+        fbXSetup: FB_StateSetupHelper;
+
+        astCoatingStatesX: ARRAY[1..GeneralConstants.MAX_STATES] OF ST_PositionState;
+
     END_VAR
     //FB_Motion stages for MR2K2 Axes
     //MR2K2 FLAT
@@ -2786,11 +2802,42 @@ PRG_MR2K2_FLAT
     // Axilon Cooling Panel
     fbCoolingPanel();
 
+    fbXSetup(stPositionState:=GVL_States.stDefaultKBX, bSetDefault:=TRUE);
+
+    fbXSetup(stPositionState:=astCoatingStatesX[E_B4C_Rh_CoatingStates.B4C],
+        sName:='B4C',
+        sPmpsState:='MR2K2:FLAT-B4C',
+        nEncoderCount:=ULINT_TO_UDINT(18446744073704980246),
+        fDelta:=5
+    );
+    fbXSetup(stPositionState:=astCoatingStatesX[E_B4C_Rh_CoatingStates.Rh],
+        sName:='Rh',
+        sPmpsState:='MR2K2:FLAT-RHODIUM',
+        nEncoderCount:=ULINT_TO_UDINT(18446744073701980417),
+        fDelta:=5
+    );
+    fbCoatingStates(
+        stMotionStage:=Main.M25,
+        astPositionState:=astCoatingStatesX,
+        eEnumSet:=eStateSet,
+        eEnumGet:=eStateGet,
+        fbFFHWO:=GVL_PMPS.fbFastFaultOutput2,
+        fbArbiter:=GVL_PMPS.fbArbiter2,
+        bEnableMotion:=TRUE,
+        bEnableBeamParams:=TRUE,
+        sDeviceName:='MR2K2:FLAT',
+        sTransitionKey:='MR2K2:FLAT-TRANSITION',
+    );
+
     END_PROGRAM
 
 
 Related:
+    * `E_B4C_Rh_CoatingStates`_
     * `GVL_M2K2`_
+    * `GVL_PMPS`_
+    * `GVL_States`_
+    * `Main`_
 
 
 PRG_MR3K2_KBH
@@ -2977,6 +3024,21 @@ PRG_MR3K2_KBH
                 i_Desc := 'Benders have moved out of range. Adjust bender to be within limits to clear fault',
                 i_TypeCode := 16#???);
     *)
+        {attribute 'pytmc' := 'pv: MR3K2:KBH:COATING'}
+        fbCoatingStates: FB_PositionStatePMPS1D;
+        {attribute 'pytmc' := '
+          pv: MR3K2:KBH:COATING:STATE:SET
+          io: io
+        '}
+        eStateSet: E_B4C_Rh_CoatingStates;
+        {attribute 'pytmc' := '
+          pv: MR3K2:KBH:COATING:STATE:GET
+          io: i
+        '}
+        eStateGet: E_B4C_Rh_CoatingStates;
+        fbYSetup: FB_StateSetupHelper;
+
+        astCoatingStatesY: ARRAY[1..GeneralConstants.MAX_STATES] OF ST_PositionState;
 
     END_VAR
     //FB_Motion stages for MR3K2 Axes
@@ -3060,13 +3122,42 @@ PRG_MR3K2_KBH
         GVL_M3K2.nM3K2DS_PMPS_LowerLimit < nEncCntDSM3K2 AND nEncCntUSM3K2 < GVL_M3K2.nM3K2DS_PMPS_UpperLimit;
     ffBenderRange(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
     *)
+    fbYSetup(stPositionState:=GVL_States.stDefaultKBY, bSetDefault:=TRUE);
+
+    fbYSetup(stPositionState:=astCoatingStatesY[E_B4C_Rh_CoatingStates.B4C],
+        sName:='B4C',
+        sPmpsState:='MR3K2:KBH-B4C',
+        nEncoderCount:=6357520,
+        fDelta:=5
+    );
+    fbYSetup(stPositionState:=astCoatingStatesY[E_B4C_Rh_CoatingStates.Rh],
+        sName:='Rh',
+        sPmpsState:='MR3K2:KBH-RHODIUM',
+        nEncoderCount:=3857540,
+        fDelta:=2.5
+    );
+    fbCoatingStates(
+        stMotionStage:=Main.M29,
+        astPositionState:=astCoatingStatesY,
+        eEnumSet:=eStateSet,
+        eEnumGet:=eStateGet,
+        fbFFHWO:=GVL_PMPS.fbFastFaultOutput2,
+        fbArbiter:=GVL_PMPS.fbArbiter2,
+        bEnableMotion:=TRUE,
+        bEnableBeamParams:=TRUE,
+        sDeviceName:='MR3K2:KBH',
+        sTransitionKey:='MR3K2:KBH-TRANSITION',
+    );
 
     END_PROGRAM
 
 
 Related:
+    * `E_B4C_Rh_CoatingStates`_
     * `GVL_M3K2`_
     * `GVL_PMPS`_
+    * `GVL_States`_
+    * `Main`_
 
 
 PRG_MR4K2_KBV
@@ -3275,6 +3366,21 @@ PRG_MR4K2_KBV
                 i_Desc := 'Benders have moved out of range. Adjust bender to be within limits to clear fault',
                 i_TypeCode := 16#???);
     *)
+        {attribute 'pytmc' := 'pv: MR4K2:KBV:COATING'}
+        fbCoatingStates: FB_PositionStatePMPS1D;
+        {attribute 'pytmc' := '
+          pv: MR4K2:KBV:COATING:STATE:SET
+          io: io
+        '}
+        eStateSet: E_B4C_Rh_CoatingStates;
+        {attribute 'pytmc' := '
+          pv: MR4K2:KBV:COATING:STATE:GET
+          io: i
+        '}
+        eStateGet: E_B4C_Rh_CoatingStates;
+        fbXSetup: FB_StateSetupHelper;
+
+        astCoatingStatesX: ARRAY[1..GeneralConstants.MAX_STATES] OF ST_PositionState;
 
     END_VAR
     //FB_Motion stages for MR4K2 Axes
@@ -3361,13 +3467,42 @@ PRG_MR4K2_KBV
         GVL_M4K2.nM4K2DS_PMPS_LowerLimit < nEncCntDSM4K2 AND nEncCntUSM4K2 < GVL_M4K2.nM4K2DS_PMPS_UpperLimit;
     ffBenderRange(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
     *)
+    fbXSetup(stPositionState:=GVL_States.stDefaultKBX, bSetDefault:=TRUE);
+
+    fbXSetup(stPositionState:=astCoatingStatesX[E_B4C_Rh_CoatingStates.B4C],
+        sName:='B4C',
+        sPmpsState:='MR4K2:KBV-B4C',
+        nEncoderCount:=5824240,
+        fDelta:=5
+    );
+    fbXSetup(stPositionState:=astCoatingStatesX[E_B4C_Rh_CoatingStates.Rh],
+        sName:='Rh',
+        sPmpsState:='MR4K2:KBV-RHODIUM',
+        nEncoderCount:=3524222,
+        fDelta:=1.5
+    );
+    fbCoatingStates(
+        stMotionStage:=Main.M33,
+        astPositionState:=astCoatingStatesX,
+        eEnumSet:=eStateSet,
+        eEnumGet:=eStateGet,
+        fbFFHWO:=GVL_PMPS.fbFastFaultOutput2,
+        fbArbiter:=GVL_PMPS.fbArbiter2,
+        bEnableMotion:=TRUE,
+        bEnableBeamParams:=TRUE,
+        sDeviceName:='MR4K2:KBV',
+        sTransitionKey:='MR4K2:KBV-TRANSITION',
+    );
 
     END_PROGRAM
 
 
 Related:
+    * `E_B4C_Rh_CoatingStates`_
     * `GVL_M4K2`_
     * `GVL_PMPS`_
+    * `GVL_States`_
+    * `Main`_
 
 
 PRG_SL1K2_EXIT
