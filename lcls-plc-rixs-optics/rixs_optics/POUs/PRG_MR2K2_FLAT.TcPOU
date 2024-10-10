@@ -80,9 +80,8 @@ VAR
         pv: MR2K2:FLAT
     '}
     fbCoolingPanel : FB_Axilon_Cooling_2f1p;
-//	This state implemtation is waiting on an upgrade to the state mover library because its encoder is inverted.
 
-{attribute 'pytmc' := 'pv: MR2K2:FLAT:COATING'}
+    {attribute 'pytmc' := 'pv: MR2K2:FLAT:COATING'}
     fbCoatingStates: FB_PositionStatePMPS1D;
     {attribute 'pytmc' := '
       pv: MR2K2:FLAT:COATING:STATE:SET
