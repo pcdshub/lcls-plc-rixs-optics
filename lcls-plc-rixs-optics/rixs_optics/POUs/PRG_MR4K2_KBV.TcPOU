@@ -136,20 +136,6 @@ VAR
             io: i
         '}
         fM4K2DS_RTD_1 : REAL;
-        {attribute 'pytmc' := '
-            pv: MR4K2:KBV:RTD:BEND:DS:2
-            field: ASLO 0.01
-            field: EGU C
-            io: i
-        '}
-        fM4K2DS_RTD_2 : REAL;
-        {attribute 'pytmc' := '
-            pv: MR4K2:KBV:RTD:BEND:DS:3
-            field: ASLO 0.01
-            field: EGU C
-            io: i
-        '}
-        fM4K2DS_RTD_3 : REAL;
     {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3204_M4K2_CHIN]^RTD Inputs Channel 1^Value;
                               .bUnderrange := TIIB[EL3204_M4K2_CHIN]^RTD Inputs Channel 1^Status^Underrange;
                               .bOverrange := TIIB[EL3204_M4K2_CHIN]^RTD Inputs Channel 1^Status^Overrange;
@@ -159,7 +145,7 @@ VAR
         field: EGU C
         io: i
     '}
-    nM4K2_Chin_Right_RTD : FB_TempSensor;
+    fbM4K2_Chin_Right_RTD : FB_TempSensor;
     {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3204_M4K2_CHIN]^RTD Inputs Channel 2^Value;
                               .bUnderrange := TIIB[EL3204_M4K2_CHIN]^RTD Inputs Channel 2^Status^Underrange;
                               .bOverrange := TIIB[EL3204_M4K2_CHIN]^RTD Inputs Channel 2^Status^Overrange;
@@ -169,7 +155,7 @@ VAR
         field: EGU C
         io: i
     '}
-    nM4K2_Chin_Left_RTD : FB_TempSensor;
+    fbM4K2_Chin_Left_RTD : FB_TempSensor;
 
     // RTD error bit
         bM4K2US_RTD_1_Err AT %I*: BOOL;
@@ -277,23 +263,20 @@ fM4K2US_RTD_2 := INT_TO_REAL(GVL_M4K2.nM4K2US_RTD_2);
 fM4K2US_RTD_3 := INT_TO_REAL(GVL_M4K2.nM4K2US_RTD_3);
 
 fM4K2DS_RTD_1 := INT_TO_REAL(GVL_M4K2.nM4K2DS_RTD_1);
-fM4K2DS_RTD_2 := INT_TO_REAL(GVL_M4K2.nM4K2DS_RTD_2);
-fM4K2DS_RTD_3 := INT_TO_REAL(GVL_M4K2.nM4K2DS_RTD_3);
+
 
 // RTD not connected if T=0
 bM4K2US_RTD_1_Err := fM4K2US_RTD_1 = 0;
-bM4K2US_RTD_2_Err := fM4K2DS_RTD_2 = 0;
+bM4K2US_RTD_2_Err := fM4K2US_RTD_2 = 0;
 bM4K2US_RTD_3_Err := fM4K2US_RTD_3 = 0;
 bM4K2DS_RTD_1_Err := fM4K2DS_RTD_1 = 0;
-bM4K2DS_RTD_2_Err := fM4K2DS_RTD_2 = 0;
-bM4K2DS_RTD_3_Err := fM4K2DS_RTD_3 = 0;
 
 // M4K2 Bender RTD interlocks
 M36.bHardwareEnable R= fM4K2US_RTD_1 > 9000 OR bM4K2US_RTD_1_Err;
 M37.bHardwareEnable R= fM4K2DS_RTD_1 > 9000 OR bM4K2DS_RTD_1_Err;
 
-nM4K2_Chin_Right_RTD();
-nM4K2_Chin_Left_RTD();
+fbM4K2_Chin_Right_RTD();
+fbM4K2_Chin_Left_RTD();
 
 // Axilon Cooling Panel
 fbCoolingPanel();
