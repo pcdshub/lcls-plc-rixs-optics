@@ -275,8 +275,8 @@ bM4K2DS_RTD_1_Err := fM4K2DS_RTD_1 = 0;
 M36.bHardwareEnable R= fM4K2US_RTD_1 > 9000 OR bM4K2US_RTD_1_Err;
 M37.bHardwareEnable R= fM4K2DS_RTD_1 > 9000 OR bM4K2DS_RTD_1_Err;
 
-fbM4K2_Chin_Right_RTD();
-fbM4K2_Chin_Left_RTD();
+fbM4K2_Chin_Right_RTD(fResolution:=0.01);
+fbM4K2_Chin_Left_RTD(fResolution:=0.01);
 
 // Axilon Cooling Panel
 fbCoolingPanel();
