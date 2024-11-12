@@ -82578,7 +82578,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
             <Comment>PI Serial</Comment>
             <BitSize>112640</BitSize>
             <BaseType Namespace="lcls_twincat_optics">FB_PI_E621_SerialDriver</BaseType>
-            <BitOffs>1265016832</BitOffs>
+            <BitOffs>1265797632</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_M1K2.M1K2_Pitch</Name>
@@ -82685,7 +82685,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1265133632</BitOffs>
+            <BitOffs>1265017536</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.iLatchNeg</Name>
@@ -82701,7 +82701,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1265133696</BitOffs>
+            <BitOffs>1265017600</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.nEncoderCount</Name>
@@ -82717,7 +82717,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1265133760</BitOffs>
+            <BitOffs>1265017664</BitOffs>
           </Symbol>
         </DataArea>
         <DataArea>
@@ -82868,7 +82868,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
             <Default>
               <String>172.21.140.21</String>
             </Default>
-            <BitOffs>1265133824</BitOffs>
+            <BitOffs>1265017728</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.bUseHWTriggers</Name>
@@ -82877,7 +82877,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
             <Default>
               <Bool>true</Bool>
             </Default>
-            <BitOffs>1265134472</BitOffs>
+            <BitOffs>1265018376</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.bUseSWTriggers</Name>
@@ -82886,14 +82886,14 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
             <Default>
               <Bool>false</Bool>
             </Default>
-            <BitOffs>1265134480</BitOffs>
+            <BitOffs>1265018384</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.bNewTrigger</Name>
             <Comment> Internals</Comment>
             <BitSize>8</BitSize>
             <BaseType>BOOL</BaseType>
-            <BitOffs>1265134488</BitOffs>
+            <BitOffs>1265018392</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.tSWTriggerDelay</Name>
@@ -82902,20 +82902,20 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
             <Default>
               <DateTime>T#8ms</DateTime>
             </Default>
-            <BitOffs>1265134496</BitOffs>
+            <BitOffs>1265018400</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.iTimeSincePos</Name>
             <Comment> Outputs</Comment>
             <BitSize>64</BitSize>
             <BaseType>ULINT</BaseType>
-            <BitOffs>1265134528</BitOffs>
+            <BitOffs>1265018432</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.iMaxTime</Name>
             <BitSize>64</BitSize>
             <BaseType>ULINT</BaseType>
-            <BitOffs>1265134592</BitOffs>
+            <BitOffs>1265018496</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.iMinTime</Name>
@@ -82924,19 +82924,19 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
             <Default>
               <Value>10000000000</Value>
             </Default>
-            <BitOffs>1265134656</BitOffs>
+            <BitOffs>1265018560</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fTimeInS</Name>
             <BitSize>64</BitSize>
             <BaseType>LREAL</BaseType>
-            <BitOffs>1265134720</BitOffs>
+            <BitOffs>1265018624</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.iTriggerWidth</Name>
             <BitSize>64</BitSize>
             <BaseType>ULINT</BaseType>
-            <BitOffs>1265134784</BitOffs>
+            <BitOffs>1265018688</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fTriggerRate</Name>
@@ -82951,25 +82951,25 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
     </Value>
               </Property>
             </Properties>
-            <BitOffs>1265134848</BitOffs>
+            <BitOffs>1265018752</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.tonSWTrigger</Name>
             <BitSize>256</BitSize>
             <BaseType Namespace="Tc2_Standard">TON</BaseType>
-            <BitOffs>1265134912</BitOffs>
+            <BitOffs>1265018816</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.iPrevLatchPos</Name>
             <BitSize>64</BitSize>
             <BaseType>ULINT</BaseType>
-            <BitOffs>1265135168</BitOffs>
+            <BitOffs>1265019072</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fMaxTimeInS</Name>
             <BitSize>64</BitSize>
             <BaseType>LREAL</BaseType>
-            <BitOffs>1265135232</BitOffs>
+            <BitOffs>1265019136</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fMinTimeInS</Name>
@@ -82978,19 +82978,19 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
             <Default>
               <Value>10000000</Value>
             </Default>
-            <BitOffs>1265135296</BitOffs>
+            <BitOffs>1265019200</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.iTimeSinceLast</Name>
             <BitSize>64</BitSize>
             <BaseType>ULINT</BaseType>
-            <BitOffs>1265135360</BitOffs>
+            <BitOffs>1265019264</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.nUpdateCycles</Name>
             <BitSize>64</BitSize>
             <BaseType>ULINT</BaseType>
-            <BitOffs>1265135424</BitOffs>
+            <BitOffs>1265019328</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.nFrameCount</Name>
@@ -83005,67 +83005,67 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
     </Value>
               </Property>
             </Properties>
-            <BitOffs>1265135488</BitOffs>
+            <BitOffs>1265019392</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.stTaskInfo</Name>
             <BitSize>1024</BitSize>
             <BaseType GUID="{56294066-FFF7-46F3-8206-FA06A30B13BA}">PlcTaskSystemInfo</BaseType>
-            <BitOffs>1265135552</BitOffs>
+            <BitOffs>1265019456</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.iUnderflowCount</Name>
             <BitSize>64</BitSize>
             <BaseType>ULINT</BaseType>
-            <BitOffs>1265136576</BitOffs>
+            <BitOffs>1265020480</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fUnderflowPercent</Name>
             <BitSize>64</BitSize>
             <BaseType>LREAL</BaseType>
-            <BitOffs>1265136640</BitOffs>
+            <BitOffs>1265020544</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fEncScale</Name>
             <BitSize>64</BitSize>
             <BaseType>LREAL</BaseType>
-            <BitOffs>1265136704</BitOffs>
+            <BitOffs>1265020608</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fEncScaleDenominator</Name>
             <BitSize>64</BitSize>
             <BaseType>LREAL</BaseType>
-            <BitOffs>1265136768</BitOffs>
+            <BitOffs>1265020672</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fbSocketHandler</Name>
             <BitSize>110592</BitSize>
             <BaseType>FB_UDPSocketHandler</BaseType>
-            <BitOffs>1265136832</BitOffs>
+            <BitOffs>1265020736</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fbSocketSend</Name>
             <BitSize>275200</BitSize>
             <BaseType>FB_BufferedSocketSend</BaseType>
-            <BitOffs>1265247424</BitOffs>
+            <BitOffs>1265131328</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fbSocketHandlerTest</Name>
             <BitSize>110592</BitSize>
             <BaseType>FB_UDPSocketHandler</BaseType>
-            <BitOffs>1265522624</BitOffs>
+            <BitOffs>1265406528</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fbSocketSendTest</Name>
             <BitSize>275200</BitSize>
             <BaseType>FB_BufferedSocketSend</BaseType>
-            <BitOffs>1265633216</BitOffs>
+            <BitOffs>1265517120</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.payload</Name>
             <BitSize>512</BitSize>
             <BaseType>DUT_01_Channel_NW</BaseType>
-            <BitOffs>1265908416</BitOffs>
+            <BitOffs>1265792320</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fbHeader</Name>
@@ -83077,7 +83077,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <String>plc-tst-proto6</String>
               </SubItem>
             </Default>
-            <BitOffs>1265908928</BitOffs>
+            <BitOffs>1265792832</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fbChannel</Name>
@@ -83089,14 +83089,14 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>1</Value>
               </SubItem>
             </Default>
-            <BitOffs>1265909504</BitOffs>
+            <BitOffs>1265793408</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fbGetTaskIndex</Name>
             <Comment> Function blocks</Comment>
             <BitSize>256</BitSize>
             <BaseType Namespace="Tc2_System">GETCURTASKINDEX</BaseType>
-            <BitOffs>1265910336</BitOffs>
+            <BitOffs>1265794240</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fEpicsEncCount</Name>
@@ -83112,7 +83112,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
     </Value>
               </Property>
             </Properties>
-            <BitOffs>1265910592</BitOffs>
+            <BitOffs>1265794496</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fEpicsTrigWidth</Name>
@@ -83127,7 +83127,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
     </Value>
               </Property>
             </Properties>
-            <BitOffs>1265910624</BitOffs>
+            <BitOffs>1265794528</BitOffs>
           </Symbol>
           <Symbol>
             <Name>TwinCAT_SystemInfoVarList._TaskInfo</Name>
@@ -93387,6 +93387,26 @@ Emergency Stop for MR1K1</Comment>
             <BitOffs>1305598312</BitOffs>
           </Symbol>
           <Symbol>
+            <Name>GVL_PMPS.fbFastFaultOutput2.q_xFastFaultOut</Name>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+        pv: FaultHWO
+        io: i
+        field: DESC Hardware Output Status
+     </Value>
+              </Property>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Output</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1305598056</BitOffs>
+          </Symbol>
+          <Symbol>
             <Name>Main.M1.Axis.PlcToNc</Name>
             <BitSize>1024</BitSize>
             <BaseType GUID="{96B75FEB-2D84-43BE-A3EC-D9A681F27D52}">PLCTONC_AXIS_REF</BaseType>
@@ -101843,10 +101863,29 @@ Emergency Stop for MR1K1</Comment>
             <BitOffs>1264978656</BitOffs>
           </Symbol>
           <Symbol>
+            <Name>PRG_DAQ_ENCODER.nBusyCycles</Name>
+            <Comment> Temp testing</Comment>
+            <BitSize>16</BitSize>
+            <BaseType>UINT</BaseType>
+            <BitOffs>1265019408</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_DAQ_ENCODER.nMaxBusyCycles</Name>
+            <BitSize>16</BitSize>
+            <BaseType>UINT</BaseType>
+            <BitOffs>1265019424</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_DAQ_ENCODER.nDroppedFrames</Name>
+            <BitSize>16</BitSize>
+            <BaseType>UINT</BaseType>
+            <BitOffs>1265019440</BitOffs>
+          </Symbol>
+          <Symbol>
             <Name>PiezoSerial.rtInitParams_M1K2</Name>
             <BitSize>128</BitSize>
             <BaseType Namespace="Tc2_Standard">R_TRIG</BaseType>
-            <BitOffs>1265129472</BitOffs>
+            <BitOffs>1265910272</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PiezoSerial.tonTimeoutRst_M1K2</Name>
@@ -101859,26 +101898,7 @@ Emergency Stop for MR1K1</Comment>
                 <DateTime>T#2S</DateTime>
               </SubItem>
             </Default>
-            <BitOffs>1265129600</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>PRG_DAQ_ENCODER.nBusyCycles</Name>
-            <Comment> Temp testing</Comment>
-            <BitSize>16</BitSize>
-            <BaseType>UINT</BaseType>
-            <BitOffs>1265135504</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>PRG_DAQ_ENCODER.nMaxBusyCycles</Name>
-            <BitSize>16</BitSize>
-            <BaseType>UINT</BaseType>
-            <BitOffs>1265135520</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>PRG_DAQ_ENCODER.nDroppedFrames</Name>
-            <BitSize>16</BitSize>
-            <BaseType>UINT</BaseType>
-            <BitOffs>1265135536</BitOffs>
+            <BitOffs>1265910400</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_1_PlcTask.fbLogHandler</Name>
@@ -106522,6 +106542,199 @@ M4K2 KBV X ENC CNT</Comment>
             <BitOffs>1306255680</BitOffs>
           </Symbol>
           <Symbol>
+            <Name>GVL_PMPS.fbFastFaultOutput2</Name>
+            <BitSize>646272</BitSize>
+            <BaseType Namespace="PMPS">FB_HardwareFFOutput</BaseType>
+            <Default>
+              <SubItem>
+                <Name>.bAutoReset</Name>
+                <Bool>true</Bool>
+              </SubItem>
+              <SubItem>
+                <Name>.i_sNetID</Name>
+                <String>172.21.42.126.1.1</String>
+              </SubItem>
+            </Default>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>pv: PLC:RIX:OPTICS:FFO:02</Value>
+              </Property>
+              <Property>
+                <Name>TcLinkTo</Name>
+                <Value>.q_xFastFaultOut:=TIIB[PMPS_FFO]^Channel 2^Output</Value>
+              </Property>
+              <Property>
+                <Name>TcVarGlobal</Name>
+              </Property>
+            </Properties>
+            <BitOffs>1305597760</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>GVL_States.stDefaultOffsetY</Name>
+            <BitSize>3648</BitSize>
+            <BaseType Namespace="lcls_twincat_motion">ST_PositionState</BaseType>
+            <Default>
+              <SubItem>
+                <Name>.fDelta</Name>
+                <Value>2000</Value>
+              </SubItem>
+              <SubItem>
+                <Name>.fVelocity</Name>
+                <Value>100</Value>
+              </SubItem>
+              <SubItem>
+                <Name>.fAccel</Name>
+                <Value>5050</Value>
+              </SubItem>
+              <SubItem>
+                <Name>.fDecel</Name>
+                <Value>5050</Value>
+              </SubItem>
+              <SubItem>
+                <Name>.bMoveOk</Name>
+                <Bool>true</Bool>
+              </SubItem>
+              <SubItem>
+                <Name>.bValid</Name>
+                <Bool>true</Bool>
+              </SubItem>
+              <SubItem>
+                <Name>.bUseRawCounts</Name>
+                <Bool>true</Bool>
+              </SubItem>
+            </Default>
+            <Properties>
+              <Property>
+                <Name>TcVarGlobal</Name>
+              </Property>
+            </Properties>
+            <BitOffs>1306244416</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>GVL_States.stDefaultOffsetX</Name>
+            <BitSize>3648</BitSize>
+            <BaseType Namespace="lcls_twincat_motion">ST_PositionState</BaseType>
+            <Default>
+              <SubItem>
+                <Name>.fDelta</Name>
+                <Value>10000</Value>
+              </SubItem>
+              <SubItem>
+                <Name>.fVelocity</Name>
+                <Value>150</Value>
+              </SubItem>
+              <SubItem>
+                <Name>.fAccel</Name>
+                <Value>1000</Value>
+              </SubItem>
+              <SubItem>
+                <Name>.fDecel</Name>
+                <Value>1000</Value>
+              </SubItem>
+              <SubItem>
+                <Name>.bMoveOk</Name>
+                <Bool>true</Bool>
+              </SubItem>
+              <SubItem>
+                <Name>.bValid</Name>
+                <Bool>true</Bool>
+              </SubItem>
+              <SubItem>
+                <Name>.bUseRawCounts</Name>
+                <Bool>true</Bool>
+              </SubItem>
+            </Default>
+            <Properties>
+              <Property>
+                <Name>TcVarGlobal</Name>
+              </Property>
+            </Properties>
+            <BitOffs>1306248064</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>GVL_States.stDefaultKBX</Name>
+            <BitSize>3648</BitSize>
+            <BaseType Namespace="lcls_twincat_motion">ST_PositionState</BaseType>
+            <Default>
+              <SubItem>
+                <Name>.fDelta</Name>
+                <Value>5</Value>
+              </SubItem>
+              <SubItem>
+                <Name>.fVelocity</Name>
+                <Value>0.3</Value>
+              </SubItem>
+              <SubItem>
+                <Name>.fAccel</Name>
+                <Value>100</Value>
+              </SubItem>
+              <SubItem>
+                <Name>.fDecel</Name>
+                <Value>100</Value>
+              </SubItem>
+              <SubItem>
+                <Name>.bMoveOk</Name>
+                <Bool>true</Bool>
+              </SubItem>
+              <SubItem>
+                <Name>.bValid</Name>
+                <Bool>true</Bool>
+              </SubItem>
+              <SubItem>
+                <Name>.bUseRawCounts</Name>
+                <Bool>true</Bool>
+              </SubItem>
+            </Default>
+            <Properties>
+              <Property>
+                <Name>TcVarGlobal</Name>
+              </Property>
+            </Properties>
+            <BitOffs>1306251712</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>GVL_States.stDefaultKBY</Name>
+            <BitSize>3648</BitSize>
+            <BaseType Namespace="lcls_twincat_motion">ST_PositionState</BaseType>
+            <Default>
+              <SubItem>
+                <Name>.fDelta</Name>
+                <Value>5</Value>
+              </SubItem>
+              <SubItem>
+                <Name>.fVelocity</Name>
+                <Value>0.3</Value>
+              </SubItem>
+              <SubItem>
+                <Name>.fAccel</Name>
+                <Value>10</Value>
+              </SubItem>
+              <SubItem>
+                <Name>.fDecel</Name>
+                <Value>10</Value>
+              </SubItem>
+              <SubItem>
+                <Name>.bMoveOk</Name>
+                <Bool>true</Bool>
+              </SubItem>
+              <SubItem>
+                <Name>.bValid</Name>
+                <Bool>true</Bool>
+              </SubItem>
+              <SubItem>
+                <Name>.bUseRawCounts</Name>
+                <Bool>true</Bool>
+              </SubItem>
+            </Default>
+            <Properties>
+              <Property>
+                <Name>TcVarGlobal</Name>
+              </Property>
+            </Properties>
+            <BitOffs>1306255360</BitOffs>
+          </Symbol>
+          <Symbol>
             <Name>Main.M1</Name>
             <Comment> M1K2 Yleft</Comment>
             <BitSize>25920</BitSize>
@@ -106537,7 +106750,7 @@ M4K2 KBV X ENC CNT</Comment>
               </SubItem>
               <SubItem>
                 <Name>.bPowerSelf</Name>
-                <Bool>true</Bool>
+                <Bool>false</Bool>
               </SubItem>
             </Default>
             <Properties>
@@ -106846,7 +107059,7 @@ M4K2 KBV X ENC CNT</Comment>
               </SubItem>
               <SubItem>
                 <Name>.bPowerSelf</Name>
-                <Bool>true</Bool>
+                <Bool>false</Bool>
               </SubItem>
             </Default>
             <Properties>
@@ -106953,7 +107166,7 @@ M4K2 KBV X ENC CNT</Comment>
               </SubItem>
               <SubItem>
                 <Name>.bPowerSelf</Name>
-                <Bool>true</Bool>
+                <Bool>false</Bool>
               </SubItem>
             </Default>
             <Properties>
@@ -107050,7 +107263,7 @@ M4K2 KBV X ENC CNT</Comment>
               </SubItem>
               <SubItem>
                 <Name>.bPowerSelf</Name>
-                <Bool>true</Bool>
+                <Bool>false</Bool>
               </SubItem>
             </Default>
             <Properties>
@@ -107469,7 +107682,7 @@ M4K2 KBV X ENC CNT</Comment>
               </SubItem>
               <SubItem>
                 <Name>.bPowerSelf</Name>
-                <Bool>true</Bool>
+                <Bool>false</Bool>
               </SubItem>
             </Default>
             <Properties>
@@ -107641,7 +107854,7 @@ M4K2 KBV X ENC CNT</Comment>
               </SubItem>
               <SubItem>
                 <Name>.bPowerSelf</Name>
-                <Bool>true</Bool>
+                <Bool>false</Bool>
               </SubItem>
             </Default>
             <Properties>
@@ -107813,7 +108026,7 @@ M4K2 KBV X ENC CNT</Comment>
               </SubItem>
               <SubItem>
                 <Name>.bPowerSelf</Name>
-                <Bool>true</Bool>
+                <Bool>false</Bool>
               </SubItem>
             </Default>
             <Properties>
