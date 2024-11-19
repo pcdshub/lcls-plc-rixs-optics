@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <GVL Name="GVL_M3K2" Id="{5370e595-0f6e-4259-88a1-5883bdb06ca4}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL CONSTANT
@@ -27,14 +27,11 @@ VAR_GLOBAL
     nM3K2US_RTD_1 AT %I* : INT;
     {attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M3K2US1_M3K2US2]^RTD Inputs Channel 2^Value'}
     nM3K2US_RTD_2 AT %I* : INT;
-    {attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M3K2US3_M3K2DS1]^RTD Inputs Channel 1^Value'}
-    nM3K2US_RTD_3 AT %I* : INT;
+
 
     // M3K2 DS RTDs
     {attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M3K2US3_M3K2DS1]^RTD Inputs Channel 2^Value'}
     nM3K2DS_RTD_1 AT %I* : INT;
-    {attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M3K2DS2_M3K2DS3]^RTD Inputs Channel 1^Value'}
-    nM3K2DS_RTD_2 AT %I* : INT;
     {attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M3K2DS2_M3K2DS3]^RTD Inputs Channel 2^Value'}
     nM3K2DS_RTD_3 AT %I* : INT;
 

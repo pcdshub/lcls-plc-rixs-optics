@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <GVL Name="GVL_M4K2" Id="{12e24a9c-eb09-4496-9c31-a36df2f36ea7}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL CONSTANT
@@ -31,10 +31,7 @@ VAR_GLOBAL
     // M4K2 DS RTDs
     {attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M4K2US3_M4K2DS1]^RTD Inputs Channel 2^Value'}
     nM4K2DS_RTD_1 AT %I* : INT;
-    {attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M4K2DS2_M4K2DS3]^RTD Inputs Channel 1^Value'}
-    nM4K2DS_RTD_2 AT %I* : INT;
-    {attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M4K2DS2_M4K2DS3]^RTD Inputs Channel 2^Value'}
-    nM4K2DS_RTD_3 AT %I* : INT;
+
 
 END_VAR]]></Declaration>
   </GVL>
