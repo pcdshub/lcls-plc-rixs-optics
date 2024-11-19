@@ -371,14 +371,11 @@ GVL_M3K2
         nM3K2US_RTD_1 AT %I* : INT;
         {attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M3K2US1_M3K2US2]^RTD Inputs Channel 2^Value'}
         nM3K2US_RTD_2 AT %I* : INT;
-        {attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M3K2US3_M3K2DS1]^RTD Inputs Channel 1^Value'}
-        nM3K2US_RTD_3 AT %I* : INT;
+
 
         // M3K2 DS RTDs
         {attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M3K2US3_M3K2DS1]^RTD Inputs Channel 2^Value'}
         nM3K2DS_RTD_1 AT %I* : INT;
-        {attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M3K2DS2_M3K2DS3]^RTD Inputs Channel 1^Value'}
-        nM3K2DS_RTD_2 AT %I* : INT;
         {attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M3K2DS2_M3K2DS3]^RTD Inputs Channel 2^Value'}
         nM3K2DS_RTD_3 AT %I* : INT;
 
@@ -422,10 +419,7 @@ GVL_M4K2
         // M4K2 DS RTDs
         {attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M4K2US3_M4K2DS1]^RTD Inputs Channel 2^Value'}
         nM4K2DS_RTD_1 AT %I* : INT;
-        {attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M4K2DS2_M4K2DS3]^RTD Inputs Channel 1^Value'}
-        nM4K2DS_RTD_2 AT %I* : INT;
-        {attribute 'TcLinkTo' := 'TIIB[EL3202-0010_M4K2DS2_M4K2DS3]^RTD Inputs Channel 2^Value'}
-        nM4K2DS_RTD_3 AT %I* : INT;
+
 
     END_VAR
 
@@ -1997,7 +1991,7 @@ PRG_MR1K1_BEND
         fM1K1_Press_1_val : LREAL;
 
         {attribute 'pytmc' := 'pv: MR1K1:BEND:COATING'}
-        fbCoatingStates: FB_PositionStatePMPS2D;
+        fbCoatingStates: FB_PositionStatePMPS1D;
         {attribute 'pytmc' := '
           pv: MR1K1:BEND:COATING:STATE:SET
           io: io
@@ -2009,10 +2003,10 @@ PRG_MR1K1_BEND
         '}
         eStateGet: E_MR1K1_States;
         fbYSetup: FB_StateSetupHelper;
-        fbXSetup: FB_StateSetupHelper;
+        //fbXSetup: FB_StateSetupHelper;
 
         astCoatingStatesY: ARRAY[1..GeneralConstants.MAX_STATES] OF ST_PositionState;
-        astCoatingStatesX: ARRAY[1..GeneralConstants.MAX_STATES] OF ST_PositionState;
+        //astCoatingStatesX: ARRAY[1..GeneralConstants.MAX_STATES] OF ST_PositionState;
 
     END_VAR
     // M1K1
@@ -2114,35 +2108,35 @@ PRG_MR1K1_BEND
         fM1K1_Press_1_val := fM1K1_Press_1.fReal;
 
     fbYSetup(stPositionState:=GVL_States.stDefaultOffsetY, bSetDefault:=TRUE);
-    fbXSetup(stPositionState:=GVL_States.stDefaultOffsetX, bSetDefault:=TRUE);
+    //fbXSetup(stPositionState:=GVL_States.stDefaultOffsetX, bSetDefault:=TRUE);
 
     fbYSetup(stPositionState:=astCoatingStatesY[E_MR1K1_States.B4C],
         sName:='B4C',
         sPmpsState:='MR1K1:BEND-B4C',
         nEncoderCount:=31911452
     );
-    fbXSetup(stPositionState:=astCoatingStatesX[E_MR1K1_States.B4C],
+    (*fbXSetup(stPositionState:=astCoatingStatesX[E_MR1K1_States.B4C],
         sName:='B4C',
         sPmpsState:='MR1K1:BEND-B4C',
         nEncoderCount:=19829647
-    );
+    );*)
     fbYSetup(stPositionState:=astCoatingStatesY[E_MR1K1_States.OUT],
         sName:='OUT',
         sPmpsState:='MR1K1:BEND-OUT',
         nEncoderCount:=13412630,
         fDelta:=50
     );
+    (*
     // Out position determined solely by Y Axis
     fbXSetup(stPositionState:=astCoatingStatesX[E_MR1K1_States.OUT],
         sName:='OUT',
         sPmpsState:='MR1K1:BEND-OUT',
         nEncoderCount:=ULINT_TO_UDINT(M14.nRawEncoderULINT)
     );
+    *)
     fbCoatingStates(
-        stMotionStage1:=Main.M12,
-        stMotionStage2:=Main.M14,
-        astPositionState1:=astCoatingStatesY,
-        astPositionState2:=astCoatingStatesX,
+        stMotionStage:=Main.M12,
+        astPositionState:=astCoatingStatesY,
         eEnumSet:=eStateSet,
         eEnumGet:=eStateGet,
         fbFFHWO:=GVL_PMPS.fbFastFaultOutput1,
@@ -2964,14 +2958,6 @@ PRG_MR3K2_KBH
                 io: i
             '}
             fM3K2US_RTD_2 : REAL;
-            {attribute 'pytmc' := '
-                pv: MR3K2:KBH:RTD:CHIN:L
-                field: ASLO 0.01
-                field: EGU C
-                io: i
-            '}
-            fM3K2US_RTD_3 : REAL;
-
             // M3K2 DS RTDs
             {attribute 'pytmc' := '
                 pv: MR3K2:KBH:RTD:BEND:DS:1
@@ -2980,13 +2966,6 @@ PRG_MR3K2_KBH
                 io: i
             '}
             fM3K2DS_RTD_1 : REAL;
-            {attribute 'pytmc' := '
-                pv: MR3K2:KBH:RTD:CHIN:R
-                field: ASLO 0.01
-                field: EGU C
-                io: i
-            '}
-            fM3K2DS_RTD_2 : REAL;
             {attribute 'pytmc' := '
                 pv: MR3K2:KBH:RTD:BEND:DS:3
                 field: ASLO 0.01
@@ -2998,9 +2977,9 @@ PRG_MR3K2_KBH
         // RTD error bit
             bM3K2US_RTD_1_Err AT %I*: BOOL;
             bM3K2US_RTD_2_Err AT %I*: BOOL;
-            bM3K2US_RTD_3_Err AT %I*: BOOL;
+
             bM3K2DS_RTD_1_Err AT %I*: BOOL;
-            bM3K2DS_RTD_2_Err AT %I*: BOOL;
+
             bM3K2DS_RTD_3_Err AT %I*: BOOL;
 
         //Emergency Stop for MR3K2
@@ -3039,6 +3018,26 @@ PRG_MR3K2_KBH
         fbYSetup: FB_StateSetupHelper;
 
         astCoatingStatesY: ARRAY[1..GeneralConstants.MAX_STATES] OF ST_PositionState;
+        {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3202-0010_M3K2DS2_M3K2DS3]^RTD Inputs Channel 1^Value;
+                                  .bUnderrange := TIIB[EL3202-0010_M3K2DS2_M3K2DS3]^RTD Inputs Channel 1^Status^Underrange;
+                                  .bOverrange := TIIB[EL3202-0010_M3K2DS2_M3K2DS3]^RTD Inputs Channel 1^Status^Overrange;
+                                  .bError := TIIB[EL3202-0010_M3K2DS2_M3K2DS3]^RTD Inputs Channel 1^Status^Error'}
+        {attribute 'pytmc' := '
+            pv: MR3K2:KBH:RTD:CHIN:R
+            field: EGU C
+            io: i
+        '}
+        fbM3K2_Chin_Right_RTD : FB_TempSensor;
+        {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3202-0010_M3K2US3_M3K2DS1]^RTD Inputs Channel 1^Value;
+                                  .bUnderrange := TIIB[EL3202-0010_M3K2US3_M3K2DS1]^RTD Inputs Channel 1^Status^Underrange;
+                                  .bOverrange := TIIB[EL3202-0010_M3K2US3_M3K2DS1]^RTD Inputs Channel 1^Status^Overrange;
+                                  .bError := TIIB[EL3202-0010_M3K2US3_M3K2DS1]^RTD Inputs Channel 1^Status^Error'}
+        {attribute 'pytmc' := '
+            pv: MR3K2:KBH:RTD:CHIN:L
+            field: EGU C
+            io: i
+        '}
+        fbM3K2_Chin_Left_RTD : FB_TempSensor;
 
     END_VAR
     //FB_Motion stages for MR3K2 Axes
@@ -3095,18 +3094,13 @@ PRG_MR3K2_KBH
     // MR3K2 Bender RTDs
     fM3K2US_RTD_1 := INT_TO_REAL(GVL_M3K2.nM3K2US_RTD_1);
     fM3K2US_RTD_2 := INT_TO_REAL(GVL_M3K2.nM3K2US_RTD_2);
-    fM3K2US_RTD_3 := INT_TO_REAL(GVL_M3K2.nM3K2US_RTD_3);
-
     fM3K2DS_RTD_1 := INT_TO_REAL(GVL_M3K2.nM3K2DS_RTD_1);
-    fM3K2DS_RTD_2 := INT_TO_REAL(GVL_M3K2.nM3K2DS_RTD_2);
     fM3K2DS_RTD_3 := INT_TO_REAL(GVL_M3K2.nM3K2DS_RTD_3);
 
     // RTD not connected if T=0
     bM3K2US_RTD_1_Err := fM3K2US_RTD_1 = 0;
-    bM3K2US_RTD_2_Err := fM3K2DS_RTD_2 = 0;
-    bM3K2US_RTD_3_Err := fM3K2US_RTD_3 = 0;
+    bM3K2US_RTD_2_Err := fM3K2US_RTD_2 = 0;
     bM3K2DS_RTD_1_Err := fM3K2DS_RTD_1 = 0;
-    bM3K2DS_RTD_2_Err := fM3K2DS_RTD_2 = 0;
     bM3K2DS_RTD_3_Err := fM3K2DS_RTD_3 = 0;
 
     // M3K2 Bender RTD interlocks
@@ -3148,6 +3142,9 @@ PRG_MR3K2_KBH
         sDeviceName:='MR3K2:KBH',
         sTransitionKey:='MR3K2:KBH-TRANSITION',
     );
+
+    fbM3K2_Chin_Right_RTD(fResolution:=0.01);
+    fbM3K2_Chin_Left_RTD(fResolution:=0.01);
 
     END_PROGRAM
 
@@ -3300,20 +3297,6 @@ PRG_MR4K2_KBV
                 io: i
             '}
             fM4K2DS_RTD_1 : REAL;
-            {attribute 'pytmc' := '
-                pv: MR4K2:KBV:RTD:BEND:DS:2
-                field: ASLO 0.01
-                field: EGU C
-                io: i
-            '}
-            fM4K2DS_RTD_2 : REAL;
-            {attribute 'pytmc' := '
-                pv: MR4K2:KBV:RTD:BEND:DS:3
-                field: ASLO 0.01
-                field: EGU C
-                io: i
-            '}
-            fM4K2DS_RTD_3 : REAL;
         {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3204_M4K2_CHIN]^RTD Inputs Channel 1^Value;
                                   .bUnderrange := TIIB[EL3204_M4K2_CHIN]^RTD Inputs Channel 1^Status^Underrange;
                                   .bOverrange := TIIB[EL3204_M4K2_CHIN]^RTD Inputs Channel 1^Status^Overrange;
@@ -3323,7 +3306,7 @@ PRG_MR4K2_KBV
             field: EGU C
             io: i
         '}
-        nM4K2_Chin_Right_RTD : FB_TempSensor;
+        fbM4K2_Chin_Right_RTD : FB_TempSensor;
         {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3204_M4K2_CHIN]^RTD Inputs Channel 2^Value;
                                   .bUnderrange := TIIB[EL3204_M4K2_CHIN]^RTD Inputs Channel 2^Status^Underrange;
                                   .bOverrange := TIIB[EL3204_M4K2_CHIN]^RTD Inputs Channel 2^Status^Overrange;
@@ -3333,7 +3316,7 @@ PRG_MR4K2_KBV
             field: EGU C
             io: i
         '}
-        nM4K2_Chin_Left_RTD : FB_TempSensor;
+        fbM4K2_Chin_Left_RTD : FB_TempSensor;
 
         // RTD error bit
             bM4K2US_RTD_1_Err AT %I*: BOOL;
@@ -3440,23 +3423,20 @@ PRG_MR4K2_KBV
     fM4K2US_RTD_3 := INT_TO_REAL(GVL_M4K2.nM4K2US_RTD_3);
 
     fM4K2DS_RTD_1 := INT_TO_REAL(GVL_M4K2.nM4K2DS_RTD_1);
-    fM4K2DS_RTD_2 := INT_TO_REAL(GVL_M4K2.nM4K2DS_RTD_2);
-    fM4K2DS_RTD_3 := INT_TO_REAL(GVL_M4K2.nM4K2DS_RTD_3);
+
 
     // RTD not connected if T=0
     bM4K2US_RTD_1_Err := fM4K2US_RTD_1 = 0;
-    bM4K2US_RTD_2_Err := fM4K2DS_RTD_2 = 0;
+    bM4K2US_RTD_2_Err := fM4K2US_RTD_2 = 0;
     bM4K2US_RTD_3_Err := fM4K2US_RTD_3 = 0;
     bM4K2DS_RTD_1_Err := fM4K2DS_RTD_1 = 0;
-    bM4K2DS_RTD_2_Err := fM4K2DS_RTD_2 = 0;
-    bM4K2DS_RTD_3_Err := fM4K2DS_RTD_3 = 0;
 
     // M4K2 Bender RTD interlocks
     M36.bHardwareEnable R= fM4K2US_RTD_1 > 9000 OR bM4K2US_RTD_1_Err;
     M37.bHardwareEnable R= fM4K2DS_RTD_1 > 9000 OR bM4K2DS_RTD_1_Err;
 
-    nM4K2_Chin_Right_RTD();
-    nM4K2_Chin_Left_RTD();
+    fbM4K2_Chin_Right_RTD(fResolution:=0.01);
+    fbM4K2_Chin_Left_RTD(fResolution:=0.01);
 
     // Axilon Cooling Panel
     fbCoolingPanel();

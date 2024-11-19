@@ -5450,1788 +5450,6 @@ lcls_twincat_motion.FB_PositionStatePMPS1D
 
 
  
-lcls_twincat_motion.FB_PositionStatePMPS2D
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. list-table::
-    :header-rows: 1
-    :align: center
-
-    * - Record
-      - Type
-      - Description
-      - Pragma
-    * - $(PREFIX):STATE:BUSY_RBV
-      - bi
-      - $(SYMBOL).stPlcToEpics.bBusy
-      - | field: ONAM True
-        | field: ZNAM False
-        | io: input
-
-
-    * - $(PREFIX):STATE:DONE_RBV
-      - bi
-      - $(SYMBOL).stPlcToEpics.bDone
-      - | field: ONAM True
-        | field: ZNAM False
-        | io: input
-
-
-    * - $(PREFIX):STATE:ERR_RBV
-      - bi
-      - $(SYMBOL).stPlcToEpics.bError
-      - | field: ONAM True
-        | field: ZNAM False
-        | io: input
-
-
-    * - $(PREFIX):STATE:ERRID_RBV
-      - longin
-      - $(SYMBOL).stPlcToEpics.nErrorID
-      - | io: input
-
-
-    * - $(PREFIX):STATE:ERRMSG_RBV
-      - waveform
-      - $(SYMBOL).stPlcToEpics.sErrorMsg
-      - | io: input
-
-
-    * - $(PREFIX):STATE:M1:01:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:01:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:01:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:01:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:01:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:01:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:01:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:02:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:02:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:02:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:02:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:02:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:02:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:02:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:03:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:03:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:03:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:03:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:03:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:03:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:03:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:04:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:04:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:04:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:04:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:04:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:04:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:04:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:05:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:05:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:05:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:05:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:05:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:05:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:05:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:06:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:06:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:06:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:06:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:06:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:06:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:06:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:07:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:07:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:07:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:07:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:07:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:07:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:07:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:08:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:08:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:08:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:08:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:08:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:08:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:08:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:09:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:09:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:09:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:09:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:09:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:09:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:09:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:10:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:10:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:10:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:10:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:10:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:10:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:10:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:11:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:11:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:11:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:11:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:11:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:11:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:11:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:12:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:12:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:12:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:12:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:12:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:12:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:12:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:13:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:13:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:13:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:13:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:13:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:13:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:13:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:14:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:14:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:14:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:14:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:14:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:14:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:14:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:15:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:15:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:15:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M1:15:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:15:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:15:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M1:15:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:01:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:01:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:01:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:01:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:01:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:01:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:01:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:02:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:02:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:02:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:02:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:02:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:02:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:02:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:03:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:03:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:03:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:03:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:03:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:03:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:03:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:04:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:04:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:04:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:04:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:04:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:04:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:04:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:05:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:05:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:05:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:05:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:05:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:05:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:05:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:06:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:06:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:06:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:06:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:06:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:06:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:06:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:07:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:07:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:07:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:07:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:07:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:07:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:07:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:08:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:08:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:08:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:08:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:08:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:08:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:08:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:09:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:09:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:09:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:09:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:09:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:09:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:09:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:10:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:10:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:10:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:10:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:10:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:10:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:10:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:11:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:11:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:11:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:11:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:11:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:11:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:11:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:12:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:12:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:12:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:12:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:12:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:12:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:12:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:13:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:13:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:13:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:13:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:13:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:13:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:13:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:14:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:14:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:14:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:14:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:14:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:14:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:14:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:15:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:15:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:15:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - $(PREFIX):STATE:M2:15:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:15:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:15:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:M2:15:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - $(PREFIX):STATE:PMPS:ARB:ENABLE
-      - bo
-      - $(SYMBOL).stPMPSEpicsToPlc.bArbiterEnabled
-      - | io: output
-
-
-    * - $(PREFIX):STATE:PMPS:ARB:ENABLE_RBV
-      - bi
-      - $(SYMBOL).stPMPSEpicsToPlc.bArbiterEnabled
-      - | io: output
-
-
-    * - $(PREFIX):STATE:PMPS:MAINT
-      - bo
-      - $(SYMBOL).stPMPSEpicsToPlc.bMaintMode
-      - | io: output
-
-
-    * - $(PREFIX):STATE:PMPS:MAINT_RBV
-      - bi
-      - $(SYMBOL).stPMPSEpicsToPlc.bMaintMode
-      - | io: output
-
-
-    * - $(PREFIX):STATE:PMPS:TRANS:BP:Apt:01:Height_RBV
-      - ai
-      - $(SYMBOL).stPMPSPlcToEpics.stTransitionDb.stBeamParams.astApertures[1].Height
-      - | field: EGU mm
-        | io: input
-
-
-    * - $(PREFIX):STATE:PMPS:TRANS:BP:Apt:01:OK_RBV
-      - bi
-      - $(SYMBOL).stPMPSPlcToEpics.stTransitionDb.stBeamParams.astApertures[1].xOK
-      - | io: input
-
-
-    * - $(PREFIX):STATE:PMPS:TRANS:BP:Apt:01:Width_RBV
-      - ai
-      - $(SYMBOL).stPMPSPlcToEpics.stTransitionDb.stBeamParams.astApertures[1].Width
-      - | field: EGU mm
-        | io: input
-
-
-    * - $(PREFIX):STATE:PMPS:TRANS:BP:Apt:02:Height_RBV
-      - ai
-      - $(SYMBOL).stPMPSPlcToEpics.stTransitionDb.stBeamParams.astApertures[2].Height
-      - | field: EGU mm
-        | io: input
-
-
-    * - $(PREFIX):STATE:PMPS:TRANS:BP:Apt:02:OK_RBV
-      - bi
-      - $(SYMBOL).stPMPSPlcToEpics.stTransitionDb.stBeamParams.astApertures[2].xOK
-      - | io: input
-
-
-    * - $(PREFIX):STATE:PMPS:TRANS:BP:Apt:02:Width_RBV
-      - ai
-      - $(SYMBOL).stPMPSPlcToEpics.stTransitionDb.stBeamParams.astApertures[2].Width
-      - | field: EGU mm
-        | io: input
-
-
-    * - $(PREFIX):STATE:PMPS:TRANS:BP:Apt:03:Height_RBV
-      - ai
-      - $(SYMBOL).stPMPSPlcToEpics.stTransitionDb.stBeamParams.astApertures[3].Height
-      - | field: EGU mm
-        | io: input
-
-
-    * - $(PREFIX):STATE:PMPS:TRANS:BP:Apt:03:OK_RBV
-      - bi
-      - $(SYMBOL).stPMPSPlcToEpics.stTransitionDb.stBeamParams.astApertures[3].xOK
-      - | io: input
-
-
-    * - $(PREFIX):STATE:PMPS:TRANS:BP:Apt:03:Width_RBV
-      - ai
-      - $(SYMBOL).stPMPSPlcToEpics.stTransitionDb.stBeamParams.astApertures[3].Width
-      - | field: EGU mm
-        | io: input
-
-
-    * - $(PREFIX):STATE:PMPS:TRANS:BP:Apt:04:Height_RBV
-      - ai
-      - $(SYMBOL).stPMPSPlcToEpics.stTransitionDb.stBeamParams.astApertures[4].Height
-      - | field: EGU mm
-        | io: input
-
-
-    * - $(PREFIX):STATE:PMPS:TRANS:BP:Apt:04:OK_RBV
-      - bi
-      - $(SYMBOL).stPMPSPlcToEpics.stTransitionDb.stBeamParams.astApertures[4].xOK
-      - | io: input
-
-
-    * - $(PREFIX):STATE:PMPS:TRANS:BP:Apt:04:Width_RBV
-      - ai
-      - $(SYMBOL).stPMPSPlcToEpics.stTransitionDb.stBeamParams.astApertures[4].Width
-      - | field: EGU mm
-        | io: input
-
-
-    * - $(PREFIX):STATE:PMPS:TRANS:BP:BeamClass_RBV
-      - longin
-      - $(SYMBOL).stPMPSPlcToEpics.stTransitionDb.stBeamParams.nBeamClass
-      - | io: input
-
-
-    * - $(PREFIX):STATE:PMPS:TRANS:BP:BeamClassRanges_RBV
-      - longin
-      - $(SYMBOL).stPMPSPlcToEpics.stTransitionDb.stBeamParams.nBCRange
-      - | io: input
-
-
-    * - $(PREFIX):STATE:PMPS:TRANS:BP:Cohort_RBV
-      - longin
-      - Cohort inc on each arb cycle
-      - | io: input
-
-
-    * - $(PREFIX):STATE:PMPS:TRANS:BP:eVRanges_RBV
-      - longin
-      - $(SYMBOL).stPMPSPlcToEpics.stTransitionDb.stBeamParams.neVRange
-      - | field: EGU eV
-        | io: input
-
-
-    * - $(PREFIX):STATE:PMPS:TRANS:BP:MachineMode_RBV
-      - longin
-      - $(SYMBOL).stPMPSPlcToEpics.stTransitionDb.stBeamParams.nMachineMode
-      - | io: input
-
-
-    * - $(PREFIX):STATE:PMPS:TRANS:BP:PhotonEnergy_RBV
-      - ai
-      - $(SYMBOL).stPMPSPlcToEpics.stTransitionDb.stBeamParams.neV
-      - | field: EGU eV
-        | io: input
-
-
-    * - $(PREFIX):STATE:PMPS:TRANS:BP:Rate_RBV
-      - longin
-      - $(SYMBOL).stPMPSPlcToEpics.stTransitionDb.stBeamParams.nRate
-      - | field: EGU Hz
-        | io: input
-
-
-    * - $(PREFIX):STATE:PMPS:TRANS:BP:Transmission_RBV
-      - ai
-      - $(SYMBOL).stPMPSPlcToEpics.stTransitionDb.stBeamParams.nTran
-      - | field: HOPR 1
-        | field: LOPR 0
-        | field: PREC 2
-        | io: input
-
-
-    * - $(PREFIX):STATE:PMPS:TRANS:BP:Valid_RBV
-      - bi
-      - $(SYMBOL).stPMPSPlcToEpics.stTransitionDb.stBeamParams.xValid
-      - | io: input
-
-
-    * - $(PREFIX):STATE:PMPS:TRANS:BP:Veto_RBV
-      - waveform
-      - $(SYMBOL).stPMPSPlcToEpics.stTransitionDb.stBeamParams.aVetoDevices
-      - | io: input
-
-
-    * - $(PREFIX):STATE:PMPS:TRANS:PMPS_ID_RBV
-      - longin
-      - Assertion Request ID
-      - | io: input
-
-
-    * - $(PREFIX):STATE:PMPS:TRANS:PMPS_LOADED_RBV
-      - bi
-      - TRUE if PMPS loaded parameters from the database.
-      - | io: input
-
-
-    * - $(PREFIX):STATE:PMPS:TRANS:PMPS_STATE_RBV
-      - waveform
-      - PMPS Database Lookup Key
-      - | io: input
-
-
-    * - $(PREFIX):STATE:RESET
-      - bo
-      - $(SYMBOL).stEpicsToPlc.bReset
-      - | field: ONAM True
-        | field: ZNAM False
-        | io: output
-
-
-    * - $(PREFIX):STATE:RESET_RBV
-      - bi
-      - $(SYMBOL).stEpicsToPlc.bReset
-      - | field: ONAM True
-        | field: ZNAM False
-        | io: output
-
-
- 
 lcls_twincat_motion.FB_PositionStatePMPS_Base
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -60037,7 +58255,7 @@ Database Records
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:10:MOVE_OK_RBV
+    * - MR1K1:BEND:COATING:STATE:10:MOVE_OK_RBV
       - bi
       - TRUE if the move would be safe
       - | expand: :%.2d
@@ -60046,49 +58264,49 @@ Database Records
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:10:SETPOINT_RBV
+    * - MR1K1:BEND:COATING:STATE:10:SETPOINT_RBV
       - ai
       - Axis position associated with this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:10:SETPOINT
+    * - MR1K1:BEND:COATING:STATE:10:SETPOINT
       - ao
       - Axis position associated with this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:10:VELO_RBV
+    * - MR1K1:BEND:COATING:STATE:10:VELO_RBV
       - ai
       - Speed at which to move to this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:10:VELO
+    * - MR1K1:BEND:COATING:STATE:10:VELO
       - ao
       - Speed at which to move to this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:10:ENCODER_RBV
+    * - MR1K1:BEND:COATING:STATE:10:ENCODER_RBV
       - longin
       - Encoder count associated with this state
       - | expand: :%.2d
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:10:NAME_RBV
+    * - MR1K1:BEND:COATING:STATE:10:NAME_RBV
       - waveform
       - Name of this position state
       - | expand: :%.2d
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:11:MOVE_OK_RBV
+    * - MR1K1:BEND:COATING:STATE:11:MOVE_OK_RBV
       - bi
       - TRUE if the move would be safe
       - | expand: :%.2d
@@ -60097,49 +58315,49 @@ Database Records
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:11:SETPOINT_RBV
+    * - MR1K1:BEND:COATING:STATE:11:SETPOINT_RBV
       - ai
       - Axis position associated with this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:11:SETPOINT
+    * - MR1K1:BEND:COATING:STATE:11:SETPOINT
       - ao
       - Axis position associated with this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:11:VELO_RBV
+    * - MR1K1:BEND:COATING:STATE:11:VELO_RBV
       - ai
       - Speed at which to move to this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:11:VELO
+    * - MR1K1:BEND:COATING:STATE:11:VELO
       - ao
       - Speed at which to move to this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:11:ENCODER_RBV
+    * - MR1K1:BEND:COATING:STATE:11:ENCODER_RBV
       - longin
       - Encoder count associated with this state
       - | expand: :%.2d
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:11:NAME_RBV
+    * - MR1K1:BEND:COATING:STATE:11:NAME_RBV
       - waveform
       - Name of this position state
       - | expand: :%.2d
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:12:MOVE_OK_RBV
+    * - MR1K1:BEND:COATING:STATE:12:MOVE_OK_RBV
       - bi
       - TRUE if the move would be safe
       - | expand: :%.2d
@@ -60148,49 +58366,49 @@ Database Records
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:12:SETPOINT_RBV
+    * - MR1K1:BEND:COATING:STATE:12:SETPOINT_RBV
       - ai
       - Axis position associated with this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:12:SETPOINT
+    * - MR1K1:BEND:COATING:STATE:12:SETPOINT
       - ao
       - Axis position associated with this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:12:VELO_RBV
+    * - MR1K1:BEND:COATING:STATE:12:VELO_RBV
       - ai
       - Speed at which to move to this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:12:VELO
+    * - MR1K1:BEND:COATING:STATE:12:VELO
       - ao
       - Speed at which to move to this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:12:ENCODER_RBV
+    * - MR1K1:BEND:COATING:STATE:12:ENCODER_RBV
       - longin
       - Encoder count associated with this state
       - | expand: :%.2d
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:12:NAME_RBV
+    * - MR1K1:BEND:COATING:STATE:12:NAME_RBV
       - waveform
       - Name of this position state
       - | expand: :%.2d
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:13:MOVE_OK_RBV
+    * - MR1K1:BEND:COATING:STATE:13:MOVE_OK_RBV
       - bi
       - TRUE if the move would be safe
       - | expand: :%.2d
@@ -60199,49 +58417,49 @@ Database Records
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:13:SETPOINT_RBV
+    * - MR1K1:BEND:COATING:STATE:13:SETPOINT_RBV
       - ai
       - Axis position associated with this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:13:SETPOINT
+    * - MR1K1:BEND:COATING:STATE:13:SETPOINT
       - ao
       - Axis position associated with this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:13:VELO_RBV
+    * - MR1K1:BEND:COATING:STATE:13:VELO_RBV
       - ai
       - Speed at which to move to this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:13:VELO
+    * - MR1K1:BEND:COATING:STATE:13:VELO
       - ao
       - Speed at which to move to this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:13:ENCODER_RBV
+    * - MR1K1:BEND:COATING:STATE:13:ENCODER_RBV
       - longin
       - Encoder count associated with this state
       - | expand: :%.2d
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:13:NAME_RBV
+    * - MR1K1:BEND:COATING:STATE:13:NAME_RBV
       - waveform
       - Name of this position state
       - | expand: :%.2d
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:14:MOVE_OK_RBV
+    * - MR1K1:BEND:COATING:STATE:14:MOVE_OK_RBV
       - bi
       - TRUE if the move would be safe
       - | expand: :%.2d
@@ -60250,49 +58468,49 @@ Database Records
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:14:SETPOINT_RBV
+    * - MR1K1:BEND:COATING:STATE:14:SETPOINT_RBV
       - ai
       - Axis position associated with this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:14:SETPOINT
+    * - MR1K1:BEND:COATING:STATE:14:SETPOINT
       - ao
       - Axis position associated with this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:14:VELO_RBV
+    * - MR1K1:BEND:COATING:STATE:14:VELO_RBV
       - ai
       - Speed at which to move to this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:14:VELO
+    * - MR1K1:BEND:COATING:STATE:14:VELO
       - ao
       - Speed at which to move to this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:14:ENCODER_RBV
+    * - MR1K1:BEND:COATING:STATE:14:ENCODER_RBV
       - longin
       - Encoder count associated with this state
       - | expand: :%.2d
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:14:NAME_RBV
+    * - MR1K1:BEND:COATING:STATE:14:NAME_RBV
       - waveform
       - Name of this position state
       - | expand: :%.2d
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:15:MOVE_OK_RBV
+    * - MR1K1:BEND:COATING:STATE:15:MOVE_OK_RBV
       - bi
       - TRUE if the move would be safe
       - | expand: :%.2d
@@ -60301,49 +58519,49 @@ Database Records
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:15:SETPOINT_RBV
+    * - MR1K1:BEND:COATING:STATE:15:SETPOINT_RBV
       - ai
       - Axis position associated with this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:15:SETPOINT
+    * - MR1K1:BEND:COATING:STATE:15:SETPOINT
       - ao
       - Axis position associated with this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:15:VELO_RBV
+    * - MR1K1:BEND:COATING:STATE:15:VELO_RBV
       - ai
       - Speed at which to move to this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:15:VELO
+    * - MR1K1:BEND:COATING:STATE:15:VELO
       - ao
       - Speed at which to move to this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:15:ENCODER_RBV
+    * - MR1K1:BEND:COATING:STATE:15:ENCODER_RBV
       - longin
       - Encoder count associated with this state
       - | expand: :%.2d
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:15:NAME_RBV
+    * - MR1K1:BEND:COATING:STATE:15:NAME_RBV
       - waveform
       - Name of this position state
       - | expand: :%.2d
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:01:MOVE_OK_RBV
+    * - MR1K1:BEND:COATING:STATE:01:MOVE_OK_RBV
       - bi
       - TRUE if the move would be safe
       - | expand: :%.2d
@@ -60352,49 +58570,49 @@ Database Records
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:01:SETPOINT_RBV
+    * - MR1K1:BEND:COATING:STATE:01:SETPOINT_RBV
       - ai
       - Axis position associated with this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:01:SETPOINT
+    * - MR1K1:BEND:COATING:STATE:01:SETPOINT
       - ao
       - Axis position associated with this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:01:VELO_RBV
+    * - MR1K1:BEND:COATING:STATE:01:VELO_RBV
       - ai
       - Speed at which to move to this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:01:VELO
+    * - MR1K1:BEND:COATING:STATE:01:VELO
       - ao
       - Speed at which to move to this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:01:ENCODER_RBV
+    * - MR1K1:BEND:COATING:STATE:01:ENCODER_RBV
       - longin
       - Encoder count associated with this state
       - | expand: :%.2d
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:01:NAME_RBV
+    * - MR1K1:BEND:COATING:STATE:01:NAME_RBV
       - waveform
       - Name of this position state
       - | expand: :%.2d
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:02:MOVE_OK_RBV
+    * - MR1K1:BEND:COATING:STATE:02:MOVE_OK_RBV
       - bi
       - TRUE if the move would be safe
       - | expand: :%.2d
@@ -60403,49 +58621,49 @@ Database Records
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:02:SETPOINT_RBV
+    * - MR1K1:BEND:COATING:STATE:02:SETPOINT_RBV
       - ai
       - Axis position associated with this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:02:SETPOINT
+    * - MR1K1:BEND:COATING:STATE:02:SETPOINT
       - ao
       - Axis position associated with this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:02:VELO_RBV
+    * - MR1K1:BEND:COATING:STATE:02:VELO_RBV
       - ai
       - Speed at which to move to this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:02:VELO
+    * - MR1K1:BEND:COATING:STATE:02:VELO
       - ao
       - Speed at which to move to this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:02:ENCODER_RBV
+    * - MR1K1:BEND:COATING:STATE:02:ENCODER_RBV
       - longin
       - Encoder count associated with this state
       - | expand: :%.2d
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:02:NAME_RBV
+    * - MR1K1:BEND:COATING:STATE:02:NAME_RBV
       - waveform
       - Name of this position state
       - | expand: :%.2d
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:03:MOVE_OK_RBV
+    * - MR1K1:BEND:COATING:STATE:03:MOVE_OK_RBV
       - bi
       - TRUE if the move would be safe
       - | expand: :%.2d
@@ -60454,49 +58672,49 @@ Database Records
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:03:SETPOINT_RBV
+    * - MR1K1:BEND:COATING:STATE:03:SETPOINT_RBV
       - ai
       - Axis position associated with this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:03:SETPOINT
+    * - MR1K1:BEND:COATING:STATE:03:SETPOINT
       - ao
       - Axis position associated with this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:03:VELO_RBV
+    * - MR1K1:BEND:COATING:STATE:03:VELO_RBV
       - ai
       - Speed at which to move to this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:03:VELO
+    * - MR1K1:BEND:COATING:STATE:03:VELO
       - ao
       - Speed at which to move to this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:03:ENCODER_RBV
+    * - MR1K1:BEND:COATING:STATE:03:ENCODER_RBV
       - longin
       - Encoder count associated with this state
       - | expand: :%.2d
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:03:NAME_RBV
+    * - MR1K1:BEND:COATING:STATE:03:NAME_RBV
       - waveform
       - Name of this position state
       - | expand: :%.2d
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:04:MOVE_OK_RBV
+    * - MR1K1:BEND:COATING:STATE:04:MOVE_OK_RBV
       - bi
       - TRUE if the move would be safe
       - | expand: :%.2d
@@ -60505,49 +58723,49 @@ Database Records
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:04:SETPOINT_RBV
+    * - MR1K1:BEND:COATING:STATE:04:SETPOINT_RBV
       - ai
       - Axis position associated with this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:04:SETPOINT
+    * - MR1K1:BEND:COATING:STATE:04:SETPOINT
       - ao
       - Axis position associated with this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:04:VELO_RBV
+    * - MR1K1:BEND:COATING:STATE:04:VELO_RBV
       - ai
       - Speed at which to move to this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:04:VELO
+    * - MR1K1:BEND:COATING:STATE:04:VELO
       - ao
       - Speed at which to move to this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:04:ENCODER_RBV
+    * - MR1K1:BEND:COATING:STATE:04:ENCODER_RBV
       - longin
       - Encoder count associated with this state
       - | expand: :%.2d
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:04:NAME_RBV
+    * - MR1K1:BEND:COATING:STATE:04:NAME_RBV
       - waveform
       - Name of this position state
       - | expand: :%.2d
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:05:MOVE_OK_RBV
+    * - MR1K1:BEND:COATING:STATE:05:MOVE_OK_RBV
       - bi
       - TRUE if the move would be safe
       - | expand: :%.2d
@@ -60556,49 +58774,49 @@ Database Records
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:05:SETPOINT_RBV
+    * - MR1K1:BEND:COATING:STATE:05:SETPOINT_RBV
       - ai
       - Axis position associated with this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:05:SETPOINT
+    * - MR1K1:BEND:COATING:STATE:05:SETPOINT
       - ao
       - Axis position associated with this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:05:VELO_RBV
+    * - MR1K1:BEND:COATING:STATE:05:VELO_RBV
       - ai
       - Speed at which to move to this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:05:VELO
+    * - MR1K1:BEND:COATING:STATE:05:VELO
       - ao
       - Speed at which to move to this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:05:ENCODER_RBV
+    * - MR1K1:BEND:COATING:STATE:05:ENCODER_RBV
       - longin
       - Encoder count associated with this state
       - | expand: :%.2d
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:05:NAME_RBV
+    * - MR1K1:BEND:COATING:STATE:05:NAME_RBV
       - waveform
       - Name of this position state
       - | expand: :%.2d
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:06:MOVE_OK_RBV
+    * - MR1K1:BEND:COATING:STATE:06:MOVE_OK_RBV
       - bi
       - TRUE if the move would be safe
       - | expand: :%.2d
@@ -60607,49 +58825,49 @@ Database Records
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:06:SETPOINT_RBV
+    * - MR1K1:BEND:COATING:STATE:06:SETPOINT_RBV
       - ai
       - Axis position associated with this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:06:SETPOINT
+    * - MR1K1:BEND:COATING:STATE:06:SETPOINT
       - ao
       - Axis position associated with this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:06:VELO_RBV
+    * - MR1K1:BEND:COATING:STATE:06:VELO_RBV
       - ai
       - Speed at which to move to this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:06:VELO
+    * - MR1K1:BEND:COATING:STATE:06:VELO
       - ao
       - Speed at which to move to this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:06:ENCODER_RBV
+    * - MR1K1:BEND:COATING:STATE:06:ENCODER_RBV
       - longin
       - Encoder count associated with this state
       - | expand: :%.2d
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:06:NAME_RBV
+    * - MR1K1:BEND:COATING:STATE:06:NAME_RBV
       - waveform
       - Name of this position state
       - | expand: :%.2d
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:07:MOVE_OK_RBV
+    * - MR1K1:BEND:COATING:STATE:07:MOVE_OK_RBV
       - bi
       - TRUE if the move would be safe
       - | expand: :%.2d
@@ -60658,49 +58876,49 @@ Database Records
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:07:SETPOINT_RBV
+    * - MR1K1:BEND:COATING:STATE:07:SETPOINT_RBV
       - ai
       - Axis position associated with this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:07:SETPOINT
+    * - MR1K1:BEND:COATING:STATE:07:SETPOINT
       - ao
       - Axis position associated with this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:07:VELO_RBV
+    * - MR1K1:BEND:COATING:STATE:07:VELO_RBV
       - ai
       - Speed at which to move to this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:07:VELO
+    * - MR1K1:BEND:COATING:STATE:07:VELO
       - ao
       - Speed at which to move to this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:07:ENCODER_RBV
+    * - MR1K1:BEND:COATING:STATE:07:ENCODER_RBV
       - longin
       - Encoder count associated with this state
       - | expand: :%.2d
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:07:NAME_RBV
+    * - MR1K1:BEND:COATING:STATE:07:NAME_RBV
       - waveform
       - Name of this position state
       - | expand: :%.2d
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:08:MOVE_OK_RBV
+    * - MR1K1:BEND:COATING:STATE:08:MOVE_OK_RBV
       - bi
       - TRUE if the move would be safe
       - | expand: :%.2d
@@ -60709,49 +58927,49 @@ Database Records
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:08:SETPOINT_RBV
+    * - MR1K1:BEND:COATING:STATE:08:SETPOINT_RBV
       - ai
       - Axis position associated with this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:08:SETPOINT
+    * - MR1K1:BEND:COATING:STATE:08:SETPOINT
       - ao
       - Axis position associated with this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:08:VELO_RBV
+    * - MR1K1:BEND:COATING:STATE:08:VELO_RBV
       - ai
       - Speed at which to move to this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:08:VELO
+    * - MR1K1:BEND:COATING:STATE:08:VELO
       - ao
       - Speed at which to move to this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:08:ENCODER_RBV
+    * - MR1K1:BEND:COATING:STATE:08:ENCODER_RBV
       - longin
       - Encoder count associated with this state
       - | expand: :%.2d
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:08:NAME_RBV
+    * - MR1K1:BEND:COATING:STATE:08:NAME_RBV
       - waveform
       - Name of this position state
       - | expand: :%.2d
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:09:MOVE_OK_RBV
+    * - MR1K1:BEND:COATING:STATE:09:MOVE_OK_RBV
       - bi
       - TRUE if the move would be safe
       - | expand: :%.2d
@@ -60760,807 +58978,42 @@ Database Records
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:09:SETPOINT_RBV
+    * - MR1K1:BEND:COATING:STATE:09:SETPOINT_RBV
       - ai
       - Axis position associated with this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:09:SETPOINT
+    * - MR1K1:BEND:COATING:STATE:09:SETPOINT
       - ao
       - Axis position associated with this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:09:VELO_RBV
+    * - MR1K1:BEND:COATING:STATE:09:VELO_RBV
       - ai
       - Speed at which to move to this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:09:VELO
+    * - MR1K1:BEND:COATING:STATE:09:VELO
       - ao
       - Speed at which to move to this state
       - | expand: :%.2d
         | io: output
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:09:ENCODER_RBV
+    * - MR1K1:BEND:COATING:STATE:09:ENCODER_RBV
       - longin
       - Encoder count associated with this state
       - | expand: :%.2d
         | io: input
 
 
-    * - MR1K1:BEND:COATING:STATE:M1:09:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:10:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:10:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:10:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:10:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:10:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:10:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:10:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:11:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:11:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:11:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:11:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:11:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:11:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:11:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:12:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:12:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:12:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:12:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:12:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:12:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:12:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:13:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:13:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:13:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:13:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:13:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:13:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:13:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:14:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:14:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:14:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:14:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:14:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:14:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:14:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:15:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:15:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:15:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:15:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:15:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:15:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:15:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:01:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:01:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:01:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:01:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:01:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:01:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:01:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:02:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:02:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:02:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:02:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:02:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:02:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:02:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:03:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:03:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:03:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:03:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:03:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:03:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:03:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:04:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:04:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:04:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:04:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:04:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:04:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:04:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:05:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:05:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:05:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:05:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:05:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:05:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:05:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:06:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:06:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:06:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:06:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:06:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:06:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:06:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:07:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:07:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:07:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:07:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:07:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:07:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:07:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:08:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:08:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:08:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:08:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:08:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:08:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:08:NAME_RBV
-      - waveform
-      - Name of this position state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:09:MOVE_OK_RBV
-      - bi
-      - TRUE if the move would be safe
-      - | expand: :%.2d
-        | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:09:SETPOINT_RBV
-      - ai
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:09:SETPOINT
-      - ao
-      - Axis position associated with this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:09:VELO_RBV
-      - ai
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:09:VELO
-      - ao
-      - Speed at which to move to this state
-      - | expand: :%.2d
-        | io: output
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:09:ENCODER_RBV
-      - longin
-      - Encoder count associated with this state
-      - | expand: :%.2d
-        | io: input
-
-
-    * - MR1K1:BEND:COATING:STATE:M2:09:NAME_RBV
+    * - MR1K1:BEND:COATING:STATE:09:NAME_RBV
       - waveform
       - Name of this position state
       - | expand: :%.2d
@@ -64610,14 +62063,6 @@ Database Records
         | io: input
 
 
-    * - MR3K2:KBH:RTD:CHIN:R_RBV
-      - ai
-      - PRG_MR3K2_KBH.fM3K2DS_RTD_2
-      - | field: ASLO 0.01
-        | field: EGU C
-        | io: input
-
-
     * - MR3K2:KBH:RTD:BEND:DS:3_RBV
       - ai
       - PRG_MR3K2_KBH.fM3K2DS_RTD_3
@@ -64637,14 +62082,6 @@ Database Records
     * - MR3K2:KBH:RTD:BEND:US:2_RBV
       - ai
       - PRG_MR3K2_KBH.fM3K2US_RTD_2
-      - | field: ASLO 0.01
-        | field: EGU C
-        | io: input
-
-
-    * - MR3K2:KBH:RTD:CHIN:L_RBV
-      - ai
-      - PRG_MR3K2_KBH.fM3K2US_RTD_3
       - | field: ASLO 0.01
         | field: EGU C
         | io: input
@@ -65679,6 +63116,58 @@ Database Records
         | io: input
 
 
+    * - MR3K2:KBH:RTD:CHIN:L:CONN_RBV
+      - bi
+      - PRG_MR3K2_KBH.fbM3K2_Chin_Left_RTD.bConnected
+      - | field: EGU C
+        | field: ONAM Connected
+        | field: ZNAM Disconnected
+        | io: input
+
+
+    * - MR3K2:KBH:RTD:CHIN:L:ERR_RBV
+      - bi
+      - PRG_MR3K2_KBH.fbM3K2_Chin_Left_RTD.bError
+      - | field: EGU C
+        | field: ONAM True
+        | field: ZNAM False
+        | io: input
+
+
+    * - MR3K2:KBH:RTD:CHIN:L:TEMP_RBV
+      - ai
+      - PRG_MR3K2_KBH.fbM3K2_Chin_Left_RTD.fTemp
+      - | field: EGU C
+        | field: PREC 2
+        | io: input
+
+
+    * - MR3K2:KBH:RTD:CHIN:R:CONN_RBV
+      - bi
+      - PRG_MR3K2_KBH.fbM3K2_Chin_Right_RTD.bConnected
+      - | field: EGU C
+        | field: ONAM Connected
+        | field: ZNAM Disconnected
+        | io: input
+
+
+    * - MR3K2:KBH:RTD:CHIN:R:ERR_RBV
+      - bi
+      - PRG_MR3K2_KBH.fbM3K2_Chin_Right_RTD.bError
+      - | field: EGU C
+        | field: ONAM True
+        | field: ZNAM False
+        | io: input
+
+
+    * - MR3K2:KBH:RTD:CHIN:R:TEMP_RBV
+      - ai
+      - PRG_MR3K2_KBH.fbM3K2_Chin_Right_RTD.fTemp
+      - | field: EGU C
+        | field: PREC 2
+        | io: input
+
+
     * - MR3K2:KBH:ENC:BEND:US:ACTPOSARRAY_RBV
       - waveform
       - PRG_MR3K2_KBH.fbUSRMSErrorM3K2.aEncActPos
@@ -65920,22 +63409,6 @@ Database Records
     * - MR4K2:KBV:RTD:BEND:DS:1_RBV
       - ai
       - PRG_MR4K2_KBV.fM4K2DS_RTD_1
-      - | field: ASLO 0.01
-        | field: EGU C
-        | io: input
-
-
-    * - MR4K2:KBV:RTD:BEND:DS:2_RBV
-      - ai
-      - PRG_MR4K2_KBV.fM4K2DS_RTD_2
-      - | field: ASLO 0.01
-        | field: EGU C
-        | io: input
-
-
-    * - MR4K2:KBV:RTD:BEND:DS:3_RBV
-      - ai
-      - PRG_MR4K2_KBV.fM4K2DS_RTD_3
       - | field: ASLO 0.01
         | field: EGU C
         | io: input
@@ -66994,6 +64467,58 @@ Database Records
         | io: input
 
 
+    * - MR4K2:KBV:RTD:CHIN:L:CONN_RBV
+      - bi
+      - PRG_MR4K2_KBV.fbM4K2_Chin_Left_RTD.bConnected
+      - | field: EGU C
+        | field: ONAM Connected
+        | field: ZNAM Disconnected
+        | io: input
+
+
+    * - MR4K2:KBV:RTD:CHIN:L:ERR_RBV
+      - bi
+      - PRG_MR4K2_KBV.fbM4K2_Chin_Left_RTD.bError
+      - | field: EGU C
+        | field: ONAM True
+        | field: ZNAM False
+        | io: input
+
+
+    * - MR4K2:KBV:RTD:CHIN:L:TEMP_RBV
+      - ai
+      - PRG_MR4K2_KBV.fbM4K2_Chin_Left_RTD.fTemp
+      - | field: EGU C
+        | field: PREC 2
+        | io: input
+
+
+    * - MR4K2:KBV:RTD:CHIN:R:CONN_RBV
+      - bi
+      - PRG_MR4K2_KBV.fbM4K2_Chin_Right_RTD.bConnected
+      - | field: EGU C
+        | field: ONAM Connected
+        | field: ZNAM Disconnected
+        | io: input
+
+
+    * - MR4K2:KBV:RTD:CHIN:R:ERR_RBV
+      - bi
+      - PRG_MR4K2_KBV.fbM4K2_Chin_Right_RTD.bError
+      - | field: EGU C
+        | field: ONAM True
+        | field: ZNAM False
+        | io: input
+
+
+    * - MR4K2:KBV:RTD:CHIN:R:TEMP_RBV
+      - ai
+      - PRG_MR4K2_KBV.fbM4K2_Chin_Right_RTD.fTemp
+      - | field: EGU C
+        | field: PREC 2
+        | io: input
+
+
     * - MR4K2:KBV:ENC:BEND:US:ACTPOSARRAY_RBV
       - waveform
       - PRG_MR4K2_KBV.fbUSRMSErrorM4K2.aEncActPos
@@ -67211,58 +64736,6 @@ Database Records
       - longin
       - PRG_MR4K2_KBV.nEncRefrXM4K2
       - | field: EGU cnt
-        | io: input
-
-
-    * - MR4K2:KBV:RTD:CHIN:L:CONN_RBV
-      - bi
-      - PRG_MR4K2_KBV.nM4K2_Chin_Left_RTD.bConnected
-      - | field: EGU C
-        | field: ONAM Connected
-        | field: ZNAM Disconnected
-        | io: input
-
-
-    * - MR4K2:KBV:RTD:CHIN:L:ERR_RBV
-      - bi
-      - PRG_MR4K2_KBV.nM4K2_Chin_Left_RTD.bError
-      - | field: EGU C
-        | field: ONAM True
-        | field: ZNAM False
-        | io: input
-
-
-    * - MR4K2:KBV:RTD:CHIN:L:TEMP_RBV
-      - ai
-      - PRG_MR4K2_KBV.nM4K2_Chin_Left_RTD.fTemp
-      - | field: EGU C
-        | field: PREC 2
-        | io: input
-
-
-    * - MR4K2:KBV:RTD:CHIN:R:CONN_RBV
-      - bi
-      - PRG_MR4K2_KBV.nM4K2_Chin_Right_RTD.bConnected
-      - | field: EGU C
-        | field: ONAM Connected
-        | field: ZNAM Disconnected
-        | io: input
-
-
-    * - MR4K2:KBV:RTD:CHIN:R:ERR_RBV
-      - bi
-      - PRG_MR4K2_KBV.nM4K2_Chin_Right_RTD.bError
-      - | field: EGU C
-        | field: ONAM True
-        | field: ZNAM False
-        | io: input
-
-
-    * - MR4K2:KBV:RTD:CHIN:R:TEMP_RBV
-      - ai
-      - PRG_MR4K2_KBV.nM4K2_Chin_Right_RTD.fTemp
-      - | field: EGU C
-        | field: PREC 2
         | io: input
 
 
