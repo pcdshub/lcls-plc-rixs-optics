@@ -64867,31 +64867,31 @@ Database Records
         | io: output
 
 
-    * - SL1K2:EXIT:FWM:1:OFF_RBV
+    * - SL1K2:EXIT:FWM:OFF_RBV
       - ai
       - PRG_SL1K2_EXIT.fbFlowMeter.fOffset
       - | io: output
 
 
-    * - SL1K2:EXIT:FWM:1:OFF
+    * - SL1K2:EXIT:FWM:OFF
       - ao
       - PRG_SL1K2_EXIT.fbFlowMeter.fOffset
       - | io: output
 
 
-    * - SL1K2:EXIT:FWM:1:VAL_RBV
+    * - SL1K2:EXIT:FWM:VAL_RBV
       - ai
       - PRG_SL1K2_EXIT.fbFlowMeter.fReal
       - | io: input
 
 
-    * - SL1K2:EXIT:FWM:1:RES_RBV
+    * - SL1K2:EXIT:FWM:RES_RBV
       - ai
       - PRG_SL1K2_EXIT.fbFlowMeter.fResolution
       - | io: output
 
 
-    * - SL1K2:EXIT:FWM:1:RES
+    * - SL1K2:EXIT:FWM:RES
       - ao
       - PRG_SL1K2_EXIT.fbFlowMeter.fResolution
       - | io: output
@@ -67584,6 +67584,38 @@ Database Records
         | io: output
 
 
+    * - $(PREFIX)HEG_Grating_IN_RBV
+      - bi
+      - PRG_ZeroOrder_PMPS.bHEG_Grating_IN
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - $(PREFIX)HEG_Grating_IN
+      - bo
+      - PRG_ZeroOrder_PMPS.bHEG_Grating_IN
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - $(PREFIX)LEG_Grating_IN_RBV
+      - bi
+      - PRG_ZeroOrder_PMPS.bLEG_Grating_IN
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - $(PREFIX)LEG_Grating_IN
+      - bo
+      - PRG_ZeroOrder_PMPS.bLEG_Grating_IN
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
     * - $(PREFIX)LRG_Grating_IN_RBV
       - bi
       - PRG_ZeroOrder_PMPS.bLRG_Grating_IN
@@ -67595,6 +67627,22 @@ Database Records
     * - $(PREFIX)LRG_Grating_IN
       - bo
       - PRG_ZeroOrder_PMPS.bLRG_Grating_IN
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - $(PREFIX)MEG_Grating_IN_RBV
+      - bi
+      - PRG_ZeroOrder_PMPS.bMEG_Grating_IN
+      - | field: ONAM TRUE
+        | field: ZNAM FALSE
+        | io: output
+
+
+    * - $(PREFIX)MEG_Grating_IN
+      - bo
+      - PRG_ZeroOrder_PMPS.bMEG_Grating_IN
       - | field: ONAM TRUE
         | field: ZNAM FALSE
         | io: output

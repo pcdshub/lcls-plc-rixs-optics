@@ -3582,7 +3582,7 @@ END_VAR
                               <span class="o">.</span><span class="n">bGigePower</span> <span class="o">:=</span> <span class="n">TIIB</span><span class="p">[</span><span class="n">EL2004_SL1K2</span><span class="p">]</span><span class="o">^</span><span class="n">Channel</span> <span class="mi">3</span><span class="o">^</span><span class="n">Output</span><span class="s1">&#39;}</span>
     <span class="n">fbGige</span><span class="p">:</span> <span class="n">FB_PPM_Gige</span><span class="p">;</span>
 
-    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span><span class="s1">&#39;pv: SL1K2:EXIT:FWM:1&#39;</span><span class="p">}</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span><span class="s1">&#39;pv: SL1K2:EXIT:FWM&#39;</span><span class="p">}</span>
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;TcLinkTo&#39;</span> <span class="o">:=</span> <span class="s1">&#39;.iRaw := TIIB[EL3052_SL1K2_FWM]^AI Standard Channel 1^Value&#39;</span><span class="p">}</span>
     <span class="n">fbFlowMeter</span><span class="p">:</span> <span class="n">FB_AnalogInput</span> <span class="o">:=</span> <span class="p">(</span><span class="n">iTermBits</span><span class="o">:=</span><span class="mi">15</span><span class="p">,</span> <span class="n">fTermMax</span><span class="o">:=</span><span class="mi">60</span><span class="p">,</span> <span class="n">fTermMin</span><span class="o">:=</span><span class="mi">0</span><span class="p">);</span>
 
@@ -4303,6 +4303,27 @@ VAR
     bLRG_Grating_IN : BOOL;
 
     {attribute &#39;pytmc&#39; := &#39;
+        pv: @(PREFIX)MEG_Grating_IN
+        field: ZNAM FALSE
+        field: ONAM TRUE
+    &#39;}
+    bMEG_Grating_IN : BOOL;
+
+    {attribute &#39;pytmc&#39; := &#39;
+        pv: @(PREFIX)HEG_Grating_IN
+        field: ZNAM FALSE
+        field: ONAM TRUE
+    &#39;}
+    bHEG_Grating_IN : BOOL;
+
+    {attribute &#39;pytmc&#39; := &#39;
+        pv: @(PREFIX)LEG_Grating_IN
+        field: ZNAM FALSE
+        field: ONAM TRUE
+    &#39;}
+    bLEG_Grating_IN : BOOL;
+
+    {attribute &#39;pytmc&#39; := &#39;
         pv: @(PREFIX)ZOS_IN
         field: ZNAM FALSE
         field: ONAM TRUE
@@ -4372,6 +4393,8 @@ VAR
         i_DevName := &#39;Zero Order Beam and Exit Slits&#39;,
         i_Desc := &#39;Faults when Zero order beam is aligned and exit slits are closed&#39;,
         i_TypeCode := 16#F506);
+    mm: INT;
+    eV: INT;
 END_VAR
 VAR CONSTANT
     Hi2 :LREAL:=1.4;//m
@@ -4389,29 +4412,37 @@ END_VAR
 bSafeBenderRange := SafeBenderRange();
 nMachineMode := PMPS_GVL.stCurrentBeamParameters.nMachineMode;
 bMR1K1_Inserted := MR1K1_Inserted();
+ACT_Grating_IN();
+ACT_CALC();
+ACT_ZOS_IN();
+ACT_ExitSlitsGap();
 
-//TRUE if Hzos - hb0m3(Zzoz)  &gt; D
+//Is the ZO beam on the stopper? TRUE if Hzos - hb0m3(Zzoz)  &gt; Δ
+(*
+    Δ=2.0 mm for LRG @ &gt;1000 eV
+    Δ=2.5 mm for LRG @ &lt;1000 eV
+    Δ=3.0 mm for LRG @ &lt;550 eV
+    Δ=6.0 mm for LEG, MEG, HEG
+*)
 Ans := (Hzos*1E3) - Hb0m3; //um
-Delta := Ans;
-IF GVL_PMPS.rPhotonEnergy &lt;550 THEN
-    bZOB_on_Lower_Stopper := Ans &gt; 3*1E3;
-    ELSIF GVL_PMPS.rPhotonEnergy &lt;1000 THEN
-        bZOB_on_Lower_Stopper := Ans &gt;  2.5*1E3;
-    ELSIF GVL_PMPS.rPhotonEnergy &gt;=1000 THEN
-        bZOB_on_Lower_Stopper := Ans &gt;  2*1E3;
+
+IF bLRG_Grating_IN AND GVL_PMPS.rPhotonEnergy &lt;550 THEN Delta := 3*1E3(*um*);
+ELSIF bLRG_Grating_IN AND GVL_PMPS.rPhotonEnergy &lt;1000 THEN Delta := 2.5*1E3(*um*);
+ELSIF bLRG_Grating_IN AND GVL_PMPS.rPhotonEnergy &gt;=1000 THEN Delta := 2*1E3(*um*);
+ELSIF (bMEG_Grating_IN OR bHEG_Grating_IN OR bLEG_Grating_IN) THEN Delta := 6*1E3(*um*);
+ELSE        Delta := Ans;
 END_IF
+
+bZOB_on_Lower_Stopper := Ans &gt; Delta;
 
 
 ffZeroOrderBeam.i_xOK := (SafeBenderRange() AND (((PMPS_GVL.stCurrentBeamParameters.nMachineMode =1(*SC*)) AND (PMPS_GVL.stCurrentBeamParameters.nBeamClass &lt;=6)) OR (PMPS_GVL.stCurrentBeamParameters.nMachineMode =0(*NC*))))
-                OR (bLRG_Grating_IN AND bZOS_IN AND bZOB_on_Lower_Stopper AND MR1K1_Inserted()(*NC or SC Any Beamclass with beam at ZOS*));
+                OR (bLRG_Grating_IN AND bZOS_IN AND bZOB_on_Lower_Stopper AND MR1K1_Inserted()(*NC or SC Any Beamclass with beam at ZOS*))
+                OR ((bMEG_Grating_IN OR bHEG_Grating_IN OR bLEG_Grating_IN) AND bZOS_IN AND bZOB_on_Lower_Stopper AND MR1K1_Inserted()(*NC or SC Any Beamclass with beam at ZOS*));
 ffZeroOrderBeam(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
 bBeamPermitted := ffZeroOrderBeam.i_xOK;
 
 //
-ACT_CALC();
-ACT_ZOS_IN();
-ACT_LRG_Grating_IN();
-ACT_ExitSlitsGap();
 
 END_PROGRAM
 
@@ -4458,8 +4489,11 @@ ffZeroOrderBeamExitSlits.i_xOK := NOT( (( (Hzos*1E3) - 1) &lt;= Hb0m3) AND ( M22
 ffZeroOrderBeamExitSlits(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
 END_ACTION
 
-ACTION ACT_LRG_Grating_IN:
-bLRG_Grating_IN := ((M9.stAxisStatus.fActPosition) &gt;= 36000) AND ((M9.stAxisStatus.fActPosition) &lt;= 43000);
+ACTION ACT_Grating_IN:
+bLRG_Grating_IN := PRG_SP1K1_MONO.eStateGet = E_Grating_States.LRG;
+bMEG_Grating_IN := PRG_SP1K1_MONO.eStateGet = E_Grating_States.MEG;
+bHEG_Grating_IN := PRG_SP1K1_MONO.eStateGet = E_Grating_States.HEG;
+bLEG_Grating_IN := PRG_SP1K1_MONO.eStateGet = E_Grating_States.LEG;
 END_ACTION
 
 ACTION ACT_ZOS_IN:
@@ -4488,9 +4522,11 @@ END_METHOD
 </div>
 <dl class="simple">
 <dt>Related:</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="#e-grating-states">E_Grating_States</a></p></li>
 <li><p><a class="reference internal" href="#gvl-m1k1-bender-constants">GVL_M1K1_BENDER_Constants</a></p></li>
 <li><p><a class="reference internal" href="#gvl-pmps">GVL_PMPS</a></p></li>
 <li><p><a class="reference internal" href="#main">Main</a></p></li>
+<li><p><a class="reference internal" href="#prg-sp1k1-mono">PRG_SP1K1_MONO</a></p></li>
 </ul>
 </dd>
 </dl>
