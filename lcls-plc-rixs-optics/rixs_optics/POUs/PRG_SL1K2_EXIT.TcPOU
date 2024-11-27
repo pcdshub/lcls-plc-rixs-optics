@@ -79,7 +79,7 @@ VAR
                               .bGigePower := TIIB[EL2004_SL1K2]^Channel 3^Output'}
     fbGige: FB_PPM_Gige;
 
-    {attribute 'pytmc' :='pv: SL1K2:EXIT:FWM:1'}
+    {attribute 'pytmc' :='pv: SL1K2:EXIT:FWM'}
     {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3052_SL1K2_FWM]^AI Standard Channel 1^Value'}
     fbFlowMeter: FB_AnalogInput := (iTermBits:=15, fTermMax:=60, fTermMin:=0);
 
