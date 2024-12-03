@@ -150,10 +150,10 @@ ACT_ExitSlitsGap();
 *)
 Ans := (Hzos*1E3) - Hb0m3; //um
 
-IF bLRG_Grating_IN AND GVL_PMPS.rPhotonEnergy <550 THEN Delta := 3*1E3(*mm*);
-ELSIF bLRG_Grating_IN AND GVL_PMPS.rPhotonEnergy <1000 THEN Delta := 2.5*1E3(*mm*);
-ELSIF bLRG_Grating_IN AND GVL_PMPS.rPhotonEnergy >=1000 THEN Delta := 2*1E3(*mm*);
-ELSIF (bMEG_Grating_IN OR bHEG_Grating_IN OR bLEG_Grating_IN) THEN Delta := 6*1E3(*mm*);
+IF bLRG_Grating_IN AND GVL_PMPS.rPhotonEnergy <550 THEN Delta := 3*1E3(*um*);
+ELSIF bLRG_Grating_IN AND GVL_PMPS.rPhotonEnergy <1000 THEN Delta := 2.5*1E3(*um*);
+ELSIF bLRG_Grating_IN AND GVL_PMPS.rPhotonEnergy >=1000 THEN Delta := 2*1E3(*um*);
+ELSIF (bMEG_Grating_IN OR bHEG_Grating_IN OR bLEG_Grating_IN) THEN Delta := 6*1E3(*um*);
 ELSE	Delta := Ans;
 END_IF
 
