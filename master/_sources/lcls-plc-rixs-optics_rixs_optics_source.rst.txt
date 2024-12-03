@@ -4373,10 +4373,11 @@ PRG_ZeroOrder_PMPS
         Theta_m3: LREAL;
         {attribute 'pytmc' := '
             pv: @(PREFIX)Delta
-            field: ZNAM FALSE
-            field: ONAM TRUE
         '}
         Delta : LREAL;
+        {attribute 'pytmc' := '
+            pv: @(PREFIX)ZOEQ
+        '}
         Ans : LREAL;
         ffZeroOrderBeamExitSlits : FB_FastFault := (
             i_xAutoReset := TRUE,

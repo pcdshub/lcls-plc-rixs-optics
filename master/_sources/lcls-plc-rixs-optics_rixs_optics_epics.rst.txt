@@ -67552,20 +67552,28 @@ Database Records
       - | io: input
 
 
+    * - $(PREFIX)ZOEQ_RBV
+      - ai
+      - PRG_ZeroOrder_PMPS.Ans
+      - | io: output
+
+
+    * - $(PREFIX)ZOEQ
+      - ao
+      - PRG_ZeroOrder_PMPS.Ans
+      - | io: output
+
+
     * - $(PREFIX)Delta_RBV
       - ai
       - PRG_ZeroOrder_PMPS.Delta
-      - | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: output
+      - | io: output
 
 
     * - $(PREFIX)Delta
       - ao
       - PRG_ZeroOrder_PMPS.Delta
-      - | field: ONAM TRUE
-        | field: ZNAM FALSE
-        | io: output
+      - | io: output
 
 
     * - $(PREFIX)BeamPermitted_RBV
