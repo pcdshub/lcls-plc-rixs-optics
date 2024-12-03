@@ -22,6 +22,27 @@ VAR
         field: ONAM TRUE
     '}
     bLRG_Grating_IN : BOOL;
+	
+	{attribute 'pytmc' := '
+        pv: @(PREFIX)MEG_Grating_IN
+        field: ZNAM FALSE
+        field: ONAM TRUE
+    '}
+    bMEG_Grating_IN : BOOL;
+	
+	{attribute 'pytmc' := '
+        pv: @(PREFIX)HEG_Grating_IN
+        field: ZNAM FALSE
+        field: ONAM TRUE
+    '}
+    bHEG_Grating_IN : BOOL;
+	
+	{attribute 'pytmc' := '
+        pv: @(PREFIX)LEG_Grating_IN
+        field: ZNAM FALSE
+        field: ONAM TRUE
+    '}
+    bLEG_Grating_IN : BOOL;
 
     {attribute 'pytmc' := '
         pv: @(PREFIX)ZOS_IN
@@ -93,6 +114,8 @@ VAR
         i_DevName := 'Zero Order Beam and Exit Slits',
         i_Desc := 'Faults when Zero order beam is aligned and exit slits are closed',
         i_TypeCode := 16#F506);
+	mm: INT;
+	eV: INT;
 END_VAR
 VAR CONSTANT
     Hi2 :LREAL:=1.4;//m
@@ -113,29 +136,38 @@ END_VAR
 bSafeBenderRange := SafeBenderRange();
 nMachineMode := PMPS_GVL.stCurrentBeamParameters.nMachineMode;
 bMR1K1_Inserted := MR1K1_Inserted();
+ACT_Grating_IN();
+ACT_CALC();
+ACT_ZOS_IN();
+ACT_ExitSlitsGap();
 
-//TRUE if Hzos - hb0m3(Zzoz)  > D
+//Is the ZO beam on the stopper? TRUE if Hzos - hb0m3(Zzoz)  > Δ
+(*
+	Δ=2.0 mm for LRG @ >1000 eV
+	Δ=2.5 mm for LRG @ <1000 eV
+	Δ=3.0 mm for LRG @ <550 eV
+	Δ=6.0 mm for LEG, MEG, HEG
+*)
 Ans := (Hzos*1E3) - Hb0m3; //um
-Delta := Ans;
-IF GVL_PMPS.rPhotonEnergy <550 THEN
-    bZOB_on_Lower_Stopper := Ans > 3*1E3;
-    ELSIF GVL_PMPS.rPhotonEnergy <1000 THEN
-        bZOB_on_Lower_Stopper := Ans >  2.5*1E3;
-    ELSIF GVL_PMPS.rPhotonEnergy >=1000 THEN
-        bZOB_on_Lower_Stopper := Ans >  2*1E3;
+
+IF bLRG_Grating_IN AND GVL_PMPS.rPhotonEnergy <550 THEN Delta := 3*1E3(*mm*);
+ELSIF bLRG_Grating_IN AND GVL_PMPS.rPhotonEnergy <1000 THEN Delta := 2.5*1E3(*mm*);
+ELSIF bLRG_Grating_IN AND GVL_PMPS.rPhotonEnergy >=1000 THEN Delta := 2*1E3(*mm*);
+ELSIF (bMEG_Grating_IN OR bHEG_Grating_IN OR bLEG_Grating_IN) THEN Delta := 6*1E3(*mm*);
+ELSE	Delta := Ans;
 END_IF
+
+bZOB_on_Lower_Stopper := Ans > Delta;
 
 
 ffZeroOrderBeam.i_xOK := (SafeBenderRange() AND (((PMPS_GVL.stCurrentBeamParameters.nMachineMode =1(*SC*)) AND (PMPS_GVL.stCurrentBeamParameters.nBeamClass <=6)) OR (PMPS_GVL.stCurrentBeamParameters.nMachineMode =0(*NC*))))
-                OR (bLRG_Grating_IN AND bZOS_IN AND bZOB_on_Lower_Stopper AND MR1K1_Inserted()(*NC or SC Any Beamclass with beam at ZOS*));
+                OR (bLRG_Grating_IN AND bZOS_IN AND bZOB_on_Lower_Stopper AND MR1K1_Inserted()(*NC or SC Any Beamclass with beam at ZOS*))
+				OR ((bMEG_Grating_IN OR bHEG_Grating_IN OR bLEG_Grating_IN) AND bZOS_IN AND bZOB_on_Lower_Stopper AND MR1K1_Inserted()(*NC or SC Any Beamclass with beam at ZOS*));
 ffZeroOrderBeam(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
 bBeamPermitted := ffZeroOrderBeam.i_xOK;
 
 //
-ACT_CALC();
-ACT_ZOS_IN();
-ACT_LRG_Grating_IN();
-ACT_ExitSlitsGap();]]></ST>
+]]></ST>
     </Implementation>
     <Action Name="ACT_CALC" Id="{29570aa5-9d14-46b0-b59e-651abe0f5e16}">
       <Implementation>
@@ -183,9 +215,12 @@ ffZeroOrderBeamExitSlits.i_xOK := NOT( (( (Hzos*1E3) - 1) <= Hb0m3) AND ( M22.st
 ffZeroOrderBeamExitSlits(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);]]></ST>
       </Implementation>
     </Action>
-    <Action Name="ACT_LRG_Grating_IN" Id="{8babb51d-911c-461c-99fc-bb1adfccc9fe}">
+    <Action Name="ACT_Grating_IN" Id="{def557f5-6fcd-48fa-9e2d-d3f3ab8c4d09}">
       <Implementation>
-        <ST><![CDATA[bLRG_Grating_IN := ((M9.stAxisStatus.fActPosition) >= 36000) AND ((M9.stAxisStatus.fActPosition) <= 43000);]]></ST>
+        <ST><![CDATA[bLRG_Grating_IN := PRG_SP1K1_MONO.eStateGet = E_Grating_States.LRG;
+bMEG_Grating_IN := PRG_SP1K1_MONO.eStateGet = E_Grating_States.MEG;
+bHEG_Grating_IN := PRG_SP1K1_MONO.eStateGet = E_Grating_States.HEG;
+bLEG_Grating_IN := PRG_SP1K1_MONO.eStateGet = E_Grating_States.LEG;]]></ST>
       </Implementation>
     </Action>
     <Action Name="ACT_ZOS_IN" Id="{ea635b1c-413a-4430-b9a8-7a35a57ab8c1}">
