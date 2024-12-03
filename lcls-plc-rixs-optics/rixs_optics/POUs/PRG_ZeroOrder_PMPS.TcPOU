@@ -22,22 +22,22 @@ VAR
         field: ONAM TRUE
     '}
     bLRG_Grating_IN : BOOL;
-	
-	{attribute 'pytmc' := '
+
+    {attribute 'pytmc' := '
         pv: @(PREFIX)MEG_Grating_IN
         field: ZNAM FALSE
         field: ONAM TRUE
     '}
     bMEG_Grating_IN : BOOL;
-	
-	{attribute 'pytmc' := '
+
+    {attribute 'pytmc' := '
         pv: @(PREFIX)HEG_Grating_IN
         field: ZNAM FALSE
         field: ONAM TRUE
     '}
     bHEG_Grating_IN : BOOL;
-	
-	{attribute 'pytmc' := '
+
+    {attribute 'pytmc' := '
         pv: @(PREFIX)LEG_Grating_IN
         field: ZNAM FALSE
         field: ONAM TRUE
@@ -114,8 +114,8 @@ VAR
         i_DevName := 'Zero Order Beam and Exit Slits',
         i_Desc := 'Faults when Zero order beam is aligned and exit slits are closed',
         i_TypeCode := 16#F506);
-	mm: INT;
-	eV: INT;
+    mm: INT;
+    eV: INT;
 END_VAR
 VAR CONSTANT
     Hi2 :LREAL:=1.4;//m
@@ -143,10 +143,10 @@ ACT_ExitSlitsGap();
 
 //Is the ZO beam on the stopper? TRUE if Hzos - hb0m3(Zzoz)  > Δ
 (*
-	Δ=2.0 mm for LRG @ >1000 eV
-	Δ=2.5 mm for LRG @ <1000 eV
-	Δ=3.0 mm for LRG @ <550 eV
-	Δ=6.0 mm for LEG, MEG, HEG
+    Δ=2.0 mm for LRG @ >1000 eV
+    Δ=2.5 mm for LRG @ <1000 eV
+    Δ=3.0 mm for LRG @ <550 eV
+    Δ=6.0 mm for LEG, MEG, HEG
 *)
 Ans := (Hzos*1E3) - Hb0m3; //um
 
@@ -162,7 +162,7 @@ bZOB_on_Lower_Stopper := Ans > Delta;
 
 ffZeroOrderBeam.i_xOK := (SafeBenderRange() AND (((PMPS_GVL.stCurrentBeamParameters.nMachineMode =1(*SC*)) AND (PMPS_GVL.stCurrentBeamParameters.nBeamClass <=6)) OR (PMPS_GVL.stCurrentBeamParameters.nMachineMode =0(*NC*))))
                 OR (bLRG_Grating_IN AND bZOS_IN AND bZOB_on_Lower_Stopper AND MR1K1_Inserted()(*NC or SC Any Beamclass with beam at ZOS*))
-				OR ((bMEG_Grating_IN OR bHEG_Grating_IN OR bLEG_Grating_IN) AND bZOS_IN AND bZOB_on_Lower_Stopper AND MR1K1_Inserted()(*NC or SC Any Beamclass with beam at ZOS*));
+                OR ((bMEG_Grating_IN OR bHEG_Grating_IN OR bLEG_Grating_IN) AND bZOS_IN AND bZOB_on_Lower_Stopper AND MR1K1_Inserted()(*NC or SC Any Beamclass with beam at ZOS*));
 ffZeroOrderBeam(io_fbFFHWO := GVL_PMPS.fbFastFaultOutput1);
 bBeamPermitted := ffZeroOrderBeam.i_xOK;
 
