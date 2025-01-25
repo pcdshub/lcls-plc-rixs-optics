@@ -88408,6 +88408,188 @@ record(longin, "SP1K1:MONO:MMS:G_PI:ENCDIFF:STATS:NELM_RBV") {
   info(archive, "VAL")
 }
 
+record(ai, "MR1K1:BEND:MMS:PITCH:ENCDIFF:STATS:DATA_RBV") {
+  field(DESC, "PRG_Stats.fbMR1K1PiPosDiffStats.aSignal")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_Stats.fbMR1K1PiPosDiffStats.aSignal?")
+  field(PREC, "3")
+  info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
+  info(archive, "VAL")
+}
+
+record(bi, "MR1K1:BEND:MMS:PITCH:ENCDIFF:STATS:ALWAYS_CALC_RBV") {
+  # PRG_Stats.fbMR1K1PiPosDiffStats.bAlwaysCalc
+  field(DESC, "PRG_Stats.fbMR1K1PiP...Stats.bAlwaysCalc")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_Stats.fbMR1K1PiPosDiffStats.bAlwaysCalc?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
+  info(archive, "VAL")
+}
+
+record(bo, "MR1K1:BEND:MMS:PITCH:ENCDIFF:STATS:ALWAYS_CALC") {
+  # PRG_Stats.fbMR1K1PiPosDiffStats.bAlwaysCalc
+  field(DESC, "PRG_Stats.fbMR1K1PiP...Stats.bAlwaysCalc")
+  field(DTYP, "asynInt32")
+  field(UDFS, "0")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/PRG_Stats.fbMR1K1PiPosDiffStats.bAlwaysCalc=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "COSV DESC DISS OSV SIMS UDFS VAL ZSV")
+  info(archive, "VAL")
+}
+
+record(bi, "MR1K1:BEND:MMS:PITCH:ENCDIFF:STATS:EXECUTE_RBV") {
+  field(DESC, "PRG_Stats.fbMR1K1PiPosDiffStats.bExecute")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_Stats.fbMR1K1PiPosDiffStats.bExecute?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
+  info(archive, "VAL")
+}
+
+record(bo, "MR1K1:BEND:MMS:PITCH:ENCDIFF:STATS:EXECUTE") {
+  field(DESC, "PRG_Stats.fbMR1K1PiPosDiffStats.bExecute")
+  field(DTYP, "asynInt32")
+  field(UDFS, "0")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/PRG_Stats.fbMR1K1PiPosDiffStats.bExecute=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "COSV DESC DISS OSV SIMS UDFS VAL ZSV")
+  info(archive, "VAL")
+}
+
+record(bi, "MR1K1:BEND:MMS:PITCH:ENCDIFF:STATS:RESET_RBV") {
+  field(DESC, "PRG_Stats.fbMR1K1PiPosDiffStats.bReset")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_Stats.fbMR1K1PiPosDiffStats.bReset?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
+  info(archive, "VAL")
+}
+
+record(bo, "MR1K1:BEND:MMS:PITCH:ENCDIFF:STATS:RESET") {
+  field(DESC, "PRG_Stats.fbMR1K1PiPosDiffStats.bReset")
+  field(DTYP, "asynInt32")
+  field(UDFS, "0")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/PRG_Stats.fbMR1K1PiPosDiffStats.bReset=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "COSV DESC DISS OSV SIMS UDFS VAL ZSV")
+  info(archive, "VAL")
+}
+
+record(bi, "MR1K1:BEND:MMS:PITCH:ENCDIFF:STATS:VALID_RBV") {
+  field(DESC, "PRG_Stats.fbMR1K1PiPosDiffStats.bValid")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_Stats.fbMR1K1PiPosDiffStats.bValid?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
+  info(archive, "VAL")
+}
+
+record(ai, "MR1K1:BEND:MMS:PITCH:ENCDIFF:STATS:MAX_RBV") {
+  field(DESC, "PRG_Stats.fbMR1K1PiPosDiffStats.fMax")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_Stats.fbMR1K1PiPosDiffStats.fMax?")
+  field(PREC, "3")
+  info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
+  info(archive, "VAL")
+}
+
+record(ai, "MR1K1:BEND:MMS:PITCH:ENCDIFF:STATS:MEAN_RBV") {
+  field(DESC, "PRG_Stats.fbMR1K1PiPosDiffStats.fMean")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_Stats.fbMR1K1PiPosDiffStats.fMean?")
+  field(PREC, "3")
+  info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
+  info(archive, "VAL")
+}
+
+record(ai, "MR1K1:BEND:MMS:PITCH:ENCDIFF:STATS:MIN_RBV") {
+  field(DESC, "PRG_Stats.fbMR1K1PiPosDiffStats.fMin")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_Stats.fbMR1K1PiPosDiffStats.fMin?")
+  field(PREC, "3")
+  info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
+  info(archive, "VAL")
+}
+
+record(ai, "MR1K1:BEND:MMS:PITCH:ENCDIFF:STATS:RMS_RBV") {
+  field(DESC, "PRG_Stats.fbMR1K1PiPosDiffStats.fRMS")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_Stats.fbMR1K1PiPosDiffStats.fRMS?")
+  field(PREC, "3")
+  info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
+  info(archive, "VAL")
+}
+
+record(ai, "MR1K1:BEND:MMS:PITCH:ENCDIFF:STATS:RANGE_RBV") {
+  field(DESC, "PRG_Stats.fbMR1K1PiPosDiffStats.fRange")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_Stats.fbMR1K1PiPosDiffStats.fRange?")
+  field(PREC, "3")
+  info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
+  info(archive, "VAL")
+}
+
+record(ai, "MR1K1:BEND:MMS:PITCH:ENCDIFF:STATS:STDEV_RBV") {
+  field(DESC, "PRG_Stats.fbMR1K1PiPosDiffStats.fStDev")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_Stats.fbMR1K1PiPosDiffStats.fStDev?")
+  field(PREC, "3")
+  info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
+  info(archive, "VAL")
+}
+
+record(longin, "MR1K1:BEND:MMS:PITCH:ENCDIFF:STATS:NELM_RBV") {
+  field(DESC, "PRG_Stats.fbMR1K1PiPosDiffStats.nElems")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_Stats.fbMR1K1PiPosDiffStats.nElems?")
+  info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
+  info(archive, "VAL")
+}
+
 record(ai, "SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:DATA_RBV") {
   field(DESC, "PRG_Stats.fbMpiPosDiffStats.aSignal")
   field(SCAN, "I/O Intr")
@@ -88584,188 +88766,6 @@ record(longin, "SP1K1:MONO:MMS:M_PI:ENCDIFF:STATS:NELM_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_Stats.fbMpiPosDiffStats.nElems?")
-  info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
-  info(archive, "VAL")
-}
-
-record(ai, "MR1K1:BEND:MMS:PITCH:ENCDIFF:STATS:DATA_RBV") {
-  field(DESC, "PRG_Stats.fbPitchPosDiffStats.aSignal")
-  field(SCAN, "I/O Intr")
-  field(PINI, "1")
-  field(TSE, "-2")
-  field(DTYP, "asynFloat64")
-  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_Stats.fbPitchPosDiffStats.aSignal?")
-  field(PREC, "3")
-  info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
-  info(archive, "VAL")
-}
-
-record(bi, "MR1K1:BEND:MMS:PITCH:ENCDIFF:STATS:ALWAYS_CALC_RBV") {
-  # PRG_Stats.fbPitchPosDiffStats.bAlwaysCalc
-  field(DESC, "PRG_Stats.fbPitchPos...Stats.bAlwaysCalc")
-  field(SCAN, "I/O Intr")
-  field(PINI, "1")
-  field(TSE, "-2")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_Stats.fbPitchPosDiffStats.bAlwaysCalc?")
-  field(ZNAM, "FALSE")
-  field(ONAM, "TRUE")
-  info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
-  info(archive, "VAL")
-}
-
-record(bo, "MR1K1:BEND:MMS:PITCH:ENCDIFF:STATS:ALWAYS_CALC") {
-  # PRG_Stats.fbPitchPosDiffStats.bAlwaysCalc
-  field(DESC, "PRG_Stats.fbPitchPos...Stats.bAlwaysCalc")
-  field(DTYP, "asynInt32")
-  field(UDFS, "0")
-  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/PRG_Stats.fbPitchPosDiffStats.bAlwaysCalc=")
-  field(ZNAM, "FALSE")
-  field(ONAM, "TRUE")
-  info(autosaveFields_pass0, "COSV DESC DISS OSV SIMS UDFS VAL ZSV")
-  info(archive, "VAL")
-}
-
-record(bi, "MR1K1:BEND:MMS:PITCH:ENCDIFF:STATS:EXECUTE_RBV") {
-  field(DESC, "PRG_Stats.fbPitchPosDiffStats.bExecute")
-  field(SCAN, "I/O Intr")
-  field(PINI, "1")
-  field(TSE, "-2")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_Stats.fbPitchPosDiffStats.bExecute?")
-  field(ZNAM, "FALSE")
-  field(ONAM, "TRUE")
-  info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
-  info(archive, "VAL")
-}
-
-record(bo, "MR1K1:BEND:MMS:PITCH:ENCDIFF:STATS:EXECUTE") {
-  field(DESC, "PRG_Stats.fbPitchPosDiffStats.bExecute")
-  field(DTYP, "asynInt32")
-  field(UDFS, "0")
-  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/PRG_Stats.fbPitchPosDiffStats.bExecute=")
-  field(ZNAM, "FALSE")
-  field(ONAM, "TRUE")
-  info(autosaveFields_pass0, "COSV DESC DISS OSV SIMS UDFS VAL ZSV")
-  info(archive, "VAL")
-}
-
-record(bi, "MR1K1:BEND:MMS:PITCH:ENCDIFF:STATS:RESET_RBV") {
-  field(DESC, "PRG_Stats.fbPitchPosDiffStats.bReset")
-  field(SCAN, "I/O Intr")
-  field(PINI, "1")
-  field(TSE, "-2")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_Stats.fbPitchPosDiffStats.bReset?")
-  field(ZNAM, "FALSE")
-  field(ONAM, "TRUE")
-  info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
-  info(archive, "VAL")
-}
-
-record(bo, "MR1K1:BEND:MMS:PITCH:ENCDIFF:STATS:RESET") {
-  field(DESC, "PRG_Stats.fbPitchPosDiffStats.bReset")
-  field(DTYP, "asynInt32")
-  field(UDFS, "0")
-  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/PRG_Stats.fbPitchPosDiffStats.bReset=")
-  field(ZNAM, "FALSE")
-  field(ONAM, "TRUE")
-  info(autosaveFields_pass0, "COSV DESC DISS OSV SIMS UDFS VAL ZSV")
-  info(archive, "VAL")
-}
-
-record(bi, "MR1K1:BEND:MMS:PITCH:ENCDIFF:STATS:VALID_RBV") {
-  field(DESC, "PRG_Stats.fbPitchPosDiffStats.bValid")
-  field(SCAN, "I/O Intr")
-  field(PINI, "1")
-  field(TSE, "-2")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_Stats.fbPitchPosDiffStats.bValid?")
-  field(ZNAM, "FALSE")
-  field(ONAM, "TRUE")
-  info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
-  info(archive, "VAL")
-}
-
-record(ai, "MR1K1:BEND:MMS:PITCH:ENCDIFF:STATS:MAX_RBV") {
-  field(DESC, "PRG_Stats.fbPitchPosDiffStats.fMax")
-  field(SCAN, "I/O Intr")
-  field(PINI, "1")
-  field(TSE, "-2")
-  field(DTYP, "asynFloat64")
-  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_Stats.fbPitchPosDiffStats.fMax?")
-  field(PREC, "3")
-  info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
-  info(archive, "VAL")
-}
-
-record(ai, "MR1K1:BEND:MMS:PITCH:ENCDIFF:STATS:MEAN_RBV") {
-  field(DESC, "PRG_Stats.fbPitchPosDiffStats.fMean")
-  field(SCAN, "I/O Intr")
-  field(PINI, "1")
-  field(TSE, "-2")
-  field(DTYP, "asynFloat64")
-  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_Stats.fbPitchPosDiffStats.fMean?")
-  field(PREC, "3")
-  info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
-  info(archive, "VAL")
-}
-
-record(ai, "MR1K1:BEND:MMS:PITCH:ENCDIFF:STATS:MIN_RBV") {
-  field(DESC, "PRG_Stats.fbPitchPosDiffStats.fMin")
-  field(SCAN, "I/O Intr")
-  field(PINI, "1")
-  field(TSE, "-2")
-  field(DTYP, "asynFloat64")
-  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_Stats.fbPitchPosDiffStats.fMin?")
-  field(PREC, "3")
-  info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
-  info(archive, "VAL")
-}
-
-record(ai, "MR1K1:BEND:MMS:PITCH:ENCDIFF:STATS:RMS_RBV") {
-  field(DESC, "PRG_Stats.fbPitchPosDiffStats.fRMS")
-  field(SCAN, "I/O Intr")
-  field(PINI, "1")
-  field(TSE, "-2")
-  field(DTYP, "asynFloat64")
-  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_Stats.fbPitchPosDiffStats.fRMS?")
-  field(PREC, "3")
-  info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
-  info(archive, "VAL")
-}
-
-record(ai, "MR1K1:BEND:MMS:PITCH:ENCDIFF:STATS:RANGE_RBV") {
-  field(DESC, "PRG_Stats.fbPitchPosDiffStats.fRange")
-  field(SCAN, "I/O Intr")
-  field(PINI, "1")
-  field(TSE, "-2")
-  field(DTYP, "asynFloat64")
-  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_Stats.fbPitchPosDiffStats.fRange?")
-  field(PREC, "3")
-  info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
-  info(archive, "VAL")
-}
-
-record(ai, "MR1K1:BEND:MMS:PITCH:ENCDIFF:STATS:STDEV_RBV") {
-  field(DESC, "PRG_Stats.fbPitchPosDiffStats.fStDev")
-  field(SCAN, "I/O Intr")
-  field(PINI, "1")
-  field(TSE, "-2")
-  field(DTYP, "asynFloat64")
-  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_Stats.fbPitchPosDiffStats.fStDev?")
-  field(PREC, "3")
-  info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
-  info(archive, "VAL")
-}
-
-record(longin, "MR1K1:BEND:MMS:PITCH:ENCDIFF:STATS:NELM_RBV") {
-  field(DESC, "PRG_Stats.fbPitchPosDiffStats.nElems")
-  field(SCAN, "I/O Intr")
-  field(PINI, "1")
-  field(TSE, "-2")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/PRG_Stats.fbPitchPosDiffStats.nElems?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
 }

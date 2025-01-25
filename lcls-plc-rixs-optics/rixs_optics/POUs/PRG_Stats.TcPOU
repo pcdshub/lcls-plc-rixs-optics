@@ -30,14 +30,14 @@ VAR
 
 
     // MR1K1 Pitch Vibration Stats
-    fPitchEncoderPosDiff: LREAL;
-    afPitchPosDiffBuffer: ARRAY[1..1000] OF LREAL;
-    afPitchExtraBuffer: ARRAY[1..1000] OF LREAL;
-    fbPitchPosDiffCollect: FB_DataBuffer;
+    fMR1K1PiEncoderPosDiff: LREAL;
+    afMR1K1PiPosDiffBuffer: ARRAY[1..1000] OF LREAL;
+    afMR1K1PiExtraBuffer: ARRAY[1..1000] OF LREAL;
+    fbMR1K1PiPosDiffCollect: FB_DataBuffer;
     {attribute 'pytmc' := '
         pv: MR1K1:BEND:MMS:PITCH:ENCDIFF
     '}
-    fbPitchPosDiffStats: FB_BasicStats;
+    fbMR1K1PiPosDiffStats: FB_BasicStats;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -82,17 +82,17 @@ fbMpiPosDiffStats(
     bAlwaysCalc:=TRUE,
 );
 
-fPitchEncoderPosDiff := M16.nEncoderCount - (M16.Axis.NcToPlc.SetPos - M16.stAxisParameters.fEncOffset) / 0.00244;
-fbPitchPosDiffCollect(
+fMR1K1PiEncoderPosDiff := M16.nEncoderCount - (M16.Axis.NcToPlc.SetPos - M16.stAxisParameters.fEncOffset) / 0.00244;
+fbMR1K1PiPosDiffCollect(
     bExecute:=TRUE,
-    pInputAdr:=ADR(fPitchEncoderPosDiff),
-    iInputSize:=SIZEOF(fPitchEncoderPosDiff),
+    pInputAdr:=ADR(fMR1K1PiEncoderPosDiff),
+    iInputSize:=SIZEOF(fMR1K1PiEncoderPosDiff),
     iElemCount:=1000,
-    pPartialAdr:=ADR(afPitchPosDiffBuffer),
-    pOutputAdr:=ADR(afPitchExtraBuffer),
+    pPartialAdr:=ADR(afMR1K1PiPosDiffBuffer),
+    pOutputAdr:=ADR(afMR1K1PiExtraBuffer),
 );
-fbPitchPosDiffStats(
-    aSignal:=afPitchPosDiffBuffer,
+fbMR1K1PiPosDiffStats(
+    aSignal:=afMR1K1PiPosDiffBuffer,
     bAlwaysCalc:=TRUE,
 );
 ]]></ST>

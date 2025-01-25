@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass" Hash="{DC29CF9D-FAAA-D182-BBF1-D28A26298778}" GeneratedBy="TwinCAT XAE Plc">
+<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass" Hash="{39BCFEA4-C448-988B-AAF7-62B98EA921D7}" GeneratedBy="TwinCAT XAE Plc">
   <DataTypes>
     <DataType>
       <Name Namespace="Tc2_SerialCom">ComSerialLineMode_t</Name>
@@ -82219,14 +82219,14 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
             <BitOffs>1271989440</BitOffs>
           </Symbol>
           <Symbol>
-            <Name>PRG_Stats.fPitchEncoderPosDiff</Name>
+            <Name>PRG_Stats.fMR1K1PiEncoderPosDiff</Name>
             <Comment> MR1K1 Pitch Vibration Stats</Comment>
             <BitSize>64</BitSize>
             <BaseType>LREAL</BaseType>
             <BitOffs>1271990592</BitOffs>
           </Symbol>
           <Symbol>
-            <Name>PRG_Stats.afPitchPosDiffBuffer</Name>
+            <Name>PRG_Stats.afMR1K1PiPosDiffBuffer</Name>
             <BitSize>64000</BitSize>
             <BaseType>LREAL</BaseType>
             <ArrayInfo>
@@ -82236,7 +82236,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
             <BitOffs>1271990656</BitOffs>
           </Symbol>
           <Symbol>
-            <Name>PRG_Stats.afPitchExtraBuffer</Name>
+            <Name>PRG_Stats.afMR1K1PiExtraBuffer</Name>
             <BitSize>64000</BitSize>
             <BaseType>LREAL</BaseType>
             <ArrayInfo>
@@ -82246,13 +82246,13 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
             <BitOffs>1272054656</BitOffs>
           </Symbol>
           <Symbol>
-            <Name>PRG_Stats.fbPitchPosDiffCollect</Name>
+            <Name>PRG_Stats.fbMR1K1PiPosDiffCollect</Name>
             <BitSize>448</BitSize>
             <BaseType Namespace="LCLS_General">FB_DataBuffer</BaseType>
             <BitOffs>1272118656</BitOffs>
           </Symbol>
           <Symbol>
-            <Name>PRG_Stats.fbPitchPosDiffStats</Name>
+            <Name>PRG_Stats.fbMR1K1PiPosDiffStats</Name>
             <BitSize>1152</BitSize>
             <BaseType Namespace="LCLS_General">FB_BasicStats</BaseType>
             <Properties>
@@ -108834,7 +108834,7 @@ M4K2 KBV X ENC CNT</Comment>
         </Property>
         <Property>
           <Name>ChangeDate</Name>
-          <Value>2025-01-23T17:41:58</Value>
+          <Value>2025-01-24T17:46:51</Value>
         </Property>
         <Property>
           <Name>GeneratedCodeSize</Name>
