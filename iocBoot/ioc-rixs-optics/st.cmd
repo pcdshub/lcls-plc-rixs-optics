@@ -1,11 +1,11 @@
-#!/reg/g/pcds/epics/ioc/common/ads-ioc/R0.6.1/bin/rhel7-x86_64/adsIoc
+#!c:/Repos/ads-ioc/R0.6.1///bin/rhel7-x86_64/adsIoc
 ################### AUTO-GENERATED DO NOT EDIT ###################
 #
 #         Project: lcls-plc-rixs-optics.tsproj
 #        PLC name: rixs_optics (rixs_optics Instance)
-# Generated using: pytmc 2.17.0
-# Project version: 42058de
-#    Project hash: 42058de38e69f5a520b0874c7bc61f76b45c49bf
+# Generated using: pytmc 2.15.2.dev0+g73bd2d9.d20230727
+# Project version: unknown
+#    Project hash: unknown
 #     PLC IP/host: 172.21.140.71
 #      PLC Net ID: 172.21.140.71.1.1
 #  ** Production mode IOC **
@@ -30,7 +30,7 @@
 
 epicsEnvSet("ADS_IOC_TOP", "$(TOP)" )
 
-epicsEnvSet("ENGINEER", "kaushikm" )
+epicsEnvSet("ENGINEER", "" )
 epicsEnvSet("LOCATION", "PLC:RIX:OPTICS" )
 epicsEnvSet("IOCSH_PS1", "$(IOC)> " )
 epicsEnvSet("ACF_FILE", "$(ADS_IOC_TOP)/iocBoot/templates/unrestricted.acf")
@@ -46,14 +46,14 @@ epicsEnvSet("ASYN_PORT",        "ASYN_PLC")
 epicsEnvSet("IPADDR",           "172.21.140.71")
 epicsEnvSet("AMSID",            "172.21.140.71.1.1")
 epicsEnvSet("AMS_PORT",         "851")
-epicsEnvSet("ADS_MAX_PARAMS",   "7925")
+epicsEnvSet("ADS_MAX_PARAMS",   "7948")
 epicsEnvSet("ADS_SAMPLE_MS",    "50")
 epicsEnvSet("ADS_MAX_DELAY_MS", "100")
 epicsEnvSet("ADS_TIMEOUT_MS",   "1000")
 epicsEnvSet("ADS_TIME_SOURCE",  "0")
 
 # Add a route to the PLC automatically:
-system("${ADS_IOC_TOP}/scripts/add_route.sh 172.21.140.71 ^172.*")
+system("${ADS_IOC_TOP}/scripts/add_route.sh 172.21.140.71 ^172.*$")
 
 # adsAsynPortDriverConfigure(portName, ipaddr, amsaddr, amsport,
 #    asynParamTableSize, priority, noAutoConnect, defaultSampleTimeMS,
@@ -684,7 +684,7 @@ dbLoadRecords("TwinCAT_TaskInfo.db", "PORT=$(ASYN_PORT),PREFIX=PLC:RIX:OPTICS,ID
 dbLoadRecords("TwinCAT_TaskInfo.db", "PORT=$(ASYN_PORT),PREFIX=PLC:RIX:OPTICS,IDX=5")
 dbLoadRecords("TwinCAT_AppInfo.db", "PORT=$(ASYN_PORT), PREFIX=PLC:RIX:OPTICS")
 
-dbLoadRecords("TwinCAT_Project.db", "PREFIX=PLC:RIX:OPTICS,PROJECT=lcls-plc-rixs-optics.tsproj,HASH=42058de,VERSION=42058de,PYTMC=2.17.0,PLC_HOST=172.21.140.71")
+dbLoadRecords("TwinCAT_Project.db", "PREFIX=PLC:RIX:OPTICS,PROJECT=lcls-plc-rixs-optics.tsproj,HASH=unknown,VERSION=unknown,PYTMC=2.15.2.dev0+g73bd2d9.d20230727,PLC_HOST=172.21.140.71")
 
 #   LCLS General: * -> 2.10.0 (SLAC)
 dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:RIX:OPTICS,DEPENDENCY=LCLS_General,VERSION=2.10.0,VENDOR=SLAC")
@@ -714,8 +714,8 @@ cd "$(IOC_TOP)"
 ## PLC Project Database files ##
 dbLoadRecords("rixs_optics.db", "PORT=$(ASYN_PORT),PREFIX=PLC:RIX:OPTICS:,IOCNAME=$(IOC),IOC=$(IOC)")
 
-# Total records: 6925
-callbackSetQueueSize(15850)
+# Total records: 6948
+callbackSetQueueSize(15896)
 
 # Autosave and archive settings:
 save_restoreSet_status_prefix("PLC:RIX:OPTICS:")
