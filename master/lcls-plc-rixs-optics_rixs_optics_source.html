@@ -7,7 +7,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DUTs &mdash; pcdshub/lcls-plc-rixs-optics  documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/tree.css?v=837a00b9" />
       <link rel="stylesheet" type="text/css" href="_static/width.css?v=ab210c7a" />
@@ -371,7 +371,7 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;qualified_only&#39;</span><span class="p">}</span>
 <span class="n">VAR_GLOBAL</span> <span class="n">CONSTANT</span>
     <span class="o">//</span> <span class="n">Encoder</span> <span class="n">reference</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">counts</span> <span class="o">=</span> <span class="n">nm</span>
-    <span class="o">//</span> <span class="n">Enc</span> <span class="n">reference</span> <span class="n">values</span> <span class="kn">from</span> <span class="nn">Axilon</span> <span class="n">FAT</span>
+    <span class="o">//</span> <span class="n">Enc</span> <span class="n">reference</span> <span class="n">values</span> <span class="kn">from</span><span class="w"> </span><span class="nn">Axilon</span> <span class="n">FAT</span>
     <span class="n">nYUP_ENC_REF</span> <span class="p">:</span> <span class="n">ULINT</span> <span class="o">:=</span> <span class="mi">13008545</span><span class="p">;</span>
     <span class="n">nYDWN_ENC_REF</span> <span class="p">:</span> <span class="n">ULINT</span> <span class="o">:=</span> <span class="mi">11158257</span><span class="p">;</span>
     <span class="n">nXUP_ENC_REF</span> <span class="p">:</span> <span class="n">ULINT</span> <span class="o">:=</span> <span class="mi">19831295</span><span class="p">;</span>
@@ -1135,9 +1135,9 @@ END_VAR
 <h2>FB_AssembleChannel<a class="headerlink" href="#fb-assemblechannel" title="Link to this heading"></a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FUNCTION_BLOCK</span> <span class="n">FB_AssembleChannel</span>
 <span class="n">VAR_INPUT</span>
-    <span class="o">//</span> <span class="n">Raw</span> <span class="n">count</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">encoder</span><span class="p">,</span> <span class="n">taken</span> <span class="kn">from</span> <span class="nn">ST_MotionStage.nEncoderCount</span>
+    <span class="o">//</span> <span class="n">Raw</span> <span class="n">count</span> <span class="kn">from</span><span class="w"> </span><span class="nn">the</span> <span class="n">encoder</span><span class="p">,</span> <span class="n">taken</span> <span class="kn">from</span><span class="w"> </span><span class="nn">ST_MotionStage.nEncoderCount</span>
     <span class="n">nEncCount</span> <span class="p">:</span> <span class="n">UDINT</span><span class="p">;</span>
-    <span class="o">//</span> <span class="n">Latched</span> <span class="n">rising</span> <span class="n">edge</span> <span class="n">timestamp</span> <span class="kn">from</span> <span class="nn">EL1252</span><span class="o">-</span><span class="mi">0050</span> <span class="n">terminal</span><span class="o">.</span>
+    <span class="o">//</span> <span class="n">Latched</span> <span class="n">rising</span> <span class="n">edge</span> <span class="n">timestamp</span> <span class="kn">from</span><span class="w"> </span><span class="nn">EL1252</span><span class="o">-</span><span class="mi">0050</span> <span class="n">terminal</span><span class="o">.</span>
     <span class="n">nTiming</span> <span class="p">:</span> <span class="n">ULINT</span><span class="p">;</span>
     <span class="o">//</span> <span class="n">Scale</span> <span class="k">as</span> <span class="n">reported</span> <span class="ow">in</span> <span class="n">ST_MotionStage</span><span class="o">.</span><span class="n">stAxisParameters</span><span class="o">.</span><span class="n">fEncScaleFactorNumerator</span>
     <span class="n">fScale</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
@@ -2415,7 +2415,7 @@ END_VAR
     <span class="o">//</span> <span class="n">Using</span> <span class="n">stepper</span> <span class="n">only</span> <span class="k">for</span> <span class="n">now</span>
     <span class="n">fbMotionStage_m5</span> <span class="p">:</span> <span class="n">FB_MotionStage</span><span class="p">;</span>
 
-    <span class="o">//</span> <span class="n">Roll</span> <span class="p">(</span><span class="n">Rotation</span> <span class="n">about</span> <span class="n">Z</span> <span class="n">axis</span><span class="p">)</span> <span class="n">induced</span> <span class="kn">from</span> <span class="nn">Ygantry</span><span class="p">:</span>
+    <span class="o">//</span> <span class="n">Roll</span> <span class="p">(</span><span class="n">Rotation</span> <span class="n">about</span> <span class="n">Z</span> <span class="n">axis</span><span class="p">)</span> <span class="n">induced</span> <span class="kn">from</span><span class="w"> </span><span class="nn">Ygantry</span><span class="p">:</span>
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
         <span class="n">pv</span><span class="p">:</span> <span class="n">MR1K2</span><span class="p">:</span><span class="n">SWITCH</span><span class="p">:</span><span class="n">ENC</span><span class="p">:</span><span class="n">ROLL</span>
         <span class="n">field</span><span class="p">:</span> <span class="n">EGU</span> <span class="n">urad</span>
@@ -4225,13 +4225,24 @@ END_VAR
 
     <span class="o">//</span> <span class="n">SP1K1</span> <span class="n">Mirror</span> <span class="n">Pitch</span> <span class="n">Mono</span> <span class="n">Vibration</span> <span class="n">Stats</span>
     <span class="n">fMpiEncoderPosDiff</span><span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
-    <span class="n">afMpiPosDiffBuffer</span><span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1..10000</span><span class="p">]</span> <span class="n">OF</span> <span class="n">LREAL</span><span class="p">;</span>
-    <span class="n">afMpiExtraBuffer</span><span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1..10000</span><span class="p">]</span> <span class="n">OF</span> <span class="n">LREAL</span><span class="p">;</span>
+    <span class="n">afMpiPosDiffBuffer</span><span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1..1000</span><span class="p">]</span> <span class="n">OF</span> <span class="n">LREAL</span><span class="p">;</span>
+    <span class="n">afMpiExtraBuffer</span><span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1..1000</span><span class="p">]</span> <span class="n">OF</span> <span class="n">LREAL</span><span class="p">;</span>
     <span class="n">fbMpiPosDiffCollect</span><span class="p">:</span> <span class="n">FB_DataBuffer</span><span class="p">;</span>
     <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
         <span class="n">pv</span><span class="p">:</span> <span class="n">SP1K1</span><span class="p">:</span><span class="n">MONO</span><span class="p">:</span><span class="n">MMS</span><span class="p">:</span><span class="n">M_PI</span><span class="p">:</span><span class="n">ENCDIFF</span>
     <span class="s1">&#39;}</span>
     <span class="n">fbMpiPosDiffStats</span><span class="p">:</span> <span class="n">FB_BasicStats</span><span class="p">;</span>
+
+
+    <span class="o">//</span> <span class="n">MR1K1</span> <span class="n">Pitch</span> <span class="n">Vibration</span> <span class="n">Stats</span>
+    <span class="n">fMR1K1PiEncoderPosDiff</span><span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
+    <span class="n">afMR1K1PiPosDiffBuffer</span><span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1..1000</span><span class="p">]</span> <span class="n">OF</span> <span class="n">LREAL</span><span class="p">;</span>
+    <span class="n">afMR1K1PiExtraBuffer</span><span class="p">:</span> <span class="n">ARRAY</span><span class="p">[</span><span class="mf">1..1000</span><span class="p">]</span> <span class="n">OF</span> <span class="n">LREAL</span><span class="p">;</span>
+    <span class="n">fbMR1K1PiPosDiffCollect</span><span class="p">:</span> <span class="n">FB_DataBuffer</span><span class="p">;</span>
+    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
+        <span class="n">pv</span><span class="p">:</span> <span class="n">MR1K1</span><span class="p">:</span><span class="n">BEND</span><span class="p">:</span><span class="n">MMS</span><span class="p">:</span><span class="n">PITCH</span><span class="p">:</span><span class="n">ENCDIFF</span>
+    <span class="s1">&#39;}</span>
+    <span class="n">fbMR1K1PiPosDiffStats</span><span class="p">:</span> <span class="n">FB_BasicStats</span><span class="p">;</span>
 <span class="n">END_VAR</span>
 <span class="n">IF</span> <span class="n">rtNewGpiMove</span><span class="o">.</span><span class="n">Q</span> <span class="n">THEN</span>
     <span class="o">//</span> <span class="n">Reset</span> <span class="n">before</span> <span class="n">a</span> <span class="n">move</span>
@@ -4260,7 +4271,7 @@ END_VAR
     <span class="n">PT</span><span class="o">:=</span><span class="n">T</span><span class="c1">#15s,</span>
 <span class="p">);</span>
 
-<span class="p">(</span><span class="o">*</span><span class="n">fMpiEncoderPosDiff</span> <span class="o">:=</span> <span class="n">M6</span><span class="o">.</span><span class="n">nEncoderCount</span> <span class="o">-</span> <span class="p">(</span><span class="n">M6</span><span class="o">.</span><span class="n">Axis</span><span class="o">.</span><span class="n">NcToPlc</span><span class="o">.</span><span class="n">SetPos</span> <span class="o">-</span> <span class="n">M6</span><span class="o">.</span><span class="n">stAxisParameters</span><span class="o">.</span><span class="n">fEncOffset</span><span class="p">)</span> <span class="o">/</span> <span class="mf">0.004505</span><span class="p">;</span>
+<span class="n">fMpiEncoderPosDiff</span> <span class="o">:=</span> <span class="n">M6</span><span class="o">.</span><span class="n">nEncoderCount</span> <span class="o">-</span> <span class="p">(</span><span class="n">M6</span><span class="o">.</span><span class="n">Axis</span><span class="o">.</span><span class="n">NcToPlc</span><span class="o">.</span><span class="n">SetPos</span> <span class="o">-</span> <span class="n">M6</span><span class="o">.</span><span class="n">stAxisParameters</span><span class="o">.</span><span class="n">fEncOffset</span><span class="p">)</span> <span class="o">/</span> <span class="mf">0.004505</span><span class="p">;</span>
 <span class="n">fbMpiPosDiffCollect</span><span class="p">(</span>
     <span class="n">bExecute</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
     <span class="n">pInputAdr</span><span class="o">:=</span><span class="n">ADR</span><span class="p">(</span><span class="n">fMpiEncoderPosDiff</span><span class="p">),</span>
@@ -4272,7 +4283,21 @@ END_VAR
 <span class="n">fbMpiPosDiffStats</span><span class="p">(</span>
     <span class="n">aSignal</span><span class="o">:=</span><span class="n">afMpiPosDiffBuffer</span><span class="p">,</span>
     <span class="n">bAlwaysCalc</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
-<span class="p">);</span><span class="o">*</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="n">fMR1K1PiEncoderPosDiff</span> <span class="o">:=</span> <span class="n">M16</span><span class="o">.</span><span class="n">nEncoderCount</span> <span class="o">-</span> <span class="p">(</span><span class="n">M16</span><span class="o">.</span><span class="n">Axis</span><span class="o">.</span><span class="n">NcToPlc</span><span class="o">.</span><span class="n">SetPos</span> <span class="o">-</span> <span class="n">M16</span><span class="o">.</span><span class="n">stAxisParameters</span><span class="o">.</span><span class="n">fEncOffset</span><span class="p">)</span> <span class="o">/</span> <span class="mf">0.00244</span><span class="p">;</span>
+<span class="n">fbMR1K1PiPosDiffCollect</span><span class="p">(</span>
+    <span class="n">bExecute</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
+    <span class="n">pInputAdr</span><span class="o">:=</span><span class="n">ADR</span><span class="p">(</span><span class="n">fMR1K1PiEncoderPosDiff</span><span class="p">),</span>
+    <span class="n">iInputSize</span><span class="o">:=</span><span class="n">SIZEOF</span><span class="p">(</span><span class="n">fMR1K1PiEncoderPosDiff</span><span class="p">),</span>
+    <span class="n">iElemCount</span><span class="o">:=</span><span class="mi">1000</span><span class="p">,</span>
+    <span class="n">pPartialAdr</span><span class="o">:=</span><span class="n">ADR</span><span class="p">(</span><span class="n">afMR1K1PiPosDiffBuffer</span><span class="p">),</span>
+    <span class="n">pOutputAdr</span><span class="o">:=</span><span class="n">ADR</span><span class="p">(</span><span class="n">afMR1K1PiExtraBuffer</span><span class="p">),</span>
+<span class="p">);</span>
+<span class="n">fbMR1K1PiPosDiffStats</span><span class="p">(</span>
+    <span class="n">aSignal</span><span class="o">:=</span><span class="n">afMR1K1PiPosDiffBuffer</span><span class="p">,</span>
+    <span class="n">bAlwaysCalc</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
+<span class="p">);</span>
 
 <span class="n">END_PROGRAM</span>
 </pre></div>
@@ -4544,7 +4569,7 @@ END_METHOD
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, SLAC National Accelerator Laboratory.</p>
+    <p>&#169; Copyright 2025, SLAC National Accelerator Laboratory.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
