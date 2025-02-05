@@ -29,13 +29,6 @@ VAR
     fMaxXRMSErrorM1K1 : LREAL;
     fMinXRMSErrorM1K1 : LREAL;
 
-    {attribute 'pytmc' := '
-        pv: MR1K1:BEND:ENC:PITCH
-    '}
-    fbPitchRMSErrorM1K1 : FB_RMSWatch;
-    fMaxPitchRMSErrorM1K1 : LREAL;
-    fMinPitchRMSErrorM1K1 : LREAL;
-
     // Pitch Control
     fbM1K1PitchControl : FB_PitchControl;
     bM1K1PitchDone : BOOL;
@@ -248,10 +241,6 @@ fbYRMSErrorM1K1(stMotionStage:=M12,
 fbXRMSErrorM1K1(stMotionStage:=M14,
                 fMaxRMSError=>fMaxXRMSErrorM1K1,
                 fMinRMSError=>fMinXRMSErrorM1K1);
-
-fbPitchRMSErrorM1K1(stMotionStage:=M16,
-                    fMaxRMSError=>fMaxPitchRMSErrorM1K1,
-                    fMinRMSError=>fMinPitchRMSErrorM1K1);
 
 (*
 // Pitch Control
