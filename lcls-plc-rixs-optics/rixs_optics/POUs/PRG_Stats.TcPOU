@@ -49,7 +49,7 @@ ELSIF tonNewGpiMove.Q AND ABS(M7.fPosition - M7.stAxisStatus.fActPosition) > 5 T
     fGpiRangeMax := MAX(fGpiRangeMax, fbGpiPosDiffStats.fRange);
 END_IF
 
-fGpiEncoderPosDiff := M7.nEncoderCount - (M7.Axis.NcToPlc.SetPos - M7.stAxisParameters.fEncOffset) * 150;
+fGpiEncoderPosDiff := ((UDINT_TO_LREAL(M7.nEncoderCount) / 150.0) - (M7.Axis.NcToPlc.SetPos - M7.stAxisParameters.fEncOffset)) * 1000;
 fbGpiPosDiffCollect(
     bExecute:=TRUE,
     pInputAdr:=ADR(fGpiEncoderPosDiff),
@@ -68,7 +68,7 @@ tonNewGpiMove(
     PT:=T#15s,
 );
 
-fMpiEncoderPosDiff := M6.nEncoderCount - (M6.Axis.NcToPlc.SetPos - M6.stAxisParameters.fEncOffset) / 0.004505;
+fMpiEncoderPosDiff := ((UDINT_TO_LREAL(M6.nEncoderCount) * 0.004505) - (M6.Axis.NcToPlc.SetPos - M6.stAxisParameters.fEncOffset)) * 1000;
 fbMpiPosDiffCollect(
     bExecute:=TRUE,
     pInputAdr:=ADR(fMpiEncoderPosDiff),
@@ -82,7 +82,7 @@ fbMpiPosDiffStats(
     bAlwaysCalc:=TRUE,
 );
 
-fMR1K1PiEncoderPosDiff := M16.nEncoderCount - (M16.Axis.NcToPlc.SetPos - M16.stAxisParameters.fEncOffset) / 0.00244;
+fMR1K1PiEncoderPosDiff := ((UDINT_TO_LREAL(M16.nEncoderCount) * 0.00244) - (M16.Axis.NcToPlc.SetPos - M16.stAxisParameters.fEncOffset)) * 1000;
 fbMR1K1PiPosDiffCollect(
     bExecute:=TRUE,
     pInputAdr:=ADR(fMR1K1PiEncoderPosDiff),
