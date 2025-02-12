@@ -1847,13 +1847,6 @@ END_VAR
     <span class="n">fMaxXRMSErrorM1K1</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
     <span class="n">fMinXRMSErrorM1K1</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
 
-    <span class="p">{</span><span class="n">attribute</span> <span class="s1">&#39;pytmc&#39;</span> <span class="o">:=</span> <span class="s1">&#39;</span>
-        <span class="n">pv</span><span class="p">:</span> <span class="n">MR1K1</span><span class="p">:</span><span class="n">BEND</span><span class="p">:</span><span class="n">ENC</span><span class="p">:</span><span class="n">PITCH</span>
-    <span class="s1">&#39;}</span>
-    <span class="n">fbPitchRMSErrorM1K1</span> <span class="p">:</span> <span class="n">FB_RMSWatch</span><span class="p">;</span>
-    <span class="n">fMaxPitchRMSErrorM1K1</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
-    <span class="n">fMinPitchRMSErrorM1K1</span> <span class="p">:</span> <span class="n">LREAL</span><span class="p">;</span>
-
     <span class="o">//</span> <span class="n">Pitch</span> <span class="n">Control</span>
     <span class="n">fbM1K1PitchControl</span> <span class="p">:</span> <span class="n">FB_PitchControl</span><span class="p">;</span>
     <span class="n">bM1K1PitchDone</span> <span class="p">:</span> <span class="n">BOOL</span><span class="p">;</span>
@@ -2064,10 +2057,6 @@ END_VAR
 <span class="n">fbXRMSErrorM1K1</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M14</span><span class="p">,</span>
                 <span class="n">fMaxRMSError</span><span class="o">=&gt;</span><span class="n">fMaxXRMSErrorM1K1</span><span class="p">,</span>
                 <span class="n">fMinRMSError</span><span class="o">=&gt;</span><span class="n">fMinXRMSErrorM1K1</span><span class="p">);</span>
-
-<span class="n">fbPitchRMSErrorM1K1</span><span class="p">(</span><span class="n">stMotionStage</span><span class="o">:=</span><span class="n">M16</span><span class="p">,</span>
-                    <span class="n">fMaxRMSError</span><span class="o">=&gt;</span><span class="n">fMaxPitchRMSErrorM1K1</span><span class="p">,</span>
-                    <span class="n">fMinRMSError</span><span class="o">=&gt;</span><span class="n">fMinPitchRMSErrorM1K1</span><span class="p">);</span>
 
 <span class="p">(</span><span class="o">*</span>
 <span class="o">//</span> <span class="n">Pitch</span> <span class="n">Control</span>
@@ -4252,7 +4241,7 @@ END_VAR
     <span class="n">fGpiRangeMax</span> <span class="o">:=</span> <span class="n">MAX</span><span class="p">(</span><span class="n">fGpiRangeMax</span><span class="p">,</span> <span class="n">fbGpiPosDiffStats</span><span class="o">.</span><span class="n">fRange</span><span class="p">);</span>
 <span class="n">END_IF</span>
 
-<span class="n">fGpiEncoderPosDiff</span> <span class="o">:=</span> <span class="n">M7</span><span class="o">.</span><span class="n">nEncoderCount</span> <span class="o">-</span> <span class="p">(</span><span class="n">M7</span><span class="o">.</span><span class="n">Axis</span><span class="o">.</span><span class="n">NcToPlc</span><span class="o">.</span><span class="n">SetPos</span> <span class="o">-</span> <span class="n">M7</span><span class="o">.</span><span class="n">stAxisParameters</span><span class="o">.</span><span class="n">fEncOffset</span><span class="p">)</span> <span class="o">*</span> <span class="mi">150</span><span class="p">;</span>
+<span class="n">fGpiEncoderPosDiff</span> <span class="o">:=</span> <span class="p">((</span><span class="n">UDINT_TO_LREAL</span><span class="p">(</span><span class="n">M7</span><span class="o">.</span><span class="n">nEncoderCount</span><span class="p">)</span> <span class="o">/</span> <span class="mf">150.0</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">M7</span><span class="o">.</span><span class="n">Axis</span><span class="o">.</span><span class="n">NcToPlc</span><span class="o">.</span><span class="n">SetPos</span> <span class="o">-</span> <span class="n">M7</span><span class="o">.</span><span class="n">stAxisParameters</span><span class="o">.</span><span class="n">fEncOffset</span><span class="p">))</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">;</span>
 <span class="n">fbGpiPosDiffCollect</span><span class="p">(</span>
     <span class="n">bExecute</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
     <span class="n">pInputAdr</span><span class="o">:=</span><span class="n">ADR</span><span class="p">(</span><span class="n">fGpiEncoderPosDiff</span><span class="p">),</span>
@@ -4271,7 +4260,7 @@ END_VAR
     <span class="n">PT</span><span class="o">:=</span><span class="n">T</span><span class="c1">#15s,</span>
 <span class="p">);</span>
 
-<span class="n">fMpiEncoderPosDiff</span> <span class="o">:=</span> <span class="n">M6</span><span class="o">.</span><span class="n">nEncoderCount</span> <span class="o">-</span> <span class="p">(</span><span class="n">M6</span><span class="o">.</span><span class="n">Axis</span><span class="o">.</span><span class="n">NcToPlc</span><span class="o">.</span><span class="n">SetPos</span> <span class="o">-</span> <span class="n">M6</span><span class="o">.</span><span class="n">stAxisParameters</span><span class="o">.</span><span class="n">fEncOffset</span><span class="p">)</span> <span class="o">/</span> <span class="mf">0.004505</span><span class="p">;</span>
+<span class="n">fMpiEncoderPosDiff</span> <span class="o">:=</span> <span class="p">((</span><span class="n">UDINT_TO_LREAL</span><span class="p">(</span><span class="n">M6</span><span class="o">.</span><span class="n">nEncoderCount</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.004505</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">M6</span><span class="o">.</span><span class="n">Axis</span><span class="o">.</span><span class="n">NcToPlc</span><span class="o">.</span><span class="n">SetPos</span> <span class="o">-</span> <span class="n">M6</span><span class="o">.</span><span class="n">stAxisParameters</span><span class="o">.</span><span class="n">fEncOffset</span><span class="p">))</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">;</span>
 <span class="n">fbMpiPosDiffCollect</span><span class="p">(</span>
     <span class="n">bExecute</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
     <span class="n">pInputAdr</span><span class="o">:=</span><span class="n">ADR</span><span class="p">(</span><span class="n">fMpiEncoderPosDiff</span><span class="p">),</span>
@@ -4285,7 +4274,7 @@ END_VAR
     <span class="n">bAlwaysCalc</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
 <span class="p">);</span>
 
-<span class="n">fMR1K1PiEncoderPosDiff</span> <span class="o">:=</span> <span class="n">M16</span><span class="o">.</span><span class="n">nEncoderCount</span> <span class="o">-</span> <span class="p">(</span><span class="n">M16</span><span class="o">.</span><span class="n">Axis</span><span class="o">.</span><span class="n">NcToPlc</span><span class="o">.</span><span class="n">SetPos</span> <span class="o">-</span> <span class="n">M16</span><span class="o">.</span><span class="n">stAxisParameters</span><span class="o">.</span><span class="n">fEncOffset</span><span class="p">)</span> <span class="o">/</span> <span class="mf">0.00244</span><span class="p">;</span>
+<span class="n">fMR1K1PiEncoderPosDiff</span> <span class="o">:=</span> <span class="p">((</span><span class="n">UDINT_TO_LREAL</span><span class="p">(</span><span class="n">M16</span><span class="o">.</span><span class="n">nEncoderCount</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.00244</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">M16</span><span class="o">.</span><span class="n">Axis</span><span class="o">.</span><span class="n">NcToPlc</span><span class="o">.</span><span class="n">SetPos</span> <span class="o">-</span> <span class="n">M16</span><span class="o">.</span><span class="n">stAxisParameters</span><span class="o">.</span><span class="n">fEncOffset</span><span class="p">))</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">;</span>
 <span class="n">fbMR1K1PiPosDiffCollect</span><span class="p">(</span>
     <span class="n">bExecute</span><span class="o">:=</span><span class="n">TRUE</span><span class="p">,</span>
     <span class="n">pInputAdr</span><span class="o">:=</span><span class="n">ADR</span><span class="p">(</span><span class="n">fMR1K1PiEncoderPosDiff</span><span class="p">),</span>
