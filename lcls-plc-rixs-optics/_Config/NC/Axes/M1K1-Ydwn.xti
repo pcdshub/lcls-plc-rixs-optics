@@ -1458,10 +1458,10 @@ External Setpoint Generation:
 				</Var>
 			</Vars>
 		</Drive>
-		<Controller Name="Ctrl" CtrType="3">
+		<Controller Name="Ctrl" CtrType="2">
 			<CtrPara PriorControlFactor="1">
 				<PosDiffControl Range="30" Time="0.2"/>
-				<PID PosTn="0.005" PosIOutputLimit="0.0001" PosDOutputLimit="0" PosIDisableWhenMoving="true" PosExtKp="10" DeadBandPosition="0.01"/>
+				<PID PosTn="0.005" PosIOutputLimit="0.0001" PosDOutputLimit="0" PosIDisableWhenMoving="true" PosExtKp="10" DeadBandPosition="0.1"/>
 				<Observer BandWidth="20"/>
 			</CtrPara>
 		</Controller>
