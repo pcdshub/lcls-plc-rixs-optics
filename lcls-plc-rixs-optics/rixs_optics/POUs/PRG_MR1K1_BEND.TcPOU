@@ -197,6 +197,34 @@ VAR
     astCoatingStatesY: ARRAY[1..GeneralConstants.MAX_STATES] OF ST_PositionState;
     //astCoatingStatesX: ARRAY[1..GeneralConstants.MAX_STATES] OF ST_PositionState;
 
+    {attribute 'pytmc' := '
+      pv: MR1K1:BEND:MMS:YUP
+      io: i
+    '}
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3202-0010-YUP-YDWN]^RTD Inputs Channel 1^Value'}
+    fbYUPMotorTemp : FB_Tempsensor := (fResolution:=0.01);
+
+    {attribute 'pytmc' := '
+      pv: MR1K1:BEND:MMS:YDWN
+      io: i
+    '}
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3202-0010-YUP-YDWN]^RTD Inputs Channel 2^Value'}
+    fbYDWNMotorTemp : FB_Tempsensor := (fResolution:=0.01);
+
+    {attribute 'pytmc' := '
+      pv: MR1K1:BEND:MMS:XUP
+      io: i
+    '}
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3202-0010-XUP-XDWN]^RTD Inputs Channel 1^Value'}
+    fbXUPMotorTemp : FB_Tempsensor := (fResolution:=0.01);
+
+    {attribute 'pytmc' := '
+      pv: MR1K1:BEND:MMS:XDWN
+      io: i
+    '}
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3202-0010-XUP-XDWN]^RTD Inputs Channel 2^Value'}
+    fbXDWNMotorTemp : FB_Tempsensor := (fResolution:=0.01);
+
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -333,6 +361,10 @@ fbCoatingStates(
     sDeviceName:='MR1K1:BEND',
     sTransitionKey:='MR1K1:BEND-TRANSITION',
 );
+fbYUPMotorTemp();
+fbYDWNMotorTemp();
+fbXUPMotorTemp();
+fbXDWNMotorTemp();
 ]]></ST>
     </Implementation>
   </POU>
