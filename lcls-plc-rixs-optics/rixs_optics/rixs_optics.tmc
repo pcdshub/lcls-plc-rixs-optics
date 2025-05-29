@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass" Hash="{7BB73A06-F221-3A14-452D-931C60DD973D}" GeneratedBy="TwinCAT XAE Plc">
+<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass" Hash="{F8FD89C1-77C8-F9AC-6BC0-951D946F3FC5}" GeneratedBy="TwinCAT XAE Plc">
   <DataTypes>
     <DataType>
       <Name Namespace="Tc2_SerialCom">ComSerialLineMode_t</Name>
@@ -46066,6 +46066,14 @@ contributing fast faults, unless the FFO is currently vetoed.
             <Name>ItemType</Name>
             <Value>Input</Value>
           </Property>
+          <Property>
+            <Name>pytmc</Name>
+            <Value>
+        pv: FLUTT:VAR
+        io: o
+        field: DESC Watched Var Toggling
+    </Value>
+          </Property>
         </Properties>
       </SubItem>
       <SubItem>
@@ -47623,6 +47631,13 @@ contributing fast faults, unless the FFO is currently vetoed.
             <Name>ItemType</Name>
             <Value>Output</Value>
           </Property>
+          <Property>
+            <Name>pytmc</Name>
+            <Value>
+        pv: WATCH:Y
+        io: io
+    </Value>
+          </Property>
         </Properties>
       </SubItem>
       <SubItem>
@@ -47644,6 +47659,13 @@ contributing fast faults, unless the FFO is currently vetoed.
           <Property>
             <Name>ItemType</Name>
             <Value>Output</Value>
+          </Property>
+          <Property>
+            <Name>pytmc</Name>
+            <Value>
+        pv: WATCH:X
+        io: io
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -103496,9 +103518,8 @@ Emergency Stop for MR1K1</Comment>
                               .fbRunHOMS.stYdwnEnc.Count:=TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 2^Position;
                               .fbRunHOMS.stXupEnc.Count:=TIIB[EL5042_M1K1_Xupdwn]^FB Inputs Channel 1^Position;
                               .fbRunHOMS.stXdwnEnc.Count:=TIIB[EL5042_M1K1_Xupdwn]^FB Inputs Channel 2^Position;
-							  .fbRunHOMS.fbDownYWatch.bVarToMonitor:=TIIB[EL7047_M1K1_Ydwn]^STM Control^Control^Reduce torque;
-							  .fbRunHOMS.fbDownXWatch.bVarToMonitor:=TIIB[EL7047_M1K1_Xdwn]^STM Control^Control^Reduce torque;
-</Value>
+                              .fbRunHOMS.fbDownYWatch.bVarToMonitor:=TIIB[EL7047_M1K1_Ydwn]^STM Control^Control^Reduce torque;
+                              .fbRunHOMS.fbDownXWatch.bVarToMonitor:=TIIB[EL7047_M1K1_Xdwn]^STM Control^Control^Reduce torque;</Value>
               </Property>
               <Property>
                 <Name>pytmc</Name>
@@ -104300,7 +104321,9 @@ M1K1 BEND US ENC CNT</Comment>
                               .fbRunHOMS.stYupEnc.Count:=TIIB[EL5042_M1K2_Yleftright]^FB Inputs Channel 1^Position;
                               .fbRunHOMS.stYdwnEnc.Count:=TIIB[EL5042_M1K2_Yleftright]^FB Inputs Channel 2^Position;
                               .fbRunHOMS.stXupEnc.Count:=TIIB[EL5042_M1K2_Xupdwn]^FB Inputs Channel 1^Position;
-                              .fbRunHOMS.stXdwnEnc.Count:=TIIB[EL5042_M1K2_Xupdwn]^FB Inputs Channel 2^Position</Value>
+                              .fbRunHOMS.stXdwnEnc.Count:=TIIB[EL5042_M1K2_Xupdwn]^FB Inputs Channel 2^Position;
+                              .fbRunHOMS.fbDownYWatch.bVarToMonitor:=TIIB[EL7047_M1K2_Yright]^STM Control^Control^Reduce torque;
+                              .fbRunHOMS.fbDownXWatch.bVarToMonitor:=TIIB[EL7047_M1K2_Xdwn]^STM Control^Control^Reduce torque;</Value>
               </Property>
               <Property>
                 <Name>pytmc</Name>
@@ -110660,7 +110683,7 @@ M4K2 KBV X ENC CNT</Comment>
         </Property>
         <Property>
           <Name>ChangeDate</Name>
-          <Value>2025-05-29T12:11:27</Value>
+          <Value>2025-05-29T12:23:57</Value>
         </Property>
         <Property>
           <Name>GeneratedCodeSize</Name>
