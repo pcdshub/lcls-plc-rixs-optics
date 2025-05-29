@@ -1349,7 +1349,7 @@ External Setpoint Generation:
 		</DataType>
 	</DataTypes>
 	<Project GUID="{85BF455D-934D-415A-B04C-6D4CDD9FF10E}" Name="rixs_optics" PrjFilePath="..\..\rixs_optics\rixs_optics.plcproj" TmcFilePath="..\..\rixs_optics\rixs_optics.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="rixs_optics\rixs_optics.tmc" TmcHash="{608329E4-0562-A476-88A1-2728010AD9E9}">
+		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="rixs_optics\rixs_optics.tmc" TmcHash="{7BB73A06-F221-3A14-452D-931C60DD973D}">
 			<Name>rixs_optics Instance</Name>
 			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 			<Vars VarGrpType="1">
@@ -1402,7 +1402,7 @@ External Setpoint Generation:
 			<Vars VarGrpType="1" ContextId="4" AreaNo="64">
 				<Name>PlcTask Inputs</Name>
 				<Var>
-					<Name>lcls_twincat_optics.GVL_TestStructs.TestPitch_LimitSwitches.diEncCnt</Name>
+					<Name>lcls_twincat_optics_nrw.GVL_TestStructs.TestPitch_LimitSwitches.diEncCnt</Name>
 					<Comment><![CDATA[Raw encoder count]]></Comment>
 					<Type>LINT</Type>
 				</Var>
@@ -2375,14 +2375,6 @@ Emergency Stop for MR1K1]]></Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>PRG_MR3K2_KBH.bM3K2US_RTD_2_Err</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR3K2_KBH.bM3K2DS_RTD_1_Err</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
 					<Name>PRG_MR2K2_FLAT.fbCoolingPanel.fbFlow_1.iRaw</Name>
 					<Comment><![CDATA[ Connect this input to the terminal]]></Comment>
 					<Type>INT</Type>
@@ -2513,6 +2505,14 @@ Emergency Stop for MR1K1]]></Comment>
 					<Name>PRG_MR2K2_FLAT.fbCoatingStates.astMotionStageMax[3].nRawEncoderINT</Name>
 					<Comment><![CDATA[ Raw encoder IO for INT (LVDT)]]></Comment>
 					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR3K2_KBH.bM3K2US_RTD_2_Err</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR3K2_KBH.bM3K2DS_RTD_1_Err</Name>
+					<Type>BOOL</Type>
 				</Var>
 				<Var>
 					<Name>PRG_MR3K2_KBH.bM3K2DS_RTD_3_Err</Name>
@@ -2692,6 +2692,22 @@ Emergency Stop for MR1K1]]></Comment>
 					<Type>INT</Type>
 				</Var>
 				<Var>
+					<Name>PRG_MR4K2_KBV.bM4K2US_RTD_2_Err</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR4K2_KBV.bM4K2US_RTD_3_Err</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR4K2_KBV.bM4K2DS_RTD_1_Err</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR4K2_KBV.bM4K2DS_RTD_2_Err</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
 					<Name>PRG_MR4K2_KBV.fbM4K2_Chin_Right_RTD.bError</Name>
 					<Type>BOOL</Type>
 				</Var>
@@ -2722,22 +2738,6 @@ Emergency Stop for MR1K1]]></Comment>
 				<Var>
 					<Name>PRG_MR4K2_KBV.fbM4K2_Chin_Left_RTD.iRaw</Name>
 					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR4K2_KBV.bM4K2US_RTD_2_Err</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR4K2_KBV.bM4K2US_RTD_3_Err</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR4K2_KBV.bM4K2DS_RTD_1_Err</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR4K2_KBV.bM4K2DS_RTD_2_Err</Name>
-					<Type>BOOL</Type>
 				</Var>
 				<Var>
 					<Name>PRG_MR4K2_KBV.bM4K2DS_RTD_3_Err</Name>
@@ -2889,6 +2889,11 @@ Emergency Stop for MR1K1]]></Comment>
 					<Type>INT</Type>
 				</Var>
 				<Var>
+					<Name>GVL_M1K1.M1K1_Pitch.diEncCnt</Name>
+					<Comment><![CDATA[Raw encoder count]]></Comment>
+					<Type>LINT</Type>
+				</Var>
+				<Var>
 					<Name>GVL_M1K1_BENDER_RTD.nM1K1US_RTD_3</Name>
 					<Type>INT</Type>
 				</Var>
@@ -2896,11 +2901,6 @@ Emergency Stop for MR1K1]]></Comment>
 					<Name>GVL_M1K1_BENDER_RTD.nM1K1DS_RTD_1</Name>
 					<Comment><![CDATA[ M1K1 DS RTDs]]></Comment>
 					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_M1K1.M1K1_Pitch.diEncCnt</Name>
-					<Comment><![CDATA[Raw encoder count]]></Comment>
-					<Type>LINT</Type>
 				</Var>
 				<Var>
 					<Name>GVL_M1K1_BENDER_RTD.nM1K1DS_RTD_2</Name>
@@ -2911,6 +2911,11 @@ Emergency Stop for MR1K1]]></Comment>
 					<Type>INT</Type>
 				</Var>
 				<Var>
+					<Name>GVL_M1K2.M1K2_Pitch.diEncCnt</Name>
+					<Comment><![CDATA[Raw encoder count]]></Comment>
+					<Type>LINT</Type>
+				</Var>
+				<Var>
 					<Name>GVL_M3K2.nM3K2US_RTD_1</Name>
 					<Comment><![CDATA[ M3K2 US RTDs]]></Comment>
 					<Type>INT</Type>
@@ -2918,11 +2923,6 @@ Emergency Stop for MR1K1]]></Comment>
 				<Var>
 					<Name>GVL_M3K2.nM3K2US_RTD_2</Name>
 					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_M1K2.M1K2_Pitch.diEncCnt</Name>
-					<Comment><![CDATA[Raw encoder count]]></Comment>
-					<Type>LINT</Type>
 				</Var>
 				<Var>
 					<Name>GVL_M3K2.nM3K2DS_RTD_1</Name>
@@ -2950,14 +2950,6 @@ Emergency Stop for MR1K1]]></Comment>
 					<Name>GVL_M4K2.nM4K2DS_RTD_1</Name>
 					<Comment><![CDATA[ M4K2 DS RTDs]]></Comment>
 					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>Main.sio_current</Name>
-					<Type>UINT</Type>
-				</Var>
-				<Var>
-					<Name>Main.sio_load</Name>
-					<Type>UINT</Type>
 				</Var>
 				<Var>
 					<Name>Main.M1.Axis.NcToPlc</Name>
@@ -4482,13 +4474,17 @@ Emergency Stop for MR1K1]]></Comment>
 					<Name>Main.fbMotionStageM37.fbDriveVirtual.MasterAxis.NcToPlc</Name>
 					<Type GUID="{25521FAA-EA5F-4C7F-8864-BBCCDACD2E98}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 				</Var>
+				<Var>
+					<Name>Main.sio_current</Name>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
+					<Name>Main.sio_load</Name>
+					<Type>UINT</Type>
+				</Var>
 			</Vars>
 			<Vars VarGrpType="2" ContextId="4" AreaNo="65">
 				<Name>PlcTask Outputs</Name>
-				<Var>
-					<Name>PRG_MR1K1_BEND.fbM1K1PitchControl.fbMotionStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{96B75FEB-2D84-43BE-A3EC-D9A681F27D52}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
 				<Var>
 					<Name>PRG_MR1K1_BEND.bLEDPower01</Name>
 					<Comment><![CDATA[ Mirror LEDs]]></Comment>
@@ -4497,6 +4493,10 @@ Emergency Stop for MR1K1]]></Comment>
 				<Var>
 					<Name>PRG_MR1K1_BEND.bLEDPower02</Name>
 					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K1_BEND.fbM1K1PitchControl.fbMotionStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
+					<Type GUID="{96B75FEB-2D84-43BE-A3EC-D9A681F27D52}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 				</Var>
 				<Var>
 					<Name>PRG_MR1K1_BEND.fbMotionStage_m16.fbDriveVirtual.MasterAxis.PlcToNc</Name>
@@ -4586,14 +4586,6 @@ Emergency Stop for MR1K1]]></Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>PRG_SP1K1_MONO.bLEDPower03</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.bFanOn</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
 					<Name>PRG_SP1K1_MONO.fbMotionStage_m_pi.fbDriveVirtual.MasterAxis.PlcToNc</Name>
 					<Type GUID="{96B75FEB-2D84-43BE-A3EC-D9A681F27D52}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 				</Var>
@@ -4616,6 +4608,18 @@ Emergency Stop for MR1K1]]></Comment>
 				<Var>
 					<Name>PRG_SP1K1_MONO.fbMotionStage_s_io.fbDriveVirtual.MasterAxis.PlcToNc</Name>
 					<Type GUID="{96B75FEB-2D84-43BE-A3EC-D9A681F27D52}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.bLEDPower03</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SL1K2_EXIT.bFanOn</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_SL1K2_EXIT.bLEDPower</Name>
+					<Type>BOOL</Type>
 				</Var>
 				<Var>
 					<Name>PRG_SP1K1_MONO.fbGratingStates.astMotionStageMax[1].Axis.PlcToNc</Name>
@@ -4642,10 +4646,6 @@ Emergency Stop for MR1K1]]></Comment>
 				<Var>
 					<Name>PRG_SP1K1_MONO.fbGratingStates.astMotionStageMax[3].bBrakeRelease</Name>
 					<Comment><![CDATA[ NC Brake Output: TRUE to release brake]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.bLEDPower</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
