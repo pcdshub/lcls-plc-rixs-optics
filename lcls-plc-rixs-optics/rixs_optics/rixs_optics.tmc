@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass" Hash="{F8FD89C1-77C8-F9AC-6BC0-951D946F3FC5}" GeneratedBy="TwinCAT XAE Plc">
+<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass" Hash="{9F0DEA2E-20AE-EBFA-E99A-543B084020D8}" GeneratedBy="TwinCAT XAE Plc">
   <DataTypes>
     <DataType>
       <Name Namespace="Tc2_SerialCom">ComSerialLineMode_t</Name>
@@ -46054,139 +46054,6 @@ contributing fast faults, unless the FFO is currently vetoed.
       </Properties>
     </DataType>
     <DataType>
-      <Name Namespace="lcls_twincat_optics_nrw.LCLS_General_nrw">FB_FlutterDetection</Name>
-      <BitSize>640</BitSize>
-      <SubItem>
-        <Name>bVarToMonitor</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>64</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-          <Property>
-            <Name>pytmc</Name>
-            <Value>
-        pv: FLUTT:VAR
-        io: o
-        field: DESC Watched Var Toggling
-    </Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>fPastTime</Name>
-        <Type>TIME</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>96</BitOffs>
-        <Default>
-          <DateTime>T#5000ms</DateTime>
-        </Default>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>nMaxFlipsAllowed</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>128</BitOffs>
-        <Default>
-          <Value>10</Value>
-        </Default>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>bReset</Name>
-        <Type>BOOL</Type>
-        <Comment> If set to TRUE, reset flutter detection.</Comment>
-        <BitSize>8</BitSize>
-        <BitOffs>160</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-          <Property>
-            <Name>pytmc</Name>
-            <Value>
-        pv: FLUTT:RESET
-        io: i
-    </Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>bExceededFlipMax</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>168</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-          <Property>
-            <Name>pytmc</Name>
-            <Value>
-        pv: FLUTT:EXCEED
-        io: o
-        field: DESC Watched Var Toggling
-    </Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>bInit</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>176</BitOffs>
-        <Default>
-          <Bool>false</Bool>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>bLastVarValue</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>184</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>nNumFlipped</Name>
-        <Type>UINT</Type>
-        <BitSize>16</BitSize>
-        <BitOffs>192</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>tTimer</Name>
-        <Type Namespace="Tc2_Standard">TON</Type>
-        <BitSize>256</BitSize>
-        <BitOffs>256</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>rtReset</Name>
-        <Type Namespace="Tc2_Standard">R_TRIG</Type>
-        <BitSize>128</BitSize>
-        <BitOffs>512</BitOffs>
-      </SubItem>
-      <Properties>
-        <Property>
-          <Name>PouType</Name>
-          <Value>FunctionBlock</Value>
-        </Property>
-      </Properties>
-    </DataType>
-    <DataType>
       <Name Namespace="lcls_twincat_motion">ST_EL5042_Status</Name>
       <BitSize>0</BitSize>
     </DataType>
@@ -47504,7 +47371,7 @@ contributing fast faults, unless the FFO is currently vetoed.
     </DataType>
     <DataType>
       <Name Namespace="lcls_twincat_optics_nrw">FB_RunHOMS</Name>
-      <BitSize>24576</BitSize>
+      <BitSize>23360</BitSize>
       <SubItem>
         <Name>nYupEncRef</Name>
         <Type>ULINT</Type>
@@ -47612,69 +47479,11 @@ contributing fast faults, unless the FFO is currently vetoed.
         </Properties>
       </SubItem>
       <SubItem>
-        <Name>fbDownYWatch</Name>
-        <Type Namespace="lcls_twincat_optics_nrw.LCLS_General_nrw">FB_FlutterDetection</Type>
-        <BitSize>640</BitSize>
-        <BitOffs>512</BitOffs>
-        <Default>
-          <SubItem>
-            <Name>.fPastTime</Name>
-            <DateTime>T#10000ms</DateTime>
-          </SubItem>
-          <SubItem>
-            <Name>.nMaxFlipsAllowed</Name>
-            <Value>3</Value>
-          </SubItem>
-        </Default>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-          <Property>
-            <Name>pytmc</Name>
-            <Value>
-        pv: WATCH:Y
-        io: io
-    </Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>fbDownXWatch</Name>
-        <Type Namespace="lcls_twincat_optics_nrw.LCLS_General_nrw">FB_FlutterDetection</Type>
-        <BitSize>640</BitSize>
-        <BitOffs>1152</BitOffs>
-        <Default>
-          <SubItem>
-            <Name>.fPastTime</Name>
-            <DateTime>T#10000ms</DateTime>
-          </SubItem>
-          <SubItem>
-            <Name>.nMaxFlipsAllowed</Name>
-            <Value>3</Value>
-          </SubItem>
-        </Default>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-          <Property>
-            <Name>pytmc</Name>
-            <Value>
-        pv: WATCH:X
-        io: io
-    </Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
         <Name>nCurrGantryY</Name>
         <Type>LINT</Type>
         <Comment> Current gantry difference</Comment>
         <BitSize>64</BitSize>
-        <BitOffs>1792</BitOffs>
+        <BitOffs>512</BitOffs>
         <Properties>
           <Property>
             <Name>ItemType</Name>
@@ -47686,7 +47495,7 @@ contributing fast faults, unless the FFO is currently vetoed.
         <Name>nCurrGantryX</Name>
         <Type>LINT</Type>
         <BitSize>64</BitSize>
-        <BitOffs>1856</BitOffs>
+        <BitOffs>576</BitOffs>
         <Properties>
           <Property>
             <Name>ItemType</Name>
@@ -47699,7 +47508,7 @@ contributing fast faults, unless the FFO is currently vetoed.
         <Type Namespace="lcls_twincat_motion" ReferenceTo="true">ST_MotionStage</Type>
         <Comment> Motor Structs</Comment>
         <BitSize>64</BitSize>
-        <BitOffs>1920</BitOffs>
+        <BitOffs>640</BitOffs>
         <Properties>
           <Property>
             <Name>ItemType</Name>
@@ -47711,7 +47520,7 @@ contributing fast faults, unless the FFO is currently vetoed.
         <Name>stYdwn</Name>
         <Type Namespace="lcls_twincat_motion" ReferenceTo="true">ST_MotionStage</Type>
         <BitSize>64</BitSize>
-        <BitOffs>1984</BitOffs>
+        <BitOffs>704</BitOffs>
         <Properties>
           <Property>
             <Name>ItemType</Name>
@@ -47723,7 +47532,7 @@ contributing fast faults, unless the FFO is currently vetoed.
         <Name>stXup</Name>
         <Type Namespace="lcls_twincat_motion" ReferenceTo="true">ST_MotionStage</Type>
         <BitSize>64</BitSize>
-        <BitOffs>2048</BitOffs>
+        <BitOffs>768</BitOffs>
         <Properties>
           <Property>
             <Name>ItemType</Name>
@@ -47735,7 +47544,7 @@ contributing fast faults, unless the FFO is currently vetoed.
         <Name>stXdwn</Name>
         <Type Namespace="lcls_twincat_motion" ReferenceTo="true">ST_MotionStage</Type>
         <BitSize>64</BitSize>
-        <BitOffs>2112</BitOffs>
+        <BitOffs>832</BitOffs>
         <Properties>
           <Property>
             <Name>ItemType</Name>
@@ -47747,7 +47556,7 @@ contributing fast faults, unless the FFO is currently vetoed.
         <Name>stPitch</Name>
         <Type Namespace="lcls_twincat_motion" ReferenceTo="true">ST_MotionStage</Type>
         <BitSize>64</BitSize>
-        <BitOffs>2176</BitOffs>
+        <BitOffs>896</BitOffs>
         <Properties>
           <Property>
             <Name>ItemType</Name>
@@ -47760,7 +47569,7 @@ contributing fast faults, unless the FFO is currently vetoed.
         <Type ReferenceTo="true">BOOL</Type>
         <Comment> Manual coupling Gantried Axes</Comment>
         <BitSize>64</BitSize>
-        <BitOffs>2240</BitOffs>
+        <BitOffs>960</BitOffs>
         <Properties>
           <Property>
             <Name>ItemType</Name>
@@ -47772,7 +47581,7 @@ contributing fast faults, unless the FFO is currently vetoed.
         <Name>bExecuteCoupleX</Name>
         <Type ReferenceTo="true">BOOL</Type>
         <BitSize>64</BitSize>
-        <BitOffs>2304</BitOffs>
+        <BitOffs>1024</BitOffs>
         <Properties>
           <Property>
             <Name>ItemType</Name>
@@ -47784,7 +47593,7 @@ contributing fast faults, unless the FFO is currently vetoed.
         <Name>bExecuteDecoupleY</Name>
         <Type ReferenceTo="true">BOOL</Type>
         <BitSize>64</BitSize>
-        <BitOffs>2368</BitOffs>
+        <BitOffs>1088</BitOffs>
         <Properties>
           <Property>
             <Name>ItemType</Name>
@@ -47796,7 +47605,7 @@ contributing fast faults, unless the FFO is currently vetoed.
         <Name>bExecuteDecoupleX</Name>
         <Type ReferenceTo="true">BOOL</Type>
         <BitSize>64</BitSize>
-        <BitOffs>2432</BitOffs>
+        <BitOffs>1152</BitOffs>
         <Properties>
           <Property>
             <Name>ItemType</Name>
@@ -47809,7 +47618,7 @@ contributing fast faults, unless the FFO is currently vetoed.
         <Type>BOOL</Type>
         <Comment> STO Button</Comment>
         <BitSize>8</BitSize>
-        <BitOffs>2496</BitOffs>
+        <BitOffs>1216</BitOffs>
         <Properties>
           <Property>
             <Name>TcAddressType</Name>
@@ -47821,7 +47630,7 @@ contributing fast faults, unless the FFO is currently vetoed.
         <Name>bSTOEnable2</Name>
         <Type>BOOL</Type>
         <BitSize>8</BitSize>
-        <BitOffs>2504</BitOffs>
+        <BitOffs>1224</BitOffs>
         <Properties>
           <Property>
             <Name>TcAddressType</Name>
@@ -47834,7 +47643,7 @@ contributing fast faults, unless the FFO is currently vetoed.
         <Type Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
         <Comment> Encoders</Comment>
         <BitSize>128</BitSize>
-        <BitOffs>2560</BitOffs>
+        <BitOffs>1280</BitOffs>
         <Properties>
           <Property>
             <Name>TcAddressType</Name>
@@ -47846,7 +47655,7 @@ contributing fast faults, unless the FFO is currently vetoed.
         <Name>stYdwnEnc</Name>
         <Type Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
         <BitSize>128</BitSize>
-        <BitOffs>2688</BitOffs>
+        <BitOffs>1408</BitOffs>
         <Properties>
           <Property>
             <Name>TcAddressType</Name>
@@ -47858,7 +47667,7 @@ contributing fast faults, unless the FFO is currently vetoed.
         <Name>stXupEnc</Name>
         <Type Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
         <BitSize>128</BitSize>
-        <BitOffs>2816</BitOffs>
+        <BitOffs>1536</BitOffs>
         <Properties>
           <Property>
             <Name>TcAddressType</Name>
@@ -47870,7 +47679,7 @@ contributing fast faults, unless the FFO is currently vetoed.
         <Name>stXdwnEnc</Name>
         <Type Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
         <BitSize>128</BitSize>
-        <BitOffs>2944</BitOffs>
+        <BitOffs>1664</BitOffs>
         <Properties>
           <Property>
             <Name>TcAddressType</Name>
@@ -47883,13 +47692,91 @@ contributing fast faults, unless the FFO is currently vetoed.
         <Type Namespace="lcls_twincat_motion">FB_GantryAutoCoupling</Type>
         <Comment> Autocoupling Gantried Axes</Comment>
         <BitSize>10752</BitSize>
-        <BitOffs>3072</BitOffs>
+        <BitOffs>1792</BitOffs>
       </SubItem>
       <SubItem>
         <Name>fbAutoCoupleX</Name>
         <Type Namespace="lcls_twincat_motion">FB_GantryAutoCoupling</Type>
         <BitSize>10752</BitSize>
-        <BitOffs>13824</BitOffs>
+        <BitOffs>12544</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>fSupplySecondY</Name>
+        <Type>UINT</Type>
+        <BitSize>16</BitSize>
+        <BitOffs>23296</BitOffs>
+        <Properties>
+          <Property>
+            <Name>pytmc</Name>
+            <Value>
+        pv: SUP:SEC:VOL:Y
+        io: i
+    </Value>
+          </Property>
+          <Property>
+            <Name>TcAddressType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>fMotorCurSecondY</Name>
+        <Type>UINT</Type>
+        <BitSize>16</BitSize>
+        <BitOffs>23312</BitOffs>
+        <Properties>
+          <Property>
+            <Name>pytmc</Name>
+            <Value>
+        pv: CUR:SEC:AMP:Y
+		field: EGU mA
+        io: i
+    </Value>
+          </Property>
+          <Property>
+            <Name>TcAddressType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>fSupplySecondX</Name>
+        <Type>UINT</Type>
+        <BitSize>16</BitSize>
+        <BitOffs>23328</BitOffs>
+        <Properties>
+          <Property>
+            <Name>pytmc</Name>
+            <Value>
+        pv: SUP:SEC:VOL:X
+        io: i
+    </Value>
+          </Property>
+          <Property>
+            <Name>TcAddressType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>fMotorCurSecondX</Name>
+        <Type>UINT</Type>
+        <BitSize>16</BitSize>
+        <BitOffs>23344</BitOffs>
+        <Properties>
+          <Property>
+            <Name>pytmc</Name>
+            <Value>
+        pv: CUR:SEC:AMP:X
+		field: EGU mA
+        io: i
+    </Value>
+          </Property>
+          <Property>
+            <Name>TcAddressType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
       </SubItem>
       <Properties>
         <Property>
@@ -47900,20 +47787,25 @@ contributing fast faults, unless the FFO is currently vetoed.
     </DataType>
     <DataType>
       <Name Namespace="lcls_twincat_optics_nrw">DUT_HOMS</Name>
-      <BitSize>24832</BitSize>
+      <BitSize>23616</BitSize>
       <SubItem>
         <Name>fbRunHOMS</Name>
         <Type Namespace="lcls_twincat_optics_nrw">FB_RunHOMS</Type>
         <Comment> System initializiation</Comment>
-        <BitSize>24576</BitSize>
+        <BitSize>23360</BitSize>
         <BitOffs>0</BitOffs>
+        <Properties>
+          <Property>
+            <Name>pytmc</Name>
+          </Property>
+        </Properties>
       </SubItem>
       <SubItem>
         <Name>bExecuteCoupleY</Name>
         <Type>BOOL</Type>
         <Comment> Couple/Decouple motors</Comment>
         <BitSize>8</BitSize>
-        <BitOffs>24576</BitOffs>
+        <BitOffs>23360</BitOffs>
         <Properties>
           <Property>
             <Name>pytmc</Name>
@@ -47928,7 +47820,7 @@ contributing fast faults, unless the FFO is currently vetoed.
         <Name>bExecuteDecoupleY</Name>
         <Type>BOOL</Type>
         <BitSize>8</BitSize>
-        <BitOffs>24584</BitOffs>
+        <BitOffs>23368</BitOffs>
         <Properties>
           <Property>
             <Name>pytmc</Name>
@@ -47943,7 +47835,7 @@ contributing fast faults, unless the FFO is currently vetoed.
         <Name>bExecuteCoupleX</Name>
         <Type>BOOL</Type>
         <BitSize>8</BitSize>
-        <BitOffs>24592</BitOffs>
+        <BitOffs>23376</BitOffs>
         <Properties>
           <Property>
             <Name>pytmc</Name>
@@ -47958,7 +47850,7 @@ contributing fast faults, unless the FFO is currently vetoed.
         <Name>bExecuteDecoupleX</Name>
         <Type>BOOL</Type>
         <BitSize>8</BitSize>
-        <BitOffs>24600</BitOffs>
+        <BitOffs>23384</BitOffs>
         <Properties>
           <Property>
             <Name>pytmc</Name>
@@ -47974,7 +47866,7 @@ contributing fast faults, unless the FFO is currently vetoed.
         <Type>BOOL</Type>
         <Comment> Coupling status</Comment>
         <BitSize>8</BitSize>
-        <BitOffs>24608</BitOffs>
+        <BitOffs>23392</BitOffs>
         <Properties>
           <Property>
             <Name>pytmc</Name>
@@ -47990,7 +47882,7 @@ contributing fast faults, unless the FFO is currently vetoed.
         <Name>bGantryAlreadyCoupledX</Name>
         <Type>BOOL</Type>
         <BitSize>8</BitSize>
-        <BitOffs>24616</BitOffs>
+        <BitOffs>23400</BitOffs>
         <Properties>
           <Property>
             <Name>pytmc</Name>
@@ -48007,21 +47899,21 @@ contributing fast faults, unless the FFO is currently vetoed.
         <Type>LINT</Type>
         <Comment> encoder counts = nm</Comment>
         <BitSize>64</BitSize>
-        <BitOffs>24640</BitOffs>
+        <BitOffs>23424</BitOffs>
       </SubItem>
       <SubItem>
         <Name>nCurrGantryX</Name>
         <Type>LINT</Type>
         <Comment> encoder counts = nm</Comment>
         <BitSize>64</BitSize>
-        <BitOffs>24704</BitOffs>
+        <BitOffs>23488</BitOffs>
       </SubItem>
       <SubItem>
         <Name>fCurrGantryY_um</Name>
         <Type>REAL</Type>
         <Comment> Y Gantry difference in um</Comment>
         <BitSize>32</BitSize>
-        <BitOffs>24768</BitOffs>
+        <BitOffs>23552</BitOffs>
         <Properties>
           <Property>
             <Name>pytmc</Name>
@@ -48038,7 +47930,7 @@ contributing fast faults, unless the FFO is currently vetoed.
         <Type>REAL</Type>
         <Comment> X Gantry difference in um</Comment>
         <BitSize>32</BitSize>
-        <BitOffs>24800</BitOffs>
+        <BitOffs>23584</BitOffs>
         <Properties>
           <Property>
             <Name>pytmc</Name>
@@ -83698,7 +83590,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
             <Comment>PI Serial</Comment>
             <BitSize>112640</BitSize>
             <BaseType Namespace="lcls_twincat_optics_nrw">FB_PI_E621_SerialDriver</BaseType>
-            <BitOffs>1265885376</BitOffs>
+            <BitOffs>1265104576</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_M1K2.M1K2_Pitch</Name>
@@ -83805,7 +83697,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1265105280</BitOffs>
+            <BitOffs>1265221376</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.iLatchNeg</Name>
@@ -83821,7 +83713,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1265105344</BitOffs>
+            <BitOffs>1265221440</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.nEncoderCount</Name>
@@ -83837,7 +83729,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1265105408</BitOffs>
+            <BitOffs>1265221504</BitOffs>
           </Symbol>
         </DataArea>
         <DataArea>
@@ -84027,7 +83919,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
             <Default>
               <String>172.21.140.21</String>
             </Default>
-            <BitOffs>1265105472</BitOffs>
+            <BitOffs>1265221568</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.nFrameCount</Name>
@@ -84042,7 +83934,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
     </Value>
               </Property>
             </Properties>
-            <BitOffs>1265106128</BitOffs>
+            <BitOffs>1265222224</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.tSWTriggerDelay</Name>
@@ -84051,20 +83943,20 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
             <Default>
               <DateTime>T#8ms</DateTime>
             </Default>
-            <BitOffs>1265106144</BitOffs>
+            <BitOffs>1265222240</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.iTimeSincePos</Name>
             <Comment> Outputs</Comment>
             <BitSize>64</BitSize>
             <BaseType>ULINT</BaseType>
-            <BitOffs>1265106176</BitOffs>
+            <BitOffs>1265222272</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.iMaxTime</Name>
             <BitSize>64</BitSize>
             <BaseType>ULINT</BaseType>
-            <BitOffs>1265106240</BitOffs>
+            <BitOffs>1265222336</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.iMinTime</Name>
@@ -84073,19 +83965,19 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
             <Default>
               <Value>10000000000</Value>
             </Default>
-            <BitOffs>1265106304</BitOffs>
+            <BitOffs>1265222400</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fTimeInS</Name>
             <BitSize>64</BitSize>
             <BaseType>LREAL</BaseType>
-            <BitOffs>1265106368</BitOffs>
+            <BitOffs>1265222464</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.iTriggerWidth</Name>
             <BitSize>64</BitSize>
             <BaseType>ULINT</BaseType>
-            <BitOffs>1265106432</BitOffs>
+            <BitOffs>1265222528</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fTriggerRate</Name>
@@ -84100,25 +83992,25 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
     </Value>
               </Property>
             </Properties>
-            <BitOffs>1265106496</BitOffs>
+            <BitOffs>1265222592</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.tonSWTrigger</Name>
             <BitSize>256</BitSize>
             <BaseType Namespace="Tc2_Standard">TON</BaseType>
-            <BitOffs>1265106560</BitOffs>
+            <BitOffs>1265222656</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.iPrevLatchPos</Name>
             <BitSize>64</BitSize>
             <BaseType>ULINT</BaseType>
-            <BitOffs>1265106816</BitOffs>
+            <BitOffs>1265222912</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fMaxTimeInS</Name>
             <BitSize>64</BitSize>
             <BaseType>LREAL</BaseType>
-            <BitOffs>1265106880</BitOffs>
+            <BitOffs>1265222976</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fMinTimeInS</Name>
@@ -84127,79 +84019,79 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
             <Default>
               <Value>10000000</Value>
             </Default>
-            <BitOffs>1265106944</BitOffs>
+            <BitOffs>1265223040</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.iTimeSinceLast</Name>
             <BitSize>64</BitSize>
             <BaseType>ULINT</BaseType>
-            <BitOffs>1265107008</BitOffs>
+            <BitOffs>1265223104</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.nUpdateCycles</Name>
             <BitSize>64</BitSize>
             <BaseType>ULINT</BaseType>
-            <BitOffs>1265107072</BitOffs>
+            <BitOffs>1265223168</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.stTaskInfo</Name>
             <BitSize>1024</BitSize>
             <BaseType GUID="{56294066-FFF7-46F3-8206-FA06A30B13BA}">PlcTaskSystemInfo</BaseType>
-            <BitOffs>1265107136</BitOffs>
+            <BitOffs>1265223232</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.iUnderflowCount</Name>
             <BitSize>64</BitSize>
             <BaseType>ULINT</BaseType>
-            <BitOffs>1265108160</BitOffs>
+            <BitOffs>1265224256</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fUnderflowPercent</Name>
             <BitSize>64</BitSize>
             <BaseType>LREAL</BaseType>
-            <BitOffs>1265108224</BitOffs>
+            <BitOffs>1265224320</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fEncScale</Name>
             <BitSize>64</BitSize>
             <BaseType>LREAL</BaseType>
-            <BitOffs>1265108288</BitOffs>
+            <BitOffs>1265224384</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fEncScaleDenominator</Name>
             <BitSize>64</BitSize>
             <BaseType>LREAL</BaseType>
-            <BitOffs>1265108352</BitOffs>
+            <BitOffs>1265224448</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fbSocketHandler</Name>
             <BitSize>110592</BitSize>
             <BaseType>FB_UDPSocketHandler</BaseType>
-            <BitOffs>1265108416</BitOffs>
+            <BitOffs>1265224512</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fbSocketSend</Name>
             <BitSize>275200</BitSize>
             <BaseType>FB_BufferedSocketSend</BaseType>
-            <BitOffs>1265219008</BitOffs>
+            <BitOffs>1265335104</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fbSocketHandlerTest</Name>
             <BitSize>110592</BitSize>
             <BaseType>FB_UDPSocketHandler</BaseType>
-            <BitOffs>1265494208</BitOffs>
+            <BitOffs>1265610304</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fbSocketSendTest</Name>
             <BitSize>275200</BitSize>
             <BaseType>FB_BufferedSocketSend</BaseType>
-            <BitOffs>1265604800</BitOffs>
+            <BitOffs>1265720896</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.payload</Name>
             <BitSize>512</BitSize>
             <BaseType>DUT_01_Channel_NW</BaseType>
-            <BitOffs>1265880000</BitOffs>
+            <BitOffs>1265996096</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fbHeader</Name>
@@ -84211,7 +84103,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <String>plc-tst-proto6</String>
               </SubItem>
             </Default>
-            <BitOffs>1265880512</BitOffs>
+            <BitOffs>1265996608</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fbChannel</Name>
@@ -84223,14 +84115,14 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>1</Value>
               </SubItem>
             </Default>
-            <BitOffs>1265881088</BitOffs>
+            <BitOffs>1265997184</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fbGetTaskIndex</Name>
             <Comment> Function blocks</Comment>
             <BitSize>256</BitSize>
             <BaseType Namespace="Tc2_System">GETCURTASKINDEX</BaseType>
-            <BitOffs>1265881920</BitOffs>
+            <BitOffs>1265998016</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fEpicsEncCount</Name>
@@ -84246,7 +84138,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
     </Value>
               </Property>
             </Properties>
-            <BitOffs>1265882240</BitOffs>
+            <BitOffs>1265998336</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.fEpicsTrigWidth</Name>
@@ -84261,7 +84153,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
     </Value>
               </Property>
             </Properties>
-            <BitOffs>1265882272</BitOffs>
+            <BitOffs>1265998368</BitOffs>
           </Symbol>
           <Symbol>
             <Name>TwinCAT_SystemInfoVarList._TaskInfo</Name>
@@ -84360,7 +84252,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1272230592</BitOffs>
+            <BitOffs>1272229312</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.bSTOEnable2</Name>
@@ -84372,7 +84264,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1272230600</BitOffs>
+            <BitOffs>1272229320</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.stYupEnc</Name>
@@ -84385,7 +84277,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1272230656</BitOffs>
+            <BitOffs>1272229376</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.stYdwnEnc</Name>
@@ -84397,7 +84289,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1272230784</BitOffs>
+            <BitOffs>1272229504</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.stXupEnc</Name>
@@ -84409,7 +84301,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1272230912</BitOffs>
+            <BitOffs>1272229632</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.stXdwnEnc</Name>
@@ -84421,7 +84313,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1272231040</BitOffs>
+            <BitOffs>1272229760</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.fbAutoCoupleY.gantry_diff_limit.PEnc.Count</Name>
@@ -84434,7 +84326,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1272231808</BitOffs>
+            <BitOffs>1272230528</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.fbAutoCoupleY.gantry_diff_limit.SEnc.Count</Name>
@@ -84447,7 +84339,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1272231936</BitOffs>
+            <BitOffs>1272230656</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.fbAutoCoupleX.gantry_diff_limit.PEnc.Count</Name>
@@ -84460,7 +84352,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1272242560</BitOffs>
+            <BitOffs>1272241280</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.fbAutoCoupleX.gantry_diff_limit.SEnc.Count</Name>
@@ -84473,7 +84365,85 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1272242688</BitOffs>
+            <BitOffs>1272241408</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.fSupplySecondY</Name>
+            <BitSize>16</BitSize>
+            <BaseType>UINT</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+        pv: SUP:SEC:VOL:Y
+        io: i
+    </Value>
+              </Property>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1272251392</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.fMotorCurSecondY</Name>
+            <BitSize>16</BitSize>
+            <BaseType>UINT</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+        pv: CUR:SEC:AMP:Y
+		field: EGU mA
+        io: i
+    </Value>
+              </Property>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1272251408</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.fSupplySecondX</Name>
+            <BitSize>16</BitSize>
+            <BaseType>UINT</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+        pv: SUP:SEC:VOL:X
+        io: i
+    </Value>
+              </Property>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1272251424</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.fMotorCurSecondX</Name>
+            <BitSize>16</BitSize>
+            <BaseType>UINT</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+        pv: CUR:SEC:AMP:X
+		field: EGU mA
+        io: i
+    </Value>
+              </Property>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1272251440</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K1_BEND.fbM1K1PitchControl.fbMotionStage.fbDriveVirtual.MasterAxis.NcToPlc</Name>
@@ -85267,7 +85237,7 @@ Emergency Stop for MR1K1</Comment>
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1282052800</BitOffs>
+            <BitOffs>1282051520</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.bSTOEnable2</Name>
@@ -85279,7 +85249,7 @@ Emergency Stop for MR1K1</Comment>
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1282052808</BitOffs>
+            <BitOffs>1282051528</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stYupEnc</Name>
@@ -85292,7 +85262,7 @@ Emergency Stop for MR1K1</Comment>
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1282052864</BitOffs>
+            <BitOffs>1282051584</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stYdwnEnc</Name>
@@ -85304,7 +85274,7 @@ Emergency Stop for MR1K1</Comment>
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1282052992</BitOffs>
+            <BitOffs>1282051712</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stXupEnc</Name>
@@ -85316,7 +85286,7 @@ Emergency Stop for MR1K1</Comment>
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1282053120</BitOffs>
+            <BitOffs>1282051840</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stXdwnEnc</Name>
@@ -85328,7 +85298,7 @@ Emergency Stop for MR1K1</Comment>
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1282053248</BitOffs>
+            <BitOffs>1282051968</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleY.gantry_diff_limit.PEnc.Count</Name>
@@ -85341,7 +85311,7 @@ Emergency Stop for MR1K1</Comment>
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1282054016</BitOffs>
+            <BitOffs>1282052736</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleY.gantry_diff_limit.SEnc.Count</Name>
@@ -85354,7 +85324,7 @@ Emergency Stop for MR1K1</Comment>
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1282054144</BitOffs>
+            <BitOffs>1282052864</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleX.gantry_diff_limit.PEnc.Count</Name>
@@ -85367,7 +85337,7 @@ Emergency Stop for MR1K1</Comment>
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1282064768</BitOffs>
+            <BitOffs>1282063488</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleX.gantry_diff_limit.SEnc.Count</Name>
@@ -85380,7 +85350,85 @@ Emergency Stop for MR1K1</Comment>
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1282064896</BitOffs>
+            <BitOffs>1282063616</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fSupplySecondY</Name>
+            <BitSize>16</BitSize>
+            <BaseType>UINT</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+        pv: SUP:SEC:VOL:Y
+        io: i
+    </Value>
+              </Property>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1282073600</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fMotorCurSecondY</Name>
+            <BitSize>16</BitSize>
+            <BaseType>UINT</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+        pv: CUR:SEC:AMP:Y
+		field: EGU mA
+        io: i
+    </Value>
+              </Property>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1282073616</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fSupplySecondX</Name>
+            <BitSize>16</BitSize>
+            <BaseType>UINT</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+        pv: SUP:SEC:VOL:X
+        io: i
+    </Value>
+              </Property>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1282073632</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fMotorCurSecondX</Name>
+            <BitSize>16</BitSize>
+            <BaseType>UINT</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+        pv: CUR:SEC:AMP:X
+		field: EGU mA
+        io: i
+    </Value>
+              </Property>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1282073648</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K2_SWITCH.fbM1K2PitchControl.fbMotionStage.fbDriveVirtual.MasterAxis.NcToPlc</Name>
@@ -93775,7 +93823,7 @@ Emergency Stop for MR1K1</Comment>
                 <Value>Output</Value>
               </Property>
             </Properties>
-            <BitOffs>1265882224</BitOffs>
+            <BitOffs>1265998320</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K1_BEND.bLEDPower02</Name>
@@ -93800,7 +93848,7 @@ Emergency Stop for MR1K1</Comment>
                 <Value>Output</Value>
               </Property>
             </Properties>
-            <BitOffs>1265882232</BitOffs>
+            <BitOffs>1265998328</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K1_BEND.fbM1K1PitchControl.fbMotionStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
@@ -103456,35 +103504,10 @@ Emergency Stop for MR1K1</Comment>
             <BitOffs>1265065976</BitOffs>
           </Symbol>
           <Symbol>
-            <Name>PRG_MR1K1_BEND.bM1K1PitchBusy</Name>
-            <BitSize>8</BitSize>
-            <BaseType>BOOL</BaseType>
-            <BitOffs>1265106120</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>PRG_DAQ_ENCODER.nBusyCycles</Name>
-            <Comment> Temp testing</Comment>
-            <BitSize>16</BitSize>
-            <BaseType>UINT</BaseType>
-            <BitOffs>1265882176</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>PRG_DAQ_ENCODER.nMaxBusyCycles</Name>
-            <BitSize>16</BitSize>
-            <BaseType>UINT</BaseType>
-            <BitOffs>1265882192</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>PRG_DAQ_ENCODER.nDroppedFrames</Name>
-            <BitSize>16</BitSize>
-            <BaseType>UINT</BaseType>
-            <BitOffs>1265882208</BitOffs>
-          </Symbol>
-          <Symbol>
             <Name>PiezoSerial.rtInitParams_M1K2</Name>
             <BitSize>128</BitSize>
             <BaseType Namespace="Tc2_Standard">R_TRIG</BaseType>
-            <BitOffs>1265998016</BitOffs>
+            <BitOffs>1265217216</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PiezoSerial.tonTimeoutRst_M1K2</Name>
@@ -103497,7 +103520,32 @@ Emergency Stop for MR1K1</Comment>
                 <DateTime>T#2S</DateTime>
               </SubItem>
             </Default>
-            <BitOffs>1265998144</BitOffs>
+            <BitOffs>1265217344</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K1_BEND.bM1K1PitchBusy</Name>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
+            <BitOffs>1265222216</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_DAQ_ENCODER.nBusyCycles</Name>
+            <Comment> Temp testing</Comment>
+            <BitSize>16</BitSize>
+            <BaseType>UINT</BaseType>
+            <BitOffs>1265998272</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_DAQ_ENCODER.nMaxBusyCycles</Name>
+            <BitSize>16</BitSize>
+            <BaseType>UINT</BaseType>
+            <BitOffs>1265998288</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_DAQ_ENCODER.nDroppedFrames</Name>
+            <BitSize>16</BitSize>
+            <BaseType>UINT</BaseType>
+            <BitOffs>1265998304</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_1_PlcTask.fbLogHandler</Name>
@@ -103507,7 +103555,7 @@ Emergency Stop for MR1K1</Comment>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K1_BEND.M1K1</Name>
-            <BitSize>24832</BitSize>
+            <BitSize>23616</BitSize>
             <BaseType Namespace="lcls_twincat_optics_nrw">DUT_HOMS</BaseType>
             <Properties>
               <Property>
@@ -103518,8 +103566,11 @@ Emergency Stop for MR1K1</Comment>
                               .fbRunHOMS.stYdwnEnc.Count:=TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 2^Position;
                               .fbRunHOMS.stXupEnc.Count:=TIIB[EL5042_M1K1_Xupdwn]^FB Inputs Channel 1^Position;
                               .fbRunHOMS.stXdwnEnc.Count:=TIIB[EL5042_M1K1_Xupdwn]^FB Inputs Channel 2^Position;
-                              .fbRunHOMS.fbDownYWatch.bVarToMonitor:=TIIB[EL7047_M1K1_Ydwn]^STM Control^Control^Reduce torque;
-                              .fbRunHOMS.fbDownXWatch.bVarToMonitor:=TIIB[EL7047_M1K1_Xdwn]^STM Control^Control^Reduce torque;</Value>
+                              .fbRunHOMS.fSupplySecondY:=TIIB[EL7047_M1K1_Ydwn]^STM Synchron info data^Info data 1; 
+							  .fbRunHOMS.fMotorCurSecondY:=TIIB[EL7047_M1K1_Ydwn]^STM Synchron info data^Info data 2;
+							  .fbRunHOMS.fSupplySecondX:=TIIB[EL7047_M1K1_Xdwn]^STM Synchron info data^Info data 1;
+							  .fbRunHOMS.fMotorCurSecondX:=TIIB[EL7047_M1K1_Xdwn]^STM Synchron info data^Info data 2;
+    </Value>
               </Property>
               <Property>
                 <Name>pytmc</Name>
@@ -104311,7 +104362,7 @@ M1K1 BEND US ENC CNT</Comment>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K2_SWITCH.M1K2</Name>
-            <BitSize>24832</BitSize>
+            <BitSize>23616</BitSize>
             <BaseType Namespace="lcls_twincat_optics_nrw">DUT_HOMS</BaseType>
             <Properties>
               <Property>
@@ -104322,8 +104373,11 @@ M1K1 BEND US ENC CNT</Comment>
                               .fbRunHOMS.stYdwnEnc.Count:=TIIB[EL5042_M1K2_Yleftright]^FB Inputs Channel 2^Position;
                               .fbRunHOMS.stXupEnc.Count:=TIIB[EL5042_M1K2_Xupdwn]^FB Inputs Channel 1^Position;
                               .fbRunHOMS.stXdwnEnc.Count:=TIIB[EL5042_M1K2_Xupdwn]^FB Inputs Channel 2^Position;
-                              .fbRunHOMS.fbDownYWatch.bVarToMonitor:=TIIB[EL7047_M1K2_Yright]^STM Control^Control^Reduce torque;
-                              .fbRunHOMS.fbDownXWatch.bVarToMonitor:=TIIB[EL7047_M1K2_Xdwn]^STM Control^Control^Reduce torque;</Value>
+                              .fbRunHOMS.fSupplySecondY:=TIIB[EL7047_M1K2_Yright]^STM Synchron info data^Info data 1;
+							  .fbRunHOMS.fMotorCurSecondY:=TIIB[EL7047_M1K2_Yright]^STM Synchron info data^Info data 2;
+							  .fbRunHOMS.fSupplySecondX:=TIIB[EL7047_M1K2_Xdwn]^STM Synchron info data^Info data 1;
+							  .fbRunHOMS.fMotorCurSecondX:=TIIB[EL7047_M1K2_Xdwn]^STM Synchron info data^Info data 2
+</Value>
               </Property>
               <Property>
                 <Name>pytmc</Name>
@@ -110683,7 +110737,7 @@ M4K2 KBV X ENC CNT</Comment>
         </Property>
         <Property>
           <Name>ChangeDate</Name>
-          <Value>2025-05-29T12:23:57</Value>
+          <Value>2025-06-10T11:49:43</Value>
         </Property>
         <Property>
           <Name>GeneratedCodeSize</Name>

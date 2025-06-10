@@ -1349,7 +1349,7 @@ External Setpoint Generation:
 		</DataType>
 	</DataTypes>
 	<Project GUID="{85BF455D-934D-415A-B04C-6D4CDD9FF10E}" Name="rixs_optics" PrjFilePath="..\..\rixs_optics\rixs_optics.plcproj" TmcFilePath="..\..\rixs_optics\rixs_optics.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="rixs_optics\rixs_optics.tmc" TmcHash="{F8FD89C1-77C8-F9AC-6BC0-951D946F3FC5}">
+		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="rixs_optics\rixs_optics.tmc" TmcHash="{9F0DEA2E-20AE-EBFA-E99A-543B084020D8}">
 			<Name>rixs_optics Instance</Name>
 			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 			<Vars VarGrpType="1">
@@ -1451,6 +1451,22 @@ External Setpoint Generation:
 					<Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.fbAutoCoupleX.gantry_diff_limit.SEnc.Count</Name>
 					<Comment><![CDATA[ Connect to encoder "Position" input]]></Comment>
 					<Type>ULINT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.fSupplySecondY</Name>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.fMotorCurSecondY</Name>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.fSupplySecondX</Name>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.fMotorCurSecondX</Name>
+					<Type>UINT</Type>
 				</Var>
 				<Var>
 					<Name>PRG_MR1K1_BEND.fbM1K1PitchControl.fbMotionStage.fbDriveVirtual.MasterAxis.NcToPlc</Name>
@@ -1744,6 +1760,22 @@ Emergency Stop for MR1K1]]></Comment>
 					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleX.gantry_diff_limit.SEnc.Count</Name>
 					<Comment><![CDATA[ Connect to encoder "Position" input]]></Comment>
 					<Type>ULINT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fSupplySecondY</Name>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fMotorCurSecondY</Name>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fSupplySecondX</Name>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fMotorCurSecondX</Name>
+					<Type>UINT</Type>
 				</Var>
 				<Var>
 					<Name>PRG_MR1K2_SWITCH.fbM1K2PitchControl.fbMotionStage.fbDriveVirtual.MasterAxis.NcToPlc</Name>
@@ -5605,6 +5637,8 @@ Emergency Stop for MR1K1]]></Comment>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL7047_M1K2_Xdwn">
 				<Link VarA="PlcTask Inputs^Main.M4.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^Main.M4.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fMotorCurSecondX" VarB="STM Synchron info data^Info data 2" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fSupplySecondX" VarB="STM Synchron info data^Info data 1" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL7047_M1K2_Xup">
 				<Link VarA="PlcTask Inputs^Main.M3.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
@@ -5617,6 +5651,8 @@ Emergency Stop for MR1K1]]></Comment>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL7047_M1K2_Yright">
 				<Link VarA="PlcTask Inputs^Main.M2.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^Main.M2.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fMotorCurSecondY" VarB="STM Synchron info data^Info data 2" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fSupplySecondY" VarB="STM Synchron info data^Info data 1" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL1004_M1K1_STO">
 				<Link VarA="PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fbRunHOMS.bSTOEnable1" VarB="Channel 1^Input" AutoLink="true" Size="1"/>
@@ -5657,6 +5693,8 @@ Emergency Stop for MR1K1]]></Comment>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL7047_M1K1_Xdwn">
 				<Link VarA="PlcTask Inputs^Main.M15.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^Main.M15.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fbRunHOMS.fMotorCurSecondX" VarB="STM Synchron info data^Info data 2" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fbRunHOMS.fSupplySecondX" VarB="STM Synchron info data^Info data 1" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL7047_M1K1_Xup">
 				<Link VarA="PlcTask Inputs^Main.M14.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
@@ -5667,6 +5705,8 @@ Emergency Stop for MR1K1]]></Comment>
 				<Link VarA="PlcTask Inputs^Main.M12.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^Main.M13.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^Main.M13.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fbRunHOMS.fMotorCurSecondY" VarB="STM Synchron info data^Info data 2" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fbRunHOMS.fSupplySecondY" VarB="STM Synchron info data^Info data 1" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL1004_M1K1_BENDER_STO">
 				<Link VarA="PlcTask Inputs^PRG_MR1K1_BEND_BENDER.M1K1BENDbSTOEnable1" VarB="Channel 1^Input" AutoLink="true" Size="1"/>
