@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass" Hash="{1DA256C0-54BD-B741-4A47-DDD7B67C213E}" GeneratedBy="TwinCAT XAE Plc">
+<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass" Hash="{82841667-1ECA-8113-9ED2-A182CB87A2EC}" GeneratedBy="TwinCAT XAE Plc">
   <DataTypes>
     <DataType>
       <Name Namespace="Tc2_SerialCom">ComSerialLineMode_t</Name>
@@ -41378,6 +41378,1896 @@ contributing fast faults, unless the FFO is currently vetoed.
       </Properties>
     </DataType>
     <DataType>
+      <Name Namespace="lcls_twincat_motion">ST_EL5042_Status</Name>
+      <BitSize>0</BitSize>
+    </DataType>
+    <DataType>
+      <Name Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Name>
+      <Comment> Renishaw BiSS-C absolute encoder used with an EL5042</Comment>
+      <BitSize>128</BitSize>
+      <SubItem>
+        <Name>Count</Name>
+        <Type>ULINT</Type>
+        <Comment> Connect to encoder "Position" input</Comment>
+        <BitSize>64</BitSize>
+        <BitOffs>0</BitOffs>
+        <Properties>
+          <Property>
+            <Name>TcAddressType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>Status</Name>
+        <Type Namespace="lcls_twincat_motion">ST_EL5042_Status</Type>
+        <Comment> Status struct placeholder</Comment>
+        <BitSize>0</BitSize>
+        <BitOffs>64</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>Ref</Name>
+        <Type>ULINT</Type>
+        <Comment> Encoder zero position (useful for aligned position with gantries)</Comment>
+        <BitSize>64</BitSize>
+        <BitOffs>64</BitOffs>
+      </SubItem>
+    </DataType>
+    <DataType>
+      <Name Namespace="lcls_twincat_motion">FB_GantryDiffVirtualLimitSwitch</Name>
+      <BitSize>512</BitSize>
+      <SubItem>
+        <Name>PEnc</Name>
+        <Type Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+        <Comment> Primary axis encoder (usually the upstream one)</Comment>
+        <BitSize>128</BitSize>
+        <BitOffs>64</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>SEnc</Name>
+        <Type Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+        <Comment> Secondary axis encoder (couples to the primary)</Comment>
+        <BitSize>128</BitSize>
+        <BitOffs>192</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>GantDiffTol</Name>
+        <Type>LINT</Type>
+        <Comment> Gantry differenace tolerance in encoder counts</Comment>
+        <BitSize>64</BitSize>
+        <BitOffs>320</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>PLimFwd</Name>
+        <Type>BOOL</Type>
+        <Comment> Primary axis forward direction enable</Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>384</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>PLimBwd</Name>
+        <Type>BOOL</Type>
+        <Comment> Primary axis reverse direction enable</Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>392</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>SLimFwd</Name>
+        <Type>BOOL</Type>
+        <Comment> Secondary axis forward direction enable</Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>400</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>SLimBwd</Name>
+        <Type>BOOL</Type>
+        <Comment> Secondary axis reverse direction enable</Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>408</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>GantryDiff</Name>
+        <Type>LINT</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>448</BitOffs>
+      </SubItem>
+      <Properties>
+        <Property>
+          <Name>PouType</Name>
+          <Value>FunctionBlock</Value>
+        </Property>
+      </Properties>
+    </DataType>
+    <DataType>
+      <Name Namespace="Tc2_MC2">MC_BufferMode</Name>
+      <BitSize>16</BitSize>
+      <BaseType>UINT</BaseType>
+      <EnumInfo>
+        <Text>MC_Aborting</Text>
+        <Enum>0</Enum>
+      </EnumInfo>
+      <EnumInfo>
+        <Text>MC_Buffered</Text>
+        <Enum>1</Enum>
+      </EnumInfo>
+      <EnumInfo>
+        <Text>MC_BlendingLow</Text>
+        <Enum>18</Enum>
+      </EnumInfo>
+      <EnumInfo>
+        <Text>MC_BlendingPrevious</Text>
+        <Enum>19</Enum>
+      </EnumInfo>
+      <EnumInfo>
+        <Text>MC_BlendingNext</Text>
+        <Enum>20</Enum>
+      </EnumInfo>
+      <EnumInfo>
+        <Text>MC_BlendingHigh</Text>
+        <Enum>21</Enum>
+      </EnumInfo>
+    </DataType>
+    <DataType>
+      <Name Namespace="Tc2_MC2">_E_TcNC_SlaveTypes</Name>
+      <BitSize>16</BitSize>
+      <BaseType>INT</BaseType>
+      <EnumInfo>
+        <Text>TCNC_SLAVETYPE_LINEAR</Text>
+        <Enum>1</Enum>
+        <Comment> Lineare Kopplung (Geradengleichung) </Comment>
+      </EnumInfo>
+      <EnumInfo>
+        <Text>TCNC_SLAVETYPE_FLYINGSAW_ONVELOCITY</Text>
+        <Enum>2</Enum>
+        <Comment> diagonal synchron. Aufkoppeln schnellstens auf Geschwindigkeit </Comment>
+      </EnumInfo>
+      <EnumInfo>
+        <Text>TCNC_SLAVETYPE_FLYINGSAW_ONPOSITION</Text>
+        <Enum>3</Enum>
+        <Comment> diagonal synchron. Aufkoppeln auf Position und Geschwindigkeit </Comment>
+      </EnumInfo>
+      <EnumInfo>
+        <Text>TCNC_SLAVETYPE_FLYINGSAW_QUADRATIC</Text>
+        <Enum>4</Enum>
+        <Comment> diagonal synchron. Aufkoppeln (quadratisches Geschw.-Profil) </Comment>
+      </EnumInfo>
+      <EnumInfo>
+        <Text>TCNC_SLAVETYPE_SYNCHRONIZING_ONVELO</Text>
+        <Enum>5</Enum>
+        <Comment> synchron. Aufkoppeln instantan auf Geschwindigkeit </Comment>
+      </EnumInfo>
+      <EnumInfo>
+        <Text>TCNC_SLAVETYPE_SYNCHRONIZING_ONPOS</Text>
+        <Enum>6</Enum>
+        <Comment> synchron. Aufkoppeln auf Positionen und Geschwindigkeit </Comment>
+      </EnumInfo>
+      <EnumInfo>
+        <Text>TCNC_SLAVETYPE_SYNCJERKSETTER_ONVELO</Text>
+        <Enum>7</Enum>
+        <Comment> synchron. Aufkoppeln auf Geschwindigkeit (zeitbasiert mittels Ruck-Steller) </Comment>
+      </EnumInfo>
+      <EnumInfo>
+        <Text>TCNC_SLAVETYPE_TABULAR</Text>
+        <Enum>10</Enum>
+        <Comment> Tabellen-Kopplung ("simple/standard tabular slave") </Comment>
+      </EnumInfo>
+      <EnumInfo>
+        <Text>TCNC_SLAVETYPE_MULTITABULAR</Text>
+        <Enum>11</Enum>
+        <Comment> Tabellen-Kopplung ("multiscalable multi-tabular slave") </Comment>
+      </EnumInfo>
+      <EnumInfo>
+        <Text>TCNC_SLAVETYPE_FLYINGMODULO_LINEAR</Text>
+        <Enum>12</Enum>
+        <Comment> Modulo Kopplung auf Position und/oder Geschwindigkeit mit anschliessender Linear Kopplung ("Schuette") </Comment>
+      </EnumInfo>
+      <EnumInfo>
+        <Text>TCNC_SLAVETYPE_MOTIONFUNCTIONTABULAR</Text>
+        <Enum>13</Enum>
+        <Comment> Tabellen-Kopplung "motion functions" </Comment>
+      </EnumInfo>
+      <EnumInfo>
+        <Text>TCNC_SLAVETYPE_UNIVERSALTABULAR</Text>
+        <Enum>14</Enum>
+        <Comment> Tabellen-Kopplung, universal tabular type substitues TABULAR, MULTITABULAR and MOTIONFUNCTION - 08.07.05 </Comment>
+      </EnumInfo>
+      <EnumInfo>
+        <Text>TCNC_SLAVETYPE_LINEAR_CYCLICCHANGES_RAMP</Text>
+        <Enum>15</Enum>
+        <Comment> Lineare Kopplung (Geradengleichung) mit zyklischer Koppelfaktoraenderung </Comment>
+      </EnumInfo>
+      <EnumInfo>
+        <Text>TCNC_SLAVETYPE_BILINEAR</Text>
+        <Enum>16</Enum>
+        <Comment> 27.04.01: Zweifach Lineare Kopplung (Geradengleichung)</Comment>
+      </EnumInfo>
+      <EnumInfo>
+        <Text>TCNC_SLAVETYPE_LINEAR_MULTIMASTER</Text>
+        <Enum>17</Enum>
+        <Comment> 29.05.08: Lineare Multi-Master-Kopplung ('MC_GearInMultiMaster') </Comment>
+      </EnumInfo>
+      <EnumInfo>
+        <Text>TCNC_SLAVETYPE_CONST_SURFACEVELO_RAMP</Text>
+        <Enum>18</Enum>
+        <Comment> Verrechnete Winkelgeschwindigkeit fuer konstante Oberflaechengeschwindig. in Abhaengigkeit vom Radiusistwert des Enc.2 </Comment>
+      </EnumInfo>
+      <Properties>
+        <Property>
+          <Name>conditionalshow</Name>
+        </Property>
+      </Properties>
+    </DataType>
+    <DataType>
+      <Name Namespace="Tc2_MC2">ST_GearInOptions</Name>
+      <BitSize>16</BitSize>
+      <SubItem>
+        <Name>SlaveType</Name>
+        <Type Namespace="Tc2_MC2">_E_TcNC_SlaveTypes</Type>
+        <BitSize>16</BitSize>
+        <BitOffs>0</BitOffs>
+      </SubItem>
+    </DataType>
+    <DataType>
+      <Name Namespace="Tc2_MC2">_ST_FunctionBlockResults</Name>
+      <BitSize>96</BitSize>
+      <SubItem>
+        <Name>Done</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>0</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>CommandAborted</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>8</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>Error</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>16</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>ErrorID</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>32</BitOffs>
+        <Properties>
+          <Property>
+            <Name>displaymode</Name>
+            <Value>hex</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>BusyCounter</Name>
+        <Type>UDINT</Type>
+        <Comment> busy cycles since triggering the block - 2018-01-24 KSt </Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>64</BitOffs>
+        <Properties>
+          <Property>
+            <Name>displaymode</Name>
+            <Value>dec</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <Properties>
+        <Property>
+          <Name>conditionalshow</Name>
+        </Property>
+      </Properties>
+    </DataType>
+    <DataType>
+      <Name Namespace="Tc2_MC2">_E_TcMC_STATES</Name>
+      <BitSize>16</BitSize>
+      <BaseType>INT</BaseType>
+      <EnumInfo>
+        <Text>STATE_INITIALIZATION</Text>
+        <Enum>100</Enum>
+      </EnumInfo>
+      <EnumInfo>
+        <Text>STATE_ORDER</Text>
+        <Enum>101</Enum>
+      </EnumInfo>
+      <EnumInfo>
+        <Text>STATE_RUNNING</Text>
+        <Enum>102</Enum>
+      </EnumInfo>
+      <EnumInfo>
+        <Text>STATE_WAITING</Text>
+        <Enum>103</Enum>
+      </EnumInfo>
+      <EnumInfo>
+        <Text>STATE_MOTIONCOMMANDSLOCKED</Text>
+        <Enum>104</Enum>
+      </EnumInfo>
+      <Properties>
+        <Property>
+          <Name>conditionalshow</Name>
+        </Property>
+      </Properties>
+    </DataType>
+    <DataType>
+      <Name Namespace="Tc2_MC2">_ST_TcNC_CoupleSlave</Name>
+      <BitSize>384</BitSize>
+      <SubItem>
+        <Name>nSlaveType</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>0</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>nMasterAxisId</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>32</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>nMasterSubIdx</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>64</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>nSlaveSubIdx</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>96</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>fCoupleParam1</Name>
+        <Type>LREAL</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>128</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>fCoupleParam2</Name>
+        <Type>LREAL</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>192</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>fCoupleParam3</Name>
+        <Type>LREAL</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>256</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>fCoupleParam4</Name>
+        <Type>LREAL</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>320</BitOffs>
+      </SubItem>
+      <Properties>
+        <Property>
+          <Name>conditionalshow</Name>
+        </Property>
+      </Properties>
+    </DataType>
+    <DataType>
+      <Name Namespace="Tc2_MC2">ST_GearInDynOptions</Name>
+      <BitSize>8</BitSize>
+      <SubItem>
+        <Name>CCVmode</Name>
+        <Type>BOOL</Type>
+        <Comment> constant circumference velocity mode </Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>0</BitOffs>
+      </SubItem>
+    </DataType>
+    <DataType>
+      <Name Namespace="Tc2_MC2">MC_GearInDyn</Name>
+      <BitSize>4416</BitSize>
+      <SubItem>
+        <Name>Master</Name>
+        <Type Namespace="Tc2_MC2" ReferenceTo="true">AXIS_REF</Type>
+        <Comment>Reference to an axis</Comment>
+        <BitSize>64</BitSize>
+        <BitOffs>64</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>Slave</Name>
+        <Type Namespace="Tc2_MC2" ReferenceTo="true">AXIS_REF</Type>
+        <Comment>Reference to an axis</Comment>
+        <BitSize>64</BitSize>
+        <BitOffs>128</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>Enable</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>192</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>GearRatio</Name>
+        <Type>LREAL</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>256</BitOffs>
+        <Default>
+          <Value>1</Value>
+        </Default>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>Acceleration</Name>
+        <Type>LREAL</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>320</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>Deceleration</Name>
+        <Type>LREAL</Type>
+        <Comment> not used </Comment>
+        <BitSize>64</BitSize>
+        <BitOffs>384</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>Jerk</Name>
+        <Type>LREAL</Type>
+        <Comment> not used </Comment>
+        <BitSize>64</BitSize>
+        <BitOffs>448</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>BufferMode</Name>
+        <Type Namespace="Tc2_MC2">MC_BufferMode</Type>
+        <BitSize>16</BitSize>
+        <BitOffs>512</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>Options</Name>
+        <Type Namespace="Tc2_MC2">ST_GearInDynOptions</Type>
+        <Comment> optional parameters </Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>528</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>InGear</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>536</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>Busy</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>544</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>Active</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>552</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>CommandAborted</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>560</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>Error</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>568</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>ErrorID</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>576</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+          <Property>
+            <Name>displaymode</Name>
+            <Value>hex</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>LastExecutionResult</Name>
+        <Type Namespace="Tc2_MC2">_ST_FunctionBlockResults</Type>
+        <BitSize>96</BitSize>
+        <BitOffs>608</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>ADSbusy</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>704</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>iState</Name>
+        <Type Namespace="Tc2_MC2">_E_TcMC_STATES</Type>
+        <BitSize>16</BitSize>
+        <BitOffs>720</BitOffs>
+        <Default>
+          <EnumText>_E_TcMC_STATES.STATE_INITIALIZATION</EnumText>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>iSubState</Name>
+        <Type>INT</Type>
+        <BitSize>16</BitSize>
+        <BitOffs>736</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>fbAdsWrite</Name>
+        <Type Namespace="Tc2_System">ADSWRITE</Type>
+        <BitSize>1344</BitSize>
+        <BitOffs>768</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>fbAdsRead</Name>
+        <Type Namespace="Tc2_System">ADSREAD</Type>
+        <BitSize>1408</BitSize>
+        <BitOffs>2112</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>sCouple</Name>
+        <Type Namespace="Tc2_MC2">_ST_TcNC_CoupleSlave</Type>
+        <BitSize>384</BitSize>
+        <BitOffs>3520</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>v_max</Name>
+        <Type>LREAL</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>3904</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>pa_limit</Name>
+        <Type>LREAL</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>3968</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>WasInGear</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>4032</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>iAcceleration</Name>
+        <Type>LREAL</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>4096</BitOffs>
+        <Properties>
+          <Property>
+            <Name>conditionalshow</Name>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>TimerStateFeedback</Name>
+        <Type Namespace="Tc2_Standard">TON</Type>
+        <BitSize>256</BitSize>
+        <BitOffs>4160</BitOffs>
+        <Properties>
+          <Property>
+            <Name>conditionalshow</Name>
+          </Property>
+        </Properties>
+      </SubItem>
+      <Properties>
+        <Property>
+          <Name>PouType</Name>
+          <Value>FunctionBlock</Value>
+        </Property>
+      </Properties>
+    </DataType>
+    <DataType>
+      <Name Namespace="Tc2_MC2">MC_GearIn</Name>
+      <BitSize>7360</BitSize>
+      <SubItem>
+        <Name>Master</Name>
+        <Type Namespace="Tc2_MC2" ReferenceTo="true">AXIS_REF</Type>
+        <Comment>Reference to an axis</Comment>
+        <BitSize>64</BitSize>
+        <BitOffs>64</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>Slave</Name>
+        <Type Namespace="Tc2_MC2" ReferenceTo="true">AXIS_REF</Type>
+        <Comment>Reference to an axis</Comment>
+        <BitSize>64</BitSize>
+        <BitOffs>128</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>Execute</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>192</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>RatioNumerator</Name>
+        <Type>LREAL</Type>
+        <Comment> changed from INT (PLCopen) to LREAL </Comment>
+        <BitSize>64</BitSize>
+        <BitOffs>256</BitOffs>
+        <Default>
+          <Value>1</Value>
+        </Default>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>RatioDenominator</Name>
+        <Type>UINT</Type>
+        <BitSize>16</BitSize>
+        <BitOffs>320</BitOffs>
+        <Default>
+          <Value>1</Value>
+        </Default>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>Acceleration</Name>
+        <Type>LREAL</Type>
+        <Comment>	MasterValueSource :	MC_SOURCE; 
+ not available </Comment>
+        <BitSize>64</BitSize>
+        <BitOffs>384</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>Deceleration</Name>
+        <Type>LREAL</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>448</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>Jerk</Name>
+        <Type>LREAL</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>512</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>BufferMode</Name>
+        <Type Namespace="Tc2_MC2">MC_BufferMode</Type>
+        <BitSize>16</BitSize>
+        <BitOffs>576</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>Options</Name>
+        <Type Namespace="Tc2_MC2">ST_GearInOptions</Type>
+        <Comment> optional parameters </Comment>
+        <BitSize>16</BitSize>
+        <BitOffs>592</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>InGear</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>608</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>Busy</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>616</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>Active</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>624</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>CommandAborted</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>632</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>Error</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>640</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>ErrorID</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>672</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+          <Property>
+            <Name>displaymode</Name>
+            <Value>hex</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>LastExecutionResult</Name>
+        <Type Namespace="Tc2_MC2">_ST_FunctionBlockResults</Type>
+        <BitSize>96</BitSize>
+        <BitOffs>704</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>ADSbusy</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>800</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>iState</Name>
+        <Type Namespace="Tc2_MC2">_E_TcMC_STATES</Type>
+        <BitSize>16</BitSize>
+        <BitOffs>816</BitOffs>
+        <Default>
+          <EnumText>_E_TcMC_STATES.STATE_INITIALIZATION</EnumText>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>fbAdsWrite</Name>
+        <Type Namespace="Tc2_System">ADSWRITE</Type>
+        <BitSize>1344</BitSize>
+        <BitOffs>832</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>sCouple</Name>
+        <Type Namespace="Tc2_MC2">_ST_TcNC_CoupleSlave</Type>
+        <BitSize>384</BitSize>
+        <BitOffs>2176</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>fbOptGearInDyn</Name>
+        <Type Namespace="Tc2_MC2">MC_GearInDyn</Type>
+        <BitSize>4416</BitSize>
+        <BitOffs>2560</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>fbOnTrigger</Name>
+        <Type Namespace="Tc2_Standard">R_TRIG</Type>
+        <BitSize>128</BitSize>
+        <BitOffs>6976</BitOffs>
+        <Properties>
+          <Property>
+            <Name>conditionalshow</Name>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>TimerStateFeedback</Name>
+        <Type Namespace="Tc2_Standard">TON</Type>
+        <BitSize>256</BitSize>
+        <BitOffs>7104</BitOffs>
+        <Properties>
+          <Property>
+            <Name>conditionalshow</Name>
+          </Property>
+        </Properties>
+      </SubItem>
+      <Action>
+        <Name>ActGearInDyn</Name>
+      </Action>
+      <Action>
+        <Name>WriteGearRatio</Name>
+      </Action>
+      <Properties>
+        <Property>
+          <Name>PouType</Name>
+          <Value>FunctionBlock</Value>
+        </Property>
+      </Properties>
+    </DataType>
+    <DataType>
+      <Name Namespace="Tc2_MC2">ST_GearOutOptions</Name>
+      <BitSize>8</BitSize>
+      <SubItem>
+        <Name>reserved</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>0</BitOffs>
+        <Properties>
+          <Property>
+            <Name>conditionalshow</Name>
+          </Property>
+        </Properties>
+      </SubItem>
+    </DataType>
+    <DataType>
+      <Name Namespace="Tc2_MC2">MC_GearOut</Name>
+      <BitSize>2112</BitSize>
+      <SubItem>
+        <Name>Slave</Name>
+        <Type Namespace="Tc2_MC2" ReferenceTo="true">AXIS_REF</Type>
+        <Comment>Reference to an axis</Comment>
+        <BitSize>64</BitSize>
+        <BitOffs>64</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>Execute</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>128</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>Options</Name>
+        <Type Namespace="Tc2_MC2">ST_GearOutOptions</Type>
+        <Comment> optional parameters </Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>136</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>Done</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>144</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>Busy</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>152</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>Error</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>160</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>ErrorID</Name>
+        <Type>UDINT</Type>
+        <BitSize>32</BitSize>
+        <BitOffs>192</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+          <Property>
+            <Name>displaymode</Name>
+            <Value>hex</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>LastExecutionResult</Name>
+        <Type Namespace="Tc2_MC2">_ST_FunctionBlockResults</Type>
+        <BitSize>96</BitSize>
+        <BitOffs>224</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>ADSbusy</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>320</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>iState</Name>
+        <Type Namespace="Tc2_MC2">_E_TcMC_STATES</Type>
+        <BitSize>16</BitSize>
+        <BitOffs>336</BitOffs>
+        <Default>
+          <EnumText>_E_TcMC_STATES.STATE_INITIALIZATION</EnumText>
+        </Default>
+      </SubItem>
+      <SubItem>
+        <Name>fbAdsWrite</Name>
+        <Type Namespace="Tc2_System">ADSWRITE</Type>
+        <BitSize>1344</BitSize>
+        <BitOffs>384</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>fbOnTrigger</Name>
+        <Type Namespace="Tc2_Standard">R_TRIG</Type>
+        <BitSize>128</BitSize>
+        <BitOffs>1728</BitOffs>
+        <Properties>
+          <Property>
+            <Name>conditionalshow</Name>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>TimerStateFeedback</Name>
+        <Type Namespace="Tc2_Standard">TON</Type>
+        <BitSize>256</BitSize>
+        <BitOffs>1856</BitOffs>
+        <Properties>
+          <Property>
+            <Name>conditionalshow</Name>
+          </Property>
+        </Properties>
+      </SubItem>
+      <Properties>
+        <Property>
+          <Name>PouType</Name>
+          <Value>FunctionBlock</Value>
+        </Property>
+      </Properties>
+    </DataType>
+    <DataType>
+      <Name Namespace="lcls_twincat_motion">FB_SetEnables</Name>
+      <BitSize>128</BitSize>
+      <SubItem>
+        <Name>stMotionStage</Name>
+        <Type Namespace="lcls_twincat_motion" ReferenceTo="true">ST_MotionStage</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>64</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <Properties>
+        <Property>
+          <Name>PouType</Name>
+          <Value>FunctionBlock</Value>
+        </Property>
+      </Properties>
+    </DataType>
+    <DataType>
+      <Name Namespace="lcls_twincat_motion">FB_GantryAutoCoupling</Name>
+      <BitSize>10752</BitSize>
+      <SubItem>
+        <Name>nGantryTol</Name>
+        <Type>LINT</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>64</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>bGantryAlreadyCoupled</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>128</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>Master</Name>
+        <Type Namespace="lcls_twincat_motion" ReferenceTo="true">ST_MotionStage</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>192</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>MasterEnc</Name>
+        <Type Namespace="lcls_twincat_motion" ReferenceTo="true">ST_RenishawAbsEnc</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>256</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>Slave</Name>
+        <Type Namespace="lcls_twincat_motion" ReferenceTo="true">ST_MotionStage</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>320</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>SlaveEnc</Name>
+        <Type Namespace="lcls_twincat_motion" ReferenceTo="true">ST_RenishawAbsEnc</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>384</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>bExecuteCouple</Name>
+        <Type ReferenceTo="true">BOOL</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>448</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>bExecuteDecouple</Name>
+        <Type ReferenceTo="true">BOOL</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>512</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>gantry_diff_limit</Name>
+        <Type Namespace="lcls_twincat_motion">FB_GantryDiffVirtualLimitSwitch</Type>
+        <BitSize>512</BitSize>
+        <BitOffs>576</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>couple</Name>
+        <Type Namespace="Tc2_MC2">MC_GearIn</Type>
+        <BitSize>7360</BitSize>
+        <BitOffs>1088</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>decouple</Name>
+        <Type Namespace="Tc2_MC2">MC_GearOut</Type>
+        <BitSize>2112</BitSize>
+        <BitOffs>8448</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>bInitComplete</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>10560</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>fbSetEnables</Name>
+        <Type Namespace="lcls_twincat_motion">FB_SetEnables</Type>
+        <BitSize>128</BitSize>
+        <BitOffs>10624</BitOffs>
+      </SubItem>
+      <Properties>
+        <Property>
+          <Name>PouType</Name>
+          <Value>FunctionBlock</Value>
+        </Property>
+      </Properties>
+    </DataType>
+    <DataType>
+      <Name Namespace="lcls_twincat_optics_nrw">FB_RunHOMS</Name>
+      <BitSize>23360</BitSize>
+      <SubItem>
+        <Name>nYupEncRef</Name>
+        <Type>ULINT</Type>
+        <Comment> Encoder Reference Values</Comment>
+        <BitSize>64</BitSize>
+        <BitOffs>64</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>nYdwnEncRef</Name>
+        <Type>ULINT</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>128</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>nXupEncRef</Name>
+        <Type>ULINT</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>192</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>nXdwnEncRef</Name>
+        <Type>ULINT</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>256</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>nGantryTolY</Name>
+        <Type>LINT</Type>
+        <Comment> Encoder counts = nm</Comment>
+        <BitSize>64</BitSize>
+        <BitOffs>320</BitOffs>
+        <Default>
+          <Value>50000</Value>
+        </Default>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>nGantryTolX</Name>
+        <Type>LINT</Type>
+        <Comment> Encoder counts = nm</Comment>
+        <BitSize>64</BitSize>
+        <BitOffs>384</BitOffs>
+        <Default>
+          <Value>50000</Value>
+        </Default>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>bGantryAlreadyCoupledY</Name>
+        <Type>BOOL</Type>
+        <Comment> Gantry coupling status</Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>448</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>bGantryAlreadyCoupledX</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>456</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>nCurrGantryY</Name>
+        <Type>LINT</Type>
+        <Comment> Current gantry difference</Comment>
+        <BitSize>64</BitSize>
+        <BitOffs>512</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>nCurrGantryX</Name>
+        <Type>LINT</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>576</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>stYup</Name>
+        <Type Namespace="lcls_twincat_motion" ReferenceTo="true">ST_MotionStage</Type>
+        <Comment> Motor Structs</Comment>
+        <BitSize>64</BitSize>
+        <BitOffs>640</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>stYdwn</Name>
+        <Type Namespace="lcls_twincat_motion" ReferenceTo="true">ST_MotionStage</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>704</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>stXup</Name>
+        <Type Namespace="lcls_twincat_motion" ReferenceTo="true">ST_MotionStage</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>768</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>stXdwn</Name>
+        <Type Namespace="lcls_twincat_motion" ReferenceTo="true">ST_MotionStage</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>832</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>stPitch</Name>
+        <Type Namespace="lcls_twincat_motion" ReferenceTo="true">ST_MotionStage</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>896</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>bExecuteCoupleY</Name>
+        <Type ReferenceTo="true">BOOL</Type>
+        <Comment> Manual coupling Gantried Axes</Comment>
+        <BitSize>64</BitSize>
+        <BitOffs>960</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>bExecuteCoupleX</Name>
+        <Type ReferenceTo="true">BOOL</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>1024</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>bExecuteDecoupleY</Name>
+        <Type ReferenceTo="true">BOOL</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>1088</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>bExecuteDecoupleX</Name>
+        <Type ReferenceTo="true">BOOL</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>1152</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>bSTOEnable1</Name>
+        <Type>BOOL</Type>
+        <Comment> STO Button</Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>1216</BitOffs>
+        <Properties>
+          <Property>
+            <Name>TcAddressType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>bSTOEnable2</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>1224</BitOffs>
+        <Properties>
+          <Property>
+            <Name>TcAddressType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>stYupEnc</Name>
+        <Type Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+        <Comment> Encoders</Comment>
+        <BitSize>128</BitSize>
+        <BitOffs>1280</BitOffs>
+        <Properties>
+          <Property>
+            <Name>TcAddressType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>stYdwnEnc</Name>
+        <Type Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+        <BitSize>128</BitSize>
+        <BitOffs>1408</BitOffs>
+        <Properties>
+          <Property>
+            <Name>TcAddressType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>stXupEnc</Name>
+        <Type Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+        <BitSize>128</BitSize>
+        <BitOffs>1536</BitOffs>
+        <Properties>
+          <Property>
+            <Name>TcAddressType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>stXdwnEnc</Name>
+        <Type Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+        <BitSize>128</BitSize>
+        <BitOffs>1664</BitOffs>
+        <Properties>
+          <Property>
+            <Name>TcAddressType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>fbAutoCoupleY</Name>
+        <Type Namespace="lcls_twincat_motion">FB_GantryAutoCoupling</Type>
+        <Comment> Autocoupling Gantried Axes</Comment>
+        <BitSize>10752</BitSize>
+        <BitOffs>1792</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>fbAutoCoupleX</Name>
+        <Type Namespace="lcls_twincat_motion">FB_GantryAutoCoupling</Type>
+        <BitSize>10752</BitSize>
+        <BitOffs>12544</BitOffs>
+      </SubItem>
+      <Properties>
+        <Property>
+          <Name>PouType</Name>
+          <Value>FunctionBlock</Value>
+        </Property>
+      </Properties>
+    </DataType>
+    <DataType>
+      <Name Namespace="lcls_twincat_optics_nrw">DUT_HOMS</Name>
+      <BitSize>23680</BitSize>
+      <SubItem>
+        <Name>fbRunHOMS</Name>
+        <Type Namespace="lcls_twincat_optics_nrw">FB_RunHOMS</Type>
+        <Comment> System initializiation</Comment>
+        <BitSize>23360</BitSize>
+        <BitOffs>0</BitOffs>
+        <Properties>
+          <Property>
+            <Name>pytmc</Name>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>bExecuteCoupleY</Name>
+        <Type>BOOL</Type>
+        <Comment> Couple/Decouple motors</Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>23360</BitOffs>
+        <Properties>
+          <Property>
+            <Name>pytmc</Name>
+            <Value>
+        pv: COUPLE_Y
+        io: o
+    </Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>bExecuteDecoupleY</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>23368</BitOffs>
+        <Properties>
+          <Property>
+            <Name>pytmc</Name>
+            <Value>
+        pv: DECOUPLE_Y
+        io: o
+    </Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>bExecuteCoupleX</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>23376</BitOffs>
+        <Properties>
+          <Property>
+            <Name>pytmc</Name>
+            <Value>
+        pv: COUPLE_X
+        io: o
+    </Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>bExecuteDecoupleX</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>23384</BitOffs>
+        <Properties>
+          <Property>
+            <Name>pytmc</Name>
+            <Value>
+        pv: DECOUPLE_X
+        io: o
+    </Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>bGantryAlreadyCoupledY</Name>
+        <Type>BOOL</Type>
+        <Comment> Coupling status</Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>23392</BitOffs>
+        <Properties>
+          <Property>
+            <Name>pytmc</Name>
+            <Value>
+        pv: ALREADY_COUPLED_Y
+        io: i
+        field: ZSV MAJOR
+    </Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>bGantryAlreadyCoupledX</Name>
+        <Type>BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>23400</BitOffs>
+        <Properties>
+          <Property>
+            <Name>pytmc</Name>
+            <Value>
+        pv: ALREADY_COUPLED_X
+        io: i
+        field: ZSV MAJOR
+    </Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>nCurrGantryY</Name>
+        <Type>LINT</Type>
+        <Comment> encoder counts = nm</Comment>
+        <BitSize>64</BitSize>
+        <BitOffs>23424</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>nCurrGantryX</Name>
+        <Type>LINT</Type>
+        <Comment> encoder counts = nm</Comment>
+        <BitSize>64</BitSize>
+        <BitOffs>23488</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>fCurrGantryY_um</Name>
+        <Type>REAL</Type>
+        <Comment> Y Gantry difference in um</Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>23552</BitOffs>
+        <Properties>
+          <Property>
+            <Name>pytmc</Name>
+            <Value>
+        pv: GANTRY_Y
+        field: EGU um
+        io: i
+    </Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>fCurrGantryX_um</Name>
+        <Type>REAL</Type>
+        <Comment> X Gantry difference in um</Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>23584</BitOffs>
+        <Properties>
+          <Property>
+            <Name>pytmc</Name>
+            <Value>
+        pv: GANTRY_X
+        field: EGU um
+        io: i
+    </Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>fSupplySecondY</Name>
+        <Type>UINT</Type>
+        <BitSize>16</BitSize>
+        <BitOffs>23616</BitOffs>
+        <Properties>
+          <Property>
+            <Name>pytmc</Name>
+            <Value>
+        pv: SUP:SEC:VOL:Y
+        io: i
+    </Value>
+          </Property>
+          <Property>
+            <Name>TcAddressType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>fMotorCurSecondY</Name>
+        <Type>UINT</Type>
+        <BitSize>16</BitSize>
+        <BitOffs>23632</BitOffs>
+        <Properties>
+          <Property>
+            <Name>pytmc</Name>
+            <Value>
+        pv: CUR:SEC:AMP:Y
+		field: EGU mA
+        io: i
+    </Value>
+          </Property>
+          <Property>
+            <Name>TcAddressType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>fSupplySecondX</Name>
+        <Type>UINT</Type>
+        <BitSize>16</BitSize>
+        <BitOffs>23648</BitOffs>
+        <Properties>
+          <Property>
+            <Name>pytmc</Name>
+            <Value>
+        pv: SUP:SEC:VOL:X
+        io: i
+    </Value>
+          </Property>
+          <Property>
+            <Name>TcAddressType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>fMotorCurSecondX</Name>
+        <Type>UINT</Type>
+        <BitSize>16</BitSize>
+        <BitOffs>23664</BitOffs>
+        <Properties>
+          <Property>
+            <Name>pytmc</Name>
+            <Value>
+        pv: CUR:SEC:AMP:X
+		field: EGU mA
+        io: i
+    </Value>
+          </Property>
+          <Property>
+            <Name>TcAddressType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+    </DataType>
+    <DataType>
       <Name GUID="{944726B1-A958-40A6-B97D-51A67664C20E}" TcBaseType="true" CName="TcEventConfirmationState*">TcEventConfirmationState</Name>
       <BitSize>16</BitSize>
       <BaseType GUID="{18071995-0000-0000-0000-000000000006}">INT</BaseType>
@@ -45622,1896 +47512,6 @@ contributing fast faults, unless the FFO is currently vetoed.
           <Value>FunctionBlock</Value>
         </Property>
       </Properties>
-    </DataType>
-    <DataType>
-      <Name Namespace="lcls_twincat_motion">ST_EL5042_Status</Name>
-      <BitSize>0</BitSize>
-    </DataType>
-    <DataType>
-      <Name Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Name>
-      <Comment> Renishaw BiSS-C absolute encoder used with an EL5042</Comment>
-      <BitSize>128</BitSize>
-      <SubItem>
-        <Name>Count</Name>
-        <Type>ULINT</Type>
-        <Comment> Connect to encoder "Position" input</Comment>
-        <BitSize>64</BitSize>
-        <BitOffs>0</BitOffs>
-        <Properties>
-          <Property>
-            <Name>TcAddressType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>Status</Name>
-        <Type Namespace="lcls_twincat_motion">ST_EL5042_Status</Type>
-        <Comment> Status struct placeholder</Comment>
-        <BitSize>0</BitSize>
-        <BitOffs>64</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>Ref</Name>
-        <Type>ULINT</Type>
-        <Comment> Encoder zero position (useful for aligned position with gantries)</Comment>
-        <BitSize>64</BitSize>
-        <BitOffs>64</BitOffs>
-      </SubItem>
-    </DataType>
-    <DataType>
-      <Name Namespace="lcls_twincat_motion">FB_GantryDiffVirtualLimitSwitch</Name>
-      <BitSize>512</BitSize>
-      <SubItem>
-        <Name>PEnc</Name>
-        <Type Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
-        <Comment> Primary axis encoder (usually the upstream one)</Comment>
-        <BitSize>128</BitSize>
-        <BitOffs>64</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>SEnc</Name>
-        <Type Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
-        <Comment> Secondary axis encoder (couples to the primary)</Comment>
-        <BitSize>128</BitSize>
-        <BitOffs>192</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>GantDiffTol</Name>
-        <Type>LINT</Type>
-        <Comment> Gantry differenace tolerance in encoder counts</Comment>
-        <BitSize>64</BitSize>
-        <BitOffs>320</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>PLimFwd</Name>
-        <Type>BOOL</Type>
-        <Comment> Primary axis forward direction enable</Comment>
-        <BitSize>8</BitSize>
-        <BitOffs>384</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>PLimBwd</Name>
-        <Type>BOOL</Type>
-        <Comment> Primary axis reverse direction enable</Comment>
-        <BitSize>8</BitSize>
-        <BitOffs>392</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>SLimFwd</Name>
-        <Type>BOOL</Type>
-        <Comment> Secondary axis forward direction enable</Comment>
-        <BitSize>8</BitSize>
-        <BitOffs>400</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>SLimBwd</Name>
-        <Type>BOOL</Type>
-        <Comment> Secondary axis reverse direction enable</Comment>
-        <BitSize>8</BitSize>
-        <BitOffs>408</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>GantryDiff</Name>
-        <Type>LINT</Type>
-        <BitSize>64</BitSize>
-        <BitOffs>448</BitOffs>
-      </SubItem>
-      <Properties>
-        <Property>
-          <Name>PouType</Name>
-          <Value>FunctionBlock</Value>
-        </Property>
-      </Properties>
-    </DataType>
-    <DataType>
-      <Name Namespace="Tc2_MC2">MC_BufferMode</Name>
-      <BitSize>16</BitSize>
-      <BaseType>UINT</BaseType>
-      <EnumInfo>
-        <Text>MC_Aborting</Text>
-        <Enum>0</Enum>
-      </EnumInfo>
-      <EnumInfo>
-        <Text>MC_Buffered</Text>
-        <Enum>1</Enum>
-      </EnumInfo>
-      <EnumInfo>
-        <Text>MC_BlendingLow</Text>
-        <Enum>18</Enum>
-      </EnumInfo>
-      <EnumInfo>
-        <Text>MC_BlendingPrevious</Text>
-        <Enum>19</Enum>
-      </EnumInfo>
-      <EnumInfo>
-        <Text>MC_BlendingNext</Text>
-        <Enum>20</Enum>
-      </EnumInfo>
-      <EnumInfo>
-        <Text>MC_BlendingHigh</Text>
-        <Enum>21</Enum>
-      </EnumInfo>
-    </DataType>
-    <DataType>
-      <Name Namespace="Tc2_MC2">_E_TcNC_SlaveTypes</Name>
-      <BitSize>16</BitSize>
-      <BaseType>INT</BaseType>
-      <EnumInfo>
-        <Text>TCNC_SLAVETYPE_LINEAR</Text>
-        <Enum>1</Enum>
-        <Comment> Lineare Kopplung (Geradengleichung) </Comment>
-      </EnumInfo>
-      <EnumInfo>
-        <Text>TCNC_SLAVETYPE_FLYINGSAW_ONVELOCITY</Text>
-        <Enum>2</Enum>
-        <Comment> diagonal synchron. Aufkoppeln schnellstens auf Geschwindigkeit </Comment>
-      </EnumInfo>
-      <EnumInfo>
-        <Text>TCNC_SLAVETYPE_FLYINGSAW_ONPOSITION</Text>
-        <Enum>3</Enum>
-        <Comment> diagonal synchron. Aufkoppeln auf Position und Geschwindigkeit </Comment>
-      </EnumInfo>
-      <EnumInfo>
-        <Text>TCNC_SLAVETYPE_FLYINGSAW_QUADRATIC</Text>
-        <Enum>4</Enum>
-        <Comment> diagonal synchron. Aufkoppeln (quadratisches Geschw.-Profil) </Comment>
-      </EnumInfo>
-      <EnumInfo>
-        <Text>TCNC_SLAVETYPE_SYNCHRONIZING_ONVELO</Text>
-        <Enum>5</Enum>
-        <Comment> synchron. Aufkoppeln instantan auf Geschwindigkeit </Comment>
-      </EnumInfo>
-      <EnumInfo>
-        <Text>TCNC_SLAVETYPE_SYNCHRONIZING_ONPOS</Text>
-        <Enum>6</Enum>
-        <Comment> synchron. Aufkoppeln auf Positionen und Geschwindigkeit </Comment>
-      </EnumInfo>
-      <EnumInfo>
-        <Text>TCNC_SLAVETYPE_SYNCJERKSETTER_ONVELO</Text>
-        <Enum>7</Enum>
-        <Comment> synchron. Aufkoppeln auf Geschwindigkeit (zeitbasiert mittels Ruck-Steller) </Comment>
-      </EnumInfo>
-      <EnumInfo>
-        <Text>TCNC_SLAVETYPE_TABULAR</Text>
-        <Enum>10</Enum>
-        <Comment> Tabellen-Kopplung ("simple/standard tabular slave") </Comment>
-      </EnumInfo>
-      <EnumInfo>
-        <Text>TCNC_SLAVETYPE_MULTITABULAR</Text>
-        <Enum>11</Enum>
-        <Comment> Tabellen-Kopplung ("multiscalable multi-tabular slave") </Comment>
-      </EnumInfo>
-      <EnumInfo>
-        <Text>TCNC_SLAVETYPE_FLYINGMODULO_LINEAR</Text>
-        <Enum>12</Enum>
-        <Comment> Modulo Kopplung auf Position und/oder Geschwindigkeit mit anschliessender Linear Kopplung ("Schuette") </Comment>
-      </EnumInfo>
-      <EnumInfo>
-        <Text>TCNC_SLAVETYPE_MOTIONFUNCTIONTABULAR</Text>
-        <Enum>13</Enum>
-        <Comment> Tabellen-Kopplung "motion functions" </Comment>
-      </EnumInfo>
-      <EnumInfo>
-        <Text>TCNC_SLAVETYPE_UNIVERSALTABULAR</Text>
-        <Enum>14</Enum>
-        <Comment> Tabellen-Kopplung, universal tabular type substitues TABULAR, MULTITABULAR and MOTIONFUNCTION - 08.07.05 </Comment>
-      </EnumInfo>
-      <EnumInfo>
-        <Text>TCNC_SLAVETYPE_LINEAR_CYCLICCHANGES_RAMP</Text>
-        <Enum>15</Enum>
-        <Comment> Lineare Kopplung (Geradengleichung) mit zyklischer Koppelfaktoraenderung </Comment>
-      </EnumInfo>
-      <EnumInfo>
-        <Text>TCNC_SLAVETYPE_BILINEAR</Text>
-        <Enum>16</Enum>
-        <Comment> 27.04.01: Zweifach Lineare Kopplung (Geradengleichung)</Comment>
-      </EnumInfo>
-      <EnumInfo>
-        <Text>TCNC_SLAVETYPE_LINEAR_MULTIMASTER</Text>
-        <Enum>17</Enum>
-        <Comment> 29.05.08: Lineare Multi-Master-Kopplung ('MC_GearInMultiMaster') </Comment>
-      </EnumInfo>
-      <EnumInfo>
-        <Text>TCNC_SLAVETYPE_CONST_SURFACEVELO_RAMP</Text>
-        <Enum>18</Enum>
-        <Comment> Verrechnete Winkelgeschwindigkeit fuer konstante Oberflaechengeschwindig. in Abhaengigkeit vom Radiusistwert des Enc.2 </Comment>
-      </EnumInfo>
-      <Properties>
-        <Property>
-          <Name>conditionalshow</Name>
-        </Property>
-      </Properties>
-    </DataType>
-    <DataType>
-      <Name Namespace="Tc2_MC2">ST_GearInOptions</Name>
-      <BitSize>16</BitSize>
-      <SubItem>
-        <Name>SlaveType</Name>
-        <Type Namespace="Tc2_MC2">_E_TcNC_SlaveTypes</Type>
-        <BitSize>16</BitSize>
-        <BitOffs>0</BitOffs>
-      </SubItem>
-    </DataType>
-    <DataType>
-      <Name Namespace="Tc2_MC2">_ST_FunctionBlockResults</Name>
-      <BitSize>96</BitSize>
-      <SubItem>
-        <Name>Done</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>0</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>CommandAborted</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>8</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>Error</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>16</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>ErrorID</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>32</BitOffs>
-        <Properties>
-          <Property>
-            <Name>displaymode</Name>
-            <Value>hex</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>BusyCounter</Name>
-        <Type>UDINT</Type>
-        <Comment> busy cycles since triggering the block - 2018-01-24 KSt </Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>64</BitOffs>
-        <Properties>
-          <Property>
-            <Name>displaymode</Name>
-            <Value>dec</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <Properties>
-        <Property>
-          <Name>conditionalshow</Name>
-        </Property>
-      </Properties>
-    </DataType>
-    <DataType>
-      <Name Namespace="Tc2_MC2">_E_TcMC_STATES</Name>
-      <BitSize>16</BitSize>
-      <BaseType>INT</BaseType>
-      <EnumInfo>
-        <Text>STATE_INITIALIZATION</Text>
-        <Enum>100</Enum>
-      </EnumInfo>
-      <EnumInfo>
-        <Text>STATE_ORDER</Text>
-        <Enum>101</Enum>
-      </EnumInfo>
-      <EnumInfo>
-        <Text>STATE_RUNNING</Text>
-        <Enum>102</Enum>
-      </EnumInfo>
-      <EnumInfo>
-        <Text>STATE_WAITING</Text>
-        <Enum>103</Enum>
-      </EnumInfo>
-      <EnumInfo>
-        <Text>STATE_MOTIONCOMMANDSLOCKED</Text>
-        <Enum>104</Enum>
-      </EnumInfo>
-      <Properties>
-        <Property>
-          <Name>conditionalshow</Name>
-        </Property>
-      </Properties>
-    </DataType>
-    <DataType>
-      <Name Namespace="Tc2_MC2">_ST_TcNC_CoupleSlave</Name>
-      <BitSize>384</BitSize>
-      <SubItem>
-        <Name>nSlaveType</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>0</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>nMasterAxisId</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>32</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>nMasterSubIdx</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>64</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>nSlaveSubIdx</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>96</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>fCoupleParam1</Name>
-        <Type>LREAL</Type>
-        <BitSize>64</BitSize>
-        <BitOffs>128</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>fCoupleParam2</Name>
-        <Type>LREAL</Type>
-        <BitSize>64</BitSize>
-        <BitOffs>192</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>fCoupleParam3</Name>
-        <Type>LREAL</Type>
-        <BitSize>64</BitSize>
-        <BitOffs>256</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>fCoupleParam4</Name>
-        <Type>LREAL</Type>
-        <BitSize>64</BitSize>
-        <BitOffs>320</BitOffs>
-      </SubItem>
-      <Properties>
-        <Property>
-          <Name>conditionalshow</Name>
-        </Property>
-      </Properties>
-    </DataType>
-    <DataType>
-      <Name Namespace="Tc2_MC2">ST_GearInDynOptions</Name>
-      <BitSize>8</BitSize>
-      <SubItem>
-        <Name>CCVmode</Name>
-        <Type>BOOL</Type>
-        <Comment> constant circumference velocity mode </Comment>
-        <BitSize>8</BitSize>
-        <BitOffs>0</BitOffs>
-      </SubItem>
-    </DataType>
-    <DataType>
-      <Name Namespace="Tc2_MC2">MC_GearInDyn</Name>
-      <BitSize>4416</BitSize>
-      <SubItem>
-        <Name>Master</Name>
-        <Type Namespace="Tc2_MC2" ReferenceTo="true">AXIS_REF</Type>
-        <Comment>Reference to an axis</Comment>
-        <BitSize>64</BitSize>
-        <BitOffs>64</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>InOut</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>Slave</Name>
-        <Type Namespace="Tc2_MC2" ReferenceTo="true">AXIS_REF</Type>
-        <Comment>Reference to an axis</Comment>
-        <BitSize>64</BitSize>
-        <BitOffs>128</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>InOut</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>Enable</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>192</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>GearRatio</Name>
-        <Type>LREAL</Type>
-        <BitSize>64</BitSize>
-        <BitOffs>256</BitOffs>
-        <Default>
-          <Value>1</Value>
-        </Default>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>Acceleration</Name>
-        <Type>LREAL</Type>
-        <BitSize>64</BitSize>
-        <BitOffs>320</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>Deceleration</Name>
-        <Type>LREAL</Type>
-        <Comment> not used </Comment>
-        <BitSize>64</BitSize>
-        <BitOffs>384</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>Jerk</Name>
-        <Type>LREAL</Type>
-        <Comment> not used </Comment>
-        <BitSize>64</BitSize>
-        <BitOffs>448</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>BufferMode</Name>
-        <Type Namespace="Tc2_MC2">MC_BufferMode</Type>
-        <BitSize>16</BitSize>
-        <BitOffs>512</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>Options</Name>
-        <Type Namespace="Tc2_MC2">ST_GearInDynOptions</Type>
-        <Comment> optional parameters </Comment>
-        <BitSize>8</BitSize>
-        <BitOffs>528</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>InGear</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>536</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>Busy</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>544</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>Active</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>552</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>CommandAborted</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>560</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>Error</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>568</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>ErrorID</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>576</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-          <Property>
-            <Name>displaymode</Name>
-            <Value>hex</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>LastExecutionResult</Name>
-        <Type Namespace="Tc2_MC2">_ST_FunctionBlockResults</Type>
-        <BitSize>96</BitSize>
-        <BitOffs>608</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>ADSbusy</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>704</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>iState</Name>
-        <Type Namespace="Tc2_MC2">_E_TcMC_STATES</Type>
-        <BitSize>16</BitSize>
-        <BitOffs>720</BitOffs>
-        <Default>
-          <EnumText>_E_TcMC_STATES.STATE_INITIALIZATION</EnumText>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>iSubState</Name>
-        <Type>INT</Type>
-        <BitSize>16</BitSize>
-        <BitOffs>736</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>fbAdsWrite</Name>
-        <Type Namespace="Tc2_System">ADSWRITE</Type>
-        <BitSize>1344</BitSize>
-        <BitOffs>768</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>fbAdsRead</Name>
-        <Type Namespace="Tc2_System">ADSREAD</Type>
-        <BitSize>1408</BitSize>
-        <BitOffs>2112</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>sCouple</Name>
-        <Type Namespace="Tc2_MC2">_ST_TcNC_CoupleSlave</Type>
-        <BitSize>384</BitSize>
-        <BitOffs>3520</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>v_max</Name>
-        <Type>LREAL</Type>
-        <BitSize>64</BitSize>
-        <BitOffs>3904</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>pa_limit</Name>
-        <Type>LREAL</Type>
-        <BitSize>64</BitSize>
-        <BitOffs>3968</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>WasInGear</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>4032</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>iAcceleration</Name>
-        <Type>LREAL</Type>
-        <BitSize>64</BitSize>
-        <BitOffs>4096</BitOffs>
-        <Properties>
-          <Property>
-            <Name>conditionalshow</Name>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>TimerStateFeedback</Name>
-        <Type Namespace="Tc2_Standard">TON</Type>
-        <BitSize>256</BitSize>
-        <BitOffs>4160</BitOffs>
-        <Properties>
-          <Property>
-            <Name>conditionalshow</Name>
-          </Property>
-        </Properties>
-      </SubItem>
-      <Properties>
-        <Property>
-          <Name>PouType</Name>
-          <Value>FunctionBlock</Value>
-        </Property>
-      </Properties>
-    </DataType>
-    <DataType>
-      <Name Namespace="Tc2_MC2">MC_GearIn</Name>
-      <BitSize>7360</BitSize>
-      <SubItem>
-        <Name>Master</Name>
-        <Type Namespace="Tc2_MC2" ReferenceTo="true">AXIS_REF</Type>
-        <Comment>Reference to an axis</Comment>
-        <BitSize>64</BitSize>
-        <BitOffs>64</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>InOut</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>Slave</Name>
-        <Type Namespace="Tc2_MC2" ReferenceTo="true">AXIS_REF</Type>
-        <Comment>Reference to an axis</Comment>
-        <BitSize>64</BitSize>
-        <BitOffs>128</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>InOut</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>Execute</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>192</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>RatioNumerator</Name>
-        <Type>LREAL</Type>
-        <Comment> changed from INT (PLCopen) to LREAL </Comment>
-        <BitSize>64</BitSize>
-        <BitOffs>256</BitOffs>
-        <Default>
-          <Value>1</Value>
-        </Default>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>RatioDenominator</Name>
-        <Type>UINT</Type>
-        <BitSize>16</BitSize>
-        <BitOffs>320</BitOffs>
-        <Default>
-          <Value>1</Value>
-        </Default>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>Acceleration</Name>
-        <Type>LREAL</Type>
-        <Comment>	MasterValueSource :	MC_SOURCE; 
- not available </Comment>
-        <BitSize>64</BitSize>
-        <BitOffs>384</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>Deceleration</Name>
-        <Type>LREAL</Type>
-        <BitSize>64</BitSize>
-        <BitOffs>448</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>Jerk</Name>
-        <Type>LREAL</Type>
-        <BitSize>64</BitSize>
-        <BitOffs>512</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>BufferMode</Name>
-        <Type Namespace="Tc2_MC2">MC_BufferMode</Type>
-        <BitSize>16</BitSize>
-        <BitOffs>576</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>Options</Name>
-        <Type Namespace="Tc2_MC2">ST_GearInOptions</Type>
-        <Comment> optional parameters </Comment>
-        <BitSize>16</BitSize>
-        <BitOffs>592</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>InGear</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>608</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>Busy</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>616</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>Active</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>624</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>CommandAborted</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>632</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>Error</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>640</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>ErrorID</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>672</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-          <Property>
-            <Name>displaymode</Name>
-            <Value>hex</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>LastExecutionResult</Name>
-        <Type Namespace="Tc2_MC2">_ST_FunctionBlockResults</Type>
-        <BitSize>96</BitSize>
-        <BitOffs>704</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>ADSbusy</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>800</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>iState</Name>
-        <Type Namespace="Tc2_MC2">_E_TcMC_STATES</Type>
-        <BitSize>16</BitSize>
-        <BitOffs>816</BitOffs>
-        <Default>
-          <EnumText>_E_TcMC_STATES.STATE_INITIALIZATION</EnumText>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>fbAdsWrite</Name>
-        <Type Namespace="Tc2_System">ADSWRITE</Type>
-        <BitSize>1344</BitSize>
-        <BitOffs>832</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>sCouple</Name>
-        <Type Namespace="Tc2_MC2">_ST_TcNC_CoupleSlave</Type>
-        <BitSize>384</BitSize>
-        <BitOffs>2176</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>fbOptGearInDyn</Name>
-        <Type Namespace="Tc2_MC2">MC_GearInDyn</Type>
-        <BitSize>4416</BitSize>
-        <BitOffs>2560</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>fbOnTrigger</Name>
-        <Type Namespace="Tc2_Standard">R_TRIG</Type>
-        <BitSize>128</BitSize>
-        <BitOffs>6976</BitOffs>
-        <Properties>
-          <Property>
-            <Name>conditionalshow</Name>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>TimerStateFeedback</Name>
-        <Type Namespace="Tc2_Standard">TON</Type>
-        <BitSize>256</BitSize>
-        <BitOffs>7104</BitOffs>
-        <Properties>
-          <Property>
-            <Name>conditionalshow</Name>
-          </Property>
-        </Properties>
-      </SubItem>
-      <Action>
-        <Name>ActGearInDyn</Name>
-      </Action>
-      <Action>
-        <Name>WriteGearRatio</Name>
-      </Action>
-      <Properties>
-        <Property>
-          <Name>PouType</Name>
-          <Value>FunctionBlock</Value>
-        </Property>
-      </Properties>
-    </DataType>
-    <DataType>
-      <Name Namespace="Tc2_MC2">ST_GearOutOptions</Name>
-      <BitSize>8</BitSize>
-      <SubItem>
-        <Name>reserved</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>0</BitOffs>
-        <Properties>
-          <Property>
-            <Name>conditionalshow</Name>
-          </Property>
-        </Properties>
-      </SubItem>
-    </DataType>
-    <DataType>
-      <Name Namespace="Tc2_MC2">MC_GearOut</Name>
-      <BitSize>2112</BitSize>
-      <SubItem>
-        <Name>Slave</Name>
-        <Type Namespace="Tc2_MC2" ReferenceTo="true">AXIS_REF</Type>
-        <Comment>Reference to an axis</Comment>
-        <BitSize>64</BitSize>
-        <BitOffs>64</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>InOut</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>Execute</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>128</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>Options</Name>
-        <Type Namespace="Tc2_MC2">ST_GearOutOptions</Type>
-        <Comment> optional parameters </Comment>
-        <BitSize>8</BitSize>
-        <BitOffs>136</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>Done</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>144</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>Busy</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>152</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>Error</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>160</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>ErrorID</Name>
-        <Type>UDINT</Type>
-        <BitSize>32</BitSize>
-        <BitOffs>192</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-          <Property>
-            <Name>displaymode</Name>
-            <Value>hex</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>LastExecutionResult</Name>
-        <Type Namespace="Tc2_MC2">_ST_FunctionBlockResults</Type>
-        <BitSize>96</BitSize>
-        <BitOffs>224</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>ADSbusy</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>320</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>iState</Name>
-        <Type Namespace="Tc2_MC2">_E_TcMC_STATES</Type>
-        <BitSize>16</BitSize>
-        <BitOffs>336</BitOffs>
-        <Default>
-          <EnumText>_E_TcMC_STATES.STATE_INITIALIZATION</EnumText>
-        </Default>
-      </SubItem>
-      <SubItem>
-        <Name>fbAdsWrite</Name>
-        <Type Namespace="Tc2_System">ADSWRITE</Type>
-        <BitSize>1344</BitSize>
-        <BitOffs>384</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>fbOnTrigger</Name>
-        <Type Namespace="Tc2_Standard">R_TRIG</Type>
-        <BitSize>128</BitSize>
-        <BitOffs>1728</BitOffs>
-        <Properties>
-          <Property>
-            <Name>conditionalshow</Name>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>TimerStateFeedback</Name>
-        <Type Namespace="Tc2_Standard">TON</Type>
-        <BitSize>256</BitSize>
-        <BitOffs>1856</BitOffs>
-        <Properties>
-          <Property>
-            <Name>conditionalshow</Name>
-          </Property>
-        </Properties>
-      </SubItem>
-      <Properties>
-        <Property>
-          <Name>PouType</Name>
-          <Value>FunctionBlock</Value>
-        </Property>
-      </Properties>
-    </DataType>
-    <DataType>
-      <Name Namespace="lcls_twincat_motion">FB_SetEnables</Name>
-      <BitSize>128</BitSize>
-      <SubItem>
-        <Name>stMotionStage</Name>
-        <Type Namespace="lcls_twincat_motion" ReferenceTo="true">ST_MotionStage</Type>
-        <BitSize>64</BitSize>
-        <BitOffs>64</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>InOut</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <Properties>
-        <Property>
-          <Name>PouType</Name>
-          <Value>FunctionBlock</Value>
-        </Property>
-      </Properties>
-    </DataType>
-    <DataType>
-      <Name Namespace="lcls_twincat_motion">FB_GantryAutoCoupling</Name>
-      <BitSize>10752</BitSize>
-      <SubItem>
-        <Name>nGantryTol</Name>
-        <Type>LINT</Type>
-        <BitSize>64</BitSize>
-        <BitOffs>64</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>bGantryAlreadyCoupled</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>128</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>Master</Name>
-        <Type Namespace="lcls_twincat_motion" ReferenceTo="true">ST_MotionStage</Type>
-        <BitSize>64</BitSize>
-        <BitOffs>192</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>InOut</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>MasterEnc</Name>
-        <Type Namespace="lcls_twincat_motion" ReferenceTo="true">ST_RenishawAbsEnc</Type>
-        <BitSize>64</BitSize>
-        <BitOffs>256</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>InOut</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>Slave</Name>
-        <Type Namespace="lcls_twincat_motion" ReferenceTo="true">ST_MotionStage</Type>
-        <BitSize>64</BitSize>
-        <BitOffs>320</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>InOut</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>SlaveEnc</Name>
-        <Type Namespace="lcls_twincat_motion" ReferenceTo="true">ST_RenishawAbsEnc</Type>
-        <BitSize>64</BitSize>
-        <BitOffs>384</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>InOut</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>bExecuteCouple</Name>
-        <Type ReferenceTo="true">BOOL</Type>
-        <BitSize>64</BitSize>
-        <BitOffs>448</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>InOut</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>bExecuteDecouple</Name>
-        <Type ReferenceTo="true">BOOL</Type>
-        <BitSize>64</BitSize>
-        <BitOffs>512</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>InOut</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>gantry_diff_limit</Name>
-        <Type Namespace="lcls_twincat_motion">FB_GantryDiffVirtualLimitSwitch</Type>
-        <BitSize>512</BitSize>
-        <BitOffs>576</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>couple</Name>
-        <Type Namespace="Tc2_MC2">MC_GearIn</Type>
-        <BitSize>7360</BitSize>
-        <BitOffs>1088</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>decouple</Name>
-        <Type Namespace="Tc2_MC2">MC_GearOut</Type>
-        <BitSize>2112</BitSize>
-        <BitOffs>8448</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>bInitComplete</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>10560</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>fbSetEnables</Name>
-        <Type Namespace="lcls_twincat_motion">FB_SetEnables</Type>
-        <BitSize>128</BitSize>
-        <BitOffs>10624</BitOffs>
-      </SubItem>
-      <Properties>
-        <Property>
-          <Name>PouType</Name>
-          <Value>FunctionBlock</Value>
-        </Property>
-      </Properties>
-    </DataType>
-    <DataType>
-      <Name Namespace="lcls_twincat_optics_nrw">FB_RunHOMS</Name>
-      <BitSize>23360</BitSize>
-      <SubItem>
-        <Name>nYupEncRef</Name>
-        <Type>ULINT</Type>
-        <Comment> Encoder Reference Values</Comment>
-        <BitSize>64</BitSize>
-        <BitOffs>64</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>nYdwnEncRef</Name>
-        <Type>ULINT</Type>
-        <BitSize>64</BitSize>
-        <BitOffs>128</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>nXupEncRef</Name>
-        <Type>ULINT</Type>
-        <BitSize>64</BitSize>
-        <BitOffs>192</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>nXdwnEncRef</Name>
-        <Type>ULINT</Type>
-        <BitSize>64</BitSize>
-        <BitOffs>256</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>nGantryTolY</Name>
-        <Type>LINT</Type>
-        <Comment> Encoder counts = nm</Comment>
-        <BitSize>64</BitSize>
-        <BitOffs>320</BitOffs>
-        <Default>
-          <Value>50000</Value>
-        </Default>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>nGantryTolX</Name>
-        <Type>LINT</Type>
-        <Comment> Encoder counts = nm</Comment>
-        <BitSize>64</BitSize>
-        <BitOffs>384</BitOffs>
-        <Default>
-          <Value>50000</Value>
-        </Default>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>bGantryAlreadyCoupledY</Name>
-        <Type>BOOL</Type>
-        <Comment> Gantry coupling status</Comment>
-        <BitSize>8</BitSize>
-        <BitOffs>448</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>bGantryAlreadyCoupledX</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>456</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>nCurrGantryY</Name>
-        <Type>LINT</Type>
-        <Comment> Current gantry difference</Comment>
-        <BitSize>64</BitSize>
-        <BitOffs>512</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>nCurrGantryX</Name>
-        <Type>LINT</Type>
-        <BitSize>64</BitSize>
-        <BitOffs>576</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>Output</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>stYup</Name>
-        <Type Namespace="lcls_twincat_motion" ReferenceTo="true">ST_MotionStage</Type>
-        <Comment> Motor Structs</Comment>
-        <BitSize>64</BitSize>
-        <BitOffs>640</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>InOut</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>stYdwn</Name>
-        <Type Namespace="lcls_twincat_motion" ReferenceTo="true">ST_MotionStage</Type>
-        <BitSize>64</BitSize>
-        <BitOffs>704</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>InOut</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>stXup</Name>
-        <Type Namespace="lcls_twincat_motion" ReferenceTo="true">ST_MotionStage</Type>
-        <BitSize>64</BitSize>
-        <BitOffs>768</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>InOut</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>stXdwn</Name>
-        <Type Namespace="lcls_twincat_motion" ReferenceTo="true">ST_MotionStage</Type>
-        <BitSize>64</BitSize>
-        <BitOffs>832</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>InOut</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>stPitch</Name>
-        <Type Namespace="lcls_twincat_motion" ReferenceTo="true">ST_MotionStage</Type>
-        <BitSize>64</BitSize>
-        <BitOffs>896</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>InOut</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>bExecuteCoupleY</Name>
-        <Type ReferenceTo="true">BOOL</Type>
-        <Comment> Manual coupling Gantried Axes</Comment>
-        <BitSize>64</BitSize>
-        <BitOffs>960</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>InOut</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>bExecuteCoupleX</Name>
-        <Type ReferenceTo="true">BOOL</Type>
-        <BitSize>64</BitSize>
-        <BitOffs>1024</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>InOut</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>bExecuteDecoupleY</Name>
-        <Type ReferenceTo="true">BOOL</Type>
-        <BitSize>64</BitSize>
-        <BitOffs>1088</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>InOut</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>bExecuteDecoupleX</Name>
-        <Type ReferenceTo="true">BOOL</Type>
-        <BitSize>64</BitSize>
-        <BitOffs>1152</BitOffs>
-        <Properties>
-          <Property>
-            <Name>ItemType</Name>
-            <Value>InOut</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>bSTOEnable1</Name>
-        <Type>BOOL</Type>
-        <Comment> STO Button</Comment>
-        <BitSize>8</BitSize>
-        <BitOffs>1216</BitOffs>
-        <Properties>
-          <Property>
-            <Name>TcAddressType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>bSTOEnable2</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>1224</BitOffs>
-        <Properties>
-          <Property>
-            <Name>TcAddressType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>stYupEnc</Name>
-        <Type Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
-        <Comment> Encoders</Comment>
-        <BitSize>128</BitSize>
-        <BitOffs>1280</BitOffs>
-        <Properties>
-          <Property>
-            <Name>TcAddressType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>stYdwnEnc</Name>
-        <Type Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
-        <BitSize>128</BitSize>
-        <BitOffs>1408</BitOffs>
-        <Properties>
-          <Property>
-            <Name>TcAddressType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>stXupEnc</Name>
-        <Type Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
-        <BitSize>128</BitSize>
-        <BitOffs>1536</BitOffs>
-        <Properties>
-          <Property>
-            <Name>TcAddressType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>stXdwnEnc</Name>
-        <Type Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
-        <BitSize>128</BitSize>
-        <BitOffs>1664</BitOffs>
-        <Properties>
-          <Property>
-            <Name>TcAddressType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>fbAutoCoupleY</Name>
-        <Type Namespace="lcls_twincat_motion">FB_GantryAutoCoupling</Type>
-        <Comment> Autocoupling Gantried Axes</Comment>
-        <BitSize>10752</BitSize>
-        <BitOffs>1792</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>fbAutoCoupleX</Name>
-        <Type Namespace="lcls_twincat_motion">FB_GantryAutoCoupling</Type>
-        <BitSize>10752</BitSize>
-        <BitOffs>12544</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>fSupplySecondY</Name>
-        <Type>UINT</Type>
-        <BitSize>16</BitSize>
-        <BitOffs>23296</BitOffs>
-        <Properties>
-          <Property>
-            <Name>pytmc</Name>
-            <Value>
-        pv: SUP:SEC:VOL:Y
-        io: i
-    </Value>
-          </Property>
-          <Property>
-            <Name>TcAddressType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>fMotorCurSecondY</Name>
-        <Type>UINT</Type>
-        <BitSize>16</BitSize>
-        <BitOffs>23312</BitOffs>
-        <Properties>
-          <Property>
-            <Name>pytmc</Name>
-            <Value>
-        pv: CUR:SEC:AMP:Y
-		field: EGU mA
-        io: i
-    </Value>
-          </Property>
-          <Property>
-            <Name>TcAddressType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>fSupplySecondX</Name>
-        <Type>UINT</Type>
-        <BitSize>16</BitSize>
-        <BitOffs>23328</BitOffs>
-        <Properties>
-          <Property>
-            <Name>pytmc</Name>
-            <Value>
-        pv: SUP:SEC:VOL:X
-        io: i
-    </Value>
-          </Property>
-          <Property>
-            <Name>TcAddressType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>fMotorCurSecondX</Name>
-        <Type>UINT</Type>
-        <BitSize>16</BitSize>
-        <BitOffs>23344</BitOffs>
-        <Properties>
-          <Property>
-            <Name>pytmc</Name>
-            <Value>
-        pv: CUR:SEC:AMP:X
-		field: EGU mA
-        io: i
-    </Value>
-          </Property>
-          <Property>
-            <Name>TcAddressType</Name>
-            <Value>Input</Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <Properties>
-        <Property>
-          <Name>PouType</Name>
-          <Value>FunctionBlock</Value>
-        </Property>
-      </Properties>
-    </DataType>
-    <DataType>
-      <Name Namespace="lcls_twincat_optics_nrw">DUT_HOMS</Name>
-      <BitSize>23616</BitSize>
-      <SubItem>
-        <Name>fbRunHOMS</Name>
-        <Type Namespace="lcls_twincat_optics_nrw">FB_RunHOMS</Type>
-        <Comment> System initializiation</Comment>
-        <BitSize>23360</BitSize>
-        <BitOffs>0</BitOffs>
-        <Properties>
-          <Property>
-            <Name>pytmc</Name>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>bExecuteCoupleY</Name>
-        <Type>BOOL</Type>
-        <Comment> Couple/Decouple motors</Comment>
-        <BitSize>8</BitSize>
-        <BitOffs>23360</BitOffs>
-        <Properties>
-          <Property>
-            <Name>pytmc</Name>
-            <Value>
-        pv: COUPLE_Y
-        io: o
-    </Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>bExecuteDecoupleY</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>23368</BitOffs>
-        <Properties>
-          <Property>
-            <Name>pytmc</Name>
-            <Value>
-        pv: DECOUPLE_Y
-        io: o
-    </Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>bExecuteCoupleX</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>23376</BitOffs>
-        <Properties>
-          <Property>
-            <Name>pytmc</Name>
-            <Value>
-        pv: COUPLE_X
-        io: o
-    </Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>bExecuteDecoupleX</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>23384</BitOffs>
-        <Properties>
-          <Property>
-            <Name>pytmc</Name>
-            <Value>
-        pv: DECOUPLE_X
-        io: o
-    </Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>bGantryAlreadyCoupledY</Name>
-        <Type>BOOL</Type>
-        <Comment> Coupling status</Comment>
-        <BitSize>8</BitSize>
-        <BitOffs>23392</BitOffs>
-        <Properties>
-          <Property>
-            <Name>pytmc</Name>
-            <Value>
-        pv: ALREADY_COUPLED_Y
-        io: i
-        field: ZSV MAJOR
-    </Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>bGantryAlreadyCoupledX</Name>
-        <Type>BOOL</Type>
-        <BitSize>8</BitSize>
-        <BitOffs>23400</BitOffs>
-        <Properties>
-          <Property>
-            <Name>pytmc</Name>
-            <Value>
-        pv: ALREADY_COUPLED_X
-        io: i
-        field: ZSV MAJOR
-    </Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>nCurrGantryY</Name>
-        <Type>LINT</Type>
-        <Comment> encoder counts = nm</Comment>
-        <BitSize>64</BitSize>
-        <BitOffs>23424</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>nCurrGantryX</Name>
-        <Type>LINT</Type>
-        <Comment> encoder counts = nm</Comment>
-        <BitSize>64</BitSize>
-        <BitOffs>23488</BitOffs>
-      </SubItem>
-      <SubItem>
-        <Name>fCurrGantryY_um</Name>
-        <Type>REAL</Type>
-        <Comment> Y Gantry difference in um</Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>23552</BitOffs>
-        <Properties>
-          <Property>
-            <Name>pytmc</Name>
-            <Value>
-        pv: GANTRY_Y
-        field: EGU um
-        io: i
-    </Value>
-          </Property>
-        </Properties>
-      </SubItem>
-      <SubItem>
-        <Name>fCurrGantryX_um</Name>
-        <Type>REAL</Type>
-        <Comment> X Gantry difference in um</Comment>
-        <BitSize>32</BitSize>
-        <BitOffs>23584</BitOffs>
-        <Properties>
-          <Property>
-            <Name>pytmc</Name>
-            <Value>
-        pv: GANTRY_X
-        field: EGU um
-        io: i
-    </Value>
-          </Property>
-        </Properties>
-      </SubItem>
     </DataType>
     <DataType>
       <Name Namespace="Tc2_MC2">MC_Reset</Name>
@@ -82004,7 +82004,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="InputDst" CreateSymbols="true">0</AreaNo>
           <Name>SerialIO Inputs</Name>
           <ContextId>0</ContextId>
-          <ByteSize>166592512</ByteSize>
+          <ByteSize>166526976</ByteSize>
           <Symbol>
             <Name>GVL_SerialIO.Serial_stComIn_M1K2</Name>
             <Comment>Better have your inputs and outputs!
@@ -82027,7 +82027,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="OutputSrc" CreateSymbols="true">1</AreaNo>
           <Name>SerialIO Outputs</Name>
           <ContextId>0</ContextId>
-          <ByteSize>166592512</ByteSize>
+          <ByteSize>166526976</ByteSize>
           <Symbol>
             <Name>GVL_SerialIO.Serial_stComOut_M1K2</Name>
             <BitSize>192</BitSize>
@@ -82048,7 +82048,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="Internal" CreateSymbols="true">3</AreaNo>
           <Name>SerialIO Internal</Name>
           <ContextId>0</ContextId>
-          <ByteSize>166592512</ByteSize>
+          <ByteSize>166526976</ByteSize>
           <Symbol>
             <Name>P_Serial_Com.fbSerialLineControl_EL6001_M1K2</Name>
             <BitSize>10752</BitSize>
@@ -82146,7 +82146,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="InputDst" CreateSymbols="true">16</AreaNo>
           <Name>StatsTask Inputs</Name>
           <ContextId>1</ContextId>
-          <ByteSize>166592512</ByteSize>
+          <ByteSize>166526976</ByteSize>
           <Symbol>
             <Name>Main.M6.Axis.NcToPlc</Name>
             <BitSize>2048</BitSize>
@@ -82188,7 +82188,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="Internal" CreateSymbols="true">19</AreaNo>
           <Name>StatsTask Internal</Name>
           <ContextId>1</ContextId>
-          <ByteSize>166592512</ByteSize>
+          <ByteSize>166526976</ByteSize>
           <Symbol>
             <Name>PRG_Stats.fGpiEncoderPosDiff</Name>
             <Comment> SP1K1 Grating Mono Vibration Stats</Comment>
@@ -82516,7 +82516,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="Internal" CreateSymbols="true">35</AreaNo>
           <Name>PiezoDriver Internal</Name>
           <ContextId>2</ContextId>
-          <ByteSize>166592512</ByteSize>
+          <ByteSize>166526976</ByteSize>
           <Symbol>
             <Name>PiezoSerial.fbE621SerialDriver_M1K2</Name>
             <Comment>PI Serial</Comment>
@@ -82613,7 +82613,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="InputDst" CreateSymbols="true">48</AreaNo>
           <Name>DaqTask Inputs</Name>
           <ContextId>3</ContextId>
-          <ByteSize>166592512</ByteSize>
+          <ByteSize>166526976</ByteSize>
           <Symbol>
             <Name>PRG_DAQ_ENCODER.iLatchPos</Name>
             <Comment> Inputs</Comment>
@@ -82668,7 +82668,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="Internal" CreateSymbols="true">51</AreaNo>
           <Name>DaqTask Internal</Name>
           <ContextId>3</ContextId>
-          <ByteSize>166592512</ByteSize>
+          <ByteSize>166526976</ByteSize>
           <Symbol>
             <Name>GVL_Logger.sIpTidbit</Name>
             <BitSize>56</BitSize>
@@ -83145,7 +83145,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
           <AreaNo AreaType="InputDst" CreateSymbols="true">64</AreaNo>
           <Name>PlcTask Inputs</Name>
           <ContextId>4</ContextId>
-          <ByteSize>166592512</ByteSize>
+          <ByteSize>166526976</ByteSize>
           <Symbol>
             <Name>lcls_twincat_optics_nrw.GVL_TestStructs.TestPitch_LimitSwitches.diEncCnt</Name>
             <Comment>Raw encoder count</Comment>
@@ -83170,7 +83170,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1272229312</BitOffs>
+            <BitOffs>1264889920</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.bSTOEnable2</Name>
@@ -83182,7 +83182,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1272229320</BitOffs>
+            <BitOffs>1264889928</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.stYupEnc</Name>
@@ -83195,7 +83195,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1272229376</BitOffs>
+            <BitOffs>1264889984</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.stYdwnEnc</Name>
@@ -83207,7 +83207,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1272229504</BitOffs>
+            <BitOffs>1264890112</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.stXupEnc</Name>
@@ -83219,7 +83219,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1272229632</BitOffs>
+            <BitOffs>1264890240</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.stXdwnEnc</Name>
@@ -83231,7 +83231,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1272229760</BitOffs>
+            <BitOffs>1264890368</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.fbAutoCoupleY.gantry_diff_limit.PEnc.Count</Name>
@@ -83244,7 +83244,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1272230528</BitOffs>
+            <BitOffs>1264891136</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.fbAutoCoupleY.gantry_diff_limit.SEnc.Count</Name>
@@ -83257,7 +83257,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1272230656</BitOffs>
+            <BitOffs>1264891264</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.fbAutoCoupleX.gantry_diff_limit.PEnc.Count</Name>
@@ -83270,7 +83270,7 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1272241280</BitOffs>
+            <BitOffs>1264901888</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.fbAutoCoupleX.gantry_diff_limit.SEnc.Count</Name>
@@ -83283,10 +83283,10 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1272241408</BitOffs>
+            <BitOffs>1264902016</BitOffs>
           </Symbol>
           <Symbol>
-            <Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.fSupplySecondY</Name>
+            <Name>PRG_MR1K1_BEND.M1K1.fSupplySecondY</Name>
             <BitSize>16</BitSize>
             <BaseType>UINT</BaseType>
             <Properties>
@@ -83302,10 +83302,10 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1272251392</BitOffs>
+            <BitOffs>1264912320</BitOffs>
           </Symbol>
           <Symbol>
-            <Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.fMotorCurSecondY</Name>
+            <Name>PRG_MR1K1_BEND.M1K1.fMotorCurSecondY</Name>
             <BitSize>16</BitSize>
             <BaseType>UINT</BaseType>
             <Properties>
@@ -83322,10 +83322,10 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1272251408</BitOffs>
+            <BitOffs>1264912336</BitOffs>
           </Symbol>
           <Symbol>
-            <Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.fSupplySecondX</Name>
+            <Name>PRG_MR1K1_BEND.M1K1.fSupplySecondX</Name>
             <BitSize>16</BitSize>
             <BaseType>UINT</BaseType>
             <Properties>
@@ -83341,10 +83341,10 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1272251424</BitOffs>
+            <BitOffs>1264912352</BitOffs>
           </Symbol>
           <Symbol>
-            <Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.fMotorCurSecondX</Name>
+            <Name>PRG_MR1K1_BEND.M1K1.fMotorCurSecondX</Name>
             <BitSize>16</BitSize>
             <BaseType>UINT</BaseType>
             <Properties>
@@ -83361,7 +83361,211 @@ The BPTM will throw an error if the arbiter does not have enough space for the t
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>1272251440</BitOffs>
+            <BitOffs>1264912368</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.bSTOEnable1</Name>
+            <Comment> STO Button</Comment>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1264913600</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.bSTOEnable2</Name>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1264913608</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stYupEnc</Name>
+            <Comment> Encoders</Comment>
+            <BitSize>128</BitSize>
+            <BaseType Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1264913664</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stYdwnEnc</Name>
+            <BitSize>128</BitSize>
+            <BaseType Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1264913792</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stXupEnc</Name>
+            <BitSize>128</BitSize>
+            <BaseType Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1264913920</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stXdwnEnc</Name>
+            <BitSize>128</BitSize>
+            <BaseType Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1264914048</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleY.gantry_diff_limit.PEnc.Count</Name>
+            <Comment> Connect to encoder "Position" input</Comment>
+            <BitSize>64</BitSize>
+            <BaseType>ULINT</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1264914816</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleY.gantry_diff_limit.SEnc.Count</Name>
+            <Comment> Connect to encoder "Position" input</Comment>
+            <BitSize>64</BitSize>
+            <BaseType>ULINT</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1264914944</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleX.gantry_diff_limit.PEnc.Count</Name>
+            <Comment> Connect to encoder "Position" input</Comment>
+            <BitSize>64</BitSize>
+            <BaseType>ULINT</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1264925568</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleX.gantry_diff_limit.SEnc.Count</Name>
+            <Comment> Connect to encoder "Position" input</Comment>
+            <BitSize>64</BitSize>
+            <BaseType>ULINT</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1264925696</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K2_SWITCH.M1K2.fSupplySecondY</Name>
+            <BitSize>16</BitSize>
+            <BaseType>UINT</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+        pv: SUP:SEC:VOL:Y
+        io: i
+    </Value>
+              </Property>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1264936000</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K2_SWITCH.M1K2.fMotorCurSecondY</Name>
+            <BitSize>16</BitSize>
+            <BaseType>UINT</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+        pv: CUR:SEC:AMP:Y
+		field: EGU mA
+        io: i
+    </Value>
+              </Property>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1264936016</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K2_SWITCH.M1K2.fSupplySecondX</Name>
+            <BitSize>16</BitSize>
+            <BaseType>UINT</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+        pv: SUP:SEC:VOL:X
+        io: i
+    </Value>
+              </Property>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1264936032</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K2_SWITCH.M1K2.fMotorCurSecondX</Name>
+            <BitSize>16</BitSize>
+            <BaseType>UINT</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+        pv: CUR:SEC:AMP:X
+		field: EGU mA
+        io: i
+    </Value>
+              </Property>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+            </Properties>
+            <BitOffs>1264936048</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K1_BEND.fbMotionStage_m16.fbDriveVirtual.MasterAxis.NcToPlc</Name>
@@ -84131,210 +84335,6 @@ Emergency Stop for MR1K1</Comment>
               </Property>
             </Properties>
             <BitOffs>1276226008</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.bSTOEnable1</Name>
-            <Comment> STO Button</Comment>
-            <BitSize>8</BitSize>
-            <BaseType>BOOL</BaseType>
-            <Properties>
-              <Property>
-                <Name>TcAddressType</Name>
-                <Value>Input</Value>
-              </Property>
-            </Properties>
-            <BitOffs>1282051520</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.bSTOEnable2</Name>
-            <BitSize>8</BitSize>
-            <BaseType>BOOL</BaseType>
-            <Properties>
-              <Property>
-                <Name>TcAddressType</Name>
-                <Value>Input</Value>
-              </Property>
-            </Properties>
-            <BitOffs>1282051528</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stYupEnc</Name>
-            <Comment> Encoders</Comment>
-            <BitSize>128</BitSize>
-            <BaseType Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</BaseType>
-            <Properties>
-              <Property>
-                <Name>TcAddressType</Name>
-                <Value>Input</Value>
-              </Property>
-            </Properties>
-            <BitOffs>1282051584</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stYdwnEnc</Name>
-            <BitSize>128</BitSize>
-            <BaseType Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</BaseType>
-            <Properties>
-              <Property>
-                <Name>TcAddressType</Name>
-                <Value>Input</Value>
-              </Property>
-            </Properties>
-            <BitOffs>1282051712</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stXupEnc</Name>
-            <BitSize>128</BitSize>
-            <BaseType Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</BaseType>
-            <Properties>
-              <Property>
-                <Name>TcAddressType</Name>
-                <Value>Input</Value>
-              </Property>
-            </Properties>
-            <BitOffs>1282051840</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stXdwnEnc</Name>
-            <BitSize>128</BitSize>
-            <BaseType Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</BaseType>
-            <Properties>
-              <Property>
-                <Name>TcAddressType</Name>
-                <Value>Input</Value>
-              </Property>
-            </Properties>
-            <BitOffs>1282051968</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleY.gantry_diff_limit.PEnc.Count</Name>
-            <Comment> Connect to encoder "Position" input</Comment>
-            <BitSize>64</BitSize>
-            <BaseType>ULINT</BaseType>
-            <Properties>
-              <Property>
-                <Name>TcAddressType</Name>
-                <Value>Input</Value>
-              </Property>
-            </Properties>
-            <BitOffs>1282052736</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleY.gantry_diff_limit.SEnc.Count</Name>
-            <Comment> Connect to encoder "Position" input</Comment>
-            <BitSize>64</BitSize>
-            <BaseType>ULINT</BaseType>
-            <Properties>
-              <Property>
-                <Name>TcAddressType</Name>
-                <Value>Input</Value>
-              </Property>
-            </Properties>
-            <BitOffs>1282052864</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleX.gantry_diff_limit.PEnc.Count</Name>
-            <Comment> Connect to encoder "Position" input</Comment>
-            <BitSize>64</BitSize>
-            <BaseType>ULINT</BaseType>
-            <Properties>
-              <Property>
-                <Name>TcAddressType</Name>
-                <Value>Input</Value>
-              </Property>
-            </Properties>
-            <BitOffs>1282063488</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleX.gantry_diff_limit.SEnc.Count</Name>
-            <Comment> Connect to encoder "Position" input</Comment>
-            <BitSize>64</BitSize>
-            <BaseType>ULINT</BaseType>
-            <Properties>
-              <Property>
-                <Name>TcAddressType</Name>
-                <Value>Input</Value>
-              </Property>
-            </Properties>
-            <BitOffs>1282063616</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fSupplySecondY</Name>
-            <BitSize>16</BitSize>
-            <BaseType>UINT</BaseType>
-            <Properties>
-              <Property>
-                <Name>pytmc</Name>
-                <Value>
-        pv: SUP:SEC:VOL:Y
-        io: i
-    </Value>
-              </Property>
-              <Property>
-                <Name>TcAddressType</Name>
-                <Value>Input</Value>
-              </Property>
-            </Properties>
-            <BitOffs>1282073600</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fMotorCurSecondY</Name>
-            <BitSize>16</BitSize>
-            <BaseType>UINT</BaseType>
-            <Properties>
-              <Property>
-                <Name>pytmc</Name>
-                <Value>
-        pv: CUR:SEC:AMP:Y
-		field: EGU mA
-        io: i
-    </Value>
-              </Property>
-              <Property>
-                <Name>TcAddressType</Name>
-                <Value>Input</Value>
-              </Property>
-            </Properties>
-            <BitOffs>1282073616</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fSupplySecondX</Name>
-            <BitSize>16</BitSize>
-            <BaseType>UINT</BaseType>
-            <Properties>
-              <Property>
-                <Name>pytmc</Name>
-                <Value>
-        pv: SUP:SEC:VOL:X
-        io: i
-    </Value>
-              </Property>
-              <Property>
-                <Name>TcAddressType</Name>
-                <Value>Input</Value>
-              </Property>
-            </Properties>
-            <BitOffs>1282073632</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fMotorCurSecondX</Name>
-            <BitSize>16</BitSize>
-            <BaseType>UINT</BaseType>
-            <Properties>
-              <Property>
-                <Name>pytmc</Name>
-                <Value>
-        pv: CUR:SEC:AMP:X
-		field: EGU mA
-        io: i
-    </Value>
-              </Property>
-              <Property>
-                <Name>TcAddressType</Name>
-                <Value>Input</Value>
-              </Property>
-            </Properties>
-            <BitOffs>1282073648</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K2_SWITCH.fbMotionStage_m5.fbDriveVirtual.MasterAxis.NcToPlc</Name>
@@ -92716,7 +92716,7 @@ Emergency Stop for MR1K1</Comment>
           <AreaNo AreaType="OutputSrc" CreateSymbols="true">65</AreaNo>
           <Name>PlcTask Outputs</Name>
           <ContextId>4</ContextId>
-          <ByteSize>166592512</ByteSize>
+          <ByteSize>166526976</ByteSize>
           <Symbol>
             <Name>PRG_MR1K1_BEND.bLEDPower01</Name>
             <Comment> Mirror LEDs</Comment>
@@ -94908,7 +94908,7 @@ Emergency Stop for MR1K1</Comment>
           <AreaNo AreaType="Internal" CreateSymbols="true">67</AreaNo>
           <Name>PlcTask Internal</Name>
           <ContextId>4</ContextId>
-          <ByteSize>166592512</ByteSize>
+          <ByteSize>166526976</ByteSize>
           <Symbol>
             <Name>DefaultGlobals.stSys</Name>
             <Comment>Included for you</Comment>
@@ -102159,6 +102159,62 @@ Emergency Stop for MR1K1</Comment>
             <BitOffs>1264888688</BitOffs>
           </Symbol>
           <Symbol>
+            <Name>PRG_MR1K1_BEND.M1K1</Name>
+            <BitSize>23680</BitSize>
+            <BaseType Namespace="lcls_twincat_optics_nrw">DUT_HOMS</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcLinkTo</Name>
+                <Value>.fbRunHOMS.bSTOEnable1:=TIIB[EL1004_M1K1_STO]^Channel 1^Input;
+                              .fbRunHOMS.bSTOEnable2:=TIIB[EL1004_M1K1_STO]^Channel 2^Input;
+                              .fbRunHOMS.stYupEnc.Count:=TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 1^Position;
+                              .fbRunHOMS.stYdwnEnc.Count:=TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 2^Position;
+                              .fbRunHOMS.stXupEnc.Count:=TIIB[EL5042_M1K1_Xupdwn]^FB Inputs Channel 1^Position;
+                              .fbRunHOMS.stXdwnEnc.Count:=TIIB[EL5042_M1K1_Xupdwn]^FB Inputs Channel 2^Position;
+                              .fSupplySecondY:=TIIB[EL7047_M1K1_Ydwn]^STM Synchron info data^Info data 1;
+                              .fMotorCurSecondY:=TIIB[EL7047_M1K1_Ydwn]^STM Synchron info data^Info data 2;
+                              .fSupplySecondX:=TIIB[EL7047_M1K1_Xdwn]^STM Synchron info data^Info data 1;
+                              .fMotorCurSecondX:=TIIB[EL7047_M1K1_Xdwn]^STM Synchron info data^Info data 2;
+    </Value>
+              </Property>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+        pv: MR1K1:BEND
+    </Value>
+              </Property>
+            </Properties>
+            <BitOffs>1264888704</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>PRG_MR1K2_SWITCH.M1K2</Name>
+            <BitSize>23680</BitSize>
+            <BaseType Namespace="lcls_twincat_optics_nrw">DUT_HOMS</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcLinkTo</Name>
+                <Value>.fbRunHOMS.bSTOEnable1:=TIIB[EL1004_M1K2_STO]^Channel 1^Input;
+                              .fbRunHOMS.bSTOEnable2:=TIIB[EL1004_M1K2_STO]^Channel 2^Input;
+                              .fbRunHOMS.stYupEnc.Count:=TIIB[EL5042_M1K2_Yleftright]^FB Inputs Channel 1^Position;
+                              .fbRunHOMS.stYdwnEnc.Count:=TIIB[EL5042_M1K2_Yleftright]^FB Inputs Channel 2^Position;
+                              .fbRunHOMS.stXupEnc.Count:=TIIB[EL5042_M1K2_Xupdwn]^FB Inputs Channel 1^Position;
+                              .fbRunHOMS.stXdwnEnc.Count:=TIIB[EL5042_M1K2_Xupdwn]^FB Inputs Channel 2^Position;
+                              .fSupplySecondY:=TIIB[EL7047_M1K2_Yright]^STM Synchron info data^Info data 1;
+                              .fMotorCurSecondY:=TIIB[EL7047_M1K2_Yright]^STM Synchron info data^Info data 2;
+                              .fSupplySecondX:=TIIB[EL7047_M1K2_Xdwn]^STM Synchron info data^Info data 1;
+                              .fMotorCurSecondX:=TIIB[EL7047_M1K2_Xdwn]^STM Synchron info data^Info data 2
+</Value>
+              </Property>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+        pv: MR1K2:SWITCH
+    </Value>
+              </Property>
+            </Properties>
+            <BitOffs>1264912384</BitOffs>
+          </Symbol>
+          <Symbol>
             <Name>PRG_MR1K1_BEND.bM1K1PitchDone</Name>
             <BitSize>8</BitSize>
             <BaseType>BOOL</BaseType>
@@ -102213,34 +102269,6 @@ Emergency Stop for MR1K1</Comment>
             <BitSize>5798336</BitSize>
             <BaseType Namespace="LCLS_General">FB_LogHandler</BaseType>
             <BitOffs>1266004032</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>PRG_MR1K1_BEND.M1K1</Name>
-            <BitSize>23616</BitSize>
-            <BaseType Namespace="lcls_twincat_optics_nrw">DUT_HOMS</BaseType>
-            <Properties>
-              <Property>
-                <Name>TcLinkTo</Name>
-                <Value>.fbRunHOMS.bSTOEnable1:=TIIB[EL1004_M1K1_STO]^Channel 1^Input;
-                              .fbRunHOMS.bSTOEnable2:=TIIB[EL1004_M1K1_STO]^Channel 2^Input;
-                              .fbRunHOMS.stYupEnc.Count:=TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 1^Position;
-                              .fbRunHOMS.stYdwnEnc.Count:=TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 2^Position;
-                              .fbRunHOMS.stXupEnc.Count:=TIIB[EL5042_M1K1_Xupdwn]^FB Inputs Channel 1^Position;
-                              .fbRunHOMS.stXdwnEnc.Count:=TIIB[EL5042_M1K1_Xupdwn]^FB Inputs Channel 2^Position;
-                              .fbRunHOMS.fSupplySecondY:=TIIB[EL7047_M1K1_Ydwn]^STM Synchron info data^Info data 1;
-                              .fbRunHOMS.fMotorCurSecondY:=TIIB[EL7047_M1K1_Ydwn]^STM Synchron info data^Info data 2;
-                              .fbRunHOMS.fSupplySecondX:=TIIB[EL7047_M1K1_Xdwn]^STM Synchron info data^Info data 1;
-                              .fbRunHOMS.fMotorCurSecondX:=TIIB[EL7047_M1K1_Xdwn]^STM Synchron info data^Info data 2;
-    </Value>
-              </Property>
-              <Property>
-                <Name>pytmc</Name>
-                <Value>
-        pv: MR1K1:BEND
-    </Value>
-              </Property>
-            </Properties>
-            <BitOffs>1272228096</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K1_BEND.fMaxYRMSErrorM1K1</Name>
@@ -102953,34 +102981,6 @@ M1K1 BEND US ENC CNT</Comment>
               </SubItem>
             </Default>
             <BitOffs>1282024384</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>PRG_MR1K2_SWITCH.M1K2</Name>
-            <BitSize>23616</BitSize>
-            <BaseType Namespace="lcls_twincat_optics_nrw">DUT_HOMS</BaseType>
-            <Properties>
-              <Property>
-                <Name>TcLinkTo</Name>
-                <Value>.fbRunHOMS.bSTOEnable1:=TIIB[EL1004_M1K2_STO]^Channel 1^Input;
-                              .fbRunHOMS.bSTOEnable2:=TIIB[EL1004_M1K2_STO]^Channel 2^Input;
-                              .fbRunHOMS.stYupEnc.Count:=TIIB[EL5042_M1K2_Yleftright]^FB Inputs Channel 1^Position;
-                              .fbRunHOMS.stYdwnEnc.Count:=TIIB[EL5042_M1K2_Yleftright]^FB Inputs Channel 2^Position;
-                              .fbRunHOMS.stXupEnc.Count:=TIIB[EL5042_M1K2_Xupdwn]^FB Inputs Channel 1^Position;
-                              .fbRunHOMS.stXdwnEnc.Count:=TIIB[EL5042_M1K2_Xupdwn]^FB Inputs Channel 2^Position;
-                              .fbRunHOMS.fSupplySecondY:=TIIB[EL7047_M1K2_Yright]^STM Synchron info data^Info data 1;
-                              .fbRunHOMS.fMotorCurSecondY:=TIIB[EL7047_M1K2_Yright]^STM Synchron info data^Info data 2;
-                              .fbRunHOMS.fSupplySecondX:=TIIB[EL7047_M1K2_Xdwn]^STM Synchron info data^Info data 1;
-                              .fbRunHOMS.fMotorCurSecondX:=TIIB[EL7047_M1K2_Xdwn]^STM Synchron info data^Info data 2
-</Value>
-              </Property>
-              <Property>
-                <Name>pytmc</Name>
-                <Value>
-        pv: MR1K2:SWITCH
-    </Value>
-              </Property>
-            </Properties>
-            <BitOffs>1282050304</BitOffs>
           </Symbol>
           <Symbol>
             <Name>PRG_MR1K2_SWITCH.fMaxYRMSErrorM1K2</Name>
@@ -109312,7 +109312,7 @@ MR4K2 X ENC RMS</Comment>
           <AreaNo AreaType="RetainSrc" CreateSymbols="true">68</AreaNo>
           <Name>PlcTask Retains</Name>
           <ContextId>4</ContextId>
-          <ByteSize>166592512</ByteSize>
+          <ByteSize>166526976</ByteSize>
           <Symbol>
             <Name>PMPS_GVL.SuccessfulPreemption</Name>
             <Comment> Any time BPTM applies a new BP request which is confirmed</Comment>
@@ -109398,7 +109398,7 @@ MR4K2 X ENC RMS</Comment>
         </Property>
         <Property>
           <Name>ChangeDate</Name>
-          <Value>2025-06-10T13:15:56</Value>
+          <Value>2025-06-10T13:33:41</Value>
         </Property>
         <Property>
           <Name>GeneratedCodeSize</Name>

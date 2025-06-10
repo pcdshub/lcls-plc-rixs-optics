@@ -1349,7 +1349,7 @@ External Setpoint Generation:
 		</DataType>
 	</DataTypes>
 	<Project GUID="{85BF455D-934D-415A-B04C-6D4CDD9FF10E}" Name="rixs_optics" PrjFilePath="..\..\rixs_optics\rixs_optics.plcproj" TmcFilePath="..\..\rixs_optics\rixs_optics.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="rixs_optics\rixs_optics.tmc" TmcHash="{1DA256C0-54BD-B741-4A47-DDD7B67C213E}">
+		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="rixs_optics\rixs_optics.tmc" TmcHash="{82841667-1ECA-8113-9ED2-A182CB87A2EC}">
 			<Name>rixs_optics Instance</Name>
 			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 			<Vars VarGrpType="1">
@@ -1453,19 +1453,81 @@ External Setpoint Generation:
 					<Type>ULINT</Type>
 				</Var>
 				<Var>
-					<Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.fSupplySecondY</Name>
+					<Name>PRG_MR1K1_BEND.M1K1.fSupplySecondY</Name>
 					<Type>UINT</Type>
 				</Var>
 				<Var>
-					<Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.fMotorCurSecondY</Name>
+					<Name>PRG_MR1K1_BEND.M1K1.fMotorCurSecondY</Name>
 					<Type>UINT</Type>
 				</Var>
 				<Var>
-					<Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.fSupplySecondX</Name>
+					<Name>PRG_MR1K1_BEND.M1K1.fSupplySecondX</Name>
 					<Type>UINT</Type>
 				</Var>
 				<Var>
-					<Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.fMotorCurSecondX</Name>
+					<Name>PRG_MR1K1_BEND.M1K1.fMotorCurSecondX</Name>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.bSTOEnable1</Name>
+					<Comment><![CDATA[ STO Button]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.bSTOEnable2</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stYupEnc</Name>
+					<Comment><![CDATA[ Encoders]]></Comment>
+					<Type GUID="{DE508B70-ABB9-83DF-6AA5-FF9BDD51D9D9}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stYdwnEnc</Name>
+					<Type GUID="{DE508B70-ABB9-83DF-6AA5-FF9BDD51D9D9}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stXupEnc</Name>
+					<Type GUID="{DE508B70-ABB9-83DF-6AA5-FF9BDD51D9D9}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stXdwnEnc</Name>
+					<Type GUID="{DE508B70-ABB9-83DF-6AA5-FF9BDD51D9D9}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleY.gantry_diff_limit.PEnc.Count</Name>
+					<Comment><![CDATA[ Connect to encoder "Position" input]]></Comment>
+					<Type>ULINT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleY.gantry_diff_limit.SEnc.Count</Name>
+					<Comment><![CDATA[ Connect to encoder "Position" input]]></Comment>
+					<Type>ULINT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleX.gantry_diff_limit.PEnc.Count</Name>
+					<Comment><![CDATA[ Connect to encoder "Position" input]]></Comment>
+					<Type>ULINT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleX.gantry_diff_limit.SEnc.Count</Name>
+					<Comment><![CDATA[ Connect to encoder "Position" input]]></Comment>
+					<Type>ULINT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K2_SWITCH.M1K2.fSupplySecondY</Name>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K2_SWITCH.M1K2.fMotorCurSecondY</Name>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K2_SWITCH.M1K2.fSupplySecondX</Name>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
+					<Name>PRG_MR1K2_SWITCH.M1K2.fMotorCurSecondX</Name>
 					<Type>UINT</Type>
 				</Var>
 				<Var>
@@ -1710,68 +1772,6 @@ Emergency Stop for MR1K1]]></Comment>
 				<Var>
 					<Name>PRG_MR1K1_BEND_BENDER.bM1K1DS_RTD_3_Err</Name>
 					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.bSTOEnable1</Name>
-					<Comment><![CDATA[ STO Button]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.bSTOEnable2</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stYupEnc</Name>
-					<Comment><![CDATA[ Encoders]]></Comment>
-					<Type GUID="{DE508B70-ABB9-83DF-6AA5-FF9BDD51D9D9}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stYdwnEnc</Name>
-					<Type GUID="{DE508B70-ABB9-83DF-6AA5-FF9BDD51D9D9}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stXupEnc</Name>
-					<Type GUID="{DE508B70-ABB9-83DF-6AA5-FF9BDD51D9D9}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stXdwnEnc</Name>
-					<Type GUID="{DE508B70-ABB9-83DF-6AA5-FF9BDD51D9D9}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleY.gantry_diff_limit.PEnc.Count</Name>
-					<Comment><![CDATA[ Connect to encoder "Position" input]]></Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleY.gantry_diff_limit.SEnc.Count</Name>
-					<Comment><![CDATA[ Connect to encoder "Position" input]]></Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleX.gantry_diff_limit.PEnc.Count</Name>
-					<Comment><![CDATA[ Connect to encoder "Position" input]]></Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleX.gantry_diff_limit.SEnc.Count</Name>
-					<Comment><![CDATA[ Connect to encoder "Position" input]]></Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fSupplySecondY</Name>
-					<Type>UINT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fMotorCurSecondY</Name>
-					<Type>UINT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fSupplySecondX</Name>
-					<Type>UINT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fMotorCurSecondX</Name>
-					<Type>UINT</Type>
 				</Var>
 				<Var>
 					<Name>PRG_MR1K2_SWITCH.fbMotionStage_m5.fbDriveVirtual.MasterAxis.NcToPlc</Name>
@@ -5637,8 +5637,8 @@ Emergency Stop for MR1K1]]></Comment>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL7047_M1K2_Xdwn">
 				<Link VarA="PlcTask Inputs^Main.M4.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^Main.M4.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fMotorCurSecondX" VarB="STM Synchron info data^Info data 2" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fSupplySecondX" VarB="STM Synchron info data^Info data 1" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fMotorCurSecondX" VarB="STM Synchron info data^Info data 2" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fSupplySecondX" VarB="STM Synchron info data^Info data 1" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL7047_M1K2_Xup">
 				<Link VarA="PlcTask Inputs^Main.M3.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
@@ -5651,8 +5651,8 @@ Emergency Stop for MR1K1]]></Comment>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL7047_M1K2_Yright">
 				<Link VarA="PlcTask Inputs^Main.M2.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^Main.M2.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fMotorCurSecondY" VarB="STM Synchron info data^Info data 2" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fSupplySecondY" VarB="STM Synchron info data^Info data 1" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fMotorCurSecondY" VarB="STM Synchron info data^Info data 2" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fSupplySecondY" VarB="STM Synchron info data^Info data 1" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL1004_M1K1_STO">
 				<Link VarA="PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fbRunHOMS.bSTOEnable1" VarB="Channel 1^Input" AutoLink="true" Size="1"/>
@@ -5693,8 +5693,8 @@ Emergency Stop for MR1K1]]></Comment>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL7047_M1K1_Xdwn">
 				<Link VarA="PlcTask Inputs^Main.M15.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^Main.M15.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fbRunHOMS.fMotorCurSecondX" VarB="STM Synchron info data^Info data 2" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fbRunHOMS.fSupplySecondX" VarB="STM Synchron info data^Info data 1" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fMotorCurSecondX" VarB="STM Synchron info data^Info data 2" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fSupplySecondX" VarB="STM Synchron info data^Info data 1" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL7047_M1K1_Xup">
 				<Link VarA="PlcTask Inputs^Main.M14.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
@@ -5705,8 +5705,8 @@ Emergency Stop for MR1K1]]></Comment>
 				<Link VarA="PlcTask Inputs^Main.M12.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^Main.M13.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true" Size="1"/>
 				<Link VarA="PlcTask Inputs^Main.M13.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fbRunHOMS.fMotorCurSecondY" VarB="STM Synchron info data^Info data 2" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fbRunHOMS.fSupplySecondY" VarB="STM Synchron info data^Info data 1" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fMotorCurSecondY" VarB="STM Synchron info data^Info data 2" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fSupplySecondY" VarB="STM Synchron info data^Info data 1" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL1004_M1K1_BENDER_STO">
 				<Link VarA="PlcTask Inputs^PRG_MR1K1_BEND_BENDER.M1K1BENDbSTOEnable1" VarB="Channel 1^Input" AutoLink="true" Size="1"/>
