@@ -8,7 +8,12 @@ VAR
                               .fbRunHOMS.stYupEnc.Count:=TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 1^Position;
                               .fbRunHOMS.stYdwnEnc.Count:=TIIB[EL5042_M1K1_Yupdwn]^FB Inputs Channel 2^Position;
                               .fbRunHOMS.stXupEnc.Count:=TIIB[EL5042_M1K1_Xupdwn]^FB Inputs Channel 1^Position;
-                              .fbRunHOMS.stXdwnEnc.Count:=TIIB[EL5042_M1K1_Xupdwn]^FB Inputs Channel 2^Position'}
+                              .fbRunHOMS.stXdwnEnc.Count:=TIIB[EL5042_M1K1_Xupdwn]^FB Inputs Channel 2^Position;
+                              .fSupplySecondY:=TIIB[EL7047_M1K1_Ydwn]^STM Synchron info data^Info data 1;
+                              .fMotorCurSecondY:=TIIB[EL7047_M1K1_Ydwn]^STM Synchron info data^Info data 2;
+                              .fSupplySecondX:=TIIB[EL7047_M1K1_Xdwn]^STM Synchron info data^Info data 1;
+                              .fMotorCurSecondX:=TIIB[EL7047_M1K1_Xdwn]^STM Synchron info data^Info data 2;
+    '}
     {attribute 'pytmc' := '
         pv: MR1K1:BEND
     '}
@@ -197,6 +202,34 @@ VAR
     astCoatingStatesY: ARRAY[1..GeneralConstants.MAX_STATES] OF ST_PositionState;
     //astCoatingStatesX: ARRAY[1..GeneralConstants.MAX_STATES] OF ST_PositionState;
 
+    {attribute 'pytmc' := '
+      pv: MR1K1:BEND:MMS:YUP
+      io: i
+    '}
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3202-0010-YUP-YDWN]^RTD Inputs Channel 1^Value'}
+    fbYUPMotorTemp : FB_Tempsensor := (fResolution:=0.01);
+
+    {attribute 'pytmc' := '
+      pv: MR1K1:BEND:MMS:YDWN
+      io: i
+    '}
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3202-0010-YUP-YDWN]^RTD Inputs Channel 2^Value'}
+    fbYDWNMotorTemp : FB_Tempsensor := (fResolution:=0.01);
+
+    {attribute 'pytmc' := '
+      pv: MR1K1:BEND:MMS:XUP
+      io: i
+    '}
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3202-0010-XUP-XDWN]^RTD Inputs Channel 1^Value'}
+    fbXUPMotorTemp : FB_Tempsensor := (fResolution:=0.01);
+
+    {attribute 'pytmc' := '
+      pv: MR1K1:BEND:MMS:XDWN
+      io: i
+    '}
+    {attribute 'TcLinkTo' := '.iRaw := TIIB[EL3202-0010-XUP-XDWN]^RTD Inputs Channel 2^Value'}
+    fbXDWNMotorTemp : FB_Tempsensor := (fResolution:=0.01);
+
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -333,6 +366,10 @@ fbCoatingStates(
     sDeviceName:='MR1K1:BEND',
     sTransitionKey:='MR1K1:BEND-TRANSITION',
 );
+fbYUPMotorTemp();
+fbYDWNMotorTemp();
+fbXUPMotorTemp();
+fbXDWNMotorTemp();
 ]]></ST>
     </Implementation>
   </POU>
