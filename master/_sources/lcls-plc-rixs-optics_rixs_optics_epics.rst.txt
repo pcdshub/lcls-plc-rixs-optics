@@ -6400,6 +6400,20 @@ lcls_twincat_optics.DUT_HOMS
       - | io: output
 
 
+    * - $(PREFIX):CUR:SEC:AMP:X_RBV
+      - longin
+      - $(SYMBOL).fMotorCurSecondX
+      - | field: EGU mA
+        | io: input
+
+
+    * - $(PREFIX):CUR:SEC:AMP:Y_RBV
+      - longin
+      - $(SYMBOL).fMotorCurSecondY
+      - | field: EGU mA
+        | io: input
+
+
     * - $(PREFIX):DECOUPLE_X
       - bo
       - $(SYMBOL).bExecuteDecoupleX
@@ -6436,6 +6450,18 @@ lcls_twincat_optics.DUT_HOMS
       - $(SYMBOL).fCurrGantryY_um
       - | field: EGU um
         | io: input
+
+
+    * - $(PREFIX):SUP:SEC:VOL:X_RBV
+      - longin
+      - $(SYMBOL).fSupplySecondX
+      - | io: input
+
+
+    * - $(PREFIX):SUP:SEC:VOL:Y_RBV
+      - longin
+      - $(SYMBOL).fSupplySecondY
+      - | io: input
 
 
  
@@ -58152,6 +58178,32 @@ Database Records
         | io: input
 
 
+    * - MR1K1:BEND:CUR:SEC:AMP:X_RBV
+      - longin
+      - PRG_MR1K1_BEND.M1K1.fMotorCurSecondX
+      - | field: EGU mA
+        | io: input
+
+
+    * - MR1K1:BEND:CUR:SEC:AMP:Y_RBV
+      - longin
+      - PRG_MR1K1_BEND.M1K1.fMotorCurSecondY
+      - | field: EGU mA
+        | io: input
+
+
+    * - MR1K1:BEND:SUP:SEC:VOL:X_RBV
+      - longin
+      - PRG_MR1K1_BEND.M1K1.fSupplySecondX
+      - | io: input
+
+
+    * - MR1K1:BEND:SUP:SEC:VOL:Y_RBV
+      - longin
+      - PRG_MR1K1_BEND.M1K1.fSupplySecondY
+      - | io: input
+
+
     * - MR1K1:BEND:LED:01:PWR_RBV
       - bi
       - PRG_MR1K1_BEND.bLEDPower01
@@ -59260,6 +59312,30 @@ Database Records
       - | io: input
 
 
+    * - MR1K1:BEND:MMS:XDWN:CONN_RBV
+      - bi
+      - PRG_MR1K1_BEND.fbXDWNMotorTemp.bConnected
+      - | field: ONAM Connected
+        | field: ZNAM Disconnected
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:XDWN:ERR_RBV
+      - bi
+      - PRG_MR1K1_BEND.fbXDWNMotorTemp.bError
+      - | field: ONAM True
+        | field: ZNAM False
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:XDWN:TEMP_RBV
+      - ai
+      - PRG_MR1K1_BEND.fbXDWNMotorTemp.fTemp
+      - | field: EGU C
+        | field: PREC 2
+        | io: input
+
+
     * - MR1K1:BEND:ENC:X:ACTPOSARRAY_RBV
       - waveform
       - PRG_MR1K1_BEND.fbXRMSErrorM1K1.aEncActPos
@@ -59290,6 +59366,54 @@ Database Records
       - | io: input
 
 
+    * - MR1K1:BEND:MMS:XUP:CONN_RBV
+      - bi
+      - PRG_MR1K1_BEND.fbXUPMotorTemp.bConnected
+      - | field: ONAM Connected
+        | field: ZNAM Disconnected
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:XUP:ERR_RBV
+      - bi
+      - PRG_MR1K1_BEND.fbXUPMotorTemp.bError
+      - | field: ONAM True
+        | field: ZNAM False
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:XUP:TEMP_RBV
+      - ai
+      - PRG_MR1K1_BEND.fbXUPMotorTemp.fTemp
+      - | field: EGU C
+        | field: PREC 2
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:YDWN:CONN_RBV
+      - bi
+      - PRG_MR1K1_BEND.fbYDWNMotorTemp.bConnected
+      - | field: ONAM Connected
+        | field: ZNAM Disconnected
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:YDWN:ERR_RBV
+      - bi
+      - PRG_MR1K1_BEND.fbYDWNMotorTemp.bError
+      - | field: ONAM True
+        | field: ZNAM False
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:YDWN:TEMP_RBV
+      - ai
+      - PRG_MR1K1_BEND.fbYDWNMotorTemp.fTemp
+      - | field: EGU C
+        | field: PREC 2
+        | io: input
+
+
     * - MR1K1:BEND:ENC:Y:ACTPOSARRAY_RBV
       - waveform
       - PRG_MR1K1_BEND.fbYRMSErrorM1K1.aEncActPos
@@ -59318,6 +59442,30 @@ Database Records
       - ai
       - PRG_MR1K1_BEND.fbYRMSErrorM1K1.fEncStDev
       - | io: input
+
+
+    * - MR1K1:BEND:MMS:YUP:CONN_RBV
+      - bi
+      - PRG_MR1K1_BEND.fbYUPMotorTemp.bConnected
+      - | field: ONAM Connected
+        | field: ZNAM Disconnected
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:YUP:ERR_RBV
+      - bi
+      - PRG_MR1K1_BEND.fbYUPMotorTemp.bError
+      - | field: ONAM True
+        | field: ZNAM False
+        | io: input
+
+
+    * - MR1K1:BEND:MMS:YUP:TEMP_RBV
+      - ai
+      - PRG_MR1K1_BEND.fbYUPMotorTemp.fTemp
+      - | field: EGU C
+        | field: PREC 2
+        | io: input
 
 
     * - MR1K1:BEND:ENC:PITCH:CNT_RBV
@@ -59600,6 +59748,32 @@ Database Records
       - PRG_MR1K2_SWITCH.M1K2.fCurrGantryY_um
       - | field: EGU um
         | io: input
+
+
+    * - MR1K2:SWITCH:CUR:SEC:AMP:X_RBV
+      - longin
+      - PRG_MR1K2_SWITCH.M1K2.fMotorCurSecondX
+      - | field: EGU mA
+        | io: input
+
+
+    * - MR1K2:SWITCH:CUR:SEC:AMP:Y_RBV
+      - longin
+      - PRG_MR1K2_SWITCH.M1K2.fMotorCurSecondY
+      - | field: EGU mA
+        | io: input
+
+
+    * - MR1K2:SWITCH:SUP:SEC:VOL:X_RBV
+      - longin
+      - PRG_MR1K2_SWITCH.M1K2.fSupplySecondX
+      - | io: input
+
+
+    * - MR1K2:SWITCH:SUP:SEC:VOL:Y_RBV
+      - longin
+      - PRG_MR1K2_SWITCH.M1K2.fSupplySecondY
+      - | io: input
 
 
     * - MR1K2:SWITCH:COATING:STATE:GET_RBV

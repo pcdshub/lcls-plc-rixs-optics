@@ -16,7 +16,7 @@
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/docs-versions-menu.js?v=3d6a1aea"></script>
     <script src="_static/js/theme.js"></script>
@@ -8360,6 +8360,24 @@
 </div>
 </td>
 </tr>
+<tr class="row-even"><td><p>$(PREFIX):CUR:SEC:AMP:X_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).fMotorCurSecondX</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU mA</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):CUR:SEC:AMP:Y_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).fMotorCurSecondY</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU mA</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
 <tr class="row-even"><td><p>$(PREFIX):DECOUPLE_X</p></td>
 <td><p>bo</p></td>
 <td><p>$(SYMBOL).bExecuteDecoupleX</p></td>
@@ -8406,6 +8424,22 @@
 <td><p>$(SYMBOL).fCurrGantryY_um</p></td>
 <td><div class="line-block">
 <div class="line">field: EGU um</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SUP:SEC:VOL:X_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).fSupplySecondX</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SUP:SEC:VOL:Y_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).fSupplySecondY</p></td>
+<td><div class="line-block">
 <div class="line">io: input</div>
 </div>
 </td>
@@ -76673,6 +76707,40 @@
 </div>
 </td>
 </tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:CUR:SEC:AMP:X_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>PRG_MR1K1_BEND.M1K1.fMotorCurSecondX</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU mA</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:CUR:SEC:AMP:Y_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>PRG_MR1K1_BEND.M1K1.fMotorCurSecondY</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU mA</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:SUP:SEC:VOL:X_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>PRG_MR1K1_BEND.M1K1.fSupplySecondX</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:SUP:SEC:VOL:Y_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>PRG_MR1K1_BEND.M1K1.fSupplySecondY</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
 <tr class="row-odd"><td><p>MR1K1:BEND:LED:01:PWR_RBV</p></td>
 <td><p>bi</p></td>
 <td><p>PRG_MR1K1_BEND.bLEDPower01</p></td>
@@ -78091,7 +78159,37 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR1K1:BEND:ENC:X:ACTPOSARRAY_RBV</p></td>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:XDWN:CONN_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>PRG_MR1K1_BEND.fbXDWNMotorTemp.bConnected</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM Connected</div>
+<div class="line">field: ZNAM Disconnected</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:XDWN:ERR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>PRG_MR1K1_BEND.fbXDWNMotorTemp.bError</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM True</div>
+<div class="line">field: ZNAM False</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:XDWN:TEMP_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_MR1K1_BEND.fbXDWNMotorTemp.fTemp</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU C</div>
+<div class="line">field: PREC 2</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:ENC:X:ACTPOSARRAY_RBV</p></td>
 <td><p>waveform</p></td>
 <td><p>PRG_MR1K1_BEND.fbXRMSErrorM1K1.aEncActPos</p></td>
 <td><div class="line-block">
@@ -78099,7 +78197,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR1K1:BEND:ENC:X:SETPOSARRAY_RBV</p></td>
+<tr class="row-even"><td><p>MR1K1:BEND:ENC:X:SETPOSARRAY_RBV</p></td>
 <td><p>waveform</p></td>
 <td><p>PRG_MR1K1_BEND.fbXRMSErrorM1K1.aEncSetPos</p></td>
 <td><div class="line-block">
@@ -78107,7 +78205,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR1K1:BEND:ENC:X:RMS_RBV</p></td>
+<tr class="row-odd"><td><p>MR1K1:BEND:ENC:X:RMS_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR1K1_BEND.fbXRMSErrorM1K1.fCurrRMSError</p></td>
 <td><div class="line-block">
@@ -78115,7 +78213,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR1K1:BEND:ENC:X:MEAN_RBV</p></td>
+<tr class="row-even"><td><p>MR1K1:BEND:ENC:X:MEAN_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR1K1_BEND.fbXRMSErrorM1K1.fEncMean</p></td>
 <td><div class="line-block">
@@ -78123,7 +78221,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR1K1:BEND:ENC:X:STDEV_RBV</p></td>
+<tr class="row-odd"><td><p>MR1K1:BEND:ENC:X:STDEV_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR1K1_BEND.fbXRMSErrorM1K1.fEncStDev</p></td>
 <td><div class="line-block">
@@ -78131,7 +78229,67 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR1K1:BEND:ENC:Y:ACTPOSARRAY_RBV</p></td>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:XUP:CONN_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>PRG_MR1K1_BEND.fbXUPMotorTemp.bConnected</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM Connected</div>
+<div class="line">field: ZNAM Disconnected</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:XUP:ERR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>PRG_MR1K1_BEND.fbXUPMotorTemp.bError</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM True</div>
+<div class="line">field: ZNAM False</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:XUP:TEMP_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_MR1K1_BEND.fbXUPMotorTemp.fTemp</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU C</div>
+<div class="line">field: PREC 2</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:YDWN:CONN_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>PRG_MR1K1_BEND.fbYDWNMotorTemp.bConnected</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM Connected</div>
+<div class="line">field: ZNAM Disconnected</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:YDWN:ERR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>PRG_MR1K1_BEND.fbYDWNMotorTemp.bError</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM True</div>
+<div class="line">field: ZNAM False</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:YDWN:TEMP_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_MR1K1_BEND.fbYDWNMotorTemp.fTemp</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU C</div>
+<div class="line">field: PREC 2</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:ENC:Y:ACTPOSARRAY_RBV</p></td>
 <td><p>waveform</p></td>
 <td><p>PRG_MR1K1_BEND.fbYRMSErrorM1K1.aEncActPos</p></td>
 <td><div class="line-block">
@@ -78139,7 +78297,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR1K1:BEND:ENC:Y:SETPOSARRAY_RBV</p></td>
+<tr class="row-odd"><td><p>MR1K1:BEND:ENC:Y:SETPOSARRAY_RBV</p></td>
 <td><p>waveform</p></td>
 <td><p>PRG_MR1K1_BEND.fbYRMSErrorM1K1.aEncSetPos</p></td>
 <td><div class="line-block">
@@ -78147,7 +78305,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR1K1:BEND:ENC:Y:RMS_RBV</p></td>
+<tr class="row-even"><td><p>MR1K1:BEND:ENC:Y:RMS_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR1K1_BEND.fbYRMSErrorM1K1.fCurrRMSError</p></td>
 <td><div class="line-block">
@@ -78155,7 +78313,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MR1K1:BEND:ENC:Y:MEAN_RBV</p></td>
+<tr class="row-odd"><td><p>MR1K1:BEND:ENC:Y:MEAN_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR1K1_BEND.fbYRMSErrorM1K1.fEncMean</p></td>
 <td><div class="line-block">
@@ -78163,10 +78321,40 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MR1K1:BEND:ENC:Y:STDEV_RBV</p></td>
+<tr class="row-even"><td><p>MR1K1:BEND:ENC:Y:STDEV_RBV</p></td>
 <td><p>ai</p></td>
 <td><p>PRG_MR1K1_BEND.fbYRMSErrorM1K1.fEncStDev</p></td>
 <td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:YUP:CONN_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>PRG_MR1K1_BEND.fbYUPMotorTemp.bConnected</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM Connected</div>
+<div class="line">field: ZNAM Disconnected</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K1:BEND:MMS:YUP:ERR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>PRG_MR1K1_BEND.fbYUPMotorTemp.bError</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM True</div>
+<div class="line">field: ZNAM False</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K1:BEND:MMS:YUP:TEMP_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>PRG_MR1K1_BEND.fbYUPMotorTemp.fTemp</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU C</div>
+<div class="line">field: PREC 2</div>
 <div class="line">io: input</div>
 </div>
 </td>
@@ -78533,6 +78721,40 @@
 <td><p>PRG_MR1K2_SWITCH.M1K2.fCurrGantryY_um</p></td>
 <td><div class="line-block">
 <div class="line">field: EGU um</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K2:SWITCH:CUR:SEC:AMP:X_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>PRG_MR1K2_SWITCH.M1K2.fMotorCurSecondX</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU mA</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K2:SWITCH:CUR:SEC:AMP:Y_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>PRG_MR1K2_SWITCH.M1K2.fMotorCurSecondY</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU mA</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MR1K2:SWITCH:SUP:SEC:VOL:X_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>PRG_MR1K2_SWITCH.M1K2.fSupplySecondX</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MR1K2:SWITCH:SUP:SEC:VOL:Y_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>PRG_MR1K2_SWITCH.M1K2.fSupplySecondY</p></td>
+<td><div class="line-block">
 <div class="line">io: input</div>
 </div>
 </td>

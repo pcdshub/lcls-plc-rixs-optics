@@ -1217,6 +1217,10 @@ Links
         rixs_optics Instance, PlcTask Inputs^PRG_2_PMPS_POST.fbArbiterIO.i_stCurrentBP, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_PRE, IO Inputs^CurrentBP
         rixs_optics Instance, PlcTask Inputs^PRG_2_PMPS_POST.fbArbiterIO.xTxPDO_state, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_PRE, SYNC Inputs^TxPDO state
         rixs_optics Instance, PlcTask Inputs^PRG_2_PMPS_POST.fbArbiterIO.xTxPDO_toggle, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^PMPS_PRE, SYNC Inputs^TxPDO toggle
+        rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fMotorCurSecondX, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL7047_M1K1_Xdwn, STM Synchron info data^Info data 2
+        rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fMotorCurSecondY, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL7047_M1K1_Ydwn, STM Synchron info data^Info data 2
+        rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fSupplySecondX, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL7047_M1K1_Xdwn, STM Synchron info data^Info data 1
+        rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fSupplySecondY, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL7047_M1K1_Ydwn, STM Synchron info data^Info data 1
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fbRunHOMS.bSTOEnable1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL1004_M1K1_STO, Channel 1^Input
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fbRunHOMS.bSTOEnable2, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL1004_M1K1_STO, Channel 2^Input
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.M1K1.fbRunHOMS.stXdwnEnc^Count, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL5042_M1K1_Xupdwn, FB Inputs Channel 2^Position
@@ -1228,8 +1232,16 @@ Links
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.fM1K1_Flow_1.iRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL3054_M1K1_FWM_PRSM, AI Standard Channel 1^Value
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.fM1K1_Flow_2.iRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL3054_M1K1_FWM_PRSM, AI Standard Channel 2^Value
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.fM1K1_Press_1.iRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL3054_M1K1_FWM_PRSM, AI Standard Channel 3^Value
+        rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.fbXDWNMotorTemp.iRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL3202-0010-XUP-XDWN, RTD Inputs Channel 2^Value
+        rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.fbXUPMotorTemp.iRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL3202-0010-XUP-XDWN, RTD Inputs Channel 1^Value
+        rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.fbYDWNMotorTemp.iRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL3202-0010-YUP-YDWN, RTD Inputs Channel 2^Value
+        rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND.fbYUPMotorTemp.iRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1^EL3202-0010-YUP-YDWN, RTD Inputs Channel 1^Value
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND_BENDER.M1K1BENDbSTOEnable1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL1004_M1K1_BENDER_STO, Channel 1^Input
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K1_BEND_BENDER.M1K1BENDbSTOEnable2, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_MR1K1_BEND^EL1004_M1K1_BENDER_STO, Channel 2^Input
+        rixs_optics Instance, PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fMotorCurSecondX, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL7047_M1K2_Xdwn, STM Synchron info data^Info data 2
+        rixs_optics Instance, PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fMotorCurSecondY, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL7047_M1K2_Yright, STM Synchron info data^Info data 2
+        rixs_optics Instance, PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fSupplySecondX, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL7047_M1K2_Xdwn, STM Synchron info data^Info data 1
+        rixs_optics Instance, PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fSupplySecondY, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL7047_M1K2_Yright, STM Synchron info data^Info data 1
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.bSTOEnable1, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL1004_M1K2_STO, Channel 1^Input
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.bSTOEnable2, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL1004_M1K2_STO, Channel 2^Input
         rixs_optics Instance, PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stXdwnEnc^Count, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL5042_M1K2_Xupdwn, FB Inputs Channel 2^Position
